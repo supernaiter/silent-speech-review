@@ -292,7 +292,7 @@ def readme(papers):
         "",
         f"- Suggest a paper: [open an issue]({REPO_URL}/issues/new?template=add-paper.yml).",
         f"- Report an error in a review: [open an issue]({REPO_URL}/issues/new?template=correction.yml).",
-        "- Edits go to `data/reviews.jsonl`; run `python3 scripts/build.py` to regenerate everything else. CI checks that generated files are up to date.",
+        "- Send a pull request: see [CONTRIBUTING.md](CONTRIBUTING.md). Edits go to `data/reviews.jsonl`; `python3 scripts/build.py` regenerates everything else.",
         "",
         "## Citation",
         "",
