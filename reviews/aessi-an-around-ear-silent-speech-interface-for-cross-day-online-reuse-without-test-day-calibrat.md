@@ -45,7 +45,7 @@ AESSIはカメラ唇読取やSilentSpellerの口蓋電極、SottoVoceの超音�
 
 ### 分野での位置づけ
 
-非侵襲の耳周囲／ウェアラブル電気生理SSIにおける、閉集合文認識と別日・再装着再利用の研究。KimuraらのSilentSpeller（EPG）・SottoVoce（超音波）・Nasovoceとはセンサ部位が異なる。
+非侵襲の耳周囲／ウェアラブル電気生理SSIにおける、閉集合文認識と別日・再装着再利用の研究。KimuraらのSilentSpeller（EPG）・SottoVoce（超音波）や、RekimotoらのNasoVoce（鼻パッド）とはセンサ部位が異なる。
 
 ### 実用上の意味
 

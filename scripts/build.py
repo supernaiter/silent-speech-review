@@ -39,7 +39,6 @@ START_HERE = [
     "sottovoce",
     "silentspeller",
     "liplearner-customizable-silent-speech-interactions-on-mobile-devices",
-    "nasovoce",
     "aessi-an-around-ear-silent-speech-interface-for-cross-day-online-reuse-without-test-day-calibrat",
     "reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun",
     "updating-the-silent-speech-challenge-benchmark-with-deep-learning",
