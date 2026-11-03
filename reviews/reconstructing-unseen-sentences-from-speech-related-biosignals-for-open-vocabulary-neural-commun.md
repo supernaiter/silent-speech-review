@@ -5,6 +5,8 @@ arXiv 2025 · [arXiv](https://arxiv.org/abs/2510.27247)
 
 **Section:** [Surface EMG](../README.md#surface-emg) · **Review basis:** full_text+summary
 
+A structured review of *Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication* (Deok-Seon Kim et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Reconstructs held-out English sentences from EEG and face/neck EMG with personalized models; overt EEG+EMG phoneme accuracy is 48.58% (EEG alone 36.83%) versus an 11% baseline.
 
 ## Evaluation conditions
@@ -102,6 +104,15 @@ Adding ten face/neck EMG channels increases sensing burden relative to EEG alone
 - Disjoint sentence texts support unseen-sentence evaluation, but the main text does not report lexical word overlap, cross-user/session tests, whole-test CER or online latency; broad unrestricted neural communication remains unverified. (pp.2–4, II.A and III.A–D; pp.9–10, V.A and V.E)
 - Training uses AdamW, learning rate 1e-3, weight decay 1e-5, cosine scheduling, at most 200 epochs, early stopping, GRU dropout 0.1 and length-2048 batching. Validation allocation is not specified in the main training description. (p.4, III.C Training Details)
 - The conclusion links reconstructed audio and a toy dataset from one subject. Supplementary figures/tables referenced throughout are absent from this 11-page PDF; completeness of external data/code and those supplements was not verified in this review. (p.10, VI Conclusion; pp.2,5,7–8 supplementary references)
+
+## More reviews in Surface EMG
+
+- [A Parallel Ultra-Low Power Silent Speech Interface based on a Wearable, Fully-dry EMG Neckband](a-parallel-ultra-low-power-silent-speech-interface-based-on-a-wearable-fully-dry-emg-neckband.md) (2025). A fully dry wearable EMG neckband with ultra-low-power BioGAP-Ultra classifies 8 silently articulated words for one healthy user at 68% accuracy, dropping to 54% on an unseen re-wearing session; acquisition plus BLE uses 22.2 mW.
+- [A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations](a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations.md) (2025). Jointly trains on EEG and EMG data with heterogeneous electrode configurations for silent Japanese 64-word classification, reaching 95.3% for eight healthy subjects and 54.5% for one patient (chance 1.6%).
+- [Articulatory Feature Prediction from Surface EMG during Speech Production](articulatory-feature-prediction-from-surface-emg-during-speech-production.md) (2025). Predicts 12-dim articulatory features, pitch and loudness from vocalized-speech sEMG and resynthesizes audio with an articulatory synthesizer. Feature correlation is about 0.9 against audio-derived proxy targets, but WER is 15.5% versus 12.6% for the Gaddy baseline (one male speaker).
+- [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding.md) (2025). CAT-Net fuses EEG and surface EMG with cross-attention to classify Mandarin lexical tones in silent articulation, reporting 85.10% leave-one-subject-out accuracy over 4 tones.
+- [Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling](confidence-based-self-training-for-emg-to-speech-leveraging-synthetic-emg-for-robust-modeling.md) (2025). Uses confidence-filtered synthetic EMG generated from speech, mixed with real data, for EMG-to-speech; on real vocalized EMG from one speaker, WER falls from 23.30% to 21.87%.
+- [emg2speech: Synthesizing speech from electromyography using self-supervised speech models](emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models.md) (2025). emg2speech synthesizes speech from face and neck surface EMG via HuBERT units without the user's own recordings; silent speech from one ALS participant gives 50.82% human-transcribed WER.
 
 ---
 

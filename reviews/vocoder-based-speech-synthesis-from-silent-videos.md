@@ -1,9 +1,11 @@
 # Vocoder-Based Speech Synthesis from Silent Videos
 
 Daniel Michelsanti, Olga Slizovskaia, Gloria Haro, Emilia Gomez, Zheng-Hua Tan, Jesper Jensen  
-arXiv / imported corpus page 2020 · [arXiv](https://arxiv.org/abs/2004.02541)
+arXiv 2020 · [arXiv](https://arxiv.org/abs/2004.02541)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *Vocoder-Based Speech Synthesis from Silent Videos* (Daniel Michelsanti et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Predicts full vocoder features from silent face video with joint visual speech recognition training on GRID; speaker-dependent model reaches PESQ 1.90 and WER 15.1%, but speaker-independent performance drops sharply.
 
@@ -92,6 +94,15 @@ Speaker-independent generalization remains weak with large performance drops com
 - The system uses a deep network mapping silent video frames concatenated in temporal context through 3-D convolutions, followed by a GRU-based recursive module and separate decoders for spectral envelope, aperiodic parameters, voiced/unvoiced state, fundamental frequency, and auxiliary VSR output decoded with CTC loss to jointly learn speech reconstruction and recognition. (2.3. Architecture)
 - The system reconstructs speech waveforms from predicted WORLD vocoder parameters using the STRAIGHT vocoder synthesis algorithm and obtains text transcriptions from the auxiliary VSR decoder by best path CTC decoding. (2.4. Waveform Reconstruction)
 - Previous methods predicted incomplete spectral features or direct waveforms causing artifacts; this work instead estimates spectral envelope, F0, and aperiodic parameters, enabling better speech intelligibility and quality. (1. Introduction)
+
+## More reviews in Lip & face video
+
+- [An Overview of Deep-Learning-Based Audio-Visual Speech Enhancement and Separation](an-overview-of-deep-learning-based-audio-visual-speech-enhancement-and-separation.md) (2020). Survey of deep-learning audio-visual speech enhancement and separation, mapping design choices and noting the lack of standardized audio-visual evaluation.
+- [Speech Prediction in Silent Videos using Variational Autoencoders](speech-prediction-in-silent-videos-using-variational-autoencoders.md) (2020). Variational autoencoder model for speech synthesis from silent lip video that models one-to-many ambiguity; on GRID reports STOI 0.724, ESTOI 0.540 and PESQ 1.932, leading Lip2Wav on ESTOI and PESQ.
+- [Advances and Challenges in Deep Lip Reading](advances-and-challenges-in-deep-lip-reading.md) (2021). Survey of deep lip reading covering datasets, pipeline modules, challenges and evaluation metrics; contributes no new model or experiments.
+- [Speaker disentanglement in video-to-speech conversion](speaker-disentanglement-in-video-to-speech-conversion.md) (2021). Disentangles speaker identity from visual content in multi-speaker video-to-speech synthesis on GRID, enabling voice control; on unseen speaker identity control the best model reaches about 38.9% WER with 11.9% EER.
+- [Sub-word Level Lip Reading With Visual Attention](sub-word-level-lip-reading-with-visual-attention.md) (2021). Camera-only lip reading with WordPiece sub-word units and a visual transformer pooling front-end; reaches 28.9% WER on LRS2 and 40.6% on LRS3 with public-data training (22.6%/30.7% with extended training).
+- [Lipper: Synthesizing Thy Speech using Multi-View Lipreading](lipper-synthesizing-thy-speech-using-multi-view-lipreading.md) (2019). Lipper reconstructs speech from multi-view lip video on OuluVS2 as a regression problem; the best three-view setting reaches PESQ 2.315 with 0.169 s end-to-end delay, though audio remains robotic.
 
 ---
 

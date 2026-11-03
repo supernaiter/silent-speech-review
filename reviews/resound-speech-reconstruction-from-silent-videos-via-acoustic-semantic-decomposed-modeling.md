@@ -5,6 +5,8 @@ arXiv 2025 · [arXiv](https://arxiv.org/abs/2505.22024)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text+summary
 
+A structured review of *RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling* (Long-Khanh Pham et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 RESOUND synthesizes speech from silent video plus a 0.5 s reference audio by separating content and prosody paths; naturalness improves, but LRS2 WER (28.55%) is worse than LipVoicer (17.04%).
 
 ## Evaluation conditions
@@ -106,6 +108,15 @@ LRS2の単語誤り率は28.55%で、LipVoicerの17.04%より悪い。計算時�
 - 表1のVocoder行は正解メルスペクトログラムと正解音声単位を両方与えた条件である。この行を映像入力だけの手法として比較しない。LRS3の同条件はSECS 0.890で、RESOUNDの0.777より高い。（p.4 Table 1, Vocoder dagger rows and footnote）
 - 既存の読唇、音声単位、音源・フィルタに着想した合成を組み合わせ、内容・抑揚の経路と共同出力を構成した点が主な貢献。本文の先行研究整理からは各部品自体を新規とは扱えない。（p.1 Introduction and cited prior approaches; pp.2–3 Sections 2.1–2.4）
 - 本文はサンプルとコードのデモページを案内するが、その記載だけでは重み・前処理・評価実装の完全性や独立再現を確認できない。客観指標の試行間ばらつきも掲載されない。（p.1 Introduction final paragraph and footnote 1; p.3 Section 3.3; p.4 Tables 1–3）
+
+## More reviews in Lip & face video
+
+- [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource.md) (2025). Combines 20 lip landmarks with image features for visual word recognition; with one-third training data on LRW-ID, accuracy improves from 85.75% to 86.65%, at larger model size.
+- [LipDiffuser: Lip-to-Speech Generation with Conditional Diffusion Models](lipdiffuser-lip-to-speech-generation-with-conditional-diffusion-models.md) (2025). LipDiffuser generates speech from mouth video plus the target speaker's enrollment audio using a conditional diffusion model. On LRS3-CHiME3 at -10 dB it improves quality and speaker similarity, but WER is 38% versus 36% for the best baseline.
+- [LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning](lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear.md) (2025). LTA-L2S synthesizes Mandarin speech from lip video using English pretraining and tone-aware generation, reducing character and tone errors versus baselines, but CER remains 61.2%.
+- [NaturalL2S: End-to-End High-quality Multispeaker Lip-to-Speech Synthesis with Differential Digital Signal Processing](naturall2s-end-to-end-high-quality-multispeaker-lip-to-speech-synthesis-with-differential-digita.md) (2025). NaturalL2S synthesizes speech from mouth video without a reference audio of the speaker, using differentiable DSP. It improves quality and naturalness, but WER is worse than the comparison (30.4% vs 27.7% on LRS3).
+- [VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task](vspeechlm-a-visual-speech-language-model-for-visual-text-to-speech-task.md) (2025). VSpeechLM generates lip-synchronized speech from text, a reference voice and lip video by converting lip timing into phoneme sequences; WER is 12.5% on Chem and 18.3% on GRID.
+- [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr.md) (2026). Neuromorphic OT-CFM (LipsFlow) for multi-speaker visual speech recognition from event streams; 22.3% WER and 19.8% VER on DVS-Lip with 240 ms latency.
 
 ---
 

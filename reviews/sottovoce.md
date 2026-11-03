@@ -5,6 +5,8 @@ CHI '19 · [DOI](https://doi.org/10.1145/3290605.3300376)
 
 **Section:** [Ultrasound & tongue imaging](../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text+existing_expert_seed
 
+A structured review of *SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks* (Naoki Kimura et al., CHI '19) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 SottoVoce reconstructs speech audio from under-jaw ultrasound images with two DNNs to control unmodified smart speakers; command success rose from 42.5% to 65.0% with the second network, versus 90.0% for real audio.
 
 ## Evaluation conditions
@@ -89,6 +91,15 @@ real_time_interaction; open_vocabulary; speaker_independence; wearable_ultrasoun
 - Generated audio signals can control existing smart speakers like Amazon Echo and Echo Show without modification, demonstrated with four Alexa commands. (4   RESULTS)
 - The paper's main novelty lies in system design to reconstruct speech audio from ultrasound images and use that to control unmodified smart speakers, rather than direct command recognition from ultrasound features. (3   SYSTEM ARCHITECTURE OF SOTTOVOCE)
 - The system is not real-time; with 3.68 s of input, neural networks processing consumes 2.36 s and total processing time is 2.61 s, unsuitable for real-time interaction. (3   SYSTEM ARCHITECTURE OF SOTTOVOCE)
+
+## More reviews in Ultrasound & tongue imaging
+
+- [Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces](autoencoder-based-articulatory-to-acoustic-mapping-for-ultrasound-silent-speech-interfaces.md) (2019). Compresses ultrasound tongue images with an autoencoder bottleneck before predicting spectral parameters, giving more accurate prediction and more natural speech with smaller models on a single speaker.
+- [Denoising convolutional autoencoder based B-mode ultrasound tongue image feature extraction](denoising-convolutional-autoencoder-based-b-mode-ultrasound-tongue-image-feature-extraction.md) (2019). Uses a denoising convolutional autoencoder to extract ultrasound tongue image features, improving silent speech recognition over prior feature extraction methods on the 2010 Silent Speech Challenge data.
+- [Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder](ultrasound-based-silent-speech-interface-built-on-a-continuous-vocoder.md) (2019). Adds CNN-based continuous F0 prediction to an ultrasound tongue-imaging SSI vocoder, lowering pitch RMSE versus a discontinuous F0 baseline, with a non-significant naturalness trend in MUSHRA tests on four Hungarian speakers.
+- [Ultra2Speech -- A Deep Learning Framework for Formant Frequency Estimation and Tracking from Ultrasound Tongue Images](ultra2speech-a-deep-learning-framework-for-formant-frequency-estimation-and-tracking-from-ultrasound-tongue-images.md) (2020). Estimates and tracks formant frequencies from ultrasound tongue image sequences for speech synthesis; best U2F configuration reaches mean R2 99.96 on joint f1-f2 prediction versus 90.01 for a Conv-BiLSTM baseline.
+- [3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces](3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces.md) (2021). Shows a compact (2+1)D 3D CNN outperforms 2D CNN and CNN+LSTM models for regressing 13 vocoder parameters from ultrasound tongue video, with lower complexity and training time.
+- [Convolutional Neural Network-Based Age Estimation Using B-Mode Ultrasound Tongue Image](convolutional-neural-network-based-age-estimation-using-b-mode-ultrasound-tongue-image.md) (2021). Exploratory CNN regression of child age from tongue ultrasound images, reaching validation MSE 2.03 on UXTD versus 3.64 for a mean-age baseline.
 
 ---
 

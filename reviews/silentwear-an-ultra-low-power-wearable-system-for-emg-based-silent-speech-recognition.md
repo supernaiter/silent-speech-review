@@ -5,6 +5,8 @@ arXiv 2026 · [arXiv](https://arxiv.org/abs/2603.02847)
 
 **Section:** [Surface EMG](../README.md#surface-emg) · **Review basis:** full_text+summary
 
+A structured review of *SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition* (Giusy Spacone et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 SilentWear, an ultra-low-power dry textile neckband with embedded CNN for EMG command recognition; silent balanced accuracy is 77.5% on pooled-day batches but drops to 59.3% on a new day.
 
 ## Evaluation conditions
@@ -97,6 +99,15 @@ Silent balanced accuracy drops from 77.5% in pooled-day batch evaluation to 59.3
 - ITR uses class accuracy and input-window duration; reported silent peak is 69.2 bit/min at 800 ms. Reviewer assessment: this analytical rate omits the cued protocol, rest intervals and error correction and is not measured user throughput. (Sections III-B/F and IV-C; PDF pp. 3-6)
 - Offline preprocessing uses a zero-phase Butterworth high-pass filter; acquisition labels follow visual triggers with acknowledged reaction-time mismatch. Reviewer assessment: causal online filter/segmentation parity and post-quantization accuracy need explicit verification. (Sections III-C/G and V; PDF pp. 4-5 and 9-10)
 - Figures 7/8 use five tested batches with the first batch preceding adaptation, leaving four sequential updates in the specified protocol; the text nevertheless describes five fine-tuning rounds and Figure 8 repeats a vocalized caption. Reviewer assessment: update counts and condition labeling need correction. (Sections III-D and IV-D; Figures 7/8; PDF pp. 4 and 7-8)
+
+## More reviews in Surface EMG
+
+- [A 1000-hour EEG-EMG-audio dataset of Japanese speech production](a-1000-hour-eeg-emg-audio-dataset-of-japanese-speech-production.md) (2026). A 1020-hour EEG-EMG-audio dataset of Japanese overt speech from three participants, with signal-quality and physiological validation but no decoding benchmarks.
+- [AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration](aessi-an-around-ear-silent-speech-interface-for-cross-day-online-reuse-without-test-day-calibrat.md) (2026). Around-ear cEEGrid system recognizing 25 fixed Mandarin sentences from silent articulation without test-day calibration; 92.24% mean accuracy on held-out later-day sessions and 98.00% in 250 live trials 21+ days later.
+- [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg.md) (2026). Binary affect (polite vs frustrated) classification from facial/neck sEMG in phonated and silent speech; silent-only within-subject AUC 0.829, but transfer to unseen speakers is weak.
+- [Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features](comparison-of-semg-encoding-accuracy-across-speech-modes-using-articulatory-and-phoneme-features.md) (2026). Forward encoding of sEMG envelopes from articulatory (SPARC) versus phoneme features across speech modes; articulatory features predict muscle activity better on most channels in 24 participants.
+- [Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading](cross-modal-masking-for-robust-silent-speech-synthesis-using-semg-and-lipreading.md) (2026). Silent speech synthesis fusing sEMG and lipreading with cross-modal masked training, improving performance and robustness to modality degradation over monomodal baselines.
+- [CS-ETS: Chaos-Inspired Samba-Based EMG-To-Speech Synthesis with Nonlinear Chaotic Losses](cs-ets-chaos-inspired-samba-based-emg-to-speech-synthesis-with-nonlinear-chaotic-losses.md) (2026). Smaller chaos-inspired Samba-based EMG-to-speech model with nonlinear losses; WER improves modestly from 42.20% to 41.26% while parameters drop from 54.10M to 32.03M.
 
 ---
 

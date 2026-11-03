@@ -1,9 +1,11 @@
 # Contour-based 3d tongue motion visualization using ultrasound image sequences
 
 Kele Xu, Yin Yang, Clemence Leboullenger, Pierre Roussel, Bruce Denby  
-arXiv / imported corpus page 2016 · [arXiv](https://arxiv.org/abs/1605.05967)
+arXiv 2016 · [arXiv](https://arxiv.org/abs/1605.05967)
 
 **Section:** [Ultrasound & tongue imaging](../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+
+A structured review of *Contour-based 3d tongue motion visualization using ultrasound image sequences* (Kele Xu et al., arXiv 2016) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Builds a contour-based pipeline that maps midsagittal ultrasound tongue contours to 3D tongue motion using a database of 1000 3D shapes; evaluation is qualitative, with about 1.2 s per frame association.
 
@@ -84,6 +86,15 @@ quantitative validation; out-of-plane motion; end-to-end interactive performance
 - The method builds a 1000-shape 3D tongue database and selects the tongue shape whose projected contour best matches the contour extracted from the current ultrasound frame. (4. CONTOUR-BASED 3D TONGUE MOTION VISUALIZATION)
 - Section 5 reports an average processing time of about 1.2 seconds to build the association between the current ultrasound frame and the 3D tongue model on the reported desktop platform. (5. RESULTS)
 - The discussion says there is still no effective quantitative evaluation method, midsagittal-only motion is insufficient for full tongue accuracy, and future validation should use modalities such as MRI and EMA. (6. DISCUSSION AND FUTURE WORK)
+
+## More reviews in Ultrasound & tongue imaging
+
+- [Updating the silent speech challenge benchmark with deep learning](updating-the-silent-speech-challenge-benchmark-with-deep-learning.md) (2017). Updates the Silent Speech Challenge ultrasound-plus-lip benchmark with Kaldi DNN-HMM recognition, cutting WER from 17.4% to 6.45% on the same single-speaker archive.
+- [Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces](autoencoder-based-articulatory-to-acoustic-mapping-for-ultrasound-silent-speech-interfaces.md) (2019). Compresses ultrasound tongue images with an autoencoder bottleneck before predicting spectral parameters, giving more accurate prediction and more natural speech with smaller models on a single speaker.
+- [Denoising convolutional autoencoder based B-mode ultrasound tongue image feature extraction](denoising-convolutional-autoencoder-based-b-mode-ultrasound-tongue-image-feature-extraction.md) (2019). Uses a denoising convolutional autoencoder to extract ultrasound tongue image features, improving silent speech recognition over prior feature extraction methods on the 2010 Silent Speech Challenge data.
+- [SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks](sottovoce.md) (2019). SottoVoce reconstructs speech audio from under-jaw ultrasound images with two DNNs to control unmodified smart speakers; command success rose from 42.5% to 65.0% with the second network, versus 90.0% for real audio.
+- [Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder](ultrasound-based-silent-speech-interface-built-on-a-continuous-vocoder.md) (2019). Adds CNN-based continuous F0 prediction to an ultrasound tongue-imaging SSI vocoder, lowering pitch RMSE versus a discontinuous F0 baseline, with a non-significant naturalness trend in MUSHRA tests on four Hungarian speakers.
+- [Ultra2Speech -- A Deep Learning Framework for Formant Frequency Estimation and Tracking from Ultrasound Tongue Images](ultra2speech-a-deep-learning-framework-for-formant-frequency-estimation-and-tracking-from-ultrasound-tongue-images.md) (2020). Estimates and tracks formant frequencies from ultrasound tongue image sequences for speech synthesis; best U2F configuration reaches mean R2 99.96 on joint f1-f2 prediction versus 90.01 for a Conv-BiLSTM baseline.
 
 ---
 

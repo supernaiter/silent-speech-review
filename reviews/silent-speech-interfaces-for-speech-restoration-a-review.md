@@ -1,9 +1,11 @@
 # Silent Speech Interfaces for Speech Restoration: A Review
 
 Jose A. Gonzalez-Lopez, Alejandro Gomez-Alanis, Juan M. Martin-Donas, Jose L. Perez-Cordoba, Angel M. Gomez  
-arXiv / imported corpus page 2020 · [DOI](https://doi.org/10.1109/ACCESS.2020.3026579) · [arXiv](https://arxiv.org/abs/2009.02110)
+arXiv 2020 · [DOI](https://doi.org/10.1109/ACCESS.2020.3026579) · [arXiv](https://arxiv.org/abs/2009.02110)
 
 **Section:** [Surveys](../README.md#surveys) · **Review basis:** full_text
+
+A structured review of *Silent Speech Interfaces for Speech Restoration: A Review* (Jose A. Gonzalez-Lopez et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Review of SSI modalities for speech restoration, focusing on deployment bottlenecks such as latency, scarce patient data and modality trade-offs; cites ideal latency of about 50 ms, acceptable up to 100 ms.
 
@@ -83,6 +85,12 @@ patient-scale data, robust public datasets, and clinically viable deployment rem
 - The latency discussion states that 50 ms is ideal for SSI, values up to 100 ms may still be acceptable, and larger delays disrupt communication. (IV. SENSING TECHNIQUES)
 - The challenges section says SSI studies mostly rely on small datasets recorded by different groups and that public datasets remain a major bottleneck. (V. C URRENT CHALLENGES AND FUTURE RESEARCH)
 - The review explicitly covers brain activity sensors, muscle activity sensors, and articulator tracking as alternative SSI sensing routes. (IV. S ENSING TECHNIQUES)
+
+## More reviews in Surveys
+
+- [An Introduction to Silent Paralinguistics](an-introduction-to-silent-paralinguistics.md) (2025). Survey introducing silent paralinguistics: conveying emotion and speaking style, not only content, in silent speech, reviewing biosignal sensing modalities and open research problems without new experiments.
+- [Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review](silent-speech-interfaces-in-the-era-of-large-language-models-a-comprehensive-taxonomy-and-system.md) (2026). Taxonomy and review of silent speech interfaces in the LLM era across neural, EMG, magnetic, ultrasound, optical, acoustic and RF sensing, with benchmark and dataset tables.
+- [Toward Robust, Reproducible, and Widely Accessible Intracranial Language Brain-Computer Interfaces: A Comprehensive Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions](toward-robust-reproducible-and-widely-accessible-intracranial-language-brain-computer-interfaces.md) (2026). Review of intracranial language BCIs covering neural mechanisms, hardware, algorithms, evaluation and clinical pathways, proposing a composite weighted benchmark.
 
 ---
 

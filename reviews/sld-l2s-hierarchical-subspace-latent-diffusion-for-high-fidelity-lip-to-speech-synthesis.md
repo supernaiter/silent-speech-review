@@ -5,6 +5,8 @@ arXiv 2026 · [arXiv](https://arxiv.org/abs/2602.11477)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text+summary
 
+A structured review of *SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis* (Yifan Liang et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 SLD-L2S, a hierarchical subspace latent diffusion model for lip-to-speech synthesis that improves naturalness, while word accuracy and speaker similarity trail stronger baselines.
 
 ## Evaluation conditions
@@ -96,6 +98,15 @@ WER is worse than V2SFlow and LipVoicer on both datasets, and speaker similarity
 - Table 3 labels two different rows w/o Lsem, while the prose also discusses removing both losses. Reviewer assessment: the final ablation label must be clarified rather than silently reinterpreted. (Table 3; Ablation Study; PDF pp. 6-7)
 - Ten function evaluations are compared with thirty for V2SFlow, but no complete inference-time or energy measurement is reported. Reviewer assessment: fewer steps do not establish a faster end-to-end deployed system. (Table 1; Comparison with State-of-the-Art Methods; PDF pp. 5-7)
 - The experiments use ordinary LRS3/LRS2 speech videos; no new silent-articulation or speech-impaired participant study is presented. (Experimental Setup; Results; PDF pp. 5-7)
+
+## More reviews in Lip & face video
+
+- [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr.md) (2026). Neuromorphic OT-CFM (LipsFlow) for multi-speaker visual speech recognition from event streams; 22.3% WER and 19.8% VER on DVS-Lip with 240 ms latency.
+- [AVSRBench: A Multi-Condition AVSR Benchmark](avsrbench-a-multi-condition-avsr-benchmark.md) (2026). Benchmark comparing visual-only, audio-only and audio-visual speech recognition across six datasets; sub-1% AV WER on LRS3, visual-only collapses out of domain, and AV fusion helps clearly mainly under Lombard speech.
+- [LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency](lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency.md) (2026). LipSody, lip-to-speech synthesis with enhanced prosody consistency from facial video; improves reference prosody metrics and gets 54.22% listener preference, but not WER.
+- [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource.md) (2025). Combines 20 lip landmarks with image features for visual word recognition; with one-third training data on LRW-ID, accuracy improves from 85.75% to 86.65%, at larger model size.
+- [LipDiffuser: Lip-to-Speech Generation with Conditional Diffusion Models](lipdiffuser-lip-to-speech-generation-with-conditional-diffusion-models.md) (2025). LipDiffuser generates speech from mouth video plus the target speaker's enrollment audio using a conditional diffusion model. On LRS3-CHiME3 at -10 dB it improves quality and speaker similarity, but WER is 38% versus 36% for the best baseline.
+- [LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning](lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear.md) (2025). LTA-L2S synthesizes Mandarin speech from lip video using English pretraining and tone-aware generation, reducing character and tone errors versus baselines, but CER remains 61.2%.
 
 ---
 

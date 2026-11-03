@@ -5,6 +5,8 @@ CHI '22 · [DOI](https://doi.org/10.1145/3491102.3502015)
 
 **Section:** [Electropalatography & in-mouth sensors](../README.md#electropalatography--in-mouth-sensors) · **Review basis:** full_text+existing_expert_seed
 
+A structured review of *SilentSpeller: Towards mobile, hands-free, silent speech text entry using electropalatography* (Naoki Kimura et al., CHI '22) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 SilentSpeller enables silent spelling text entry with an in-mouth electropalatography retainer, reaching 37 wpm at 87% accuracy in live entry and comparable accuracy while walking.
 
 ## Evaluation conditions

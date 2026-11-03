@@ -1,9 +1,11 @@
 # LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading
 
 Yochai Yemini, Aviv Shamsian, Lior Bracha, Sharon Gannot, Ethan Fetaya  
-arXiv / imported corpus page 2023 · [arXiv](https://arxiv.org/abs/2306.03258)
+arXiv 2023 · [arXiv](https://arxiv.org/abs/2306.03258)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading* (Yochai Yemini et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 LipVoicer generates speech from silent video with a diffusion model guided at inference by text from a lip reader via an ASR classifier. On LRS3 it achieves WER 21.4%, versus 86.2% without ASR guidance.
 
@@ -90,6 +92,15 @@ real-time deployment; misuse mitigation; dependence on lip-reader quality
 - LipVoicer requires a heavy model stack for inference and does not claim real-time or on-device deployment readiness; social misuse risks from incorrect or malicious text guidance are noted but not addressed here. (6)
 - LipVoicer achieved human mean opinion scores near ground truth on LRS2 and LRS3 on intelligibility (3.44-3.53 vs 4.33-4.38), naturalness, quality, and synchronization, outperforming recent baselines. (5)
 - LipVoicer uses pretrained lip-reader Ma et al. (2023) with WER 14.6% on LRS2 and 19.1% on LRS3 to generate text at inference time; uses a modified ASR Burchi & Timofte (2023) fine-tuned on noised data for classifier guidance. (5)
+
+## More reviews in Lip & face video
+
+- [Audio Knowledge Empowered Visual Speech Recognition](akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model.md) (2023). AKVSR improves visual speech recognition by transferring compressed linguistic knowledge from a pretrained audio model through a compact memory and cross-attention, without audio at inference. LRS3 WER drops from 46.1% to 41.6% (BASE).
+- [Audio-visual video-to-speech synthesis with synthesized input audio](audio-visual-video-to-speech-synthesis-with-synthesized-input-audio.md) (2023). Adds synthesized audio from a first-stage video-to-audio model as an auxiliary input to a second-stage audiovisual video-to-speech model. Improves reconstruction quality and intelligibility on benchmarks, though gains vary by model and dataset.
+- [High-Quality Automatic Voice Over with Accurate Alignment: Supervision through Self-Supervised Discrete Speech Units](high-quality-automatic-voice-over-with-accurate-alignment-supervision-through-self-supervised-discrete-speech-units.md) (2023). An automatic voice-over system that supervises alignment by predicting self-supervised discrete speech units from text and lip video, improving lip-sync and speech quality on a single-speaker dataset. Not an SSI paper.
+- [Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning](improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning.md) (2023). Viseme-level metric learning that aligns normal and silent speech representations to improve silent visual speech recognition, reaching baseline parity with much less silent data on AV Digits.
+- [Intelligible Lip-to-Speech Synthesis with Speech Units](intelligible-lip-to-speech-synthesis-with-speech-units.md) (2023). Lip-to-speech synthesis using self-supervised speech units as a pseudo-text target plus a multi-input vocoder; substantially cuts WER without text labels and reports state-of-the-art results on LRS2/LRS3.
+- [Large-scale unsupervised audio pre-training for video-to-speech synthesis](large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis.md) (2023). Pretrains the decoder of a video-to-speech model on large audio-only corpora, improving reconstruction quality on GRID, TCD-TIMIT and LRW, though WER gains are not consistent.
 
 ---
 

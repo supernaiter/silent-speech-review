@@ -1,9 +1,11 @@
 # Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed
 
 Yaman Kumar, Mayank Aggarwal, Pratham Nawal, Shin’ichi Satoh, Rajiv Ratn Shah, Roger Zimmermann  
-arXiv / imported corpus page 2018 · [DOI](https://doi.org/10.1145/3240508.3241911) · [arXiv](https://arxiv.org/abs/1807.00619)
+arXiv 2018 · [DOI](https://doi.org/10.1145/3240508.3241911) · [arXiv](https://arxiv.org/abs/1807.00619)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text+structured_benchmark+summary
+
+A structured review of *Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed* (Yaman Kumar et al., arXiv 2018) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Reconstructs speech audio from multi-view silent video on OuluVS2 with CNN-LSTM models, showing multi-view input improves PESQ over single view and that camera placement matters.
 
@@ -88,6 +90,15 @@ Generalization beyond controlled dataset (OuluVS2) unknown.
 - Perceptual Evaluation of Speech Quality (PESQ) scores showed that combining camera views around 30° to 60° yields up to ~26-27% improvement over single best view in reconstructed audio quality. (4 EVALUATION)
 - Optimal camera placement around 30° to 60°, and availability of multiple cameras, are essential for best speech reconstruction results; deployment requires multiple cameras and controlled conditions. (4 EVALUATION)
 - Dataset is controlled with multiple views and different speakers but limited vocabulary; generalization beyond OuluVS2, speaker-independency, and real-world robustness remain unaddressed. (6 CONCLUSIONS)
+
+## More reviews in Lip & face video
+
+- [Visual-Only Recognition of Normal, Whispered and Silent Speech](visual-only-recognition-of-normal-whispered-and-silent-speech.md) (2018). Compares visual-only recognition of normal, whispered and silent speech, showing silent speech is a distinct regime: matched-condition silent accuracy is 62.2% (digits) and training on normal speech lowers it further.
+- [Lipper: Synthesizing Thy Speech using Multi-View Lipreading](lipper-synthesizing-thy-speech-using-multi-view-lipreading.md) (2019). Lipper reconstructs speech from multi-view lip video on OuluVS2 as a regression problem; the best three-view setting reaches PESQ 2.315 with 0.169 s end-to-end delay, though audio remains robotic.
+- [Video-Driven Speech Reconstruction using Generative Adversarial Networks](video-driven-speech-reconstruction-using-generative-adversarial-networks.md) (2019). Uses a GAN to generate speech audio directly from silent frontal face video on GRID; speaker-dependent WER is 26.6%, while unseen speakers degrade to 40.5% WER.
+- [Improved Speech Reconstruction from Silent Video](improved-speech-reconstruction-from-silent-video.md) (2017). Reconstructs speech from silent full-face video plus optical flow with a CNN and temporal post-processing network, outperforming prior methods on GRID and TCD-TIMIT in objective metrics and human word accuracy.
+- [Lip2AudSpec: Speech reconstruction from silent lip movements video](lip2audspec-speech-reconstruction-from-silent-lip-movements-video.md) (2017). Lip2AudSpec reconstructs speech from silent lip video using an auditory-spectrogram autoencoder bottleneck as target, improving objective intelligibility metrics and human word accuracy (55.8% vs 50.9%) over a baseline on four GRID speakers.
+- [Seeing Through Noise: Visually Driven Speaker Separation and Enhancement](seeing-through-noise-visually-driven-speaker-separation-and-enhancement.md) (2017). Uses visual speech predictions from face video to build masks that separate or enhance a target speaker from audio mixtures, beating audio-only separation on GRID and TCD-TIMIT. Not an SSI paper.
 
 ---
 

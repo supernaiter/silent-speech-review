@@ -5,6 +5,8 @@ arXiv 2026 · [arXiv](https://arxiv.org/abs/2609.21436)
 
 **Section:** [Surface EMG](../README.md#surface-emg) · **Review basis:** full_text+summary
 
+A structured review of *AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration* (Xiran Xu et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Around-ear cEEGrid system recognizing 25 fixed Mandarin sentences from silent articulation without test-day calibration; 92.24% mean accuracy on held-out later-day sessions and 98.00% in 250 live trials 21+ days later.
 
 ## Evaluation conditions
@@ -100,6 +102,15 @@ AESSIはカメラ唇読取やSilentSpellerの口蓋電極、SottoVoceの超音�
 - Limitation: 開語彙・自由文非対応、健常者のみ、開始／確認がキーボード依存、混合信号の筋電・脳波寄与未分離、固視指示だけでは非構音運動の影響を排除できない。（§5.7 Limitations and Future Work）
 - 関連研究対比として、Inoueらの耳周囲64語オンラインはテスト日に健常者640ラベル試行の微調整を含む。本論文はその較正を禁じた再利用設定を主眼とする。（§1; §2.1）
 - 対比上、本系はSilentSpellerのEPG、SottoVoceの顎下超音波、カメラVTP、Nasovoce鼻パッドではなく、口腔を塞がない耳周囲皮膚電極である（著者のSSI分類整理と装置記述）。（§2.1; §3.2; Fig.1/3）
+
+## More reviews in Surface EMG
+
+- [A 1000-hour EEG-EMG-audio dataset of Japanese speech production](a-1000-hour-eeg-emg-audio-dataset-of-japanese-speech-production.md) (2026). A 1020-hour EEG-EMG-audio dataset of Japanese overt speech from three participants, with signal-quality and physiological validation but no decoding benchmarks.
+- [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg.md) (2026). Binary affect (polite vs frustrated) classification from facial/neck sEMG in phonated and silent speech; silent-only within-subject AUC 0.829, but transfer to unseen speakers is weak.
+- [Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features](comparison-of-semg-encoding-accuracy-across-speech-modes-using-articulatory-and-phoneme-features.md) (2026). Forward encoding of sEMG envelopes from articulatory (SPARC) versus phoneme features across speech modes; articulatory features predict muscle activity better on most channels in 24 participants.
+- [Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading](cross-modal-masking-for-robust-silent-speech-synthesis-using-semg-and-lipreading.md) (2026). Silent speech synthesis fusing sEMG and lipreading with cross-modal masked training, improving performance and robustness to modality degradation over monomodal baselines.
+- [CS-ETS: Chaos-Inspired Samba-Based EMG-To-Speech Synthesis with Nonlinear Chaotic Losses](cs-ets-chaos-inspired-samba-based-emg-to-speech-synthesis-with-nonlinear-chaotic-losses.md) (2026). Smaller chaos-inspired Samba-based EMG-to-speech model with nonlinear losses; WER improves modestly from 42.20% to 41.26% while parameters drop from 54.10M to 32.03M.
+- [EMG-to-Speech with Fewer Channels](emg-to-speech-with-fewer-channels.md) (2026). Channel-reduction study for EMG-to-speech using exhaustive subset search and full-channel pretraining; best four-channel subsets reach about 47.2% WER versus roughly 35% with all eight channels.
 
 ---
 

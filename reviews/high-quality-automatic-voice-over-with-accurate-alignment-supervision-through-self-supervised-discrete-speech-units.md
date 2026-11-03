@@ -1,9 +1,11 @@
 # High-Quality Automatic Voice Over with Accurate Alignment: Supervision through Self-Supervised Discrete Speech Units
 
 Junchen Lu, Berrak Sisman, Mingyang Zhang, Haizhou Li  
-arXiv / imported corpus page 2023 · [arXiv](https://arxiv.org/abs/2306.17005)
+arXiv 2023 · [arXiv](https://arxiv.org/abs/2306.17005)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *High-Quality Automatic Voice Over with Accurate Alignment: Supervision through Self-Supervised Discrete Speech Units* (Junchen Lu et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 An automatic voice-over system that supervises alignment by predicting self-supervised discrete speech units from text and lip video, improving lip-sync and speech quality on a single-speaker dataset. Not an SSI paper.
 
@@ -86,6 +88,15 @@ Multi-speaker generalization; expressive prosody; strict SSI relevance
 - DSU-AVO achieves Lip Sync Error - Confidence (LSE-C) of 6.81, Lip Sync Error - Distance (LSE-D) of 7.56, Frame Disturbance (FD) of 3.23, Word Error Rate (WER) of 24.7%, Mean Opinion Score (MOS) of 3.98 ± 0.08, and Best-Worst Scaling (BWS) for lip-speech synchronization best 84.0% and worst 1.3%. (4.2. Experimental results)
 - The method is trained and tested only on the single-speaker Chem dataset; it relies on paired video, text, and audio data and pretrained unit tokenizer and vocoder; generalization to multi-speaker, unseen words, and walking conditions is not reported. (4.1.1. Dataset)
 - DSU-AVO requires text and video frame inputs, pretrained SSL-based discrete unit tokenizer and vocoder models, and has only demonstrated results on single-speaker data, limiting immediate deployment in multi-speaker or diverse dubbing scenarios. (3.3. DSU)
+
+## More reviews in Lip & face video
+
+- [Audio Knowledge Empowered Visual Speech Recognition](akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model.md) (2023). AKVSR improves visual speech recognition by transferring compressed linguistic knowledge from a pretrained audio model through a compact memory and cross-attention, without audio at inference. LRS3 WER drops from 46.1% to 41.6% (BASE).
+- [Audio-visual video-to-speech synthesis with synthesized input audio](audio-visual-video-to-speech-synthesis-with-synthesized-input-audio.md) (2023). Adds synthesized audio from a first-stage video-to-audio model as an auxiliary input to a second-stage audiovisual video-to-speech model. Improves reconstruction quality and intelligibility on benchmarks, though gains vary by model and dataset.
+- [Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning](improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning.md) (2023). Viseme-level metric learning that aligns normal and silent speech representations to improve silent visual speech recognition, reaching baseline parity with much less silent data on AV Digits.
+- [Intelligible Lip-to-Speech Synthesis with Speech Units](intelligible-lip-to-speech-synthesis-with-speech-units.md) (2023). Lip-to-speech synthesis using self-supervised speech units as a pseudo-text target plus a multi-input vocoder; substantially cuts WER without text labels and reports state-of-the-art results on LRS2/LRS3.
+- [Large-scale unsupervised audio pre-training for video-to-speech synthesis](large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis.md) (2023). Pretrains the decoder of a video-to-speech model on large audio-only corpora, improving reconstruction quality on GRID, TCD-TIMIT and LRW, though WER gains are not consistent.
+- [Let There Be Sound: Reconstructing High Quality Speech from Silent Videos](let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos.md) (2023). Reconstructs speech from silent lip video using self-supervised linguistic conditioning, variance predictors and flow-based refinement. On GRID it reports WER 17.07% and MOS close to vocoded speech.
 
 ---
 

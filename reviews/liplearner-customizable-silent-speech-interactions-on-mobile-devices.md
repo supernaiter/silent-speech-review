@@ -1,9 +1,11 @@
 # LipLearner: Customizable Silent Speech Interactions on Mobile Devices
 
 Zixiong Su, Shitao Fang, Jun Rekimoto  
-arXiv / imported corpus page 2023 · [DOI](https://doi.org/10.1145/3544548.3581465) · [arXiv](https://arxiv.org/abs/2302.05907)
+arXiv 2023 · [DOI](https://doi.org/10.1145/3544548.3581465) · [arXiv](https://arxiv.org/abs/2302.05907)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *LipLearner: Customizable Silent Speech Interactions on Mobile Devices* (Zixiong Su et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 LipLearner enables customizable few-shot silent speech commands on smartphones with on-device keyword spotting and incremental learning; reaches 98.8% five-shot accuracy on 30 commands in a live study.
 
@@ -87,6 +89,15 @@ open_vocabulary_interaction; lower_effort_active_learning
 - LipLearner runs on a commodity smartphone in real-time with latency about 422 ms, all processing on-device supporting hands-free silent speech interaction without network connection. (6.2 System Implementation)
 - Evaluation conducted with LRW public dataset for contrastive pretraining plus an in-the-wild dataset collected with 11 participants in 7 conditions for a total of 9625 clips; a 16-participant live user study tested real-time activation, command registration, and recognition, including multilingual and user-defined commands. (4)
 - Technical limits include reliance on visible lips, confusion between very similar commands, and cognitive and physical user burden in active learning. (10)
+
+## More reviews in Lip & face video
+
+- [Audio Knowledge Empowered Visual Speech Recognition](akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model.md) (2023). AKVSR improves visual speech recognition by transferring compressed linguistic knowledge from a pretrained audio model through a compact memory and cross-attention, without audio at inference. LRS3 WER drops from 46.1% to 41.6% (BASE).
+- [Audio-visual video-to-speech synthesis with synthesized input audio](audio-visual-video-to-speech-synthesis-with-synthesized-input-audio.md) (2023). Adds synthesized audio from a first-stage video-to-audio model as an auxiliary input to a second-stage audiovisual video-to-speech model. Improves reconstruction quality and intelligibility on benchmarks, though gains vary by model and dataset.
+- [High-Quality Automatic Voice Over with Accurate Alignment: Supervision through Self-Supervised Discrete Speech Units](high-quality-automatic-voice-over-with-accurate-alignment-supervision-through-self-supervised-discrete-speech-units.md) (2023). An automatic voice-over system that supervises alignment by predicting self-supervised discrete speech units from text and lip video, improving lip-sync and speech quality on a single-speaker dataset. Not an SSI paper.
+- [Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning](improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning.md) (2023). Viseme-level metric learning that aligns normal and silent speech representations to improve silent visual speech recognition, reaching baseline parity with much less silent data on AV Digits.
+- [Intelligible Lip-to-Speech Synthesis with Speech Units](intelligible-lip-to-speech-synthesis-with-speech-units.md) (2023). Lip-to-speech synthesis using self-supervised speech units as a pseudo-text target plus a multi-input vocoder; substantially cuts WER without text labels and reports state-of-the-art results on LRS2/LRS3.
+- [Large-scale unsupervised audio pre-training for video-to-speech synthesis](large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis.md) (2023). Pretrains the decoder of a video-to-speech model on large audio-only corpora, improving reconstruction quality on GRID, TCD-TIMIT and LRW, though WER gains are not consistent.
 
 ---
 

@@ -5,6 +5,8 @@ arXiv 2026 · [arXiv](https://arxiv.org/abs/2601.18177)
 
 **Section:** [Radar, RF & Wi-Fi](../README.md#radar-rf--wi-fi) · **Review basis:** full_text+summary
 
+A structured review of *Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter* (Ye Tian et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Lip-Siri senses lip motion contactlessly with Wi-Fi frequency-shifted backscatter and decodes lexicon-constrained sentences, reporting 85.61% word accuracy and 36.87% sentence WER on a random 80/20 split plus three held-out users.
 
 ## Evaluation conditions
@@ -98,6 +100,13 @@ The prototype still uses USRP SDR hardware, a PC, a tag within 50 cm, and manual
 - The paper does not specify sentence-disjoint grouping for the random 80/20 split, unique vocabulary size, final subword lexicon size, beam width, optimizer, epochs, contamination rejection rate, confidence intervals, or component ablations. (Sections VI-A, V-B, and V-C; PDF pp. 6-9)
 - The interface requires a user to click start before lip-reading and end afterward. For a 10-second signal, the paper reports no more than 50 ms transmission, 525 ms signal processing, 142.5 ms inference, and 717.5 ms total latency from end click to displayed result. (Section VI-G; PDF p. 10)
 - In eight scenario comparisons with two volunteers, RF WER is 35.8% in normal conditions, 38.5% with head rotation, 83.5% while jumping, 33.4% while typing, 39.0% while walking, and 46.5% with a mask; the prototype uses SDR hardware and the paper does not measure whole-system power. (Sections VIII-A–VIII-B; Fig. 13; PDF p. 11)
+
+## More reviews in Radar, RF & Wi-Fi
+
+- [Articulatory movements influence electromagnetic wave transmission through the vocal tract](articulatory-movements-influence-electromagnetic-wave-transmission-through-the-vocal-tract.md) (2026). Physical modeling and measurement of contact RF transmission through the vocal tract for three sustained vowels in two participants; simulations qualitatively agree with measurements below about 3 GHz.
+- [IR-UWB Radar-Based Contactless Silent Speech Recognition with Attention-Enhanced Temporal Convolutional Networks](ir-uwb-radar-based-contactless-silent-speech-recognition-with-attention-enhanced-temporal-convol.md) (2025). Contactless IR-UWB radar in front of the lips with an attention-enhanced TCN classifies 50 English words for one user at 91.1% mean accuracy, versus 74.0% for a hand-crafted baseline.
+- [IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases](ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases.md) (2023). Proposes FERASEC feature extraction for contactless IR-UWB radar silent speech recognition of vowels, consonants, words and phrases. With the upper radar and DNN-HMM it reports 86.47% vowel and 81.59% consonant accuracy.
+- [Movement Detection of Tongue and Related Body Parts Using IR-UWB Radar](movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar.md) (2022). Uses IR-UWB radar aimed at the chin to detect hidden tongue movement states, achieving at least 90% accuracy for each of four participants on a binary task.
 
 ---
 

@@ -1,9 +1,11 @@
 # Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder
 
 Moham Salah Alradhi, Géza Németh, Gábor Gosztolya, Tamás Gábor Csapó, László Tóth, Alexandra Markó  
-arXiv / imported corpus page 2019 · [arXiv](https://arxiv.org/abs/1906.09885)
+arXiv 2019 · [arXiv](https://arxiv.org/abs/1906.09885)
 
 **Section:** [Ultrasound & tongue imaging](../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text+structured_benchmark+summary
+
+A structured review of *Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder* (Moham Salah Alradhi et al., arXiv 2019) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Adds CNN-based continuous F0 prediction to an ultrasound tongue-imaging SSI vocoder, lowering pitch RMSE versus a discontinuous F0 baseline, with a non-significant naturalness trend in MUSHRA tests on four Hungarian speakers.
 
@@ -87,6 +89,15 @@ Cross-speaker generalization and robustness beyond the four-speaker UTI dataset 
 - Subjective MUSHRA listening tests conducted with 23 native Hungarian listeners comparing baseline and continuous vocoder synthetic speech; results indicate slightly better but not statistically significant naturalness in continuous vocoder output. (4.3. Subjective listening test)
 - The system uses speaker-dependent models trained on ultrasound data recorded at fixed frame rate (~82 fps); the CNN input are single ultrasound images without recurrent context, which limits generalization and temporal modeling; cross-speaker and broader corpus robustness are not demonstrated. (3.4. DNN training with the baseline vocoder)
 - The vocoder design uses low-dimensional excitation parameters (ContF0 and MVF) predicted by CNNs from ultrasound images, enabling computationally feasible speech synthesis potentially suitable for real-time operation, though adaptation to wearable or mobile platforms and speaker-independent models are not addressed. (5. Conclusions)
+
+## More reviews in Ultrasound & tongue imaging
+
+- [Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces](autoencoder-based-articulatory-to-acoustic-mapping-for-ultrasound-silent-speech-interfaces.md) (2019). Compresses ultrasound tongue images with an autoencoder bottleneck before predicting spectral parameters, giving more accurate prediction and more natural speech with smaller models on a single speaker.
+- [Denoising convolutional autoencoder based B-mode ultrasound tongue image feature extraction](denoising-convolutional-autoencoder-based-b-mode-ultrasound-tongue-image-feature-extraction.md) (2019). Uses a denoising convolutional autoencoder to extract ultrasound tongue image features, improving silent speech recognition over prior feature extraction methods on the 2010 Silent Speech Challenge data.
+- [SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks](sottovoce.md) (2019). SottoVoce reconstructs speech audio from under-jaw ultrasound images with two DNNs to control unmodified smart speakers; command success rose from 42.5% to 65.0% with the second network, versus 90.0% for real audio.
+- [Ultra2Speech -- A Deep Learning Framework for Formant Frequency Estimation and Tracking from Ultrasound Tongue Images](ultra2speech-a-deep-learning-framework-for-formant-frequency-estimation-and-tracking-from-ultrasound-tongue-images.md) (2020). Estimates and tracks formant frequencies from ultrasound tongue image sequences for speech synthesis; best U2F configuration reaches mean R2 99.96 on joint f1-f2 prediction versus 90.01 for a Conv-BiLSTM baseline.
+- [3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces](3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces.md) (2021). Shows a compact (2+1)D 3D CNN outperforms 2D CNN and CNN+LSTM models for regressing 13 vocoder parameters from ultrasound tongue video, with lower complexity and training time.
+- [Convolutional Neural Network-Based Age Estimation Using B-Mode Ultrasound Tongue Image](convolutional-neural-network-based-age-estimation-using-b-mode-ultrasound-tongue-image.md) (2021). Exploratory CNN regression of child age from tongue ultrasound images, reaching validation MSE 2.03 on UXTD versus 3.64 for a mean-age baseline.
 
 ---
 

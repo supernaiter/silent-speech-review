@@ -5,6 +5,8 @@ arXiv 2025 · [arXiv](https://arxiv.org/abs/2506.03831)
 
 **Section:** [Ultrasound & tongue imaging](../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text+summary
 
+A structured review of *Conformer-based Ultrasound-to-Speech Conversion* (Ibrahim Ibrahimov et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Compares Conformer-based models to a CNN for ultrasound tongue-to-speech conversion on four speakers; Conformer plus bi-LSTM gives a modest naturalness gain without improving objective spectral metrics.
 
 ## Evaluation conditions
@@ -103,6 +105,15 @@ Conformer Base has significantly worse MSE for speaker 03mn and worse MCD for 01
 - Section 5 suggests potential for real-time use based on computational advantages, but the reported measurements concern training duration. No inference latency, mobile energy, walking test or online communication outcome is presented. (p.2 Section 3.1; p.3 Sections 3.3-3.4; p.4 Section 5)
 - A nonsignificant p-value for Base versus CNN is not a formal equivalence test. The small four-speaker/20-listening-utterance evaluation and lack of reported repeated-training uncertainty constrain generalization; subjective comparison units and multiple-comparison correction require clarification. (p.3 Section 4.2; p.4 Section 4.4)
 - The authors point to https://doi.org/10.5281/zenodo.15544868 for full code and synthesized samples. This review records the source's availability statement, not an independent audit of artifact completeness or successful reproduction. (p.4 Section 5, final paragraph)
+
+## More reviews in Ultrasound & tongue imaging
+
+- [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks.md) (2023). Uses spatial transformer networks to adapt ultrasound-to-speech SSI across sessions and speakers; STN plus output-layer update recovers most of the full-adaptation gain.
+- [Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training](speech-reconstruction-from-silent-tongue-and-lip-articulation-by-pseudo-target-generation-and-domain-adversarial-training.md) (2023). Reconstructs speech from silent tongue ultrasound and lip video using pseudo acoustic targets and domain adversarial training, improving silent-mode WER by about 15% and MOS by 0.34 over TaLNet on TaL.
+- [Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convolutional Networks](improved-processing-of-ultrasound-tongue-videos-by-combining-convlstm-and-3d-convolutional-networks.md) (2022). Combines 3D CNNs and ConvLSTM to regress mel-spectrograms from ultrasound tongue video, modestly outperforming prior architectures in accuracy and efficiency on single-speaker Hungarian data.
+- [3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces](3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces.md) (2021). Shows a compact (2+1)D 3D CNN outperforms 2D CNN and CNN+LSTM models for regressing 13 vocoder parameters from ultrasound tongue video, with lower complexity and training time.
+- [Convolutional Neural Network-Based Age Estimation Using B-Mode Ultrasound Tongue Image](convolutional-neural-network-based-age-estimation-using-b-mode-ultrasound-tongue-image.md) (2021). Exploratory CNN regression of child age from tongue ultrasound images, reaching validation MSE 2.03 on UXTD versus 3.64 for a mean-age baseline.
+- [Improving Neural Silent Speech Interface Models by Adversarial Training](improving-neural-silent-speech-interface-models-by-adversarial-training.md) (2021). Adds adversarial (GAN) loss to MSE training of a 3D CNN for ultrasound-to-mel-spectrogram mapping, giving modest objective quality improvements on Hungarian and English single-speaker corpora.
 
 ---
 

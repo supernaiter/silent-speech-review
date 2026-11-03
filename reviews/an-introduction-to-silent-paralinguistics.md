@@ -5,6 +5,8 @@ arXiv 2025 · [arXiv](https://arxiv.org/abs/2508.18127)
 
 **Section:** [Surveys](../README.md#surveys) · **Review basis:** full_text+summary
 
+A structured review of *An Introduction to Silent Paralinguistics* (Zhao Ren et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Survey introducing silent paralinguistics: conveying emotion and speaking style, not only content, in silent speech, reviewing biosignal sensing modalities and open research problems without new experiments.
 
 ## Evaluation conditions
@@ -103,6 +105,12 @@ Survey introducing silent paralinguistics: conveying emotion and speaking style,
 - I-Aはこの話題に既刊研究がないと述べる一方、VII-A・表IIIと文献[295,299]には2020年のTowards/Toward silent paralinguisticsを含む。研究課題の統合と厳密な初出の主張は区別すべきである。（p.2 I-A; pp.12–13 VII-A/Table III; p.20 references [295,299]）
 - 有声発話から学んだ声の高さの推定や、生成音声への感情付与は、それだけで無声発話者の意図した感情の復元を示さない。これは本稿の有声・無声の区別、正解不在、知覚評価の限界から導くレビュー上の評価である。（pp.10,13 Tables II–III; p.12 VI-C; p.13 VII-B1）
 - 計測、認識・合成、非言語的特徴の推定、感情を付与する音声変換をそれぞれ概説しており、本稿独自のセンサー、学習済みモデル、精度・遅延の結果は提示しない。（pp.3–12 III–VI; pp.12–14 VII–VIII）
+
+## More reviews in Surveys
+
+- [Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review](silent-speech-interfaces-in-the-era-of-large-language-models-a-comprehensive-taxonomy-and-system.md) (2026). Taxonomy and review of silent speech interfaces in the LLM era across neural, EMG, magnetic, ultrasound, optical, acoustic and RF sensing, with benchmark and dataset tables.
+- [Toward Robust, Reproducible, and Widely Accessible Intracranial Language Brain-Computer Interfaces: A Comprehensive Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions](toward-robust-reproducible-and-widely-accessible-intracranial-language-brain-computer-interfaces.md) (2026). Review of intracranial language BCIs covering neural mechanisms, hardware, algorithms, evaluation and clinical pathways, proposing a composite weighted benchmark.
+- [Silent Speech Interfaces for Speech Restoration: A Review](silent-speech-interfaces-for-speech-restoration-a-review.md) (2020). Review of SSI modalities for speech restoration, focusing on deployment bottlenecks such as latency, scarce patient data and modality trade-offs; cites ideal latency of about 50 ms, acceptable up to 100 ms.
 
 ---
 

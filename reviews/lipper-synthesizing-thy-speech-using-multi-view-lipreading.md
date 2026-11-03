@@ -1,9 +1,11 @@
 # Lipper: Synthesizing Thy Speech using Multi-View Lipreading
 
 Yaman Kumar, Rohit Jain, Khwaja Mohd. Salik, Rajiv Ratn Shah, Yifang Yin, Roger Zimmermann  
-arXiv / imported corpus page 2019 · [arXiv](https://arxiv.org/abs/1907.01367)
+arXiv 2019 · [arXiv](https://arxiv.org/abs/1907.01367)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *Lipper: Synthesizing Thy Speech using Multi-View Lipreading* (Yaman Kumar et al., arXiv 2019) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Lipper reconstructs speech from multi-view lip video on OuluVS2 as a regression problem; the best three-view setting reaches PESQ 2.315 with 0.169 s end-to-end delay, though audio remains robotic.
 
@@ -84,6 +86,15 @@ speaker independence, naturalness, and in-the-wild robustness remain unresolved.
 - Table 6 reports the best three-view combination at 0°+45°+60° with PESQ 2.315, higher than any single-view result in Table 4. (Table 6)
 - Table 11 shows Lipper at 0.169 seconds delay across phrases, substantially below the 0.94 to 1.95 second delays of the speechreading comparison. (Table 11)
 - The conclusion says the audio remains robotic, the system assumes controlled camera conditions, and speaker-independent performance is not good enough for deployment. (Conclusion)
+
+## More reviews in Lip & face video
+
+- [Video-Driven Speech Reconstruction using Generative Adversarial Networks](video-driven-speech-reconstruction-using-generative-adversarial-networks.md) (2019). Uses a GAN to generate speech audio directly from silent frontal face video on GRID; speaker-dependent WER is 26.6%, while unseen speakers degrade to 40.5% WER.
+- [An Overview of Deep-Learning-Based Audio-Visual Speech Enhancement and Separation](an-overview-of-deep-learning-based-audio-visual-speech-enhancement-and-separation.md) (2020). Survey of deep-learning audio-visual speech enhancement and separation, mapping design choices and noting the lack of standardized audio-visual evaluation.
+- [Speech Prediction in Silent Videos using Variational Autoencoders](speech-prediction-in-silent-videos-using-variational-autoencoders.md) (2020). Variational autoencoder model for speech synthesis from silent lip video that models one-to-many ambiguity; on GRID reports STOI 0.724, ESTOI 0.540 and PESQ 1.932, leading Lip2Wav on ESTOI and PESQ.
+- [Vocoder-Based Speech Synthesis from Silent Videos](vocoder-based-speech-synthesis-from-silent-videos.md) (2020). Predicts full vocoder features from silent face video with joint visual speech recognition training on GRID; speaker-dependent model reaches PESQ 1.90 and WER 15.1%, but speaker-independent performance drops sharply.
+- [Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed](harnessing-ai-for-speech-reconstruction-using-multi-view-silent-video-feed.md) (2018). Reconstructs speech audio from multi-view silent video on OuluVS2 with CNN-LSTM models, showing multi-view input improves PESQ over single view and that camera placement matters.
+- [Visual-Only Recognition of Normal, Whispered and Silent Speech](visual-only-recognition-of-normal-whispered-and-silent-speech.md) (2018). Compares visual-only recognition of normal, whispered and silent speech, showing silent speech is a distinct regime: matched-condition silent accuracy is 62.2% (digits) and training on normal speech lowers it further.
 
 ---
 

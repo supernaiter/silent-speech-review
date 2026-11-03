@@ -5,6 +5,8 @@ arXiv 2025 · [arXiv](https://arxiv.org/abs/2512.22146)
 
 **Section:** [Brain signals (EEG, MEG, intracortical)](../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
 
+A structured review of *EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG* (Hanbeot Park et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Reconstructs cued overt and imagined speech audio and text from 130-channel wet EEG with subject-specific models; imagined-speech WER is 47.48% (2 s) and 43.46% (4 s) before language correction.
 
 ## Evaluation conditions
@@ -100,6 +102,15 @@ The 4-s condition has worse acoustic similarity than the 2-s condition, while it
 - Implementation details need clarification: normalization is described both per session and per trial; loss weights are described as fixed but L1 weight is later reduced when training is unstable; normalized Mel outputs and direct target-scale estimation are both described. Exact layer configuration, ASR checkpoint, loss coefficients, split isolation for preprocessing, cue-block/session holdout and imagined/overt trial pairing are not sufficiently specified for reproduction. (Neural signal processing, PDF pp. 3–4; Dataset, pp. 6–7; Pretrained Components, p. 8; Coefficient Tuning and Generator Training, pp. 9–10; Results, p. 14)
 - ICA artifact removal is reported, but no shuffled-EEG, class-template, cue-specific or residual-muscle control is evaluated in Results. With repeated known classes and random within-subject splitting, the study does not establish decoding of arbitrary imagined sentences or performance on a new session, user or clinical population. This is a limitation of validation scope, not a claim that leakage or artifact dependence was demonstrated. (Neural signal processing, PDF p. 4; Experimental paradigm and Dataset, pp. 5–7; complete Results, pp. 13–19)
 - The authors claim direct open-loop EEG-to-Voice reconstruction without DTW or explicit temporal alignment, comparable linguistic accuracy for spoken and imagined conditions, and minimal correction without semantic distortion. Their reported quantitative experiments are offline subject-specific tests of known cued stimuli and correction metrics pooled across speech modes. (Abstract, PDF p. 1; Introduction, p. 2; Dataset and pipeline, pp. 7–8; Figure 7 and Tables 4–5, pp. 18–19)
+
+## More reviews in Brain signals (EEG, MEG, intracortical)
+
+- [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses.md) (2025). Maps imagined auditory MEG (melodies and poems) to listened-response MEG; 8-condition classification reaches 50.7% (chance 12.5%), and calibrated cross-subject CNN beats shuffled controls, but correlations are small.
+- [A cross-species neural foundation model for end-to-end speech decoding](a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding.md) (2025). Introduces a cross-species self-supervised transformer encoder for Utah-array spiking data combined with audio-LLM end-to-end decoding, reporting state-of-the-art Brain-to-Text benchmark accuracy and imagined speech decoding.
+- [Distinct Theta Synchrony across Speech Modes: Perceived, Spoken, Whispered, and Imagined](distinct-theta-synchrony-across-speech-modes-perceived-spoken-whispered-and-imagined.md) (2025). Exploratory comparison of EEG theta-band functional connectivity across perceived, spoken, whispered and imagined speech in ten healthy subjects; no recognition performance is measured.
+- [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia.md) (2025). Real-time diffusion-based EEG decoder for one person with aphasia classifying three imagined Korean words plus rest, reporting 65% top-1 and 70% top-2 accuracy over 20 online trials.
+- [MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding](multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding.md) (2025). MultiDiffNet applies multi-objective diffusion learning to EEG decoding; for 11-class imagined speech, unseen-subject accuracy is 12.12% versus 10.61% for EEGNet, a small gain requiring per-user calibration.
+- [NeuroTTT: Bridging Pretraining-Downstream Task Misalignment in EEG Foundation Models via Test-Time Training](neurottt-bridging-pretraining-downstream-task-misalignment-in-eeg-foundation-models-via-test-tim.md) (2025). NeuroTTT adds task-specific self-supervision and test-time training to EEG foundation models, raising within-subject 5-class imagined speech balanced accuracy for CBraMod to 58.98%.
 
 ---
 
