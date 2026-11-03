@@ -5,6 +5,8 @@ Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CH
 
 **Section:** [Acoustic, whisper & wearable motion sensors](../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text
 
+A structured review of *WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions* (Jun Rekimoto, Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI '23), April 23--28, 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 WESPER converts whispered speech to normal voice zero-shot and in real time without per-user paired data; conversion cuts Google ASR WER on wTIMIT whispers from 44.70 to 26.68.
 
 ## Evaluation conditions
@@ -83,6 +85,15 @@ Full-silence interaction and broader real-world robustness remain unresolved.
 - The introduction states that the encoder and decoder operate in a non-autoregressive manner so the entire system works in real time and does not need per-user training. (1    INTRODUCTION)
 - Table 2 shows Google ASR on whispered wTIMIT at WER 44.70/CER 28.38, while WESPER-converted whispers improve to WER 26.68/CER 12.70; the HuBERT-base setup pretrained on Librispeech+wTIMIT reaches WER 13.75/CER 5.47. (Table 2)
 - The introduction explicitly motivates the work with whispered speech, not fully silent articulation, because ordinary microphones can capture whispers whereas silent speech systems often need special sensors. (1    INTRODUCTION)
+
+## More reviews in Acoustic, whisper & wearable motion sensors
+
+- [Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency](ultrasensitive-textile-strain-sensors-redefine-wearable-silent-speech-interfaces-with-high-machine-learning-efficiency.md) (2023). Combines an ultrasensitive graphene textile strain sensor in a throat choker with a lightweight 1D residual CNN to classify silent words. Reports 95.25% accuracy on 20 words and 90% few-shot transfer with 30 samples per class.
+- [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult.md) (2025). HEar-ID jointly recognizes whispered ear-canal letter spelling and user identity from in-ear audio and ultrasonic reflections; Top-1 word accuracy is 67.3% across 11 users (90.25% for eight selected users).
+- [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith.md) (2025). Uses six wearable 6-axis IMUs (accelerometer plus gyroscope) on the face and neck with a Conformer-CTC model to recognize silently articulated words and word sequences. Reports 97.17% word-level accuracy in a 4-participant study.
+- [NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction](nasovoce.md) (2026). NasoVoce, nose-pad microphone and vibration sensor on smart glasses, with multimodal fusion for low-audibility and whispered speech interaction under noise, evaluated by ASR error rates and audio quality.
+- [SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces](sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces.md) (2026). Single-speaker open-vocabulary dataset (ultrasound echoes, audio, video) from eyeglass-mounted sensors; an echo-only baseline trained on mixed voiced/silent data reaches 26.3% WER on silent speech.
+- [End-to-end Silent Speech Recognition with Acoustic Sensing](end-to-end-silent-speech-recognition-with-acoustic-sensing.md) (2020). Silent speech recognition from lip movements using smartphone speaker and microphone active acoustic sensing; reaches 8.4% average WER domain-independent and 8.1% on unseen sentences within a 54-sentence corpus.
 
 ---
 

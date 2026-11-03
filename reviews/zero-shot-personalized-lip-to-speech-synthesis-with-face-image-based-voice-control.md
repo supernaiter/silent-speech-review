@@ -1,9 +1,11 @@
 # Zero-shot personalized lip-to-speech synthesis with face image based voice control
 
 Zheng-Yan Sheng, Yang Ai, Zhen-Hua Ling  
-arXiv / imported corpus page 2023 · [arXiv](https://arxiv.org/abs/2305.14359)
+arXiv 2023 · [arXiv](https://arxiv.org/abs/2305.14359)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *Zero-shot personalized lip-to-speech synthesis with face image based voice control* (Zheng-Yan Sheng et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Zero-shot personalized lip-to-speech synthesis that controls voice identity with face-image-based speaker embeddings, needing no enrollment speech; validated on GRID with 13 unseen speakers.
 
@@ -94,6 +96,15 @@ Open-vocabulary scaling; robustness to pose and in-the-wild video
 - Objective evaluation shows Proposed Speech using reference speech embeddings achieves lower EER, but Proposed using face embeddings achieves comparable intelligibility and quality, validating face-based voice control feasibility. (3.4. Evaluation Results)
 - Proposed-VAE variant sometimes produces incorrect speaker gender voice, indicating challenges in disentangling speaker identity in the latent space effectively. (3.4. Evaluation Results)
 - Face-voice matching MOS-FVM is introduced to assess how well synthesized speech matches face image identity, providing a novel subjective evaluation metric for cross-modal identity consistency. (3.4. Evaluation Results)
+
+## More reviews in Lip & face video
+
+- [Audio Knowledge Empowered Visual Speech Recognition](akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model.md) (2023). AKVSR improves visual speech recognition by transferring compressed linguistic knowledge from a pretrained audio model through a compact memory and cross-attention, without audio at inference. LRS3 WER drops from 46.1% to 41.6% (BASE).
+- [Audio-visual video-to-speech synthesis with synthesized input audio](audio-visual-video-to-speech-synthesis-with-synthesized-input-audio.md) (2023). Adds synthesized audio from a first-stage video-to-audio model as an auxiliary input to a second-stage audiovisual video-to-speech model. Improves reconstruction quality and intelligibility on benchmarks, though gains vary by model and dataset.
+- [High-Quality Automatic Voice Over with Accurate Alignment: Supervision through Self-Supervised Discrete Speech Units](high-quality-automatic-voice-over-with-accurate-alignment-supervision-through-self-supervised-discrete-speech-units.md) (2023). An automatic voice-over system that supervises alignment by predicting self-supervised discrete speech units from text and lip video, improving lip-sync and speech quality on a single-speaker dataset. Not an SSI paper.
+- [Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning](improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning.md) (2023). Viseme-level metric learning that aligns normal and silent speech representations to improve silent visual speech recognition, reaching baseline parity with much less silent data on AV Digits.
+- [Intelligible Lip-to-Speech Synthesis with Speech Units](intelligible-lip-to-speech-synthesis-with-speech-units.md) (2023). Lip-to-speech synthesis using self-supervised speech units as a pseudo-text target plus a multi-input vocoder; substantially cuts WER without text labels and reports state-of-the-art results on LRS2/LRS3.
+- [Large-scale unsupervised audio pre-training for video-to-speech synthesis](large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis.md) (2023). Pretrains the decoder of a video-to-speech model on large audio-only corpora, improving reconstruction quality on GRID, TCD-TIMIT and LRW, though WER gains are not consistent.
 
 ---
 

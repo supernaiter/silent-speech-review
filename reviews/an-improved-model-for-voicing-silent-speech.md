@@ -1,9 +1,11 @@
 # An Improved Model for Voicing Silent Speech
 
 David Gaddy, Dan Klein  
-arXiv / imported corpus page 2021 · [arXiv](https://arxiv.org/abs/2106.01933)
+arXiv 2021 · [arXiv](https://arxiv.org/abs/2106.01933)
 
 **Section:** [Surface EMG](../README.md#surface-emg) · **Review basis:** full_text
+
+A structured review of *An Improved Model for Voicing Silent Speech* (David Gaddy and Dan Klein, arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Improves open-vocabulary silent-speech voicing from facial EMG using learned convolutional features, a Transformer and auxiliary phoneme loss, cutting WER from 68.0% to 42.2% (automatic) and 32.3% (human) for one speaker.
 
@@ -84,6 +86,15 @@ Speaker independence and session robustness remain unaddressed; wearable practic
 - The gain comes from replacing hand-crafted EMG features by convolutional feature extraction, employing a Transformer encoder on top, and adding an auxiliary phoneme prediction loss to improve learning. (2 Model)
 - All data is from a single English speaker with 19 hours of facial EMG recordings in silent and vocalized speech; evaluation includes open-vocabulary automatic WER and human transcription on 40 samples by two raters; no cross-speaker or multi-session tests reported. (3 Results)
 - The system is limited to a single speaker, no session or speaker independence evaluation, and lacks tests for wearable robustness, mobility, or long-term recalibration. (5 Conclusion)
+
+## More reviews in Surface EMG
+
+- [Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language](sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language.md) (2022). SSRNet reconstructs Mandarin speech from five-channel facial sEMG using duration-aware Seq2Seq and tonal multitask learning, cutting ASR CER from 46.62% to 21.99% over the baseline.
+- [Digital Voicing of Silent Speech](digital-voicing-of-silent-speech.md) (2020). Synthesizes speech from silent facial EMG by transferring audio targets from vocalized recordings; human WER reaches 3.6% on closed vocabulary, while open-vocabulary WER drops from 95.1% to 74.8%.
+- [Knowledge Distilled Ensemble Model for sEMG-based Silent Speech Interface](knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface.md) (2023). Distills a ResNet ensemble into a lightweight model for spelling via the NATO phonetic alphabet from 3-channel facial sEMG on portable hardware. KDE-SSI reaches 85.9% accuracy on 26 classes with 0.12 ms inference per sample.
+- [A Parallel Ultra-Low Power Silent Speech Interface based on a Wearable, Fully-dry EMG Neckband](a-parallel-ultra-low-power-silent-speech-interface-based-on-a-wearable-fully-dry-emg-neckband.md) (2025). A fully dry wearable EMG neckband with ultra-low-power BioGAP-Ultra classifies 8 silently articulated words for one healthy user at 68% accuracy, dropping to 54% on an unseen re-wearing session; acquisition plus BLE uses 22.2 mW.
+- [A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations](a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations.md) (2025). Jointly trains on EEG and EMG data with heterogeneous electrode configurations for silent Japanese 64-word classification, reaching 95.3% for eight healthy subjects and 54.5% for one patient (chance 1.6%).
+- [Articulatory Feature Prediction from Surface EMG during Speech Production](articulatory-feature-prediction-from-surface-emg-during-speech-production.md) (2025). Predicts 12-dim articulatory features, pitch and loudness from vocalized-speech sEMG and resynthesizes audio with an articulatory synthesizer. Feature correlation is about 0.9 against audio-derived proxy targets, but WER is 15.5% versus 12.6% for the Gaddy baseline (one male speaker).
 
 ---
 

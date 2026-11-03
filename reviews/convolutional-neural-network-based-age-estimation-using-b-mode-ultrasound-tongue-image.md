@@ -1,9 +1,11 @@
 # Convolutional Neural Network-Based Age Estimation Using B-Mode Ultrasound Tongue Image
 
 Kele Xu, Tamas Gabor Csapo, Ming Feng  
-arXiv / imported corpus page 2021 · [arXiv](https://arxiv.org/abs/2101.11245)
+arXiv 2021 · [arXiv](https://arxiv.org/abs/2101.11245)
 
 **Section:** [Ultrasound & tongue imaging](../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+
+A structured review of *Convolutional Neural Network-Based Age Estimation Using B-Mode Ultrasound Tongue Image* (Kele Xu et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Exploratory CNN regression of child age from tongue ultrasound images, reaching validation MSE 2.03 on UXTD versus 3.64 for a mean-age baseline.
 
@@ -82,6 +84,15 @@ generalization; adult speakers; cross-site robustness
 - The paper explores whether speaker age can be inferred from ultrasound tongue imaging using a deep convolutional neural network. (Abstract)
 - For typically developing children, the minimum validation MSE is about 2.03, compared with a mean-age baseline of 3.64. (4.4. Experiments Results for Typically Developing Children)
 - The authors state the ultrasound dataset is much smaller than speech-based age datasets and that performance needs validation on larger data. (5. Conclusions)
+
+## More reviews in Ultrasound & tongue imaging
+
+- [3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces](3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces.md) (2021). Shows a compact (2+1)D 3D CNN outperforms 2D CNN and CNN+LSTM models for regressing 13 vocoder parameters from ultrasound tongue video, with lower complexity and training time.
+- [Improving Neural Silent Speech Interface Models by Adversarial Training](improving-neural-silent-speech-interface-models-by-adversarial-training.md) (2021). Adds adversarial (GAN) loss to MSE training of a 3D CNN for ultrasound-to-mel-spectrogram mapping, giving modest objective quality improvements on Hungarian and English single-speaker corpora.
+- [Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces](neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces.md) (2021). Trains x-vector speaker embeddings from ultrasound tongue video, achieving under 1% speaker recognition error on unseen speakers, but adding them to multi-speaker ultrasound-to-speech synthesis gives only marginal gains.
+- [Silent versus modal multi-speaker speech recognition from ultrasound and video](silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video.md) (2021). Speech recognition from ultrasound tongue imaging and lip video on TaL80 and TaL1; adaptation lowers multi-speaker silent WER from 77.79 to 69.84 versus 39.34 for modal speech, showing a large silent-mode gap.
+- [Speech Synthesis from Text and Ultrasound Tongue Image-based Articulatory Input](speech-synthesis-from-text-and-ultrasound-tongue-image-based-articulatory-input.md) (2021). Limited-data TTS augmented with ultrasound tongue images; combined text plus ultrasound gives the lowest test MCD for all 8 speakers, while ultrasound-only input remains far worse.
+- [Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convolutional Neural Networks](voice-activity-detection-for-ultrasound-based-silent-speech-interfaces-using-convolutional-neural-networks.md) (2021). CNN speech-versus-silence detection from ultrasound tongue images on one speaker (TaL1), reaching 85.2% test accuracy; removing silence slightly improves downstream SSI reconstruction (MCD 3.05 vs 3.12).
 
 ---
 

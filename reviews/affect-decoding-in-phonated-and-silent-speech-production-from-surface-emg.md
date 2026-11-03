@@ -5,6 +5,8 @@ arXiv 2026 · [arXiv](https://arxiv.org/abs/2603.11715)
 
 **Section:** [Surface EMG](../README.md#surface-emg) · **Review basis:** full_text+summary
 
+A structured review of *Affect Decoding in Phonated and Silent Speech Production from Surface EMG* (Simon Pistrosch et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Binary affect (polite vs frustrated) classification from facial/neck sEMG in phonated and silent speech; silent-only within-subject AUC 0.829, but transfer to unseen speakers is weak.
 
 ## Evaluation conditions
@@ -97,6 +99,15 @@ EMG discriminability drops sharply for unseen speakers; prompted repeated-conten
 - Section 5.3 says training uses controlled and spontaneous tasks, whereas Section 6.3 describes training on controlled Tasks 1/3 and testing the held-out speaker on spontaneous Task 2. Reviewer assessment: the exact training-domain boundary must be clarified before claiming controlled-to-spontaneous transfer. (Sections 5.3 and 6.3; PDF pp. 5 and 8)
 - Table 9 reports spontaneous phonated BioCodec AUC 0.630 and BAC 0.595, compared with Vox-Profile AUC 0.743 and BAC 0.670. These are phonated affect results, not spontaneous silent-speech decoding. (Table 9; Section 6.3; PDF p. 8)
 - The protocol requires skin preparation, conductive gel and participant-held button segmentation. The dataset is not publicly released, and no online latency, mobile use or clinical communication evaluation is reported. (Sections 3.1-3.3 and 4.1; PDF pp. 2-4)
+
+## More reviews in Surface EMG
+
+- [A 1000-hour EEG-EMG-audio dataset of Japanese speech production](a-1000-hour-eeg-emg-audio-dataset-of-japanese-speech-production.md) (2026). A 1020-hour EEG-EMG-audio dataset of Japanese overt speech from three participants, with signal-quality and physiological validation but no decoding benchmarks.
+- [AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration](aessi-an-around-ear-silent-speech-interface-for-cross-day-online-reuse-without-test-day-calibrat.md) (2026). Around-ear cEEGrid system recognizing 25 fixed Mandarin sentences from silent articulation without test-day calibration; 92.24% mean accuracy on held-out later-day sessions and 98.00% in 250 live trials 21+ days later.
+- [Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features](comparison-of-semg-encoding-accuracy-across-speech-modes-using-articulatory-and-phoneme-features.md) (2026). Forward encoding of sEMG envelopes from articulatory (SPARC) versus phoneme features across speech modes; articulatory features predict muscle activity better on most channels in 24 participants.
+- [Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading](cross-modal-masking-for-robust-silent-speech-synthesis-using-semg-and-lipreading.md) (2026). Silent speech synthesis fusing sEMG and lipreading with cross-modal masked training, improving performance and robustness to modality degradation over monomodal baselines.
+- [CS-ETS: Chaos-Inspired Samba-Based EMG-To-Speech Synthesis with Nonlinear Chaotic Losses](cs-ets-chaos-inspired-samba-based-emg-to-speech-synthesis-with-nonlinear-chaotic-losses.md) (2026). Smaller chaos-inspired Samba-based EMG-to-speech model with nonlinear losses; WER improves modestly from 42.20% to 41.26% while parameters drop from 54.10M to 32.03M.
+- [EMG-to-Speech with Fewer Channels](emg-to-speech-with-fewer-channels.md) (2026). Channel-reduction study for EMG-to-speech using exhaustive subset search and full-channel pretraining; best four-channel subsets reach about 47.2% WER versus roughly 35% with all eight channels.
 
 ---
 

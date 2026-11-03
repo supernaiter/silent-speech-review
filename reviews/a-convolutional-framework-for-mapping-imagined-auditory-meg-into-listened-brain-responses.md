@@ -5,6 +5,8 @@ arXiv 2025 · [arXiv](https://arxiv.org/abs/2512.03458)
 
 **Section:** [Brain signals (EEG, MEG, intracortical)](../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
 
+A structured review of *A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses* (Maryam Maghsoudi et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Maps imagined auditory MEG (melodies and poems) to listened-response MEG; 8-condition classification reaches 50.7% (chance 12.5%), and calibrated cross-subject CNN beats shuffled controls, but correlations are small.
 
 ## Evaluation conditions
@@ -98,6 +100,15 @@ Low
 - 個人別リッジ回帰は500ms窓・100ms刻み、1試行ずつ除外する交差検証で評価され、真の対応は試行シャッフル対照より高い（Wilcoxon p≪0.001）。他の参加者で学習して除外した参加者で試すと低性能だったと述べるが、その数値は示さない。（Section V.A and Figure 3, PDF p.3）
 - CNN共有部は他の参加者のデータを訓練80%・検証20%に分け、Adamの学習率10^-4、カーネル幅7、ReLU、dropout0.1、早期停止を使う。振幅誤差・負の相関・時間差分・スペクトルの4損失を組み合わせる。対照では試行順とチャンネル割当をシャッフルし、共有部と較正層を同じ手順で再学習する。（Section V.B, Equations 1–5, PDF pp.4–5）
 - 損失の重みは構成比較によって決めたと述べるが、係数と比較結果は本文に掲載されない。評価出力は聴取MEG応答であり、語句認識の誤り率、音声復元の品質、実際の意思伝達成績は報告されない。（Section V.B (loss weights and results) and Section VI, PDF pp.4–5）
+
+## More reviews in Brain signals (EEG, MEG, intracortical)
+
+- [A cross-species neural foundation model for end-to-end speech decoding](a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding.md) (2025). Introduces a cross-species self-supervised transformer encoder for Utah-array spiking data combined with audio-LLM end-to-end decoding, reporting state-of-the-art Brain-to-Text benchmark accuracy and imagined speech decoding.
+- [Distinct Theta Synchrony across Speech Modes: Perceived, Spoken, Whispered, and Imagined](distinct-theta-synchrony-across-speech-modes-perceived-spoken-whispered-and-imagined.md) (2025). Exploratory comparison of EEG theta-band functional connectivity across perceived, spoken, whispered and imagined speech in ten healthy subjects; no recognition performance is measured.
+- [EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG](eeg-to-voice-decoding-of-spoken-and-imagined-speech-using-non-invasive-eeg.md) (2025). Reconstructs cued overt and imagined speech audio and text from 130-channel wet EEG with subject-specific models; imagined-speech WER is 47.48% (2 s) and 43.46% (4 s) before language correction.
+- [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia.md) (2025). Real-time diffusion-based EEG decoder for one person with aphasia classifying three imagined Korean words plus rest, reporting 65% top-1 and 70% top-2 accuracy over 20 online trials.
+- [MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding](multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding.md) (2025). MultiDiffNet applies multi-objective diffusion learning to EEG decoding; for 11-class imagined speech, unseen-subject accuracy is 12.12% versus 10.61% for EEGNet, a small gain requiring per-user calibration.
+- [NeuroTTT: Bridging Pretraining-Downstream Task Misalignment in EEG Foundation Models via Test-Time Training](neurottt-bridging-pretraining-downstream-task-misalignment-in-eeg-foundation-models-via-test-tim.md) (2025). NeuroTTT adds task-specific self-supervision and test-time training to EEG foundation models, raising within-subject 5-class imagined speech balanced accuracy for CBraMod to 58.98%.
 
 ---
 

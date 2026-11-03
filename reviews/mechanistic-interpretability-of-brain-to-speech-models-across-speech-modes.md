@@ -5,6 +5,8 @@ arXiv 2026 · [arXiv](https://arxiv.org/abs/2602.01247)
 
 **Section:** [Brain signals (EEG, MEG, intracortical)](../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
 
+A structured review of *Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes* (Maryam Maghsoudi and Ayushi Mishra, arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Applies activation interventions to a stereotactic EEG brain-to-speech decoder across vocalized, mimed and imagined speech; baseline PCC is 0.75/0.73/0.57, but internal inconsistencies leave strong causal conclusions unestablished.
 
 ## Evaluation conditions
@@ -97,6 +99,15 @@ No demonstrated improvement to an imagined-only deployable decoder. Restricted s
 - Figure 5 labels delta PCC relative to k=1, whereas methods describe changes relative to an unpatched baseline. Reviewer assessment: reference conditions must be specified consistently before interpreting improvements. (Sections 5.4-6 and Figure 5; PDF pp. 6-8)
 - Table 2 baseline PCC is 0.7519 for vocalized, 0.7254 for imagined and 0.5686 for mimed. Reviewer assessment: these baselines do not place mimed speech between the other two modes in decoding performance. (Table 2 and Discussion; PDF pp. 8 and 11)
 - Evaluation centers on spectrogram correlation/distortion and intervention diagnostics; no word-recognition or listening-comprehension outcome, new participant or live communication test is reported. (Section 6 and Appendices A-F; PDF pp. 6-14)
+
+## More reviews in Brain signals (EEG, MEG, intracortical)
+
+- [Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction](brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction.md) (2026). Transformer-based speech reconstruction from intracranial sEEG with prosody feature engineering; reports Pearson correlation 0.91, MCD 3.92 and STOI 0.73.
+- [Brain2Speech-Net: Intelligible, Real-Time Brain-to-Speech Synthesis Without Text Decoding](brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding.md) (2026). Text-free synthesis of attempted speech from intracortical recordings in one participant with ALS; 47.2% WER on unseen utterances versus 6.8% on a training-set sample, with faster-than-real-time throughput (RTF ~0.5).
+- [Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding](do-eeg-foundation-models-transfer-to-speech-a-benchmark-on-overt-and-imagined-speech-decoding.md) (2026). Benchmark of EEG foundation models versus conventional models for overt and imagined speech decoding on two datasets; general EEG pretraining shows no consistent advantage and word decoding stays near chance.
+- [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture.md) (2026). Hybrid CNN-SNN classifier for five-class EEG imagined speech; reports 80.13% accuracy and 80.14% F1 in offline subject-dependent evaluation, about 98 ms GPU prediction time per trial.
+- [iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding](iphoneme-brain-to-text-communication-for-als-using-conformerxl-decoding.md) (2026). ConformerXL-based intracortical brain-to-text decoding for ALS with a proposed gaze-confirmation interface; WFST decoding reaches 7.86% phoneme error rate retrospectively in one participant.
+- [Physiological Noise Augmentation Improves Non-Invasive Brain-to-Speech](physiological-noise-augmentation-improves-non-invasive-brain-to-speech.md) (2026). Physiological noise augmentation (PNA) using ICA-derived artifact components for non-invasive MEG imagined-speech decoding; improves 10-class imagined digit accuracy, e.g. EEGNet 73.0% to 76.3% with 10-trial averaging.
 
 ---
 

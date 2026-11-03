@@ -1,9 +1,11 @@
 # Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning
 
-['', '', '', '']  
-arXiv / imported corpus page 2023 · [DOI](https://doi.org/10.21437/Interspeech.2023-370) · [arXiv](https://arxiv.org/abs/2305.14203)
+Sara Kashiwagi, Keitaro Tanaka, Qi Feng, Shigeo Morishima  
+Interspeech 2023 · [DOI](https://doi.org/10.21437/Interspeech.2023-370) · [arXiv](https://arxiv.org/abs/2305.14203)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning* (Sara Kashiwagi et al., Interspeech 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Viseme-level metric learning that aligns normal and silent speech representations to improve silent visual speech recognition, reaching baseline parity with much less silent data on AV Digits.
 
@@ -88,6 +90,15 @@ open_vocabulary; in_the_wild_robustness; richer_language_modeling
 - Evaluation was conducted on the AV Digits dataset with 39 speakers uttering 10 fixed phrases in both normal and silent speech modes, augmented with 1560 normal speech utterances from OuluVS2; the test set includes 550 utterances from 11 speakers. (4.1. Database)
 - The study is limited to a small fixed vocabulary of 10 phrases and uses only controlled datasets (AV Digits and OuluVS2) without any evaluation on open vocabulary, continuous speech, or in-the-wild conditions, restricting generalization and deployment readiness. (5. Conclusion)
 - The approach improves silent speech VSR accuracy with less silent data, achieving parity with baseline trained on twice the silent data, but lacks real-time or in-the-wild mobile deployment evaluations. (4.4. Experimental results)
+
+## More reviews in Lip & face video
+
+- [Audio Knowledge Empowered Visual Speech Recognition](akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model.md) (2023). AKVSR improves visual speech recognition by transferring compressed linguistic knowledge from a pretrained audio model through a compact memory and cross-attention, without audio at inference. LRS3 WER drops from 46.1% to 41.6% (BASE).
+- [Audio-visual video-to-speech synthesis with synthesized input audio](audio-visual-video-to-speech-synthesis-with-synthesized-input-audio.md) (2023). Adds synthesized audio from a first-stage video-to-audio model as an auxiliary input to a second-stage audiovisual video-to-speech model. Improves reconstruction quality and intelligibility on benchmarks, though gains vary by model and dataset.
+- [High-Quality Automatic Voice Over with Accurate Alignment: Supervision through Self-Supervised Discrete Speech Units](high-quality-automatic-voice-over-with-accurate-alignment-supervision-through-self-supervised-discrete-speech-units.md) (2023). An automatic voice-over system that supervises alignment by predicting self-supervised discrete speech units from text and lip video, improving lip-sync and speech quality on a single-speaker dataset. Not an SSI paper.
+- [Intelligible Lip-to-Speech Synthesis with Speech Units](intelligible-lip-to-speech-synthesis-with-speech-units.md) (2023). Lip-to-speech synthesis using self-supervised speech units as a pseudo-text target plus a multi-input vocoder; substantially cuts WER without text labels and reports state-of-the-art results on LRS2/LRS3.
+- [Large-scale unsupervised audio pre-training for video-to-speech synthesis](large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis.md) (2023). Pretrains the decoder of a video-to-speech model on large audio-only corpora, improving reconstruction quality on GRID, TCD-TIMIT and LRW, though WER gains are not consistent.
+- [Let There Be Sound: Reconstructing High Quality Speech from Silent Videos](let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos.md) (2023). Reconstructs speech from silent lip video using self-supervised linguistic conditioning, variance predictors and flow-based refinement. On GRID it reports WER 17.07% and MOS close to vocoded speech.
 
 ---
 

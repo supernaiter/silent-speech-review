@@ -1,9 +1,11 @@
 # Improved Speech Reconstruction from Silent Video
 
 Ariel Ephrat, Tavi Halperin, Shmuel Peleg  
-arXiv / imported corpus page 2017 · [arXiv](https://arxiv.org/abs/1708.01204)
+arXiv 2017 · [arXiv](https://arxiv.org/abs/1708.01204)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *Improved Speech Reconstruction from Silent Video* (Ariel Ephrat et al., arXiv 2017) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Reconstructs speech from silent full-face video plus optical flow with a CNN and temporal post-processing network, outperforming prior methods on GRID and TCD-TIMIT in objective metrics and human word accuracy.
 
@@ -92,6 +94,15 @@ speaker-independent reconstruction; real-time processing; in-the-wild capture; u
 - The method improves prior video-to-speech work by fusing raw pixels and optical flow features within a dual-stream CNN encoder, replacing VGG with ResNet, and employing a Tacotron-based post-processing network to enhance speech naturalness and smoothness. (4. Model architecture)
 - Evaluation includes objective intelligibility and speech quality metrics, human intelligibility experiments (Mechanical Turk), and ablations of optical flow and postnet components, demonstrating pixels carry most information but flow and postnet improve results. (6. Experiments)
 - The system reconstructs multi-frame speech audio by jointly predicting mel-scale spectrograms over multiple consecutive video frames, improving smoothness over prior single-frame prediction methods. (4. Model architecture)
+
+## More reviews in Lip & face video
+
+- [Lip2AudSpec: Speech reconstruction from silent lip movements video](lip2audspec-speech-reconstruction-from-silent-lip-movements-video.md) (2017). Lip2AudSpec reconstructs speech from silent lip video using an auditory-spectrogram autoencoder bottleneck as target, improving objective intelligibility metrics and human word accuracy (55.8% vs 50.9%) over a baseline on four GRID speakers.
+- [Seeing Through Noise: Visually Driven Speaker Separation and Enhancement](seeing-through-noise-visually-driven-speaker-separation-and-enhancement.md) (2017). Uses visual speech predictions from face video to build masks that separate or enhance a target speaker from audio mixtures, beating audio-only separation on GRID and TCD-TIMIT. Not an SSI paper.
+- [Vid2speech: Speech Reconstruction from Silent Video](vid2speech-speech-reconstruction-from-silent-video.md) (2017). Vid2speech reconstructs intelligible speech from silent face video on GRID with speaker-specific models and LPC-style resynthesis, reaching about 80% human intelligibility and partial out-of-vocabulary recovery.
+- [Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed](harnessing-ai-for-speech-reconstruction-using-multi-view-silent-video-feed.md) (2018). Reconstructs speech audio from multi-view silent video on OuluVS2 with CNN-LSTM models, showing multi-view input improves PESQ over single view and that camera placement matters.
+- [Visual-Only Recognition of Normal, Whispered and Silent Speech](visual-only-recognition-of-normal-whispered-and-silent-speech.md) (2018). Compares visual-only recognition of normal, whispered and silent speech, showing silent speech is a distinct regime: matched-condition silent accuracy is 62.2% (digits) and training on normal speech lowers it further.
+- [Lipper: Synthesizing Thy Speech using Multi-View Lipreading](lipper-synthesizing-thy-speech-using-multi-view-lipreading.md) (2019). Lipper reconstructs speech from multi-view lip video on OuluVS2 as a regression problem; the best three-view setting reaches PESQ 2.315 with 0.169 s end-to-end delay, though audio remains robotic.
 
 ---
 

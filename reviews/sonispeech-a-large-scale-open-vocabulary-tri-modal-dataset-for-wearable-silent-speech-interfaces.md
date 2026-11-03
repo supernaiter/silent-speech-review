@@ -5,6 +5,8 @@ arXiv 2026 · [arXiv](https://arxiv.org/abs/2608.00803)
 
 **Section:** [Acoustic, whisper & wearable motion sensors](../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text+summary
 
+A structured review of *SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces* (Ruidong Zhang et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Single-speaker open-vocabulary dataset (ultrasound echoes, audio, video) from eyeglass-mounted sensors; an echo-only baseline trained on mixed voiced/silent data reaches 26.3% WER on silent speech.
 
 ## Evaluation conditions
@@ -93,6 +95,15 @@ No demonstrated regression versus another system under matched conditions; the d
 - Microphone channel 1 has high noise in the last 20 silent and last 11 voiced training sessions. The baseline configurations use the first 140 sessions of each mode. (Section 3.3; Section 4.2; Section 5.2; PDF pp. 3-4)
 - The corpus synchronizes ultrasound echoes, audible audio and frontal video; its baseline uses four-channel differential echoes with ResNet-34 and CTC, greedy decoding and no external language model. (Sections 3.1, 3.5 and 4; PDF pp. 2-4)
 - The discussion cites earlier EchoSpeech walking, noise and multi-user results, whereas SoniSpeech itself uses one speaker and one quiet environment. Reviewer assessment: those robustness claims cannot be transferred to this open-vocabulary benchmark. (Section 6; PDF p. 4)
+
+## More reviews in Acoustic, whisper & wearable motion sensors
+
+- [NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction](nasovoce.md) (2026). NasoVoce, nose-pad microphone and vibration sensor on smart glasses, with multimodal fusion for low-audibility and whispered speech interaction under noise, evaluated by ASR error rates and audio quality.
+- [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult.md) (2025). HEar-ID jointly recognizes whispered ear-canal letter spelling and user identity from in-ear audio and ultrasonic reflections; Top-1 word accuracy is 67.3% across 11 users (90.25% for eight selected users).
+- [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith.md) (2025). Uses six wearable 6-axis IMUs (accelerometer plus gyroscope) on the face and neck with a Conformer-CTC model to recognize silently articulated words and word sequences. Reports 97.17% word-level accuracy in a 4-participant study.
+- [Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency](ultrasensitive-textile-strain-sensors-redefine-wearable-silent-speech-interfaces-with-high-machine-learning-efficiency.md) (2023). Combines an ultrasensitive graphene textile strain sensor in a throat choker with a lightweight 1D residual CNN to classify silent words. Reports 95.25% accuracy on 20 words and 90% few-shot transfer with 30 samples per class.
+- [WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions](wesper-zero-shot-and-realtime-whisper-to-normal-voice-conversion-for-whisper-based-speech-interactions.md) (2023). WESPER converts whispered speech to normal voice zero-shot and in real time without per-user paired data; conversion cuts Google ASR WER on wTIMIT whispers from 44.70 to 26.68.
+- [End-to-end Silent Speech Recognition with Acoustic Sensing](end-to-end-silent-speech-recognition-with-acoustic-sensing.md) (2020). Silent speech recognition from lip movements using smartphone speaker and microphone active acoustic sensing; reaches 8.4% average WER domain-independent and 8.1% on unseen sentences within a 54-sentence corpus.
 
 ---
 

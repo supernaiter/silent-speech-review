@@ -5,6 +5,8 @@ arXiv 2025 · [arXiv](https://arxiv.org/abs/2506.13835)
 
 **Section:** [Surface EMG](../README.md#surface-emg) · **Review basis:** full_text+summary
 
+A structured review of *A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations* (Masakazu Inoue et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Jointly trains on EEG and EMG data with heterogeneous electrode configurations for silent Japanese 64-word classification, reaching 95.3% for eight healthy subjects and 54.5% for one patient (chance 1.6%).
 
 ## Evaluation conditions
@@ -104,6 +106,15 @@ Jointly trains on EEG and EMG data with heterogeneous electrode configurations f
 - 著者は患者データの収集が難しく他の患者への一般化を確認できないと明記し、言語モデルを使う実用的な文復号は今後の課題とする。自由会話や一般的な臨床効果の実証として扱えない。（p.4, Section 5 Conclusion）
 - 正確な試行一覧、反復学習・再標本化の詳細、損失重み、英語の分割と復号器詳細、新規人物用SS層の初期化は本文だけでは再現に不足する。外部コード・データによる独立再現は本レビューでは未確認。（pp.2–4, Sections 2.3–2.5 and 3.2–4.2; five-page v1 scope）
 - 主収録は脳波63・筋電5チャンネル、2048Hz。混合データには脳波128/62チャンネルと筋電3チャンネルの別装置を含む。日本語の文収録153文、表1の文語彙267語、英語語彙9828語は主分類の64クラスとは別。（pp.2–3, Section 2.1, Table 1, Section 3.4）
+
+## More reviews in Surface EMG
+
+- [A Parallel Ultra-Low Power Silent Speech Interface based on a Wearable, Fully-dry EMG Neckband](a-parallel-ultra-low-power-silent-speech-interface-based-on-a-wearable-fully-dry-emg-neckband.md) (2025). A fully dry wearable EMG neckband with ultra-low-power BioGAP-Ultra classifies 8 silently articulated words for one healthy user at 68% accuracy, dropping to 54% on an unseen re-wearing session; acquisition plus BLE uses 22.2 mW.
+- [Articulatory Feature Prediction from Surface EMG during Speech Production](articulatory-feature-prediction-from-surface-emg-during-speech-production.md) (2025). Predicts 12-dim articulatory features, pitch and loudness from vocalized-speech sEMG and resynthesizes audio with an articulatory synthesizer. Feature correlation is about 0.9 against audio-derived proxy targets, but WER is 15.5% versus 12.6% for the Gaddy baseline (one male speaker).
+- [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding.md) (2025). CAT-Net fuses EEG and surface EMG with cross-attention to classify Mandarin lexical tones in silent articulation, reporting 85.10% leave-one-subject-out accuracy over 4 tones.
+- [Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling](confidence-based-self-training-for-emg-to-speech-leveraging-synthetic-emg-for-robust-modeling.md) (2025). Uses confidence-filtered synthetic EMG generated from speech, mixed with real data, for EMG-to-speech; on real vocalized EMG from one speaker, WER falls from 23.30% to 21.87%.
+- [emg2speech: Synthesizing speech from electromyography using self-supervised speech models](emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models.md) (2025). emg2speech synthesizes speech from face and neck surface EMG via HuBERT units without the user's own recordings; silent speech from one ALS participant gives 50.82% human-transcribed WER.
+- [From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach](from-silent-signals-to-natural-language-a-dual-stage-transformer-llm-approach.md) (2025). Corrects transcripts of speech synthesized from silent EMG (Digital Voicing data) with a Transformer recognizer and GPT-2, reducing WER from 36% to 30% on about 100 utterances.
 
 ---
 

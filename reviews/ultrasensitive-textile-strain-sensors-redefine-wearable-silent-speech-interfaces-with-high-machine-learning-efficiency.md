@@ -1,9 +1,11 @@
 # Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency
 
 Chenyu Tang, Muzi Xu, Wentian Yi, Zibo Zhang, Edoardo Occhipinti, Chaoqun Dong, Dafydd Ravenscroft, Sung-Min Jung, Shuo Gao, Jong Min Kim, Luigi G. Occhipinti  
-arXiv / imported corpus page 2023 · [arXiv](https://arxiv.org/abs/2311.15683)
+arXiv 2023 · [arXiv](https://arxiv.org/abs/2311.15683)
 
 **Section:** [Acoustic, whisper & wearable motion sensors](../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text
+
+A structured review of *Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency* (Chenyu Tang et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Combines an ultrasensitive graphene textile strain sensor in a throat choker with a lightweight 1D residual CNN to classify silent words. Reports 95.25% accuracy on 20 words and 90% few-shot transfer with 30 samples per class.
 
@@ -88,6 +90,15 @@ larger vocabulary; sentence-level decoding; broader user populations
 - Classification accuracy is 95.25% on Dataset 1 with 20 words, 93% on Dataset 2 with confusable pairs, 96% on Dataset 3 with long words at varied speech speeds; few-shot transfer learning achieves 90% accuracy with only 30 samples per class. The sensor gauge factor is 317 within 5% strain with stable linear resistance response and durability over 10,000 stretching cycles. (Abstract)
 - The study features only three participants, evaluates closed vocabularies (max 20 words), and focuses on isolated word classification rather than continuous speech or sentence decoding; transfer learning evaluated on limited samples and classes; real-world deployment would require broader vocabularies and natural language tasks. (II. Results)
 - The wearable silent speech interface enables hands-free, real-time, speaker-dependent recognition using a choker-mounted textile strain sensor and an efficient 1D CNN, achieving both comfort and computational efficiency suitable for mobile applications. (Abstract)
+
+## More reviews in Acoustic, whisper & wearable motion sensors
+
+- [WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions](wesper-zero-shot-and-realtime-whisper-to-normal-voice-conversion-for-whisper-based-speech-interactions.md) (2023). WESPER converts whispered speech to normal voice zero-shot and in real time without per-user paired data; conversion cuts Google ASR WER on wTIMIT whispers from 44.70 to 26.68.
+- [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult.md) (2025). HEar-ID jointly recognizes whispered ear-canal letter spelling and user identity from in-ear audio and ultrasonic reflections; Top-1 word accuracy is 67.3% across 11 users (90.25% for eight selected users).
+- [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith.md) (2025). Uses six wearable 6-axis IMUs (accelerometer plus gyroscope) on the face and neck with a Conformer-CTC model to recognize silently articulated words and word sequences. Reports 97.17% word-level accuracy in a 4-participant study.
+- [NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction](nasovoce.md) (2026). NasoVoce, nose-pad microphone and vibration sensor on smart glasses, with multimodal fusion for low-audibility and whispered speech interaction under noise, evaluated by ASR error rates and audio quality.
+- [SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces](sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces.md) (2026). Single-speaker open-vocabulary dataset (ultrasound echoes, audio, video) from eyeglass-mounted sensors; an echo-only baseline trained on mixed voiced/silent data reaches 26.3% WER on silent speech.
+- [End-to-end Silent Speech Recognition with Acoustic Sensing](end-to-end-silent-speech-recognition-with-acoustic-sensing.md) (2020). Silent speech recognition from lip movements using smartphone speaker and microphone active acoustic sensing; reaches 8.4% average WER domain-independent and 8.1% on unseen sentences within a 54-sentence corpus.
 
 ---
 

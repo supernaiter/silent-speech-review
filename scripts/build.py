@@ -109,7 +109,7 @@ def source_updated(papers):
     return ""
 
 
-def review_page(p):
+def review_page(p, papers=()):
     e = p["en"]
     links = []
     if p.get("doi_url"):
@@ -124,6 +124,9 @@ def review_page(p):
         f"{venue_year(p)} · {' · '.join(links)}",
         "",
         f"**Section:** [{sec_en}](../README.md#{anchor(sec_en)}) · **Review basis:** {p.get('review_basis', '')}",
+        "",
+        f"A structured review of *{p['title']}* ({authors_short(p) + ', ' if authors_short(p) else ''}{venue_year(p)}) "
+        f"for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.",
         "",
         e["summary"],
         "",
@@ -182,6 +185,13 @@ def review_page(p):
             where = x.get("section_or_location")
             loc = L(f"（{where}）", f" ({where})") if where else ""
             out.append(f"- {x['statement']}{loc}")
+    related = sorted(
+        (q for q in papers if q["slug"] != p["slug"] and section_of(q) == section_of(p)),
+        key=lambda q: (abs(q["year"] - p["year"]), -q["year"], q["title"].lower()),
+    )[:6]
+    if related:
+        out += ["", f"## More reviews in {sec_en}", ""]
+        out += [f"- [{q['title']}]({q['slug']}.md) ({q['year']}). {q['en']['summary']}" for q in related]
     out += [
         "",
         "---",
@@ -381,7 +391,7 @@ def outputs(papers):
         DATA / "metadata.json": metadata(papers),
     }
     for p in papers:
-        files[REVIEWS_DIR / f"{p['slug']}.md"] = review_page(p)
+        files[REVIEWS_DIR / f"{p['slug']}.md"] = review_page(p, papers)
     return files
 
 

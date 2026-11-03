@@ -1,9 +1,11 @@
 # Towards Neural Decoding of Imagined Speech based on Spoken Speech
 
 Seo-Hyun Lee, Young-Eun Lee, Soowon Kim, Byung-Kwan Ko, Seong-Whan Lee  
-arXiv / imported corpus page 2022 · [arXiv](https://arxiv.org/abs/2212.02047)
+arXiv 2022 · [arXiv](https://arxiv.org/abs/2212.02047)
 
 **Section:** [Brain signals (EEG, MEG, intracortical)](../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+
+A structured review of *Towards Neural Decoding of Imagined Speech based on Spoken Speech* (Seo-Hyun Lee et al., arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Transfers CSP+SVM models trained on spoken-speech EEG to imagined speech decoding; accuracy is slightly lower but not significantly different from direct training in a 5-class, 7-subject offline task.
 
@@ -88,6 +90,15 @@ Cross-subject generalization, scalability to larger vocabularies, real-time or o
 - The dataset involved 7 subjects and 5-class words/phrases recorded with a 64-channel EEG system. (II. MATERIALS)
 - The model used was classical CSP+SVM on 64-channel EEG with only five classes and seven subjects, without online or cross-subject evaluation. (III. RESULTS)
 - No online BCI, assistive-user study, latency analysis, or practical silent communication demonstration was performed. (IV. CONCLUSION)
+
+## More reviews in Brain signals (EEG, MEG, intracortical)
+
+- [EMA2S: An End-to-End Multimodal Articulatory-to-Speech System](ema2s-an-end-to-end-multimodal-articulatory-to-speech-system.md) (2021). End-to-end EMA-to-speech synthesis with multimodal joint loss and a neural vocoder, consistently improving objective and subjective quality over prior EMA-to-speech baselines.
+- [Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI](silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri.md) (2021). Sentence-level speech recognition from real-time MRI of the vocal tract, plus emotion and gender articulation analysis; reaches 40.6% PER on USC-TIMIT with a language model, beating earlier rtMRI baselines.
+- [A comparison of oscillatory characteristics in covert speech and speech perception](a-comparison-of-oscillatory-characteristics-in-covert-speech-and-speech-perception.md) (2020). EEG analysis comparing oscillatory activity in covert speech and speech perception in eight participants; finds stronger low-gamma for covert speech, stronger delta/theta for perception, and theta-gamma coupling.
+- [Continuous Silent Speech Recognition using EEG](continuous-silent-speech-recognition-using-eeg.md) (2020). Decodes continuous sentences from 31-channel scalp EEG recorded during silent reading using CTC and a 4-gram language model; WER is very high (about 75-84%), showing feasibility only.
+- [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses.md) (2025). Maps imagined auditory MEG (melodies and poems) to listened-response MEG; 8-condition classification reaches 50.7% (chance 12.5%), and calibrated cross-subject CNN beats shuffled controls, but correlations are small.
+- [A cross-species neural foundation model for end-to-end speech decoding](a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding.md) (2025). Introduces a cross-species self-supervised transformer encoder for Utah-array spiking data combined with audio-LLM end-to-end decoding, reporting state-of-the-art Brain-to-Text benchmark accuracy and imagined speech decoding.
 
 ---
 

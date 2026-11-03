@@ -1,9 +1,11 @@
 # Knowledge Distilled Ensemble Model for sEMG-based Silent Speech Interface
 
-['', '', '', '', '']  
-arXiv / imported corpus page 2023 · [arXiv](https://arxiv.org/abs/2308.06533)
+Wenqiang Lai, Qihan Yang, Ye Mao, Endong Sun, Jiangnan Ye  
+arXiv 2023 · [arXiv](https://arxiv.org/abs/2308.06533)
 
 **Section:** [Surface EMG](../README.md#surface-emg) · **Review basis:** full_text
+
+A structured review of *Knowledge Distilled Ensemble Model for sEMG-based Silent Speech Interface* (Wenqiang Lai et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Distills a ResNet ensemble into a lightweight model for spelling via the NATO phonetic alphabet from 3-channel facial sEMG on portable hardware. KDE-SSI reaches 85.9% accuracy on 26 classes with 0.12 ms inference per sample.
 
@@ -87,6 +89,15 @@ speaker_independence; broader_demographics; continuous_language
 - KDE-SSI achieves 85.9% accuracy with 87.4% precision, 85.7% recall and 0.855 F1-score on the 26-class NATO phonetic alphabet classification; VE-ResNet teacher ensemble reaches 86.0% accuracy; inference time and model size of KDE-SSI are 0.12 ms and 21.1 MB versus 2.50 ms and 147.9 MB for VE-ResNet. (V.RESULT)
 - The evaluation is limited to 5 young male subjects; only speaker-dependent training and testing are conducted; no cross-subject or cross-session robustness analysis; the system requires adhesive electrodes placed on three facial muscles; does not address speaker independence or broader demographics. (II.DATASET)
 - The proposed method reduces model size by a factor of 7 and speeds inference by about 20x compared to the teacher ensemble, enabling portable, practical deployment with COTS hardware and low latency, while preserving accuracy. (IV.METHOD)
+
+## More reviews in Surface EMG
+
+- [Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language](sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language.md) (2022). SSRNet reconstructs Mandarin speech from five-channel facial sEMG using duration-aware Seq2Seq and tonal multitask learning, cutting ASR CER from 46.62% to 21.99% over the baseline.
+- [A Parallel Ultra-Low Power Silent Speech Interface based on a Wearable, Fully-dry EMG Neckband](a-parallel-ultra-low-power-silent-speech-interface-based-on-a-wearable-fully-dry-emg-neckband.md) (2025). A fully dry wearable EMG neckband with ultra-low-power BioGAP-Ultra classifies 8 silently articulated words for one healthy user at 68% accuracy, dropping to 54% on an unseen re-wearing session; acquisition plus BLE uses 22.2 mW.
+- [A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations](a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations.md) (2025). Jointly trains on EEG and EMG data with heterogeneous electrode configurations for silent Japanese 64-word classification, reaching 95.3% for eight healthy subjects and 54.5% for one patient (chance 1.6%).
+- [Articulatory Feature Prediction from Surface EMG during Speech Production](articulatory-feature-prediction-from-surface-emg-during-speech-production.md) (2025). Predicts 12-dim articulatory features, pitch and loudness from vocalized-speech sEMG and resynthesizes audio with an articulatory synthesizer. Feature correlation is about 0.9 against audio-derived proxy targets, but WER is 15.5% versus 12.6% for the Gaddy baseline (one male speaker).
+- [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding.md) (2025). CAT-Net fuses EEG and surface EMG with cross-attention to classify Mandarin lexical tones in silent articulation, reporting 85.10% leave-one-subject-out accuracy over 4 tones.
+- [Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling](confidence-based-self-training-for-emg-to-speech-leveraging-synthetic-emg-for-robust-modeling.md) (2025). Uses confidence-filtered synthetic EMG generated from speech, mixed with real data, for EMG-to-speech; on real vocalized EMG from one speaker, WER falls from 23.30% to 21.87%.
 
 ---
 

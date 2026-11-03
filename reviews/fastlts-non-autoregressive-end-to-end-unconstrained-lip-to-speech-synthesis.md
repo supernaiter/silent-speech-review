@@ -1,9 +1,11 @@
 # FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis
 
 Yongqi Wang, Zhou Zhao  
-arXiv / imported corpus page 2022 · [DOI](https://doi.org/10.1145/3503161.3548194) · [arXiv](https://arxiv.org/abs/2207.03800)
+arXiv 2022 · [DOI](https://doi.org/10.1145/3503161.3548194) · [arXiv](https://arxiv.org/abs/2207.03800)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis* (Yongqi Wang and Zhou Zhao, arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 FastLTS is a non-autoregressive end-to-end lip-to-speech system that makes unconstrained synthesis substantially faster without obvious quality loss, evaluated on Lip2Wav and GRID.
 
@@ -85,6 +87,15 @@ live deployment; robustness to unconstrained capture artifacts; broader speaker 
 - Section 5.1 states that experiments use the Lip2Wav corpus with 5 speakers but evaluate on 3 speakers, and also test adaptation on 3 speakers from the constrained GRID dataset. (5.1 Datasets)
 - On GRID, FastLTS reports MOS 3.59 for quality, 3.68 for intelligibility, and 3.73 for naturalness, versus 3.27, 3.47, and 3.54 for Lip2Wav. (Table 3: MOS on GRID Dataset)
 - Section 5.5 reports that waveform synthesis reaches a 19.76x acceleration ratio at 3-second input length. (5.5         Inference Speedup)
+
+## More reviews in Lip & face video
+
+- [Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild](lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild.md) (2022). VAE-GAN lip-to-speech synthesis for arbitrary speakers in the wild; holds up on unconstrained LRW/LRS2, and multi-speaker pretraining with 5 h adaptation nearly matches a 20 h single-speaker model.
+- [Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video](multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video.md) (2022). Memory-based cross-modal bridging recalls audio representations from face video, applied to word-level lip reading (LRW/LRW-1000) and speaker-dependent GRID speech reconstruction.
+- [SVTS: Scalable Video-to-Speech Synthesis](svts-scalable-video-to-speech-synthesis.md) (2022). SVTS shows a simple spectrogram predictor with a pretrained vocoder outperforms prior complex video-to-speech models and scales to large datasets such as LRS3+VoxCeleb2.
+- [VCVTS: Multi-speaker Video-to-Speech synthesis via cross-modal knowledge transfer from voice conversion](vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion.md) (2022). VCVTS performs multi-speaker video-to-speech synthesis by transferring knowledge from voice conversion, with speaker control from reference speech, on GRID and LRW.
+- [VisageSynTalk: Unseen Speaker Video-to-Speech Synthesis via Speech-Visage Feature Selection](visagesyntalk-unseen-speaker-video-to-speech-synthesis-via-speech-visage-feature-selection.md) (2022). VisageSynTalk disentangles speech content and visage (identity) features for video-to-speech synthesis, yielding robust results for unseen speakers on benchmarks.
+- [VisualTTS: TTS with Accurate Lip-Speech Synchronization for Automatic Voice Over](visualtts-tts-with-accurate-lip-speech-synchronization-for-automatic-voice-over.md) (2022). VisualTTS conditions TTS on silent lip video to improve lip-speech synchronization for automatic voice-over, evaluated on the scripted GRID corpus.
 
 ---
 

@@ -1,9 +1,11 @@
 # Brain2Char: A Deep Architecture for Decoding Text from Brain Recordings
 
 Pengfei Sun, Gopala K. Anumanchipalli, Edward F. Chang  
-arXiv / imported corpus page 2019 · [arXiv](https://arxiv.org/abs/1909.01401)
+arXiv 2019 · [arXiv](https://arxiv.org/abs/1909.01401)
 
 **Section:** [Brain signals (EEG, MEG, intracortical)](../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+structured_benchmark+summary
+
+A structured review of *Brain2Char: A Deep Architecture for Decoding Text from Brain Recordings* (Pengfei Sun et al., arXiv 2019) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Brain2Char decodes text at character level from invasive ECoG with neural sequence models, reaching 7.0-10.6% WER for three participants on 1200-1900 word vocabularies; silent speech WER is about 40% and 67%.
 
@@ -88,6 +90,15 @@ cross-subject transfer; larger vocabulary decoding
 - Reported word error rates of Brain2Char reach as low as 7.0% for one participant and 10-11% for others on vocabulary tasks of 1200-1900 words; silent speech decoding WER is around 40-67%. (2 Experimental Results)
 - Brain2Char is limited by reliance on invasive ECoG sensor hardware, session-specific calibration, and limited dataset per participant; generalization to other subjects or larger vocabularies remains unproven. (1 Neural Speech Recognition from ECoG)
 - Although Brain2Char demonstrates hands-free, incremental, and real-time capable decoding, deployment for practical communication BCIs is limited by invasiveness and need for extensive calibration. (3 Conclusion)
+
+## More reviews in Brain signals (EEG, MEG, intracortical)
+
+- [A Novel Task-Oriented Text Corpus in Silent Speech Recognition and its Natural Language Generation Construction Method](a-novel-task-oriented-text-corpus-in-silent-speech-recognition-and-its-natural-language-generation-construction-method.md) (2019). Proposes a task-oriented text corpus and a hybrid natural language generation method for building EEG silent speech recognition datasets; claims gains over template and neural NLG but gives no numeric benchmark.
+- [A comparison of oscillatory characteristics in covert speech and speech perception](a-comparison-of-oscillatory-characteristics-in-covert-speech-and-speech-perception.md) (2020). EEG analysis comparing oscillatory activity in covert speech and speech perception in eight participants; finds stronger low-gamma for covert speech, stronger delta/theta for perception, and theta-gamma coupling.
+- [Continuous Silent Speech Recognition using EEG](continuous-silent-speech-recognition-using-eeg.md) (2020). Decodes continuous sentences from 31-channel scalp EEG recorded during silent reading using CTC and a 4-gram language model; WER is very high (about 75-84%), showing feasibility only.
+- [EMA2S: An End-to-End Multimodal Articulatory-to-Speech System](ema2s-an-end-to-end-multimodal-articulatory-to-speech-system.md) (2021). End-to-end EMA-to-speech synthesis with multimodal joint loss and a neural vocoder, consistently improving objective and subjective quality over prior EMA-to-speech baselines.
+- [Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI](silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri.md) (2021). Sentence-level speech recognition from real-time MRI of the vocal tract, plus emotion and gender articulation analysis; reaches 40.6% PER on USC-TIMIT with a language model, beating earlier rtMRI baselines.
+- [Towards Neural Decoding of Imagined Speech based on Spoken Speech](towards-neural-decoding-of-imagined-speech-based-on-spoken-speech.md) (2022). Transfers CSP+SVM models trained on spoken-speech EEG to imagined speech decoding; accuracy is slightly lower but not significantly different from direct training in a 5-class, 7-subject offline task.
 
 ---
 

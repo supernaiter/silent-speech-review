@@ -1,9 +1,11 @@
 # Audio-visual video-to-speech synthesis with synthesized input audio
 
 Triantafyllos Kefalas, Yannis Panagakis, Maja Pantic  
-arXiv / imported corpus page 2023 · [arXiv](https://arxiv.org/abs/2307.16584)
+arXiv 2023 · [arXiv](https://arxiv.org/abs/2307.16584)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *Audio-visual video-to-speech synthesis with synthesized input audio* (Triantafyllos Kefalas et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Adds synthesized audio from a first-stage video-to-audio model as an auxiliary input to a second-stage audiovisual video-to-speech model. Improves reconstruction quality and intelligibility on benchmarks, though gains vary by model and dataset.
 
@@ -89,6 +91,15 @@ impact of different training variants across datasets; live deployment suitabili
 - On GRID 33-speaker seen split, AV2A-WaveGAN with audio pretraining and modality dropout (GT audio) achieved PESQ 2.10, STOI 0.723, ESTOI 0.553, and WER 2.65, surpassing the base V2A-WaveGAN and several prior methods. (VI. RESULTS)
 - For TCD-TIMIT with 3 lipspeakers (seen), AV2A-WaveGAN with audio pretraining and modality dropout (GT audio) reached PESQ 1.44, STOI 0.566, ESTOI 0.411. (VI. RESULTS)
 - The paper relies on objective metrics and WER across benchmark corpora, and WER is unavailable for TCD-TIMIT as no accurate pre-trained ASR model could be found. (V. EXPERIMENTAL METHODOLOGY)
+
+## More reviews in Lip & face video
+
+- [Audio Knowledge Empowered Visual Speech Recognition](akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model.md) (2023). AKVSR improves visual speech recognition by transferring compressed linguistic knowledge from a pretrained audio model through a compact memory and cross-attention, without audio at inference. LRS3 WER drops from 46.1% to 41.6% (BASE).
+- [High-Quality Automatic Voice Over with Accurate Alignment: Supervision through Self-Supervised Discrete Speech Units](high-quality-automatic-voice-over-with-accurate-alignment-supervision-through-self-supervised-discrete-speech-units.md) (2023). An automatic voice-over system that supervises alignment by predicting self-supervised discrete speech units from text and lip video, improving lip-sync and speech quality on a single-speaker dataset. Not an SSI paper.
+- [Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning](improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning.md) (2023). Viseme-level metric learning that aligns normal and silent speech representations to improve silent visual speech recognition, reaching baseline parity with much less silent data on AV Digits.
+- [Intelligible Lip-to-Speech Synthesis with Speech Units](intelligible-lip-to-speech-synthesis-with-speech-units.md) (2023). Lip-to-speech synthesis using self-supervised speech units as a pseudo-text target plus a multi-input vocoder; substantially cuts WER without text labels and reports state-of-the-art results on LRS2/LRS3.
+- [Large-scale unsupervised audio pre-training for video-to-speech synthesis](large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis.md) (2023). Pretrains the decoder of a video-to-speech model on large audio-only corpora, improving reconstruction quality on GRID, TCD-TIMIT and LRW, though WER gains are not consistent.
+- [Let There Be Sound: Reconstructing High Quality Speech from Silent Videos](let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos.md) (2023). Reconstructs speech from silent lip video using self-supervised linguistic conditioning, variance predictors and flow-based refinement. On GRID it reports WER 17.07% and MOS close to vocoded speech.
 
 ---
 

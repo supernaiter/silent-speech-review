@@ -1,9 +1,11 @@
 # Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI
 
 Laxmi Pandey, Ahmed Sabbir Arif  
-arXiv / imported corpus page 2021 · [arXiv](https://arxiv.org/abs/2106.08706)
+arXiv 2021 · [arXiv](https://arxiv.org/abs/2106.08706)
 
 **Section:** [Brain signals (EEG, MEG, intracortical)](../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+
+A structured review of *Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI* (Laxmi Pandey and Ahmed Sabbir Arif, arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Sentence-level speech recognition from real-time MRI of the vocal tract, plus emotion and gender articulation analysis; reaches 40.6% PER on USC-TIMIT with a language model, beating earlier rtMRI baselines.
 
@@ -84,6 +86,15 @@ scaling; portability; broader vocabularies and speakers
 - The framework translates variable-length rtMRI vocal-tract shape sequences into text using an end-to-end deep neural network. (Abstract)
 - The phrases-with-LM model reports 40.6 PER, 39.4 CER, and 42.1 WER on USC-TIMIT unseen data. (Table 2: Performance of the three examined speech recognition models exploiting vocal tract dynamics on unseen data.)
 - The discussion frames the approach as potentially useful but explicitly notes that the enabling technology for day-to-day use does not yet exist. (7   DISCUSSION)
+
+## More reviews in Brain signals (EEG, MEG, intracortical)
+
+- [EMA2S: An End-to-End Multimodal Articulatory-to-Speech System](ema2s-an-end-to-end-multimodal-articulatory-to-speech-system.md) (2021). End-to-end EMA-to-speech synthesis with multimodal joint loss and a neural vocoder, consistently improving objective and subjective quality over prior EMA-to-speech baselines.
+- [Towards Neural Decoding of Imagined Speech based on Spoken Speech](towards-neural-decoding-of-imagined-speech-based-on-spoken-speech.md) (2022). Transfers CSP+SVM models trained on spoken-speech EEG to imagined speech decoding; accuracy is slightly lower but not significantly different from direct training in a 5-class, 7-subject offline task.
+- [A comparison of oscillatory characteristics in covert speech and speech perception](a-comparison-of-oscillatory-characteristics-in-covert-speech-and-speech-perception.md) (2020). EEG analysis comparing oscillatory activity in covert speech and speech perception in eight participants; finds stronger low-gamma for covert speech, stronger delta/theta for perception, and theta-gamma coupling.
+- [Continuous Silent Speech Recognition using EEG](continuous-silent-speech-recognition-using-eeg.md) (2020). Decodes continuous sentences from 31-channel scalp EEG recorded during silent reading using CTC and a 4-gram language model; WER is very high (about 75-84%), showing feasibility only.
+- [A Novel Task-Oriented Text Corpus in Silent Speech Recognition and its Natural Language Generation Construction Method](a-novel-task-oriented-text-corpus-in-silent-speech-recognition-and-its-natural-language-generation-construction-method.md) (2019). Proposes a task-oriented text corpus and a hybrid natural language generation method for building EEG silent speech recognition datasets; claims gains over template and neural NLG but gives no numeric benchmark.
+- [Brain2Char: A Deep Architecture for Decoding Text from Brain Recordings](brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings.md) (2019). Brain2Char decodes text at character level from invasive ECoG with neural sequence models, reaching 7.0-10.6% WER for three participants on 1200-1900 word vocabularies; silent speech WER is about 40% and 67%.
 
 ---
 

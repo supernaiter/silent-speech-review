@@ -5,6 +5,8 @@ arXiv 2026 · [arXiv](https://arxiv.org/abs/2608.27048)
 
 **Section:** [Surface EMG](../README.md#surface-emg) · **Review basis:** full_text+summary
 
+A structured review of *Soft Active Electromyography Interface for Machine Learning-Enabled Silent Speech Recognition* (Yuta Kurotaki et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+
 Hand-worn soft fingertip dry-electrode EMG interface for silent recognition of 30 words with drone control; 97.2% mean participant-dependent accuracy across three participants.
 
 ## Evaluation conditions
@@ -92,6 +94,15 @@ The interface is not hands-free and requires deliberate fingertip contact at fou
 - The dataset contains 30 word classes from three participants: S01 recorded 60 trials per word, while S02 and S03 recorded 30 trials per word; Gaussian jitter augmented only the S02/S03 training data, and evaluation used stratified splitting and five-fold cross-validation. (Methods, Software for silent speech classification; Results, Implementation of Machine Learning-Integrated Silent Speech Interface)
 - The study does not evaluate held-out unseen participants, unseen words, continuous sentences, walking, repeat-session placement variability, or long-term real-world use; the authors identify placement variability, vocabulary expansion, and sentence-level recognition as future work. (Discussion, final paragraph; Methods)
 - A PC executed the pretrained classifier in real time, received four-channel EMG through an Arduino, and sent Start, Move, Turn, and Stop commands over Wi-Fi to a Tello drone; latency and per-command success statistics were not reported. (Results, Application to Human-Computer Interaction; Methods, Drone operation application)
+
+## More reviews in Surface EMG
+
+- [A 1000-hour EEG-EMG-audio dataset of Japanese speech production](a-1000-hour-eeg-emg-audio-dataset-of-japanese-speech-production.md) (2026). A 1020-hour EEG-EMG-audio dataset of Japanese overt speech from three participants, with signal-quality and physiological validation but no decoding benchmarks.
+- [AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration](aessi-an-around-ear-silent-speech-interface-for-cross-day-online-reuse-without-test-day-calibrat.md) (2026). Around-ear cEEGrid system recognizing 25 fixed Mandarin sentences from silent articulation without test-day calibration; 92.24% mean accuracy on held-out later-day sessions and 98.00% in 250 live trials 21+ days later.
+- [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg.md) (2026). Binary affect (polite vs frustrated) classification from facial/neck sEMG in phonated and silent speech; silent-only within-subject AUC 0.829, but transfer to unseen speakers is weak.
+- [Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features](comparison-of-semg-encoding-accuracy-across-speech-modes-using-articulatory-and-phoneme-features.md) (2026). Forward encoding of sEMG envelopes from articulatory (SPARC) versus phoneme features across speech modes; articulatory features predict muscle activity better on most channels in 24 participants.
+- [Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading](cross-modal-masking-for-robust-silent-speech-synthesis-using-semg-and-lipreading.md) (2026). Silent speech synthesis fusing sEMG and lipreading with cross-modal masked training, improving performance and robustness to modality degradation over monomodal baselines.
+- [CS-ETS: Chaos-Inspired Samba-Based EMG-To-Speech Synthesis with Nonlinear Chaotic Losses](cs-ets-chaos-inspired-samba-based-emg-to-speech-synthesis-with-nonlinear-chaotic-losses.md) (2026). Smaller chaos-inspired Samba-based EMG-to-speech model with nonlinear losses; WER improves modestly from 42.20% to 41.26% while parameters drop from 54.10M to 32.03M.
 
 ---
 

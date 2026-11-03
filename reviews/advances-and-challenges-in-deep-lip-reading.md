@@ -1,9 +1,11 @@
 # Advances and Challenges in Deep Lip Reading
 
 Marzieh Oghbaie, Arian Sabaghi, Kooshan Hashemifard, Mohammad Akbari  
-arXiv / imported corpus page 2021 · [arXiv](https://arxiv.org/abs/2110.07879)
+arXiv 2021 · [arXiv](https://arxiv.org/abs/2110.07879)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *Advances and Challenges in Deep Lip Reading* (Marzieh Oghbaie et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 Survey of deep lip reading covering datasets, pipeline modules, challenges and evaluation metrics; contributes no new model or experiments.
 
@@ -82,6 +84,15 @@ survey coverage is bounded by the literature up to 2021
 - The introduction says the survey specifically reviews major datasets, metrics, sub-modules of the VSR pipeline, and open problems rather than proposing a new model. (1       Introduction)
 - Section 3.1.2 explains why in-the-wild datasets are necessary, noting that controlled datasets do not transfer cleanly to real-world conditions. (3.1.2   Lip Reading Datasets in the Wild)
 - Section 3.4 reviews the field's evaluation metrics, including word accuracy, sentence accuracy, error-rate metrics, and BLEU. (3.4    Evaluation Criteria)
+
+## More reviews in Lip & face video
+
+- [Speaker disentanglement in video-to-speech conversion](speaker-disentanglement-in-video-to-speech-conversion.md) (2021). Disentangles speaker identity from visual content in multi-speaker video-to-speech synthesis on GRID, enabling voice control; on unseen speaker identity control the best model reaches about 38.9% WER with 11.9% EER.
+- [Sub-word Level Lip Reading With Visual Attention](sub-word-level-lip-reading-with-visual-attention.md) (2021). Camera-only lip reading with WordPiece sub-word units and a visual transformer pooling front-end; reaches 28.9% WER on LRS2 and 40.6% on LRS3 with public-data training (22.6%/30.7% with extended training).
+- [FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis](fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis.md) (2022). FastLTS is a non-autoregressive end-to-end lip-to-speech system that makes unconstrained synthesis substantially faster without obvious quality loss, evaluated on Lip2Wav and GRID.
+- [Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild](lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild.md) (2022). VAE-GAN lip-to-speech synthesis for arbitrary speakers in the wild; holds up on unconstrained LRW/LRS2, and multi-speaker pretraining with 5 h adaptation nearly matches a 20 h single-speaker model.
+- [Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video](multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video.md) (2022). Memory-based cross-modal bridging recalls audio representations from face video, applied to word-level lip reading (LRW/LRW-1000) and speaker-dependent GRID speech reconstruction.
+- [SVTS: Scalable Video-to-Speech Synthesis](svts-scalable-video-to-speech-synthesis.md) (2022). SVTS shows a simple spectrogram predictor with a pretrained vocoder outperforms prior complex video-to-speech models and scales to large datasets such as LRS3+VoxCeleb2.
 
 ---
 

@@ -1,9 +1,11 @@
 # Audio Knowledge Empowered Visual Speech Recognition
 
 Jeong Hun Yeo, Minsu Kim, Jeongsoo Choi, Dae Hoe Kim, Yong Man Ro  
-arXiv / imported corpus page 2023 · [arXiv](https://arxiv.org/abs/2308.07593)
+arXiv 2023 · [arXiv](https://arxiv.org/abs/2308.07593)
 
 **Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+
+A structured review of *Audio Knowledge Empowered Visual Speech Recognition* (Jeong Hun Yeo et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
 AKVSR improves visual speech recognition by transferring compressed linguistic knowledge from a pretrained audio model through a compact memory and cross-attention, without audio at inference. LRS3 WER drops from 46.1% to 41.6% (BASE).
 
@@ -90,6 +92,15 @@ real-time deployment; preprocessing cost of memory construction; broader interfa
 - The proposed method requires an offline stage to build the compact audio memory before training the VSR model, which adds preprocessing time and complexity, making real-time deployment currently unavailable. (VII. Discussion)
 - The evaluation is limited to sentence-level visual speech recognition benchmarks LRS2 and LRS3; there is no demonstration of generalization to real-world conditions, streaming, multi-speaker, or noisy environments. (VII. Discussion)
 - The key novelty is explicitly removing speaker and noise characteristics from the pretrained audio model's features via vector quantization and storing linguistic content in discrete clusters, then retrieving matched audio memory contents via cross-attention ABM injecting purely video-conditioned audio knowledge during VSR training and inference. (C)
+
+## More reviews in Lip & face video
+
+- [Audio-visual video-to-speech synthesis with synthesized input audio](audio-visual-video-to-speech-synthesis-with-synthesized-input-audio.md) (2023). Adds synthesized audio from a first-stage video-to-audio model as an auxiliary input to a second-stage audiovisual video-to-speech model. Improves reconstruction quality and intelligibility on benchmarks, though gains vary by model and dataset.
+- [High-Quality Automatic Voice Over with Accurate Alignment: Supervision through Self-Supervised Discrete Speech Units](high-quality-automatic-voice-over-with-accurate-alignment-supervision-through-self-supervised-discrete-speech-units.md) (2023). An automatic voice-over system that supervises alignment by predicting self-supervised discrete speech units from text and lip video, improving lip-sync and speech quality on a single-speaker dataset. Not an SSI paper.
+- [Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning](improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning.md) (2023). Viseme-level metric learning that aligns normal and silent speech representations to improve silent visual speech recognition, reaching baseline parity with much less silent data on AV Digits.
+- [Intelligible Lip-to-Speech Synthesis with Speech Units](intelligible-lip-to-speech-synthesis-with-speech-units.md) (2023). Lip-to-speech synthesis using self-supervised speech units as a pseudo-text target plus a multi-input vocoder; substantially cuts WER without text labels and reports state-of-the-art results on LRS2/LRS3.
+- [Large-scale unsupervised audio pre-training for video-to-speech synthesis](large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis.md) (2023). Pretrains the decoder of a video-to-speech model on large audio-only corpora, improving reconstruction quality on GRID, TCD-TIMIT and LRW, though WER gains are not consistent.
+- [Let There Be Sound: Reconstructing High Quality Speech from Silent Videos](let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos.md) (2023). Reconstructs speech from silent lip video using self-supervised linguistic conditioning, variance predictors and flow-based refinement. On GRID it reports WER 17.07% and MOS close to vocoded speech.
 
 ---
 
