@@ -3,7 +3,7 @@
 Marzieh Oghbaie, Arian Sabaghi, Kooshan Hashemifard, Mohammad Akbari  
 arXiv 2021 · [arXiv](https://arxiv.org/abs/2110.07879)
 
-**Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Surveys](../README.md#surveys) · **Review basis:** full_text
 
 A structured review of *Advances and Challenges in Deep Lip Reading* (Marzieh Oghbaie et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
@@ -85,14 +85,14 @@ survey coverage is bounded by the literature up to 2021
 - Section 3.1.2 explains why in-the-wild datasets are necessary, noting that controlled datasets do not transfer cleanly to real-world conditions. (3.1.2   Lip Reading Datasets in the Wild)
 - Section 3.4 reviews the field's evaluation metrics, including word accuracy, sentence accuracy, error-rate metrics, and BLEU. (3.4    Evaluation Criteria)
 
-## More reviews in Lip & face video
+## More reviews in Surveys
 
-- [Speaker disentanglement in video-to-speech conversion](speaker-disentanglement-in-video-to-speech-conversion.md) (2021). Disentangles speaker identity from visual content in multi-speaker video-to-speech synthesis on GRID, enabling voice control; on unseen speaker identity control the best model reaches about 38.9% WER with 11.9% EER.
-- [Sub-word Level Lip Reading With Visual Attention](sub-word-level-lip-reading-with-visual-attention.md) (2021). Camera-only lip reading with WordPiece sub-word units and a visual transformer pooling front-end; reaches 28.9% WER on LRS2 and 40.6% on LRS3 with public-data training (22.6%/30.7% with extended training).
-- [FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis](fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis.md) (2022). FastLTS is a non-autoregressive end-to-end lip-to-speech system that makes unconstrained synthesis substantially faster without obvious quality loss, evaluated on Lip2Wav and GRID.
-- [Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild](lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild.md) (2022). VAE-GAN lip-to-speech synthesis for arbitrary speakers in the wild; holds up on unconstrained LRW/LRS2, and multi-speaker pretraining with 5 h adaptation nearly matches a 20 h single-speaker model.
-- [Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video](multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video.md) (2022). Memory-based cross-modal bridging recalls audio representations from face video, applied to word-level lip reading (LRW/LRW-1000) and speaker-dependent GRID speech reconstruction.
-- [SVTS: Scalable Video-to-Speech Synthesis](svts-scalable-video-to-speech-synthesis.md) (2022). SVTS shows a simple spectrogram predictor with a pretrained vocoder outperforms prior complex video-to-speech models and scales to large datasets such as LRS3+VoxCeleb2.
+- [An Overview of Deep-Learning-Based Audio-Visual Speech Enhancement and Separation](an-overview-of-deep-learning-based-audio-visual-speech-enhancement-and-separation.md) (2020). Survey of deep-learning audio-visual speech enhancement and separation, mapping design choices and noting the lack of standardized audio-visual evaluation.
+- [Silent Speech Interfaces for Speech Restoration: A Review](silent-speech-interfaces-for-speech-restoration-a-review.md) (2020). Review of SSI modalities for speech restoration, focusing on deployment bottlenecks such as latency, scarce patient data and modality trade-offs; cites ideal latency of about 50 ms, acceptable up to 100 ms.
+- [An Introduction to Silent Paralinguistics](an-introduction-to-silent-paralinguistics.md) (2025). Survey introducing silent paralinguistics: conveying emotion and speaking style, not only content, in silent speech, reviewing biosignal sensing modalities and open research problems without new experiments.
+- [Biosignal-Based Spoken Communication: A Survey](biosignal-based-spoken-communication-a-survey.md) (2017). Survey that frames silent speech within biosignal-based spoken communication, spanning articulatory, muscular and neural signals for communication devices, rehabilitation and speech science.
+- [Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review](silent-speech-interfaces-in-the-era-of-large-language-models-a-comprehensive-taxonomy-and-system.md) (2026). Taxonomy and review of silent speech interfaces in the LLM era across neural, EMG, magnetic, ultrasound, optical, acoustic and RF sensing, with benchmark and dataset tables.
+- [Toward Robust, Reproducible, and Widely Accessible Intracranial Language Brain-Computer Interfaces: A Comprehensive Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions](toward-robust-reproducible-and-widely-accessible-intracranial-language-brain-computer-interfaces.md) (2026). Review of intracranial language BCIs covering neural mechanisms, hardware, algorithms, evaluation and clinical pathways, proposing a composite weighted benchmark.
 
 ---
 

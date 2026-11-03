@@ -63,7 +63,7 @@ def section_of(p):
     sites = set(tags(p, "body_site"))
     title = p["title"].lower()
     sensor = p["en"].get("sensor", "").lower()
-    if any(w in title for w in ("review", "survey", "taxonomy", "introduction to")) and "poster" not in title:
+    if ("survey" in tags(p, "task") or any(w in title for w in ("review", "survey", "taxonomy", "introduction to"))) and "poster" not in title:
         return "surveys"
     if "electropalatography" in mods:
         return "epg"

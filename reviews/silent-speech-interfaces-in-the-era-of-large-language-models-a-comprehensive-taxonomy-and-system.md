@@ -102,7 +102,10 @@ No controlled system regression; citation and table inconsistencies reduce the r
 
 - [Toward Robust, Reproducible, and Widely Accessible Intracranial Language Brain-Computer Interfaces: A Comprehensive Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions](toward-robust-reproducible-and-widely-accessible-intracranial-language-brain-computer-interfaces.md) (2026). Review of intracranial language BCIs covering neural mechanisms, hardware, algorithms, evaluation and clinical pathways, proposing a composite weighted benchmark.
 - [An Introduction to Silent Paralinguistics](an-introduction-to-silent-paralinguistics.md) (2025). Survey introducing silent paralinguistics: conveying emotion and speaking style, not only content, in silent speech, reviewing biosignal sensing modalities and open research problems without new experiments.
+- [Advances and Challenges in Deep Lip Reading](advances-and-challenges-in-deep-lip-reading.md) (2021). Survey of deep lip reading covering datasets, pipeline modules, challenges and evaluation metrics; contributes no new model or experiments.
+- [An Overview of Deep-Learning-Based Audio-Visual Speech Enhancement and Separation](an-overview-of-deep-learning-based-audio-visual-speech-enhancement-and-separation.md) (2020). Survey of deep-learning audio-visual speech enhancement and separation, mapping design choices and noting the lack of standardized audio-visual evaluation.
 - [Silent Speech Interfaces for Speech Restoration: A Review](silent-speech-interfaces-for-speech-restoration-a-review.md) (2020). Review of SSI modalities for speech restoration, focusing on deployment bottlenecks such as latency, scarce patient data and modality trade-offs; cites ideal latency of about 50 ms, acceptable up to 100 ms.
+- [Biosignal-Based Spoken Communication: A Survey](biosignal-based-spoken-communication-a-survey.md) (2017). Survey that frames silent speech within biosignal-based spoken communication, spanning articulatory, muscular and neural signals for communication devices, rehabilitation and speech science.
 
 ---
 

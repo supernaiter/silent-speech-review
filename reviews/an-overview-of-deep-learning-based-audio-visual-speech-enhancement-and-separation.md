@@ -3,7 +3,7 @@
 Daniel Michelsanti, Zheng-Hua Tan, Shi-Xiong Zhang, Yong Xu, Meng Yu, Dong Yu, Jesper Jensen  
 arXiv 2020 · [arXiv](https://arxiv.org/abs/2008.09586)
 
-**Section:** [Lip & face video](../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Surveys](../README.md#surveys) · **Review basis:** full_text
 
 A structured review of *An Overview of Deep-Learning-Based Audio-Visual Speech Enhancement and Separation* (Daniel Michelsanti et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
@@ -86,14 +86,14 @@ Standardized AV evaluation; low-resource deployment; robust fusion under real-wo
 - The conclusion states that visual information benefits both enhancement and separation, and that AV systems can outperform audio-only systems especially at low SNR or when source permutation is an issue. (XII. C ONCLUSION)
 - The paper explicitly says that fair comparison is hard because of application-specific constraints and the lack of standardized audio-visual evaluation procedures. (XII. C ONCLUSION)
 
-## More reviews in Lip & face video
+## More reviews in Surveys
 
-- [Speech Prediction in Silent Videos using Variational Autoencoders](speech-prediction-in-silent-videos-using-variational-autoencoders.md) (2020). Variational autoencoder model for speech synthesis from silent lip video that models one-to-many ambiguity; on GRID reports STOI 0.724, ESTOI 0.540 and PESQ 1.932, leading Lip2Wav on ESTOI and PESQ.
-- [Vocoder-Based Speech Synthesis from Silent Videos](vocoder-based-speech-synthesis-from-silent-videos.md) (2020). Predicts full vocoder features from silent face video with joint visual speech recognition training on GRID; speaker-dependent model reaches PESQ 1.90 and WER 15.1%, but speaker-independent performance drops sharply.
+- [Silent Speech Interfaces for Speech Restoration: A Review](silent-speech-interfaces-for-speech-restoration-a-review.md) (2020). Review of SSI modalities for speech restoration, focusing on deployment bottlenecks such as latency, scarce patient data and modality trade-offs; cites ideal latency of about 50 ms, acceptable up to 100 ms.
 - [Advances and Challenges in Deep Lip Reading](advances-and-challenges-in-deep-lip-reading.md) (2021). Survey of deep lip reading covering datasets, pipeline modules, challenges and evaluation metrics; contributes no new model or experiments.
-- [Speaker disentanglement in video-to-speech conversion](speaker-disentanglement-in-video-to-speech-conversion.md) (2021). Disentangles speaker identity from visual content in multi-speaker video-to-speech synthesis on GRID, enabling voice control; on unseen speaker identity control the best model reaches about 38.9% WER with 11.9% EER.
-- [Sub-word Level Lip Reading With Visual Attention](sub-word-level-lip-reading-with-visual-attention.md) (2021). Camera-only lip reading with WordPiece sub-word units and a visual transformer pooling front-end; reaches 28.9% WER on LRS2 and 40.6% on LRS3 with public-data training (22.6%/30.7% with extended training).
-- [Lipper: Synthesizing Thy Speech using Multi-View Lipreading](lipper-synthesizing-thy-speech-using-multi-view-lipreading.md) (2019). Lipper reconstructs speech from multi-view lip video on OuluVS2 as a regression problem; the best three-view setting reaches PESQ 2.315 with 0.169 s end-to-end delay, though audio remains robotic.
+- [Biosignal-Based Spoken Communication: A Survey](biosignal-based-spoken-communication-a-survey.md) (2017). Survey that frames silent speech within biosignal-based spoken communication, spanning articulatory, muscular and neural signals for communication devices, rehabilitation and speech science.
+- [An Introduction to Silent Paralinguistics](an-introduction-to-silent-paralinguistics.md) (2025). Survey introducing silent paralinguistics: conveying emotion and speaking style, not only content, in silent speech, reviewing biosignal sensing modalities and open research problems without new experiments.
+- [Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review](silent-speech-interfaces-in-the-era-of-large-language-models-a-comprehensive-taxonomy-and-system.md) (2026). Taxonomy and review of silent speech interfaces in the LLM era across neural, EMG, magnetic, ultrasound, optical, acoustic and RF sensing, with benchmark and dataset tables.
+- [Toward Robust, Reproducible, and Widely Accessible Intracranial Language Brain-Computer Interfaces: A Comprehensive Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions](toward-robust-reproducible-and-widely-accessible-intracranial-language-brain-computer-interfaces.md) (2026). Review of intracranial language BCIs covering neural mechanisms, hardware, algorithms, evaluation and clinical pathways, proposing a composite weighted benchmark.
 
 ---
 

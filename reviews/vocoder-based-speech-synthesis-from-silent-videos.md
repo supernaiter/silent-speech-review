@@ -97,12 +97,12 @@ Speaker-independent generalization remains weak with large performance drops com
 
 ## More reviews in Lip & face video
 
-- [An Overview of Deep-Learning-Based Audio-Visual Speech Enhancement and Separation](an-overview-of-deep-learning-based-audio-visual-speech-enhancement-and-separation.md) (2020). Survey of deep-learning audio-visual speech enhancement and separation, mapping design choices and noting the lack of standardized audio-visual evaluation.
 - [Speech Prediction in Silent Videos using Variational Autoencoders](speech-prediction-in-silent-videos-using-variational-autoencoders.md) (2020). Variational autoencoder model for speech synthesis from silent lip video that models one-to-many ambiguity; on GRID reports STOI 0.724, ESTOI 0.540 and PESQ 1.932, leading Lip2Wav on ESTOI and PESQ.
-- [Advances and Challenges in Deep Lip Reading](advances-and-challenges-in-deep-lip-reading.md) (2021). Survey of deep lip reading covering datasets, pipeline modules, challenges and evaluation metrics; contributes no new model or experiments.
 - [Speaker disentanglement in video-to-speech conversion](speaker-disentanglement-in-video-to-speech-conversion.md) (2021). Disentangles speaker identity from visual content in multi-speaker video-to-speech synthesis on GRID, enabling voice control; on unseen speaker identity control the best model reaches about 38.9% WER with 11.9% EER.
 - [Sub-word Level Lip Reading With Visual Attention](sub-word-level-lip-reading-with-visual-attention.md) (2021). Camera-only lip reading with WordPiece sub-word units and a visual transformer pooling front-end; reaches 28.9% WER on LRS2 and 40.6% on LRS3 with public-data training (22.6%/30.7% with extended training).
 - [Lipper: Synthesizing Thy Speech using Multi-View Lipreading](lipper-synthesizing-thy-speech-using-multi-view-lipreading.md) (2019). Lipper reconstructs speech from multi-view lip video on OuluVS2 as a regression problem; the best three-view setting reaches PESQ 2.315 with 0.169 s end-to-end delay, though audio remains robotic.
+- [Video-Driven Speech Reconstruction using Generative Adversarial Networks](video-driven-speech-reconstruction-using-generative-adversarial-networks.md) (2019). Uses a GAN to generate speech audio directly from silent frontal face video on GRID; speaker-dependent WER is 26.6%, while unseen speakers degrade to 40.5% WER.
+- [FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis](fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis.md) (2022). FastLTS is a non-autoregressive end-to-end lip-to-speech system that makes unconstrained synthesis substantially faster without obvious quality loss, evaluated on Lip2Wav and GRID.
 
 ---
 
