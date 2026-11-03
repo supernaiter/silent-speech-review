@@ -252,6 +252,10 @@ def readme(papers):
         "another decodes open sentences from new speakers on a later day. "
         "This review puts those conditions next to every headline number.",
         "",
+        "Topics covered: silent speech recognition, lip reading and visual speech recognition (VSR), lip-to-speech and "
+        "video-to-speech synthesis, EMG-to-speech, ultrasound tongue imaging, imagined and inner speech decoding from EEG and MEG, "
+        "brain-to-text and speech neuroprostheses, radar and Wi-Fi sensing, and wearable silent speech text entry.",
+        "",
         "[日本語の説明](README.ja.md)",
         "",
         f"**Sections:** {nav}",
@@ -263,6 +267,10 @@ def readme(papers):
         p = by_slug.get(slug)
         if p:
             out.append(f"{i}. [{p['title']}](reviews/{slug}.md) ({p['year']}). {p['en']['summary']}")
+    datasets = [p for p in papers if any(w in p["title"].lower() for w in ("dataset", "corpus", "benchmark")) and "closed-corpus" not in p["title"].lower()]
+    if datasets:
+        out += ["", "## Datasets and benchmarks", ""]
+        out += [f"- [{p['title']}](reviews/{p['slug']}.md) ({p['year']}). {p['en']['summary']}" for p in datasets]
     out += [
         "",
         "## How to read the tables",
