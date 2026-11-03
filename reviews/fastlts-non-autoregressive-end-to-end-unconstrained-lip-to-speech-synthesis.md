@@ -90,12 +90,12 @@ live deployment; robustness to unconstrained capture artifacts; broader speaker 
 
 ## More reviews in Lip & face video
 
+- [Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction](learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction.md) (2022). Self-supervised audio-visual pretraining (masked multimodal cluster prediction) enabling lipreading at 32.5% WER on LRS3 with only 30 h of labels, and 26.9% with 433 h plus self-training.
 - [Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild](lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild.md) (2022). VAE-GAN lip-to-speech synthesis for arbitrary speakers in the wild; holds up on unconstrained LRW/LRS2, and multi-speaker pretraining with 5 h adaptation nearly matches a 20 h single-speaker model.
 - [Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video](multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video.md) (2022). Memory-based cross-modal bridging recalls audio representations from face video, applied to word-level lip reading (LRW/LRW-1000) and speaker-dependent GRID speech reconstruction.
 - [SVTS: Scalable Video-to-Speech Synthesis](svts-scalable-video-to-speech-synthesis.md) (2022). SVTS shows a simple spectrogram predictor with a pretrained vocoder outperforms prior complex video-to-speech models and scales to large datasets such as LRS3+VoxCeleb2.
 - [VCVTS: Multi-speaker Video-to-Speech synthesis via cross-modal knowledge transfer from voice conversion](vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion.md) (2022). VCVTS performs multi-speaker video-to-speech synthesis by transferring knowledge from voice conversion, with speaker control from reference speech, on GRID and LRW.
 - [VisageSynTalk: Unseen Speaker Video-to-Speech Synthesis via Speech-Visage Feature Selection](visagesyntalk-unseen-speaker-video-to-speech-synthesis-via-speech-visage-feature-selection.md) (2022). VisageSynTalk disentangles speech content and visage (identity) features for video-to-speech synthesis, yielding robust results for unseen speakers on benchmarks.
-- [VisualTTS: TTS with Accurate Lip-Speech Synchronization for Automatic Voice Over](visualtts-tts-with-accurate-lip-speech-synchronization-for-automatic-voice-over.md) (2022). VisualTTS conditions TTS on silent lip video to improve lip-speech synchronization for automatic voice-over, evaluated on the scripted GRID corpus.
 
 ---
 
