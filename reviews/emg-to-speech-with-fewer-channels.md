@@ -43,8 +43,8 @@ Verdicts compare the paper's choice for each component with common practice acro
 | M06 Decoding | Gaddy21 encoder HiFi-GAN vocoder 1st conv resized | Encoder + neural vocoder pipeline | 240 of 8,995 | ● Standard |
 | M07 Runtime aids | No LM at use time Whisper LM in eval | LM for text decoding; none for synthesis | 2,262 of 8,995 | ● Standard |
 | M08 Output | Speech waveform | Audio output | 425 of 8,995 | ● Standard |
-| M09 Confirmation | None | Online BCIs confirm output (button/gaze) | 82 of 8,995 | ✕ Missing |
-| M10 Correction | None | Correction rare; mostly online BCI/AAC | 82 of 8,995 | ✕ Missing |
+| M09 Confirmation | None | Online BCIs confirm output (button/gaze) | 65 of 8,995 | ✕ Missing |
+| M10 Correction | None | Correction rare; mostly online BCI/AAC | 65 of 8,995 | ✕ Missing |
 | M11 Eval reference | Corpus transcripts norm. unstated | Text reference + ASR or human listeners | 239 of 8,995 | ● Standard |
 | M12 Evaluation | Whisper-med WER Single run, no CI Baseline ~35% | Seed repeats, held-out subset choice | 114 of 8,995 | ▼ Behind |
 | M13 Hardware & limits | Virtual deletion No reduced device | Re-record reduced layout; device prototypes | 337 of 8,995 | ✕ Missing |
