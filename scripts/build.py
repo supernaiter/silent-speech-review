@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Generate README.md, README.ja.md, data/papers.csv, data/metadata.json and
-reviews/<slug>.md from data/reviews.jsonl (the single source of truth).
+"""Generate README.md, README.ja.md, data/papers.csv, data/metadata.json,
+figures/*.svg (from data/figures/<slug>.json) and reviews/<slug>.md from data/reviews.jsonl (the single source of truth).
 
     python3 scripts/build.py           # write files
     python3 scripts/build.py --check   # fail if generated files are out of date
@@ -12,9 +12,13 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+import figures as F
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 REVIEWS_DIR = ROOT / "reviews"
+FIG_DIR = ROOT / "figures"
+FIG_DATA = DATA / "figures"
 REPO_URL = "https://github.com/supernaiter/silent-speech-review"
 
 # Sections in display order. A paper goes to the first section whose rule matches.
@@ -145,6 +149,7 @@ def review_page(p, papers=()):
         f"**Limitations.** {e['limitations']}",
         "",
     ]
+    out += figures_section(p)
     jp = is_japanese(p.get("expert_take_long", "") + p.get("expert_take_short", ""))
     L = (lambda ja, en: ja) if jp else (lambda ja, en: en)
     out += [L("## 日本語レビュー", "## Full review"), ""]
@@ -203,6 +208,57 @@ def review_page(p, papers=()):
     return "\n".join(out)
 
 
+def paper_figures(p):
+    f = FIG_DATA / f"{p['slug']}.json"
+    return json.loads(f.read_text(encoding="utf-8"))["figures"] if f.exists() else []
+
+
+def figures_section(p):
+    figs = paper_figures(p)
+    if not figs:
+        return []
+    out = ["## Figures", ""]
+    for fig in figs:
+        out += [f"### {fig['title']}", ""]
+        if fig["kind"] == "mermaid":
+            out += ["```mermaid", fig["mermaid"].rstrip(), "```"]
+        else:
+            out.append(F.picture(f"../figures/{p['slug']}/{fig['id']}", fig["title"]))
+        if fig.get("caption"):
+            out += ["", fig["caption"]]
+        rows = F.data_table(fig)
+        if rows:
+            out += ["", "<details><summary>Data</summary>", ""] + rows + ["", "</details>"]
+        out.append("")
+    return out
+
+
+def field_figures(prefix, lang="en"):
+    f = FIG_DATA / "_field.json"
+    if not f.exists():
+        return []
+    out = []
+    for fig in json.loads(f.read_text(encoding="utf-8"))["figures"]:
+        out += [F.picture(f"{prefix}figures/field/{fig['id']}", fig["title"]), ""]
+        if lang == "en" and fig.get("caption"):
+            out += [fig["caption"], ""]
+    return out
+
+
+def field_map(papers):
+    first = 2018
+    cols = [f"≤{first - 1}"] + [str(y) for y in range(first, max(p["year"] for p in papers) + 1)]
+    keys = [k for k, _, _ in SECTIONS if any(section_of(p) == k for p in papers)]
+    grid = [[0] * len(cols) for _ in keys]
+    for p in papers:
+        j = 0 if p["year"] < first else p["year"] - first + 1
+        grid[keys.index(section_of(p))][j] += 1
+    rows = [SECTION_TITLES[k][0] for k in keys]
+    title = f"Reviewed papers by sensor and year (n={len(papers)})"
+    sub = "Each cell counts the papers reviewed here, not the whole literature."
+    return {mode: F.heatmap(title, sub, rows, cols, grid, t) for mode, t in F.THEMES.items()}
+
+
 def venue_year(p):
     v, y = p.get("venue", ""), str(p["year"])
     return v if (y in v or "'" + y[2:] in v) else f"{v} {y}".strip()
@@ -259,6 +315,11 @@ def readme(papers):
         "[日本語の説明](README.ja.md)",
         "",
         f"**Sections:** {nav}",
+        "",
+        "## The field in 13 components",
+        "",
+        *field_figures(""),
+        F.picture("figures/field-map", "Reviewed papers by sensor and year"),
         "",
         "## Start here",
         "",
@@ -339,6 +400,14 @@ def readme_ja(papers):
         "",
         "## センサ別の本数",
         "",
+        F.picture("figures/field-map", "センサと年ごとのレビュー本数"),
+        "",
+        "## 13の部品で見た分野",
+        "",
+        "センサが何であれ、発話意図の解読は同じ13の部品（学習時と利用時の行為、計測、復号、出力、確認と訂正、評価など）で記述できます。"
+        "分野の研究は計測・復号・評価に集中し、確認・訂正・利用時の補助情報・学習専用の教師情報はほとんど報告されていません。",
+        "",
+        *field_figures("", "ja"),
     ]
     for key, n in counts(papers):
         en, ja = SECTION_TITLES[key]
@@ -400,6 +469,15 @@ def outputs(papers):
     }
     for p in papers:
         files[REVIEWS_DIR / f"{p['slug']}.md"] = review_page(p, papers)
+        for fig in paper_figures(p):
+            for mode, svg in (F.render(fig) or {}).items():
+                files[FIG_DIR / p["slug"] / f"{fig['id']}-{mode}.svg"] = svg
+    f = FIG_DATA / "_field.json"
+    for fig in (json.loads(f.read_text(encoding="utf-8"))["figures"] if f.exists() else []):
+        for mode, svg in F.render(fig).items():
+            files[FIG_DIR / "field" / f"{fig['id']}-{mode}.svg"] = svg
+    for mode, svg in field_map(papers).items():
+        files[FIG_DIR / f"field-map-{mode}.svg"] = svg
     return files
 
 
@@ -409,6 +487,7 @@ def main():
     files = outputs(papers)
     expected = set(files)
     stale = [p for p in REVIEWS_DIR.glob("*.md") if p not in expected] if REVIEWS_DIR.exists() else []
+    stale += [p for p in FIG_DIR.rglob("*.svg") if p not in expected] if FIG_DIR.exists() else []
     if check:
         bad = [str(p.relative_to(ROOT)) for p, text in files.items() if not p.exists() or p.read_text(encoding="utf-8") != text]
         bad += [str(p.relative_to(ROOT)) + " (not in data)" for p in stale]
@@ -422,6 +501,7 @@ def main():
     for p in stale:
         p.unlink()
     for path, text in files.items():
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
     print(f"Wrote {len(files)} files for {len(papers)} papers.")
 

@@ -6,6 +6,14 @@ SSIの精度は、語彙の大きさ、話者依存か、別日に付け直し�
 
 ## センサ別の本数
 
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/field-map-dark.svg"><img alt="センサと年ごとのレビュー本数" src="figures/field-map-light.svg"></picture>
+
+## 13の部品で見た分野
+
+センサが何であれ、発話意図の解読は同じ13の部品（学習時と利用時の行為、計測、復号、出力、確認と訂正、評価など）で記述できます。分野の研究は計測・復号・評価に集中し、確認・訂正・利用時の補助情報・学習専用の教師情報はほとんど報告されていません。
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/field/components-dark.svg"><img alt="Speech-intention decoding in 13 components: what the field reports" src="figures/field/components-light.svg"></picture>
+
 - [サーベイ](README.md#surveys)：8本
 - [口蓋電極（EPG）・口腔内センサ](README.md#electropalatography--in-mouth-sensors)：1本
 - [超音波・舌の画像](README.md#ultrasound--tongue-imaging)：18本

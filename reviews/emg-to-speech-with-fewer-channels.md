@@ -23,6 +23,85 @@ Channel-reduction study for EMG-to-speech using exhaustive subset search and ful
 
 **Limitations.** Single subject; subset selection not clearly independent of reporting; no repeated runs or physically built reduced-channel device.
 
+## Figures
+
+### This paper in the 13 components
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="../figures/emg-to-speech-with-fewer-channels/components-dark.svg"><img alt="This paper in the 13 components" src="../figures/emg-to-speech-with-fewer-channels/components-light.svg"></picture>
+
+Boxes follow the same 13-component map used across this review, so papers on any sensor can be compared component by component.
+
+<details><summary>Data</summary>
+
+| Component | This paper |
+| --- | --- |
+| M01 Training-time act | not reported |
+| M02 Teacher signal | not reported |
+| M03 Train / calibrate | 8-ch pretrain, then fine-tune channel dropout p≤0.25 |
+| M04 Use-time act | Silent articulation (voiced in training) |
+| M05 Sensing | sEMG, 4–8 of 8 ch face and neck all 70 4-ch subsets |
+| M06 Decoding | CNN+Transformer → mel → HiFi-GAN |
+| M07 Runtime aids | not reported |
+| M08 Output | Audio waveform |
+| M09 Confirmation | not reported |
+| M10 Correction | not reported |
+| M11 Eval reference | not reported |
+| M12 Evaluation | WER via Whisper 1 run, test-set pick |
+| M13 Hardware & limits | Offline only |
+
+</details>
+
+### 8-electrode baseline vs. other reports of the same pipeline
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="../figures/emg-to-speech-with-fewer-channels/baseline-dark.svg"><img alt="8-electrode baseline vs. other reports of the same pipeline" src="../figures/emg-to-speech-with-fewer-channels/baseline-light.svg"></picture>
+
+Same corpus, model family, vocoder and ASR. The paper's 8-electrode baseline sits about 8 points above three same-lab reports; a hollow marker is a value read from the paper's plot (about ±0.3).
+
+<details><summary>Data</summary>
+
+| Result | Conditions | WER (%) | Source |
+| --- | --- | --- | --- |
+| TAP-ETS (2026) | Gaddy baseline in Table 1 | 25.12 | TAP-ETS Table 1 |
+| GETS (2026) | Gaddy & Klein row | 25.74 | GETS Table 1 |
+| SVRA (2026) | 10-seed mean ± SD | 26.75 ± 0.99 | SVRA Table 1 |
+| Diff-ETS (2024) | encoder only | 30 | Diff-ETS Table I |
+| This paper | 8-ch baseline, 1 run | ≈35 | This paper, Figs. 2–3 (read from plot) |
+
+</details>
+
+### Cost of going from 8 to 4 electrodes
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="../figures/emg-to-speech-with-fewer-channels/reduction-dark.svg"><img alt="Cost of going from 8 to 4 electrodes" src="../figures/emg-to-speech-with-fewer-channels/reduction-light.svg"></picture>
+
+ASR and model generation differ between papers, so only the relative change is comparable. The 8-electrode value for this paper is read from its plot.
+
+<details><summary>Data</summary>
+
+| Paper | Conditions | 8 electrodes | 4 electrodes | Source |
+| --- | --- | --- | --- | --- |
+| Gaddy & Klein 2020 | DeepSpeech, silent | 68 | 76.8 | Gaddy & Klein 2020, §4.3.2 |
+| This paper | Whisper medium, silent | ≈35 | 47.2 | This paper, Table 1 and Fig. 2 |
+| Lee et al. 2025 | Whisper-large-v3, voiced | 15.5 | 22.9 | Lee et al. 2025, Table 3 |
+
+</details>
+
+### Fine-tuning from 8 channels helps; channel dropout does not
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="../figures/emg-to-speech-with-fewer-channels/finetune-dark.svg"><img alt="Fine-tuning from 8 channels helps; channel dropout does not" src="../figures/emg-to-speech-with-fewer-channels/finetune-light.svg"></picture>
+
+Values read from the paper's Fig. 3 (about ±0.3). Pretraining on 8 electrodes lowers WER at 4–6 electrodes; dropout probability p > 0 beats p = 0 only at 5 electrodes.
+
+<details><summary>Data</summary>
+
+| Electrodes kept | No pretraining | p = 0 | p = 0.125 | p = 0.25 |
+| --- | --- | --- | --- | --- |
+| 7 | 36.5 | 35.8 | 37.6 | 36.7 |
+| 6 | 42.9 | 39.2 | 40.3 | 39.4 |
+| 5 | 43.4 | 39.5 | 39 | 38.1 |
+| 4 | 47.2 | 44.6 | 44.6 | 46.5 |
+
+</details>
+
 ## Full review
 
 ### In short

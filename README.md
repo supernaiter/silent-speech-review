@@ -10,6 +10,14 @@ Topics covered: silent speech recognition, lip reading and visual speech recogni
 
 **Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (18) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (37) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (46) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (10)
 
+## The field in 13 components
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/field/components-dark.svg"><img alt="Speech-intention decoding in 13 components: what the field reports" src="figures/field/components-light.svg"></picture>
+
+Every speech-intention decoder, whatever its sensor, can be described by the same 13 components: what the user does in training and in use, what is sensed, how it is decoded, what comes out, how the user confirms or corrects it, and how it is evaluated. The field concentrates on sensing, decoding and evaluation; confirmation, correction, runtime aids and training-only supervision are almost never reported. Counts come from the maintainer's normalized paper ledger (spec v2.1); a component counts as recorded when the ledger holds at least one fact for it.
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/field-map-dark.svg"><img alt="Reviewed papers by sensor and year" src="figures/field-map-light.svg"></picture>
+
 ## Start here
 
 1. [Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review](reviews/silent-speech-interfaces-in-the-era-of-large-language-models-a-comprehensive-taxonomy-and-system.md) (2026). Taxonomy and review of silent speech interfaces in the LLM era across neural, EMG, magnetic, ultrasound, optical, acoustic and RF sensing, with benchmark and dataset tables.

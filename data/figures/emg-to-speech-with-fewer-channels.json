@@ -1,0 +1,196 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components",
+   "subtitle": "What the paper specifies for each component; dashed boxes are not reported.",
+   "slots": {
+    "M03": {
+     "choice": [
+      "8-ch pretrain,",
+      "then fine-tune",
+      "channel dropout p≤0.25"
+     ]
+    },
+    "M04": {
+     "choice": [
+      "Silent articulation",
+      "(voiced in training)"
+     ]
+    },
+    "M05": {
+     "choice": [
+      "sEMG, 4–8 of 8 ch",
+      "face and neck",
+      "all 70 4-ch subsets"
+     ]
+    },
+    "M06": {
+     "choice": [
+      "CNN+Transformer",
+      "→ mel → HiFi-GAN"
+     ]
+    },
+    "M08": {
+     "choice": [
+      "Audio waveform"
+     ]
+    },
+    "M12": {
+     "choice": [
+      "WER via Whisper",
+      "1 run, test-set pick"
+     ]
+    },
+    "M13": {
+     "choice": [
+      "Offline only"
+     ]
+    }
+   },
+   "caption": "Boxes follow the same 13-component map used across this review, so papers on any sensor can be compared component by component."
+  },
+  {
+   "id": "baseline",
+   "kind": "dots",
+   "title": "8-electrode baseline vs. other reports of the same pipeline",
+   "subtitle": "Gaddy corpus, silent test, Whisper WER (%), lower is better",
+   "unit": "WER (%)",
+   "min": 20,
+   "max": 40,
+   "band": {
+    "from": 25,
+    "to": 27,
+    "label": "same-lab baselines"
+   },
+   "rows": [
+    {
+     "label": "TAP-ETS (2026)",
+     "note": "Gaddy baseline in Table 1",
+     "value": 25.12,
+     "source": "TAP-ETS Table 1"
+    },
+    {
+     "label": "GETS (2026)",
+     "note": "Gaddy & Klein row",
+     "value": 25.74,
+     "source": "GETS Table 1"
+    },
+    {
+     "label": "SVRA (2026)",
+     "note": "10-seed mean ± SD",
+     "value": 26.75,
+     "err": 0.99,
+     "source": "SVRA Table 1"
+    },
+    {
+     "label": "Diff-ETS (2024)",
+     "note": "encoder only",
+     "value": 30.0,
+     "source": "Diff-ETS Table I"
+    },
+    {
+     "label": "This paper",
+     "note": "8-ch baseline, 1 run",
+     "value": 35,
+     "estimate": true,
+     "highlight": true,
+     "source": "This paper, Figs. 2–3 (read from plot)"
+    }
+   ],
+   "caption": "Same corpus, model family, vocoder and ASR. The paper's 8-electrode baseline sits about 8 points above three same-lab reports; a hollow marker is a value read from the paper's plot (about ±0.3)."
+  },
+  {
+   "id": "reduction",
+   "kind": "slope",
+   "title": "Cost of going from 8 to 4 electrodes",
+   "subtitle": "Different ASR and model generations: compare the relative change only",
+   "unit": "WER (%)",
+   "max": 80,
+   "left": "8 electrodes",
+   "right": "4 electrodes",
+   "series": [
+    {
+     "label": "Gaddy & Klein 2020",
+     "note": "DeepSpeech, silent",
+     "a": 68.0,
+     "b": 76.8,
+     "source": "Gaddy & Klein 2020, §4.3.2"
+    },
+    {
+     "label": "This paper",
+     "note": "Whisper medium, silent",
+     "a": 35,
+     "b": 47.2,
+     "estimate_a": true,
+     "highlight": true,
+     "source": "This paper, Table 1 and Fig. 2"
+    },
+    {
+     "label": "Lee et al. 2025",
+     "note": "Whisper-large-v3, voiced",
+     "a": 15.5,
+     "b": 22.9,
+     "source": "Lee et al. 2025, Table 3"
+    }
+   ],
+   "caption": "ASR and model generation differ between papers, so only the relative change is comparable. The 8-electrode value for this paper is read from its plot."
+  },
+  {
+   "id": "finetune",
+   "kind": "lines",
+   "title": "Fine-tuning from 8 channels helps; channel dropout does not",
+   "subtitle": "Read from the paper's Fig. 3, single run each",
+   "unit": "WER (%)",
+   "min": 30,
+   "max": 50,
+   "x": [
+    "7",
+    "6",
+    "5",
+    "4"
+   ],
+   "xlabel": "Electrodes kept",
+   "series": [
+    {
+     "label": "No pretraining",
+     "values": [
+      36.5,
+      42.9,
+      43.4,
+      47.2
+     ]
+    },
+    {
+     "label": "p = 0",
+     "values": [
+      35.8,
+      39.2,
+      39.5,
+      44.6
+     ]
+    },
+    {
+     "label": "p = 0.125",
+     "values": [
+      37.6,
+      40.3,
+      39.0,
+      44.6
+     ]
+    },
+    {
+     "label": "p = 0.25",
+     "values": [
+      36.7,
+      39.4,
+      38.1,
+      46.5
+     ]
+    }
+   ],
+   "caption": "Values read from the paper's Fig. 3 (about ±0.3). Pretraining on 8 electrodes lowers WER at 4–6 electrodes; dropout probability p > 0 beats p = 0 only at 5 electrodes."
+  }
+ ]
+}
