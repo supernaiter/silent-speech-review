@@ -25,29 +25,29 @@ Channel-reduction study for EMG-to-speech using exhaustive subset search and ful
 
 ## Figures
 
-### This paper in the 13 components
+### This paper in the 13 components, against the field
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="../figures/emg-to-speech-with-fewer-channels/components-dark.svg"><img alt="This paper in the 13 components" src="../figures/emg-to-speech-with-fewer-channels/components-light.svg"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../figures/emg-to-speech-with-fewer-channels/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="../figures/emg-to-speech-with-fewer-channels/components-light.svg"></picture>
 
-Boxes follow the same 13-component map used across this review, so papers on any sensor can be compared component by component.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading), not only EMG papers. Paper counts come from the maintainer's ledger and undercount some components, notably runtime aids, confirmation and correction.
 
 <details><summary>Data</summary>
 
-| Component | This paper |
-| --- | --- |
-| M01 Training-time act | not reported |
-| M02 Teacher signal | not reported |
-| M03 Train / calibrate | 8-ch pretrain, then fine-tune channel dropout p≤0.25 |
-| M04 Use-time act | Silent articulation (voiced in training) |
-| M05 Sensing | sEMG, 4–8 of 8 ch face and neck all 70 4-ch subsets |
-| M06 Decoding | CNN+Transformer → mel → HiFi-GAN |
-| M07 Runtime aids | not reported |
-| M08 Output | Audio waveform |
-| M09 Confirmation | not reported |
-| M10 Correction | not reported |
-| M11 Eval reference | not reported |
-| M12 Evaluation | WER via Whisper 1 run, test-set pick |
-| M13 Hardware & limits | Offline only |
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Voiced+silent EMG Gaddy corpus inherited setup | Train voiced, use silent; modes reported apart | 4,014 of 8,995 | ● Standard |
+| M02 Teacher signal | Voiced audio mels Phoneme alignment as teacher | Paired audio/text/phoneme supervision | 258 of 8,995 | ● Standard |
+| M03 Train / calibrate | 8ch pretrain Fine-tune on subset Dropout p≤0.25 | Channel masking known; day-layer/pos transfer | 25 of 8,995 | ▲ Ahead |
+| M04 Use-time act | Silent or voiced test unstated | Silent and voiced results reported apart | 1,024 of 8,995 | ✕ Missing |
+| M05 Sensing | 8→1 backward elim. All 70 4-of-8 sets Best 4ch 47.2% | Subset selection in EEG/MEG/EMA/EMG/video | 50 of 8,995 | ● Standard |
+| M06 Decoding | Gaddy21 encoder HiFi-GAN vocoder 1st conv resized | Encoder + neural vocoder pipeline | 240 of 8,995 | ● Standard |
+| M07 Runtime aids | No LM at use time Whisper LM in eval | LM for text decoding; none for synthesis | 2,262 of 8,995 | ● Standard |
+| M08 Output | Speech waveform | Audio output | 425 of 8,995 | ● Standard |
+| M09 Confirmation | None | Online BCIs confirm output (button/gaze) | 82 of 8,995 | ✕ Missing |
+| M10 Correction | None | Correction rare; mostly online BCI/AAC | 82 of 8,995 | ✕ Missing |
+| M11 Eval reference | Corpus transcripts norm. unstated | Text reference + ASR or human listeners | 239 of 8,995 | ● Standard |
+| M12 Evaluation | Whisper-med WER Single run, no CI Baseline ~35% | Seed repeats, held-out subset choice | 114 of 8,995 | ▼ Behind |
+| M13 Hardware & limits | Virtual deletion No reduced device | Re-record reduced layout; device prototypes | 337 of 8,995 | ✕ Missing |
 
 </details>
 
