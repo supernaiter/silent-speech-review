@@ -3,53 +3,144 @@
   {
    "id": "components",
    "kind": "mechanism",
-   "title": "This paper in the 13 components",
-   "subtitle": "What the paper specifies for each component; dashed boxes are not reported.",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
    "slots": {
+    "M01": {
+     "choice": [
+      "Voiced+silent EMG",
+      "Gaddy corpus",
+      "inherited setup"
+     ],
+     "field": "Train voiced, use silent; modes reported apart",
+     "n": 8995,
+     "matched": 4014,
+     "verdict": "standard"
+    },
+    "M02": {
+     "choice": [
+      "Voiced audio mels",
+      "Phoneme alignment",
+      "as teacher"
+     ],
+     "field": "Paired audio/text/phoneme supervision",
+     "n": 8995,
+     "matched": 258,
+     "verdict": "standard"
+    },
     "M03": {
      "choice": [
-      "8-ch pretrain,",
-      "then fine-tune",
-      "channel dropout p≤0.25"
-     ]
+      "8ch pretrain",
+      "Fine-tune on subset",
+      "Dropout p≤0.25"
+     ],
+     "field": "Channel masking known; day-layer/pos transfer",
+     "n": 8995,
+     "matched": 25,
+     "verdict": "ahead"
     },
     "M04": {
      "choice": [
-      "Silent articulation",
-      "(voiced in training)"
-     ]
+      "Silent or voiced",
+      "test unstated"
+     ],
+     "field": "Silent and voiced results reported apart",
+     "n": 8995,
+     "matched": 1024,
+     "verdict": "missing"
     },
     "M05": {
      "choice": [
-      "sEMG, 4–8 of 8 ch",
-      "face and neck",
-      "all 70 4-ch subsets"
-     ]
+      "8→1 backward elim.",
+      "All 70 4-of-8 sets",
+      "Best 4ch 47.2%"
+     ],
+     "field": "Subset selection in EEG/MEG/EMA/EMG/video",
+     "n": 8995,
+     "matched": 50,
+     "verdict": "standard"
     },
     "M06": {
      "choice": [
-      "CNN+Transformer",
-      "→ mel → HiFi-GAN"
-     ]
+      "Gaddy21 encoder",
+      "HiFi-GAN vocoder",
+      "1st conv resized"
+     ],
+     "field": "Encoder + neural vocoder pipeline",
+     "n": 8995,
+     "matched": 240,
+     "verdict": "standard"
+    },
+    "M07": {
+     "choice": [
+      "No LM at use time",
+      "Whisper LM in eval"
+     ],
+     "field": "LM for text decoding; none for synthesis",
+     "n": 8995,
+     "matched": 2262,
+     "verdict": "standard"
     },
     "M08": {
      "choice": [
-      "Audio waveform"
-     ]
+      "Speech waveform"
+     ],
+     "field": "Audio output",
+     "n": 8995,
+     "matched": 425,
+     "verdict": "standard"
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "Online BCIs confirm output (button/gaze)",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "missing"
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "Correction rare; mostly online BCI/AAC",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "missing"
+    },
+    "M11": {
+     "choice": [
+      "Corpus transcripts",
+      "norm. unstated"
+     ],
+     "field": "Text reference + ASR or human listeners",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard"
     },
     "M12": {
      "choice": [
-      "WER via Whisper",
-      "1 run, test-set pick"
-     ]
+      "Whisper-med WER",
+      "Single run, no CI",
+      "Baseline ~35%"
+     ],
+     "field": "Seed repeats, held-out subset choice",
+     "n": 8995,
+     "matched": 114,
+     "verdict": "behind"
     },
     "M13": {
      "choice": [
-      "Offline only"
-     ]
+      "Virtual deletion",
+      "No reduced device"
+     ],
+     "field": "Re-record reduced layout; device prototypes",
+     "n": 8995,
+     "matched": 337,
+     "verdict": "missing"
     }
    },
-   "caption": "Boxes follow the same 13-component map used across this review, so papers on any sensor can be compared component by component."
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading), not only EMG papers. Paper counts come from the maintainer's ledger and undercount some components, notably runtime aids, confirmation and correction."
   },
   {
    "id": "baseline",

@@ -285,14 +285,15 @@ def data_table(fig):
             out.append(f"| {xv} | " + " | ".join(fmt(s["values"][j]) for s in fig["series"]) + " |")
     elif k == "mechanism":
         judged = any(v.get("verdict") for v in fig["slots"].values())
-        out = ["| Component | This paper | Common practice | Papers compared | Verdict |", "| --- | --- | --- | --- | --- |"] \
+        out = ["| Component | This paper | Common practice | Papers with this practice | Verdict |", "| --- | --- | --- | --- | --- |"] \
             if judged else ["| Component | This paper |", "| --- | --- |"]
         for key, (label, _, _) in sorted(SLOTS.items()):
             v = fig["slots"].get(key, {})
             row = f"| {key} {label} | {' '.join(v.get('choice') or ['not reported'])} |"
             if judged:
                 verdict = " ".join(VERDICTS[v["verdict"]][:2]) if v.get("verdict") else ""
-                row += f" {v.get('field', '')} | {v.get('n', '')} | {verdict} |"
+                cnt = f"{v['matched']:,} of {v['n']:,}" if v.get("matched") is not None else v.get("n", "")
+                row += f" {v.get('field', '')} | {cnt} | {verdict} |"
             out.append(row)
     elif k == "coverage":
         out = ["| Component | Papers recording it | Share |", "| --- | --- | --- |"]
@@ -323,7 +324,7 @@ VERDICTS = {  # status colours, always shown with an icon and a word, never colo
     "ahead": ("▲", "Ahead", "#0ca30c"), "standard": ("●", "Standard", None),
     "behind": ("▼", "Behind", "#ec835a"), "missing": ("✕", "Missing", "#d03b3b"),
 }
-BW, BH, GX, GY = 136, 140, 22, 44
+BW, BH, GX, GY = 136, 156, 22, 44
 
 
 def wrap(s, n):
@@ -403,8 +404,11 @@ def mechanism(fig, t):
             svg.text(x + 10, y + 50 + j * 15, ln, 12, t["text"] if has else t["muted"], italic=not has)
         if v.get("field"):
             svg.line(x + 10, y + 94, x + BW - 10, y + 94, t["axis"])
-            n = f" (n={v['n']})" if v.get("n") is not None else ""
-            for j, ln in enumerate(wrap("Field: " + v["field"] + n, 23)[:2]):
+            if v.get("matched") is not None:
+                n = f" ({v['matched']:,} papers)"
+            else:
+                n = f" (n={v['n']})" if v.get("n") is not None else ""
+            for j, ln in enumerate(wrap("Field: " + v["field"] + n, 23)[:4]):
                 svg.text(x + 10, y + 107 + j * 12, ln, 10, t["muted"])
         if word:
             svg.text(x + BW - 10, y + 16, f"{icon} {word}", 10, color or t["muted"], "end", "700")
