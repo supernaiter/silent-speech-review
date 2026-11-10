@@ -16,6 +16,7 @@ If you are an author of a reviewed paper and something is wrong or missing, an i
 1. Edit `data/reviews.jsonl` only. Each line is one paper.
 2. Fill the English fields under `en` (summary, sensor, task, vocabulary, speaker, session, mode, key_result, limitations). Use the fixed values for `speaker` (Speaker-dependent, Speaker-independent, Both, Not stated), `session` (Same session, Cross-session, Cross-day, Not stated, Not applicable) and `mode` (Online, Offline, Both, Not stated, Not applicable).
 3. Report the paper's numbers under the paper's own conditions. Do not copy text from the paper beyond short quotes.
-4. Run `python3 scripts/build.py` and commit the regenerated files. CI fails if they are out of date.
+4. Figures are data too: `data/figures/<slug>.json` lists a paper's figures (kinds: `mechanism`, `dots`, `slope`, `lines`, `mermaid`; see `scripts/figures.py`) and `data/figures/_field.json` holds the field-wide figures. Never edit the SVGs in `figures/` by hand.
+5. Run `python3 scripts/build.py` and commit the regenerated files. CI fails if they are out of date.
 
 By contributing you agree that your contribution is licensed under [CC BY 4.0](LICENSE).
