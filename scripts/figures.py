@@ -298,7 +298,8 @@ def data_table(fig):
         out = ["| Component | Papers recording it | Share |", "| --- | --- | --- |"]
         for key, (label, _, _) in sorted(SLOTS.items()):
             n = fig["counts"].get(key, 0)
-            out.append(f"| {key} {label} | {n:,} of {fig['total']:,} | {n / fig['total'] * 100:.1f}% |")
+            flag = fig.get("flags", {}).get(key)
+            out.append(f"| {key} {label} | {n:,} of {fig['total']:,}{' (' + flag + ')' if flag else ''} | {n / fig['total'] * 100:.1f}% |")
     else:
         return []
     return out
@@ -419,8 +420,8 @@ def mechanism(fig, t):
 
 
 def coverage(fig, t):
-    """The whole field: share of papers whose ledger records each component."""
-    counts, total = fig["counts"], fig["total"]
+    """The whole field: share of ledger entries that record each component (flags mark known under-recording)."""
+    counts, total, flags = fig["counts"], fig["total"], fig.get("flags", {})
     present = set(SLOTS)
 
     def paint(svg, k, x, y):
@@ -434,6 +435,8 @@ def coverage(fig, t):
         pct = f"{share * 100:.0f}%" if share >= 0.01 else f"{share * 100:.1f}%"
         svg.text(x + 10, y + 78, pct, 30, t["text"], weight="700")
         svg.text(x + 10, y + 98, f"{counts.get(k, 0):,} of {total:,}", 11, t["muted"])
+        if k in flags:
+            svg.text(x + 10, y + 112, "△ " + flags[k], 10, t["muted"], weight="600")
 
     svg = component_map(fig, t, 112, present, paint)
     if fig.get("note"):

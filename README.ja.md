@@ -10,9 +10,9 @@ SSIの精度は、語彙の大きさ、話者依存か、別日に付け直し�
 
 ## 13の部品で見た分野
 
-センサが何であれ、発話意図の解読は同じ13の部品（学習時と利用時の行為、計測、復号、出力、確認と訂正、評価など）で記述できます。分野の研究は計測・復号・評価に集中し、確認・訂正・利用時の補助情報・学習専用の教師情報はほとんど報告されていません。
+センサが何であれ、発話意図の解読は同じ13の部品（学習時と利用時の行為、計測、復号、出力、確認と訂正、評価など）で記述できます。図の割合は、論文台帳がその部品を記録している割合で、分野の実態そのものではありません。利用時の補助情報（M07：言語モデルや辞書）は台帳の記入漏れが多いと分かっており（復号論文3,245本中、記録78本に対し、本文で使用に触れるものは推定約200本多い）、確認（M09）・訂正（M10）・学習専用の教師情報（M02）も同様の可能性があるため再抽出中です（△印）。
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="figures/field/components-dark.svg"><img alt="Speech-intention decoding in 13 components: what the field reports" src="figures/field/components-light.svg"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/field/components-dark.svg"><img alt="Speech-intention decoding in 13 components: what the ledger records" src="figures/field/components-light.svg"></picture>
 
 - [サーベイ](README.md#surveys)：8本
 - [口蓋電極（EPG）・口腔内センサ](README.md#electropalatography--in-mouth-sensors)：1本
