@@ -15,7 +15,8 @@
      "field": "Train voiced, use silent; modes reported apart",
      "n": 8995,
      "matched": 4014,
-     "verdict": "standard"
+     "verdict": "standard",
+     "note": "Inherited from Gaddy corpus; matches field practice."
     },
     "M02": {
      "choice": [
@@ -26,7 +27,8 @@
      "field": "Paired audio/text/phoneme supervision",
      "n": 8995,
      "matched": 258,
-     "verdict": "standard"
+     "verdict": "standard",
+     "note": "Standard supervision; ledger records it under M03."
     },
     "M03": {
      "choice": [
@@ -36,8 +38,9 @@
      ],
      "field": "Channel masking known; day-layer/pos transfer",
      "n": 8995,
-     "matched": 25,
-     "verdict": "ahead"
+     "matched": 23,
+     "verdict": "standard",
+     "note": "Downgraded from ahead: full-to-subset initialization has no other example only within the wiki regex search (recall not measured) and rests on a single run with a weak baseline; channel dropout is not novel and not supported."
     },
     "M04": {
      "choice": [
@@ -47,7 +50,8 @@
      "field": "Silent and voiced results reported apart",
      "n": 8995,
      "matched": 1024,
-     "verdict": "missing"
+     "verdict": "missing",
+     "note": "the paper does not state whether the test set is silent or voiced EMG."
     },
     "M05": {
      "choice": [
@@ -55,10 +59,11 @@
       "All 70 4-of-8 sets",
       "Best 4ch 47.2%"
      ],
-     "field": "Subset selection in EEG/MEG/EMA/EMG/video",
+     "field": "Subset selection in EMG/EEG/MEG/EMA/accel/magnetometer/video; EMG exhaustive 2,047-subset search exists",
      "n": 8995,
-     "matched": 50,
-     "verdict": "standard"
+     "matched": 53,
+     "verdict": "standard",
+     "note": "Relative 8->4 cost (+35%) matches EMG recognition precedents (+32%, +36%); only the retrained exhaustive search with open-vocabulary synthesis WER is new within the wiki search."
     },
     "M06": {
      "choice": [
@@ -69,7 +74,8 @@
      "field": "Encoder + neural vocoder pipeline",
      "n": 8995,
      "matched": 240,
-     "verdict": "standard"
+     "verdict": "standard",
+     "note": "Same-lab standard configuration."
     },
     "M07": {
      "choice": [
@@ -79,7 +85,8 @@
      "field": "LM for text decoding; none for synthesis",
      "n": 8995,
      "matched": 2262,
-     "verdict": "standard"
+     "verdict": "standard",
+     "note": "No use-time LM is normal for synthesis; Whisper's internal LM is an implicit evaluation-time LM (reviewer hypothesis)."
     },
     "M08": {
      "choice": [
@@ -88,7 +95,8 @@
      "field": "Audio output",
      "n": 8995,
      "matched": 425,
-     "verdict": "standard"
+     "verdict": "standard",
+     "note": "Standard."
     },
     "M09": {
      "choice": [
@@ -97,7 +105,8 @@
      "field": "Online BCIs confirm output (button/gaze)",
      "n": 8995,
      "matched": 65,
-     "verdict": "missing"
+     "verdict": "na",
+     "note": "offline synthesis studies normally do not address output confirmation; not a defect of this paper."
     },
     "M10": {
      "choice": [
@@ -106,7 +115,8 @@
      "field": "Correction rare; mostly online BCI/AAC",
      "n": 8995,
      "matched": 65,
-     "verdict": "missing"
+     "verdict": "na",
+     "note": "offline study; correction/re-entry is out of scope."
     },
     "M11": {
      "choice": [
@@ -116,7 +126,8 @@
      "field": "Text reference + ASR or human listeners",
      "n": 8995,
      "matched": 239,
-     "verdict": "standard"
+     "verdict": "standard",
+     "note": "Standard; Whisper text normalization not stated."
     },
     "M12": {
      "choice": [
@@ -127,7 +138,8 @@
      "field": "Seed repeats, held-out subset choice",
      "n": 8995,
      "matched": 114,
-     "verdict": "behind"
+     "verdict": "behind",
+     "note": "Behind the best comparable sensor-reduction studies (seed repeats, held-out selection); typical of speech synthesis, where seed repetition is rare (1 of 425 regex matches)."
     },
     "M13": {
      "choice": [
@@ -137,7 +149,8 @@
      "field": "Re-record reduced layout; device prototypes",
      "n": 8995,
      "matched": 337,
-     "verdict": "missing"
+     "verdict": "na",
+     "note": "offline virtual-deletion study; relevant only as a limit on device-design claims."
     }
    },
    "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading), not only EMG papers. Paper counts come from the maintainer's ledger and undercount some components, notably runtime aids, confirmation and correction."

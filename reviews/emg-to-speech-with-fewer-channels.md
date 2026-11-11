@@ -35,19 +35,19 @@ Verdicts compare the paper's choice for each component with common practice acro
 
 | Component | This paper | Common practice | Papers with this practice | Verdict |
 | --- | --- | --- | --- | --- |
-| M01 Training-time act | Voiced+silent EMG Gaddy corpus inherited setup | Train voiced, use silent; modes reported apart | 4,014 of 8,995 | ● Standard |
-| M02 Teacher signal | Voiced audio mels Phoneme alignment as teacher | Paired audio/text/phoneme supervision | 258 of 8,995 | ● Standard |
-| M03 Train / calibrate | 8ch pretrain Fine-tune on subset Dropout p≤0.25 | Channel masking known; day-layer/pos transfer | 25 of 8,995 | ▲ Ahead |
-| M04 Use-time act | Silent or voiced test unstated | Silent and voiced results reported apart | 1,024 of 8,995 | ✕ Missing |
-| M05 Sensing | 8→1 backward elim. All 70 4-of-8 sets Best 4ch 47.2% | Subset selection in EEG/MEG/EMA/EMG/video | 50 of 8,995 | ● Standard |
-| M06 Decoding | Gaddy21 encoder HiFi-GAN vocoder 1st conv resized | Encoder + neural vocoder pipeline | 240 of 8,995 | ● Standard |
-| M07 Runtime aids | No LM at use time Whisper LM in eval | LM for text decoding; none for synthesis | 2,262 of 8,995 | ● Standard |
-| M08 Output | Speech waveform | Audio output | 425 of 8,995 | ● Standard |
-| M09 Confirmation | None | Online BCIs confirm output (button/gaze) | 65 of 8,995 | ✕ Missing |
-| M10 Correction | None | Correction rare; mostly online BCI/AAC | 65 of 8,995 | ✕ Missing |
-| M11 Eval reference | Corpus transcripts norm. unstated | Text reference + ASR or human listeners | 239 of 8,995 | ● Standard |
-| M12 Evaluation | Whisper-med WER Single run, no CI Baseline ~35% | Seed repeats, held-out subset choice | 114 of 8,995 | ▼ Behind |
-| M13 Hardware & limits | Virtual deletion No reduced device | Re-record reduced layout; device prototypes | 337 of 8,995 | ✕ Missing |
+| M01 Training-time act | Voiced+silent EMG Gaddy corpus inherited setup | Train voiced, use silent; modes reported apart | 4,014 of 8,995 | ● Standard (Inherited from Gaddy corpus; matches field practice.) |
+| M02 Teacher signal | Voiced audio mels Phoneme alignment as teacher | Paired audio/text/phoneme supervision | 258 of 8,995 | ● Standard (Standard supervision; ledger records it under M03.) |
+| M03 Train / calibrate | 8ch pretrain Fine-tune on subset Dropout p≤0.25 | Channel masking known; day-layer/pos transfer | 23 of 8,995 | ● Standard (Downgraded from ahead: full-to-subset initialization has no other example only within the wiki regex search (recall not measured) and rests on a single run with a weak baseline; channel dropout is not novel and not supported.) |
+| M04 Use-time act | Silent or voiced test unstated | Silent and voiced results reported apart | 1,024 of 8,995 | ✕ Not reported (the paper does not state whether the test set is silent or voiced EMG.) |
+| M05 Sensing | 8→1 backward elim. All 70 4-of-8 sets Best 4ch 47.2% | Subset selection in EMG/EEG/MEG/EMA/accel/magnetometer/video; EMG exhaustive 2,047-subset search exists | 53 of 8,995 | ● Standard (Relative 8->4 cost (+35%) matches EMG recognition precedents (+32%, +36%); only the retrained exhaustive search with open-vocabulary synthesis WER is new within the wiki search.) |
+| M06 Decoding | Gaddy21 encoder HiFi-GAN vocoder 1st conv resized | Encoder + neural vocoder pipeline | 240 of 8,995 | ● Standard (Same-lab standard configuration.) |
+| M07 Runtime aids | No LM at use time Whisper LM in eval | LM for text decoding; none for synthesis | 2,262 of 8,995 | ● Standard (No use-time LM is normal for synthesis; Whisper's internal LM is an implicit evaluation-time LM (reviewer hypothesis).) |
+| M08 Output | Speech waveform | Audio output | 425 of 8,995 | ● Standard (Standard.) |
+| M09 Confirmation | None | Online BCIs confirm output (button/gaze) | 65 of 8,995 | – Not applicable (offline synthesis studies normally do not address output confirmation; not a defect of this paper.) |
+| M10 Correction | None | Correction rare; mostly online BCI/AAC | 65 of 8,995 | – Not applicable (offline study; correction/re-entry is out of scope.) |
+| M11 Eval reference | Corpus transcripts norm. unstated | Text reference + ASR or human listeners | 239 of 8,995 | ● Standard (Standard; Whisper text normalization not stated.) |
+| M12 Evaluation | Whisper-med WER Single run, no CI Baseline ~35% | Seed repeats, held-out subset choice | 114 of 8,995 | ▼ Behind (Behind the best comparable sensor-reduction studies (seed repeats, held-out selection); typical of speech synthesis, where seed repetition is rare (1 of 425 regex matches).) |
+| M13 Hardware & limits | Virtual deletion No reduced device | Re-record reduced layout; device prototypes | 337 of 8,995 | – Not applicable (offline virtual-deletion study; relevant only as a limit on device-design claims.) |
 
 </details>
 
