@@ -292,6 +292,8 @@ def data_table(fig):
             row = f"| {key} {label} | {' '.join(v.get('choice') or ['not reported'])} |"
             if judged:
                 verdict = " ".join(VERDICTS[v["verdict"]][:2]) if v.get("verdict") else ""
+                if v.get("note"):
+                    verdict += f" ({v['note']})"
                 cnt = f"{v['matched']:,} of {v['n']:,}" if v.get("matched") is not None else v.get("n", "")
                 row += f" {v.get('field', '')} | {cnt} | {verdict} |"
             out.append(row)
@@ -322,7 +324,8 @@ ROUTES = [("M01", "M03"), ("M02", "M03"), ("M03", "M06"), ("M04", "M05"), ("M05"
 LANES = ["Training", "Use", "Setup & evaluation"]
 VERDICTS = {  # status colours, always shown with an icon and a word, never colour alone
     "ahead": ("▲", "Ahead", "#0ca30c"), "standard": ("●", "Standard", None),
-    "behind": ("▼", "Behind", "#ec835a"), "missing": ("✕", "Missing", "#d03b3b"),
+    "behind": ("▼", "Behind", "#ec835a"), "missing": ("✕", "Not reported", "#d03b3b"),
+    "na": ("–", "Not applicable", None),
 }
 BW, BH, GX, GY = 136, 156, 22, 44
 
@@ -330,11 +333,16 @@ BW, BH, GX, GY = 136, 156, 22, 44
 def wrap(s, n):
     out, cur = [], ""
     for w in s.split():
-        if cur and len(cur) + 1 + len(w) > n:
-            out.append(cur)
-            cur = w
-        else:
-            cur = f"{cur} {w}".strip()
+        parts = [w]
+        if len(w) > n:  # break long slash lists such as EEG/MEG/EMA/...
+            parts = [p + "/" for p in w.split("/")[:-1]] + [w.split("/")[-1]]
+        for i, part in enumerate(parts):
+            glue = "" if i else " "
+            if cur and len(cur) + len(glue) + len(part) > n:
+                out.append(cur)
+                cur = part
+            else:
+                cur = (cur + glue + part) if cur else part
     return out + ([cur] if cur else [])
 
 
@@ -396,8 +404,9 @@ def mechanism(fig, t):
         v = slots.get(k, {})
         icon, word, color = VERDICTS.get(v.get("verdict"), ("", "", None))
         has = k in present
-        dash = "" if has else ' stroke-dasharray="3 3"'
-        svg.add(f'<rect x="{x}" y="{y}" width="{BW}" height="{BH}" rx="6" fill="{t["band"] if has else t["bg"]}" '
+        na = v.get("verdict") == "na"
+        dash = "" if has and not na else ' stroke-dasharray="3 3"'
+        svg.add(f'<rect x="{x}" y="{y}" width="{BW}" height="{BH}" rx="6" fill="{t["band"] if has and not na else t["bg"]}" '
                 f'stroke="{color or t["axis"]}" stroke-width="{2.5 if color else 1}"{dash}/>')
         body = [ln for c in (v.get("choice") or ["not reported"]) for ln in wrap(c, 19)][:3]
         for j, ln in enumerate(body):
@@ -405,21 +414,24 @@ def mechanism(fig, t):
         if v.get("field"):
             svg.line(x + 10, y + 94, x + BW - 10, y + 94, t["axis"])
             if v.get("matched") is not None:
-                n = f" ({v['matched']:,} papers)"
+                n = f"{v['matched']:,} papers share it"
             else:
-                n = f" (n={v['n']})" if v.get("n") is not None else ""
-            for j, ln in enumerate(wrap("Field: " + v["field"] + n, 23)[:4]):
+                n = f"n={v['n']}" if v.get("n") is not None else ""
+            body = wrap("Field: " + v["field"], 23)
+            if len(body) > 3:
+                body = body[:2] + [body[2][:21] + "…"]
+            for j, ln in enumerate(body + ([n] if n else [])):
                 svg.text(x + 10, y + 107 + j * 12, ln, 10, t["muted"])
         if word:
             svg.text(x + BW - 10, y + 16, f"{icon} {word}", 10, color or t["muted"], "end", "700")
 
     svg = component_map(fig, t, 112, present, paint)
     lx = 16
-    for key in ("ahead", "standard", "behind", "missing"):
+    for key in ("ahead", "standard", "behind", "missing", "na"):
         icon, word, color = VERDICTS[key]
         svg.text(lx, 72, f"{icon} {word}", 11, color or t["muted"], weight="700")
         lx += 22 + 7.5 * len(word)
-    svg.text(lx + 4, 72, "this paper vs. common practice on any sensor · dashed box = not reported", 11, t["muted"])
+    svg.text(lx + 4, 72, "vs. common practice on any sensor", 11, t["muted"])
     return svg.done()
 
 
