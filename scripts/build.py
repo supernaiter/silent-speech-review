@@ -19,6 +19,7 @@ DATA = ROOT / "data"
 REVIEWS_DIR = ROOT / "reviews"
 FIG_DIR = ROOT / "figures"
 FIG_DATA = DATA / "figures"
+COMPONENT = DATA / "component"  # full component reviews: <slug>.ja.md (+ <slug>.bib)
 REPO_URL = "https://github.com/supernaiter/silent-speech-review"
 
 # Sections in display order. A paper goes to the first section whose rule matches.
@@ -150,6 +151,36 @@ def review_page(p, papers=()):
         "",
     ]
     out += figures_section(p)
+    comp = component_review(p)
+    if comp:
+        out += comp
+    else:
+        out += legacy_review(p)
+    out += related_and_footer(p, papers, sec_en)
+    return "\n".join(out)
+
+
+def component_review(p):
+    """Full component-by-component review (Japanese), if data/component/<slug>.ja.md exists."""
+    f = COMPONENT / f"{p['slug']}.ja.md"
+    if not f.exists():
+        return []
+    lines = f.read_text(encoding="utf-8").splitlines()
+    if lines and lines[0].startswith("# "):
+        lines = lines[1:]
+    body = []
+    fence = False
+    for line in lines:
+        if line.startswith("```"):
+            fence = not fence
+        if not fence and line.startswith("#"):
+            line = "#" + line
+        body.append(line.replace(f"]({p['slug']}.bib)", f"](../data/component/{p['slug']}.bib)"))
+    return ["## 構成要素別レビュー（日本語）", "", *body, ""]
+
+
+def legacy_review(p):
+    out = []
     jp = is_japanese(p.get("expert_take_long", "") + p.get("expert_take_short", ""))
     L = (lambda ja, en: ja) if jp else (lambda ja, en: en)
     out += [L("## 日本語レビュー", "## Full review"), ""]
@@ -190,6 +221,11 @@ def review_page(p, papers=()):
             where = x.get("section_or_location")
             loc = L(f"（{where}）", f" ({where})") if where else ""
             out.append(f"- {x['statement']}{loc}")
+    return out
+
+
+def related_and_footer(p, papers, sec_en):
+    out = []
     related = sorted(
         (q for q in papers if q["slug"] != p["slug"] and section_of(q) == section_of(p)),
         key=lambda q: (abs(q["year"] - p["year"]), -q["year"], q["title"].lower()),
@@ -205,7 +241,7 @@ def review_page(p, papers=()):
         f"Found an error? [Open an issue]({REPO_URL}/issues/new?template=correction.yml).",
         "",
     ]
-    return "\n".join(out)
+    return out
 
 
 def paper_figures(p):
