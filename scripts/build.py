@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Generate README.md, README.ja.md, data/papers.csv, data/metadata.json,
-figures/*.svg (from data/figures/<slug>.json) and reviews/<slug>.md from data/reviews.jsonl (the single source of truth).
+"""Generate every derived file of the repository (layout: docs/STRUCTURE.md).
+
+Sources: data/reviews.jsonl, data/field.json, reviews/<slug>/{review.ja.md, refs.bib, slots.json,
+figures.json, evaluation*.md, triage.ja.md}, components/<Mxx>/<topic>.json.
+Generated: README.md, README.ja.md, data/papers.csv, data/metadata.json, figures/ (field figures),
+reviews/<slug>/README.md, reviews/<slug>/figures/*.svg, components/README.md,
+components/<Mxx>/README.md, components/<Mxx>/<topic>.csv.
 
     python3 scripts/build.py           # write files
     python3 scripts/build.py --check   # fail if generated files are out of date
 """
 import csv
+import re
 import io
 import json
 import sys
@@ -18,8 +24,9 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 REVIEWS_DIR = ROOT / "reviews"
 FIG_DIR = ROOT / "figures"
-FIG_DATA = DATA / "figures"
-COMPONENT = DATA / "component"  # full component reviews: <slug>.ja.md (+ <slug>.bib)
+COMPONENTS_DIR = ROOT / "components"
+FIELD_JSON = DATA / "field.json"
+SLOT_NAMES = {k: F.SLOTS[k][0] for k in sorted(F.SLOTS)}
 REPO_URL = "https://github.com/supernaiter/silent-speech-review"
 
 # Sections in display order. A paper goes to the first section whose rule matches.
@@ -128,7 +135,7 @@ def review_page(p, papers=()):
         f"{', '.join(p.get('authors') or [])}  ",
         f"{venue_year(p)} · {' · '.join(links)}",
         "",
-        f"**Section:** [{sec_en}](../README.md#{anchor(sec_en)}) · **Review basis:** {p.get('review_basis', '')}",
+        f"**Section:** [{sec_en}](../../README.md#{anchor(sec_en)}) · **Review basis:** {p.get('review_basis', '')}",
         "",
         f"A structured review of *{p['title']}* ({authors_short(p) + ', ' if authors_short(p) else ''}{venue_year(p)}) "
         f"for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.",
@@ -156,13 +163,18 @@ def review_page(p, papers=()):
         out += comp
     else:
         out += legacy_review(p)
+    out += materials_section(p)
     out += related_and_footer(p, papers, sec_en)
     return "\n".join(out)
 
 
+def paper_dir(p):
+    return REVIEWS_DIR / p["slug"]
+
+
 def component_review(p):
-    """Full component-by-component review (Japanese), if data/component/<slug>.ja.md exists."""
-    f = COMPONENT / f"{p['slug']}.ja.md"
+    """Full component-by-component review (Japanese), if reviews/<slug>/review.ja.md exists."""
+    f = paper_dir(p) / "review.ja.md"
     if not f.exists():
         return []
     lines = f.read_text(encoding="utf-8").splitlines()
@@ -175,7 +187,9 @@ def component_review(p):
             fence = not fence
         if not fence and line.startswith("#"):
             line = "#" + line
-        body.append(line.replace(f"]({p['slug']}.bib)", f"](../data/component/{p['slug']}.bib)"))
+        line = line.replace(f"]({p['slug']}.bib)", "](refs.bib)")
+        line = re.sub(re.escape(REPO_URL) + r"/blob/main/reviews/([a-z0-9-]+)\.md", r"../\1/", line)
+        body.append(line)
     return ["## 構成要素別レビュー（日本語）", "", *body, ""]
 
 
@@ -232,7 +246,7 @@ def related_and_footer(p, papers, sec_en):
     )[:6]
     if related:
         out += ["", f"## More reviews in {sec_en}", ""]
-        out += [f"- [{q['title']}]({q['slug']}.md) ({q['year']}). {q['en']['summary']}" for q in related]
+        out += [f"- [{q['title']}](../{q['slug']}/) ({q['year']}). {q['en']['summary']}" for q in related]
     out += [
         "",
         "---",
@@ -245,7 +259,7 @@ def related_and_footer(p, papers, sec_en):
 
 
 def paper_figures(p):
-    f = FIG_DATA / f"{p['slug']}.json"
+    f = paper_dir(p) / "figures.json"
     return json.loads(f.read_text(encoding="utf-8"))["figures"] if f.exists() else []
 
 
@@ -259,7 +273,7 @@ def figures_section(p):
         if fig["kind"] == "mermaid":
             out += ["```mermaid", fig["mermaid"].rstrip(), "```"]
         else:
-            out.append(F.picture(f"../figures/{p['slug']}/{fig['id']}", fig["title"]))
+            out.append(F.picture(f"figures/{fig['id']}", fig["title"]))
         if fig.get("caption"):
             out += ["", fig["caption"]]
         rows = F.data_table(fig)
@@ -270,7 +284,7 @@ def figures_section(p):
 
 
 def field_figures(prefix, lang="en"):
-    f = FIG_DATA / "_field.json"
+    f = FIELD_JSON
     if not f.exists():
         return []
     out = []
@@ -293,6 +307,94 @@ def field_map(papers):
     title = f"Reviewed papers by sensor and year (n={len(papers)})"
     sub = "Each cell counts the papers reviewed here, not the whole literature."
     return {mode: F.heatmap(title, sub, rows, cols, grid, t) for mode, t in F.THEMES.items()}
+
+
+MATERIAL_FILES = [
+    ("review.ja.md", "構成要素別レビューの本文（元データ）"),
+    ("refs.bib", "参考文献（BibTeX）"),
+    ("slots.json", "13 部品それぞれの、この論文の選択・分野の通例・該当論文数・判定"),
+    ("figures.json", "図の定義"),
+]
+
+
+def topics():
+    """All topic tables: components/<Mxx>/<topic>.json."""
+    out = []
+    for f in sorted(COMPONENTS_DIR.glob("M[0-9][0-9]/*.json")) if COMPONENTS_DIR.exists() else []:
+        d = json.loads(f.read_text(encoding="utf-8"))
+        d["_path"] = f
+        out.append(d)
+    return out
+
+
+def tally_line(d):
+    t = d.get("tally", {})
+    return f"確認済み {t.get('confirmed_unique', 0)}、読んだ候補 {t.get('read', 0)}、未読 {t.get('unread', 0)}"
+
+
+def materials_section(p):
+    d = paper_dir(p)
+    rows = [(f, desc) for f, desc in MATERIAL_FILES if (d / f).exists()]
+    for f in sorted(d.glob("evaluation*.md")):
+        rows.append((f.name, "執筆者と別の評価者による検証"))
+    if (d / "triage.ja.md").exists():
+        rows.append(("triage.ja.md", "評価の指摘を原典で確かめた判定と対応"))
+    used = [t for t in topics() if p["slug"] in t.get("used_by", [])]
+    if not rows and not used:
+        return []
+    out = ["", "## 材料", "", "このレビューを作るのに使ったデータです。原典の全文は含みません。", ""]
+    out += [f"- [`{f}`]({f})：{desc}" for f, desc in rows]
+    for t in used:
+        rel = t["_path"].relative_to(ROOT).with_suffix(".csv").as_posix()
+        out.append(f"- [`{rel}`](../../{rel})：{t['slot']} の話題「{t['topic']}」の候補論文と採否（{tally_line(t)}）")
+    return out + [""]
+
+
+def topic_csv(d):
+    buf = io.StringIO()
+    w = csv.writer(buf, lineterminator="\n")
+    w.writerow(["decision", "paper_id", "title", "year", "found_via", "reason", "location", "quote"])
+    order = {"include": 0, "exclude": 1}
+    for c in sorted(d.get("candidates", []), key=lambda c: (order.get(c.get("decision"), 2), c["pid"])):
+        w.writerow([c.get("decision") or "unread", c["pid"], c.get("title") or "", c.get("year") or "",
+                    "+".join(c.get("via") or []), c.get("reason") or "", c.get("loc") or "", c.get("quote") or ""])
+    return buf.getvalue()
+
+
+def component_outputs(papers):
+    files = {}
+    ts = topics()
+    titles = {p["slug"]: p["title"] for p in papers}
+    by_slot = {}
+    for t in ts:
+        by_slot.setdefault(t["slot"], []).append(t)
+        files[t["_path"].with_suffix(".csv")] = topic_csv(t)
+    for slot, items in by_slot.items():
+        out = [f"# {slot} {SLOT_NAMES.get(slot, '')}", "",
+               "この部品について調べた話題と、確認済みの論文。各話題の表は分野全体（wiki の台帳と全文）を検索し、候補を原典で読んで採否を決めたもの。", ""]
+        for t in items:
+            name = t["_path"].stem
+            out += [f"## {t['topic']}", "",
+                    f"- 採否表：[`{name}.csv`]({name}.csv)（{tally_line(t)}、wiki {t.get('wiki_commit', '')[:7]}）"]
+            if t.get("inclusion_rule"):
+                out.append(f"- 採る条件：{t['inclusion_rule']}")
+            if t.get("used_by"):
+                out.append("- 使ったレビュー：" + "、".join(f"[{titles.get(s, s)}](../../reviews/{s}/)" for s in t["used_by"]))
+            inc = [c for c in t.get("candidates", []) if c.get("decision") == "include"]
+            if inc:
+                out += ["", "| 論文 | 年 | 根拠の位置 |", "| --- | --- | --- |"]
+                out += [f"| {cell(c.get('title') or c['pid'])} | {c.get('year') or ''} | {cell(c.get('loc') or '')} |" for c in inc]
+            out.append("")
+        files[COMPONENTS_DIR / slot / "README.md"] = "\n".join(out)
+    idx = ["# 13 部品の索引", "",
+           "音声意図のデコードは、センサーを問わず 13 の部品（M01〜M13）で書ける。ここには、レビューのために部品ごとに分野全体を調べた結果を置く。表は回を重ねて追記していく。", "",
+           "| 部品 | 内容 | 話題 |", "| --- | --- | --- |"]
+    for slot, name in SLOT_NAMES.items():
+        items = by_slot.get(slot, [])
+        cell_t = "、".join(f"[{t['topic']}]({slot}/)" for t in items) if items else "—"
+        idx.append(f"| {slot} | {name} | {cell_t} |")
+    files[COMPONENTS_DIR / "README.md"] = "\n".join(idx) + "\n"
+    return files
 
 
 def venue_year(p):
@@ -319,7 +421,7 @@ def table(rows):
     for p in rows:
         e = p["en"]
         out.append(
-            f"| {p['year']} | [{cell(p['title'])}](reviews/{p['slug']}.md) | {cell(e['task'])} | "
+            f"| {p['year']} | [{cell(p['title'])}](reviews/{p['slug']}/) | {cell(e['task'])} | "
             f"{cell(e['vocabulary'])} | {cell(e['speaker'])} | {cell(e['session'])} | {cell(e['mode'])} | "
             f"{cell(e['key_result'])} |"
         )
@@ -363,11 +465,11 @@ def readme(papers):
     for i, slug in enumerate(START_HERE, 1):
         p = by_slug.get(slug)
         if p:
-            out.append(f"{i}. [{p['title']}](reviews/{slug}.md) ({p['year']}). {p['en']['summary']}")
+            out.append(f"{i}. [{p['title']}](reviews/{slug}/) ({p['year']}). {p['en']['summary']}")
     datasets = [p for p in papers if any(w in p["title"].lower() for w in ("dataset", "corpus", "benchmark")) and "closed-corpus" not in p["title"].lower()]
     if datasets:
         out += ["", "## Datasets and benchmarks", ""]
-        out += [f"- [{p['title']}](reviews/{p['slug']}.md) ({p['year']}). {p['en']['summary']}" for p in datasets]
+        out += [f"- [{p['title']}](reviews/{p['slug']}/) ({p['year']}). {p['en']['summary']}" for p in datasets]
     out += [
         "",
         "## How to read the tables",
@@ -384,7 +486,7 @@ def readme(papers):
         rows = [p for p in papers if section_of(p) == key]
         if key == "surveys":
             out += [f"## {en}", ""]
-            out += [f"- [{p['title']}](reviews/{p['slug']}.md) ({p['year']}). {p['en']['summary']}" for p in rows]
+            out += [f"- [{p['title']}](reviews/{p['slug']}/) ({p['year']}). {p['en']['summary']}" for p in rows]
             out.append("")
         else:
             out += [f"## {en}", ""] + table(rows) + [""]
@@ -394,8 +496,10 @@ def readme(papers):
         "| File | Contents |",
         "| --- | --- |",
         "| [`data/papers.csv`](data/papers.csv) | One row per paper with the English evaluation fields, links and tags. |",
-        "| [`data/reviews.jsonl`](data/reviews.jsonl) | Full structured reviews: English summary fields plus the full review, evaluation conditions, limits and evidence statements. This is the source every other file is generated from. |",
-        "| [`reviews/`](reviews/) | One readable page per paper. |",
+        "| [`data/reviews.jsonl`](data/reviews.jsonl) | Bibliographic data, classification and English summary fields for every paper, plus the older itemized reviews. |",
+        "| [`reviews/`](reviews/) | One folder per paper: the readable page, and for component reviews the review text, references, per-component verdicts, figures, and the independent evaluation with its triage. |",
+        "| [`components/`](components/) | The 13 components (M01–M13): for each topic searched across the field, every candidate paper with its include/exclude decision and reason. |",
+        "| [`docs/STRUCTURE.md`](docs/STRUCTURE.md) | Where every file lives and which files are generated. |",
         "",
         "## How the reviews are made",
         "",
@@ -455,7 +559,7 @@ def readme_ja(papers):
     for i, slug in enumerate(START_HERE, 1):
         p = by_slug.get(slug)
         if p:
-            out.append(f"{i}. [{p['title']}](reviews/{slug}.md)（{p['year']}）{p.get('expert_take_short', '')}")
+            out.append(f"{i}. [{p['title']}](reviews/{slug}/)（{p['year']}）{p.get('expert_take_short', '')}")
     out += [
         "",
         "## 論文の追加と誤りの報告",
@@ -477,7 +581,7 @@ def papers_csv(papers):
         e = p["en"]
         w.writerow([
             p["paper_id"], p["slug"], p["year"], p["title"], p.get("venue", ""), "; ".join(p.get("authors") or []),
-            p.get("doi", ""), p.get("arxiv_id", ""), paper_link(p), f"{REPO_URL}/blob/main/reviews/{p['slug']}.md",
+            p.get("doi", ""), p.get("arxiv_id", ""), paper_link(p), f"{REPO_URL}/tree/main/reviews/{p['slug']}",
             section_of(p), e["summary"], e["sensor"], e["task"], e["vocabulary"], e["speaker"], e["session"],
             e["mode"], e["key_result"], e["limitations"], "|".join(tags(p, "modality")), "|".join(tags(p, "body_site")),
         ])
@@ -507,11 +611,12 @@ def outputs(papers):
         DATA / "metadata.json": metadata(papers),
     }
     for p in papers:
-        files[REVIEWS_DIR / f"{p['slug']}.md"] = review_page(p, papers)
+        files[paper_dir(p) / "README.md"] = review_page(p, papers)
         for fig in paper_figures(p):
             for mode, svg in (F.render(fig) or {}).items():
-                files[FIG_DIR / p["slug"] / f"{fig['id']}-{mode}.svg"] = svg
-    f = FIG_DATA / "_field.json"
+                files[paper_dir(p) / "figures" / f"{fig['id']}-{mode}.svg"] = svg
+    files.update(component_outputs(papers))
+    f = FIELD_JSON
     for fig in (json.loads(f.read_text(encoding="utf-8"))["figures"] if f.exists() else []):
         for mode, svg in F.render(fig).items():
             files[FIG_DIR / "field" / f"{fig['id']}-{mode}.svg"] = svg
@@ -526,7 +631,10 @@ def main():
     files = outputs(papers)
     expected = set(files)
     stale = [p for p in REVIEWS_DIR.glob("*.md") if p not in expected] if REVIEWS_DIR.exists() else []
+    stale += [p for p in REVIEWS_DIR.glob("*/README.md") if p not in expected] if REVIEWS_DIR.exists() else []
+    stale += [p for p in REVIEWS_DIR.glob("*/figures/*.svg") if p not in expected] if REVIEWS_DIR.exists() else []
     stale += [p for p in FIG_DIR.rglob("*.svg") if p not in expected] if FIG_DIR.exists() else []
+    stale += [p for p in COMPONENTS_DIR.rglob("*") if p.suffix in (".md", ".csv") and p not in expected] if COMPONENTS_DIR.exists() else []
     if check:
         bad = [str(p.relative_to(ROOT)) for p, text in files.items() if not p.exists() or p.read_text(encoding="utf-8") != text]
         bad += [str(p.relative_to(ROOT)) + " (not in data)" for p in stale]

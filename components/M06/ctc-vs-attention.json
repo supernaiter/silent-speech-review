@@ -1,0 +1,2655 @@
+{
+ "topic": "ctc-vs-attention",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "\\bctc\\b[^|]{0,120}\\b(attention|seq2seq|sequence[- ]to[- ]sequence|encoder[- ]decoder|transformer|las)\\b|\\b(attention|seq2seq|sequence[- ]to[- ]sequence|encoder[- ]decoder|transformer)\\b[^|]{0,120}\\bctc\\b",
+ "scope": "ledger",
+ "fulltext_pattern": "(compar\\w+|versus|vs\\.?|against)[^.]{0,80}\\bctc\\b[^.]{0,80}(attention|seq2seq|sequence-to-sequence|transformer|encoder-decoder)",
+ "inclusion_rule": "同じ入力前段（視覚・生体信号・音声映像のいずれか）の上で、CTC で学習した復号器と注意機構／系列変換（seq2seq・Transformer 復号器）を両方学習し、結果を並べて比べた研究を含める。境界：CTC と注意の併用（hybrid）だけで片方単独の結果が無いものは除く。他論文の数値を並べただけの比較は除く。音声のみの ASR は wiki 外なので対象外。同一研究の別版は1件に数える。",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 139,
+  "string_match_unique": 114,
+  "fulltext_only_folders": 31
+ },
+ "recall_sample": [
+  "isca-nguyen25b_interspeech",
+  "cvf-zhang19-stfcsl",
+  "arxiv-2506.02012",
+  "arxiv-2505.03186",
+  "isca-chen22o-misp",
+  "arxiv-2202.13084",
+  "arxiv-2305.09212",
+  "pmc-9370936-reliability-avsr",
+  "arxiv-2401.03424",
+  "arxiv-2608.08510-mcorec",
+  "arxiv-2412.17129",
+  "doi-10.1038-s42256-022-00550-z",
+  "isca-nguyen25d-vicocktail",
+  "arxiv-2601.18393",
+  "doi-10.21203-rs.3.rs-1386805-v1",
+  "arxiv-1906.12170",
+  "doi-10.1109-access.2020.3036865",
+  "doi-10.3390-s23042071",
+  "arxiv-2309.08535",
+  "arxiv-2506.04635-vicocktail",
+  "doi-10.3390-s22155501",
+  "arxiv-2603.21664",
+  "arxiv-2607.08236-tvta",
+  "arxiv-2211.11275",
+  "arxiv-2401.17604",
+  "arxiv-2205.10839-vsa-survey",
+  "doi-10.54105-ijdm.a1632.04010524",
+  "isca-ahn24-syncvsr",
+  "isca-nguyen25b-cocktail",
+  "cvf23-liu_synthvsr"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "aaai-29926-vishallu",
+   "key": "t:visualhallucinationelevatesspeechrecognition",
+   "title": "Visual Hallucination Elevates Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "chitecture=feature-dimension concatenation of audio cluster and visual cluster embeddings | ProcessingStep.architecture=Transformer seq2seq decoder + CTC decoder, hybrid CTC/attention loss (alpha CTC=0.1), pretrained LM, beam search 10 | ProcessingStep.hyperparameters=NOISEX babble at 0/-5/-10 dB SNR, probability 0.25",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-1803.04988",
+   "key": "t:lcanetendtoendlipreadingwithcascadedattentionctc",
+   "title": "LCANet: End-to-End Lipreading with Cascaded Attention-CTC",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-1803.04988 | title=LCANet: End-to-End Lipreading with Cascaded Attention-CTC | Study.research_objective=LCANet cascaded attention+CTC end-to-end lipreading on GRID; AH-CTC vs H-CTC vs A-CTC ablati",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "CTC と注意を直列につないだ単一モデル。単独同士の比較なし"
+  },
+  {
+   "pid": "arxiv-1805.11685",
+   "key": "t:candnnslearntolipreadfullsentences",
+   "title": "Can DNNs Learn to Lipread Full Sentences?",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ence lipreading: 15 model rows spanning {DCT,AAM,Eigenlips baselines} + {zeros/LSTM/BiLSTM/2D-CNN/3D-CNN front-ends} x {CTC, seq2seq, joint CTC-seq2seq, monotonic attention}; viseme-level ablation of best system K on 10 visemes. | task_family=sentence_recognition | extra.Task.scope=T1 15 con",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "seq2seq と CTC-seq2seq 併用の比較で、CTC 単独の結果が無い（表1、本文確認）"
+  },
+  {
+   "pid": "arxiv-1806.06053",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "053 | title=Deep Lip Reading: a comparison of models and an online application | Study.research_objective=Compare BLSTM-CTC / FCx{10,15}-CTC / Transformer sequence backends on a shared spatio-temporal front-end for LRS2 sentence lip-reading: two external-LM regimes (T1 corp",
+   "decision": "include",
+   "quote": "The best performing network is the Transformer, which achieves a WER of 50% when decoded with a language model trained on T 2",
+   "loc": "§3.3, Table 1",
+   "provenance": "本文確認",
+   "reason": "BLSTM-CTC・FC-CTC と Transformer を共通の視覚前段で LRS2 上で比較（同時期、同グループ）"
+  },
+  {
+   "pid": "arxiv-1807.05162",
+   "key": "t:largescalevisualspeechrecognition",
+   "title": "Large-Scale Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nd=mouth-crop video frames | representation_kind=V2P: 3D conv + temporal aggregation (LSTM or dilated-tconv) -> phoneme CTC; baselines LipNet/Seq2seq/Audio-Ph; 29-58M params | representation_kind=PER/CER/WER % ± bootstrap SE | technical_essence=3D spatiotemporal conv f",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "CTC の V2P が主。seq2seq は先行モデルの再実装ベースラインで、共通前段での損失比較ではない"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "key": "t:deepaudiovisualspeechrecognition",
+   "title": "Deep Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-1809.02108 | title=Deep Audio-Visual Speech Recognition | Study.research_objective=TM-CTC and TM-seq2seq AVSR (Watch-Listen-Attend-Spell style dual encoders): LRS2-BBC release + LRS3-TED eval; V/A/AV WER with extLM; noisy-0d",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "対象論文そのもの"
+  },
+  {
+   "pid": "arxiv-1810.00108",
+   "key": "t:audiovisualspeechrecognitionwithahybridctcattentionarchitecture",
+   "title": "Audio-Visual Speech Recognition With A Hybrid CTC/Attention Architecture",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1810.00108 | title=Audio-Visual Speech Recognition With A Hybrid CTC/Attention Architecture | Study.research_objective=First hybrid CTC/attention AVSR on LRS2: joint CTC+attention decoder over BLSTM",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "hybrid CTC/attention の提案。CTC 単独との並列比較は本文に見当たらない"
+  },
+  {
+   "pid": "arxiv-1906.12170",
+   "key": "t:lipreadingwith3d2dcnnblstmhmmandwordctcmodels",
+   "title": "LipReading with 3D-2D-CNN BLSTM-HMM and word-CTC models",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-1908.05743-eegasr",
+   "key": "t:stateoftheartspeechrecognitionusingeegandtowardsdecodingofspeechspectrumfromeeg",
+   "title": "State-of-the-art Speech Recognition using EEG and Towards Decoding of Speech Spectrum From EEG",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ".unit_of_analysis=Per-subject EEG-aligned English sentences (first 9 USC-TIMIT sentences, corpora of size 3–9): CER for CTC and RNN-transducer, WER for attention encoder-decoder; RMSE/normalized RMSE/MCD for spectrum regression from EEG | task_encoding=natural_utterance | task_family=sentence_rec",
+   "decision": "include",
+   "quote": "We did experiments using three different types of end to end ASR models, namely: Connectionist Temporal Classification (CTC) model",
+   "loc": "§2",
+   "provenance": "本文確認",
+   "reason": "EEG 特徴から CTC・注意型 encoder-decoder・RNN-T を比較（後続）"
+  },
+  {
+   "pid": "arxiv-1911.04890",
+   "key": "t:recurrentneuralnetworktransducerforaudiovisualspeechrecognition",
+   "title": "Recurrent Neural Network Transducer for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "train); modality dropout restores unimodal; fps-insensitive; LRS3-TED SOTA 33.6 V / 4.5 AV. | Study.unit_of_analysis=T7 CTC-V2P/TM-seq2seq rows literature on LRS3-TED; all YTD rows own runs on private data. | t2 a | t2 v | t2 av | t3 none a | t3 none v | t3",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2001.00501-eegtransformer",
+   "key": "t:eegbasedcontinuousspeechrecognitionusingtransformers",
+   "title": "EEG based Continuous Speech Recognition using Transformers",
+   "year": 2020,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "source_checked | Study.study_design=system_proposal | Study.research_objective=First application of a transformer (self-attention seq2seq) ASR model to EEG-features→text continuous speech recognition, benchmarked against the group’s RNN/CTC baseline on the same two limited-vocabulary corpora | Study.unit_of_analysis=Word Error Rate on held-out 10% test split",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2001.01656",
+   "key": "t:audiovisualrecognitionofoverlappedspeechforthelrs2dataset",
+   "title": "Audio-Visual Recognition of Overlapped Speech for the LRS2 Dataset",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "xA', '+concat'], 'AVE_WER': ['15.20', '12.57', '11.49', '10.80', '10.31']} | Contrast.changed_dimensions={'model': ['TM-CTC', 'TM-Seq2seq', 'CTC/Att', 'CE-TDNN', 'LF-MMI-TDNN'], 'V': ['65.0', '49.8', '63.5', '55.02', '48.86'], 'A+V': ['13.7', '9.4', '7.0',",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2006.08599",
+   "key": "t:noticmyspeechblendingspeechpatternswithmultimedia",
+   "title": "\"Notic My Speech\" -- Blending Speech Patterns With Multimedia",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ech\" -- Blending Speech Patterns With Multimedia | Study.research_objective=Multi-view lipreading w/ STCNN+BiLSTM+joint CTC/attention (location-aware) + hierarchical view attention; VER on OuluVS2/LRW/LRS3; view-importance, important-viseme, and human-eval compressed-video studies. | task_family=sen",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2008.02516",
+   "key": "t:fastlrnonautoregressivelipreadingmodelwithintegrateandfire",
+   "title": "FastLR: Non-Autoregressive Lipreading Model with Integrate-and-Fire",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "E-subword transcript (vocab 1k) | extra.Configuration.configuration_scope=FastLR vs AR baselines (LSTM/LipNet/WAS/BLSTM-CTC/LIBS/TM-seq2seq) + NAR-LR(base); ablation chain T6 | TrainingRun.training_objective=Transformer Adam schedule; warmup λ(0.5,1,0) then m",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2011.11315",
+   "key": "t:endtoendsilentspeechrecognitionwithacousticsensing",
+   "title": "End-to-end Silent Speech Recognition with Acoustic Sensing",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "elta over 8 freq channels; time-warp augmentation | technical_essence=CNN over time x freq per clip | technical_essence=attention-based encoder-decoder (vs CTC baseline) | extra.Output.output_kind=recognized sentence (WER) | extra.Configuration.configuration_scope=Doppler shift",
+   "decision": "include",
+   "quote": "We make a comparison with CTC by replacing the decoder network with CTC.",
+   "loc": "§4.4, Fig. 4(c)",
+   "provenance": "本文確認",
+   "reason": "音響センシングの無声発話で、復号器を CTC に置き換えて注意型と比較（後続）"
+  },
+  {
+   "pid": "arxiv-2102.06657",
+   "key": "t:endtoendaudiovisualspeechrecognitionwithconformers",
+   "title": "End-to-End Audio-Visual Speech Recognition with Conformers",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n Ma, Stavros Petridis, Maja Pantic | venue=ICASSP 2021 (arXiv:2102.06657) | Study.research_objective=End-to-end hybrid CTC/attention AVSR: raw pixels+waveform -> ResNet front-ends -> conformer encoders -> MLP fusion -> transformer decoder + LM | Study.study_design=controlled_experiment | extra.Task.target=sentence transcription on LRS2/LRS3; ablati",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2104.09482",
+   "key": "t:fusinginformationstreamsinendtoendaudiovisualspeechrecognition",
+   "title": "Fusing information streams in end-to-end audio-visual speech recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ective=Decision Fusion Net: time-variant reliability-weighted posterior fusion of audio+visual seq posteriors for joint CTC/transformer AVSR on LRS2/LRS3 under MUSAN noise + visual degradations; DFN beats context/concat fusion. | task_family=sentence_reco",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2106.09171",
+   "key": "t:liralearningvisualspeechrepresentationsfromaudiothroughselfsupervision",
+   "title": "LiRA: Learning Visual Speech Representations from Audio through Self-supervision",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-TCN+linear500 CE AdamW 80ep bs32 lr3e-4 wd0.01; aug flip0.5+crop88+mixup0.4 | technical_essence=sentence: 12 MHA blk + CTC/Att 50ep bs8 lr4e-4, beam20 + transformer LM (LRS2+LRS3+Libri960, 16.2M words), <=600 frames, CL 11%<155f init | extra.Configuration.configuration_scope=LiRA {Su",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2108.13630",
+   "key": "t:simullrsimultaneouslipreadingtransducerwithattentionguidedadaptivememory",
+   "title": "SimulLR: Simultaneous Lip Reading Transducer with Attention-Guided Adaptive Memory",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion-Guided Adaptive Memory | Study.research_objective=Frame-synchronized simultaneous lipreading: transducer decoder + attention-guided adaptive memory (LFU+momentum) with CTC pretrain, TC3D visual encoder, warm-up; WER 2.738 GRID comparable to non-simultaneous DualLip + 4.7-11.9x NCA speedup.",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2201.02184",
+   "key": "t:learningaudiovisualspeechrepresentationbymaskedmultimodalclusterprediction",
+   "title": "Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "6ff/16h (325M) | model_family=transformer, cnn | decoder_route=recognition_to_text | technical_essence=fine-tune heads: CTC with phone targets or S2S transformer decoder with unigram subwords; 4-gram LM for CTC decoding | air_sound_dependence=not_required | system_boundary=self-su",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2201.05845",
+   "key": "t:recentprogressinthecuhkdysarthricspeechrecognitionsystem",
+   "title": "Recent Progress in the CUHK Dysarthric Speech Recognition System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "hnical_essence=MLAN cross-domain AV inversion -> 25d visual; input/7th-hidden/score fusion | technical_essence=DNN/TDNN/CTC/LAS/Pychain decode to words/chars | extra.Output.output_kind=transcript words/chars | extra.Configuration.configuration_sco",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2202.13084",
+   "key": "t:visualspeechrecognitionformultiplelanguagesinthewild",
+   "title": "Visual Speech Recognition for Multiple Languages in the Wild",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2203.07996",
+   "key": "t:leveragingunimodalselfsupervisedlearningformultimodalaudiovisualspeechrecognitio",
+   "title": "Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ransformer back-ends | technical_essence=per-modality LayerNorm, concat, 1-D conv fuse @25Hz | technical_essence=hybrid CTC/attention one-pass decode, beam 5, no LM | extra.Output.output_kind=sentence transcript WER | extra.Configuration.configuration_s",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2205.10839",
+   "key": "t:deeplearningforvisualspeechanalysisasurvey",
+   "title": "Deep Learning for Visual Speech Analysis: A Survey",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "GCN, SE-C3D, EfficientNetV2, VTP (T2 pros/cons) | technical_essence=temporal backends: BiLSTM/BiGRU/BiConvLSTM, MS-TCN, Transformer/Conformer blocks; CTC/seq2seq/RNN-T losses | technical_essence=pretraining paradigms: SSL pretext tasks, cross-modal KD/mutual learning, GAN",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2205.10839-vsa-survey",
+   "key": "t:deeplearningforvisualspeechanalysisasurvey",
+   "title": "Deep Learning for Visual Speech Analysis: A Survey",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2207.06020",
+   "key": "t:visualcontextdrivenaudiofeatureenhancementforrobustendtoendaudiovisualspeechreco",
+   "title": "Visual Context-driven Audio Feature Enhancement for Robust End-to-End Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eature Enhancement for Robust End-to-End Audio-Visual Speech Recognition | Study.research_objective=V-CAFE: cross-modal attention from lip-video visual context generates a noise-reduction mask applied to log-mel audio features inside an e2e AVSR (CTC/attn); LRS2+LRS3 x SNR -5..15+clean babble/factory/buccaneer noise + overlapped speech; WER. | task_family=sentence_rec",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2207.11094",
+   "key": "p:arxiv-2207.11094",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on_definition=lipread features = 2D ResNet-18 output of Ma et al. pretrained lip-reader (3D conv + 12-layer conformer + transformer decoder, CTC+attention) on grayscale mouth crops; cosine distance between input vs rendered features | EvaluationProtocol.metric_den",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2211.11275",
+   "key": "t:vatlmvisualaudiotextpretrainingwithunifiedmaskedpredictionforspeechrepresentatio",
+   "title": "VATLM: Visual-Audio-Text Pre-Training with Unified Masked Prediction for Speech Representation Learning",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2212.01083-cmlcsr",
+   "key": "t:crossmodalmutuallearningforcuedspeechrecognition",
+   "title": "Cross-Modal Mutual Learning for Cued Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ic space | ProcessingStep.architecture=Transformer self-attention per modality over lip/hand + linguistic tokens, cross-attention re-synchronization driven by shared linguistic knowledge, CTC decoding | EvaluationProtocol.experimental_design=Random 4:1 train/test sentence splits on the new Mandarin corpus (sin",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2301.01456",
+   "key": "t:audiovisualefficientconformerforrobustspeechrecognition",
+   "title": "Audio-Visual Efficient Conformer for Robust Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Efficient Conformer for Robust Speech Recognition | Study.research_objective=AV Efficient Conformer CTC on LRS2/3: patch attention replaces grouped, InterCTC every 3 blocks counters modality dominance; AO 2.8/2.1 VO 32.6/39.2 AV 2.5/1.9 WER, +neural",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2302.02141",
+   "key": "t:lipformerlearningtolipreadunseenspeakersbasedonvisuallandmarktransformers",
+   "title": "LipFormer: Learning to Lipread Unseen Speakers based on Visual-Landmark Transformers",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "b 512 chosen (256/512/1024 ablated) | technical_essence=visual-landmark Transformer fusion | technical_essence=cascaded Seq2Seq (CTC non-converged on CMLR) | extra.Output.output_kind=sentence transcript (WER/CER) | extra.Configuration.configuration_sco",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2303.09455",
+   "key": "t:learningcrosslingualvisualspeechrepresentations",
+   "title": "Learning Cross-Lingual Visual Speech Representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "999 wd.04 lr3e-3 warmup40 cosine; finetune 50ep warmup20 enc lr1e-3 dec lr5e-3 AdamW b.9/.98 wd.1 EMA.5; decoder linear+transformer 256d/4h/6L/2048 joint CTC/attn beam40 w.1; subwords vocab1000 (chars zh) | extra.Decoder.inference_information=cross- and within-modal masked pre",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2303.14307",
+   "key": "p:arxiv-2303.14307",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "technical_essence=ASR 1D-ResNet18 and VSR modified-ResNet18 front-ends + 12-layer Conformer (768d/3072ff/16h) + 6-layer Transformer decoder + CTC; AV fusion via 2-layer MLP (8192->768); 243.1M audio-only and 250.4M visual-only params | technical_essence=self-traini",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2303.17200",
+   "key": "t:synthvsrscalingupvisualspeechrecognitionwithsyntheticsupervision",
+   "title": "SynthVSR: Scaling Up Visual Speech Recognition With Synthetic Supervision",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2305.09212",
+   "key": "t:crossmodalglobalinteractionandlocalalignmentforaudiovisualspeechrecognition",
+   "title": "Cross-Modal Global Interaction and Local Alignment for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2306.08290",
+   "key": "t:investigatingthedynamicsofhandandlipsinfrenchcuedspeechusingattentionmechanismsa",
+   "title": "Investigating the dynamics of hand and lips in French Cued Speech using attention mechanisms and CTC-based decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.08290 | title=Investigating the dynamics of hand and lips in French Cued Speech using attention mechanisms and CTC-based decoding | Study.research_objective=ACSR Bi-GRU + temporal self-attention on lips+hand streams -> French CS phone",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2307.01233",
+   "key": "t:robustl2sspeakerspecificliptospeechsynthesisexploitingselfsupervisedrepresentati",
+   "title": "RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ontinuous speech HuBERT features (not discrete units) | ProcessingStep.architecture=lip encoder(AV-HuBERT ft) -> non-AR seq2seq(512d, 2-head) -> speech-feature decoder -> modified HiFi-GAN vocoder (LJSpeech-pretrained); discrete-unit variant + CTC variant compared | supervision_kind=paired_audio | TrainingRun.training_objective=CE on speech HuBERT units/features +",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2308.03432",
+   "key": "t:cuingwithoutsharingafederatedcuedspeechrecognitionframeworkviamutualknowledgedis",
+   "title": "Cuing Without Sharing: A Federated Cued Speech Recognition Framework via Mutual Knowledge Distillation",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ic | technical_essence=FedAvg gradient aggregation across clients per round | technical_essence=Bi-LSTM decoder phoneme seq2seq + CTC | extra.Output.output_kind=phoneme seq (CER%) + morpheme (WER%) | extra.Configuration.configuration_scope=FedCSR vs Fed",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2308.08488",
+   "key": "t:improvingaudiovisualspeechrecognitionbylipsubwordcorrelationbasedvisualpretraini",
+   "title": "Improving Audio-Visual Speech Recognition by Lip-Subword Correlation Based Visual Pre-training and Cross-Modal Fusion Encoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al_essence=CMFE: cross-attn blocks inserted outer/inner in conformer for multi-layer fusion | technical_essence=6-layer transformer attention decoder + CTC joint (λ=0.3) | extra.Configuration.configuration_scope=A0-AV16 decoupled train: PT variants, fusion variants, SOTA row",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2309.08348",
+   "key": "t:themultimodalinformationbasedspeechprocessingmisp2023challengeaudiovisualtargets",
+   "title": "The Multimodal Information Based Speech Processing (MISP) 2023 Challenge: Audio-Visual Target Speaker Extraction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d w/ target-speaker visual modality (AEASE=audio-only) | technical_essence=back-end ASR finetunes front-end L_MTL l=0.3 CTC + (1-l) attention CE | technical_essence=CTC/attention ASR back-end decode | extra.Output.output_kind=extracted speech + transcript (CER/",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2309.08535",
+   "key": "t:visualspeechrecognitionforlanguageswithlimitedlabeleddatausingautomaticlabelsfro",
+   "title": "Visual Speech Recognition for Languages with Limited Labeled Data using Automatic Labels from Whisper",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2309.17395",
+   "key": "t:avcplcontinuouspseudolabelingforaudiovisualspeechrecognition",
+   "title": "AV-CPL: Continuous Pseudo-Labeling for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "conv stride4 kernels7->20ms effective | representation_kind=continuously-regenerated pseudo-labels | technical_essence=Transformer encoder (Base 96M/Large 315M) CTC | technical_essence=conv audio + modality ADDITION beats concat; modality dropout pm=pa=0.5 | technical_essence=AV-EMA-",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2310.14946",
+   "key": "t:intuitivemultilingualaudiovisualspeechrecognitionwithasingletrainedmodel",
+   "title": "Intuitive Multilingual Audio-Visual Speech Recognition with a Single-Trained Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ssence=AV transformer encoder (pretrained Shi) finetuned w/ intuitive losses a=0.1 b=10.0 | technical_essence=decode w/ attention loss Latt + optional CTC Lctc | extra.Output.output_kind=text (WER% per lang + avg) | extra.Configuration.configuration_scope=single multilingua",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2311.12480",
+   "key": "t:speakeradaptedendtoendvisualspeechrecognitionforcontinuousspanish",
+   "title": "Speaker-Adapted End-to-End Visual Speech Recognition for Continuous Spanish",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "source face tools crop 96x96 gray ROI; mean/var norm + 88x88 random crop + hflip + time mask | technical_essence=hybrid CTC/Attention enc pretrained >1000h English + MOSEAS-es + MTEDx | technical_essence=CTC/att decode | technical_essence=LM from >200M",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2311.14063",
+   "key": "t:dovsrmodelsgeneralizebeyondlrs3",
+   "title": "Do VSR Models Generalize Beyond LRS3?",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "luency accent | technical_essence=ResNet-3D frontend + transformer/conformer encoder | technical_essence=autoregressive transformer dec (or CTC for RAVEN/Auto-AVSR) | extra.Output.output_kind=text (WER% + RankWER) | extra.Configuration.configuration_scope=6 model",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2312.07254",
+   "key": "t:theguaspeechsystemdescriptionforcnvsrcchallenge2023",
+   "title": "The GUA-Speech System Description for CNVSRC Challenge 2023",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "for CNVSRC Challenge 2023 | Study.research_objective=CNVSRC23 Task1 single-speaker fixed-track VSR: Conformer enc + bi-transformer dec + RNNLM shallow fusion + inter-CTC, curriculum CN-CVS->Single.Dev; CER 38.09 (vs baseline 48.60, -21.63%), 2nd place. | task_family=sentence_recognition |",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2401.03424",
+   "key": "t:mlcaavsrmultilayercrossattentionfusionbasedaudiovisualspeechrecognition",
+   "title": "MLCA-AVSR: Multi-Layer Cross Attention Fusion based Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2401.03468",
+   "key": "t:multichannelavwav2vec2aframeworkforlearningmultichannelmultimodalspeechrepresent",
+   "title": "Multichannel AV-wav2vec2: A Framework for Learning Multichannel Multi-Modal Speech Representation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ked AV fusion feats, Lc1 intra + Lc2 inter-channel contrastive, 200k steps, +900h unlabeled | technical_essence=6-layer Transformer decoder 768d/3072ff/12h CTC-ft ~4000 chars; label-smooth .1; Adam .001; beam50 no LM | technical_essence=frozen pretrained model as AVSD feature ex",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2401.06788",
+   "key": "t:thenpuaslpliautosystemdescriptionforvisualspeechrecognitionincnvsrc2023",
+   "title": "The NPU-ASLP-LiAuto System Description for Visual Speech Recognition in CNVSRC 2023",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ical_essence=12-layer E-Branchformer (256att 4h 1024ff); Conformer/Branchformer variants for fusion | technical_essence=CTC loss + 6-layer Transformer decoder CE; beam48 CTC.5 LM.4 | technical_essence=24-layer Transformer LM 512d/8h/2048ff on CN-CVS+CNVSRC text, shallow",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2401.17604",
+   "key": "t:computationandparameterefficientmultimodalfusiontransformerforcuedspeechrecognit",
+   "title": "Computation and Parameter Efficient Multi-Modal Fusion Transformer for Cued Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2402.13004",
+   "key": "t:comparisonofconventionalhybridandctcattentiondecodersforcontinuousvisualspeechre",
+   "title": "Comparison of Conventional Hybrid and CTC/Attention Decoders for Continuous Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2402.13004 | title=Comparison of Conventional Hybrid and CTC/Attention Decoders for Continuous Visual Speech Recognition | Study.research_objective=Same 256-d visual-speech encoder front-end",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2403.16071",
+   "key": "t:landmarkguidedcrossspeakerlipreadingwithmutualinformationregularization",
+   "title": "Landmark-Guided Cross-Speaker Lip Reading with Mutual Information Regularization",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-crop input with 20 lip-landmark-centered tubelet patches (intra-frame relative position + lip-motion features), hybrid CTC/attn conformer encoder + transformer decoder; two-stage training with speaker-ID branch and max-min mutual information regularization for speaker-insensitiv",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2404.05466",
+   "key": "t:enhancinglipreadingwithmultiscalevideoandmultiencoder",
+   "title": "Enhancing Lip Reading with Multi-Scale Video and Multi-Encoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Enhanced ResNet3D (3/4/6/3 blocks, dims 32/54/128/256) + encoders: Branchformer 24L/256h/2048cgmlp, E-Branchformer 12L, Transformer 24L, Conformer 11L; decoder 6L Transformer; CTC+LM weights 0.35/0.1, beam64 | technical_essence=6-layer Transformer decoder; beam search w/ 16L Transformer LM (128emb/",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2406.10313",
+   "key": "t:cnvsrc2023thefirstchinesecontinuousvisualspeechrecognitionchallenge",
+   "title": "CNVSRC 2023: The First Chinese Continuous Visual Speech Recognition Challenge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lip ROI crop | technical_essence=3D-CNN+ResNet18 frontend, Conformer encoder 12 layers | technical_essence=projection + Transformer decoder 6 layers, joint CTC/Attention loss | extra.Output.output_kind=CER% on dev/eval | extra.Configuration.configuration_scope=P1 easy (<4s) -> P",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "key": "t:syncvsrdataefficientvisualspeechrecognitionwithendtoendcrossmodalaudiotokensynch",
+   "title": "SyncVSR: Data-Efficient Visual Speech Recognition with End-to-End Crossmodal Audio Token Synchronization",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "on to quantized audio tokens (vq-wav2vec) or char labels (wav2vec2) | technical_essence=word CE classification or joint CTC-attention decoder; audio reconstruction loss scaled up to 10x | extra.Output.output_kind=Top-1 acc% (word) / WER% (sentence); ±sd",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2407.01034",
+   "key": "p:arxiv-2407.01034",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| TrainingRun.training_objective=joint: animator L_mse + L_rlv; expert L_av = lambda_ctc L_ctc + lambda_ce L_ce (joint CTC/attention); two-stage curriculum | TrainingRun.selection_data=stage1: large 2D talking-face corpora (LRS2/LRS3/AVSpeech/VoxCeleb2",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2408.02369",
+   "key": "t:thenpuaslpsystemdescriptionforvisualspeechrecognitionincnvsrc2024",
+   "title": "The NPU-ASLP System Description for Visual Speech Recognition in CNVSRC 2024",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "udy.research_objective=CNVSRC 2024 VSR system (NPU-ASLP): Enhanced ResNet3D front-end + E-Branchformer + bi-directional Transformer (L2R+R2L, CTC+CE joint), two-stage train-then-finetune, ROVER fusion of 8 systems. CER 30.4679% T1.Eval / 34.2955% T2.Eval — 1st in t",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2410.16438",
+   "key": "t:alignvsraudiovisualcrossmodalalignmentforvisualspeechrecognition",
+   "title": "AlignVSR: Audio-Visual Cross-Modal Alignment for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Speech Recognition | Study.research_objective=AlignVSR: fine-grained audio-visual cross-modal alignment for VSR. Cross-attention aligns each visual frame with audio-unit bank; extra Align loss gives global+local alignment, accelerating CTC+Attention convergence. S1 baseline vs S2 cross-att vs S3 +Align loss on LRS2 WER and CNVSRC.Single CER; comparison vs M",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2411.02256",
+   "key": "t:unifiedspeechrecognitionasinglemodelforauditoryvisualandaudiovisualinputs",
+   "title": "Unified Speech Recognition: A Single Model for Auditory, Visual, and Audiovisual Inputs",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "nsformation_definition=modality-specific features concatenated channel-wise for AV; batch-wise concat of A/V/AV inputs; CTC + attention outputs; pseudo-labels = teacher argmax with token-wise confidence filter tau=0.8 | system_name=USR unified encoder-dec",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2412.17129",
+   "key": "t:uncoveringthevisualcontributioninaudiovisualspeechrecognition",
+   "title": "Uncovering the Visual Contribution in Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2412.18839",
+   "key": "t:advancingnamtospeechconversionwithnovelmethodsandthemultinamdataset",
+   "title": "Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "branch [13] | ProcessingStep.causality=full_sequence | ProcessingStep.architecture={'layers': 6, 'block': 'feed-forward transformer, 2 multi-head self-attention + 2 1D-conv', 'aux': 'FC layer with CTC loss for text prediction'} | technical_essence=modified HiFiGAN-v2 [32]: synthesizes speech from embeddings predicted b",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2501-04359-augvae",
+   "key": "t:eegtowordssentencesdecodingaugvaeeegpipelinewithemgadaptedtransformer",
+   "title": "EEG-to-words/sentences decoding: AugVAE-EEG pipeline with EMG-adapted transformer",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Step.architecture=Two heads: (a) word classifier = 2×ResBlock + Transformer encoder → 601-class (Meta formulation); (b) Seq2Seq decoder = 6-layer transformer encoders + relative-position multi-head attention + CTC beam search | EvaluationProtocol.experimental_design=800-epoch training (400-epoch masking ablation at 200-epoch marks)",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2502.00464",
+   "key": "t:evaluationofendtoendcontinuousspanishlipreadingindifferentdataconditions",
+   "title": "Evaluation of End-to-End Continuous Spanish Lipreading in Different Data Conditions",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "us VSR benchmark across 4 corpora (VLRF controlled, LIP-RTVE TV SD+SI, CMU-MOSEASes vlog, MuAViCes TEDx): ESPNet hybrid CTC/Attention + Transformer LM w/ LM fine-tuning; ablation of augmentation/LM/CTC/attention/FT; Zipf-coverage error analysis. | task_family=sentence_recognition | extra.Task.scope=4 Spanish AV corpora under SD+S",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2502.05762",
+   "key": "t:noninvasiveelectromyographicspeechneuroprosthesisageometricperspective",
+   "title": "Non-invasive electromyographic speech neuroprosthesis: a geometric perspective",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tem_boundary=Offline baseline representation comparison on the main sentence test set. | TrainingRun.training_objective=CTC sequence-to-sequence prediction of English phoneme sequences from silent EMG; no time-aligned audible speech/audio targets are collected for",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2502.17829",
+   "key": "t:silentspeechsentencerecognitionwithsixaxisaccelerometersusingconformerandctcalgo",
+   "title": "Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ghua Univ. | Study.research_objective=Six-axis accelerometer facial-motion SSI: Conformer (3 conv blocks + 3 local self-attention + global cls token) + CTC for dynamic sentence segmentation/recognition — handles elision and linking; English words/sentences + Chinese phrases;",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2503.21785",
+   "key": "t:lendahandsemitrainingfreecuedspeechrecognitionviamllmdrivenhandmodelingforbarrie",
+   "title": "Lend a Hand: Semi Training-Free Cued Speech Recognition via MLLM-Driven Hand Modeling for Barrier-free Communication",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "+ Conformer backend (Ma et al. 2023) | technical_essence=MFM: P = L′ + λf(H′) single linear + learnable λ fusion, joint CTC/attention training | extra.Output.output_kind=text transcription; CER+WER% | extra.Configuration.configuration_scope=STF-ACSR vs",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2504.07229",
+   "key": "t:visualawarespeechrecognitionfornoisyscenarios",
+   "title": "Visual-Aware Speech Recognition for Noisy Scenarios",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "AudioSet noise matching visual context, controllable SNR mixing (10dB fixed / UNI [-5,5]) | technical_essence=Conformer-CTC pretrained 420h PS + noise-token; Transformer Enc 4x512 for visual fusion | technical_essence=CLIP visual features @5fps injected at train (VT) and/or inference (VI)",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2505.03186",
+   "key": "t:cogenavversatileaudiovisualrepresentationlearningviacontrastivegenerativesynchro",
+   "title": "CoGenAV: Versatile Audio-Visual Representation Learning via Contrastive-Generative Synchronization",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2506.02010",
+   "key": "t:cnvsrc2024thesecondchinesecontinuousvisualspeechrecognitionchallenge",
+   "title": "CNVSRC 2024: The Second Chinese Continuous Visual Speech Recognition Challenge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ce=Auto-AVSR frontend: ResNet18 + 3D-CNN + 8x 2D-CNN; 12 Conformer enc; projection + dual-branch | technical_essence=Bi-Transformer attn decoder (3L reverse + 6L fwd; reverse dropped at infer); CTC/Attn joint; beam fwd0.7+ctc0.3; chars 4,468 (vs 5,904 subwords in 2023) | technical_essence=Team tricks: T237 ROVER fus",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2506.02012",
+   "key": "t:leveraginglargelanguagemodelsinvisualspeechrecognitionmodelscalingcontextawarede",
+   "title": "Leveraging Large Language Models in Visual Speech Recognition: Model Scaling, Context-Aware Decoding, and Iterative Polishing",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2506.02178",
+   "key": "t:cocktailpartyaudiovisualspeechrecognition",
+   "title": "Cocktail-Party Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "uman transcribed | representation_kind=mouth ROI feats + audio -> encoder (AVH-large 24Lx16h / Conformer 12Lx16h) -> 6L CTC/Attention decode | technical_essence=Aug pipeline: dialog concat + silent-face (<unk>) insertion + interferer speech noise + hfli",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2506.04635",
+   "key": "t:vicocktailautomatedmultimodaldatacollectionforvietnameseaudiovisualspeechrecogni",
+   "title": "ViCocktail: Automated Multi-Modal Data Collection for Vietnamese Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "llect -> ASD -> SyncNet verify -> Dlib mouth -> Wav2Vec2 auto-label) -> 269h ViCocktail + benchmark Conformer/AV-HuBERT CTC/Attention w/ init variants (en/ml/scratch) + audio/visual-only ablations under cocktail-party SNR x interferer grid. | task_famil",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2506.04635-vicocktail",
+   "key": "t:vicocktailautomatedmultimodaldatacollectionforvietnameseaudiovisualspeechrecogni",
+   "title": "ViCocktail: Automated Multi-Modal Data Collection for Vietnamese Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2508.07608",
+   "key": "t:adavsrasymmetricdualstreamenhancementforrobustaudiovisualspeechrecognition",
+   "title": "AD-AVSR: Asymmetric Dual-stream Enhancement for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e=BiLSTM + TBSM threshold (tau=0.095) selection + 1024-dim fusion + 6-layer Conformer (CTC) | technical_essence=6-layer Transformer decoder (4 heads, h=256); CTC+attention loss lambda=0.9 | extra.Output.output_kind=Transcribed text; WER + CER | extra.Configuration.configuration_sc",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2509.16031",
+   "key": "t:glipagloballocalintegratedprogressiveframeworkforrobustvisualspeechrecognition",
+   "title": "GLip: A Global-Local Integrated Progressive Framework for Robust Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "chnical_essence=Local branch: N=5 heatmap region features, own alignment loss | technical_essence=CEM multi-layer cross-attention: local queries attend global seq, K layers, region-average + Conformer + Transformer decoder, hybrid CTC/CE λ=0.1 | technical_essence=Autoregressive Transformer decoder (6 layers, d=768) | extra.Output.output_kind=Transcribe",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2510.10069",
+   "key": "p:arxiv-2510.10069",
+   "title": null,
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ining (MAE+contrastive) then frozen-token transfer: lag detection by cosine argmax (no head), linear facial classifier, CTC/attention VSR, WanVACE dubbing | TrainingRun.training_objective=L = lambda_pix*(L_voc+L_aud) + lambda_CL*L_CL + lambda_cov*L_cov;",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2510.10069-synclipmae",
+   "key": "t:synclipmaecontrastivemaskedpretrainingforaudiovisualtalkingfacerepresentations",
+   "title": "SyncLipMAE: Contrastive Masked Pretraining for Audio-Visual Talking-Face Representations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rastive alignment | InformationUse.access_class=normally_available | EvaluationProtocol.experimental_design=visual-only seq2seq VSR head (Conformer+Transformer, CTC/attention) on VFHQ/Hallo3/HDTF; AV-sync R-precision K=1/5/15; baselines AV-HuBERT, Auto-AVSR, SyncNet, VocaLiST, Stable",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2512.22146-e2voice",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ssingStep.architecture=Subject-specific Generator (EEG embedding -> encoder -> Local-context Adapter -> mel decoder, no attention; recon+CTC losses; AdamW ~1500ep lr1e-4, single-subject batches) -> HiFi-GAN Universal v1 -> ASR -> optional instruction-tuned LM",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2601.18393",
+   "key": "t:ocrenhancedmultimodalasrcanreadwhilelistening",
+   "title": "OCR-Enhanced Multimodal ASR Can Read While Listening",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2602.19316",
+   "key": "t:payattentiontoctcfastandrobustpseudolabellingforunifiedspeechrecognition",
+   "title": "Pay Attention to CTC: Fast and Robust Pseudo-Labelling for Unified Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2602.19316 | doi=10.48550/arxiv.2602.19316 | title=Pay Attention to CTC: Fast and Robust Pseudo-Labelling for Unified Speech Recognition | venue=ICLR 2026; NatWest AI Research + Imperial Coll",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2603.12279",
+   "key": "t:towardrobustreproducibleandwidelyaccessibleintracranialspeechbraincomputerinterf",
+   "title": "Toward Robust, Reproducible, and Widely Accessible Intracranial Speech Brain-Computer Interfaces: A Comprehensive Narrative Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oG, MEA spike/bandpower, articulatory-kinematic intermediates | technical_essence=surveyed decoders: RNN phoneme->text, seq2seq, CTC for unaligned silent attempts, multimodal text+audio+avatar | technical_essence=LM rescoring/integration as dominant er",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2603.14002",
+   "key": "t:lightbeamanaccurateandmemoryefficientctcdecoderforspeechneuroprostheses",
+   "title": "LightBeam: An Accurate and Memory-Efficient CTC Decoder for Speech Neuroprostheses",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ship=benchmark train/val/test + 10 random encoder seeds per config; LLM adapted on train+val text | representation_kind=CTC logit frames from GRU or time-masked Transformer encoder (bounded KV cache) | technical_essence=baseline GRU or causal/noncausal time-masked Transformer encoders, n=10",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2603.14002-lightbeam",
+   "key": "t:lightbeamanaccurateandmemoryefficientctcdecoderforspeechneuroprostheses",
+   "title": "LightBeam: An Accurate and Memory-Efficient CTC Decoder for Speech Neuroprostheses",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "or cortex; thresholded spike counts + spiking-band power, 20ms bins, block z-scored | representation_kind=Phoneme-level CTC logits from GRU or time-masked Transformer encoders | ProcessingStep.architecture=Non-WFST beam search; Llama 3.2 1B fine-tuned next-word on train+val sentences r",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2603.20246",
+   "key": "t:decodingthedecodercontextualsequencetosequencemodelingforintracorticalspeechdeco",
+   "title": "Decoding the decoder: Contextual sequence-to-sequence modeling for intracortical speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sformer latent sequence (80ms cadence); multitask phoneme+word outputs via MFCC+BART aux | technical_essence=contextual Transformer seq2seq encoder (vs RNN-CTC baseline), AdamW + dropout/time/channel masking | technical_essence=multitask decoders: MFCC aux + BART word-level; dir",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2603.21664",
+   "key": "t:humanomnispeakeridentifyingwhosaidwhatandwhen",
+   "title": "HumanOmni-Speaker: Identifying Who said What and When",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2604.02362",
+   "key": "t:cipherconformerbasedinferenceofphonemesfromhighdensityeegrepresentations",
+   "title": "CIPHER: Conformer-based Inference of Phonemes from High-density EEG Representations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", sliding-window coefficients then epoch | ProcessingStep.architecture=identical Conformer encoders per feature stream (attention pooling + classification heads; SE channel attention); optional CTC head for 11-class CVC frames; ensemble ERP+DDA; multi-task joint training over 6 targets; mixup α=0.1, 150-epoch/patien",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2604.02362-cipher",
+   "key": "t:cipherconformerbasedinferenceofphonemesfromhighdensityeegrepresentations",
+   "title": "CIPHER: Conformer-based Inference of Phonemes from High-density EEG Representations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "v front-end k={3,7,15} -> SE channel-attention -> d_model 256 + sinusoidal PE -> Conformer x4 (FFN-MHSA-ConvMod-FFN) -> attention pooling -> multi-task heads (phoneme 11c, place, manner, voicing) sharing encoder, equal 1/4 weights; optional CTC head (.1); AdamW b(.9,.98) lr5e-4 wd1e-4 cosine+10ep warmup, bs64, <=150ep patience30, AMP | EvaluationProtocol.experim",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2605.01673-dpcnet",
+   "key": "t:delayedperceptualcommitmentrepresentationreadinessinstagewiseaudiovisuallearning",
+   "title": "Delayed Perceptual Commitment: Representation Readiness in Stage-wise Audio-Visual Learning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lection at inference) + support-aware bottleneck completion aggregating all-stage AV support; inserted before Conformer/CTC/Transformer decoder, rest of pipeline preserved | EvaluationProtocol.experimental_design=AVSS: SI-SNRi/SDRi/PESQ on LRS2/LRS3/VoxCe",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2606.00751",
+   "key": "t:headposeawarevisualspeechrecognitionwithfilmmodulation",
+   "title": "Head-Pose-Aware Visual Speech Recognition with FiLM Modulation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "visual frontend. Two fully connected layers with ReLU generate channel scaling γ and shift β. A 12-layer Conformer and Transformer decoder predict phonemes with hybrid CTC/attention training. | ProcessingStep.architecture=FiLM applies a channel-wise affine transform F̃ᵢ,c = γᵢ,c Fᵢ,c + βᵢ,c",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2607-06892-ubgnet",
+   "key": "t:ubgnetanuncertaintyawarebayesiangatingnetworkforrobustaudiovisualspeechrecogniti",
+   "title": "UBG-Net: An Uncertainty-aware Bayesian Gating Network for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "definition=pretrained audio+video backbone features -> MUBF Bayesian fusion modeling aleatoric+epistemic uncertainty -> CTC/attention decoder -> DUHV Monte-Carlo hierarchical voting -> transcript | model_family=cnn, transformer | dataset_id=LRS2 + Vox2",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2607.06892",
+   "key": "t:ubgnetanuncertaintyawarebayesiangatingnetworkforrobustaudiovisualspeechrecogniti",
+   "title": "UBG-Net: An Uncertainty-aware Bayesian Gating Network for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ". | ProcessingStep.hyperparameters=DoRA decoder adapters: rank r=8, alpha=16. | TrainingRun.training_objective=Weighted CTC and attention recognition losses plus beta1*KL(weight posterior||prior) and beta2*KL(feature latent||standard Gaussian); beta1=1e-7 a",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2607.08236",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "gnment without frame-level viseme annotation. | technical_essence=Word-level branch is a three-layer bidirectional GRU. CTC segment context scores temporal attention. A learnable scalar gate interpolates attention-weighted and temporal-mean representations before word classification; gate is initialized to favor mean pooling. | Pro",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2607.08236-tvta",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2608.08510",
+   "key": "t:fromspeechtointeractionanalyzingmultimodalsystemsincocktailpartyscenarios",
+   "title": "From Speech to Interaction: Analyzing Multimodal Systems in Cocktail-Party Scenarios",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "speaker-dependent transcripts | ProcessingStep.architecture={'stages': ['ASD (Light-ASD)', 'per-speaker AVSR (AV-HuBERT CTC/Attention)', 'conversation clustering (AHC over overlap/turn-taking)'], 'mechanism': 'cascaded baseline; variants add AVTSE, gaze",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2608.08510-mcorec",
+   "key": "t:fromspeechtointeractionanalyzingmultimodalsystemsincocktailpartyscenarios",
+   "title": "From Speech to Interaction: Analyzing Multimodal Systems in Cocktail-Party Scenarios",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "arxiv-2609.21288",
+   "key": "t:multisubjectpretrainingenablesshortcalibrationpersonalizationforclosedcorpussurf",
+   "title": "Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-order high-pass Butterworth, 2 Hz cutoff'} | ProcessingStep.architecture={'architecture': 'Convolutional front-end and Transformer encoder', 'output': 'frame-level character probabilities', 'objective': 'CTC'} | ProcessingStep.architecture={'decoder': 'CTC beam search via pyctcdecode', 'beam_width': 100} | ProcessingStep.arch",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2609.28988",
+   "key": "t:personalizedkoreanlipreadingasvisualspeechrecognitiontransfercensusandadaptation",
+   "title": "Personalized Korean Lipreading as Visual Speech Recognition: Transfer, Census and Adaptation on OLKAVS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "m_size': 5, 'ctc_weight': 0.2, 'evaluation_alternative': 'greedy CTC for per-view analyses'} | technical_essence=Hybrid CTC/attention decoding over 70 positional jamo symbols; a six-layer Transformer decoder shares encoder features and yields Korean text without a lexicon. | dataset_description=Korean audio-visual stu",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2609.36736",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ame=speech BCI system = recorder + decoder + LM prior + feedback + user learning loop | ProcessingStep.architecture=RNN/CTC/Transformer sequence models + LM-assisted decoding + vocoders for synthesis; closed-loop adaptation | extra.Protocol.evaluation_tar",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvf-burchi23-avec",
+   "key": "t:audiovisualefficientconformerforrobustspeechrecognition",
+   "title": "Audio-Visual Efficient Conformer for Robust Speech Recognition",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.research_objective=Make CTC-based Efficient Conformer AVSR noise-robust and faster to train via AV fusion, Inter CTC residual conditioning, and a cheaper patch attention replacing grouped attention | Study.unit_of_analysis=LRS2/LRS3 sentence-level AVSR WER under white and babble NoiseX noise across SNRs; training-st",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvf-hong23-avrelscore",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "7×k stem + audio downsampler from [24]) → AV-RelScore (temporal-conv reliability scorers per stream) → multimodal/cross attention → Conformer fusion → Transformer decoder (hidden 256, FF 2048) with joint CTC/attention objective | extra.Configuration.configuration_scope=Training with audio-visual corruption modeling (occlusion",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvf-hong23-watchlisten",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "modules weight streams → emphasized features → 12-layer Conformer multimodal attentive encoder (256d, 8 heads, k=31) → Transformer decoder (6 layers) with joint CTC/attention | extra.Configuration.configuration_scope=50 epochs (100/150 frames) or 20 (300/600); LR linear warmup to pea",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvf-hong23-wol",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-ends → AV-RelScore (temporal convs, per-timestep reliability) → multimodal attention (intra+inter, local conv + global attention) → Conformer encoder (d256/ff2048/12L/8H/conv31) → Transformer decoder (6L) → joint CTC/attention | extra.Configuration.configuration_scope=Watch-or-Listen AVSR: AV-RelScore chooses the reliable stream per t",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvf-kim23-lowresource-lipread",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ction on 1759h English → Language-specific Memory-augmented Decoder (audio-text pretrained on target-lang MLS) → hybrid CTC/attention finetune on target V-T | extra.Configuration.configuration_scope=Two-stage: GSK pretrain on English masked speech-unit",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l analysis | EvaluationRun.execution_artifacts=Ours-TC 18.7 LRW; Ours-TM 14.3 LRW / 49.2 LRS2 / 59.0 LRS3 — SOTA (vs TM-Seq2Seq 49.8/59.9, TM-CTC-KD 51.3/59.8); KD probe: audio teacher 54.2 < video teacher 53.4 → naive cross-modal KD hurt by domain gap; master adds",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvf-yeo25-zeroavsr",
+   "key": "t:zeroavsrzeroshotaudiovisualspeechrecognitionwithllmsbylearninglanguageagnosticsp",
+   "title": "Zero-AVSR: Zero-Shot Audio-Visual Speech Recognition with LLMs by Learning Language-Agnostic Speech Representations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ed from LRS3, MuAViC, VoxCeleb2, AVSpeech corpora | representation_kind=Language-agnostic Roman-text target learned via CTC; 4-component AV-Romanizer (audio encoder Fa, visual encoder Fv, transformer B, linear head) | ProcessingStep.architecture=Cascaded Zero-AVSR: AV-Romanizer + off-the-shelf LLM de-romanizer (GPT-4o",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvf-zhang19-stfcsl",
+   "key": "t:spatiotemporalfusionbasedconvolutionalsequencelearningforlipreading",
+   "title": "Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "自分の畳み込み seq2seq を、対象論文の TM-CTC・TM-seq2seq の文献値と比べたもの（自前の損失比較ではない）"
+  },
+  {
+   "pid": "cvf23-liu_synthvsr",
+   "key": "t:synthvsrscalingupvisualspeechrecognitionwithsyntheticsupervision",
+   "title": "SynthVSR: Scaling Up Visual Speech Recognition With Synthetic Supervision",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "doi-10.1002-aisy.70440",
+   "key": "t:softactiveelectromyographyinterfaceformachinelearningenabledsilentspeechrecognit",
+   "title": "Soft Active Electromyography Interface for Machine Learning-Enabled Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y is future work | extra.Limitation.limitation=isolated 30-word vocabulary only; continuous sentence-level recognition (CTC/seq2seq) is future work | accuracy % | macro-F1 | CV score | words | channels | Hz | samples | folds | dB | mm | MFCC order | s",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.1038-s41598-026-62988-0",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce video & content understanding via vision: a comprehensive study on lip reading and visual speech recognition for enhanced shopping experience",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tep.architecture={'stages': ['3D conv visual encoder (64-128-256-512)', 'Conformer 6 layers, 8 heads, dim 512', 'hybrid CTC-attention decoding', 'e-commerce vocab + LM adaptation'], 'mechanism': 'sentence-level visual speech recognition'} | extra.Output",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.1038-s42256-022-00550-z",
+   "key": "t:visualspeechrecognitionformultiplelanguagesinthewild",
+   "title": "Visual Speech Recognition for Multiple Languages in the Wild",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3036865",
+   "key": "t:asurveyofresearchonlipreadingtechnology",
+   "title": "A Survey of Research on Lipreading Technology",
+   "year": 2020,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "doi-10.1109-slt.2018.8639643",
+   "key": "t:audiovisualspeechrecognitionwithahybridctcattentionarchitecture",
+   "title": "Audio-Visual Speech Recognition with a Hybrid CTC/Attention Architecture",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Speech Recognition with a Hybrid CTC/Attention Architecture | authors=Stavros Petridis; Themos Stafylakis; Pingchuan Ma; Georgios Tzimiropoulos; Maja Pantic | Study.r",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "hybrid CTC/attention の提案（arxiv-1810.00108 の刊行版）"
+  },
+  {
+   "pid": "doi-10.1109-tpami.2018.2889052",
+   "key": "t:deepaudiovisualspeechrecognition",
+   "title": "Deep Audio-Visual Speech Recognition",
+   "year": 2019,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "udy_design=controlled_experiment | Study.research_objective=open-world sentence-level lip reading on in-the-wild video (CTC vs seq2seq on transformer backbone), quantification of visual complementarity to noisy audio ASR, and public release of LRS2-BBC | Study.unit_of_",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "対象論文の刊行版"
+  },
+  {
+   "pid": "doi-10.1145-3526113.3545685",
+   "key": "t:dualvoicespeechinteractionthatdiscriminatesbetweennormalandwhisperedvoiceinput",
+   "title": "DualVoice: Speech Interaction that Discriminates between Normal and Whispered Voice Input",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "c front-end) routing to whisper recognizer or normal recognizer | ProcessingStep.architecture=whisper ASR: wav2vec2 CNN+Transformer + projection + CTC; also HuBERT large compared; normal recognizer speaker-independent | model_family=transformer, cnn | supervision_kind=s",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.1609-aaai.v34i04.6174",
+   "key": "t:hearinglipsimprovinglipreadingbydistillingspeechrecognizers",
+   "title": "Hearing Lips: Improving Lip Reading by Distilling Speech Recognizers",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "her model only | EvaluationProtocol.experimental_design=CMLR + LRS2 benchmarks; CER/WER/BLEU; baselines WAS, CSSMCM, TM-seq2seq, CTC/attention | extra.Protocol.evaluation_target=character/word error rates and BLEU on lip reading | extra.Protocol.split=",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.18653-v1-2022.acl-long.308",
+   "key": "t:leveragingunimodalselfsupervisedlearningformultimodalaudiovisualspeechrecognitio",
+   "title": "Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "models trained first, then fusion+decoders only (precomputed backends); char-level 40 outputs | technical_essence=joint CTC/attention one-pass decoding with beam search, shallow fusion alpha=0.1; training lambda=0.2, Adam 1e-4, label smoothing 0.01, 4xA",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.20944-preprints202505.0540.v1",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio-Visual Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "noise-augmented ASR/AVSR evals | model_family=cnn, transformer | ProcessingStep.architecture=shared conformer encoder + transformer decoder + CTC projection; modality backbones 1D ResNet18 (audio) and 3DCNN+2D ResNet18 (visual); AVSR fuses both representations; hyb",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-1386805-v1",
+   "key": "t:visualspeechrecognitionformultiplelanguagesinthewild",
+   "title": "Visual Speech Recognition for Multiple Languages in the Wild",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-8670830-v1",
+   "key": "t:robustaudiovisualspeechrecognitionusingnoiseresilientattentionanddynamicfeaturef",
+   "title": "Robust Audio-Visual Speech Recognition Using Noise-Resilient Attention and Dynamic Feature Fusion",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "alized CTC confidence weights per modality | model_family=transformer, cnn, other | ProcessingStep.architecture=MIR-GAN Transformer backbone (3 AV-enc + 3 generator + 12-enc/9-dec) + CTC decoder + Window-based Attention (2M+1, M=3) + Quality Control (CNN/BN/FFN) + Confidence-Driven fusion F=wv*Fv+wa*Fa+Fi",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.3390-ai6090222",
+   "key": "t:dualstreamformeradualbranchtransformerarchitectureforvisualspeechrecognition",
+   "title": "Dual-Stream Former: A Dual-Branch Transformer Architecture for Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "kind=multiscale hierarchical visual features (Video Swin windows) | ProcessingStep.architecture={'stages': ['Video Swin Transformer spatial encoder', 'Conformer temporal backend', 'CTC/Attention decoding'], 'mechanism': 'multiscale local windows + long-range temporal modeling aid confusing phonemes'} |",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.3390-app13116521",
+   "key": "p:doi-10.3390-app13116521",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "residual) per encoder/decoder layer, backbone frozen; sizes 8-256 = 0.15%-4.02% params | TrainingRun.training_objective=CTC/Attention hybrid loss alpha=0.1; speaker adaptation via MST/SAT/TS-SAT/Adapters | TrainingRun.selection_data=entire speaker-depen",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.3390-electronics14122310",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t | Study.research_objective=supervised multi-task framework training one model jointly on ASR, VSR and AVSR via hybrid CTC/Attention loss | Study.unit_of_analysis=audiovisual speech utterances → text; VSR-only, ASR-only and AVSR decoding | task_encodin",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.3390-s22093597",
+   "key": "t:endtoendsentencelevelmultiviewlipreadingarchitecturewithspatialattentionmodulein",
+   "title": "End-to-End Sentence-Level Multi-View Lipreading Architecture with Spatial Attention Module Integrated Multiple CNNs and Cascaded Local Self-Attention-CTC",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s22093597 | title=End-to-End Sentence-Level Multi-View Lipreading Architecture with Spatial Attention Module Integrated Multiple CNNs and Cascaded Local Self-Attention-CTC | authors=Sanghun Jeon, Mun Sang Kim | review_state=source_checked | task_family=sentence_recognition | task_encoding=n",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.3390-s22155501",
+   "key": "t:reliabilitybasedlargevocabularyaudiovisualspeechrecognition",
+   "title": "Reliability-Based Large-Vocabulary Audio-Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "doi-10.3390-s22207738",
+   "key": "t:noiserobustmultimodalaudiovisualspeechrecognitionsystemforspeechbasedinteraction",
+   "title": "Noise-Robust Multimodal Audio-Visual Speech Recognition System for Speech-Based Interaction Applications",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ction: OCSR-API audio transcript word vectors (pretrained Word2Vec) concatenated with visual mouth features into 3D-CNN+attention transcription module, CTC loss; evaluated over 4 synthesized noise environments across SNR -20..40dB+clean | production_labels=ordinary_voiced_sp",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.3390-s23042071",
+   "key": "t:improvementofacousticmodelsfusedwithlipvisualinformationforlowresourcespeech",
+   "title": "Improvement of Acoustic Models Fused with Lip Visual Information for Low-Resource Speech",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "doi-10.54105-ijdm.a1632.04010524",
+   "key": "p:doi-10.54105-ijdm.a1632.04010524",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "対象論文の要旨と同文の別文書（独自の実験なし）"
+  },
+  {
+   "pid": "doi-10.63317-2b659u3p6oeh",
+   "key": "t:ssr7000asynchronizedcorpusofultrasoundtongueimagingforendtoendsilentspeechrecogn",
+   "title": "SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| technical_essence=DCT feature inputs; SpecAugment (timewarp 5 frames, 2 time masks ≤40, 2 freq masks w=10/30); hybrid CTC/attention E2E; GTX1080Ti ~4h; best-val model applied to test | technical_essence=UTI: high-brightness threshold + moving-average",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.64898-2026.02.19.26346583",
+   "key": "t:restoringbraintotextcommunicationinapersonwithdysarthriafrompontinestrokeusingan",
+   "title": "Restoring brain-to-text communication in a person with dysarthria from pontine stroke using an intracortical brain-computer interface",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ic softsign input layers; n-best candidates rescored by unpruned 5-gram LM weighted with 6.7B-parameter open pretrained transformer LM; CTC-style output incl silence+blank | supervision_kind=phoneme_label | TrainingRun.training_objective=train/adapt phoneme d",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "doi-10.64898-2026.07.23.739430",
+   "key": "t:ageneralizablespeechneuroprosthesis",
+   "title": "A generalizable speech neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ons=threshold crossings + spike-band power → user-specific learned projection → shared latent → patch embed 20ms→80ms → transformer blocks → 41-class phoneme CTC (39 phonemes + silence + blank) | model_family=transformer, llm | ProcessingStep.architecture=per-user linear projectio",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "ib22-vsr-sat",
+   "key": "t:speakeradaptedendtoendvisualspeechrecognitionforcontinuousspanish",
+   "title": "Speaker-Adapted End-to-End Visual Speech Recognition for Continuous Spanish",
+   "year": 2022,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ve=Study speaker-dependent adaptation of an end-to-end VSR system for continuous Spanish: fine-tune a large pre-trained CTC/Attention recognizer on LIP-RTVE and compare multi-speaker (MST), per-speaker (SAT) and two-step (TS-SAT) adaptation strategies |",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "ib24-simt-avsr",
+   "key": "t:towardsparameterefficientnonautoregressivespanishaudiovisualspeechrecognition",
+   "title": "Towards Parameter-Efficient Non-Autoregressive Spanish Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-efficient AND non-autoregressive AVSR for continuous Spanish in the wild: first application of the Sim-T layer-sharing transformer and of the Mask-CTC decoding paradigm to AVSR, benchmarking across four Spanish datasets of varied domains and under babble noise | Study.u",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "iber24-simtavsr",
+   "key": "t:towardsparameterefficientnonautoregressivespanishaudiovisualspeechrecognition",
+   "title": "Towards Parameter-Efficient Non-Autoregressive Spanish Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_proposal | Study.research_objective=Bring the parameter-efficient Sim-T layer-sharing scheme (grouped weight sharing + attention-score multiplexing) into end-to-end AVSR for continuous Spanish, both under Mask-CTC non-autoregressive decoding and CTC-only, and quantify how much complexity can be removed without performance loss | Study.unit_of_analysis=WER with 95% bo",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "ijcisim-2026-2986",
+   "key": "t:adeeplearningframeworkforvisualspeechrecognitionusing3dconvolutionalnetworksanda",
+   "title": "A Deep Learning Framework for Visual Speech Recognition Using 3D Convolutional Networks and Attention Mechanisms",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "2986 | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=3D ResNet-18 + attention + Bi-GRU + CTC end-to-end VSR on GRID | Study.unit_of_analysis=word accuracy/CER/sentence accuracy/WER on speaker-independent GRID spl",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "in24-cnvsrc",
+   "key": "t:cnvsrc2023thefirstchinesecontinuousvisualspeechrecognitionchallenge",
+   "title": "CNVSRC 2023: The First Chinese Continuous Visual Speech Recognition Challenge",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "6-layer Transformer decoder | ProcessingStep.architecture=Baseline: ResNet-18 with 3D-CNN first layer + Conformer-12 + Transformer-6 decoder under joint CTC/attention (CTC back-propagates through the projection layer, attention through the decoder); P1 top-10-checkpoint averaging → P2 full",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "in24-syncvsr",
+   "key": "t:syncvsrdataefficientvisualspeechrecognitionwithendtoendcrossmodalaudiotokensynch",
+   "title": "SyncVSR: Data-Efficient Visual Speech Recognition with End-to-End Crossmodal Audio Token Synchronization",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "it_of_analysis=Word-level Top-1 accuracy (LRW English, CAS-VSR-W1K Chinese, landmark-graph ablation) and sentence-level CTC-Attention WER (LRS2/LRS3) under video-hour budgets; plus Sync-ablation WER/perplexity table | task_encoding=natural_utterance | t",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-afouras18b_deeplipread",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: A Comparison of Models and an Online Application",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "2018 | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=compare BLSTM-CTC, fully-convolutional CTC, and Transformer models for lip reading on LRS2 and build an online VSR application | Study.unit_of_analysis=CER/WER, params, batch time",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1806.06053 と同一研究の別版"
+  },
+  {
+   "pid": "isca-afouras18b_interspeech",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sely-cropped lip frames → common spatio-temporal visual frontend → sequence module → characters; three variants — BLSTM+CTC 67M, fully-convolutional FC-10/FC-15 +CTC (24/35M, depth-separable), Transformer 40M (attention); FC variant also runs online with low latency | task_family=sentence_recognition | task_encoding=natural_utterance | i",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1806.06053 と同一研究の別版"
+  },
+  {
+   "pid": "isca-ahn24-syncvsr",
+   "key": "t:syncvsrdataefficientvisualspeechrecognitionwithendtoendcrossmodalaudiotokensynch",
+   "title": "SyncVSR: Data-Efficient Visual Speech Recognition with End-to-End Crossmodal Audio Token Synchronization",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "isca-ahn24_interspeech",
+   "key": "t:syncvsrdataefficientvisualspeechrecognitionwithendtoendcrossmodalaudiotokensynch",
+   "title": "SyncVSR: Data-Efficient Visual Speech Recognition with End-to-End Crossmodal Audio Token Synchronization",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "vel: top-1 acc on LRW/CAS-VSR-W1K (with/without word boundary); sentence-level: WER on LRS2/LRS3 with/without LM; joint CTC-Attention + audio-token reconstruction loss | representation_kind=discrete quantized audio tokens as frame-level crossmodal super",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-chen22o-misp",
+   "key": "t:audiovisualspeechrecognitioninmisp2021challengedatasetreleaseanddeepanalysis",
+   "title": "Audio-Visual Speech Recognition in MISP2021 Challenge: Dataset Release and Deep Analysis",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "isca-chen22o_interspeech",
+   "key": "t:audiovisualspeechrecognitioninmisp2021challengedatasetreleaseanddeepanalysis",
+   "title": "Audio-Visual Speech Recognition in MISP2021 Challenge: Dataset Release and Deep Analysis",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "1D kernels, channel-concat fusion; CER metric (S+D+I); advanced: GSS frontend, SpecAug/WavAug, MS-TCN and conformer E2E CTC/Attention models | vocabulary_regime=open_vocabulary | EvaluationProtocol.experimental_design=train/dev/eval splits with no speak",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-chen24y_interspeech",
+   "key": "t:cnvsrc2023thefirstchinesecontinuousvisualspeechrecognitionchallenge",
+   "title": "CNVSRC 2023: The First Chinese Continuous Visual Speech Recognition Challenge",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "erimental_design=challenge protocol: CER (S+D+I)/N scoring, 2 tasks; baseline = Auto-AVSR-style ResNet/Conformer hybrid CTC/Attention + Transformer LM | representation_kind=CN-CVS lip videos + transcriptions (<2% transcription CER) | ProcessingStep.architecture={'bas",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-feghhi26_interspeech",
+   "key": "t:lightbeamanaccurateandmemoryefficientctcdecoderforspeechneuroprostheses",
+   "title": "LightBeam: An Accurate and Memory-Efficient CTC Decoder for Speech Neuroprostheses",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sal/noncausal time-masked Transformer encoders, GEC (Llama3.1-8B); n=10 seeds, paired t-tests | representation_kind=GRU CTC phoneme logits over 20ms-binned spikes+SBP (also time-masked Transformer) | ProcessingStep.architecture={'stages': ['GRU CTC encoder → phoneme logits', 'lexicon as state-transition table + nes",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-fernandezlopez24_interspeech",
+   "key": "t:msrstrainingmultimodalspeechrecognitionmodelsfromscratchwithsparsemaskoptimizati",
+   "title": "MSRS: Training Multimodal Speech Recognition Models from Scratch with Sparse Mask Optimization",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rmer decoder) | system_boundary=mouth-cropped video (+ audio) -> ResNet frontends -> MLP fusion -> Conformer encoder -> CTC/Transformer decode | SystemConfiguration.system_lifecycle=implemented_evaluated | TrainingRun.training_objective=joint model+mask o",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-huang25j_interspeech",
+   "key": "t:wordlevelerroranalysisindecodingsystemsfromspeechrecognitiontobraincomputerinter",
+   "title": "Word-Level Error Analysis in Decoding Systems: From Speech Recognition to Brain-Computer Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-RNN: 5-layer RNN w/ day-specific input layer, phoneme->lexicon-FST->LLM rescore; ASR: SpeechBrain CRDNN (2CNN+4BiLSTM, CTC+RNNLM beam), Transformer (5L, joint CTC+attn, TransformerLM beam), Wav2Vec2 (SSL enc+3 linear, greedy CTC); analysis: char-level edit alignment",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-kimura20_interspeech",
+   "key": "t:endtoenddeeplearningspeechrecognitionmodelforsilentspeechchallenge",
+   "title": "End-to-End Deep Learning Speech Recognition Model for Silent Speech Challenge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-End Deep Learning Speech Recognition Model for Silent Speech Challenge | system_name=ESPnet hybrid CTC/attention transformer SSR on SSC: DCT/DAE visual features (60fps tongue+lip) → 12-layer 4-head self-attention encoder → joint CTC+attention decode (one-pass beam, α=0.3) + WSJ RNNLM (65k); SpecAugment 4× augmentation | task_famil",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-ma21c_interspeech",
+   "key": "t:liralearningvisualspeechrepresentationsfromaudiothroughselfsupervision",
+   "title": "LiRA: Learning Visual Speech Representations from Audio through Self-supervision",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s | model_family=cnn, transformer | technical_essence=downstream heads: MS-TCN classifier (word) or Conformer encoder + Transformer decoder hybrid CTC/attention (sentence) | decoder_route=closed_set_classification | decoder_route=recognition_to_text | language_support=l",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-ma23_interspeech",
+   "key": "t:streamingaudiovisualspeechrecognitionwithalignmentregularization",
+   "title": "Streaming Audio-Visual Speech Recognition with Alignment Regularization",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tate=source_checked | Study.study_design=system_proposal | Study.research_objective=build a streaming AV-ASR via hybrid CTC/attention + conformer CSA/causal encoders + triggered attention, plus alignment regularization syncing audio/visual encoders | Study.unit_of_analysis=WER across SNR levels in offline",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-nguyen25b-cocktail",
+   "key": "t:cocktailpartyaudiovisualspeechrecognition",
+   "title": "Cocktail-Party Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "isca-nguyen25b_interspeech",
+   "key": "t:cocktailpartyaudiovisualspeechrecognition",
+   "title": "Cocktail-Party Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "isca-nguyen25d-vicocktail",
+   "key": "t:vicocktailautomatedmultimodaldatacollectionforvietnameseaudiovisualspeechrecogni",
+   "title": "ViCocktail: Automated Multi-Modal Data Collection for Vietnamese Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "isca-nguyen25d_interspeech",
+   "key": "t:vicocktailautomatedmultimodaldatacollectionforvietnameseaudiovisualspeechrecogni",
+   "title": "ViCocktail: Automated Multi-Modal Data Collection for Vietnamese Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "rer count and SNR levels | representation_kind=lip-region visual features + audio fused in AV-HuBERT-style encoder with CTC/attention decoder | ProcessingStep.architecture={'pipeline': 'automated_multi_modal_collection', 'encoder': 'av_hubert', 'decoder",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-njuaalab-chime9",
+   "key": "t:thenjuaalabsystemsforthechime9mcorecchallenge",
+   "title": "The NJU-AALAB Systems for the CHiME-9 MCoRec Challenge",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "=CHiME-9 MCoRec Challenge (ISCA Archive) | Study.research_objective=NJU-AALAB CHiME-9 MCoRec systems: refined AV-HuBERT CTC/Attention AVSR + overlap-matched data simulation + Qwen3-8B LLM conversation clustering and hypothesis post-correction; dev-set W",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-qu19_interspeech",
+   "key": "t:lipsoundneuralmelspectrogramreconstructionforlipreading",
+   "title": "LipSound: Neural Mel-spectrogram Reconstruction for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ": video frames (75@25fps grayscale → PCA-512) → Tacotron2-style mel-spectrogram generator (pre-net + location-sensitive attention + LSTM + conv postnet, trainable on unannotated video) → lip-reading backend (2 conv2d + 5 BiGRU + FC + CTC) → text; optional LibriSpeech-960h audio-model pretrain fine-tuned 15ep | task_family=sentence_recognition | task_encod",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-sankar23_interspeech",
+   "key": "t:investigatingthedynamicsofhandandlipsinfrenchcuedspeechusingattentionmechanismsa",
+   "title": "Investigating the dynamics of hand and lips in French Cued Speech using attention mechanisms and CTC-based decoding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-sankar23_interspeech | title=Investigating the dynamics of hand and lips in French Cued Speech using attention mechanisms and CTC-based decoding | authors=Sanjana Sankar, Denis Beautemps, Frédéric Elisei, Olivier Perrotin, Thomas Hueber | venue=Inte",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-shi22_interspeech",
+   "key": "t:robustselfsupervisedaudiovisualspeechrecognition",
+   "title": "Robust Self-Supervised Audio-Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "4 transformer blocks, 16 heads, 1024/4096 dim; pretrain 600K steps on 64 V100, 5 iterations | technical_essence=9-layer transformer decoder appended for CTC-free fine-tuning; no input masking/modality dropout at FT | decoder_route=recognition_to_text | system_name=Noise-augme",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-sustech-chime9",
+   "key": "t:thesustechailabsystemdescriptionforchime9mcorecchallenge",
+   "title": "The SUSTech AILab System Description for CHiME-9 MCoRec Challenge",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "eech from multi-speaker cocktail-party conversations then apply AVSR; averaged speaker-WER 66.8 -> 59.5% with AV-HuBERT CTC/Attention; conversation-clustering F1 82.85% | Study.study_design=system_proposal | dataset_id=CHiME-9 MCoRec (real-recorded mult",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "isca-yang23w_interspeech",
+   "key": "t:animprovedendtoendaudiovisualspeechrecognitionmodel",
+   "title": "An Improved End-to-End Audio-Visual Speech Recognition Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l FE (LRW-pretrained) -> Transformer/Conformer visual backend; HuBERT audio FE -> backend; fusion module ablated (MLP / Transformer encoder / Conformer, Conformer best); joint hybrid CTC/attention decoding over 40-char tokens; curriculum learning | vocabulary_regime=open_vocabulary | EvaluationProtocol.ex",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "lrec22-ssr7000",
+   "key": "t:ssr7000asynchronizedcorpusofultrasoundtongueimagingforendtoendsilentspeechrecogn",
+   "title": "SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "corpus with realistic sample variance, release raw/preprocessed/DCT forms publicly, and benchmark an end-to-end hybrid CTC/attention recognizer | Study.unit_of_analysis=CER/WER of the ESPnet hybrid CTC/attention model on the 100-sentence disjoint test",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "mdpi-app13116521_sa",
+   "key": "t:comparingspeakeradaptationmethodsforvisualspeechrecognitionforcontinuousspanish",
+   "title": "Comparing Speaker Adaptation Methods for Visual Speech Recognition for Continuous Spanish",
+   "year": 2023,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "WER per speaker on ~4min test sets across adaptation strategies and data-scarcity settings | representation_kind=hybrid CTC/Attention end-to-end VSR features (~52.5M params) | ProcessingStep.architecture={'base': 'mst_ctc_attention', 'adaptation': ['ts_",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "mdpi-e14122310_multiavsr",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=supervised multi-task hybrid CTC/Attention AV learning for robust VSR/ASR/AVSR | Study.unit_of_analysis=WER on LRS3-TED/WildVSR + noise-robustness across SNR vs A",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "mdpi-math11071733",
+   "key": "t:researchonrobustaudiovisualspeechrecognitionalgorithms",
+   "title": "Research on Robust Audio-Visual Speech Recognition Algorithms",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nd strides wav2vec 1024d 50/s -> 25/s | ProcessingStep.architecture=LayerNorm per modality -> concat 1024d@25Hz; hybrid CTC/attention loss L=lambda*log pCTC + (1-lambda)*log pCE | ProcessingStep.architecture=Transformer-CTC: stack of self-attentive+feed",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "pmc-12488916-distdecode",
+   "key": "t:transferlearningviadistributedbrainrecordingsenablesreliablespeechdecoding",
+   "title": "Transfer learning via distributed brain recordings enables reliable speech decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g in patients with incomplete cortical coverage and minimal calibration | Study.unit_of_analysis=Phoneme Error Rate via Seq2Seq+CTC on tongue-twister trials across 3641 sEEG electrodes/25 patients; transfer epochs (100 vs 500); channel/trial scaling;",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "pmc-9099765-mvlip",
+   "key": "t:endtoendsentencelevelmultiviewlipreadingarchitecturewithspatialattention",
+   "title": "End-to-End Sentence-Level Multi-View Lipreading Architecture with Spatial Attention",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "odule (SAM) | technical_essence=two-layer bidirectional GRU for viseme-sequence modeling | technical_essence=local self-attention + CTC transcription (vs standard/global-attention CTC) | representation_kind=video_frames | TrainingRun.optimization=optimizers compared: SGD/RMSprop/Adam/Nadam/AdaMax (AdaD",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "pmc-9370936-reliability-avsr",
+   "key": "t:reliabilitybasedlargevocabularyaudiovisualspeechrecognition",
+   "title": "Reliability-Based Large-Vocabulary Audio-Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+  },
+  {
+   "pid": "pmc-9959127-wav2lip-avsr",
+   "key": "t:multimodalsensorinputarchitecturewithdeeplearningforaudiovisualspeechrecognition",
+   "title": "Multimodal Sensor-Input Architecture with Deep Learning for Audio-Visual Speech Recognition in Wild",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "egenerates video frames synchronized to the audio as augmentation | ProcessingStep.architecture=Audio/visual encoders → Transformer TM–CTC (self-attention + feedforward stacks emitting CTC posteriors); decoding = greedy or beam search width 100 + character-level output with external LM; trained on NVIDIA A1",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "pmc-9963439-avsrnoisy",
+   "key": "t:improvingspeechrecognitionperformanceinnoisyenvironmentsbyenhancinglipreadingacc",
+   "title": "Improving Speech Recognition Performance in Noisy Environments by Enhancing Lip Reading Accuracy",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "one-to-many mapping (audio representations preserved and retrieved from memory at inference) + joint cross-fusion cross-attention (weights from correlation between joint and single-modality features) + hybrid CTC/attention decoding with beam search | EvaluationProtocol.experimental_design=WER on LRS2 across synthesized babble at S",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "scirep-62988-livevsr-net",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "er temporal features | ProcessingStep.architecture={'model': 'LiveVSR-Net', 'temporal': 'Conformer', 'decoder': 'hybrid CTC-attention', 'domain': 'e-commerce vocab expansion + fine-tuned LM + multi-speaker', 'curriculum': '1-3s ep1-20 / 3-6s ep21-50 / u",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "zenodo-19695887-lipsynclite",
+   "key": "t:lipsyncliteanefficientlipmovementbasedvisualspeechrecognition",
+   "title": "LipSyncLite - An Efficient Lip-movement-based Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ternal_noncontact | Representation.transformation_definition=3D-CNN spatiotemporal features on grayscale mouth frames + Transformer sequence modeling + CTC alignment-free decoding | system_name=LipSyncLite (lightweight 3D-CNN+Transformer+CTC VSR) | system_boundary=grayscale",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 1,
+  "recall": 0.5,
+  "missed": [
+   "isca-afouras18b-deeplip"
+  ]
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 114,
+  "read": 42,
+  "unread": 128,
+  "confirmed_unique": 3,
+  "confirmed_本文確認": 3,
+  "recall_sample_read": 30,
+  "recall_sample_included": 0,
+  "recall_estimate": 1.0
+ },
+ "used_by": [
+  "deep-audio-visual-speech-recognition"
+ ]
+}
