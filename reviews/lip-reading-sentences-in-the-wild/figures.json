@@ -1,0 +1,160 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading), not only lip-reading papers. Paper counts come from the maintainer's ledger and undercount some components, notably language models, confirmation and correction.",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Ordinary voiced speech",
+      "BBC broadcast"
+     ],
+     "field": "Voiced speech recorded for training",
+     "n": 8995,
+     "matched": 3882,
+     "verdict": "standard",
+     "note": "Inherited from the LRW data pipeline."
+    },
+    "M02": {
+     "choice": [
+      "Subtitles force-aligned",
+      "Filtered by IBM Watson ASR"
+     ],
+     "field": "Paired transcripts as labels",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Automatic labels as in LRW; slot under-recorded in the ledger."
+    },
+    "M03": {
+     "choice": [
+      "Word-to-sentence length curriculum",
+      "Scheduled sampling to 0.25",
+      "Uniform modality selection"
+     ],
+     "field": "Length curriculum for sequence decoders",
+     "n": 8995,
+     "matched": 18,
+     "verdict": "standard",
+     "note": "No earlier example in the wiki (recall estimate 0.78), but the gain (76.5 to 61.1% WER) is one run on one dataset and not separated from sub-sequence augmentation, so not ahead."
+    },
+    "M04": {
+     "choice": [
+      "Ordinary voiced speech",
+      "TV video at test"
+     ],
+     "field": "Voiced speech at use time",
+     "n": 8995,
+     "matched": 5595,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Mouth crop 120 px grey, 25 Hz",
+      "5-frame early fusion",
+      "13-dim MFCC"
+     ],
+     "field": "Camera mouth ROI plus microphone",
+     "n": 8995,
+     "matched": 7329,
+     "verdict": "standard",
+     "note": "Inherited from LRW."
+    },
+    "M06": {
+     "choice": [
+      "LSTM encoders x2",
+      "Dual attention char decoder",
+      "Beam 4"
+     ],
+     "field": "Attention seq2seq decoding from non-audio signals",
+     "n": 8995,
+     "matched": 36,
+     "verdict": "standard",
+     "note": "No earlier example in the wiki (all pre-2017-05 hits read; topic recall estimate 0.33); results on LRS, LRW and GRID, but LRW/GRID fine-tune the LRS model, so method and data scale are not separated; not ahead."
+    },
+    "M07": {
+     "choice": [
+      "No external LM",
+      "Decoder-internal LM",
+      "Beam width 4"
+     ],
+     "field": "External LM in beam search",
+     "n": 8995,
+     "matched": 745,
+     "verdict": "standard",
+     "note": "Common practice; the M07 slot itself is under-recorded."
+    },
+    "M08": {
+     "choice": [
+      "Characters (45 symbols)",
+      "Text"
+     ],
+     "field": "Text output",
+     "n": 8995,
+     "matched": 3268,
+     "verdict": "standard",
+     "note": "Standard."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "Confirmation in online systems only",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "Correction in online systems only",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark study."
+    },
+    "M11": {
+     "choice": [
+      "LRS (BBC, 118k sentences)",
+      "Split by broadcast date",
+      "Speaker overlap unstated"
+     ],
+     "field": "In-the-wild sentence test sets; speaker-disjoint only in some",
+     "n": 8995,
+     "matched": 5,
+     "verdict": "missing",
+     "note": "Train/test speaker overlap not reported; the authors only say thousands of speakers make the model speaker agnostic."
+    },
+    "M12": {
+     "choice": [
+      "CER, WER, unigram BLEU; one run",
+      "Professional lipreader on 200 clips",
+      "Machine subset unstated"
+     ],
+     "field": "Machine vs human lipreader on the same material",
+     "n": 8995,
+     "matched": 7,
+     "verdict": "missing",
+     "note": "Whether the 50.2% was scored on the same 200 clips, and run-to-run variance, are not reported."
+    },
+    "M13": {
+     "choice": [
+      "1 Titan X GPU, ~10 days",
+      "Release promised in arXiv v2 only; never released"
+     ],
+     "field": "Compute and data availability reported",
+     "n": 8995,
+     "matched": 6075,
+     "verdict": "standard",
+     "note": "Compute reported; the release sentence is in arXiv v2 but not in the CVF version, and the follow-up paper says LRS was withheld for licence reasons."
+    }
+   }
+  }
+ ]
+}

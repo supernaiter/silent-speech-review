@@ -1,0 +1,1837 @@
+{
+ "topic": "human-lipreader-baseline",
+ "slot": "M12",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(human|professional|expert|deaf|hearing[- ]impaired|lay|untrained)[^|]{0,60}lip ?-?read|lip ?-?read\\w*[^|]{0,40}(human|professional|expert)",
+ "scope": "ledger",
+ "fulltext_pattern": "(professional|human|expert|hearing[- ]impaired|deaf|hard of hearing)[^.]{0,40}lip ?-?read(er|ers|ing)[^.]{0,150}(\\d+(\\.\\d+)?\\s?%|accuracy|error rate|wer\\b)",
+ "inclusion_rule": "機械による読唇・無声発話認識の結果と、人間の読唇者（専門家、聴覚障害のある人、一般の参加者）が同じデータ（同じテスト集合かその部分集合）を読んだ結果を、同じ指標で並べた研究を含める。境界：再構成した音声を人が聞き取る明瞭度評価は除く。人間の成績を文献値として引くだけのものは除く。人間どうしの読唇能力の研究で機械の結果がないものは除く。同一研究の別版は1件。",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8381,
+  "slot_filled_unique": 6960,
+  "string_match_folders": 77,
+  "string_match_unique": 64,
+  "fulltext_only_folders": 35
+ },
+ "recall_sample": [
+  "pmc-9029225-cloudlip",
+  "isca-thangthai17_lipdnn",
+  "arxiv-1901.10139",
+  "pmc-5379061-deafphonol",
+  "isca-shillingford19-largescale",
+  "oa-W2884698322",
+  "isca-thangthai17_lipread",
+  "isca-hilder09_avsp",
+  "pmc-8747278-multicnn",
+  "doi-10.3390-s22010072",
+  "doi-10.3390-s22082938",
+  "isca-kandala19-vivectors",
+  "arxiv-2306.08314",
+  "arxiv-1710.01288",
+  "doi-10.22452-mjcs.vol38no4.4",
+  "pmc-8747278-mcnnlip",
+  "pmc-9609693-mavsr",
+  "pmc-4958963-mcgurkmusician",
+  "isca-thangthai17_interspeech",
+  "doi-10.54105-ijdm.a1632.04010524",
+  "oa-W2257285929",
+  "arxiv-1710.01084",
+  "pmc-4499841-natsynth",
+  "arxiv-1906.12170",
+  "arxiv-2312.09727",
+  "doi-10.3390-s22207738",
+  "isca-thangthai17-dnnsdt",
+  "pmc-6724546-sentencelipread",
+  "ijfmr-62938-lip-reading-ai",
+  "mjcs-38-4-lipcoordnet"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1409.1411",
+   "key": "t:visualspeechrecognitionintechbookchapter",
+   "title": "Visual Speech Recognition (InTech book chapter)",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "vocalization | Cohort.demographics=mixed: native+L2, African/Asian/Middle-East/European, M/F, moustache&beard subset; 4 human lipreaders | modalities=optical_camera | Acquisition.sensor_geometry={'electrodes': 'face+lip ROI detection', 'coordinate_syste",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "人間の読唇実験は PDA データベースの数字 4 本で、機械の評価とは別のデータ"
+  },
+  {
+   "pid": "arxiv-1409.6689",
+   "key": "t:visualwordsforautomaticlipreadingphdthesis204pp",
+   "title": "Visual Words for Automatic Lip-Reading (PhD thesis, 204pp)",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "sult look-alike | result LAL2 best | result LAL2 2nd | result lip localization | result SI min | result SI max | result human lipread | result recordings | result SD2 LM gain | result SI LM gain",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1409.1411 と同じ著者の博士論文。人間の実験は機械と別データ"
+  },
+  {
+   "pid": "arxiv-1611.01599",
+   "key": "t:lipnetendtoendsentencelevellipreading2016",
+   "title": "LipNet: End-to-End Sentence-level Lipreading (2016)",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ses=assistive_text_entry, speech_restoration | acoustic_mode=no_vocalization | Cohort.demographics=34 GRID speakers + 3 hearing-impaired lipreaders | modalities=optical_camera | Acquisition.sensor_geometry={'electrodes': 'mouth ROI frontal', 'coordinate_system': '",
+   "decision": "include",
+   "quote": "We also compare the performance of LipNet with that of hearing-impaired people who can lipread",
+   "loc": "§1, §4.4 Table",
+   "provenance": "本文確認",
+   "reason": "同時期（2016-11）。GRID の未知話者分割で、聴覚障害のある読唇者 3 人と LipNet を同じ WER で比較"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "key": "t:lipreadingsentencesinthewild",
+   "title": "Lip Reading Sentences in the Wild",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ER, WER and unigram BLEU on independent test set; lips-only (WAS), audio-only (LAS), and audio-visual (WLAS) ablations; professional lip reader baseline | extra.Protocol.evaluation_target=sentence-level transcription error rates | extra.Protocol.evaluator=edit-",
+   "decision": "include",
+   "quote": "we instructed a professional lip reading company to decipher a random sample of 200 videos from our test set",
+   "loc": "§5.2, Table 5",
+   "provenance": "本文確認",
+   "reason": "対象（2016-11）。専門の読唇者が LRS テストから無作為に選んだ 200 本を読み、表5 に機械と同じ CER・WER・BLEU で並べる"
+  },
+  {
+   "pid": "arxiv-1704.08028",
+   "key": "t:towardsestimatingtheupperboundofvisualspeechrecognitionthevisuallipreadingfeasib",
+   "title": "Towards Estimating the Upper Bound of Visual-Speech Recognition: The Visual Lip-Reading Feasibility Database (FG 2017)",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "jective=feasibility database: 9 hearing-impaired + 15 normal-hearing observers, 25 sentences, 3 repetitions, speaker-vs-lipreader pairs; word/phoneme accuracy humans vs automatic system + Lan RM benchmark; Wilcoxon + unpaired t-test per repetition. | task_family=sentence_recognition",
+   "decision": "include",
+   "quote": "human abilities are compared with the performance of a visual automatic speech recognition system",
+   "loc": "Abstract",
+   "provenance": "本文確認",
+   "reason": "同時期（2017-04）。VLRF の同じ文を聴覚障害 9 人・健聴 15 人と自動認識系で読み、単語・音素の認識率で比較"
+  },
+  {
+   "pid": "arxiv-1710.01084",
+   "key": "t:someobservationsoncomputerlipreadingmovingfromthedreamtotherealitybearspie",
+   "title": "Some observations on computer lip-reading: moving from the dream to the reality (Bear SPIE)",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "arxiv-1710.01288",
+   "key": "t:decodingvisemesimprovingmachinelipreadingphdthesisbear2017",
+   "title": "Decoding visemes: improving machine lipreading (PhD thesis, Bear 2017)",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "arxiv-1807.05162",
+   "key": "t:largescalevisualspeechrecognition",
+   "title": "Large-Scale Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "lines; zero-shot on LRS3 full test 55.1% < TM-seq2seq 57.9%; NoLM 53.6 -> LM brings -12.7 abs. | Study.unit_of_analysis=human lipreaders scored on same test (86.4 with context) — V2P already superhuman. | t1 audioph per | t1 audioph per se | t1 audioph",
+   "decision": "include",
+   "quote": "professional lipreaders achieve either 86.4% or 92.9% WER on the same dataset",
+   "loc": "Abstract",
+   "provenance": "本文確認",
+   "reason": "後続（2018-07）。LSVSR の同じテスト集合で専門読唇者 86.4%／92.9% WER と V2P 40.9% を比較"
+  },
+  {
+   "pid": "arxiv-1810.10597",
+   "key": "t:thespeakerindependentlipreadingplayoffasurveyoflipreadingmachines",
+   "title": "The speaker-independent lipreading play-off; a survey of lipreading machines",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-1810.10597 | title=The speaker-independent lipreading play-off; a survey of lipreading machines | Study.research_objective=Benchmark play-off of conventional + deep lipreading systems under strictly spea",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-1901.10139",
+   "key": "t:harnessinggansforzeroshotlearningofnewclassesinvisualspeechrecognition",
+   "title": "Harnessing GANs for Zero-shot Learning of New Classes in Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "arxiv-1906.12170",
+   "key": "t:lipreadingwith3d2dcnnblstmhmmandwordctcmodels",
+   "title": "LipReading with 3D-2D-CNN BLSTM-HMM and word-CTC models",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "arxiv-1911.04890",
+   "key": "t:recurrentneuralnetworktransducerforaudiovisualspeechrecognition",
+   "title": "Recurrent Neural Network Transducer for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.1109-asru46091.2019.9004036 の別版。引用だけ"
+  },
+  {
+   "pid": "arxiv-2104.14467",
+   "key": "t:towardsapracticalliptospeechconversionsystemusingdeepneuralnetworksandmobileappl",
+   "title": "Towards a practical lip-to-speech conversion system using deep neural networks and mobile application frontend",
+   "year": 2021,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "aim=lip-to-speech sentence recognition feasible on smartphones: 53% top-1 / 74% top-5 with user feedback, comparable to human lipreading | top-5 accuracy | top-1 accuracy | Hungarian expressions | recorded videos | video width | input crop side | LSTM n",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "人間の約 30% は文献値の引用（本文確認）"
+  },
+  {
+   "pid": "arxiv-2205.10839-vsa-survey",
+   "key": "t:deeplearningforvisualspeechanalysisasurvey",
+   "title": "Deep Learning for Visual Speech Analysis: A Survey",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "bution=unified side-by-side review of VSR and VSG with common core technical points | claim=deep VSR vastly outperforms human lip-readers and saturates GRID (1.3% WER); in-the-wild sentence-level remains open | claim=open gaps: label-efficient learning,",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2207.11094",
+   "key": "p:arxiv-2207.11094",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al, 31,059 sentences; 2,000 stratified test sample | extra.Task.target=reconstructions where articulated speech remains human/model lipreadable | ProcessingStep.causality=full_sequence | Dataset.collection_protocol=public LRS3 trainval official split | extra.",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2208.04498",
+   "key": "t:speakeradaptivelipreadingwithuserdependentpadding",
+   "title": "Speaker-adaptive Lip Reading with User-dependent Padding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nt Padding | Study.research_objective=user-dependent padding: insert speaker-specific zero-padding params into all conv layers of pretrained lip-reading nets, adapt only padding on 1-5min/0-100% speaker data (supervised) or self-trained pseudo-labels (unsupervised); LR",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2208.09796",
+   "key": "t:towardsmoocsforlipreadingusingsynthetictalkingheadstotrainhumansinlipreadingatsc",
+   "title": "Towards MOOCs for Lipreading: Using Synthetic Talking Heads to Train Humans in Lipreading at Scale",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2208.09796 | title=Towards MOOCs for Lipreading: Using Synthetic Talking Heads to Train Humans in Lipreading at Scale | Study.research_objective=automated TTS+driving-video pipeline generates synthetic talking-head lipreading",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2303.17480",
+   "key": "p:arxiv-2303.17480",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rance context, trained sync with lip reader); visual context features from 5 frames | Representation.feature_dimensions=lip-reading expert visual features for contrastive positives (aligned) vs negatives | EvaluationProtocol.metric_denominator=PSNR/SSIM visu",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2306.00160",
+   "key": "t:audiovisualspeechseparationinnoisyenvironmentswithalightweightiterativemodel",
+   "title": "Audio-Visual Speech Separation in Noisy Environments with a Lightweight Iterative Model",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on fA decoded via 1D transposed conv to M channels; CA=512 audio, CV=128 video | extra.Decoder.inference_information=4-layer conv AE (5.5k params) reconstructs single lip frames; LipReadingTCN (32M params) linguistic embeddings give best separation but too costly — AE chosen for lightweight | extra.Decode",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2306.08314",
+   "key": "t:automatedspeakerindependentvisualspeechrecognitionacomprehensivesurvey",
+   "title": "Automated Speaker Independent Visual Speech Recognition: A Comprehensive Survey",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "arxiv-2312.09727",
+   "key": "t:litevsrefficientvisualspeechrecognitionbylearningfromspeechrepresentationsofunla",
+   "title": "LiteVSR: Efficient Visual Speech Recognition by Learning from Speech Representations of Unlabeled Data",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "arxiv-2407.01034",
+   "key": "p:arxiv-2407.01034",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dataset_description=25fps 3D audio-visual; emotional subset used; Test-A 6 seen subjects, Test-B 8 unseen | dataset_id=lip-reading expert pretrain: LRS2 + LRS3 + AVSpeech + VoxCeleb2 | Representation.transformation_definition=vertex sequence rendered via di",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2501.13996",
+   "key": "t:integratingpersianlipreadinginsurenavhumanoidrobotforhumanrobotinteraction",
+   "title": "Integrating Persian Lip Reading in Surena-V Humanoid Robot for Human-Robot Interaction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.13996 | title=Integrating Persian Lip Reading in Surena-V Humanoid Robot for Human-Robot Interaction | Study.research_objective=Persian lip-reading for Surena-V HRI: custom 7-command fa dataset (20 part",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2502.04834",
+   "key": "t:lightweightoperationsforvisualspeechrecognition",
+   "title": "Lightweight Operations for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "arxiv-2503.21785",
+   "key": "t:lendahandsemitrainingfreecuedspeechrecognitionviamllmdrivenhandmodelingforbarrie",
+   "title": "Lend a Hand: Semi Training-Free Cued Speech Recognition via MLLM-Driven Hand Modeling for Barrier-free Communication",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "+ custom prompts, MLLM (GPT-4o) zero-shot classifies hand shape/position → 44-dim phoneme embedding matrix → MFM linear layer adds to lip-reading features (ResNet-18+Conformer, joint CTC/attn). New MHI-MCCSD adds 8 HI cuers (3F/5M) to MCCSD. | task_family=senten",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2509.00030",
+   "key": "t:signbindllmmultistagemodalityfusionforsignlanguagetranslation",
+   "title": "SignBind-LLM: Multi-Stage Modality Fusion for Sign Language Translation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e=SignBind-LLM: Multi-Stage Modality Fusion for Sign Language Translation | Study.research_objective=Decompose SLT into expert streams (continuous sign, fingerspelling, lipreading) -> gated fusion transformer with learned temporal alignment -> pretrained Flan-T5 LLM; SOTA on How2Sign/BOBSL/Chica",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "arxiv-2606-07435-lipgap",
+   "key": "t:thelipreadinggapdovsrmodelsperceivevisualspeechlikehumanlipreaders",
+   "title": "The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "title=The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders? | authors=Jain, Harte (Trinity College Dublin, Sigmedia) | venue=arXiv 2606.07435 | Study.research_objective=compar",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-2606.07435 の別版"
+  },
+  {
+   "pid": "arxiv-2606.07435",
+   "key": "t:thelipreadinggapdovsrmodelsperceivevisualspeechlikehumanlipreaders",
+   "title": "The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_version=2606.07435v2 | title=The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders? | Study.research_objective=Compare human lipreading and pretrained visual speech recognition on isolated English wo",
+   "decision": "include",
+   "quote": "We compare three state-of-the-art models",
+   "loc": "§1",
+   "provenance": "本文確認",
+   "reason": "後続（2026-06）。MaFI データで人間の読唇と VSR 3 方式を同じ単語課題で比較"
+  },
+  {
+   "pid": "arxiv-2606.07435-lipgap",
+   "key": "t:thelipreadinggapdovsrmodelsperceivevisualspeechlikehumanlipreaders",
+   "title": "The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2606.07435-lipgap | title=The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders? | authors=Rishabh Jain, Naomi Harte | venue=arXiv:2606.07435 | review_state=source_checked | Study.study_design=obs",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-2606.07435 の別版"
+  },
+  {
+   "pid": "arxiv-2609.29443",
+   "key": "t:poseadaptivedynamicfilmmodulationforvisualspeechrecognition",
+   "title": "Pose Adaptive Dynamic FiLM Modulation for Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "o; FiLM layers: –. same method at larger training scale | extra.Configuration.configuration_scope=Modality: Video; FiLM layers: –. sub-word level lip reading with visual attention [1] | system_name=Auto-AVSR [2] | extra.Configuration.configuration_scope=Modality: Video; FiL",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "avsp99-movellan99_avsp",
+   "key": "t:adiffusionnetworkapproachtovisualspeechrecognition",
+   "title": "A Diffusion Network Approach to Visual Speech Recognition",
+   "year": 1999,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ads, digits 1-4; lip-contour shape (22 params+deltas) and intensity features; jackknife speaker-generalization vs HMM + human lipreaders | task_encoding=natural_utterance | task_family=isolated_word_recognition | target_population=general_population | t",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Tulips1 での人間の成績は Movellan 1995 の文献値で、同じ論文で測っていない（表1 の説明）"
+  },
+  {
+   "pid": "bmvc23-separable-vsr",
+   "key": "t:learningseparablehiddenunitcontributionsforspeakeradaptivelipreading",
+   "title": "Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "exploit speaker characteristics to enhance/suppress separable hidden-unit contributions differently in shallow vs deep layers of a general lip reading model. | Study.study_design=controlled_experiment | task_family=sentence_recognition | elicitation=instructed_conten",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "cvf-yuan25-notonlyvision",
+   "key": "t:notonlyvisionevolvevisualspeechrecognitionviaperipheralinformation",
+   "title": "Not Only Vision: Evolve Visual Speech Recognition via Peripheral Information",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ion beyond the visual signal (contextual guidance, task expertise, linguistic perturbation) improves automatic VSR like human lip-reading cues | Study.unit_of_analysis=Per-utterance sentence transcription (WER) on LRS3 and AVSpeech | task_encoding=natura",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.1044-1092-4388-2012-12-0039",
+   "key": "t:speechreadingdevelopmentindeafandhearingchildrenintroducinganewtestofchildspeech",
+   "title": "Speechreading Development in Deaf and Hearing Children: Introducing a New Test of Child Speechreading",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pe, position | intrusiveness=external_noncontact | technical_essence=Test of Child Speechreading (ToCS) standardized on deaf and hearing children: silent lipreading measured at three psycholinguistic levels (words, sentences, short stories); effects of hearing status, age and ling",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.1109-asru46091.2019.9004036",
+   "key": "t:recurrentneuralnetworktransducerforaudiovisualspeechrecognition",
+   "title": "Recurrent Neural Network Transducer for Audio-Visual Speech Recognition",
+   "year": 2019,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ion=background noise and overlapping speech degrade visual benefit | extra.Protocol.reference_kind=prior V2P model beat professional human lipreaders (55.1% WER) | audio-only 21.5% WER on YTDEV18 | video-only 48.5% WER on YTDEV18 | 31k hours A/V training data from 1",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "V2P が専門読唇者を上回ったという先行研究の引用だけ"
+  },
+  {
+   "pid": "doi-10.1109-cvprw59228.2023.00609",
+   "key": "t:visualspeechawareperceptual3dfacialexpressionreconstructionfromvideosspectre",
+   "title": "Visual Speech-Aware Perceptual 3D Facial Expression Reconstruction from Videos (SPECTRE)",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "geometry=in-the-wild monocular talking-head videos (talks, interviews, movies) | EvaluationProtocol.experimental_design=human-perception lipreading comparisons + geometric/exhaustive ablations vs landmark supervision | extra.Protocol.evaluation_target=speech-perce",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.1111-lang.12264",
+   "key": "t:eyemovementsduringvisualspeechperceptionindeafandhearingchildren",
+   "title": "Eye Movements During Visual Speech Perception in Deaf and Hearing Children",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "technical_essence=Eye-tracking during a sentence speechreading task comparing 33 deaf and 59 hearing 5-8yo children (29 deaf retained): gaze distribution across face regions indexes lipreading strategy — deaf children allocate gaze differently to the mouth/eyes, reflecting reliance on visual speech and conve",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.1111-lang.12281",
+   "key": "t:responseerrorsinfemalesandmalessentencelipreadingnecessitatestructurallydifferen",
+   "title": "Response Errors in Females' and Males' Sentence Lipreading Necessitate Structurally Different Models for Predicting Lipreading Accuracy",
+   "year": 2018,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0300926",
+   "key": "t:usingnetworksciencetoexamineaudiovisualspeechperceptionwithamultilayergraph",
+   "title": "Using network science to examine audio-visual speech perception with a multi-layer graph",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion accuracy, audio-visual condition (76 easy-hard words) | Human word-identification accuracy, audio-only condition | Human word-identification accuracy, visual-only (lip-reading) condition | AV-net final activation for lexically easy words | AV-net final activation for lexically hard words | t",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.14288-1.0094936",
+   "key": "p:doi-10.14288-1.0094936",
+   "title": null,
+   "year": 1980,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l-hearing lipreaders, mostly female 20s, phonetic training; Group I/II split by pilot performance | Cohort.demographics=hearing-impaired lipreaders incl. elderly Group III | Cohort.demographics=six female speakers, phonetics-trained, ages 22-27; speaker 5 selected",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.1590-2317-1782-e20250046pt",
+   "key": "t:lipreadinginspeechlanguagehearingforensicanalysisperspectivesandchallenges",
+   "title": "Lipreading in speech-language-hearing forensic analysis: perspectives and challenges",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "culation, phonetics, language, orofacial dynamics | target_population=general_population | population_description=N/A — expert lipreaders in forensic analysis | decoder_route=recognition_to_text | Expert forensic lipreading captures ~50% of speech (anter",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.1590-2317-1782.e20250046pt",
+   "key": "t:lipreadinginspeechlanguagehearingforensicanalysisperspectivesandchallenges",
+   "title": "Lipreading in speech-language-hearing forensic analysis: perspectives and challenges",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n the legal field | Study.unit_of_analysis=narrative synthesis: forensic workflow factors (integrity/quantity/quality), expert competencies, and methodological limits of lipreading | task_encoding=natural_utterance | task_family=isolated_word_recognition | target_population=general_population | i",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.1590-2317-1782e20250046en",
+   "key": "t:lipreadinginspeechlanguagehearingforensicanalysisperspectivesandchallenges",
+   "title": "Lipreading in speech-language-hearing forensic analysis: perspectives and challenges",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y/quantity/quality) + hypothesis testing vs witness claims + independent-lipreader reliability checks | system_boundary=human expert lipreading in forensic context; not automated VSR; only ~50% of speech visually accessible | SystemConfiguration.system_lifecyc",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.22452-mjcs.vol38no4.4",
+   "key": "t:lipcoordnetadualstreamdeeplearningarchitectureforvisualspeechrecognitionusingfac",
+   "title": "LIPCOORDNET: A Dual-Stream Deep Learning Architecture for Visual Speech Recognition Using Facial Landmarks",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-rcfxv",
+   "key": "t:influenceoflinguisticpropertiesandhearingimpairmentonvisualspeechperceptionskill",
+   "title": "Influence of linguistic properties and hearing impairment on visual speech perception skills in the German language",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| significant effects of item category, articulation, sentence frequency (not speaker/sentence length) | no prelingual-deaf lipreading advantage vs postlingual HI; education×prelingual interaction | 170 participants (22 prelingually deaf) completed on",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2016.00679",
+   "key": "t:visualcorticalentrainmenttomotionandcategoricalspeechfeaturesduringsilentlipread",
+   "title": "Visual Cortical Entrainment to Motion and Categorical Speech Features during Silent Lipreading",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l is comprehension-relevant | target_population=general_population | population_description=21 native English speakers, untrained lipreaders, normal hearing/vision | E/M/V models each predict visual-cortex EEG during lipreading; visual cortex entrains to mo",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.3389-fpsyg.2015.00878",
+   "key": "t:visualspeechdiscriminationandidentificationofnaturalandsyntheticconsonantstimuli",
+   "title": "Visual speech discrimination and identification of natural and synthetic consonant stimuli",
+   "year": 2015,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "oup discrimination shown: d′ scales with stimulus dissimilarity; natural > synthetic phonetic information; (background) deaf lipreaders 0-85% word-in-sentence accuracy",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.3390-s22010072",
+   "key": "t:lipreadingarchitecturebasedonmultipleconvolutionalneuralnetworksforsentencelevel",
+   "title": "Lipreading Architecture Based on Multiple Convolutional Neural Networks for Sentence-Level Visual Speech Recognition",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "doi-10.3390-s22082938",
+   "key": "t:endtoendlipreadingopencloudbasedspeecharchitecture",
+   "title": "End-to-End Lip-Reading Open Cloud-Based Speech Architecture",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "doi-10.3390-s22207738",
+   "key": "t:noiserobustmultimodalaudiovisualspeechrecognitionsystemforspeechbasedinteraction",
+   "title": "Noise-Robust Multimodal Audio-Visual Speech Recognition System for Speech-Based Interaction Applications",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "doi-10.54105-ijdm.a1632.04010524",
+   "key": "p:doi-10.54105-ijdm.a1632.04010524",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "doi-10.5772-16622",
+   "key": "t:towardsaugmentativespeechcommunication",
+   "title": "Towards Augmentative Speech Communication",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "h recognition; lip-only vs lip+hand; speaker-dependent vs speaker-independent (750/700 words) | Study.negative_findings=human lipreading limited: 40-60% vowel recognition, 32% for low-predictability words, best deaf 43.6% — motivating automatic augmente",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.5772-36466",
+   "key": "t:automaticvisualspeechrecognition",
+   "title": "Automatic Visual Speech Recognition",
+   "year": 2012,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "inate reported rates — cross-experiment comparison invalid; no continuous-speech results yet (best reported 12%); Dutch human lip-readers resolve only 4 consonantal+4 vocalic visemes | claim=corpus design choices (application-specific vs neutral, control",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "doi-10.7888-juoeh.26.215",
+   "key": "t:intermodaltimingcuesforaudiovisualspeechrecognition",
+   "title": "Intermodal Timing Cues for Audio-Visual Speech Recognition",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "recognition | target_population=general_population | tested_population=healthy_volunteers | Cohort.demographics=sixteen untrained young adults (no lip-reading training) | production_labels=ordinary_voiced_speech | modalities=optical_camera, microphone | Acquisition.signal_qu",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "iber24-liprtve",
+   "key": "t:extendingliprtvetowardsalargescaleaudiovisualdatasetforcontinuousspanishinthewil",
+   "title": "Extending LIP-RTVE: Towards A Large-Scale Audio-Visual Dataset for Continuous Spanish in the Wild",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rpora | Claim.claim_scope=A 24-hour multi-program in-the-wild Spanish AV corpus narrows the English/non-English gap for lipreading and AVSR, covering spontaneous non-professional speakers unconstrained by studio conditions | extra.Limitation.status=acknowledged | extra.Limitation.limitation=Active",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "iccv25-yuan-notonlyvision",
+   "key": "t:notonlyvisionevolvevisualspeechrecognitionviaperipheralinformation",
+   "title": "Not Only Vision: Evolve Visual Speech Recognition via Peripheral Information",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e | extra.Output.output_kind=Autoregressive sentence transcription from lip video + peripheral text | Claim.claim_scope=Human lip-reading exploits context and prior task knowledge beyond pixels — automatic VSR has ignored this; first attempt to integrate",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "iccv25-yuan_nov",
+   "key": "t:notonlyvisionevolvevisualspeechrecognitionviaperipheralinformation",
+   "title": "Not Only Vision: Evolve Visual Speech Recognition via Peripheral Information",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "orating peripheral information improves VSR and is a viable axis beyond better visual modeling | Claim.claim_scope=like humans using context and lip-reading priors, models can exploit graded-relevance peripheral signals when selectively routed | extra.Limitation.limitation",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "ihara-1963-hearingaidlip",
+   "key": "t:acaseofthedeafwhowasgiventheearlyspeechtherapybyhearingaidandlipreading",
+   "title": "A case of the deaf who was given the early speech therapy by hearing aid and lip reading",
+   "year": 1963,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A case of the deaf who was given the early speech therapy by hearing aid and lip reading | Study.research_objective=case report of early speech therapy by hearing aid and lip reading in a deaf patient | St",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "ijfmr-62938-lip-reading-ai",
+   "key": "t:aiforsilentspeechrecognitionlipreadingai",
+   "title": "AI for Silent Speech Recognition ( Lip Reading AI )",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "intech2011_avsr",
+   "key": "t:automaticvisualspeechrecognition",
+   "title": "Automatic Visual Speech Recognition",
+   "year": 2011,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "isca-abdelaziz17b_ntcd",
+   "key": "t:ntcdtimitanewdatabaseandbaselinefornoiserobustaudiovisualspeechrecognition",
+   "title": "NTCD-TIMIT: A New Database and Baseline for Noise-robust Audio-visual Speech Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "res and AV-fusion recipes | extra.Limitation.limitation=TCD-TIMIT phone task is small-vocabulary constrained English; 6 professional-lipreader speakers excluded; still controlled studio speech not real noise | extra.Limitation.status=acknowledged | 17 | 6",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-baldwin99_avsp",
+   "key": "p:isca-baldwin99_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "isca-campbell96b_icslp",
+   "key": "t:seeingspeechinspaceandtimepsychologicalandneurologicalfindings",
+   "title": "Seeing speech in space and time: psychological and neurological findings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ontrolled_experiment | extra.Limitation.limitation=telemetrics shadowing shows speechreading degrades below ~8-12Hz display frame rate; photographic negatives abolish lipreading entirely | McGurk incidence normal viewing (15-20%) | McGurk under photographic negative | McGurk at both 2Hz & 20Hz",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-cisar07-comb",
+   "key": "t:developmentandtestingofnewcombinedvisualspeechparameterization",
+   "title": "Development and Testing of New Combined Visual Speech Parameterization",
+   "year": 2007,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "dy.research_objective=Design a combined visual parameterization (shape for outer lip + pixel for inner mouth) guided by human lip-reading expert knowledge, and benchmark vs DCT baseline on two AV corpora | Study.unit_of_analysis=Word recognition rate per",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-cisar07-combvis",
+   "key": "t:developmentandtestingofnewcombinedvisualspeechparameterization",
+   "title": "Development and testing of new combined visual speech parameterization",
+   "year": 2007,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "arameterization combining shape-based outer-lip contour with pixel-based inner-mouth (teeth/tongue) features, guided by human lip-reading experts | Study.unit_of_analysis=HMM AVSR recognition rate per parameterization and noise condition | task_encoding=",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-cisar07_avsp",
+   "key": "t:developmentandtestingofnewcombinedvisualspeechparameterization",
+   "title": "Development and Testing of New Combined Visual Speech Parameterization",
+   "year": 2007,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "pert-designed 18-param hybrid visual parameterization beats pixel-only DCT on both English and Czech AV corpora | claim=lip-reading expertise identifies inner-mouth objects (teeth/tongue/gap) as critical, guiding better parameterizations | extra.Limitation.l",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-davis04_interspeech",
+   "key": "t:offthetopoftheheadaudiovisualspeechperceptionfromthenoseup",
+   "title": "Off the top of the head: audio-visual speech perception from the nose up",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "h or without concurrent audio | extra.Limitation.limitation=matching task only — shows detectable information, not that humans lipread via the upper face; small forced-choice accuracy (~70%); single talker set/token variation | extra.Limitation.status=ac",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-eungi24-avfacial",
+   "key": "t:enhancingspeechdriven3dfacialanimationwithaudiovisualguidancefromlipreadingexper",
+   "title": "Enhancing Speech-Driven 3D Facial Animation with Audio-Visual Guidance from Lip Reading Expert",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Enhancing Speech-Driven 3D Facial Animation with Audio-Visual Guidance from Lip Reading Expert | authors=Eungi, et-al | venue=Interspeech 2024 | Study.research_objective=AV lip-reading guidance for facial animation",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-gagne98_avsp",
+   "key": "t:evaluationofavisualfmsystemtoenhancespeechreading",
+   "title": "Evaluation of a Visual-FM System to Enhance Speechreading",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "mplemented_evaluated | system_boundary=remote camera over visual-FM channel -> facial video at speechreader location -> human lipreading -> intelligibility score | EvaluationProtocol.temporal_accounting=within-subject speechreading across 3 distances x",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-hilder09_avsp",
+   "key": "p:isca-hilder09_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "we contrast the performance of a machine-based lip-reading system with human lip-reading ability",
+   "loc": "Abstract, §3.3 Table 1",
+   "provenance": "本文確認",
+   "reason": "先行（2009）。AAM 特徴の HMM 読唇と、学生 17 人の読唇を同じ文字 A–F の刺激で同じ正解率で比較"
+  },
+  {
+   "pid": "isca-jain26_interspeech",
+   "key": "t:thelipreadinggapdovsrmodelsperceivevisualspeechlikehumanlipreaders",
+   "title": "The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=isca-jain26_interspeech | title=The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders? | authors=Rishabh Jain, Naomi Harte | venue=Interspeech 2026 | review_state=source_checked | Study.study_design=obs",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-2606.07435 の別版"
+  },
+  {
+   "pid": "isca-kandala19-vivectors",
+   "key": "t:speakeradaptationforlipreadingusingvisualidentityvectors",
+   "title": "Speaker Adaptation for Lip-reading Using Visual Identity Vectors",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "isca-kandala19_interspeech",
+   "key": "t:speakeradaptationforlipreadingusingvisualidentityvectors",
+   "title": "Speaker Adaptation for Lip-reading Using Visual Identity Vectors",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "/ RNN-HMM-state TS / 36-monophone PH) sufficient statistics → 10-dim visual i-vector appended as extra input to hidden layers of 3D-CNN lip-reading baseline | task_family=sentence_recognition | task_encoding=natural_utterance | language=english, korean | intended_",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-kim11f_interspeech",
+   "key": "t:auditoryspeechprocessingisaffectedbyvisualspeechintheperiphery",
+   "title": "Auditory speech processing is affected by visual speech in the periphery",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "incongruent McGurk tests interference; go/no-go variant constrains central attention | system_boundary=psychophysics of human AV speech integration at peripheral eccentricity — informs lipreading input design, not itself a recognition system | SystemConfiguration.system_lifecycle=implemented_evaluated | extra.O",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-movellan99_avsp",
+   "key": "p:isca-movellan99_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ffusion shape only | best HMM shape only | diffusion shape+intensity | HMM shape+intensity | untrained humans | trained human lipreaders | generalization trials | hidden sample paths | jackknife folds",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "avsp99-movellan99_avsp と同じ論文。人間の成績は文献値"
+  },
+  {
+   "pid": "isca-robert05_avsp",
+   "key": "t:interspeakervariabilityoflabialcoarticulationwiththeviewofdevelopingaformalcoart",
+   "title": "Inter speaker variability of labial coarticulation with the view of developing a formal coarticulation model for French",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "urement biased by marker placement (lower/upper lip distance only) | extra.Task.target=lip-readable virtual speaker for deaf lip readers | 10 speakers x corpus of 5 vowels, 6 cons+schwa, 8 CV, 20 VCV, 18 VCCV, 2 sentences: anticipatory protrusion univer",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-shillingford19-largescale",
+   "key": "t:largescalevisualspeechrecognition",
+   "title": "Large-Scale Visual Speech Recognition",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1807.05162 の別版"
+  },
+  {
+   "pid": "isca-shillingford19_interspeech",
+   "key": "p:isca-shillingford19_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "unconstrained views | Cohort.demographics=thousands of YouTube speakers (unspecified count) appearing in public videos; professional lipreaders engaged separately for a human benchmark | extra.Production.scope_note=naturalistic YouTube speech: in-the-wild cond",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1807.05162 の別版"
+  },
+  {
+   "pid": "isca-thangthai17-dnnsdt",
+   "key": "t:improvingcomputerlipreadingviadnnsequencediscriminativetrainingtechniques",
+   "title": "Improving computer lipreading via DNN sequence discriminative training techniques",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "isca-thangthai17_interspeech",
+   "key": "t:improvingcomputerlipreadingviadnnsequencediscriminativetrainingtechniques",
+   "title": "Improving Computer Lipreading via DNN Sequence Discriminative Training Techniques",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "isca-thangthai17_lipdnn",
+   "key": "t:improvingcomputerlipreadingviadnnsequencediscriminativetrainingtechniques",
+   "title": "Improving computer lipreading via DNN sequence discriminative training techniques",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "isca-thangthai17_lipread",
+   "key": "t:improvingcomputerlipreadingviadnnsequencediscriminativetrainingtechniques",
+   "title": "Improving computer lipreading via DNN sequence discriminative training techniques",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "isca-xue05_avsp",
+   "key": "t:consonantconfusionstructurebasedonmachineclassificationofvisualfeaturesincontinu",
+   "title": "Consonant confusion structure based on machine classification of visual features in continuous speech",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "anularity for a talking-face synthesis codebook: compare machine consonant confusions (GMM/MAP) on continuous speech vs human lipreading confusions | Study.study_design=controlled_experiment | Study.unit_of_analysis=phoneme-level confusion matrix + with",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "機械は連続音声、人間は無意味 CV 音節で、刺激が違う"
+  },
+  {
+   "pid": "isca-yu20f_avmcs",
+   "key": "t:audiovisualmultichannelrecognitionofoverlappedspeech",
+   "title": "Audio-Visual Multi-channel Recognition of Overlapped Speech",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "gle camera tracking target face | representation_kind=lip embeddings from target-speaker mouth ROI (LipNet 3D-conv + 18-layer ResNet, pretrained on lipreading) + location-guided angle feature + IPD features | ProcessingStep.architecture={'stages': ['AV multi-channel separati",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "mjcs-38-4-lipcoordnet",
+   "key": "t:lipcoordnetadualstreamdeeplearningarchitectureforvisualspeechrecognitionusingfac",
+   "title": "LIPCOORDNET: A Dual-Stream Deep Learning Architecture for Visual Speech Recognition Using Facial Landmarks",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "oa-W2257285929",
+   "key": "t:amultimodalsensorfusionarchitectureforaudiovisualspeechrecognition",
+   "title": "A Multimodal Sensor Fusion Architecture for Audio-Visual Speech Recognition",
+   "year": 2007,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文のみ一致（2007）。「聴覚障害者は読唇で約 50% を復元できる」という一般的記述で、人間の成績を測っていない"
+  },
+  {
+   "pid": "oa-W2884698322",
+   "key": "t:aninvestigationofinvoluntaryeyeblinksduringlipreading",
+   "title": "An Investigation of Involuntary Eye Blinks During Lipreading",
+   "year": 1979,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文のみ一致（1979）。人間の読唇中の瞬目の研究で、機械の結果がない"
+  },
+  {
+   "pid": "oa-W2913918387",
+   "key": "t:towardsagreaterunderstandingoftheneurophysiologyofnaturalaudiovisualspeechproces",
+   "title": "Towards a Greater Understanding of the Neurophysiology of Natural Audiovisual Speech Processing: a System Identification Approach to EEG",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "demographics=8F/13M, 19–37 y, right-handed, native English, normal hearing/vision | Cohort.demographics=5F/7M, 22–37 y, untrained lipreaders | congruent AV reaction time | audio-only reaction time | visual-only reaction time | AVc envelope reconstruction ac",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-10980250-avnet-lipread",
+   "key": "t:usingnetworksciencetoexamineaudiovisualspeechperceptionwithamultilayergraph",
+   "title": "Using network science to examine audio-visual speech perception with a multi-layer graph",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l-only error patterns | Claim.claim_scope=Access to phonological information influences visual speech perception — even deaf speech-readers show lexical effects — informing lip-reading training and automatic lip-reading device design | extra.Limitation.status=acknowledged | extra.Limitation.limitatio",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-12286133-lipreading-review",
+   "key": "t:lipreadingadvancesandunresolvedquestionsinakeycommunicationskill",
+   "title": "Lip-Reading: Advances and Unresolved Questions in a Key Communication Skill",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nglish vs eyes/nose in Japanese/Chinese, Mandarin speakers less McGurk-susceptible due to tonal functional load | claim=hearing-impaired populations rely more on lip-reading; deaf > hearing > dyslexic on speechreading measures; in CI children (3-18) lip-reading is a primary audiovisual int",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-12704605-forensic-lipreading",
+   "key": "t:lipreadinginspeechlanguagehearingforensicanalysisperspectivesandchallenges",
+   "title": "Lipreading in speech-language-hearing forensic analysis: perspectives and challenges",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "words in forensic cases | task_encoding=natural_utterance | task_family=semantic_or_intent_decoding | extra.Task.scope=human expert lipreading of speaker utterances for forensic identification | target_population=general_population | production_labels=ordinar",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-13567795-mouthnoise",
+   "key": "t:impactofvisualmouthimagepresentationonspeechperceptioninnoiseinnormalhearingsubj",
+   "title": "Impact of visual mouth image presentation on speech perception in noise in normal hearing subjects and cochlear implant users",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rs; implants CI422-Synchrony2, CP1000-Rondo3 processors; hearing experience 1.2-15.3 y; FMS 65-95% | Cohort.participant_expertise=Self-assessed lipreading 0-10 scale prior to tests | Cohort.consent_scope=Ethics approval No. 2021−408; written informed consent; Jan-Sep 202",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-13635495-deafplastic",
+   "key": "t:differentialcrossmodalfunctionalplasticityindeafindividualsametaanalysisofneuroi",
+   "title": "Differential cross-modal functional plasticity in deaf individuals: A meta-analysis of neuroimaging studies",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "claim=cross-modal activation is lateralized: linguistic tasks left STG, non-linguistic right | technical_limits=91% of deaf participants were signers vs 9% lip-readers, so results are dominated by sign-language plasticity; ALE captures peaks not full activation patterns | studies | d",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-4248808-vispathways",
+   "key": "t:neuralpathwaysforvisualspeechperception",
+   "title": "Neural pathways for visual speech perception",
+   "year": 2014,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "represented in a dedicated temporal visual speech area | Study.unit_of_analysis=Literature synthesis across behavioral (deaf vs normal-hearing lipreaders, confusable-word identification, confidence ratings) and neuroimaging (PET/fMRI of lipread vs audiovisual speech, ca",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-4499841-natsynth",
+   "key": "t:visualspeechdiscriminationandidentificationofnaturalandsynthetic",
+   "title": "Visual speech discrimination and identification of natural and synthetic",
+   "year": 2015,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "pmc-4499841-visemediscrim",
+   "key": "t:visualspeechdiscriminationandidentificationofnaturalandsyntheticconsonantstimuli",
+   "title": "Visual speech discrimination and identification of natural and synthetic consonant stimuli",
+   "year": 2015,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "not all appear natural; no tongue markers; identification accuracy modest as typical in the literature; single talker; lipreaders were hearing-screened, not deaf experts | 1 pair | 3.67 | 15 | 12 | 240 Hz",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-4958963-mcgurkmusician",
+   "key": "t:skilledmusiciansarenotsubjecttothemcgurkeffect",
+   "title": "Skilled musicians are not subject to the McGurk effect",
+   "year": 2016,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "pmc-5215792-deafstrategy",
+   "key": "t:whenhearingistrickyspeechprocessingstrategiesinprelinguallydeafenedchildrenandad",
+   "title": "When Hearing Is Tricky: Speech Processing Strategies in Prelingually Deafened Children and Adolescents with Cochlear Implants Having Good and Poor Speech Performance",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rformance | authors=Ortmann, Zwitserlood, Knief | Study.research_objective=speech-processing strategies in prelingually deafened CI users incl. lipreading reliance | Study.study_design=controlled_experiment | extra.Production.scope_note=deaf CI speech strategies | modali",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-5371603-cuedfmri",
+   "key": "t:theneuralbasisofspeechperceptionthroughlipreadingandmanualcuesevidencefromdeafna",
+   "title": "The Neural Basis of Speech Perception through Lipreading and Manual Cues: Evidence from Deaf Native Users of Cued Speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n=controlled_experiment | Study.research_objective=First neuroimaging study of Cued Speech perception: map the networks deaf native CS users use for manual-cue + lipread words, manual cues alone, and lipreading alone, against hearing adults’ AV / audio-only / lipread-alone speech network",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-5379061-deafphonol",
+   "key": "t:fasterphonologicalprocessingandrightoccipitotemporalcouplingindeafadultssignalpo",
+   "title": "Faster phonological processing and right occipito-temporal coupling in deaf adults signal poor cochlear implant outcome",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "pmc-5954881-deafstc",
+   "key": "t:languageandsensoryneuralplasticityinthesuperiortemporalcortexofthedeaf",
+   "title": "Language and Sensory Neural Plasticity in the Superior Temporal Cortex of the Deaf",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "stimuli activating STC; checkerboard response is a sensory feed-forward component (thalamus/V1) positively scaling with deafness duration, while word/sign/lip-reading responses recruit a language component via frontotemporal feedback — the two converge on STC with different multivox",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-6724546-sentencelipread",
+   "key": "t:responseerrorsinfemalesandmalessentencelipreadingnecessitatestructuralequationmo",
+   "title": "Response Errors in Females' and Males' Sentence Lipreading Necessitate Structural Equation Modeling",
+   "year": 2018,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "pmc-8747278-mcnnlip",
+   "key": "t:lipreadingarchitecturebasedonmultipleconvolutionalneuralnetworksforsentencelevel",
+   "title": "Lipreading Architecture Based on Multiple Convolutional Neural Networks for Sentence-Level Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "pmc-8747278-multicnn",
+   "key": "t:lipreadingarchitecturebasedonmultipleconvolutionalneuralnetworks",
+   "title": "Lipreading Architecture Based on Multiple Convolutional Neural Networks",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "pmc-9029225-cloudlip",
+   "key": "t:endtoendlipreadingopencloudbasedspeechrecognition",
+   "title": "End-to-End Lip-Reading Open Cloud-Based Speech Recognition",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "pmc-9524756-lipreadtraining",
+   "key": "t:lipreadingareviewofitscontinuingimportanceforspeechrecognitionwithanacquiredhear",
+   "title": "Lipreading: A Review of Its Continuing Importance for Speech Recognition With an Acquired Hearing Loss and Possibilities for Effective Training",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pulations: older adults with acquired hearing loss (thresholds ≤40 dB HL, unaided), normal-hearing adults, prelingually deaf CI users; individual lipreading ability is poor and highly variable in naive adult listeners | intended_use_cases=noisy_environment, other | demonst",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "pmc-9609693-mavsr",
+   "key": "t:noiserobustmultimodalaudiovisualspeechrecognitionsystemforspeechbasedinteraction",
+   "title": "Noise-Robust Multimodal Audio-Visual Speech Recognition System for Speech-Based Interaction Applications",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "全文一致のみ。一致箇所は他論文の人間成績（LipNet の 47.7%、Easton & Basala の約 20–30% など）の引用か、人間の読唇についての一般的記述"
+  },
+  {
+   "pid": "pmc2645675_lipnoise",
+   "key": "t:lipreadingaidswordrecognitionmostinmoderatenoiseabayesianexplanationusinghighdim",
+   "title": "Lip-Reading Aids Word Recognition Most in Moderate Noise: A Bayesian Explanation Using High-Dimensional Feature Space",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "SNR for A vs AV vs V-only | task_encoding=natural_utterance | task_family=isolated_word_recognition | extra.Task.scope=human lipreading-aided word recognition across noise levels — speechreading perception science | target_population=general_population",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "teme-230125057k",
+   "key": "t:theroleandsignificanceoflipreading",
+   "title": "The Role and Significance of Lip-Reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "es/perceptual categories -> words via analytic decoding or sentence-level synthetic matching with context | system_name=human lip-reading (speech-reading) ability | ProcessingStep.architecture=human perceptual system; training program: vowels first then",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "w3082193865-hahncnn",
+   "key": "t:lipreadingwithhahnconvolutionalneuralnetworks",
+   "title": "Lip Reading with Hahn Convolutional Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Berbia; Qjidaa; Daoudi | venue=HAL preprint (ICIAR 2019 proceedings) | Study.research_objective=HCNN: Hahn-moment first layer inside CNN for lipreading: OuluVS2 digits 93.72% (+DA, SI) beating SyncNet 92.8%; LRW 500-class 58.02% top-1 (+flip DA); AVLetters +20% absolu",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "w4298086499-ploslip",
+   "key": "t:influenceoflinguisticpropertiesandhearingimpairmentonvisualspeechperceptionskill",
+   "title": "Influence of linguistic properties and hearing impairment on visual speech perception skills in the German language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ipreading test corpus | task_family=sentence_recognition | elicitation=instructed_content | extra.Production.scope_note=human lipreading assessment, not machine VSR | modalities=optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "w4320717008-jstage",
+   "key": "t:analysisoflipmovementsbasedonlipreadersevaluation",
+   "title": "Analysis of Lip Movements Based on Lip Reader's Evaluation",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ety for Fuzzy Theory and Intelligent Informatics | Study.research_objective=quantify easy-to-lipread speaking style via hearing-impaired lip-readers evaluation | Study.study_design=observational | task_family=sentence_recognition | elicitation=instructed_content |",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "台帳スニペットでは人間の読唇の知覚・神経・教育研究、または機械側の特徴設計に人間の知見を使うだけで、同じデータで機械と人間の成績を並べていない"
+  },
+  {
+   "pid": "isca-ma09_avcon",
+   "key": "t:humanaudiovisualconsonantrecognitionanalyzedwiththreebimodalintegrationmodels",
+   "title": "Human Audio-Visual Consonant Recognition Analyzed with Three Bimodal Integration Models",
+   "year": 2009,
+   "via": [
+    "independent_check"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "The visual-only HMMs perform better than the human participants",
+   "loc": "§4, Fig. 3",
+   "provenance": "本文確認",
+   "reason": "先行（2009）。健聴 10 人の VCV 無意味語の視覚のみ・音声映像の判定と、同じ収録で学習・評価した HMM を同じ正解率で比較。独立評価の検索で見つかり、監査の正規表現が落としていた"
+  },
+  {
+   "pid": "isca-ma09_avconsonant",
+   "key": "t:humanaudiovisualconsonantrecognitionanalyzedwiththreebimodalintegrationmodels",
+   "title": "Human Audio-Visual Consonant Recognition Analyzed with Three Bimodal Integration Models",
+   "year": 2009,
+   "via": [
+    "independent_check"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "isca-ma09_avcon の別版"
+  },
+  {
+   "pid": "isca-ma09_interspeech",
+   "key": "t:humanaudiovisualconsonantrecognitionanalyzedwiththreebimodalintegrationmodels",
+   "title": "Human Audio-Visual Consonant Recognition Analyzed with Three Bimodal Integration Models",
+   "year": 2009,
+   "via": [
+    "independent_check"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "isca-ma09_avcon の別版"
+  },
+  {
+   "pid": "isca-potamianos01_eurospeech",
+   "key": "t:largevocabularyaudiovisualspeechrecognitionbymachinesandhumans",
+   "title": "Large-Vocabulary Audio-Visual Speech Recognition by Machines and Humans",
+   "year": 2001,
+   "via": [
+    "independent_check"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "境界例（2001）。大語彙連続音声で機械と人間を比べるが、人間の条件は音声のみと音声映像で、映像のみの読唇ではない。独立評価の検索で見つかった"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 5,
+  "found": 4,
+  "recall": 0.8,
+  "missed": [
+   "cvf-chung17-lipreadwild"
+  ]
+ },
+ "tally": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 64,
+  "read": 116,
+  "unread": 0,
+  "confirmed_unique": 7,
+  "confirmed_本文確認": 7,
+  "recall_sample_read": 30,
+  "recall_sample_included": 1,
+  "recall_estimate": 0.81
+ },
+ "used_by": [
+  "lip-reading-sentences-in-the-wild"
+ ]
+}

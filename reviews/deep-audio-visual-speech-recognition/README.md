@@ -228,7 +228,7 @@ M11 の確認済み：LRS [[2]](#ref-2)（先行、放送日で分割）、LSVSR
 - [`evaluation.ja.md`](evaluation.ja.md)：執筆者と別の評価者による検証
 - [`triage.ja.md`](triage.ja.md)：評価の指摘を原典で確かめた判定と対応
 - [`components/M06/ctc-vs-attention.csv`](../../components/M06/ctc-vs-attention.csv)：M06 の話題「ctc-vs-attention」の候補論文と採否（確認済み 3、読んだ候補 42、未読 128）
-- [`components/M11/in-the-wild-sentence-benchmark.csv`](../../components/M11/in-the-wild-sentence-benchmark.csv)：M11 の話題「in-the-wild-sentence-benchmark」の候補論文と採否（確認済み 5、読んだ候補 26、未読 316）
+- [`components/M11/in-the-wild-sentence-benchmark.csv`](../../components/M11/in-the-wild-sentence-benchmark.csv)：M11 の話題「in-the-wild-sentence-benchmark」の候補論文と採否（確認済み 5、読んだ候補 49、未読 293）
 
 
 ## More reviews in Lip & face video
@@ -238,7 +238,7 @@ M11 の確認済み：LRS [[2]](#ref-2)（先行、放送日で分割）、LSVSR
 - [Lipper: Synthesizing Thy Speech using Multi-View Lipreading](../lipper-synthesizing-thy-speech-using-multi-view-lipreading/) (2019). Lipper reconstructs speech from multi-view lip video on OuluVS2 as a regression problem; the best three-view setting reaches PESQ 2.315 with 0.169 s end-to-end delay, though audio remains robotic.
 - [Video-Driven Speech Reconstruction using Generative Adversarial Networks](../video-driven-speech-reconstruction-using-generative-adversarial-networks/) (2019). Uses a GAN to generate speech audio directly from silent frontal face video on GRID; speaker-dependent WER is 26.6%, while unseen speakers degrade to 40.5% WER.
 - [Improved Speech Reconstruction from Silent Video](../improved-speech-reconstruction-from-silent-video/) (2017). Reconstructs speech from silent full-face video plus optical flow with a CNN and temporal post-processing network, outperforming prior methods on GRID and TCD-TIMIT in objective metrics and human word accuracy.
-- [Lip Reading Sentences in the Wild](../lip-reading-sentences-in-the-wild/) (2017). Introduces Watch, Listen, Attend and Spell and the BBC LRS dataset; lips-only decoding reaches 50.2% WER on open-vocabulary broadcast sentences, beating a professional lipreader (73.8%).
+- [Lip Reading Sentences in the Wild](../lip-reading-sentences-in-the-wild/) (2017). Introduces Watch, Listen, Attend and Spell and the BBC LRS dataset. Lips-only decoding reaches 50.2% WER on open-vocabulary broadcast sentences against 73.8% for a professional lipreader, but the lipreader worked on 200 clips under different viewing conditions with declined clips excluded (87.6% with them), and the machine score is not stated to be on the same clips. The word-to-sentence curriculum gives the largest single gain (76.5% to 61.1%), from one training run.
 
 ---
 
