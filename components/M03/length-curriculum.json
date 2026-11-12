@@ -1,0 +1,1226 @@
+{
+ "topic": "length-curriculum",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "curriculum|(single|short|isolated)[- ]words?[^|]{0,80}(then|before|followed|progress\\w*|grow\\w*)[^|]{0,60}(sentence|longer|length)|(gradually|progressively) (increas|grow|lengthen|extend)\\w*[^|]{0,40}(length|sequence|duration)",
+ "scope": "ledger",
+ "fulltext_pattern": "curriculum[^.]{0,120}(word|length|short|longer|sentence)|(start|begin)\\w* (the )?(training )?(only )?(on|with) (single|short|isolated)[- ]?words?[^.]{0,150}(sentence|longer|length)",
+ "inclusion_rule": "系列を出力する復号器の学習で、短い単位（単語・短い区間）の例から始め、学習の進行に合わせて入力系列の長さを伸ばす（文・長い区間へ移す）手順を使った研究を含める。境界：雑音の強さ・難易度・データ量だけを段階的に変えるカリキュラムは除く。単語単位の事前学習のあと文単位で学習し直す二段階は、短い単位から長い単位へ移す明示的な手順として書かれていれば含める。前作の手順を引き継いだと書くだけでなく実際に使っていれば含める。同一研究の別版は1件。",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 46,
+  "string_match_unique": 39,
+  "fulltext_only_folders": 30
+ },
+ "recall_sample": [
+  "pmc-12383669-sign-literacy",
+  "doi-10.3390-electronics14122310",
+  "cvf-chung17-lipreadwild",
+  "cmc-nestlipgnn",
+  "mdpi-e14122310_multiavsr",
+  "arxiv-2104.04784",
+  "arxiv-2510.21038",
+  "pmc-8659639-visemeword",
+  "arxiv-2608.25204",
+  "isca-afouras18b_interspeech",
+  "arxiv-2609.03231",
+  "pmc-8659639-viseme2word",
+  "doi-10.3390-s21237890",
+  "cvf23-djilali_lip2vec",
+  "arxiv-1906.12170",
+  "isca-afouras18b_deeplipread",
+  "isca-zhou22g_interspeech",
+  "arxiv-2608-25204-libribrain100",
+  "cvf-zhang19-stfcsl",
+  "isca-zhou22g-avwake",
+  "doi-10.1109-tpami.2018.2889052",
+  "doi-10.20944-preprints202505.0540.v1",
+  "arxiv-2308.06112",
+  "arxiv-2609-03231-pnpl26",
+  "arxiv-2110.07603",
+  "pmc-10055479-rosesyntax",
+  "pmc-10973108-talkfaces",
+  "pmc-5581506-simcommci",
+  "isca-afouras18b-deeplip",
+  "arxiv-2311.14063"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1611.05358",
+   "key": "t:lipreadingsentencesinthewild",
+   "title": "Lip Reading Sentences in the Wild",
+   "year": 2017,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "r frame | ProcessingStep.hyperparameters=three-layer LSTM cell size 512; beam search width 4 | TrainingRun.optimization=curriculum learning (single words to full sentences), scheduled sampling, noisy audio augmentation (SNR 10dB/0dB later in training",
+   "decision": "include",
+   "quote": "We introduce a new strategy where we start training only on single word examples, and then let the sequence length grow as the network trains",
+   "loc": "§3.1",
+   "provenance": "本文確認",
+   "reason": "対象（2016-11）。単語の例から始め、学習とともに系列長を伸ばす"
+  },
+  {
+   "pid": "arxiv-1804.04121",
+   "key": "p:arxiv-1804.04121",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "hase source (GT / Griffin-Lim / mixed / predicted); frozen pretrained lip front-end (LRW + internal multiview); 3-phase curriculum training; cross-dataset PESQ-NF test for unseen speakers+languages | EvaluationProtocol.statistical_plan=SIR/SAR/SDR +",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "3 段の学習は音声合成側の段階で、系列長ではない"
+  },
+  {
+   "pid": "arxiv-1806.06053",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ER % for {greedy,T1-LM,T2-LM} + t/b + train days | technical_essence=word-level pretrain of front-end on LRW+MV-LRS(w); curriculum: utterances of 2, then {2,3}, then {2,3,4}, ... words | technical_essence=CTC backend learns alignments; FST beam decod",
+   "decision": "include",
+   "quote": "we continued the curriculum in order to cover the length up to the longest sample in the validation set",
+   "loc": "§3",
+   "provenance": "本文確認",
+   "reason": "後続（2018-06）。2 語、{2,3} 語、… と長さを伸ばし、検証集合の最長まで続ける"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "key": "t:deepaudiovisualspeechrecognition",
+   "title": "Deep Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": ",A,AV}x{LRS2,LRS3}x{clean,noisy}x{+extLM} | TrainingRun.training_objective=CTC/CE on LRS2+LRS3; word-clip pretrain then curriculum to full sentences; noisy fine-tune | EvaluationProtocol.statistical_plan={'metrics': 'WER %', 'test': 'LRS2/LRS3 test;",
+   "decision": "include",
+   "quote": "we start training only on single word examples, and then let the sequence",
+   "loc": "§5.2",
+   "provenance": "本文確認",
+   "reason": "後続（2018-09）。単語から文へ長さを伸ばす（WLAS §3.1 とほぼ同文）"
+  },
+  {
+   "pid": "arxiv-1904.04817",
+   "key": "t:learningfromvideoswithdeepconvolutionallstmnetworks",
+   "title": "Learning from Videos with Deep Convolutional LSTM Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "os, 29f, 500 words x1000, 50/word val | dataset_description=LRS2 118k sentences, 17,428 vocab, word-boundary labels for curriculum | representation_kind=48-68px mouth crop -> 48x48; 6-transform TTA at inference | representation_kind=VGG-M or ResNet34",
+   "decision": "include",
+   "quote": "Training began on subsequences of length 8",
+   "loc": "§4",
+   "provenance": "本文確認",
+   "reason": "後続（2019-04）。長さ 8 の部分系列から学習を始めて伸ばす"
+  },
+  {
+   "pid": "arxiv-1906.12170",
+   "key": "t:lipreadingwith3d2dcnnblstmhmmandwordctcmodels",
+   "title": "LipReading with 3D-2D-CNN BLSTM-HMM and word-CTC models",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "train the network with segmented words for initial epochs, then in later epochs the network is trained on full sentences",
+   "loc": "§3",
+   "provenance": "本文確認",
+   "reason": "後続（2019-06）。切り出した単語を初期エポックに使い、確率を線形に下げて文へ移す"
+  },
+  {
+   "pid": "arxiv-2004.08250",
+   "key": "t:howtoteachdnnstopayattentiontothevisualmodalityinspeechrecognition",
+   "title": "How to Teach DNNs to Pay Attention to the Visual Modality in Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| task_family=sentence_recognition | extra.Task.scope=TCD-TIMIT SD 59spk 70/30 + new SI split (9 test spk); LRS2; noise curriculum clean->-5dB Cafeteria; CER bar-plot results 5 trials; AU regularizer; fusion ablations; alignment controls. | intended_",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "雑音の強さのカリキュラム"
+  },
+  {
+   "pid": "arxiv-2009.01225",
+   "key": "t:seeingwakewordsaudiovisualkeywordspotting",
+   "title": "Seeing wake words: Audio-visual Keyword Spotting",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uration.configuration_scope=KWS-Net V/A/AV + ablations noLOC/noSH/+P2G vs G2P/P2G/Visual-ASR baselines; LRW->LRS2->LRS3 curriculum for langs | TrainingRun.training_objective=localisation-aware detection loss (word boundaries), babble augmentation 50%",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "データ集合を LRW→LRS2→LRS3 と移すキーワード検出で、系列復号ではない"
+  },
+  {
+   "pid": "arxiv-2012.07467",
+   "key": "t:avtarisonlineaudiovisualspeechrecognition",
+   "title": "AV Taris: Online Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s=speech_restoration, noisy_environment | extra.Production.scope_note=additive cafeteria noise clean/10/0/-5dB, 4-stage curriculum (params copied between stages) | Cohort.demographics=LRS2 train 45839 / test 1243 sentences | modalities=optical_camera",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "雑音の強さのカリキュラム"
+  },
+  {
+   "pid": "arxiv-2104.04784",
+   "key": "t:lipreadingusingexternalvisemedecoding",
+   "title": "Lip reading using external viseme decoding",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "カリキュラムが単語境界の注釈を要する点を課題として述べるだけ"
+  },
+  {
+   "pid": "arxiv-2110.07603",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "カリキュラムの代わりに n-gram 部分系列の増強を使うと明記（境界外。長さを伸ばす手順は不要と主張）"
+  },
+  {
+   "pid": "arxiv-2204.01725",
+   "key": "t:distinguishinghomophenesusingmultiheadvisualaudiomemoryforlipreading",
+   "title": "Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rin 1000 words 718,018 videos (unbalanced) | dataset_description=LRS2 sentence-level; LRW frontend + LRS2/LRS3 pretrain curriculum | representation_kind=lip crops + mel-spectrograms | representation_kind=R18 frontend + MS-TCN backend + multi-head MVM",
+   "decision": "include",
+   "quote": "pre-train the whole network using pre-train sets of the LRS2 and the LRS3 with curriculum setting",
+   "loc": "§4",
+   "provenance": "本文確認",
+   "reason": "後続（2022-04）。LRS2/LRS3 の pre-train 集合をカリキュラム設定で学習（Chung 2017 に従う）"
+  },
+  {
+   "pid": "arxiv-2209.01768",
+   "key": "t:predictandupdatenetworkaudiovisualspeechrecognitioninspiredbyhumanspeechpercepti",
+   "title": "Predict-and-Update Network: Audio-Visual Speech Recognition Inspired by Human Speech Perception",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tive=init predictor←lipreading, update-enc←ASR, dec←lipreading; Adam lr→2e-4, bs8/16 grad-accum, virtual epochs 500/750 curriculum | EvaluationProtocol.statistical_plan={'metrics': 'WER clean/noisy, CER, cosine θ by SNR', 'test': 'LRS2/LRS3 test sets",
+   "decision": "include",
+   "quote": "only samples within 6 seconds will be picked at the ﬁrst 100 epochs",
+   "loc": "§4",
+   "provenance": "本文確認",
+   "reason": "後続（2022-09）。最初の 100 エポックは 6 秒以内の例だけを使う"
+  },
+  {
+   "pid": "arxiv-2303.08536",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_scope=AV-RelScore vs ASR/VSR/Conformer/V-CAFE; corruption 3x6 grid + clean + ablation | TrainingRun.training_objective=curriculum 100->150->300->600f, 50/50/20/20ep, Adam b1.9/.98 e1e-9, lr 0.0004 invsqrt warm25k, 4xRTX3090 | TrainingRun.training_ha",
+   "decision": "include",
+   "quote": "curriculum 100->150->300->600f",
+   "loc": "台帳 M03",
+   "provenance": "台帳のみ",
+   "reason": "後続（2023-03）。100→150→300→600 フレームと伸ばす"
+  },
+  {
+   "pid": "arxiv-2308.06112",
+   "key": "t:lip2vecefficientandrobustvisualspeechrecognitionvialatenttolatentvisualtoaudiore",
+   "title": "Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visual to Audio Representation Mapping",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "他研究のカリキュラムの紹介"
+  },
+  {
+   "pid": "arxiv-2311.14063",
+   "key": "t:dovsrmodelsgeneralizebeyondlrs3",
+   "title": "Do VSR Models Generalize Beyond LRS3?",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "他研究のカリキュラムの紹介"
+  },
+  {
+   "pid": "arxiv-2312.07254",
+   "key": "t:theguaspeechsystemdescriptionforcnvsrcchallenge2023",
+   "title": "The GUA-Speech System Description for CNVSRC Challenge 2023",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e=CNVSRC23 Task1 single-speaker fixed-track VSR: Conformer enc + bi-transformer dec + RNNLM shallow fusion + inter-CTC, curriculum CN-CVS->Single.Dev; CER 38.09 (vs baseline 48.60, -21.63%), 2nd place. | task_family=sentence_recognition | extra.Task.",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "データ集合の順序のカリキュラム"
+  },
+  {
+   "pid": "arxiv-2401.09802",
+   "key": "t:efficienttrainingformultilingualvisualspeechrecognitionpretrainingwithdiscretize",
+   "title": "Efficient Training for Multilingual Visual Speech Recognition: Pre-training with Discretized Visual Speech Representation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-> discretized visual speech units (1000-cluster HuBERT targets) -> efficient unit-to-text pretrain w/ progressive mask curriculum -> continuous-ft single multilingual VSR; SOTA Es/It/Fr, 2nd En/Pt; train 6.6h vs 52.5h standard. | task_family=sentenc",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "マスク率のカリキュラム"
+  },
+  {
+   "pid": "arxiv-2407.01034",
+   "key": "p:arxiv-2407.01034",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "jective=joint: animator L_mse + L_rlv; expert L_av = lambda_ctc L_ctc + lambda_ce L_ce (joint CTC/attention); two-stage curriculum | TrainingRun.selection_data=stage1: large 2D talking-face corpora (LRS2/LRS3/AVSpeech/VoxCeleb2); stage2: BIWI/VOCASET",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "データ集合の 2 段学習"
+  },
+  {
+   "pid": "arxiv-2410.16438",
+   "key": "t:alignvsraudiovisualcrossmodalalignmentforvisualspeechrecognition",
+   "title": "AlignVSR: Audio-Visual Cross-Modal Alignment for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ext | extra.Configuration.configuration_scope=S1/S2/S3 ablation + 223h SOTA comparison | TrainingRun.training_objective=curriculum: train <4s clips then FT full set (CNVSRC-2023 strategy); quick-val uses <5s 69h subset | TrainingRun.training_hardware",
+   "decision": "include",
+   "quote": "train <4s clips then FT full set",
+   "loc": "台帳 M03",
+   "provenance": "台帳のみ",
+   "reason": "後続（2024-10）。4 秒未満の切り出しで学習してから全体で微調整"
+  },
+  {
+   "pid": "arxiv-2507.06060",
+   "key": "p:arxiv-2507.06060",
+   "title": null,
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ble render; perceptual loss closes loop from geometry to photorealistic output | TrainingRun.training_objective=3-stage curriculum: L_vert on VOCASET, then L_vert lip-weighted on MEAD, then L_vert + 1e-5*L_read; weighted vertex MSE W_v (non-skin 0.5,",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "データ集合の 3 段学習"
+  },
+  {
+   "pid": "arxiv-2508.07608",
+   "key": "t:adavsrasymmetricdualstreamenhancementforrobustaudiovisualspeechrecognition",
+   "title": "AD-AVSR: Asymmetric Dual-stream Enhancement for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", CER%, avg across SNR', 'conditions': 'audio SNR clean/10/5/0/-5; visual occlusion+noise', 'train': 'Adam+Noam warmup; curriculum; train noise SNR -5..15; ~8 days per LRS2 run on 4xRTX3090'} | Claim.claim_scope=AD-AVSR best avg WER: LRS2 4.8 (clean",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2510.21038",
+   "key": "t:elementarymydearwatsonnoninvasiveneuralkeywordspottinginthelibribraindataset",
+   "title": "Elementary, My Dear Watson: Non-Invasive Neural Keyword Spotting in the LibriBrain Dataset",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "一般的な比喩"
+  },
+  {
+   "pid": "arxiv-2601.12436",
+   "key": "t:purificationbeforefusiontowardmaskfreespeechenhancementforrobustaudiovisualspeec",
+   "title": "Purification Before Fusion: Toward Mask-Free Speech Enhancement for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ncement: LRS3 WER 2.1 clean / 4.5 @0dB / 8.5 @-5dB, avg 3.9; video crucial in overlap (9.6 vs 24.6 w/o); GPT-2 rescore, curriculum 20ep high-SNR first. | task_family=sentence_recognition | intended_use_cases=noisy_environment, assistive_text_entry |",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "高 SNR から始める雑音のカリキュラム"
+  },
+  {
+   "pid": "arxiv-2603.21808",
+   "key": "t:cascadefreemandarinvisualspeechrecognitionviasemanticguidedcrossrepresentational",
+   "title": "Cascade-Free Mandarin Visual Speech Recognition via Semantic-Guided Cross-Representation Alignment",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "F+V/F+P+V variants (char-enc 6L, dec 3L, ph/vis enc 3L) | technical_essence=sequence-to-sequence video->characters with curriculum + random crop/time-mask aug, AdamW | extra.Output.output_kind=CER% seen/unseen + active params + inference ms | extra.C",
+   "decision": "include",
+   "quote": "all the models are firstly trained for 50 epochs on the subset that is less than 64 frames",
+   "loc": "§4",
+   "provenance": "本文確認",
+   "reason": "後続（2026-03）。64 フレーム未満の部分集合で 50 エポック学習してから全体"
+  },
+  {
+   "pid": "arxiv-2607.25626",
+   "key": "t:jointtextaudioalignmentforeegtotextdecodinginchinesespeechproductionandperceptio",
+   "title": "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| TrainingRun.training_objective=AdamW lr 2e-4, wd 1e-2, grad-clip 5, batch 32(PL)/16(RA), warmup 4000 + cosine; staged curriculum; ~16 GPU-hours, <=10GB LaBraM memory | EvaluationProtocol.test_material_selection=closed-set 1 positive + 100 negatives",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2607.25626-eegalign",
+   "key": "t:jointtextaudioalignmentforeegtotextdecodinginchinesespeechproductionandperceptio",
+   "title": "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rames -> CTC head, vocab 21,128 chars, beam 10; per-subject bottleneck adapters ~16K params (db=32, zero-init); 3-stage curriculum; AdamW lr2e-4 wd1e-2 clip5, bs32(PL)/16(RA), warmup4000 cosine, 1 GPU ~5-10GB ~16 GPU-h | EvaluationProtocol.experiment",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "arxiv-2608-25204-libribrain100",
+   "key": "t:libribrain100onehundredhoursofbroadanddeepmegdataforneuralspeechdecodingatscale",
+   "title": "LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "課題の順序の意味"
+  },
+  {
+   "pid": "arxiv-2608.25204",
+   "key": "t:libribrain100onehundredhoursofbroadanddeepmegdataforneuralspeechdecodingatscale",
+   "title": "LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "課題の順序の意味"
+  },
+  {
+   "pid": "arxiv-2608.25204-libribrain100",
+   "key": "t:libribrain100onehundredhoursofbroadanddeepmegdataforneuralspeechdecodingatscale",
+   "title": "LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "h-decoding dataset (>100h; ~80h in one subject = record within-subject depth, 8x next comparable) | Claim.claim_scope=A curriculum of tasks (speech detection, phoneme, word, keyword, brain-to-text) supports standardized evaluation toward non-invasive",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "課題の順序の意味"
+  },
+  {
+   "pid": "arxiv-2609-03231-pnpl26",
+   "key": "t:the2026pnplcompetitionwordclassificationandefficientcrosssubjectgeneralisationin",
+   "title": "The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "課題の順序の意味"
+  },
+  {
+   "pid": "arxiv-2609-20839-currnoise",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "title=Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition | authors=Teng, Zhang, Saitoh (K",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "雑音のカリキュラム"
+  },
+  {
+   "pid": "arxiv-2609-20839-currvsr",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "title=Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition | authors=Teng, Zhang, Saitoh (K",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "雑音のカリキュラム"
+  },
+  {
+   "pid": "arxiv-2609.03231",
+   "key": "t:the2026pnplcompetitionwordclassificationandefficientcrosssubjectgeneralisationin",
+   "title": "The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "課題の順序の意味"
+  },
+  {
+   "pid": "arxiv-2609.20839",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arXiv:2609.20839 | paper_version=arXiv:2609.20839v1 | title=Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition | authors=Matthew Kit Khinn Teng",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "雑音のカリキュラム"
+  },
+  {
+   "pid": "arxiv-2609.20839-pect",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2609.20839-pect | title=Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition | authors=Matthew Kit Khinn Teng",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "雑音のカリキュラム"
+  },
+  {
+   "pid": "cmc-nestlipgnn",
+   "key": "t:nestlipgnnahierarchicalgraphneuralnetworkframeworkwithnestedmultigranularitylear",
+   "title": "NestLipGNN: A Hierarchical Graph Neural Network Framework with Nested Multi-Granularity Learning for Robust Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "音素→単語の入れ子最適化で、系列長ではない"
+  },
+  {
+   "pid": "cvf-chung17-lipreadwild",
+   "key": "t:lipreadingsentencesinthewild",
+   "title": "Lip Reading Sentences in the Wild",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1611.05358 の別版"
+  },
+  {
+   "pid": "cvf-kim25-facesvoices",
+   "key": "t:fromfacestovoiceslearninghierarchicalrepresentationsforhighqualityvideotospeech",
+   "title": "From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "o→acoustic space; per-factor facial encoders + transposed conv temporal alignment | ProcessingStep.architecture=3-stage curriculum: content (lip motion) → timbre (face-identity conditioning) → prosody (facial expression); flow-matching mel decoder (f",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "内容→声質→韻律の段階で、出力は音声"
+  },
+  {
+   "pid": "cvf-prajwal22-subword-vtp",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": 2022,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "rd segments → freeze/dump features → train enc-dec on all n-gram sub-sequences ≥2 words (natural augmentation replacing curriculum); Noam 50 epochs then ÷5 on plateau to 1e-6 | EvaluationProtocol.experimental_design=WER on LRS2/LRS3 test sets under p",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-2110.07603 の別版"
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ting audio+video + audio & video tutors + student — dynamic fusion loss L_DF + CE; student feedback regularizes master; curriculum learning; backends TC (word) or TM-Seq2Seq (sentence) | extra.Configuration.configuration_scope=Two-phase: pretrain TC",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvf-seo23-avformer",
+   "key": "t:avformerinjectingvisionintofrozenspeechmodelsforzeroshotavasr",
+   "title": "AVFormer: Injecting Vision into Frozen Speech Models for Zero-Shot AV-ASR",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pora | Study.unit_of_analysis=WER on How2, VisSpeech, Ego4D (zero-shot AV-ASR) and LibriSpeech (audio-only); ablations: curriculum on/off, adapter type, bottleneck dim, data fraction | task_encoding=natural_utterance | task_family=sentence_recognitio",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "カリキュラムは学習する部品の段階で、系列長ではない（台帳）"
+  },
+  {
+   "pid": "cvf-zhang19-stfcsl",
+   "key": "t:spatiotemporalfusionbasedconvolutionalsequencelearningforlipreading",
+   "title": "Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "We start training on single word examples and then let the sequence length grow",
+   "loc": "§4",
+   "provenance": "本文確認",
+   "reason": "後続（2019）。LRS2/LRS3 で [11] の単語から伸ばすカリキュラムを採用"
+  },
+  {
+   "pid": "cvf23-djilali_lip2vec",
+   "key": "t:lip2vecefficientandrobustvisualspeechrecognitionvialatenttolatentvisualtoaudiore",
+   "title": "Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visual to Audio Representation Mapping",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "他研究のカリキュラムの紹介"
+  },
+  {
+   "pid": "cvpr21-ren",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "distillation for lip reading via a trainable audio-visual master + modality tutors + student-feedback regularization + curriculum | Study.study_design=controlled_experiment | task_family=sentence_recognition | extra.Task.target=sentence-level lip re",
+   "decision": null,
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": null
+  },
+  {
+   "pid": "cvpr22-prajwal",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": 2022,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "(b1 .9 b2 .98), Noam schedule 50 epochs then plateau-halving; 14 days on 4xV100 stage-1; n-gram augmentation instead of curriculum | EvaluationProtocol.experimental_design=LRS2/LRS3 test-set WER; public-data vs +MV-LRS+TEDxext training-set axes; abla",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-2110.07603 の別版"
+  },
+  {
+   "pid": "doi-10.1038-s41598-026-62988-0",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce video & content understanding via vision: a comprehensive study on lip reading and visual speech recognition for enhanced shopping experience",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l_design=WER/CER/Word-Accuracy on LRS2/LRS3/GRID; ablations; robustness (low-light ≥0.8×normal, ±30° pose); 100 epochs, curriculum 1-3s→3-6s; batch 256 | representation_kind=3D convolutional visual encoding of lip regions | ProcessingStep.architectur",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "scirep-62988-livevsr-net の別版"
+  },
+  {
+   "pid": "doi-10.1101-2025.08.04.668236",
+   "key": "t:silentspeechrecognitionwithwearablemagnetometers",
+   "title": "Silent Speech Recognition with Wearable Magnetometers",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-dependent; user-independent: deep model (depthwise-separable CNN + squeeze-excitation, mixed precision, <=250 epochs); curriculum-learning adaptation adding user calibration trials | extra.Protocol.evaluation_target=8-fold CV within-user; accuracy +",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "校正試行を足す適応"
+  },
+  {
+   "pid": "doi-10.1109-tbme.2026.3691322",
+   "key": "t:neuralspellingaspellbasedbcisystemforlanguageneuraldecoding",
+   "title": "Neural Spelling: A Spell-Based BCI System for Language Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "trolled_experiment | Study.research_objective=full-alphabet non-invasive EEG letter decoding via handwriting-trajectory curriculum + GenAI/LLM sentence-level correction | Study.unit_of_analysis=letter-level top-1/3/5 accuracy per subject-session; sen",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "手書き軌跡のカリキュラムで、系列長ではない"
+  },
+  {
+   "pid": "doi-10.1109-tpami.2018.2889052",
+   "key": "t:deepaudiovisualspeechrecognition",
+   "title": "Deep Audio-Visual Speech Recognition",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1809.02108 の別版（§5.2 は WLAS §3.1 とほぼ同文）"
+  },
+  {
+   "pid": "doi-10.20944-preprints202505.0540.v1",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio-Visual Learning",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "on samples less than 4 s long in the LRS3-TED dataset",
+   "loc": "§4",
+   "provenance": "本文確認",
+   "reason": "後続（2025）。4 秒未満の例で学習してから全長で微調整"
+  },
+  {
+   "pid": "doi-10.3390-electronics14122310",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.20944-preprints202505.0540.v1 の別版"
+  },
+  {
+   "pid": "doi-10.3390-s21237890",
+   "key": "t:aneffectiveconversionofvisemestowordsforhighperformanceautomaticlipreading",
+   "title": "An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "sentences are clipped to one word followed by two words in the next iteration, then three words",
+   "loc": "§4",
+   "provenance": "本文確認",
+   "reason": "後続（2021）。視素→単語変換器を 1 語、2 語、3 語…と伸ばして学習"
+  },
+  {
+   "pid": "doi-10.9766-kimst.2024.27.2.167",
+   "key": "t:koreanlipreadingdataconstructionandsentencelevellipreading",
+   "title": "Korean Lip-Reading: Data Construction and Sentence-Level Lip-Reading",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "der-decoder attention model, sentence-level end-to-end lip-reading, grapheme-unit output vs 11,172-char syllable space; curriculum pretrain on Preval then train-val | extra.Decoder.inference_information=3D conv over 5-frame window then ResNet-18 spat",
+   "decision": "include",
+   "quote": "커리큘럼 학습(Curriculum Learning)",
+   "loc": "§3",
+   "provenance": "本文確認",
+   "reason": "後続（2024）。韓国語の文単位唇読みで、時間長に応じたカリキュラム学習"
+  },
+  {
+   "pid": "in24-mamauv",
+   "key": "t:tacklingmissingmodalitiesinaudiovisualrepresentationlearningusingmaskedautoencod",
+   "title": "Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ned under pristine conditions robust to partial or complete loss of either modality at inference WITHOUT retraining — a curriculum-trained Masked AutoEncoder imputes the dropped clip-level feature sequences, then the frozen encoder + a fine-tuned cla",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "欠損モダリティ補完の学習段階"
+  },
+  {
+   "pid": "isca-afouras18b-deeplip",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": 2018,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1806.06053 の別版"
+  },
+  {
+   "pid": "isca-afouras18b_deeplipread",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: A Comparison of Models and an Online Application",
+   "year": 2018,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1806.06053 の別版"
+  },
+  {
+   "pid": "isca-afouras18b_interspeech",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-1806.06053 の別版"
+  },
+  {
+   "pid": "isca-krnoul08_avsp",
+   "key": "t:evaluationofsynthesizedsignandvisualspeechbydeaf",
+   "title": "Evaluation of synthesized sign and visual speech by deaf",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ope=synthesized Czech sign speech intelligibility | elicitation=instructed_content | production_instruction=15 isolated curriculum signs; manual+lip vs head-only lip records | Cohort.demographics=5 deaf pupils 5-6y; 6 deaf pupils 11-13y, primary scho",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "教育課程の意味の curriculum"
+  },
+  {
+   "pid": "isca-ma21c_interspeech",
+   "key": "t:liralearningvisualspeechrepresentationsfromaudiothroughselfsupervision",
+   "title": "LiRA: Learning Visual Speech Representations from Audio through Self-supervision",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t | TrainingRun.optimization=L1 loss on predicted PASE+ features, batch 32 on LRS3; downstream CTC+CE hybrid 50 epochs; curriculum learning for LRS2 from scratch | EvaluationProtocol.experimental_design=LRW top-1 accuracy; regimes Supervised/Frozen/F",
+   "decision": "include",
+   "quote": "we ﬁrst train the model using 11 % of the labelled training set, which is composed of videos with less than 155 frames",
+   "loc": "§4",
+   "provenance": "本文確認",
+   "reason": "後続（2021）。155 フレーム未満の動画で先に学習してから全体で学習"
+  },
+  {
+   "pid": "isca-stafylakis17_interspeech",
+   "key": "p:isca-stafylakis17_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rd, val and eval 50/word; ablations N1-N3 temporal-conv backend, N4-N5 fixed-feature Bi-LSTM, N6-N7 end-to-end; 3-stage curriculum: temporal-conv backend -> attach Bi-LSTM for 5 epochs frozen front-end+ResNet -> end-to-end; SGD momentum 0.9, lr 5e-4-",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "後段を段階的に付け足す 3 段の学習で、系列長は変えない（単語分類）"
+  },
+  {
+   "pid": "isca-yang23w_interspeech",
+   "key": "t:animprovedendtoendaudiovisualspeechrecognitionmodel",
+   "title": "An Improved End-to-End Audio-Visual Speech Recognition Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lated (MLP / Transformer encoder / Conformer, Conformer best); joint hybrid CTC/attention decoding over 40-char tokens; curriculum learning | vocabulary_regime=open_vocabulary | EvaluationProtocol.experimental_design=LRS2 test set WER in audio-only /",
+   "decision": "include",
+   "quote": "We also utilize the LRW dataset for Curriculum Learning to train the visual front-end",
+   "loc": "§3.1",
+   "provenance": "本文確認",
+   "reason": "後続（2023、境界例）。LRW の単語で前段をカリキュラム学習してから LRS2 の文で学習"
+  },
+  {
+   "pid": "isca-zhou22g-avwake",
+   "key": "t:audiovisualwakewordspottinginmisp2021challengedatasetreleaseanddeepanalysis",
+   "title": "Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Deep Analysis",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "参考文献"
+  },
+  {
+   "pid": "isca-zhou22g_interspeech",
+   "key": "t:audiovisualwakewordspottinginmisp2021challengedatasetreleaseanddeepanalysis",
+   "title": "Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Deep Analysis",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "参考文献"
+  },
+  {
+   "pid": "mdpi-e14122310_multiavsr",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.20944-preprints202505.0540.v1 の別版"
+  },
+  {
+   "pid": "mdpi-math11071733",
+   "key": "t:researchonrobustaudiovisualspeechrecognitionalgorithms",
+   "title": "Research on Robust Audio-Visual Speech Recognition Algorithms",
+   "year": 2023,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "r transformer encoder posteriors | TrainingRun.optimization=Adam lr1e-4 halving to 1e-6; dropout 0.1 + label smoothing; curriculum single-word -> full sentences; frozen pretrain features then end-to-end finetune on LRS2 or LRS3 train-val | TrainingRu",
+   "decision": "include",
+   "quote": "curriculum single-word -> full sentences",
+   "loc": "台帳 M03",
+   "provenance": "台帳のみ",
+   "reason": "後続（2023）。単語から文へのカリキュラム"
+  },
+  {
+   "pid": "pmc-10055479-rosesyntax",
+   "key": "t:roseaneurocomputationalarchitectureforsyntax",
+   "title": "ROSE: A Neurocomputational Architecture for Syntax",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "参考文献"
+  },
+  {
+   "pid": "pmc-10973108-talkfaces",
+   "key": "t:monolingualandbilingualinfantsattentiontotalkingfacesevidencefromeyetrackingandb",
+   "title": "Monolingual and bilingual infants attention to talking faces: evidence from eye-tracking and Bayesian modeling",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "参考文献"
+  },
+  {
+   "pid": "pmc-12213747-hypoxia-listening",
+   "key": "t:exploringtheeegrepresentationofenglishlisteningcomprehensionunderhypoxicconditio",
+   "title": "Exploring the EEG representation of English listening comprehension under hypoxic conditions",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al_essence=hybrid CNN feature extractor + BiLSTM + dropout 0.5 + softmax; DLEM (adaptive vocab/grammar/cultural) + CALS curriculum; vs CLIP/ViT/I3D/BLIP/Wav2Vec2.0/T5 baselines | ProcessingStep.architecture=CNN+BiLSTM hybrid, Adam lr1e-3 cosine, batc",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "語彙・文法の難易度カリキュラム"
+  },
+  {
+   "pid": "pmc-12383669-sign-literacy",
+   "key": "t:ascopingreviewofliteracyinterventionsusingsignedlanguagesforschoolagedeafstudent",
+   "title": "A Scoping Review of Literacy Interventions Using Signed Languages for School-Age Deaf Students.",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "教育課程の意味"
+  },
+  {
+   "pid": "pmc-5119784-spatio",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Schalk | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Move beyond isolated word repetition: map the millisecond spatio-temporal progression of cortical involvement during continuous, paragraph-length speech — aloud (overt) vs silent (covert) — and identify which sites are shared between the two modes | Study.unit_of_a",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "長さの記述は課題設計で、学習手順ではない"
+  },
+  {
+   "pid": "pmc-5581506-simcommci",
+   "key": "t:simultaneouscommunicationsupportslearninginnoisebycochlearimplantusers",
+   "title": "Simultaneous Communication Supports Learning in Noise by Cochlear Implant Users",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "教育課程の意味（参考文献）"
+  },
+  {
+   "pid": "pmc-8659639-vis2word",
+   "key": "t:aneffectiveconversionofvisemestowordsforhighperformanceautomaticlipreading",
+   "title": "An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading",
+   "year": 2021,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "rain transformer viseme classifier on 45,839 LRS2 videos and attention-GRU converter on 37,666 LRS2 sentences (k=5 CV); curriculum learning for FFN baseline | TrainingRun.optimization=cross-entropy loss, Adam (lr 1e-3, b1 0.9 b2 0.999), batch 64, cur",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.3390-s21237890 の別版"
+  },
+  {
+   "pid": "pmc-8659639-viseme2word",
+   "key": "t:aneffectiveconversionofvisemestowordsforhighperformanceautomaticlipreading",
+   "title": "An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.3390-s21237890 の別版"
+  },
+  {
+   "pid": "pmc-8659639-visemeword",
+   "key": "t:aneffectiveconversionofvisemestowordsforhighperformanceautom",
+   "title": "An Effective Conversion of Visemes to Words for High-Performance Autom",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.3390-s21237890 の別版"
+  },
+  {
+   "pid": "scirep-62988-livevsr-net",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Conformer', 'decoder': 'hybrid CTC-attention', 'domain': 'e-commerce vocab expansion + fine-tuned LM + multi-speaker', 'curriculum': '1-3s ep1-20 / 3-6s ep21-50 / up to 10s ep51-100'} | extra.Output.output_kind=subtitle text transcription | Claim.cla",
+   "decision": "include",
+   "quote": "1-3s ep1-20 / 3-6s ep21-50 / up to 10s ep51-100",
+   "loc": "台帳 M06",
+   "provenance": "台帳のみ",
+   "reason": "後続（2026）。1–3 秒→3–6 秒→10 秒まで"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 5,
+  "found": 5,
+  "recall": 1.0,
+  "missed": []
+ },
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 39,
+  "read": 71,
+  "unread": 5,
+  "confirmed_unique": 18,
+  "confirmed_本文確認": 14,
+  "recall_sample_read": 30,
+  "recall_sample_included": 4,
+  "recall_estimate": 0.78
+ },
+ "used_by": [
+  "lip-reading-sentences-in-the-wild"
+ ]
+}

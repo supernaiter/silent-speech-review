@@ -6,14 +6,14 @@
 | --- | --- | --- |
 | M01 | Training-time act | — |
 | M02 | Teacher signal | — |
-| M03 | Train / calibrate | — |
+| M03 | Train / calibrate | [length-curriculum](M03/) |
 | M04 | Use-time act | — |
 | M05 | Sensing | — |
-| M06 | Decoding | [ctc-vs-attention](M06/) |
+| M06 | Decoding | [attention-seq2seq-decoding](M06/)、[ctc-vs-attention](M06/) |
 | M07 | Runtime aids | — |
 | M08 | Output | — |
 | M09 | Confirmation | — |
 | M10 | Correction | — |
 | M11 | Eval reference | [in-the-wild-sentence-benchmark](M11/) |
-| M12 | Evaluation | — |
+| M12 | Evaluation | [human-lipreader-baseline](M12/) |
 | M13 | Hardware & limits | — |
