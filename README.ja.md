@@ -1,6 +1,6 @@
 # サイレントスピーチ・インタフェース論文レビュー
 
-サイレントスピーチ・インタフェース（SSI）の論文 **152本** を、結果がどの条件で測られたかと一緒にレビューしています。管理：[木村直紀](https://nao-ki-mura.com/ja/)（[ORCID](https://orcid.org/0000-0001-9167-1923)）。最終更新 2026-10-19。
+サイレントスピーチ・インタフェース（SSI）の論文 **153本** を、結果がどの条件で測られたかと一緒にレビューしています。管理：[木村直紀](https://nao-ki-mura.com/ja/)（[ORCID](https://orcid.org/0000-0001-9167-1923)）。最終更新 2026-10-19。
 
 SSIの精度は、語彙の大きさ、話者依存か、別日に付け直して測ったか、オンラインで動かしたかで大きく変わります。このレビューは、各論文の主な数字の横にこれらの条件を並べます。英語の比較表は [README](README.md) にあります。各論文のページには、英語の要約と評価条件の下に全文レビュー（日本語または英語）があります。
 
@@ -20,7 +20,7 @@ SSIの精度は、語彙の大きさ、話者依存か、別日に付け直し�
 - [表面筋電（EMG）](README.md#surface-emg)：27本
 - [脳信号（EEG・MEG・皮質内）](README.md#brain-signals-eeg-meg-intracortical)：37本
 - [レーダー・電波・Wi-Fi](README.md#radar-rf--wi-fi)：5本
-- [唇・顔の映像](README.md#lip--face-video)：46本
+- [唇・顔の映像](README.md#lip--face-video)：47本
 - [音響・ささやき・装着型の動きセンサ](README.md#acoustic-whisper--wearable-motion-sensors)：10本
 
 ## 最初に読む論文

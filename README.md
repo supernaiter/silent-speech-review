@@ -1,6 +1,6 @@
 # Silent Speech Interface Review
 
-Reviews of **152 silent speech interface (SSI) papers** (2010–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-10-19.
+Reviews of **153 silent speech interface (SSI) papers** (2010–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-10-19.
 
 Silent speech interfaces turn articulation without audible voice into text or speech, using lip video, ultrasound tongue imaging, EMG, EEG, electropalatography, radar, acoustic sensing and more. Accuracies in this field are hard to compare: one paper recognizes 10 words from one speaker in one session, another decodes open sentences from new speakers on a later day. This review puts those conditions next to every headline number.
 
@@ -8,7 +8,7 @@ Topics covered: silent speech recognition, lip reading and visual speech recogni
 
 [日本語の説明](README.ja.md)
 
-**Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (18) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (37) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (46) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (10)
+**Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (18) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (37) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (47) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (10)
 
 ## The field in 13 components
 
@@ -214,6 +214,7 @@ Every speech-intention decoder, whatever its sensor, can be described by the sam
 | 2020 | [Vocoder-Based Speech Synthesis from Silent Videos](reviews/vocoder-based-speech-synthesis-from-silent-videos.md) | Speech synthesis from silent video | GRID closed vocabulary, fixed 6-word sentences | Both | Not stated | Offline | Speaker-dependent PESQ 1.90, ESTOI 0.455, WER 15.1%; speaker-independent WER 51.6% |
 | 2019 | [Lipper: Synthesizing Thy Speech using Multi-View Lipreading](reviews/lipper-synthesizing-thy-speech-using-multi-view-lipreading.md) | Speech synthesis from multi-view lip video | OuluVS2 phrases, including OOV phrase tests | Both | Not stated | Both | PESQ 2.315 (0 deg+45 deg+60 deg views), 0.169 s delay; user study 80.25% audio-only accuracy |
 | 2019 | [Video-Driven Speech Reconstruction using Generative Adversarial Networks](reviews/video-driven-speech-reconstruction-using-generative-adversarial-networks.md) | Speech synthesis from silent video | GRID corpus | Both | Not stated | Offline | Speaker-dependent WER 26.6%, STOI 0.518; unseen speakers WER 40.5%, PESQ 1.24 |
+| 2018 | [Deep Audio-Visual Speech Recognition](reviews/deep-audio-visual-speech-recognition.md) | Sentence-level lip reading and audio-visual speech recognition | Open vocabulary; 1,693-word LRS2-BBC test vocabulary | Not stated | Not applicable | Offline | 48.3% WER video-only (LRS2-BBC, +LM); 8.2% audio-visual clean; 23.6% audio-visual in 0 dB babble |
 | 2018 | [Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed](reviews/harnessing-ai-for-speech-reconstruction-using-multi-view-silent-video-feed.md) | Speech synthesis from multi-view silent video | Limited OuluVS2 phrases, digits and TIMIT sentences | Speaker-dependent | Not stated | Offline | Higher PESQ with multi-view than single-view input (exact values not stated) |
 | 2018 | [Visual-Only Recognition of Normal, Whispered and Silent Speech](reviews/visual-only-recognition-of-normal-whispered-and-silent-speech.md) | Closed-set visual speech recognition | 10 digits and 10 short phrases | Speaker-independent | Not stated | Offline | Silent speech 62.2% digits / 64.4% phrases (matched training); 59.7% / 61.2% when trained on normal speech |
 | 2017 | [Improved Speech Reconstruction from Silent Video](reviews/improved-speech-reconstruction-from-silent-video.md) | Speech synthesis from silent video | 51-word GRID grammar plus unseen words in TCD-TIMIT | Speaker-dependent | Not stated | Offline | GRID S3 STOI 0.68, PESQ 1.974; human word accuracy 55.8% vs 50.9% (Vid2Speech) |
