@@ -5,7 +5,7 @@
    "kind": "mechanism",
    "title": "This paper in the 13 components, against the field",
    "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
-   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading), not only audio-visual papers. Paper counts come from the maintainer's ledger and undercount some components, notably language models, confirmation and correction.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading), not only audio-visual papers.",
    "slots": {
     "M01": {
      "choice": [
@@ -16,7 +16,7 @@
      "n": 8995,
      "matched": 3882,
      "verdict": "standard",
-     "note": "Inherited from the WLAS / LRS lineage."
+     "note": "Inherited from the WLAS/LRS lineage; nothing to compare."
     },
     "M02": {
      "choice": [
@@ -27,7 +27,7 @@
      "n": 8995,
      "matched": 31,
      "verdict": "standard",
-     "note": "Automatic labels as in LRS; slot under-recorded in the ledger."
+     "note": "Automatic subtitle labels as in LRS; standard for broadcast-derived data."
     },
     "M03": {
      "choice": [
@@ -39,7 +39,7 @@
      "n": 8995,
      "matched": 687,
      "verdict": "standard",
-     "note": "Curriculum is inherited from WLAS (near-identical wording); noise augmentation is common practice."
+     "note": "The curriculum is inherited from WLAS in near-identical wording, and the non-public MV-LRS pretraining is an uncontrolled part of the reported gain."
     },
     "M04": {
      "choice": [
@@ -50,7 +50,7 @@
      "n": 8995,
      "matched": 5595,
      "verdict": "standard",
-     "note": "Inherited."
+     "note": "Inherited; ordinary voiced broadcast speech at test."
     },
     "M05": {
      "choice": [
@@ -62,7 +62,7 @@
      "n": 8995,
      "matched": 7329,
      "verdict": "standard",
-     "note": "Standard AV input."
+     "note": "Standard audio-visual input."
     },
     "M06": {
      "choice": [
@@ -70,11 +70,11 @@
       "CTC vs seq2seq head-to-head",
       "Separate AV attention"
      ],
-     "field": "CTC/attention comparison on one front-end",
+     "field": "One loss per system; joint CTC/attention in current work",
      "n": 8995,
      "matched": 3,
      "verdict": "standard",
-     "note": "No earlier example found in the wiki; a concurrent same-group paper already compared CTC and Transformer, so not ahead."
+     "note": "Standard: a concurrent same-group paper already compared CTC with a Transformer, this comparison confounds loss with beam, LM weight and fusion, and joint CTC/attention has since made the either/or question moot."
     },
     "M07": {
      "choice": [
@@ -86,7 +86,7 @@
      "n": 8995,
      "matched": 670,
      "verdict": "standard",
-     "note": "Common practice; the M07 slot itself is under-recorded."
+     "note": "Standard external character LM with shallow fusion; it closes most of the CTC vs seq2seq gap."
     },
     "M08": {
      "choice": [
@@ -97,7 +97,7 @@
      "n": 8995,
      "matched": 3268,
      "verdict": "standard",
-     "note": "Standard."
+     "note": "Standard character output."
     },
     "M09": {
      "choice": [
@@ -107,7 +107,7 @@
      "n": 8995,
      "matched": 82,
      "verdict": "na",
-     "note": "Offline benchmark study."
+     "note": "Offline benchmark study; no confirmation step."
     },
     "M10": {
      "choice": [
@@ -117,7 +117,7 @@
      "n": 8995,
      "matched": 82,
      "verdict": "na",
-     "note": "Offline benchmark study."
+     "note": "Offline benchmark study; no correction step."
     },
     "M11": {
      "choice": [
@@ -129,7 +129,7 @@
      "n": 8995,
      "matched": 5,
      "verdict": "missing",
-     "note": "Speaker count and train/test speaker overlap not reported; the same group's LRS3 paper says LRS2-BBC likely repeats people."
+     "note": "Not reported: speaker count and train/test overlap are absent, so LRS2-BBC results do not establish unseen-speaker performance."
     },
     "M12": {
      "choice": [
@@ -141,7 +141,7 @@
      "n": 8995,
      "matched": 572,
      "verdict": "missing",
-     "note": "8.2% vs 8.5% is within about 0.34 pt binomial error; no repeats reported."
+     "note": "Not reported: single runs, and the 8.2% vs 8.5% clean audio-visual gap is within about 0.34 pt binomial error."
     },
     "M13": {
      "choice": [
@@ -152,7 +152,7 @@
      "n": 8995,
      "matched": 6075,
      "verdict": "standard",
-     "note": "Compute reported (GPU model inconsistent between sections); exact numbers need non-public MV-LRS."
+     "note": "Compute is reported but inconsistently (GPU model differs between sections), and the numbers depend on non-public MV-LRS."
     }
    }
   }

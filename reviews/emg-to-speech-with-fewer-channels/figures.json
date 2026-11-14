@@ -16,7 +16,7 @@
      "n": 8995,
      "matched": 4014,
      "verdict": "standard",
-     "note": "Inherited from Gaddy corpus; matches field practice."
+     "note": "Inherited Gaddy-corpus setup (voiced plus silent EMG in training); standard."
     },
     "M02": {
      "choice": [
@@ -28,19 +28,19 @@
      "n": 8995,
      "matched": 258,
      "verdict": "standard",
-     "note": "Standard supervision; ledger records it under M03."
+     "note": "Voiced-audio mels and phoneme alignment as teacher are the standard supervision for this corpus."
     },
     "M03": {
      "choice": [
       "8ch pretrain",
       "Fine-tune on subset",
-      "Dropout p≤0.25"
+      "Dropout p<=0.25"
      ],
      "field": "Channel masking known; day-layer/pos transfer",
      "n": 8995,
      "matched": 23,
      "verdict": "standard",
-     "note": "Downgraded from ahead: full-to-subset initialization has no other example only within the wiki regex search (recall not measured) and rests on unreported run counts and a weak baseline; channel dropout is not novel and not supported."
+     "note": "Full-to-subset initialization helps at 4-6 electrodes but is unrepeated against a weak baseline, and channel dropout is neither new nor supported by Fig. 3 (p=0 best at 6 and 4)."
     },
     "M04": {
      "choice": [
@@ -51,11 +51,11 @@
      "n": 8995,
      "matched": 1024,
      "verdict": "missing",
-     "note": "the paper does not state whether the test set is silent or voiced EMG."
+     "note": "Not reported: the paper never says whether the test EMG is silent or voiced, which changes what the throat electrode's rank means."
     },
     "M05": {
      "choice": [
-      "8→1 backward elim.",
+      "8->1 backward elim.",
       "All 70 4-of-8 sets",
       "Best 4ch 47.2%"
      ],
@@ -63,7 +63,7 @@
      "n": 8995,
      "matched": 53,
      "verdict": "standard",
-     "note": "Relative 8->4 cost (+35%) matches EMG recognition precedents (+32%, +36%); only the retrained exhaustive search with open-vocabulary synthesis WER is new within the wiki search."
+     "note": "The +35% relative 8->4 cost repeats EMG recognition (+32%, +36%) and exhaustive EMG subset search exists (2,047 subsets), so only its use with open-vocabulary synthesis WER is new."
     },
     "M06": {
      "choice": [
@@ -75,7 +75,7 @@
      "n": 8995,
      "matched": 240,
      "verdict": "standard",
-     "note": "Same-lab standard configuration."
+     "note": "Same-lab standard encoder plus HiFi-GAN pipeline with only the first convolution resized."
     },
     "M07": {
      "choice": [
@@ -86,17 +86,17 @@
      "n": 8995,
      "matched": 2262,
      "verdict": "standard",
-     "note": "No use-time LM is normal for synthesis; Whisper's internal LM is an implicit evaluation-time LM (reviewer hypothesis)."
+     "note": "No use-time LM is normal for synthesis, though Whisper adds an implicit LM at evaluation."
     },
     "M08": {
      "choice": [
       "Speech waveform"
      ],
-     "field": "Audio output",
+     "field": "Audio output (425 papers)",
      "n": 8995,
      "matched": 425,
      "verdict": "standard",
-     "note": "Standard."
+     "note": "Speech waveform output is standard."
     },
     "M09": {
      "choice": [
@@ -106,7 +106,7 @@
      "n": 8995,
      "matched": 65,
      "verdict": "na",
-     "note": "offline synthesis studies normally do not address output confirmation; not a defect of this paper."
+     "note": "Not applicable to an offline synthesis study."
     },
     "M10": {
      "choice": [
@@ -116,7 +116,7 @@
      "n": 8995,
      "matched": 65,
      "verdict": "na",
-     "note": "offline study; correction/re-entry is out of scope."
+     "note": "Not applicable to an offline synthesis study."
     },
     "M11": {
      "choice": [
@@ -127,33 +127,33 @@
      "n": 8995,
      "matched": 239,
      "verdict": "standard",
-     "note": "Standard; Whisper text normalization not stated."
+     "note": "Corpus text scored by ASR is standard; Whisper normalization is unstated."
     },
     "M12": {
      "choice": [
       "Whisper-med WER",
-      "Runs, seeds unstated",
+      "Runs/seeds unstated",
       "Baseline ~35%"
      ],
      "field": "Seed repeats, held-out subset choice",
      "n": 8995,
      "matched": 114,
      "verdict": "behind",
-     "note": "Behind the best comparable sensor-reduction studies (seed repeats, held-out selection); typical of speech synthesis, where seed repetition is rare (1 of 425 regex matches)."
+     "note": "Behind: no seeds or variance, no held-out subset choice, and a ~35% baseline 8-10 points worse than the same lab's later reports, so the subset ranking sits inside seed noise."
     },
     "M13": {
      "choice": [
       "Virtual deletion",
       "No reduced device"
      ],
-     "field": "Re-record reduced layout; device prototypes",
+     "field": "Record with reduced layout (11->8); device prototypes",
      "n": 8995,
      "matched": 337,
      "verdict": "na",
-     "note": "offline virtual-deletion study; relevant only as a limit on device-design claims."
+     "note": "Not applicable as an offline study, but virtual deletion cannot support the device-design claims."
     }
    },
-   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading), not only EMG papers. Paper counts come from the maintainer's ledger and undercount some components, notably runtime aids, confirmation and correction."
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading), not only EMG papers."
   },
   {
    "id": "baseline",

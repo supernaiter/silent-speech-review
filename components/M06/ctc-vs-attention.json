@@ -5,7 +5,7 @@
  "pattern": "\\bctc\\b[^|]{0,120}\\b(attention|seq2seq|sequence[- ]to[- ]sequence|encoder[- ]decoder|transformer|las)\\b|\\b(attention|seq2seq|sequence[- ]to[- ]sequence|encoder[- ]decoder|transformer)\\b[^|]{0,120}\\bctc\\b",
  "scope": "ledger",
  "fulltext_pattern": "(compar\\w+|versus|vs\\.?|against)[^.]{0,80}\\bctc\\b[^.]{0,80}(attention|seq2seq|sequence-to-sequence|transformer|encoder-decoder)",
- "inclusion_rule": "同じ入力前段（視覚・生体信号・音声映像のいずれか）の上で、CTC で学習した復号器と注意機構／系列変換（seq2seq・Transformer 復号器）を両方学習し、結果を並べて比べた研究を含める。境界：CTC と注意の併用（hybrid）だけで片方単独の結果が無いものは除く。他論文の数値を並べただけの比較は除く。音声のみの ASR は wiki 外なので対象外。同一研究の別版は1件に数える。",
+ "inclusion_rule": "Include studies that train, on the same input front end (visual, biosignal, or audio-visual), both a decoder trained with CTC and an attention/sequence-to-sequence decoder (seq2seq or Transformer decoder) and compare the results side by side. Boundary: exclude those that use only the CTC-attention combination (hybrid) with no result for either alone. Exclude comparisons that only list numbers from other papers. Audio-only ASR is outside the wiki and out of scope. Count different versions of the same study as one item.",
  "counts": {
   "scanned_folders": 8995,
   "scanned_unique": 7388,
@@ -78,7 +78,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "CTC と注意を直列につないだ単一モデル。単独同士の比較なし"
+   "reason": "A single model chaining CTC and attention in series. No comparison of each alone"
   },
   {
    "pid": "arxiv-1805.11685",
@@ -93,7 +93,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "seq2seq と CTC-seq2seq 併用の比較で、CTC 単独の結果が無い（表1、本文確認）"
+   "reason": "Compares seq2seq with combined CTC-seq2seq; no result for CTC alone (Table 1, text-verified)"
   },
   {
    "pid": "arxiv-1806.06053",
@@ -107,8 +107,8 @@
    "decision": "include",
    "quote": "The best performing network is the Transformer, which achieves a WER of 50% when decoded with a language model trained on T 2",
    "loc": "§3.3, Table 1",
-   "provenance": "本文確認",
-   "reason": "BLSTM-CTC・FC-CTC と Transformer を共通の視覚前段で LRS2 上で比較（同時期、同グループ）"
+   "provenance": "text-verified",
+   "reason": "Compares BLSTM-CTC and FC-CTC with a Transformer on a common visual front end on LRS2 (concurrent, same group)"
   },
   {
    "pid": "arxiv-1807.05162",
@@ -123,7 +123,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "CTC の V2P が主。seq2seq は先行モデルの再実装ベースラインで、共通前段での損失比較ではない"
+   "reason": "Mainly CTC-based V2P. The seq2seq is a reimplemented baseline of a prior model, not a loss comparison on a common front end"
   },
   {
    "pid": "arxiv-1809.02108",
@@ -139,7 +139,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "対象論文そのもの"
+   "reason": "The target paper itself"
   },
   {
    "pid": "arxiv-1810.00108",
@@ -154,7 +154,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "hybrid CTC/attention の提案。CTC 単独との並列比較は本文に見当たらない"
+   "reason": "Proposes hybrid CTC/attention. No side-by-side comparison with CTC alone was found in the text"
   },
   {
    "pid": "arxiv-1906.12170",
@@ -169,7 +169,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-1908.05743-eegasr",
@@ -183,8 +183,8 @@
    "decision": "include",
    "quote": "We did experiments using three different types of end to end ASR models, namely: Connectionist Temporal Classification (CTC) model",
    "loc": "§2",
-   "provenance": "本文確認",
-   "reason": "EEG 特徴から CTC・注意型 encoder-decoder・RNN-T を比較（後続）"
+   "provenance": "text-verified",
+   "reason": "Compares CTC, attention encoder-decoder and RNN-T from EEG features (later)"
   },
   {
    "pid": "arxiv-1911.04890",
@@ -276,8 +276,8 @@
    "decision": "include",
    "quote": "We make a comparison with CTC by replacing the decoder network with CTC.",
    "loc": "§4.4, Fig. 4(c)",
-   "provenance": "本文確認",
-   "reason": "音響センシングの無声発話で、復号器を CTC に置き換えて注意型と比較（後続）"
+   "provenance": "text-verified",
+   "reason": "Acoustic-sensing silent speech; replaces the decoder with CTC and compares it with the attention type (later)"
   },
   {
    "pid": "arxiv-2102.06657",
@@ -382,7 +382,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2203.07996",
@@ -428,7 +428,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2207.06020",
@@ -473,7 +473,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2212.01083-cmlcsr",
@@ -578,7 +578,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2306.08290",
@@ -669,7 +669,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2309.17395",
@@ -761,7 +761,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2401.03468",
@@ -807,7 +807,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2402.13004",
@@ -961,7 +961,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2412.18839",
@@ -1083,7 +1083,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2506.02010",
@@ -1113,7 +1113,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2506.02178",
@@ -1160,7 +1160,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2508.07608",
@@ -1250,7 +1250,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2602.19316",
@@ -1341,7 +1341,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2604.02362",
@@ -1461,7 +1461,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2608.08510",
@@ -1492,7 +1492,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "arxiv-2609.21288",
@@ -1657,7 +1657,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "自分の畳み込み seq2seq を、対象論文の TM-CTC・TM-seq2seq の文献値と比べたもの（自前の損失比較ではない）"
+   "reason": "Compares the authors' own convolutional seq2seq with the literature values of the target paper's TM-CTC and TM-seq2seq (not the authors' own loss comparison)"
   },
   {
    "pid": "cvf23-liu_synthvsr",
@@ -1672,7 +1672,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "doi-10.1002-aisy.70440",
@@ -1717,7 +1717,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "doi-10.1109-access.2020.3036865",
@@ -1732,7 +1732,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "doi-10.1109-slt.2018.8639643",
@@ -1747,7 +1747,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "hybrid CTC/attention の提案（arxiv-1810.00108 の刊行版）"
+   "reason": "Proposes hybrid CTC/attention (published version of arxiv-1810.00108)"
   },
   {
    "pid": "doi-10.1109-tpami.2018.2889052",
@@ -1763,7 +1763,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "対象論文の刊行版"
+   "reason": "Published version of the target paper"
   },
   {
    "pid": "doi-10.1145-3526113.3545685",
@@ -1838,7 +1838,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "doi-10.21203-rs.3.rs-8670830-v1",
@@ -1929,7 +1929,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "doi-10.3390-s22207738",
@@ -1959,7 +1959,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "doi-10.54105-ijdm.a1632.04010524",
@@ -1974,7 +1974,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "対象論文の要旨と同文の別文書（独自の実験なし）"
+   "reason": "A separate document with the same text as the target paper's abstract (no experiments of its own)"
   },
   {
    "pid": "doi-10.63317-2b659u3p6oeh",
@@ -2126,7 +2126,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1806.06053 と同一研究の別版"
+   "reason": "Another version of the same study as arxiv-1806.06053"
   },
   {
    "pid": "isca-afouras18b_interspeech",
@@ -2141,7 +2141,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1806.06053 と同一研究の別版"
+   "reason": "Another version of the same study as arxiv-1806.06053"
   },
   {
    "pid": "isca-ahn24-syncvsr",
@@ -2156,7 +2156,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "isca-ahn24_interspeech",
@@ -2187,7 +2187,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "isca-chen22o_interspeech",
@@ -2323,7 +2323,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "isca-nguyen25b_interspeech",
@@ -2338,7 +2338,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "isca-nguyen25d-vicocktail",
@@ -2353,7 +2353,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "isca-nguyen25d_interspeech",
@@ -2567,7 +2567,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文一致のみ。CTC と注意を単独同士で比べた自前の実験ではない（併用モデル、文献値の列挙、サーベイ）"
+   "reason": "Full-text match only. Not the authors' own experiment comparing CTC and attention each alone (hybrid models, lists of literature values, surveys)"
   },
   {
    "pid": "pmc-9959127-wav2lip-avsr",
@@ -2644,7 +2644,7 @@
   "read": 42,
   "unread": 128,
   "confirmed_unique": 3,
-  "confirmed_本文確認": 3,
+  "confirmed_text_verified": 3,
   "recall_sample_read": 30,
   "recall_sample_included": 0,
   "recall_estimate": 1.0

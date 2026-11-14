@@ -5,7 +5,7 @@
  "pattern": "^(?=[\\s\\S]*modalities=(ecog|scalp_eeg|meg|intracortical_microelectrode|fmri|fnirs))(?=[\\s\\S]*(output_types=audio|direct_signal_to_audio|synthesi[sz]e\\w* (audible |intelligible )?speech|speech synthesis))",
  "scope": "ledger",
  "fulltext_pattern": "(synthesi[sz]\\w*|reconstruct\\w*|generat\\w*) (audible |intelligible |natural )?(speech|audio|voice|waveform|spectrogram)s? (directly )?from (the )?(neural|brain|cortical|ecog|eeg|meg|intracranial|seeg|neuronal) (activity|signals?|recordings?|data)|(brain|neural)[- ]to[- ](speech|audio|voice)\\b|speech synthesis from (ecog|seeg|intracranial)|spectrotemporal features of (overt|covert)",
- "inclusion_rule": "音響以外の神経信号（ECoG、sEEG、皮質内電極、EEG、MEG など）のうち、発話の産出（声に出す、口だけ動かす、試みる、想像する）に伴う活動から、連続的な音響表現（スペクトログラム、MFCC・ボコーダー特徴、フォルマント）を復号し、音声として出すか音声に変換できる形で評価した研究を含める。境界：聴取中の活動から聞いた音声を再構成する研究（知覚）は除く。テキストを復号してから定型の音声合成器で読み上げるだけのものは除く。四肢運動の想像などで合成器を操作する BCI は、発話の産出に伴う活動ではないので除く。総説・倫理論文・引用だけの一致は除く。同一研究の別版は1件。",
+ "inclusion_rule": "Include studies that decode continuous acoustic representations (spectrograms, MFCC or vocoder features, formants) from non-acoustic neural signals (ECoG, sEEG, intracortical electrodes, EEG, MEG, etc.) associated with speech production (overt, mouthed, attempted, imagined) and either output them as speech or evaluate them in a form convertible to speech. Boundary: exclude studies that reconstruct heard speech from activity during listening (perception). Exclude those that only decode text and then read it aloud with a standard speech synthesizer. Exclude BCIs that operate a synthesizer through limb motor imagery or the like, since this is not activity associated with speech production. Exclude matches in reviews, ethics papers or citations only. Count different versions of the same study as one item.",
  "counts": {
   "scanned_folders": 8995,
   "scanned_unique": 7388,
@@ -77,7 +77,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "入力が rtMRI の調音画像で、神経信号ではない"
+   "reason": "Input is rtMRI articulatory images, not neural signals"
   },
   {
    "pid": "arxiv-2104.14467",
@@ -106,9 +106,9 @@
    "snippet": "paper_id=arxiv-2111.01457 | doi=10.51628/001c.57524 | title=Synthesizing Speech from Intracranial Depth Electrodes using",
    "decision": "include",
    "quote": "production_labels=ordinary_voiced_speech",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2022）。sEEG 深部電極から発声中の音声を合成"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2022). Synthesizes speech during overt speaking from sEEG depth electrodes"
   },
   {
    "pid": "arxiv-2112.02690",
@@ -214,7 +214,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "入力が MRI 由来の調音表現で、神経信号ではない"
+   "reason": "Input is an articulatory representation derived from MRI, not neural signals"
   },
   {
    "pid": "arxiv-2310.04644",
@@ -260,7 +260,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "EEG の特徴埋め込みの解析で、音声の合成結果は台帳に記録されていない（台帳で判定）"
+   "reason": "Analysis of EEG feature embeddings; speech synthesis results are not recorded in the ledger (judged from the ledger)"
   },
   {
    "pid": "arxiv-2312.13600",
@@ -515,7 +515,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "isca-alradhi25_interspeech（MiSTR）の arXiv 版。版の重複"
+   "reason": "arXiv version of isca-alradhi25_interspeech (MiSTR). Version duplicate"
   },
   {
    "pid": "arxiv-2508.18127",
@@ -530,7 +530,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "無声パラ言語の総説。一致は参考文献"
+   "reason": "Review of silent paralinguistics. The match is in the references"
   },
   {
    "pid": "arxiv-2510.27247",
@@ -588,9 +588,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "this paper proposes an EEG-to-Voice paradigm that directly reconstructs speech from EEG signals",
-   "loc": "Introduction（一致箇所）",
-   "provenance": "台帳のみ",
-   "reason": "後続（2025）。頭皮 EEG から発声・想像発話のメルスペクトログラムを直接再構成"
+   "loc": "Introduction (matched passage)",
+   "provenance": "ledger only",
+   "reason": "Later (2025). Directly reconstructs mel spectrograms of overt and imagined speech from scalp EEG"
   },
   {
    "pid": "arxiv-2512.03458-imaud",
@@ -619,9 +619,9 @@
    "snippet": "Study.study_design=controlled_experiment | Study.research_objective=direct ECoG-to-acoustic speech regression via ViT en",
    "decision": "include",
    "quote": "direct ECoG-to-acoustic speech regression via ViT encoder-decoder",
-   "loc": "台帳（研究目的）",
-   "provenance": "台帳のみ",
-   "reason": "後続（2025）。硬膜外 ECoG から ViT で音響を直接回帰"
+   "loc": "Ledger (study aim)",
+   "provenance": "ledger only",
+   "reason": "Later (2025). Directly regresses acoustics from epidural ECoG with a ViT"
   },
   {
    "pid": "arxiv-2512.09524",
@@ -814,9 +814,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "Improve speech reconstruction from intracranial EEG by incorporating prosody-aware feature extraction and transformer-based spectrogram prediction",
-   "loc": "台帳（研究目的）",
-   "provenance": "台帳のみ",
-   "reason": "後続（2026）。iEEG から韻律特徴と Transformer でスペクトログラムを予測"
+   "loc": "Ledger (study aim)",
+   "provenance": "ledger only",
+   "reason": "Later (2026). Predicts spectrograms from iEEG with prosodic features and a Transformer"
   },
   {
    "pid": "arxiv-2605-31173-mindvoice",
@@ -846,7 +846,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "皮質内電極からの音声復号（テキスト）。一致は参考文献の Angrick ら 2019"
+   "reason": "Speech decoding (text) from intracortical electrodes. The match is Angrick et al. 2019 in the references"
   },
   {
    "pid": "arxiv-2605.24524",
@@ -1026,7 +1026,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "聴取中の MEG の解釈可能な復号（知覚）。脳→音声モデルへの言及は関連研究"
+   "reason": "Interpretable decoding of MEG during listening (perception). Mention of brain-to-speech models is related work"
   },
   {
    "pid": "arxiv-2609-04455-b2snet",
@@ -1040,9 +1040,9 @@
    "snippet": "title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | authors=Suresh Chandra,",
    "decision": "include",
    "quote": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
-   "loc": "題名",
-   "provenance": "台帳のみ",
-   "reason": "後続（2026）。試みた発話の神経活動からテキストを経ずに音声を合成（Brain2Speech-Net、同じ鍵の別版）"
+   "loc": "Title",
+   "provenance": "ledger only",
+   "reason": "Later (2026). Synthesizes speech from neural activity of attempted speech without going through text (Brain2Speech-Net; another version under the same key)"
   },
   {
    "pid": "arxiv-2609-31992-mechinterp",
@@ -1057,7 +1057,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-2609.31992 の別版"
+   "reason": "Another version of arxiv-2609.31992"
   },
   {
    "pid": "arxiv-2609-31997-meglm",
@@ -1102,7 +1102,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声 BCI の総説"
+   "reason": "Review of speech BCIs"
   },
   {
    "pid": "arxiv-2609.04455",
@@ -1116,9 +1116,9 @@
    "snippet": "paper_id=arxiv:2609.04455 | paper_version=2609.04455v2 | title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech S",
    "decision": "include",
    "quote": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
-   "loc": "題名",
-   "provenance": "台帳のみ",
-   "reason": "後続（2026）。試みた発話の神経活動からテキストを経ずに音声を合成（Brain2Speech-Net、同じ鍵の別版）"
+   "loc": "Title",
+   "provenance": "ledger only",
+   "reason": "Later (2026). Synthesizes speech from neural activity of attempted speech without going through text (Brain2Speech-Net; another version under the same key)"
   },
   {
    "pid": "arxiv-2609.04455-brain2speech",
@@ -1132,9 +1132,9 @@
    "snippet": "title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | authors=Chandra Shreeram",
    "decision": "include",
    "quote": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
-   "loc": "題名",
-   "provenance": "台帳のみ",
-   "reason": "後続（2026）。試みた発話の神経活動からテキストを経ずに音声を合成（Brain2Speech-Net、同じ鍵の別版）"
+   "loc": "Title",
+   "provenance": "ledger only",
+   "reason": "Later (2026). Synthesizes speech from neural activity of attempted speech without going through text (Brain2Speech-Net; another version under the same key)"
   },
   {
    "pid": "arxiv-2609.31992",
@@ -1150,7 +1150,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存の脳→音声復号器の内部表現を解析する研究で、新しい合成系ではない"
+   "reason": "Study analysing the internal representations of an existing brain-to-speech decoder; not a new synthesis system"
   },
   {
    "pid": "arxiv-2609.31997",
@@ -1225,7 +1225,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "慢性電極による音声 BCI の展望（総説）"
+   "reason": "Perspective on speech BCIs with chronic electrodes (review)"
   },
   {
    "pid": "doi-10.1007-s13311-022-01190-2",
@@ -1315,7 +1315,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声 BCI の設計を論じる総説"
+   "reason": "Review discussing the design of speech BCIs"
   },
   {
    "pid": "doi-10.1016-j.neubiorev.2022.104783",
@@ -1375,7 +1375,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "無声発話インタフェースの総説（2010）"
+   "reason": "Review of silent speech interfaces (2010)"
   },
   {
    "pid": "doi-10.1016-j.specom.2010.01.001",
@@ -1390,7 +1390,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Brumberg らの総説（2010）。Guenther ら 2009 の系を紹介する"
+   "reason": "Review by Brumberg et al. (2010). Describes the system of Guenther et al. 2009"
   },
   {
    "pid": "doi-10.1038-s41467-018-04819-z",
@@ -1405,7 +1405,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2018。話者と聴者の脳間同期（ハイパースキャニング）の研究で、音響を復号しない"
+   "reason": "2018. Study of speaker-listener inter-brain synchrony (hyperscanning); does not decode acoustics"
   },
   {
    "pid": "doi-10.1038-s41467-025-63825-0",
@@ -1495,7 +1495,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声神経補綴の総説"
+   "reason": "Review of speech neuroprostheses"
   },
   {
    "pid": "doi-10.1038-s41586-019-1119-1",
@@ -1509,8 +1509,8 @@
    "decision": "include",
    "quote": "These features are then synthesized into an audio signal.",
    "loc": "Methods「Neural decoder」「Speech synthesis from acoustic features」",
-   "provenance": "本文確認",
-   "reason": "対象論文。音読中の ECoG から MFCC など 32 次元を復号し、Festvox の MLSA で波形にする"
+   "provenance": "text-verified",
+   "reason": "Target paper. Decodes 32 dimensions including MFCCs from ECoG during reading aloud and converts them to waveforms with Festvox MLSA"
   },
   {
    "pid": "doi-10.1038-s41586-023-06443-4",
@@ -1539,9 +1539,9 @@
    "snippet": "system_name=brain-to-voice instantaneous voice-synthesis neuroprosthesis | task_family=speech_reconstruction | intended_",
    "decision": "include",
    "quote": "demonstrate instantaneous closed-loop brain-to-voice synthesis in a person with ALS",
-   "loc": "台帳（研究目的）",
-   "provenance": "台帳のみ",
-   "reason": "後続（2024 プレプリント、2025 刊行）。ALS の 1 人の皮質内電極から、試みた発話を即時に声へ合成する"
+   "loc": "Ledger (study aim)",
+   "provenance": "ledger only",
+   "reason": "Later (2024 preprint, 2025 publication). Instantaneously synthesizes voice from attempted speech using intracortical electrodes in one person with ALS"
   },
   {
    "pid": "doi-10.1038-s41593-023-01304-9",
@@ -1586,7 +1586,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "発話とジェスチャーの同時復号。一致は参考文献の Wairagkar ら・Littlejohn らの題名"
+   "reason": "Joint decoding of speech and gesture. The match is the titles of Wairagkar et al. and Littlejohn et al. in the references"
   },
   {
    "pid": "doi-10.1038-s41593-026-02456-0",
@@ -1601,7 +1601,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "想像・発声時の調音運動の符号化の解析で、音響を復号しない"
+   "reason": "Analysis of the encoding of articulatory movements during imagined and overt speech; does not decode acoustics"
   },
   {
    "pid": "doi-10.1038-s41598-018-37359-z",
@@ -1616,7 +1616,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同時期（bioRxiv 2018-06、Sci Rep 2019-01）。聴取中の聴覚皮質から聞いた音声を再構成する（知覚）"
+   "reason": "Concurrent (bioRxiv 2018-06, Sci Rep 2019-01). Reconstructs heard speech from auditory cortex during listening (perception)"
   },
   {
    "pid": "doi-10.1038-s41598-019-50834-5",
@@ -1631,7 +1631,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2019。感覚運動野からの調音運動の分類で、音響を復号しない。一致は参考文献"
+   "reason": "2019. Classification of articulatory movements from sensorimotor cortex; does not decode acoustics. The match is in the references"
   },
   {
    "pid": "doi-10.1038-s41598-024-60277-2",
@@ -1676,7 +1676,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "サル二次聴覚皮質のスパイクから聞いた音声を復号する（知覚）"
+   "reason": "Decodes heard speech from spikes in monkey secondary auditory cortex (perception)"
   },
   {
    "pid": "doi-10.1038-s42003-021-02578-0",
@@ -1722,7 +1722,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "言語神経復号の総説"
+   "reason": "Review of neural decoding of language"
   },
   {
    "pid": "doi-10.1038-s42256-024-00824-8",
@@ -1753,7 +1753,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "無声発話のセンサー技術の総説"
+   "reason": "Review of sensor technologies for silent speech"
   },
   {
    "pid": "doi-10.1056-nejmoa2314132",
@@ -1783,7 +1783,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "脳→音声復号には言語データが必要とする展望論文で、合成系を作らない"
+   "reason": "Perspective paper arguing that brain-to-speech decoding requires language data; builds no synthesis system"
   },
   {
    "pid": "doi-10.1088-1741-2552-ab0c59",
@@ -1798,7 +1798,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Angrick ら 2019 の別フォルダ（PubMed ページ由来）。版の重複"
+   "reason": "Separate folder of Angrick et al. 2019 (from the PubMed page). Version duplicate"
   },
   {
    "pid": "doi-10.1088-1741-2552-abbfef",
@@ -1814,7 +1814,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "皮質内アレイから音素・単語を分類する研究で、音響を復号しない"
+   "reason": "Study classifying phonemes and words from intracortical arrays; does not decode acoustics"
   },
   {
    "pid": "doi-10.1088-1741-2552-adaa20",
@@ -1919,7 +1919,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "神経由来の合成音声の責任を論じる倫理論文"
+   "reason": "Ethics paper discussing responsibility for neurally derived synthesized speech"
   },
   {
    "pid": "doi-10.1101-2020.08.03.234997-megcat",
@@ -1949,7 +1949,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "想像発話の分類。一致は参考文献の Martin ら 2014"
+   "reason": "Imagined-speech classification. The match is Martin et al. 2014 in the references"
   },
   {
    "pid": "doi-10.1101-2022.11.13.516334",
@@ -1979,7 +1979,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "pmc-12965882-nsdecode（Chen ら）のプレプリント。版の重複"
+   "reason": "Preprint of pmc-12965882-nsdecode (Chen et al.). Version duplicate"
   },
   {
    "pid": "doi-10.1101-2024.03.11.584533",
@@ -2085,7 +2085,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "調音運動の符号化の解析で、音響を復号しない"
+   "reason": "Analysis of the encoding of articulatory movements; does not decode acoustics"
   },
   {
    "pid": "doi-10.1101-2025.05.30.657105",
@@ -2113,9 +2113,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks",
-   "loc": "題名、Abstract",
-   "provenance": "本文確認",
-   "reason": "同時期（bioRxiv 2018-11-27、対象の bioRxiv 版の 2 日前、J Neural Eng 2019）。発声中の ECoG から 3D 畳み込み網で対数メルスペクトログラムを復号し、WaveNet で波形にする"
+   "loc": "Title, Abstract",
+   "provenance": "text-verified",
+   "reason": "Concurrent (bioRxiv 2018-11-27, 2 days before the target paper's bioRxiv version; J Neural Eng 2019). Decodes log-mel spectrograms from ECoG during overt speech with a 3-D convolutional network and converts them to waveforms with WaveNet"
   },
   {
    "pid": "doi-10.1109-access.2020.3028831",
@@ -2143,9 +2143,9 @@
    "snippet": "paper_id=10.1109/embc46164.2021.9629711 | title=Speech Synthesis from Stereotactic EEG using an Electrode Shaft Dependen",
    "decision": "include",
    "quote": "feasibility of open-loop audible speech synthesis from stereotactic EEG depth electrodes",
-   "loc": "台帳（研究目的）",
-   "provenance": "台帳のみ",
-   "reason": "後続（2021）。sEEG からの開ループ音声合成"
+   "loc": "Ledger (study aim)",
+   "provenance": "ledger only",
+   "reason": "Later (2021). Open-loop speech synthesis from sEEG"
   },
   {
    "pid": "doi-10.1109-embc48229.2022.9871301",
@@ -2175,7 +2175,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "生成 AI と BCI の総説"
+   "reason": "Review of generative AI and BCI"
   },
   {
    "pid": "doi-10.1109-smc58881.2025.11342466",
@@ -2220,7 +2220,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "EEG の四肢運動想像で 2 次元フォルマント合成器を操作する BCI で、発話の産出に伴う活動ではない"
+   "reason": "BCI that operates a 2-D formant synthesizer by EEG limb motor imagery; not activity accompanying speech production"
   },
   {
    "pid": "doi-10.1126-sciadv.abc6348",
@@ -2235,7 +2235,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "視覚手がかりの知覚と皮質振動の研究"
+   "reason": "Study of perception of visual cues and cortical oscillations"
   },
   {
    "pid": "doi-10.1126-sciadv.adh0478",
@@ -2280,7 +2280,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2016。母音想像の EEG 分類で、音響を復号しない"
+   "reason": "2016. EEG classification of imagined vowels; does not decode acoustics"
   },
   {
    "pid": "doi-10.1162-IMAG.a.146",
@@ -2310,7 +2310,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "脳からの音声再構成の総説"
+   "reason": "Review of speech reconstruction from the brain"
   },
   {
    "pid": "doi-10.1177-23312165241282872",
@@ -2340,7 +2340,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "脳→音声復号の系統的総説"
+   "reason": "Systematic review of brain-to-speech decoding"
   },
   {
    "pid": "doi-10.1227-neu.0000000000003360_251",
@@ -2355,7 +2355,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "学会抄録（ALS の実時間音声神経補綴）。本文がなく、Wairagkar ら 2025 と同じ系とみられるので数えない"
+   "reason": "Conference abstract (real-time speech neuroprosthesis in ALS). No full text, and it appears to be the same system as Wairagkar et al. 2025, so it is not counted"
   },
   {
    "pid": "doi-10.1371-journal.pbio.3003588",
@@ -2384,8 +2384,8 @@
    "decision": "include",
    "quote": "neurons in the implanted region of left ventral premotor cortex represent intended speech sounds in terms of formant frequency trajectories",
    "loc": "Introduction、Methods",
-   "provenance": "本文確認",
-   "reason": "先行（2009）。閉じ込め状態の 1 人の運動前野の神経栄養電極から、母音を発しようとする試行でフォルマント周波数を実時間で復号し、フォルマント合成器で音にする"
+   "provenance": "text-verified",
+   "reason": "Prior (2009). From a neurotrophic electrode in the premotor cortex of one person with locked-in syndrome, decodes formant frequencies in real time during attempts to produce vowels and renders them as sound with a formant synthesizer"
   },
   {
    "pid": "doi-10.1371-journal.pone.0166872",
@@ -2400,7 +2400,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2016。発声・非発声の連続音読中の ECoG 活動の時空間解析で、音響を復号しない"
+   "reason": "2016. Spatiotemporal analysis of ECoG activity during continuous overt and non-overt reading aloud; does not decode acoustics"
   },
   {
    "pid": "doi-10.1609-aaai.v37i5.25745",
@@ -2504,8 +2504,8 @@
    "decision": "include",
    "quote": "we used a similar neural decoding model trained on sounds from self-generated overt speech. This model was then used to decode spectrotemporal auditory features from brain activity",
    "loc": "Introduction、Methods",
-   "provenance": "本文確認",
-   "reason": "先行（2014-05）。発声中の ECoG から聴覚スペクトログラムと変調表現を線形モデルで復号し、同じモデルを声に出さない発話に当てて DTW で評価。波形の合成と聴取試験はない"
+   "provenance": "text-verified",
+   "reason": "Prior (2014-05). Decodes an auditory spectrogram and modulation representation from ECoG during overt speech with linear models, applies the same models to non-overt speech and evaluates with DTW. No waveform synthesis or listening test"
   },
   {
    "pid": "doi-10.3389-fnhum.2015.00097",
@@ -2520,7 +2520,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "分節素性の ECoG 表現の解析。一致は参考文献"
+   "reason": "Analysis of ECoG representations of segmental features. The match is in the references"
   },
   {
    "pid": "doi-10.3389-fnhum.2020.00290",
@@ -2595,7 +2595,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2015。Herff らの Brain-to-text（音素を経てテキストを出す）で、音響を合成しない"
+   "reason": "2015. Herff et al.'s Brain-to-text (outputs text via phonemes); does not synthesize acoustics"
   },
   {
    "pid": "doi-10.3389-fnins.2016.00429",
@@ -2610,7 +2610,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "神経信号からの音声認識の総説"
+   "reason": "Review of speech recognition from neural signals"
   },
   {
    "pid": "doi-10.3389-fnins.2019.01267",
@@ -2624,8 +2624,8 @@
    "decision": "include",
    "quote": "called unit selection, in which units of speech are concatenated to form audible output. In our approach, which we call Brain-To-Speech",
    "loc": "Methods",
-   "provenance": "本文確認",
-   "reason": "後続（2019-11）。発声中の ECoG から単位選択で音声を合成する（Brain-To-Speech）"
+   "provenance": "text-verified",
+   "reason": "Later (2019-11). Synthesizes speech by unit selection from ECoG during overt speech (Brain-To-Speech)"
   },
   {
    "pid": "doi-10.3389-fnins.2020.00290",
@@ -2731,7 +2731,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声と手書きの BCI の総説"
+   "reason": "Review of speech and handwriting BCIs"
   },
   {
    "pid": "doi-10.3390-s25133987",
@@ -2836,7 +2836,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Martin の学位論文。中身は doi-10.3389-fneng.2014.00014 などの既出研究で、別研究として数えない"
+   "reason": "Martin's thesis. Its content is previously reported work such as doi-10.3389-fneng.2014.00014 and is not counted as a separate study"
   },
   {
    "pid": "doi-10.5772-intechopen.1008554",
@@ -2926,7 +2926,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音素復号の汎化研究。脳→声の合成は今後の応用として触れるだけ"
+   "reason": "Study of generalization in phoneme decoding. Brain-to-voice synthesis is only mentioned as a future application"
   },
   {
    "pid": "doi-10.7554-elife.109400",
@@ -2942,7 +2942,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "TIMIT 文の聴取中の ECoG から聞いた音声を再構成する（知覚）"
+   "reason": "Reconstructs heard speech from ECoG during listening to TIMIT sentences (perception)"
   },
   {
    "pid": "doi-10.7554-elife.46015",
@@ -2957,7 +2957,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2019。背側運動野の神経集団の発話時動態（Stavisky ら）で、音響を復号しない"
+   "reason": "2019. Speech-time dynamics of neural populations in dorsal motor cortex (Stavisky et al.); does not decode acoustics"
   },
   {
    "pid": "essex-43322-tates-thesis",
@@ -3061,9 +3061,9 @@
    "snippet": "paper_id=isca-alradhi25_interspeech | title=MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody P",
    "decision": "include",
    "quote": "restore intelligible natural speech from iEEG by combining wavelet features, Transformer prosody-aware spectrogram prediction, and a neural phase vocoder",
-   "loc": "台帳（研究目的）",
-   "provenance": "台帳のみ",
-   "reason": "後続（2025）。iEEG からスペクトログラムを予測し位相ボコーダーで音声化（MiSTR）"
+   "loc": "Ledger (study aim)",
+   "provenance": "ledger only",
+   "reason": "Later (2025). Predicts spectrograms from iEEG and renders speech with a phase vocoder (MiSTR)"
   },
   {
    "pid": "isca-aminidigehsara22-radarheadset",
@@ -3198,7 +3198,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "EEG から超音波舌画像を予測。一致は参考文献の sEEG 合成論文の題名"
+   "reason": "Predicts ultrasound tongue images from EEG. The match is the title of an sEEG synthesis paper in the references"
   },
   {
    "pid": "isca-dash19_interspeech",
@@ -3213,7 +3213,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2019。話者適応による音素・単語の分類（音声 BCI）で、音響を復号しない"
+   "reason": "2019. Phoneme and word classification with speaker adaptation (speech BCI); does not decode acoustics"
   },
   {
    "pid": "isca-dash20_interspeech",
@@ -3334,7 +3334,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "聴取中の EEG から聞いた音声を復号する（知覚）"
+   "reason": "Decodes heard speech from EEG during listening (perception)"
   },
   {
    "pid": "isca-lee26b-rtmri",
@@ -3349,7 +3349,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "rtMRI・EEG・筋電の同時収録。脳→音声への言及は背景"
+   "reason": "Simultaneous recording of rtMRI, EEG and EMG. Mention of brain-to-speech is background"
   },
   {
    "pid": "isca-lee26b-rtmrieeg",
@@ -3379,7 +3379,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "EEG と筋電の併用で、筋電を含む入力から音声を出す。神経信号のみの合成ではない"
+   "reason": "Combines EEG and EMG; outputs speech from input that includes EMG. Not synthesis from neural signals alone"
   },
   {
    "pid": "isca-li24ga-eeg2mel",
@@ -3424,7 +3424,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "3 次元の話す頭部モデルで、神経信号を使わない"
+   "reason": "3-D talking-head model; does not use neural signals"
   },
   {
    "pid": "isca-meng22d_interspeech",
@@ -3559,7 +3559,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "聴取中の聴覚皮質からの音声再構成（知覚）"
+   "reason": "Speech reconstruction from auditory cortex during listening (perception)"
   },
   {
    "pid": "natneuro-2446-sgdecode",
@@ -3604,7 +3604,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "AlterEgo の筋電による無声発話認識で、神経信号から音響を復号しない"
+   "reason": "AlterEgo's EMG-based silent speech recognition; does not decode acoustics from neural signals"
   },
   {
    "pid": "osf-jfuws",
@@ -3919,7 +3919,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "pmc-11053081-onlinesyn の別版"
+   "reason": "Another version of pmc-11053081-onlinesyn"
   },
   {
    "pid": "pmc-11053081-onlinesyn",
@@ -3933,9 +3933,9 @@
    "snippet": "title=Online speech synthesis using a chronically implanted brain-computer interface | authors=online-synthesis group |",
    "decision": "include",
    "quote": "chronically-implanted online speech synthesis 80% intelligible",
-   "loc": "台帳（研究目的）",
-   "provenance": "台帳のみ",
-   "reason": "後続（2024）。ALS の 1 人の慢性 ECoG から単語を声に出す試行でオンライン合成"
+   "loc": "Ledger (study aim)",
+   "provenance": "ledger only",
+   "reason": "Later (2024). Online synthesis from trials of speaking words aloud, using chronic ECoG in one person with ALS"
   },
   {
    "pid": "pmc-11106343-covert",
@@ -4070,7 +4070,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "fMRI からの意味の再構成。一致は参考文献の Martin ら 2014 の題名"
+   "reason": "Semantic reconstruction from fMRI. The match is the title of Martin et al. 2014 in the references"
   },
   {
    "pid": "pmc-11321429-spikeart",
@@ -4130,7 +4130,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1038-s41586-025-09127-3（Wairagkar ら）のプレプリント版。版の重複"
+   "reason": "Preprint version of doi-10.1038-s41586-025-09127-3 (Wairagkar et al.). Version duplicate"
   },
   {
    "pid": "pmc-11424044-ailistener",
@@ -4145,7 +4145,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "脳由来の合成音声の明瞭度を自動音声認識で測る評価手法の研究で、合成系そのものではない"
+   "reason": "Study of an evaluation method that measures the intelligibility of brain-derived synthesized speech with automatic speech recognition; not a synthesis system itself"
   },
   {
    "pid": "pmc-11451764-angrick",
@@ -4235,7 +4235,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "二言語の音声神経補綴（テキスト出力）。一致は参考文献の Angrick ら 2019 の題名"
+   "reason": "Bilingual speech neuroprosthesis (text output). The match is the title of Angrick et al. 2019 in the references"
   },
   {
    "pid": "pmc-11561076-icn-review",
@@ -4250,7 +4250,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "皮質神経補綴の総説"
+   "reason": "Review of cortical neuroprostheses"
   },
   {
    "pid": "pmc-11773629-sdtrans",
@@ -4641,7 +4641,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1038-s41586-025-09127-3（Wairagkar ら 2025）の別版"
+   "reason": "Another version of doi-10.1038-s41586-025-09127-3 (Wairagkar et al. 2025)"
   },
   {
    "pid": "pmc-12369848-voicesynth",
@@ -4656,7 +4656,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1038-s41586-025-09127-3（Wairagkar ら 2025）の別版"
+   "reason": "Another version of doi-10.1038-s41586-025-09127-3 (Wairagkar et al. 2025)"
   },
   {
    "pid": "pmc-12379578-dashspont",
@@ -4896,7 +4896,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "ECoG の発話区間検出。脳→音声への応用に触れるだけ"
+   "reason": "ECoG speech-segment detection. Only mentions application to brain-to-speech"
   },
   {
    "pid": "pmc-12498269-rtspoken",
@@ -5136,7 +5136,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "中国語ピンイン発話の EEG データセット。一致は参考文献"
+   "reason": "EEG dataset of Mandarin pinyin speech. The match is in the references"
   },
   {
    "pid": "pmc-12808263-cpseed",
@@ -5181,7 +5181,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.7554-elife.109400 の別版。聴取中の活動（知覚）"
+   "reason": "Another version of doi-10.7554-elife.109400. Activity during listening (perception)"
   },
   {
    "pid": "pmc-12965882-nmidecode",
@@ -5209,9 +5209,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "Unlike the kinematic representation, our acoustic intermediate representation using speech parameters",
-   "loc": "本文（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2023 プレプリント、2024 刊行）。ECoG から音声パラメータを復号し微分可能な合成器で音声化。調音ではなく音響の中間表現を選ぶ"
+   "loc": "Main text (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2023 preprint, 2024 publication). Decodes speech parameters from ECoG and renders speech with a differentiable synthesizer. Chooses an acoustic rather than articulatory intermediate representation"
   },
   {
    "pid": "pmc-12987850-anarthria",
@@ -5242,7 +5242,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "構音不能者の伝達機器の総説"
+   "reason": "Review of communication devices for people unable to articulate"
   },
   {
    "pid": "pmc-13006734-cvos-ssi",
@@ -5317,7 +5317,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "ALS での音声 BCI の安定性（テキスト出力）。一致は関連研究の一文"
+   "reason": "Stability of a speech BCI in ALS (text output). The match is one sentence in related work"
   },
   {
    "pid": "pmc-13142457-premotgeo",
@@ -5558,7 +5558,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "腹側中心前回の発話様式と声量の符号化、声量の実時間復号で、音響の連続合成ではない"
+   "reason": "Encoding of speaking mode and loudness in ventral precentral gyrus and real-time decoding of loudness; not continuous acoustic synthesis"
   },
   {
    "pid": "pmc-13270037-vpcgloud",
@@ -5813,7 +5813,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "ECoG の時空間活性化パターンの解析。一致は参考文献"
+   "reason": "Analysis of ECoG spatiotemporal activation patterns. The match is in the references"
   },
   {
    "pid": "pmc-13483768-speechnp",
@@ -5962,8 +5962,8 @@
    "decision": "include",
    "quote": "neurons in the implanted region of left ventral premotor cortex represent intended speech sounds in terms of formant frequency trajectories",
    "loc": "Introduction、Methods",
-   "provenance": "本文確認",
-   "reason": "先行（2009）。閉じ込め状態の 1 人の運動前野の神経栄養電極から、母音を発しようとする試行でフォルマント周波数を実時間で復号し、フォルマント合成器で音にする"
+   "provenance": "text-verified",
+   "reason": "Prior (2009). From a neurotrophic electrode in the premotor cortex of one person with locked-in syndrome, decodes formant frequencies in real time during attempts to produce vowels and renders them as sound with a formant synthesizer"
   },
   {
    "pid": "pmc-2784218-wirelesssynth",
@@ -5977,8 +5977,8 @@
    "decision": "include",
    "quote": "neurons in the implanted region of left ventral premotor cortex represent intended speech sounds in terms of formant frequency trajectories",
    "loc": "Introduction、Methods",
-   "provenance": "本文確認",
-   "reason": "先行（2009）。閉じ込め状態の 1 人の運動前野の神経栄養電極から、母音を発しようとする試行でフォルマント周波数を実時間で復号し、フォルマント合成器で音にする"
+   "provenance": "text-verified",
+   "reason": "Prior (2009). From a neurotrophic electrode in the premotor cortex of one person with locked-in syndrome, decodes formant frequencies in real time during attempts to produce vowels and renders them as sound with a formant synthesizer"
   },
   {
    "pid": "pmc-3637898-guenther",
@@ -5993,7 +5993,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Guenther らが自身の 2 つの研究（2009 年の皮質内、EEG）をまとめた論文。Guenther ら 2009 を 1 件として数える"
+   "reason": "Paper in which Guenther et al. summarize two of their own studies (the 2009 intracortical study and an EEG study). Guenther et al. 2009 is counted as one item"
   },
   {
    "pid": "pmc-4034498-overtcovert",
@@ -6007,8 +6007,8 @@
    "decision": "include",
    "quote": "we used a similar neural decoding model trained on sounds from self-generated overt speech. This model was then used to decode spectrotemporal auditory features from brain activity",
    "loc": "Introduction、Methods",
-   "provenance": "本文確認",
-   "reason": "先行（2014-05）。発声中の ECoG から聴覚スペクトログラムと変調表現を線形モデルで復号し、同じモデルを声に出さない発話に当てて DTW で評価。波形の合成と聴取試験はない"
+   "provenance": "text-verified",
+   "reason": "Prior (2014-05). Decodes an auditory spectrogram and modulation representation from ECoG during overt speech with linear models, applies the same models to non-overt speech and evaluates with DTW. No waveform synthesis or listening test"
   },
   {
    "pid": "pmc-4034498-spectemp",
@@ -6023,7 +6023,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.3389-fneng.2014.00014 の別版（題名が途中で切れたフォルダ）"
+   "reason": "Another version of doi-10.3389-fneng.2014.00014 (folder with truncated title)"
   },
   {
    "pid": "pmc-4338752-ecogsegment",
@@ -6038,7 +6038,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "分節素性の ECoG 表現の解析。一致は参考文献の Martin ら 2014"
+   "reason": "Analysis of ECoG representations of segmental features. The match is Martin et al. 2014 in the references"
   },
   {
    "pid": "pmc-4424044-cogmotor",
@@ -6053,7 +6053,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "認知・運動 BMI の総説"
+   "reason": "Review of cognitive and motor BMIs"
   },
   {
    "pid": "pmc-4464168-brain2text",
@@ -6068,7 +6068,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Herff ら 2015 の別版。テキスト出力"
+   "reason": "Another version of Herff et al. 2015. Text output"
   },
   {
    "pid": "pmc-4464168-brain2text15",
@@ -6083,7 +6083,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-4863149-ecog-word-pairs",
@@ -6098,7 +6098,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2016。想像発話の単語対の分類"
+   "reason": "2016. Classification of imagined-speech word pairs"
   },
   {
    "pid": "pmc-4863149-wordpair",
@@ -6113,7 +6113,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-5031534-nsr",
@@ -6128,7 +6128,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2016。ECoG からの連続音素復号（テキスト系）で、音響を合成しない"
+   "reason": "2016. Continuous phoneme decoding from ECoG (text-based); does not synthesize acoustics"
   },
   {
    "pid": "pmc-5031534-phoneme",
@@ -6143,7 +6143,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-5037201-herffrev",
@@ -6158,7 +6158,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "pmc-5119784-cortprog",
@@ -6173,7 +6173,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1371-journal.pone.0166872 の別版"
+   "reason": "Another version of doi-10.1371-journal.pone.0166872"
   },
   {
    "pid": "pmc-5119784-spatio",
@@ -6188,7 +6188,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-5127806-mtrf",
@@ -6203,7 +6203,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2016。時間応答関数のツールボックス。一致は参考文献"
+   "reason": "2016. Toolbox for temporal response functions. The match is in the references"
   },
   {
    "pid": "pmc-5203979-icdecode",
@@ -6218,7 +6218,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "頭蓋内記録による言語復号の総説"
+   "reason": "Review of language decoding from intracranial recordings"
   },
   {
    "pid": "pmc-5206788-kumar",
@@ -6233,7 +6233,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1155-2016-2618265 の別版"
+   "reason": "Another version of doi-10.1155-2016-2618265"
   },
   {
    "pid": "pmc-5206788-vowelelm",
@@ -6248,7 +6248,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-5562943-ic-auditory-rev",
@@ -6263,7 +6263,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2017。聴覚処理の頭蓋内電気生理の総説"
+   "reason": "2017. Review of intracranial electrophysiology of auditory processing"
   },
   {
    "pid": "pmc-5580037-neuralact",
@@ -6278,7 +6278,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "ECoG 可視化ツール。一致は参考文献"
+   "reason": "ECoG visualization tool. The match is in the references"
   },
   {
    "pid": "pmc-5623038-encdec",
@@ -6293,7 +6293,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2018。認知電気生理の符号化・復号モデルの総説"
+   "reason": "2018. Review of encoding and decoding models in cognitive electrophysiology"
   },
   {
    "pid": "pmc-5693371-bcimeeting",
@@ -6308,7 +6308,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "BCI 会議のワークショップ報告"
+   "reason": "Workshop report from a BCI meeting"
   },
   {
    "pid": "pmc-5906041-kennedy",
@@ -6323,7 +6323,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1109-tnsre.2018.2808425 の別版。運動想像による操作"
+   "reason": "Another version of doi-10.1109-tnsre.2018.2808425. Operation by motor imagery"
   },
   {
    "pid": "pmc-6021529-innerecog",
@@ -6338,7 +6338,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "pmc-6021529-innerecogrev",
@@ -6353,7 +6353,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "pmc-6021529-innerspeechreview",
@@ -6368,7 +6368,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "内言の ECoG 復号の総説"
+   "reason": "Review of ECoG decoding of inner speech"
   },
   {
    "pid": "pmc-6174918-directspeech",
@@ -6383,7 +6383,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "直接音声 BCI の神経言語学の総説"
+   "reason": "Review of the neurolinguistics of direct speech BCIs"
   },
   {
    "pid": "pmc-6174918-dsbci-review",
@@ -6398,7 +6398,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "pmc-6220042-contspeech",
@@ -6413,7 +6413,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2018。連続音声の神経処理（聴取）の研究。一致は参考文献"
+   "reason": "2018. Study of neural processing of continuous speech (listening). The match is in the references"
   },
   {
    "pid": "pmc-6351601-audrecon",
@@ -6428,7 +6428,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Akbari ら 2019 の別版。知覚"
+   "reason": "Another version of Akbari et al. 2019. Perception"
   },
   {
    "pid": "pmc-6351601-intelligible",
@@ -6443,7 +6443,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Akbari ら 2019 の別版。知覚"
+   "reason": "Another version of Akbari et al. 2019. Perception"
   },
   {
    "pid": "pmc-6433278-hdecog",
@@ -6458,7 +6458,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2018。高密度 ECoG からの発声音素の分類で、音響を復号しない"
+   "reason": "2018. Classification of overt phonemes from high-density ECoG; does not decode acoustics"
   },
   {
    "pid": "pmc-6775133-artic",
@@ -6473,7 +6473,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1038-s41598-019-50834-5 の別版"
+   "reason": "Another version of doi-10.1038-s41598-019-50834-5"
   },
   {
    "pid": "pmc-6775133-articulclass",
@@ -6488,7 +6488,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-6775133-smcartic",
@@ -6503,7 +6503,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-6805153-innercount",
@@ -6533,7 +6533,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2019。内的な数え上げ中の MEG 追従の研究"
+   "reason": "2019. Study of MEG tracking during internal counting"
   },
   {
    "pid": "pmc-6822609-3dcnn",
@@ -6546,9 +6546,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks",
-   "loc": "題名、Abstract",
-   "provenance": "本文確認",
-   "reason": "同時期（bioRxiv 2018-11-27、対象の bioRxiv 版の 2 日前、J Neural Eng 2019）。発声中の ECoG から 3D 畳み込み網で対数メルスペクトログラムを復号し、WaveNet で波形にする"
+   "loc": "Title, Abstract",
+   "provenance": "text-verified",
+   "reason": "Concurrent (bioRxiv 2018-11-27, 2 days before the target paper's bioRxiv version; J Neural Eng 2019). Decodes log-mel spectrograms from ECoG during overt speech with a 3-D convolutional network and converts them to waveforms with WaveNet"
   },
   {
    "pid": "pmc-6859843-vargranger",
@@ -6563,7 +6563,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "自己回帰モデルの推定法。音声合成を扱わない"
+   "reason": "Estimation method for autoregressive models. Does not deal with speech synthesis"
   },
   {
    "pid": "pmc-6882771-mrcp",
@@ -6578,7 +6578,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "2019。運動関連電位の識別。一致は参考文献"
+   "reason": "2019. Discrimination of movement-related potentials. The match is in the references"
   },
   {
    "pid": "pmc-6882773-b2speech",
@@ -6592,8 +6592,8 @@
    "decision": "include",
    "quote": "called unit selection, in which units of speech are concatenated to form audible output. In our approach, which we call Brain-To-Speech",
    "loc": "Methods",
-   "provenance": "本文確認",
-   "reason": "後続（2019-11）。発声中の ECoG から単位選択で音声を合成する（Brain-To-Speech）"
+   "provenance": "text-verified",
+   "reason": "Later (2019-11). Synthesizes speech by unit selection from ECoG during overt speech (Brain-To-Speech)"
   },
   {
    "pid": "pmc-6882773-braintospeech",
@@ -6607,8 +6607,8 @@
    "decision": "include",
    "quote": "called unit selection, in which units of speech are concatenated to form audible output. In our approach, which we call Brain-To-Speech",
    "loc": "Methods",
-   "provenance": "本文確認",
-   "reason": "後続（2019-11）。発声中の ECoG から単位選択で音声を合成する（Brain-To-Speech）"
+   "provenance": "text-verified",
+   "reason": "Later (2019-11). Synthesizes speech by unit selection from ECoG during overt speech (Brain-To-Speech)"
   },
   {
    "pid": "pmc-6901702-ecogdecode",
@@ -6623,7 +6623,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "ECoG 運動復号の総説"
+   "reason": "Review of ECoG motor decoding"
   },
   {
    "pid": "pmc-6906475-spikedec",
@@ -6638,7 +6638,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1038-s42003-019-0707-9 の別版。知覚"
+   "reason": "Another version of doi-10.1038-s42003-019-0707-9. Perception"
   },
   {
    "pid": "pmc-6954053-dorsalmcx",
@@ -6653,7 +6653,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.7554-elife.46015 の別版"
+   "reason": "Another version of doi-10.7554-elife.46015"
   },
   {
    "pid": "pmc-6954053-t5t8",
@@ -6668,7 +6668,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-7056827-seegbci",
@@ -6818,7 +6818,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "運動復号の総説。対象を紹介するだけ"
+   "reason": "Review of motor decoding. Only describes the target paper"
   },
   {
    "pid": "pmc-7470935-timelock",
@@ -6848,7 +6848,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "BCI 会議のワークショップ報告"
+   "reason": "Workshop report from a BCI meeting"
   },
   {
    "pid": "pmc-7668411-meg-sensor-selection",
@@ -6893,7 +6893,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "感覚運動の学習モデルの研究。一致は参考文献"
+   "reason": "Study of sensorimotor learning models. The match is in the references"
   },
   {
    "pid": "pmc-8072290-seegmapping",
@@ -7268,7 +7268,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声復号と合成の BCI の総説"
+   "reason": "Review of BCIs for speech decoding and synthesis"
   },
   {
    "pid": "pmc-9271576-ieegmlrev",
@@ -7283,7 +7283,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "頭蓋内 EEG と機械学習の系統的総説"
+   "reason": "Systematic review of intracranial EEG and machine learning"
   },
   {
    "pid": "pmc-9307753-spproddata",
@@ -7418,7 +7418,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "対象論文の別フォルダ（同じ著者稿 XML）。版の重複"
+   "reason": "Separate folder of the target paper (same author manuscript XML). Version duplicate"
   },
   {
    "pid": "pmc-pmc11554235",
@@ -7478,7 +7478,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-pmc8738965",
@@ -7598,7 +7598,7 @@
   "read": 140,
   "unread": 361,
   "confirmed_unique": 15,
-  "confirmed_本文確認": 6,
+  "confirmed_text_verified": 6,
   "recall_sample_read": 30,
   "recall_sample_included": 3,
   "recall_estimate": 0.15

@@ -9,7 +9,7 @@
   "matched": 3882,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Inherited from the WLAS / LRS lineage."
+  "note": "Inherited from the WLAS/LRS lineage; nothing to compare."
  },
  "M02": {
   "choice": [
@@ -21,7 +21,7 @@
   "matched": 31,
   "matched_tier": "slot_filled (sparse; not a field-practice count)",
   "verdict": "standard",
-  "note": "Automatic labels as in LRS; slot under-recorded in the ledger."
+  "note": "Automatic subtitle labels as in LRS; standard for broadcast-derived data."
  },
  "M03": {
   "choice": [
@@ -34,7 +34,7 @@
   "matched": 687,
   "matched_tier": "regex (noise augmentation in ledger text)",
   "verdict": "standard",
-  "note": "Curriculum is inherited from WLAS (near-identical wording); noise augmentation is common practice."
+  "note": "The curriculum is inherited from WLAS in near-identical wording, and the non-public MV-LRS pretraining is an uncontrolled part of the reported gain."
  },
  "M04": {
   "choice": [
@@ -46,7 +46,7 @@
   "matched": 5595,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Inherited."
+  "note": "Inherited; ordinary voiced broadcast speech at test."
  },
  "M05": {
   "choice": [
@@ -59,7 +59,7 @@
   "matched": 7329,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Standard AV input."
+  "note": "Standard audio-visual input."
  },
  "M06": {
   "choice": [
@@ -67,12 +67,12 @@
    "CTC vs seq2seq head-to-head",
    "Separate AV attention"
   ],
-  "field": "CTC/attention comparison on one front-end",
+  "field": "One loss per system; joint CTC/attention in current work",
   "n": 7388,
   "matched": 3,
   "matched_tier": "confirmed (0 prior, 1 concurrent, 2 later)",
   "verdict": "standard",
-  "note": "No earlier example found in the wiki; a concurrent same-group paper already compared CTC and Transformer, so not ahead."
+  "note": "Standard: a concurrent same-group paper already compared CTC with a Transformer, this comparison confounds loss with beam, LM weight and fusion, and joint CTC/attention has since made the either/or question moot."
  },
  "M07": {
   "choice": [
@@ -85,7 +85,7 @@
   "matched": 670,
   "matched_tier": "regex (LM / beam / lexicon in ledger text)",
   "verdict": "standard",
-  "note": "Common practice; the M07 slot itself is under-recorded."
+  "note": "Standard external character LM with shallow fusion; it closes most of the CTC vs seq2seq gap."
  },
  "M08": {
   "choice": [
@@ -97,7 +97,7 @@
   "matched": 3268,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Standard."
+  "note": "Standard character output."
  },
  "M09": {
   "choice": [
@@ -108,7 +108,7 @@
   "matched": 82,
   "matched_tier": "slot_filled",
   "verdict": "not_applicable",
-  "note": "Offline benchmark study."
+  "note": "Offline benchmark study; no confirmation step."
  },
  "M10": {
   "choice": [
@@ -119,7 +119,7 @@
   "matched": 82,
   "matched_tier": "slot_filled",
   "verdict": "not_applicable",
-  "note": "Offline benchmark study."
+  "note": "Offline benchmark study; no correction step."
  },
  "M11": {
   "choice": [
@@ -132,7 +132,7 @@
   "matched": 5,
   "matched_tier": "confirmed (1 prior, 2 concurrent, 2 later)",
   "verdict": "not_reported",
-  "note": "Speaker count and train/test speaker overlap not reported; the same group's LRS3 paper says LRS2-BBC likely repeats people."
+  "note": "Not reported: speaker count and train/test overlap are absent, so LRS2-BBC results do not establish unseen-speaker performance."
  },
  "M12": {
   "choice": [
@@ -145,7 +145,7 @@
   "matched": 572,
   "matched_tier": "regex (seed / SD / CI in ledger text)",
   "verdict": "not_reported",
-  "note": "8.2% vs 8.5% is within about 0.34 pt binomial error; no repeats reported."
+  "note": "Not reported: single runs, and the 8.2% vs 8.5% clean audio-visual gap is within about 0.34 pt binomial error."
  },
  "M13": {
   "choice": [
@@ -157,6 +157,6 @@
   "matched": 6075,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Compute reported (GPU model inconsistent between sections); exact numbers need non-public MV-LRS."
+  "note": "Compute is reported but inconsistently (GPU model differs between sections), and the numbers depend on non-public MV-LRS."
  }
 }

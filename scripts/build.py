@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Generate every derived file of the repository (layout: docs/STRUCTURE.md).
 
-Sources: data/reviews.jsonl, data/field.json, reviews/<slug>/{review.ja.md, refs.bib, slots.json,
-figures.json, evaluation*.md, triage.ja.md}, components/<Mxx>/<topic>.json.
-Generated: README.md, README.ja.md, data/papers.csv, data/metadata.json, figures/ (field figures),
+Sources: data/reviews.jsonl, data/field.json, reviews/<slug>/{review.md, verdict.json, refs.bib, slots.json,
+figures.json, evaluation*.md, triage.md}, components/<Mxx>/<topic>.json.
+Generated: README.md, data/papers.csv, data/metadata.json, figures/ (field figures),
 reviews/<slug>/README.md, reviews/<slug>/figures/*.svg, components/README.md,
 components/<Mxx>/README.md, components/<Mxx>/<topic>.csv.
 
@@ -121,14 +121,25 @@ def source_updated(papers):
     return ""
 
 
+def blurb(p):
+    """One line for lists: the reviewer's position when a component review exists, else the summary."""
+    f = paper_dir(p) / "verdict.json"
+    if f.exists():
+        return json.loads(f.read_text(encoding="utf-8"))["short"]
+    return p["en"]["summary"]
+
+
 def review_page(p, papers=()):
+    sec_en, sec_ja = SECTION_TITLES[section_of(p)]
+    f = paper_dir(p) / "review.md"
+    if f.exists():
+        return component_page(p, papers, f.read_text(encoding="utf-8"), sec_en)
     e = p["en"]
     links = []
     if p.get("doi_url"):
         links.append(f"[DOI]({p['doi_url']})")
     if p.get("arxiv_url"):
         links.append(f"[arXiv]({p['arxiv_url']})")
-    sec_en, sec_ja = SECTION_TITLES[section_of(p)]
     out = [
         f"# {p['title']}",
         "",
@@ -158,12 +169,8 @@ def review_page(p, papers=()):
         "",
     ]
     out += figures_section(p)
-    comp = component_review(p)
-    if comp:
-        out += comp
-    else:
+    if not is_japanese(p.get("expert_take_long", "") + p.get("expert_take_short", "")):
         out += legacy_review(p)
-    out += materials_section(p)
     out += related_and_footer(p, papers, sec_en)
     return "\n".join(out)
 
@@ -172,25 +179,18 @@ def paper_dir(p):
     return REVIEWS_DIR / p["slug"]
 
 
-def component_review(p):
-    """Full component-by-component review (Japanese), if reviews/<slug>/review.ja.md exists."""
-    f = paper_dir(p) / "review.ja.md"
-    if not f.exists():
-        return []
-    lines = f.read_text(encoding="utf-8").splitlines()
-    if lines and lines[0].startswith("# "):
-        lines = lines[1:]
-    body = []
-    fence = False
-    for line in lines:
-        if line.startswith("```"):
-            fence = not fence
-        if not fence and line.startswith("#"):
-            line = "#" + line
-        line = line.replace(f"]({p['slug']}.bib)", "](refs.bib)")
-        line = re.sub(re.escape(REPO_URL) + r"/blob/main/reviews/([a-z0-9-]+)\.md", r"../\1/", line)
-        body.append(line)
-    return ["## 構成要素別レビュー（日本語）", "", *body, ""]
+def component_page(p, papers, text, sec_en):
+    """Page for a component review: reviews/<slug>/review.md with section line, figures, materials and related reviews."""
+    lines = text.rstrip("\n").splitlines()
+    k = next((i for i, l in enumerate(lines) if l.startswith("## ")), len(lines))
+    head, body = lines[:k], lines[k:]
+    body = [re.sub(re.escape(REPO_URL) + r"/blob/main/reviews/([a-z0-9-]+)\.md", r"../\1/", l) for l in body]
+    out = [*head, "", f"**Section:** [{sec_en}](../../README.md#{anchor(sec_en)})", ""]
+    out += figures_section(p)
+    out += body
+    out += materials_section(p)
+    out += related_and_footer(p, papers, sec_en)
+    return "\n".join(out)
 
 
 def legacy_review(p):
@@ -246,7 +246,7 @@ def related_and_footer(p, papers, sec_en):
     )[:6]
     if related:
         out += ["", f"## More reviews in {sec_en}", ""]
-        out += [f"- [{q['title']}](../{q['slug']}/) ({q['year']}). {q['en']['summary']}" for q in related]
+        out += [f"- [{q['title']}](../{q['slug']}/) ({q['year']}). {blurb(q)}" for q in related]
     out += [
         "",
         "---",
@@ -310,10 +310,10 @@ def field_map(papers):
 
 
 MATERIAL_FILES = [
-    ("review.ja.md", "構成要素別レビューの本文（元データ）"),
-    ("refs.bib", "参考文献（BibTeX）"),
-    ("slots.json", "13 部品それぞれの、この論文の選択・分野の通例・該当論文数・判定"),
-    ("figures.json", "図の定義"),
+    ("review.md", "the review text (source)"),
+    ("refs.bib", "references (BibTeX)"),
+    ("slots.json", "for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict"),
+    ("figures.json", "figure definitions"),
 ]
 
 
@@ -329,24 +329,25 @@ def topics():
 
 def tally_line(d):
     t = d.get("tally", {})
-    return f"確認済み {t.get('confirmed_unique', 0)}、読んだ候補 {t.get('read', 0)}、未読 {t.get('unread', 0)}"
+    return f"{t.get('confirmed_unique', 0)} confirmed, {t.get('read', 0)} candidates read, {t.get('unread', 0)} unread"
 
 
 def materials_section(p):
     d = paper_dir(p)
     rows = [(f, desc) for f, desc in MATERIAL_FILES if (d / f).exists()]
     for f in sorted(d.glob("evaluation*.md")):
-        rows.append((f.name, "執筆者と別の評価者による検証"))
-    if (d / "triage.ja.md").exists():
-        rows.append(("triage.ja.md", "評価の指摘を原典で確かめた判定と対応"))
+        if not f.name.endswith(".ja.md"):
+            rows.append((f.name, "independent evaluation by a second reviewer"))
+    if (d / "triage.md").exists():
+        rows.append(("triage.md", "how each evaluation finding was checked against the sources and resolved"))
     used = [t for t in topics() if p["slug"] in t.get("used_by", [])]
     if not rows and not used:
         return []
-    out = ["", "## 材料", "", "このレビューを作るのに使ったデータです。原典の全文は含みません。", ""]
-    out += [f"- [`{f}`]({f})：{desc}" for f, desc in rows]
+    out = ["", "## Materials", "", "Data behind this review. Full texts of the papers are not included.", ""]
+    out += [f"- [`{f}`]({f}): {desc}" for f, desc in rows]
     for t in used:
         rel = t["_path"].relative_to(ROOT).with_suffix(".csv").as_posix()
-        out.append(f"- [`{rel}`](../../{rel})：{t['slot']} の話題「{t['topic']}」の候補論文と採否（{tally_line(t)}）")
+        out.append(f"- [`{rel}`](../../{rel}): {t['slot']} topic \"{t['topic']}\", every candidate paper with its decision ({tally_line(t)})")
     return out + [""]
 
 
@@ -371,27 +372,27 @@ def component_outputs(papers):
         files[t["_path"].with_suffix(".csv")] = topic_csv(t)
     for slot, items in by_slot.items():
         out = [f"# {slot} {SLOT_NAMES.get(slot, '')}", "",
-               "この部品について調べた話題と、確認済みの論文。各話題の表は分野全体（wiki の台帳と全文）を検索し、候補を原典で読んで採否を決めたもの。", ""]
+               "Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.", ""]
         for t in items:
             name = t["_path"].stem
             out += [f"## {t['topic']}", "",
-                    f"- 採否表：[`{name}.csv`]({name}.csv)（{tally_line(t)}、wiki {t.get('wiki_commit', '')[:7]}）"]
+                    f"- Table: [`{name}.csv`]({name}.csv) ({tally_line(t)})"]
             if t.get("inclusion_rule"):
-                out.append(f"- 採る条件：{t['inclusion_rule']}")
+                out.append(f"- Inclusion rule: {t['inclusion_rule']}")
             if t.get("used_by"):
-                out.append("- 使ったレビュー：" + "、".join(f"[{titles.get(s, s)}](../../reviews/{s}/)" for s in t["used_by"]))
+                out.append("- Used in: " + ", ".join(f"[{titles.get(s, s)}](../../reviews/{s}/)" for s in t["used_by"]))
             inc = [c for c in t.get("candidates", []) if c.get("decision") == "include"]
             if inc:
-                out += ["", "| 論文 | 年 | 根拠の位置 |", "| --- | --- | --- |"]
+                out += ["", "| Paper | Year | Evidence |", "| --- | --- | --- |"]
                 out += [f"| {cell(c.get('title') or c['pid'])} | {c.get('year') or ''} | {cell(c.get('loc') or '')} |" for c in inc]
             out.append("")
         files[COMPONENTS_DIR / slot / "README.md"] = "\n".join(out)
-    idx = ["# 13 部品の索引", "",
-           "音声意図のデコードは、センサーを問わず 13 の部品（M01〜M13）で書ける。ここには、レビューのために部品ごとに分野全体を調べた結果を置く。表は回を重ねて追記していく。", "",
-           "| 部品 | 内容 | 話題 |", "| --- | --- | --- |"]
+    idx = ["# The 13 components", "",
+           "Any speech-intention decoder, whatever its sensor, can be described by the same 13 components (M01–M13). For each component, these are the topics searched across the whole field for the reviews, with every candidate paper and its decision. Tables grow with each review.", "",
+           "| Component | Name | Topics |", "| --- | --- | --- |"]
     for slot, name in SLOT_NAMES.items():
         items = by_slot.get(slot, [])
-        cell_t = "、".join(f"[{t['topic']}]({slot}/)" for t in items) if items else "—"
+        cell_t = ", ".join(f"[{t['topic']}]({slot}/)" for t in items) if items else "—"
         idx.append(f"| {slot} | {name} | {cell_t} |")
     files[COMPONENTS_DIR / "README.md"] = "\n".join(idx) + "\n"
     return files
@@ -450,8 +451,6 @@ def readme(papers):
         "video-to-speech synthesis, EMG-to-speech, ultrasound tongue imaging, imagined and inner speech decoding from EEG and MEG, "
         "brain-to-text and speech neuroprostheses, radar and Wi-Fi sensing, and wearable silent speech text entry.",
         "",
-        "[日本語の説明](README.ja.md)",
-        "",
         f"**Sections:** {nav}",
         "",
         "## The field in 13 components",
@@ -465,11 +464,11 @@ def readme(papers):
     for i, slug in enumerate(START_HERE, 1):
         p = by_slug.get(slug)
         if p:
-            out.append(f"{i}. [{p['title']}](reviews/{slug}/) ({p['year']}). {p['en']['summary']}")
+            out.append(f"{i}. [{p['title']}](reviews/{slug}/) ({p['year']}). {blurb(p)}")
     datasets = [p for p in papers if any(w in p["title"].lower() for w in ("dataset", "corpus", "benchmark")) and "closed-corpus" not in p["title"].lower()]
     if datasets:
         out += ["", "## Datasets and benchmarks", ""]
-        out += [f"- [{p['title']}](reviews/{p['slug']}/) ({p['year']}). {p['en']['summary']}" for p in datasets]
+        out += [f"- [{p['title']}](reviews/{p['slug']}/) ({p['year']}). {blurb(p)}" for p in datasets]
     out += [
         "",
         "## How to read the tables",
@@ -486,7 +485,7 @@ def readme(papers):
         rows = [p for p in papers if section_of(p) == key]
         if key == "surveys":
             out += [f"## {en}", ""]
-            out += [f"- [{p['title']}](reviews/{p['slug']}/) ({p['year']}). {p['en']['summary']}" for p in rows]
+            out += [f"- [{p['title']}](reviews/{p['slug']}/) ({p['year']}). {blurb(p)}" for p in rows]
             out.append("")
         else:
             out += [f"## {en}", ""] + table(rows) + [""]
@@ -520,51 +519,6 @@ def readme(papers):
         "## License",
         "",
         "Review text and data: [CC BY 4.0](LICENSE). Paper titles, authors and metadata belong to their respective publishers.",
-        "",
-    ]
-    return "\n".join(out)
-
-
-def readme_ja(papers):
-    by_slug = {p["slug"]: p for p in papers}
-    updated = source_updated(papers)[:10]
-    out = [
-        "# サイレントスピーチ・インタフェース論文レビュー",
-        "",
-        f"サイレントスピーチ・インタフェース（SSI）の論文 **{len(papers)}本** を、結果がどの条件で測られたかと一緒にレビューしています。"
-        f"管理：[木村直紀](https://nao-ki-mura.com/ja/)（[ORCID](https://orcid.org/0000-0001-9167-1923)）。最終更新 {updated}。",
-        "",
-        "SSIの精度は、語彙の大きさ、話者依存か、別日に付け直して測ったか、オンラインで動かしたかで大きく変わります。"
-        "このレビューは、各論文の主な数字の横にこれらの条件を並べます。英語の比較表は [README](README.md) にあります。"
-        "各論文のページには、英語の要約と評価条件の下に全文レビュー（日本語または英語）があります。",
-        "",
-        "## センサ別の本数",
-        "",
-        F.picture("figures/field-map", "センサと年ごとのレビュー本数"),
-        "",
-        "## 13の部品で見た分野",
-        "",
-        "センサが何であれ、発話意図の解読は同じ13の部品（学習時と利用時の行為、計測、復号、出力、確認と訂正、評価など）で記述できます。"
-        "図の割合は、論文台帳がその部品を記録している割合で、分野の実態そのものではありません。"
-        "利用時の補助情報（M07：言語モデルや辞書）は台帳の記入漏れが多いと分かっており（復号論文3,245本中、記録78本に対し、本文で使用に触れるものは推定約200本多い）、"
-        "一方、確認（M09）と訂正（M10）は分野で実際に少なく（記述があるのは65本、漏れは推定十数本で文字入力BCIと入力システムに偏る）、"
-        "学習専用の教師情報（M02）も記入漏れが多いと確認されました（記録31本に対し推定250本以上）。",
-        "",
-        *field_figures("", "ja"),
-    ]
-    for key, n in counts(papers):
-        en, ja = SECTION_TITLES[key]
-        out.append(f"- [{ja}](README.md#{anchor(en)})：{n}本")
-    out += ["", "## 最初に読む論文", ""]
-    for i, slug in enumerate(START_HERE, 1):
-        p = by_slug.get(slug)
-        if p:
-            out.append(f"{i}. [{p['title']}](reviews/{slug}/)（{p['year']}）{p.get('expert_take_short', '')}")
-    out += [
-        "",
-        "## 論文の追加と誤りの報告",
-        "",
-        f"Issue で受け付けています（[論文の追加]({REPO_URL}/issues/new?template=add-paper.yml)、[誤りの報告]({REPO_URL}/issues/new?template=correction.yml)）。",
         "",
     ]
     return "\n".join(out)
@@ -620,7 +574,6 @@ def moved_stub(p):
 def outputs(papers):
     files = {
         ROOT / "README.md": readme(papers),
-        ROOT / "README.ja.md": readme_ja(papers),
         DATA / "papers.csv": papers_csv(papers),
         DATA / "metadata.json": metadata(papers),
     }

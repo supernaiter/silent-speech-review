@@ -5,7 +5,7 @@
  "pattern": "curriculum|(single|short|isolated)[- ]words?[^|]{0,80}(then|before|followed|progress\\w*|grow\\w*)[^|]{0,60}(sentence|longer|length)|(gradually|progressively) (increas|grow|lengthen|extend)\\w*[^|]{0,40}(length|sequence|duration)",
  "scope": "ledger",
  "fulltext_pattern": "curriculum[^.]{0,120}(word|length|short|longer|sentence)|(start|begin)\\w* (the )?(training )?(only )?(on|with) (single|short|isolated)[- ]?words?[^.]{0,150}(sentence|longer|length)",
- "inclusion_rule": "系列を出力する復号器の学習で、短い単位（単語・短い区間）の例から始め、学習の進行に合わせて入力系列の長さを伸ばす（文・長い区間へ移す）手順を使った研究を含める。境界：雑音の強さ・難易度・データ量だけを段階的に変えるカリキュラムは除く。単語単位の事前学習のあと文単位で学習し直す二段階は、短い単位から長い単位へ移す明示的な手順として書かれていれば含める。前作の手順を引き継いだと書くだけでなく実際に使っていれば含める。同一研究の別版は1件。",
+ "inclusion_rule": "Include studies that train a sequence-output decoder with a procedure that starts from examples of short units (words, short segments) and grows the input sequence length as training proceeds (moving to sentences, long segments). Boundary: exclude curricula that only progressively change noise level, difficulty or data amount. A two-stage procedure that pretrains on words and then retrains on sentences is included if it is described as an explicit procedure moving from short to long units. Include studies that actually use the procedure, not only those that say they inherited a predecessor's procedure. Count different versions of the same study as one item.",
  "counts": {
   "scanned_folders": 8995,
   "scanned_unique": 7388,
@@ -62,8 +62,8 @@
    "decision": "include",
    "quote": "We introduce a new strategy where we start training only on single word examples, and then let the sequence length grow as the network trains",
    "loc": "§3.1",
-   "provenance": "本文確認",
-   "reason": "対象（2016-11）。単語の例から始め、学習とともに系列長を伸ばす"
+   "provenance": "text-verified",
+   "reason": "Target (2016-11). Starts with word examples and grows the sequence length as training proceeds"
   },
   {
    "pid": "arxiv-1804.04121",
@@ -78,7 +78,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "3 段の学習は音声合成側の段階で、系列長ではない"
+   "reason": "The 3-stage training is staging on the speech-synthesis side, not sequence length"
   },
   {
    "pid": "arxiv-1806.06053",
@@ -93,8 +93,8 @@
    "decision": "include",
    "quote": "we continued the curriculum in order to cover the length up to the longest sample in the validation set",
    "loc": "§3",
-   "provenance": "本文確認",
-   "reason": "後続（2018-06）。2 語、{2,3} 語、… と長さを伸ばし、検証集合の最長まで続ける"
+   "provenance": "text-verified",
+   "reason": "Later (2018-06). Grows the length from 2 words to {2,3} words and so on, up to the longest in the validation set"
   },
   {
    "pid": "arxiv-1809.02108",
@@ -109,8 +109,8 @@
    "decision": "include",
    "quote": "we start training only on single word examples, and then let the sequence",
    "loc": "§5.2",
-   "provenance": "本文確認",
-   "reason": "後続（2018-09）。単語から文へ長さを伸ばす（WLAS §3.1 とほぼ同文）"
+   "provenance": "text-verified",
+   "reason": "Later (2018-09). Grows the length from words to sentences (nearly identical to WLAS §3.1)"
   },
   {
    "pid": "arxiv-1904.04817",
@@ -124,8 +124,8 @@
    "decision": "include",
    "quote": "Training began on subsequences of length 8",
    "loc": "§4",
-   "provenance": "本文確認",
-   "reason": "後続（2019-04）。長さ 8 の部分系列から学習を始めて伸ばす"
+   "provenance": "text-verified",
+   "reason": "Later (2019-04). Starts training from subsequences of length 8 and grows them"
   },
   {
    "pid": "arxiv-1906.12170",
@@ -139,8 +139,8 @@
    "decision": "include",
    "quote": "train the network with segmented words for initial epochs, then in later epochs the network is trained on full sentences",
    "loc": "§3",
-   "provenance": "本文確認",
-   "reason": "後続（2019-06）。切り出した単語を初期エポックに使い、確率を線形に下げて文へ移す"
+   "provenance": "text-verified",
+   "reason": "Later (2019-06). Uses segmented words in early epochs and moves to sentences by linearly decreasing the probability"
   },
   {
    "pid": "arxiv-2004.08250",
@@ -155,7 +155,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "雑音の強さのカリキュラム"
+   "reason": "Curriculum over noise level"
   },
   {
    "pid": "arxiv-2009.01225",
@@ -170,7 +170,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "データ集合を LRW→LRS2→LRS3 と移すキーワード検出で、系列復号ではない"
+   "reason": "Keyword spotting that moves across datasets LRW→LRS2→LRS3; not sequence decoding"
   },
   {
    "pid": "arxiv-2012.07467",
@@ -185,7 +185,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "雑音の強さのカリキュラム"
+   "reason": "Curriculum over noise level"
   },
   {
    "pid": "arxiv-2104.04784",
@@ -200,7 +200,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "カリキュラムが単語境界の注釈を要する点を課題として述べるだけ"
+   "reason": "Only mentions as an issue that the curriculum requires word-boundary annotations"
   },
   {
    "pid": "arxiv-2110.07603",
@@ -215,7 +215,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "カリキュラムの代わりに n-gram 部分系列の増強を使うと明記（境界外。長さを伸ばす手順は不要と主張）"
+   "reason": "States explicitly that n-gram subsequence augmentation is used instead of a curriculum (outside the boundary; argues that a length-growing procedure is unnecessary)"
   },
   {
    "pid": "arxiv-2204.01725",
@@ -229,8 +229,8 @@
    "decision": "include",
    "quote": "pre-train the whole network using pre-train sets of the LRS2 and the LRS3 with curriculum setting",
    "loc": "§4",
-   "provenance": "本文確認",
-   "reason": "後続（2022-04）。LRS2/LRS3 の pre-train 集合をカリキュラム設定で学習（Chung 2017 に従う）"
+   "provenance": "text-verified",
+   "reason": "Later (2022-04). Trains on the LRS2/LRS3 pre-train sets with a curriculum setting (following Chung 2017)"
   },
   {
    "pid": "arxiv-2209.01768",
@@ -244,8 +244,8 @@
    "decision": "include",
    "quote": "only samples within 6 seconds will be picked at the ﬁrst 100 epochs",
    "loc": "§4",
-   "provenance": "本文確認",
-   "reason": "後続（2022-09）。最初の 100 エポックは 6 秒以内の例だけを使う"
+   "provenance": "text-verified",
+   "reason": "Later (2022-09). Uses only examples of up to 6 seconds for the first 100 epochs"
   },
   {
    "pid": "arxiv-2303.08536",
@@ -258,9 +258,9 @@
    "snippet": "_scope=AV-RelScore vs ASR/VSR/Conformer/V-CAFE; corruption 3x6 grid + clean + ablation | TrainingRun.training_objective=curriculum 100->150->300->600f, 50/50/20/20ep, Adam b1.9/.98 e1e-9, lr 0.0004 invsqrt warm25k, 4xRTX3090 | TrainingRun.training_ha",
    "decision": "include",
    "quote": "curriculum 100->150->300->600f",
-   "loc": "台帳 M03",
-   "provenance": "台帳のみ",
-   "reason": "後続（2023-03）。100→150→300→600 フレームと伸ばす"
+   "loc": "Ledger M03",
+   "provenance": "ledger only",
+   "reason": "Later (2023-03). Grows from 100→150→300→600 frames"
   },
   {
    "pid": "arxiv-2308.06112",
@@ -275,7 +275,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "他研究のカリキュラムの紹介"
+   "reason": "Describes curricula from other studies"
   },
   {
    "pid": "arxiv-2311.14063",
@@ -290,7 +290,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "他研究のカリキュラムの紹介"
+   "reason": "Describes curricula from other studies"
   },
   {
    "pid": "arxiv-2312.07254",
@@ -305,7 +305,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "データ集合の順序のカリキュラム"
+   "reason": "Curriculum over the order of datasets"
   },
   {
    "pid": "arxiv-2401.09802",
@@ -320,7 +320,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "マスク率のカリキュラム"
+   "reason": "Curriculum over masking rate"
   },
   {
    "pid": "arxiv-2407.01034",
@@ -335,7 +335,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "データ集合の 2 段学習"
+   "reason": "Two-stage training across datasets"
   },
   {
    "pid": "arxiv-2410.16438",
@@ -348,9 +348,9 @@
    "snippet": "ext | extra.Configuration.configuration_scope=S1/S2/S3 ablation + 223h SOTA comparison | TrainingRun.training_objective=curriculum: train <4s clips then FT full set (CNVSRC-2023 strategy); quick-val uses <5s 69h subset | TrainingRun.training_hardware",
    "decision": "include",
    "quote": "train <4s clips then FT full set",
-   "loc": "台帳 M03",
-   "provenance": "台帳のみ",
-   "reason": "後続（2024-10）。4 秒未満の切り出しで学習してから全体で微調整"
+   "loc": "Ledger M03",
+   "provenance": "ledger only",
+   "reason": "Later (2024-10). Trains on clips shorter than 4 seconds, then fine-tunes on the whole set"
   },
   {
    "pid": "arxiv-2507.06060",
@@ -365,7 +365,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "データ集合の 3 段学習"
+   "reason": "Three-stage training across datasets"
   },
   {
    "pid": "arxiv-2508.07608",
@@ -395,7 +395,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "一般的な比喩"
+   "reason": "Generic metaphor"
   },
   {
    "pid": "arxiv-2601.12436",
@@ -410,7 +410,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "高 SNR から始める雑音のカリキュラム"
+   "reason": "Noise curriculum starting from high SNR"
   },
   {
    "pid": "arxiv-2603.21808",
@@ -424,8 +424,8 @@
    "decision": "include",
    "quote": "all the models are firstly trained for 50 epochs on the subset that is less than 64 frames",
    "loc": "§4",
-   "provenance": "本文確認",
-   "reason": "後続（2026-03）。64 フレーム未満の部分集合で 50 エポック学習してから全体"
+   "provenance": "text-verified",
+   "reason": "Later (2026-03). Trains for 50 epochs on the subset shorter than 64 frames, then on the whole set"
   },
   {
    "pid": "arxiv-2607.25626",
@@ -470,7 +470,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "課題の順序の意味"
+   "reason": "In the sense of task order"
   },
   {
    "pid": "arxiv-2608.25204",
@@ -485,7 +485,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "課題の順序の意味"
+   "reason": "In the sense of task order"
   },
   {
    "pid": "arxiv-2608.25204-libribrain100",
@@ -501,7 +501,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "課題の順序の意味"
+   "reason": "In the sense of task order"
   },
   {
    "pid": "arxiv-2609-03231-pnpl26",
@@ -516,7 +516,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "課題の順序の意味"
+   "reason": "In the sense of task order"
   },
   {
    "pid": "arxiv-2609-20839-currnoise",
@@ -532,7 +532,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "雑音のカリキュラム"
+   "reason": "Noise curriculum"
   },
   {
    "pid": "arxiv-2609-20839-currvsr",
@@ -548,7 +548,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "雑音のカリキュラム"
+   "reason": "Noise curriculum"
   },
   {
    "pid": "arxiv-2609.03231",
@@ -563,7 +563,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "課題の順序の意味"
+   "reason": "In the sense of task order"
   },
   {
    "pid": "arxiv-2609.20839",
@@ -579,7 +579,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "雑音のカリキュラム"
+   "reason": "Noise curriculum"
   },
   {
    "pid": "arxiv-2609.20839-pect",
@@ -595,7 +595,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "雑音のカリキュラム"
+   "reason": "Noise curriculum"
   },
   {
    "pid": "cmc-nestlipgnn",
@@ -610,7 +610,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音素→単語の入れ子最適化で、系列長ではない"
+   "reason": "Nested phoneme→word optimization; not sequence length"
   },
   {
    "pid": "cvf-chung17-lipreadwild",
@@ -625,7 +625,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1611.05358 の別版"
+   "reason": "Another version of arxiv-1611.05358"
   },
   {
    "pid": "cvf-kim25-facesvoices",
@@ -640,7 +640,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "内容→声質→韻律の段階で、出力は音声"
+   "reason": "Stages of content→voice quality→prosody; the output is speech"
   },
   {
    "pid": "cvf-prajwal22-subword-vtp",
@@ -656,7 +656,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-2110.07603 の別版"
+   "reason": "Another version of arxiv-2110.07603"
   },
   {
    "pid": "cvf-ren21-master-kd",
@@ -686,7 +686,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "カリキュラムは学習する部品の段階で、系列長ではない（台帳）"
+   "reason": "The curriculum stages which components are trained, not sequence length (ledger)"
   },
   {
    "pid": "cvf-zhang19-stfcsl",
@@ -700,8 +700,8 @@
    "decision": "include",
    "quote": "We start training on single word examples and then let the sequence length grow",
    "loc": "§4",
-   "provenance": "本文確認",
-   "reason": "後続（2019）。LRS2/LRS3 で [11] の単語から伸ばすカリキュラムを採用"
+   "provenance": "text-verified",
+   "reason": "Later (2019). Adopts the curriculum of [11] that grows from words, on LRS2/LRS3"
   },
   {
    "pid": "cvf23-djilali_lip2vec",
@@ -716,7 +716,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "他研究のカリキュラムの紹介"
+   "reason": "Describes curricula from other studies"
   },
   {
    "pid": "cvpr21-ren",
@@ -747,7 +747,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-2110.07603 の別版"
+   "reason": "Another version of arxiv-2110.07603"
   },
   {
    "pid": "doi-10.1038-s41598-026-62988-0",
@@ -762,7 +762,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "scirep-62988-livevsr-net の別版"
+   "reason": "Another version of scirep-62988-livevsr-net"
   },
   {
    "pid": "doi-10.1101-2025.08.04.668236",
@@ -777,7 +777,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "校正試行を足す適応"
+   "reason": "Adaptation by adding calibration trials"
   },
   {
    "pid": "doi-10.1109-tbme.2026.3691322",
@@ -793,7 +793,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "手書き軌跡のカリキュラムで、系列長ではない"
+   "reason": "Curriculum over handwriting trajectories; not sequence length"
   },
   {
    "pid": "doi-10.1109-tpami.2018.2889052",
@@ -808,7 +808,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1809.02108 の別版（§5.2 は WLAS §3.1 とほぼ同文）"
+   "reason": "Another version of arxiv-1809.02108 (§5.2 is nearly identical to WLAS §3.1)"
   },
   {
    "pid": "doi-10.20944-preprints202505.0540.v1",
@@ -822,8 +822,8 @@
    "decision": "include",
    "quote": "on samples less than 4 s long in the LRS3-TED dataset",
    "loc": "§4",
-   "provenance": "本文確認",
-   "reason": "後続（2025）。4 秒未満の例で学習してから全長で微調整"
+   "provenance": "text-verified",
+   "reason": "Later (2025). Trains on examples shorter than 4 seconds, then fine-tunes on full length"
   },
   {
    "pid": "doi-10.3390-electronics14122310",
@@ -838,7 +838,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.20944-preprints202505.0540.v1 の別版"
+   "reason": "Another version of doi-10.20944-preprints202505.0540.v1"
   },
   {
    "pid": "doi-10.3390-s21237890",
@@ -852,8 +852,8 @@
    "decision": "include",
    "quote": "sentences are clipped to one word followed by two words in the next iteration, then three words",
    "loc": "§4",
-   "provenance": "本文確認",
-   "reason": "後続（2021）。視素→単語変換器を 1 語、2 語、3 語…と伸ばして学習"
+   "provenance": "text-verified",
+   "reason": "Later (2021). Trains a viseme-to-word converter growing from 1 word to 2 words to 3 words and so on"
   },
   {
    "pid": "doi-10.9766-kimst.2024.27.2.167",
@@ -867,8 +867,8 @@
    "decision": "include",
    "quote": "커리큘럼 학습(Curriculum Learning)",
    "loc": "§3",
-   "provenance": "本文確認",
-   "reason": "後続（2024）。韓国語の文単位唇読みで、時間長に応じたカリキュラム学習"
+   "provenance": "text-verified",
+   "reason": "Later (2024). Korean sentence-level lip reading with curriculum learning by duration"
   },
   {
    "pid": "in24-mamauv",
@@ -883,7 +883,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "欠損モダリティ補完の学習段階"
+   "reason": "Training stage for missing-modality completion"
   },
   {
    "pid": "isca-afouras18b-deeplip",
@@ -898,7 +898,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1806.06053 の別版"
+   "reason": "Another version of arxiv-1806.06053"
   },
   {
    "pid": "isca-afouras18b_deeplipread",
@@ -913,7 +913,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1806.06053 の別版"
+   "reason": "Another version of arxiv-1806.06053"
   },
   {
    "pid": "isca-afouras18b_interspeech",
@@ -928,7 +928,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1806.06053 の別版"
+   "reason": "Another version of arxiv-1806.06053"
   },
   {
    "pid": "isca-krnoul08_avsp",
@@ -943,7 +943,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "教育課程の意味の curriculum"
+   "reason": "\"curriculum\" in the sense of an educational curriculum"
   },
   {
    "pid": "isca-ma21c_interspeech",
@@ -957,8 +957,8 @@
    "decision": "include",
    "quote": "we ﬁrst train the model using 11 % of the labelled training set, which is composed of videos with less than 155 frames",
    "loc": "§4",
-   "provenance": "本文確認",
-   "reason": "後続（2021）。155 フレーム未満の動画で先に学習してから全体で学習"
+   "provenance": "text-verified",
+   "reason": "Later (2021). Trains first on videos shorter than 155 frames, then on the whole set"
   },
   {
    "pid": "isca-stafylakis17_interspeech",
@@ -973,7 +973,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "後段を段階的に付け足す 3 段の学習で、系列長は変えない（単語分類）"
+   "reason": "3-stage training that adds later stages progressively; sequence length is not changed (word classification)"
   },
   {
    "pid": "isca-yang23w_interspeech",
@@ -987,8 +987,8 @@
    "decision": "include",
    "quote": "We also utilize the LRW dataset for Curriculum Learning to train the visual front-end",
    "loc": "§3.1",
-   "provenance": "本文確認",
-   "reason": "後続（2023、境界例）。LRW の単語で前段をカリキュラム学習してから LRS2 の文で学習"
+   "provenance": "text-verified",
+   "reason": "Later (2023, boundary case). Trains the front end with a curriculum on LRW words, then trains on LRS2 sentences"
   },
   {
    "pid": "isca-zhou22g-avwake",
@@ -1003,7 +1003,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "参考文献"
+   "reason": "References"
   },
   {
    "pid": "isca-zhou22g_interspeech",
@@ -1018,7 +1018,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "参考文献"
+   "reason": "References"
   },
   {
    "pid": "mdpi-e14122310_multiavsr",
@@ -1033,7 +1033,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.20944-preprints202505.0540.v1 の別版"
+   "reason": "Another version of doi-10.20944-preprints202505.0540.v1"
   },
   {
    "pid": "mdpi-math11071733",
@@ -1047,9 +1047,9 @@
    "snippet": "r transformer encoder posteriors | TrainingRun.optimization=Adam lr1e-4 halving to 1e-6; dropout 0.1 + label smoothing; curriculum single-word -> full sentences; frozen pretrain features then end-to-end finetune on LRS2 or LRS3 train-val | TrainingRu",
    "decision": "include",
    "quote": "curriculum single-word -> full sentences",
-   "loc": "台帳 M03",
-   "provenance": "台帳のみ",
-   "reason": "後続（2023）。単語から文へのカリキュラム"
+   "loc": "Ledger M03",
+   "provenance": "ledger only",
+   "reason": "Later (2023). Curriculum from words to sentences"
   },
   {
    "pid": "pmc-10055479-rosesyntax",
@@ -1064,7 +1064,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "参考文献"
+   "reason": "References"
   },
   {
    "pid": "pmc-10973108-talkfaces",
@@ -1079,7 +1079,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "参考文献"
+   "reason": "References"
   },
   {
    "pid": "pmc-12213747-hypoxia-listening",
@@ -1094,7 +1094,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "語彙・文法の難易度カリキュラム"
+   "reason": "Curriculum over lexical and grammatical difficulty"
   },
   {
    "pid": "pmc-12383669-sign-literacy",
@@ -1109,7 +1109,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "教育課程の意味"
+   "reason": "In the sense of an educational curriculum"
   },
   {
    "pid": "pmc-5119784-spatio",
@@ -1124,7 +1124,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "長さの記述は課題設計で、学習手順ではない"
+   "reason": "The description of length concerns task design, not the training procedure"
   },
   {
    "pid": "pmc-5581506-simcommci",
@@ -1139,7 +1139,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "教育課程の意味（参考文献）"
+   "reason": "In the sense of an educational curriculum (references)"
   },
   {
    "pid": "pmc-8659639-vis2word",
@@ -1155,7 +1155,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.3390-s21237890 の別版"
+   "reason": "Another version of doi-10.3390-s21237890"
   },
   {
    "pid": "pmc-8659639-viseme2word",
@@ -1170,7 +1170,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.3390-s21237890 の別版"
+   "reason": "Another version of doi-10.3390-s21237890"
   },
   {
    "pid": "pmc-8659639-visemeword",
@@ -1185,7 +1185,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.3390-s21237890 の別版"
+   "reason": "Another version of doi-10.3390-s21237890"
   },
   {
    "pid": "scirep-62988-livevsr-net",
@@ -1198,9 +1198,9 @@
    "snippet": "Conformer', 'decoder': 'hybrid CTC-attention', 'domain': 'e-commerce vocab expansion + fine-tuned LM + multi-speaker', 'curriculum': '1-3s ep1-20 / 3-6s ep21-50 / up to 10s ep51-100'} | extra.Output.output_kind=subtitle text transcription | Claim.cla",
    "decision": "include",
    "quote": "1-3s ep1-20 / 3-6s ep21-50 / up to 10s ep51-100",
-   "loc": "台帳 M06",
-   "provenance": "台帳のみ",
-   "reason": "後続（2026）。1–3 秒→3–6 秒→10 秒まで"
+   "loc": "Ledger M06",
+   "provenance": "ledger only",
+   "reason": "Later (2026). 1–3 s→3–6 s→up to 10 s"
   }
  ],
  "known_item_recall": {
@@ -1215,7 +1215,7 @@
   "read": 71,
   "unread": 5,
   "confirmed_unique": 18,
-  "confirmed_本文確認": 14,
+  "confirmed_text_verified": 14,
   "recall_sample_read": 30,
   "recall_sample_included": 4,
   "recall_estimate": 0.78

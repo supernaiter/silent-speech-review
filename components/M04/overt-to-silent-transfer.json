@@ -5,7 +5,7 @@
  "pattern": "(audible|vocali[sz]ed|overt|voiced|aloud|phonated)[^|]{0,60}(->|→| to )[^|]{0,10}(silent|mimed|covert|mouthed)|\\bcross[- ]mode\\b|not trained on (mimed|silent)|train\\w*[^|]{0,30}(audible|vocali[sz]ed|overt|voiced)[^|]{0,80}test\\w*[^|]{0,40}(silent|mimed|covert|mouthed)",
  "scope": "ledger",
  "fulltext_pattern": "(trained|training|train) (only )?(on|with) (the )?(audible|vocali[sz]ed|overt|voiced|aloud|spoken)[^.]{0,150}(tested|applied|evaluated|decod\\w+|test)[^.]{0,80}(silent|mimed|covert|imagined|mouthed)|trained (on|with|from) [^.]{0,40}(overt|audible|vocali[sz]ed) speech[^.]{0,120}(covert|silent|mimed)|(not|never) (been )?trained on (silent|mimed|covert|imagined|mouthed)|(overt|audible|vocali[sz]ed|aloud)[- ]to[- ](covert|silent|mimed)\\b|\\bcross[- ](speaking[- ])?modes?\\b",
- "inclusion_rule": "声に出した（または声に出そうと試みた）発話だけで学習した復号器を、無声の発話（口だけ動かす、無声で調音する、内言・想像）に再学習なしで当て、その結果を報告した研究を含める。信号は問わない（神経、筋電、超音波、映像など）。境界：無声のデータでも学習するもの（可聴側の目標を移す方法など）は、可聴学習のみの基準条件を別に報告していれば含める。可聴モデルを無声データの時刻合わせや初期化にだけ使うものは除く。音響音声のささやき声と通常声の間の転移は除く。聴取（知覚）から内言への転移は除く。神経活動の類似性の解析だけで復号器を当てないものは除く。総説・引用だけの一致は除く。同一研究の別版は1件。",
+ "inclusion_rule": "Include studies that apply a decoder trained only on overt (or attempted overt) speech to silent speech (mouthed, silently articulated, inner or imagined speech) without retraining and report the results. Any signal qualifies (neural, EMG, ultrasound, video, etc.). Boundary: those that also train on silent data (such as methods that transfer audible-side targets) are included if they separately report an audible-training-only baseline condition. Exclude those that use an audible model only for time alignment or initialization of silent data. Exclude transfer between whispered and normal voice in acoustic speech. Exclude transfer from listening (perception) to inner speech. Exclude those that only analyse similarity of neural activity without applying a decoder. Exclude matches in reviews or citations only. Count different versions of the same study as one item.",
  "counts": {
   "scanned_folders": 8995,
   "scanned_unique": 7388,
@@ -61,9 +61,9 @@
    "snippet": "-independent visual-only lipreading of 10 digits + 10 phrases, each recorded in normal/whispered/silent mode; CNN+LSTM; cross-mode train/test accuracy grid (3x3 x 2 tasks). | task_family=isolated_word_recognition | intended_use_cases=noisy_environmen",
    "decision": "include",
    "quote": "this may degrade the performance of models trained on vocalised speech and tested on silent speech",
-   "loc": "Introduction、実験の格子",
-   "provenance": "本文確認",
-   "reason": "先行（2018-02）。映像のみの読唇で通常・ささやき・無声の各様式を学習・試験の 3×3 で比べる"
+   "loc": "Introduction, experimental grid",
+   "provenance": "text-verified",
+   "reason": "Prior (2018-02). Video-only lipreading comparing normal, whispered and silent modes in a 3×3 design of training and testing"
   },
   {
    "pid": "arxiv-2010.02960",
@@ -77,9 +77,9 @@
    "snippet": "ts to silent EMG | technical_essence=WaveNet vocoder synthesizes waveform | technical_essence=direct-transfer baseline: vocalized-trained model applied to silent EMG (throat-electrode variants) | extra.Output.output_kind=synthesized audio (transcription WER) | extra.Configuration.",
    "decision": "include",
    "quote": "direct-transfer baseline: vocalized-trained model applied to silent EMG",
-   "loc": "台帳（基準条件）、§Abstract",
-   "provenance": "台帳のみ",
-   "reason": "後続（2020）。主手法は無声 EMG でも学習するが、可聴学習のみのモデルを無声 EMG に当てる直接転移の基準条件を報告"
+   "loc": "Ledger (baseline condition), §Abstract",
+   "provenance": "ledger only",
+   "reason": "Later (2020). The main method also trains on silent EMG, but reports a direct-transfer baseline condition in which a model trained only on audible data is applied to silent EMG"
   },
   {
    "pid": "arxiv-2206.12947",
@@ -94,7 +94,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "有声の読み上げで超音波→音声の写像を学ぶが、無声での試験は台帳に記録がない（台帳で判定）"
+   "reason": "Learns an ultrasound-to-speech mapping from voiced reading aloud, but the ledger has no record of tests on silent speech (judged from the ledger)"
   },
   {
    "pid": "arxiv-2212.02047",
@@ -108,8 +108,8 @@
    "decision": "include",
    "quote": "by simply applying the pre-trained model trained with spoken speech brain signals to decode imagined speech",
    "loc": "Abstract",
-   "provenance": "本文確認",
-   "reason": "後続（2022）。発声時 EEG で学習したモデルをそのまま想像発話の分類に当てる"
+   "provenance": "text-verified",
+   "reason": "Later (2022). Applies a model trained on EEG during overt speech directly to imagined-speech classification"
   },
   {
    "pid": "arxiv-2304.05574",
@@ -125,7 +125,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "無声の超音波・唇データでも学習する（擬似目標と領域敵対学習）。可聴のみの基準の扱いは台帳から確定できない"
+   "reason": "Also trains on silent ultrasound and lip data (pseudo-targets and domain-adversarial training). Treatment of an audible-only baseline cannot be determined from the ledger"
   },
   {
    "pid": "arxiv-2403.05583",
@@ -140,7 +140,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "無声 EMG と有声音声を潜在空間で揃えて学習する。可聴学習のみの条件ではない"
+   "reason": "Trains by aligning silent EMG and voiced speech in a latent space. Not an audible-training-only condition"
   },
   {
    "pid": "arxiv-2502-04132-covtr",
@@ -153,9 +153,9 @@
    "snippet": "y.study_design=system_proposal | Study.research_objective=Reduce imagined-speech-BCI training burden by transferring an overt-speech classifier to covert (silent) speech classification | Study.unit_of_analysis=Subject-specific 5-word command classification accuracy for overt and c",
    "decision": "include",
    "quote": "Overt->covert transfer learning on EEG Hilbert ENV/TFS",
-   "loc": "台帳（研究目的）",
-   "provenance": "台帳のみ",
-   "reason": "後続（2025）。EEG の発声分類器を内言分類に転移（同じ鍵の別版）"
+   "loc": "Ledger (study aim)",
+   "provenance": "ledger only",
+   "reason": "Later (2025). Transfers an EEG overt-speech classifier to inner-speech classification (another version under the same key)"
   },
   {
    "pid": "arxiv-2502.04132",
@@ -168,9 +168,9 @@
    "snippet": "on Using EEG Hilbert Envelope and Temporal Fine Structure | venue=IEEE TBME letter; v1 (3pp) | Study.research_objective=Overt->covert transfer learning on EEG Hilbert ENV/TFS (15 subjects, 5 commands, 400 seg each): overt BiLSTM 86.44% avg; transferred",
    "decision": "include",
    "quote": "Overt->covert transfer learning on EEG Hilbert ENV/TFS",
-   "loc": "台帳（研究目的）",
-   "provenance": "台帳のみ",
-   "reason": "後続（2025）。EEG の発声分類器を内言分類に転移（同じ鍵の別版）"
+   "loc": "Ledger (study aim)",
+   "provenance": "ledger only",
+   "reason": "Later (2025). Transfers an EEG overt-speech classifier to inner-speech classification (another version under the same key)"
   },
   {
    "pid": "arxiv-2602-01247-mechint",
@@ -186,7 +186,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存の復号器を発話様式間で解析する機構解釈の研究で、新たに転移を測る研究ではない"
+   "reason": "Mechanistic-interpretation study analysing existing decoders across speaking modes; not a study that newly measures transfer"
   },
   {
    "pid": "arxiv-2602-22597-vmi",
@@ -199,9 +199,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "When trained on Vocalized speech, the model achieves its highest performance on Vocalized respon",
-   "loc": "Results（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2026）。発声・口だけ・想像の神経表現で、発声で学習したモデルを他条件に当てる（同じ鍵の別版）"
+   "loc": "Results (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2026). Neural representations of overt, mouthed and imagined speech; applies a model trained on overt speech to the other conditions (another version under the same key)"
   },
   {
    "pid": "arxiv-2602.01247",
@@ -217,7 +217,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "arxiv-2602.01247-mib2s",
@@ -233,7 +233,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "arxiv-2603.08046",
@@ -248,7 +248,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "ささやき声と通常声の音響変換で、無声の発話ではない"
+   "reason": "Acoustic conversion between whisper and normal voice; not silent speech"
   },
   {
    "pid": "arxiv-2603.11715",
@@ -261,9 +261,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "cross-mode refers to training on one mode and testing on the other",
-   "loc": "表の説明（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2026）。表面 EMG の感情復号で発声→無声の交差条件を報告"
+   "loc": "Table caption (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2026). Emotion decoding from surface EMG; reports an overt→silent cross condition"
   },
   {
    "pid": "biorxiv-747136-chinesewords",
@@ -277,9 +277,9 @@
    "snippet": "nt | task_family=isolated_word_recognition | extra.Task.output_kind=word-identity decode of 10 Chinese words per mode + cross-mode generalization + RSA geometry | modalities=scalp_eeg, surface_emg | sensor_hardware=EEG + facial sEMG at 1,000 Hz (open",
    "decision": "include",
    "quote": "word-identity decode of 10 Chinese words per mode + cross-mode generalization",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2026）。EEG・EMG で中国語単語の様式間汎化を報告"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2026). Reports cross-mode generalization of Mandarin words with EEG and EMG"
   },
   {
    "pid": "doi-10.1007-s40820-025-02042-2",
@@ -294,7 +294,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "非侵襲 BCI の総説"
+   "reason": "Review of non-invasive BCIs"
   },
   {
    "pid": "doi-10.1038-s41586-019-1119-1",
@@ -308,8 +308,8 @@
    "decision": "include",
    "quote": "Even though the decoder was not trained on mimed sentences, the spectrograms of synthesized silent speech demonstrated similar spectral patterns",
    "loc": "Results「Synthesizing mimed speech」",
-   "provenance": "本文確認",
-   "reason": "対象論文。可聴の文で学習した復号器を、P1 が口だけ動かした 58 試行（10 文の反復と読める）に当てる"
+   "provenance": "text-verified",
+   "reason": "Target paper. Applies a decoder trained on audible sentences to 58 trials in which P1 only mouthed (readable as repetitions of 10 sentences)"
   },
   {
    "pid": "doi-10.1038-s41586-025-09127-3",
@@ -322,9 +322,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "Although the decoder was only trained on attempted vocalized speech, it generalized well to mimed speech",
-   "loc": "Results（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2024 プレプリント、2025 刊行）。声に出そうと試みた発話で学習した復号器を、口だけ動かす試行に当てる"
+   "loc": "Results (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2024 preprint, 2025 publication). Applies a decoder trained on attempted overt speech to mouthed trials"
   },
   {
    "pid": "doi-10.1038-s41591-026-04414-6",
@@ -339,7 +339,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "皮質内 BCI の長期使用。参加者が声から無声に移ったことへの適応を述べるが、可聴学習のみの評価ではない"
+   "reason": "Long-term use of an intracortical BCI. Describes adaptation to the participant's shift from voiced to silent speech, but is not an audible-training-only evaluation"
   },
   {
    "pid": "doi-10.1038-s41598-018-37359-z",
@@ -354,7 +354,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "聴取中の聴覚皮質からの再構成（知覚）。発声→内言の汎化は先行研究として触れるだけ"
+   "reason": "Reconstruction from auditory cortex during listening (perception). Generalization from overt to inner speech is only mentioned as prior work"
   },
   {
    "pid": "doi-10.1038-s41598-024-62230-9",
@@ -367,9 +367,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "evaluated the model’s performance when trained with overt task for decoding covert speech",
-   "loc": "Abstract（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2024）。ECoG で発声課題だけで学習した Transformer を声に出さない文の復号に当てる（同じ鍵の別版）"
+   "loc": "Abstract (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2024). Applies a Transformer trained only on the overt task with ECoG to decoding of non-overt sentences (another version under the same key)"
   },
   {
    "pid": "doi-10.1038-s41598-025-18537-2",
@@ -384,7 +384,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "発声・口だけ・想像の高ガンマ活動の比較解析。発声で学習した復号器を他様式に当てる評価は台帳にない"
+   "reason": "Comparative analysis of high-gamma activity in overt, mouthed and imagined speech. The ledger has no evaluation applying a decoder trained on overt speech to the other modes"
   },
   {
    "pid": "doi-10.1038-s42003-024-06518-6",
@@ -397,9 +397,9 @@
    "snippet": "performed, perceived, imagined) on 20 Dutch sentences; per-electrode linear regressor on 7-band Hilbert envelopes; test cross-mode and cross-subject model transfer; multi-electrode second-stage regressor | production_labels=ordinary_voiced_speech, in",
    "decision": "include",
    "quote": "test cross-mode and cross-subject model transfer",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2024）。ECoG の発話区間検出を様式間で転移（同じ鍵の別版）"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2024). Transfers ECoG speech-segment detection across modes (another version under the same key)"
   },
   {
    "pid": "doi-10.1088-1741-2552-ae3a1b",
@@ -413,9 +413,9 @@
    "snippet": "model transfer/augmentation between modes | Study.unit_of_analysis=5-word LDA classification accuracy per speech mode + cross-mode transfer | task_family=isolated_word_recognition | target_population=speech_impairment, other | Cohort.demographics=ten",
    "decision": "include",
    "quote": "5-word LDA classification accuracy per speech mode + cross-mode transfer",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2026）。低密度 ECoG の単語分類で様式間の転移を報告"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2026). Reports cross-mode transfer in word classification with low-density ECoG"
   },
   {
    "pid": "doi-10.1101-2022.08.04.502829",
@@ -429,9 +429,9 @@
    "snippet": "s: overt, mouthed (articulate silently), imagined; decode speech vs non-speech intent frames from sEEG in each mode and cross-mode | production_labels=ordinary_voiced_speech, silent_articulation, instructed_imagery | Cohort.demographics=7 native Engl",
    "decision": "include",
    "quote": "decode speech vs non-speech intent frames from sEEG in each mode and cross-mode",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2022）。sEEG の発話意図検出を声・口だけ・想像の様式間で試す"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2022). Tests sEEG speech-intent detection across overt, mouthed and imagined modes"
   },
   {
    "pid": "doi-10.1101-2022.11.13.516334",
@@ -446,7 +446,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "聴取（知覚）のモデルを内言に転移する。発声学習ではない"
+   "reason": "Transfers a listening (perception) model to inner speech. Not overt-speech training"
   },
   {
    "pid": "doi-10.1101-2024.02.05.578911",
@@ -460,9 +460,9 @@
    "snippet": "target=token error rate (TER) averaged over 800 results (10 models x 5 folds x 16 sentences) per participant; in-sample Overt->Overt, Covert->Covert; out-of-sample Overt->Covert; shuffle-model chance check; Holm-Bonferroni correction over six comparisons, n=16 | Study.negative_findings=Transforme",
    "decision": "include",
    "quote": "evaluated the model’s performance when trained with overt task for decoding covert speech",
-   "loc": "Abstract（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2024）。ECoG で発声課題だけで学習した Transformer を声に出さない文の復号に当てる（同じ鍵の別版）"
+   "loc": "Abstract (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2024). Applies a Transformer trained only on the overt task with ECoG to decoding of non-overt sentences (another version under the same key)"
   },
   {
    "pid": "doi-10.1101-2024.03.21.586130",
@@ -475,9 +475,9 @@
    "snippet": "rt sentence paradigm; ensemble spike-train matching on inter-spike intervals decodes sentence identity above chance for overt speech and generalizes to covert production — decoding covert sentences 75% better than spike counts alone, supporting two encoding modes (rate + tempor",
    "decision": "include",
    "quote": "decodes sentence identity above chance for overt speech and generalizes to covert production",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2024）。発声の文で作った照合が声に出さない文に汎化"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2024). Matching built from overt sentences generalizes to non-overt sentences"
   },
   {
    "pid": "doi-10.1101-2024.08.14.607690",
@@ -492,7 +492,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+   "reason": "Another version of Wairagkar et al. (doi-10.1038-s41586-025-09127-3)"
   },
   {
    "pid": "doi-10.1101-2024.10.04.616375",
@@ -505,9 +505,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "Offline performance of a decoder trained on overt speech and evaluated on covert speech trials",
-   "loc": "図の説明（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2024）。皮質内電極で、発声で学習した復号器を内言の試行で評価"
+   "loc": "Figure caption (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2024). Intracortical electrodes; evaluates a decoder trained on overt speech on inner-speech trials"
   },
   {
    "pid": "doi-10.1101-478644",
@@ -522,7 +522,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Angrick ら 2019。台帳は無声・試行発話への拡張は示していないと記録"
+   "reason": "Angrick et al. 2019. The ledger records that extension to silent or attempted speech is not shown"
   },
   {
    "pid": "doi-10.1109-embc58623.2025.11253269",
@@ -537,7 +537,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "声・口だけ・想像を収録するが、解析したのは声に出した試行だけ"
+   "reason": "Records overt, mouthed and imagined speech, but only the overt trials were analysed"
   },
   {
    "pid": "doi-10.1109-icassp.2018.8461596",
@@ -551,9 +551,9 @@
    "snippet": "label classification head | EvaluationProtocol.experimental_design={'modes': ['normal', 'whisper', 'silent'], 'split': 'cross-mode'} | system_name=visual-only mode-robust lipreader | SystemConfiguration.component_versions={'front': 'camera', 'mid': '",
    "decision": "include",
    "quote": "this may degrade the performance of models trained on vocalised speech and tested on silent speech",
-   "loc": "Introduction、実験の格子",
-   "provenance": "本文確認",
-   "reason": "先行（2018-02）。映像のみの読唇で通常・ささやき・無声の各様式を学習・試験の 3×3 で比べる"
+   "loc": "Introduction, experimental grid",
+   "provenance": "text-verified",
+   "reason": "Prior (2018-02). Video-only lipreading comparing normal, whispered and silent modes in a 3×3 design of training and testing"
   },
   {
    "pid": "doi-10.1109-taslp-2017-2738568",
@@ -567,8 +567,8 @@
    "decision": "include",
    "quote": "we use the Gaussian models that were trained on audible speech and evaluate the mapping on EMG signals from silent test data",
    "loc": "§6.3 Mapping on EMG Data",
-   "provenance": "本文確認",
-   "reason": "先行（2016 年の学位論文。wiki の本文は KIT の学位論文の版）。可聴 EMG で学習した EMG→音声写像を無声 EMG に当て、DTW で MCD を出す"
+   "provenance": "text-verified",
+   "reason": "Prior (2016 thesis; the wiki text is the KIT thesis version). Applies an EMG-to-speech mapping trained on audible EMG to silent EMG and reports MCD after DTW"
   },
   {
    "pid": "doi-10.1186-s12911-026-03552-8",
@@ -583,7 +583,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "脳→音声の系統的総説"
+   "reason": "Systematic review of brain-to-speech"
   },
   {
    "pid": "doi-10.1371-journal.pone.0166872",
@@ -598,7 +598,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "発声・非発声の音読中の ECoG の相関解析で、復号器を当てない"
+   "reason": "Correlation analysis of ECoG during overt and non-overt reading aloud; does not apply a decoder"
   },
   {
    "pid": "doi-10.1371-journal.pone.0223782",
@@ -613,7 +613,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "無声の読唇（見る側）の脳活動の研究"
+   "reason": "Study of brain activity during silent lipreading (the viewer's side)"
   },
   {
    "pid": "doi-10.1371-journal.pone.0228452",
@@ -628,7 +628,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "非習慣的な発話の fMRI 活性化の比較で、復号しない"
+   "reason": "Comparison of fMRI activation for non-habitual speech; no decoding"
   },
   {
    "pid": "doi-10.18653-v1-2020.emnlp-main.445",
@@ -641,9 +641,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "direct-transfer baseline: vocalized-trained model applied to silent EMG",
-   "loc": "台帳（基準条件）、§Abstract",
-   "provenance": "台帳のみ",
-   "reason": "後続（2020）。主手法は無声 EMG でも学習するが、可聴学習のみのモデルを無声 EMG に当てる直接転移の基準条件を報告"
+   "loc": "Ledger (baseline condition), §Abstract",
+   "provenance": "ledger only",
+   "reason": "Later (2020). The main method also trains on silent EMG, but reports a direct-transfer baseline condition in which a model trained only on audible data is applied to silent EMG"
   },
   {
    "pid": "doi-10.21203-rs.3.rs-3927907-v1",
@@ -656,9 +656,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "evaluated the model’s performance when trained with overt task for decoding covert speech",
-   "loc": "Abstract（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2024）。ECoG で発声課題だけで学習した Transformer を声に出さない文の復号に当てる（同じ鍵の別版）"
+   "loc": "Abstract (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2024). Applies a Transformer trained only on the overt task with ECoG to decoding of non-overt sentences (another version under the same key)"
   },
   {
    "pid": "doi-10.21203-rs.3.rs-9365678-v1",
@@ -672,9 +672,9 @@
    "snippet": "): overt-val 0.54 / covert-test 0.42 vs 0.25 chance — EMG contributes weakly to cross-subject transfer, documenting the overt→covert gap in superior temporal regions | target_population=general_population | population_description=10 healthy participant",
    "decision": "include",
    "quote": "overt-val 0.54 / covert-test 0.42 vs 0.25 chance",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2026）。発声で検証し内言で試す条件の差を報告"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2026). Reports the difference between conditions validated on overt speech and tested on inner speech"
   },
   {
    "pid": "doi-10.21203-rs.3.rs-9694892-v1",
@@ -689,7 +689,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "想像発話 EEG の限界の検討。一致は参考文献の Rekrut ら 2022 の題名"
+   "reason": "Examination of the limits of imagined-speech EEG. The match is the title of Rekrut et al. 2022 in the references"
   },
   {
    "pid": "doi-10.21437-interspeech.2023-1966",
@@ -703,9 +703,9 @@
    "snippet": "ent most | vocabulary_regime=closed_lexicon | EvaluationProtocol.experimental_design=speaker-independent multi-speaker; trained on voiced, tested on voiced+silent; 13274 train / 1205 test utts, 81 speakers; four feature-conditioning conditions × raw/fMLLR; bigram LM best-weight WER",
    "decision": "include",
    "quote": "We trained with voiced utterances, then tested performance on both voiced and silent utterances.",
-   "loc": "本文（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2023）。超音波舌と唇の推定点で、有声で学習し有声と無声で試す（同じ鍵の別版）"
+   "loc": "Main text (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2023). Estimated points of ultrasound tongue and lips; trains on voiced speech and tests on voiced and silent speech (another version under the same key)"
   },
   {
    "pid": "doi-10.3389-fneng.2014.00014",
@@ -719,8 +719,8 @@
    "decision": "include",
    "quote": "a neural decoding model trained from overt speech should be able to predict speech features in the covert condition",
    "loc": "Introduction、Methods（Dynamic time warping）",
-   "provenance": "本文確認",
-   "reason": "先行（2014）。発声時の ECoG で学習した線形モデルで、声に出さない発話のスペクトル特徴を復号し、発声音声に DTW で合わせて安静時の対照と比べた"
+   "provenance": "text-verified",
+   "reason": "Prior (2014). With linear models trained on ECoG during overt speech, decodes spectral features of non-overt speech, aligns them to the overt speech with DTW and compares against a resting control"
   },
   {
    "pid": "doi-10.3389-fnhum.2022.804832",
@@ -735,7 +735,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "内言の運動抑制を論じる展望論文"
+   "reason": "Perspective paper discussing motor suppression in inner speech"
   },
   {
    "pid": "doi-10.3389-fnrgo.2025.1578586",
@@ -750,7 +750,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "EEG 想像発話の電極削減。一致は参考文献"
+   "reason": "Electrode reduction for EEG imagined speech. The match is in the references"
   },
   {
    "pid": "doi-10.3390-jintelligence13120156",
@@ -765,7 +765,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "内言の認知モデルの論考で、復号しない"
+   "reason": "Essay on cognitive models of inner speech; no decoding"
   },
   {
    "pid": "doi-10.5220-0002814100220031",
@@ -779,8 +779,8 @@
    "decision": "include",
    "quote": "resulted in 12.3% relative improvement in our audible-to-silent Cross-Modal Testing System",
    "loc": "Abstract",
-   "provenance": "本文確認",
-   "reason": "先行（2010）。可聴 EMG で学習した認識器を無声 EMG で試す系に、スペクトル写像を加えて相対 12.3% 改善"
+   "provenance": "text-verified",
+   "reason": "Prior (2010). Adds spectral mapping to a system that tests on silent EMG a recognizer trained on audible EMG; 12.3% relative improvement"
   },
   {
    "pid": "doi-10.5220-0003169702950300",
@@ -793,9 +793,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "We took the acoustic models from these systems, which had been trained on audible EMG, and applied them to the available silent EMG test sets.",
-   "loc": "§（Cross-Modal Testing の節）",
-   "provenance": "本文確認",
-   "reason": "先行（2011）。可聴 EMG で学習した音響モデルを無声 EMG のテスト集合に当てる（Cross-Modal Testing）"
+   "loc": "§ (Cross-Modal Testing section)",
+   "provenance": "text-verified",
+   "reason": "Prior (2011). Applies an acoustic model trained on audible EMG to a silent-EMG test set (Cross-Modal Testing)"
   },
   {
    "pid": "essex-43322-tates-thesis",
@@ -810,7 +810,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "想像発話 BCI の学位論文。一致は参考文献の Rekrut ら 2022 の題名"
+   "reason": "Thesis on imagined-speech BCI. The match is the title of Rekrut et al. 2022 in the references"
   },
   {
    "pid": "isca-ahmadi13-mouthus",
@@ -825,7 +825,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "低周波超音波の Cross Modes は音響の伝搬モードのことで、発話様式ではない"
+   "reason": "\"Cross Modes\" in low-frequency ultrasound refers to acoustic propagation modes, not speaking modes"
   },
   {
    "pid": "isca-ahmadi13_interspeech",
@@ -840,7 +840,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版。音響モードの語"
+   "reason": "Another version of the same study. The term refers to acoustic modes"
   },
   {
    "pid": "isca-beeson23-articssr",
@@ -853,9 +853,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "We trained with voiced utterances, then tested performance on both voiced and silent utterances.",
-   "loc": "本文（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2023）。超音波舌と唇の推定点で、有声で学習し有声と無声で試す（同じ鍵の別版）"
+   "loc": "Main text (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2023). Estimated points of ultrasound tongue and lips; trains on voiced speech and tests on voiced and silent speech (another version under the same key)"
   },
   {
    "pid": "isca-beeson23_interspeech",
@@ -869,9 +869,9 @@
    "snippet": "o, x,y,conf per frame)→conf<0.1 filter→bidirectional linear interp→Kaldi nnet2 DNN-HMM (raw or fMLLR-adapted features); train voiced, test voiced+silent | task_family=sentence_recognition | task_encoding=natural_utterance | intended_use_cases=speech_restoration, assistive",
    "decision": "include",
    "quote": "We trained with voiced utterances, then tested performance on both voiced and silent utterances.",
-   "loc": "本文（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2023）。超音波舌と唇の推定点で、有声で学習し有声と無声で試す（同じ鍵の別版）"
+   "loc": "Main text (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2023). Estimated points of ultrasound tongue and lips; trains on voiced speech and tests on voiced and silent speech (another version under the same key)"
   },
   {
    "pid": "isca-borsdorf24_interspeech",
@@ -886,7 +886,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "話者抽出の音響データで、様式は通常・ささやきなどの音響音声"
+   "reason": "Acoustic data for speaker extraction; the modes are acoustic speech such as normal and whispered"
   },
   {
    "pid": "isca-duraisamy26_interspeech",
@@ -901,7 +901,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "EEG の被験者横断の想像発話復号。一致は参考文献"
+   "reason": "Cross-subject imagined-speech decoding from EEG. The match is in the references"
   },
   {
    "pid": "isca-florescu10",
@@ -917,7 +917,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Florescu ら 2010 の別フォルダ（鍵が別）。版の重複"
+   "reason": "Separate folder of Florescu et al. 2010 (different key). Version duplicate"
   },
   {
    "pid": "isca-florescu10-silentvocal",
@@ -931,8 +931,8 @@
    "decision": "include",
    "quote": "systems trained on vocalized speech exhibit reduced performance when tested on silent articulation",
    "loc": "Abstract",
-   "provenance": "本文確認",
-   "reason": "先行（2010）。超音波舌画像と唇映像で、発声で学習し無声で試す条件を含む 4 通りの組合せを比べ、交差条件で有意に低下"
+   "provenance": "text-verified",
+   "reason": "Prior (2010). Compares 4 combinations of ultrasound tongue images and lip video, including training on vocalized and testing on silent speech; significant degradation in the cross conditions"
   },
   {
    "pid": "isca-florescu10_interspeech",
@@ -947,8 +947,8 @@
    "decision": "include",
    "quote": "systems trained on vocalized speech exhibit reduced performance when tested on silent articulation",
    "loc": "Abstract",
-   "provenance": "本文確認",
-   "reason": "先行（2010）。超音波舌画像と唇映像で、発声で学習し無声で試す条件を含む 4 通りの組合せを比べ、交差条件で有意に低下"
+   "provenance": "text-verified",
+   "reason": "Prior (2010). Compares 4 combinations of ultrasound tongue images and lip video, including training on vocalized and testing on silent speech; significant degradation in the cross conditions"
   },
   {
    "pid": "isca-janke10",
@@ -963,7 +963,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Janke ら 2010（Interspeech）の別フォルダ"
+   "reason": "Separate folder of Janke et al. 2010 (Interspeech)"
   },
   {
    "pid": "isca-janke10-emgfeedback",
@@ -978,7 +978,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Janke ら 2010 の別版。可聴モデルは無声 EMG の時刻合わせ（初期化）にだけ使い、無声で学習し直す"
+   "reason": "Another version of Janke et al. 2010. The audible model is used only for time alignment (initialization) of silent EMG, then retrained on silent data"
   },
   {
    "pid": "isca-janke10_interspeech",
@@ -993,7 +993,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "可聴・ささやき EMG で学習したモデルは無声 EMG の時刻合わせ（初期化）に使うだけで、無声で学習し直す（境界例）"
+   "reason": "The model trained on audible and whispered EMG is used only for time alignment (initialization) of silent EMG, then retrained on silent data (boundary case)"
   },
   {
    "pid": "isca-lee14b-whisperedmandarin",
@@ -1008,7 +1008,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音響のささやき声コーパス"
+   "reason": "Acoustic whisper corpus"
   },
   {
    "pid": "isca-lee14b_interspeech",
@@ -1024,7 +1024,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版。音響のささやき声"
+   "reason": "Another version of the same study. Acoustic whisper"
   },
   {
    "pid": "isca-lim16-whispertl",
@@ -1039,7 +1039,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音響のささやき声認識の転移学習"
+   "reason": "Transfer learning for acoustic whisper recognition"
   },
   {
    "pid": "isca-lim16_interspeech",
@@ -1054,7 +1054,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "isca-maghsoudi26_interspeech",
@@ -1067,9 +1067,9 @@
    "snippet": "",
    "decision": "include",
    "quote": "When trained on Vocalized speech, the model achieves its highest performance on Vocalized respon",
-   "loc": "Results（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2026）。発声・口だけ・想像の神経表現で、発声で学習したモデルを他条件に当てる（同じ鍵の別版）"
+   "loc": "Results (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2026). Neural representations of overt, mouthed and imagined speech; applies a model trained on overt speech to the other conditions (another version under the same key)"
   },
   {
    "pid": "isca-melenchon07-vis",
@@ -1084,7 +1084,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "視覚素の抽出で、cross-mode は音声・映像の推定のこと"
+   "reason": "Extraction of visemes; \"cross-mode\" refers to estimation between audio and video"
   },
   {
    "pid": "isca-zhou07_interspeech",
@@ -1100,7 +1100,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "英語 /r/ の音響解析で、cross modes は音響の交差モード"
+   "reason": "Acoustic analysis of English /r/; \"cross modes\" are acoustic cross modes"
   },
   {
    "pid": "issp2011-hueber-ema-silent",
@@ -1115,7 +1115,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "無声・ささやき・通常発話の EMA の調音の違いの解析。可聴学習モデルの低下は先行研究として引くだけ"
+   "reason": "Analysis of articulatory differences in EMA among silent, whispered and normal speech. Degradation of audibly trained models is only cited as prior work"
   },
   {
    "pid": "peerj-40989443-eegimgrev",
@@ -1130,7 +1130,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "EEG 想像発話の系統的総説"
+   "reason": "Systematic review of EEG imagined speech"
   },
   {
    "pid": "pmc-11106343-covert",
@@ -1145,7 +1145,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Komeiji ら 2024 の別版（題名が途中で切れたフォルダ）"
+   "reason": "Another version of Komeiji et al. 2024 (folder with truncated title)"
   },
   {
    "pid": "pmc-11106343-coverttransf",
@@ -1160,7 +1160,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Komeiji ら 2024 の別版（題名が途中で切れたフォルダ）"
+   "reason": "Another version of Komeiji et al. 2024 (folder with truncated title)"
   },
   {
    "pid": "pmc-11106343-ecogtransformer",
@@ -1174,9 +1174,9 @@
    "snippet": "cipant TER over 800 decoded sentences from a 3-token/8-sentence Japanese set; five train/test speech combinations incl. Overt→Covert and Covert→Covert plus shuffle | task_encoding=imagined_utterance | task_family=sentence_recognition | Cohort.demographics=16 patients (8",
    "decision": "include",
    "quote": "evaluated the model’s performance when trained with overt task for decoding covert speech",
-   "loc": "Abstract（一致箇所）",
-   "provenance": "本文確認",
-   "reason": "後続（2024）。ECoG で発声課題だけで学習した Transformer を声に出さない文の復号に当てる（同じ鍵の別版）"
+   "loc": "Abstract (matched passage)",
+   "provenance": "text-verified",
+   "reason": "Later (2024). Applies a Transformer trained only on the overt task with ECoG to decoding of non-overt sentences (another version under the same key)"
   },
   {
    "pid": "pmc-11226700-ecogevent",
@@ -1189,9 +1189,9 @@
    "snippet": "amily=linear_model | ProcessingStep.hyperparameters=7 band-pass bands (delta..gamma); per-electrode detection accuracy; cross-mode transfer | Dataset.counts_by_unit=16 participants; 588 electrodes pooled; 3 speech modes | tested_population=target_use",
    "decision": "include",
    "quote": "test cross-mode and cross-subject model transfer",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2024）。ECoG の発話区間検出を様式間で転移（同じ鍵の別版）"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2024). Transfers ECoG speech-segment detection across modes (another version under the same key)"
   },
   {
    "pid": "pmc-11226700-imagineddetect",
@@ -1204,9 +1204,9 @@
    "snippet": "magined modes; per-electrode frame-level detection accuracy under leave-one-trial-out CV with permutation significance; cross-mode and cross-subject transfer | task_encoding=natural_utterance | task_family=speech_activity_detection | Cohort.demograph",
    "decision": "include",
    "quote": "test cross-mode and cross-subject model transfer",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2024）。ECoG の発話区間検出を様式間で転移（同じ鍵の別版）"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2024). Transfers ECoG speech-segment detection across modes (another version under the same key)"
   },
   {
    "pid": "pmc-11370360-instvoice",
@@ -1221,7 +1221,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+   "reason": "Another version of Wairagkar et al. (doi-10.1038-s41586-025-09127-3)"
   },
   {
    "pid": "pmc-12245923-multicond",
@@ -1236,7 +1236,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "pmc-12245923-pron2img-eeg の別版（題名が途中で切れたフォルダ）"
+   "reason": "Another version of pmc-12245923-pron2img-eeg (folder with truncated title)"
   },
   {
    "pid": "pmc-12245923-pron2img-eeg",
@@ -1250,8 +1250,8 @@
    "decision": "include",
    "quote": "Intra-subject overt speech training: The model is trained exclusively with overt speech data and tested with imagined speech data.",
    "loc": "Methods",
-   "provenance": "本文確認",
-   "reason": "後続（2025）。EEG で発声データだけで学習し想像発話で試す条件を含む"
+   "provenance": "text-verified",
+   "reason": "Later (2025). Includes a condition that trains on EEG overt-speech data only and tests on imagined speech"
   },
   {
    "pid": "pmc-12263900-elecred",
@@ -1266,7 +1266,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版。一致は参考文献"
+   "reason": "Another version of the same study. The match is in the references"
   },
   {
    "pid": "pmc-12263900-electrode",
@@ -1281,7 +1281,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版。一致は参考文献"
+   "reason": "Another version of the same study. The match is in the references"
   },
   {
    "pid": "pmc-12369848-voice-synth-np",
@@ -1296,7 +1296,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+   "reason": "Another version of Wairagkar et al. (doi-10.1038-s41586-025-09127-3)"
   },
   {
    "pid": "pmc-12369848-voicesynth",
@@ -1311,7 +1311,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+   "reason": "Another version of Wairagkar et al. (doi-10.1038-s41586-025-09127-3)"
   },
   {
    "pid": "pmc-12453656-eegspeech-review",
@@ -1327,7 +1327,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "pmc-12480242-mimedecog",
@@ -1342,7 +1342,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-12686446-mandataset",
@@ -1357,7 +1357,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "発声・無声・想像の多信号データセットの公開論文で、転移の結果は台帳にない"
+   "reason": "Paper releasing a multi-signal dataset of overt, silent and imagined speech; transfer results are not in the ledger"
   },
   {
    "pid": "pmc-12734259-vcs",
@@ -1372,7 +1372,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ論考の別版"
+   "reason": "Another version of the same essay"
   },
   {
    "pid": "pmc-12837114-visual-erp-bci-spi",
@@ -1387,7 +1387,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "視覚 ERP の BCI で、明示的注視と潜在的注意の条件。発話様式ではない"
+   "reason": "Visual ERP BCI with overt-gaze and covert-attention conditions. Not speaking modes"
   },
   {
    "pid": "pmc-13326865-grammar",
@@ -1402,7 +1402,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "文法計算の神経機構の研究で、音声の復号器を当てない"
+   "reason": "Study of neural mechanisms of grammatical computation; does not apply a speech decoder"
   },
   {
    "pid": "pmc-13326865-grammeg",
@@ -1417,7 +1417,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-13375540-ibciterm",
@@ -1432,7 +1432,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-13375540-ltbci",
@@ -1447,7 +1447,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-13375540-ltc-speechbci",
@@ -1462,7 +1462,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-13383455-b2s",
@@ -1477,7 +1477,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "pmc-4034498-overtcovert",
@@ -1491,8 +1491,8 @@
    "decision": "include",
    "quote": "a neural decoding model trained from overt speech should be able to predict speech features in the covert condition",
    "loc": "Introduction、Methods（Dynamic time warping）",
-   "provenance": "本文確認",
-   "reason": "先行（2014）。発声時の ECoG で学習した線形モデルで、声に出さない発話のスペクトル特徴を復号し、発声音声に DTW で合わせて安静時の対照と比べた"
+   "provenance": "text-verified",
+   "reason": "Prior (2014). With linear models trained on ECoG during overt speech, decodes spectral features of non-overt speech, aligns them to the overt speech with DTW and compares against a resting control"
   },
   {
    "pid": "pmc-4034498-spectemp",
@@ -1507,7 +1507,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Martin ら 2014 の別版（題名が途中で切れたフォルダ）"
+   "reason": "Another version of Martin et al. 2014 (folder with truncated title)"
   },
   {
    "pid": "pmc-5119784-cortprog",
@@ -1522,7 +1522,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-5119784-spatio",
@@ -1538,7 +1538,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-5843544-transferlearn",
@@ -1553,7 +1553,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "上肢運動学習の転移（サル）で、発話ではない"
+   "reason": "Transfer of upper-limb motor learning (monkey); not speech"
   },
   {
    "pid": "pmc-6351601-audrecon",
@@ -1568,7 +1568,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Akbari ら 2019 の別版"
+   "reason": "Another version of Akbari et al. 2019"
   },
   {
    "pid": "pmc-6351601-intelligible",
@@ -1583,7 +1583,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "Akbari ら 2019 の別版"
+   "reason": "Another version of Akbari et al. 2019"
   },
   {
    "pid": "pmc-9714519-speechsynth",
@@ -1598,7 +1598,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "対象論文の別フォルダ（同じ著者稿）"
+   "reason": "Separate folder of the target paper (same author manuscript)"
   },
   {
    "pid": "zenodo-22441724-leakctrl",
@@ -1613,7 +1613,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "公開データでの転移主張の漏洩を検証する再解析"
+   "reason": "Reanalysis testing for leakage in transfer claims on public data"
   },
   {
    "pid": "zenodo-23184990-lingframe",
@@ -1629,7 +1629,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "内言復号の言語学的枠組みの提案で、実験がない"
+   "reason": "Proposes a linguistic framework for decoding inner speech; no experiments"
   }
  ],
  "known_item_recall": {
@@ -1644,7 +1644,7 @@
   "read": 104,
   "unread": 0,
   "confirmed_unique": 23,
-  "confirmed_本文確認": 15,
+  "confirmed_text_verified": 15,
   "recall_sample_read": 30,
   "recall_sample_included": 11,
   "recall_estimate": 0.35

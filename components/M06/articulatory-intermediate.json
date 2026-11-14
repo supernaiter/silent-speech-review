@@ -5,7 +5,7 @@
  "pattern": "articulat\\w*[^|]{0,40}(intermediate|intermediary)|intermediate[^|]{0,30}articulat|(neural|ecog|cortical|emg|eeg|brain)[^|]{0,60}articulatory kinematic[^|]{0,80}(acoustic|speech|synthes)|kinematic\\w*[^|]{0,30}(then|->|→)[^|]{0,30}acoustic",
  "scope": "ledger",
  "fulltext_pattern": "intermediate articulatory|articulatory (kinematic |movement )?(intermediate|intermediary)|articulatory[^.]{0,30} as (an )?intermediar|(ecog|emg|eeg|neural|cortical|brain|electromyogra)[^.]{0,80}(to|into) (the )?articulatory (kinematic|feature|movement|representation|trajector|parameter)[^.]{0,100}(acoustic|speech|audio|waveform)",
- "inclusion_rule": "音響以外の信号（神経活動、筋電、映像、超音波など）から、明示的な調音表現（計測または推定した調音器官の運動軌跡、調音素性・音韻範疇）をいったん復号し、それを次段で音響特徴・音声波形・記号列に変換する復号経路を持つ研究を含める。境界：入力そのものが調音計測（EMA・PMA・超音波）で、調音表現を中間に復号しないものは除く。音響から調音を推定してから音声に戻すもの（入力が音響）は除く。調音を補助損失・正則化にだけ使い、経路の中間に置かないものは除く。調音表現を復号するだけで次段がないものは除く。総説・引用だけの言及は除く。同一研究の別版は1件。",
+ "inclusion_rule": "Include studies with a decoding pathway that first decodes an explicit articulatory representation (measured or estimated movement trajectories of the articulators, articulatory features or phonological categories) from non-acoustic signals (neural activity, EMG, video, ultrasound, etc.) and then converts it in a next stage to acoustic features, speech waveforms or symbol sequences. Boundary: exclude those whose input itself is an articulatory measurement (EMA, PMA, ultrasound) and that do not decode an articulatory representation as an intermediate. Exclude those that estimate articulation from acoustics and then return to speech (acoustic input). Exclude those that use articulation only as an auxiliary loss or regularization without placing it in the middle of the pathway. Exclude those that only decode an articulatory representation with no next stage. Exclude mentions in reviews or citations only. Count different versions of the same study as one item.",
  "counts": {
   "scanned_folders": 8995,
   "scanned_unique": 7388,
@@ -62,7 +62,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声映像認識で、台帳の intermediate は CTC のピーク時刻の話。調音表現を中間に置かない"
+   "reason": "Audio-visual recognition; the ledger's \"intermediate\" refers to CTC peak timing. No articulatory representation is placed as an intermediate"
   },
   {
    "pid": "arxiv-2305.03582",
@@ -77,7 +77,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声映像の変分自己符号化器。顎・唇は潜在因子の解釈で、明示的な調音表現を復号する経路ではない"
+   "reason": "Audio-visual variational autoencoder. Jaw and lips are an interpretation of latent factors, not a pathway that decodes an explicit articulatory representation"
   },
   {
    "pid": "arxiv-2306.05374",
@@ -92,7 +92,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "EEG から超音波舌画像を予測するだけで、調音から音声への次段がない（対象を引用して動機づけ）"
+   "reason": "Only predicts ultrasound tongue images from EEG, with no next stage from articulation to speech (cites the target paper as motivation)"
   },
   {
    "pid": "arxiv-2505.13814",
@@ -105,9 +105,9 @@
    "snippet": "former, cnn | technical_essence=EMG encoder + separate EMA/pitch/loudness/aux-phoneme predictors over conv+transformer; articulatory-feature intermediate representation decoded to waveform; L2 loss | ProcessingStep.hyperparameters={'emg_channels': 8, 'emg_channels_reduced'",
    "decision": "include",
    "quote": "we demonstrate that these predicted articulatory features can be decoded into intelligible speech waveforms",
-   "loc": "要旨",
-   "provenance": "本文確認",
-   "reason": "後続（2025）。表面筋電から EMA 型の調音特徴を予測し、それを音声波形に復号する"
+   "loc": "Abstract",
+   "provenance": "text-verified",
+   "reason": "Later (2025). Predicts EMA-type articulatory features from surface EMG and decodes them into speech waveforms"
   },
   {
    "pid": "arxiv-2512.04618",
@@ -122,7 +122,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "対象を関連研究として引く文に一致しただけで、自身は調音中間表現を使わない（台帳・一致箇所で判定）"
+   "reason": "Only matched a sentence citing the target paper as related work; itself does not use articulatory intermediate representations (judged from the ledger and matched passage)"
   },
   {
    "pid": "arxiv-2603-12279-icbci",
@@ -137,7 +137,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "頭蓋内 BCI の総説。調音中間表現を手法の類型として挙げるだけ"
+   "reason": "Review of intracranial BCIs. Only lists articulatory intermediate representations as a category of methods"
   },
   {
    "pid": "arxiv-2603.12279",
@@ -153,7 +153,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "arxiv-2609-36736-bcreview",
@@ -168,7 +168,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声 BCI の総説。対象を文献 81 として引くだけ"
+   "reason": "Review of speech BCIs. Only cites the target paper as reference 81"
   },
   {
    "pid": "arxiv-2609-36736-speechbcirev",
@@ -183,7 +183,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "arxiv-2609.36736",
@@ -198,7 +198,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "doi-10.1016-j.celrep.2026.117162",
@@ -213,7 +213,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "皮質内アレイの単語・文復号。6v の活動が調音運動でまとまるという解析で、調音を中間に復号しない"
+   "reason": "Word and sentence decoding from intracortical arrays. An analysis showing that 6v activity clusters by articulatory movement; does not decode articulation as an intermediate"
   },
   {
    "pid": "doi-10.1038-s41467-023-42555-1",
@@ -228,7 +228,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "µECoG の音素復号。調音素性を中間に使えばさらに改善しうると今後の課題として書くだけ"
+   "reason": "Phoneme decoding from µECoG. Only states as future work that using articulatory features as an intermediate could improve results further"
   },
   {
    "pid": "doi-10.1038-s41586-019-1119-1",
@@ -242,9 +242,9 @@
    "snippet": "xperiment | Study.research_objective=synthesize intelligible speech directly from ECoG during spoken sentences using an articulatory intermediate representation | evidence_relation=supported_within_scope | claim=human listeners transcribed neurally synthesized spee",
    "decision": "include",
    "quote": "Recurrent neural networks first decoded directly recorded cortical activity into articulatory movement representations, and then transformed those representations into speech acoustics.",
-   "loc": "要旨、Methods「Neural decoder」",
-   "provenance": "本文確認",
-   "reason": "対象論文（刊行版の識別子、本文は著者稿）。ECoG→推定調音 33 次元→音響 32 次元の二段 bLSTM"
+   "loc": "Abstract, Methods \"Neural decoder\"",
+   "provenance": "text-verified",
+   "reason": "Target paper (identifier of the published version; text is the author manuscript). Two-stage bLSTM: ECoG→33 estimated articulatory dimensions→32 acoustic dimensions"
   },
   {
    "pid": "doi-10.1088-1741-2552-abbfef",
@@ -259,7 +259,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "皮質内アレイの英語復号。調音中間表現は関連研究（対象）として挙げるだけ"
+   "reason": "English decoding from intracortical arrays. Articulatory intermediate representations are only listed as related work (the target paper)"
   },
   {
    "pid": "doi-10.1088-1741-2552.ae4cca",
@@ -274,7 +274,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "後続（2026）。公開 EMA から話者をまたいで調音特徴を再構成するが、音響・音声への次段は作らない（次段なしの境界例）"
+   "reason": "Later (2026). Reconstructs articulatory features across speakers from public EMA, but builds no next stage to acoustics or speech (boundary case with no next stage)"
   },
   {
    "pid": "doi-10.1101-2025.08.12.668516",
@@ -289,7 +289,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1016-j.celrep.2026.117162 のプレプリント。同じ理由"
+   "reason": "Preprint of doi-10.1016-j.celrep.2026.117162. Same reason"
   },
   {
    "pid": "doi-10.1101-2025.10.08.680888",
@@ -304,7 +304,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1088-1741-2552.ae4cca のプレプリント。同じ理由"
+   "reason": "Preprint of doi-10.1088-1741-2552.ae4cca. Same reason"
   },
   {
    "pid": "doi-10.1109-msp.2024.3484629",
@@ -319,7 +319,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "生成 AI と BCI の総説。対象の二段構成を紹介するだけ"
+   "reason": "Review of generative AI and BCI. Only describes the target paper's two-stage design"
   },
   {
    "pid": "doi-10.21203-rs.3.rs-9916752.v1",
@@ -334,7 +334,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "MEG の音素文復号。調音中間表現は関連研究として触れるだけ"
+   "reason": "MEG decoding of phoneme sentences. Articulatory intermediate representations are only mentioned as related work"
   },
   {
    "pid": "doi-10.3389-fnhum.2023.1124065",
@@ -348,8 +348,8 @@
    "decision": "include",
    "quote": "indirect decoding of vocoder features through an intermediate articulatory representation chained with a real-time-compatible DNN-based articulatory-to-acoustic synthesizer",
    "loc": "Abstract（Methods）、§2.6.3",
-   "provenance": "本文確認",
-   "reason": "後続（2023）。ECoG から線形法で調音軌跡を復号し、DNN の調音→音響合成器につなぐ間接法と、直接法を同じデータで比べた"
+   "provenance": "text-verified",
+   "reason": "Later (2023). Compares, on the same data, an indirect method that decodes articulatory trajectories from ECoG with a linear method and feeds them to a DNN articulatory-to-acoustic synthesizer, and a direct method"
   },
   {
    "pid": "doi-10.3390-s23125575",
@@ -364,7 +364,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声と手書きの BCI 総説。対象の二段構成を紹介するだけ"
+   "reason": "Review of speech and handwriting BCIs. Only describes the target paper's two-stage design"
   },
   {
    "pid": "isca-bukmaier14_interspeech",
@@ -379,7 +379,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "EMA と音響の音声学的比較。復号経路を持たない"
+   "reason": "Phonetic comparison of EMA and acoustics. Has no decoding pathway"
   },
   {
    "pid": "isca-csapo17_ussynth",
@@ -394,7 +394,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "入力が超音波舌画像（調音計測そのもの）で、中間に調音表現を復号しない"
+   "reason": "Input is ultrasound tongue images (articulatory measurement itself); no articulatory representation is decoded as an intermediate"
   },
   {
    "pid": "isca-csapo23-eegus",
@@ -409,7 +409,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-2306.05374 と同じ研究の別版。EEG→舌画像のみで次段なし"
+   "reason": "Another version of the same study as arxiv-2306.05374. EEG to tongue images only, with no next stage"
   },
   {
    "pid": "isca-csapo23_interspeech",
@@ -424,7 +424,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-2306.05374 と同じ研究の別版。EEG→舌画像のみで次段なし"
+   "reason": "Another version of the same study as arxiv-2306.05374. EEG to tongue images only, with no next stage"
   },
   {
    "pid": "isca-lee26b-rtmrieeg",
@@ -439,7 +439,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "rtMRI・EEG・筋電の同時収録データの論文で、復号経路を作らない"
+   "reason": "Paper on a dataset of simultaneous rtMRI, EEG and EMG recordings; builds no decoding pathway"
   },
   {
    "pid": "isca-richmond13_interspeech",
@@ -454,7 +454,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "入力が音響（音響→調音逆推定→合成）で、音響以外の信号からの復号ではない"
+   "reason": "Input is acoustic (acoustics→articulatory inversion→synthesis); not decoding from a non-acoustic signal"
   },
   {
    "pid": "isca-saha19_interspeech",
@@ -468,8 +468,8 @@
    "decision": "include",
    "quote": "exploits predicted articulatory information of six phonological categories (e.g., nasal, bilabial) as an intermediate step for classifying the phonemes and words",
    "loc": "Abstract",
-   "provenance": "本文確認",
-   "reason": "同時期（arXiv 1904.05746、2019-04、Interspeech 2019-09）。想像発話の EEG から 6 つの音韻範疇（鼻音・両唇など）を予測し、それを中間段として 11 種の音素・単語を分類する。音声合成ではなく分類で、調音素性の境界例として採る"
+   "provenance": "text-verified",
+   "reason": "Concurrent (arXiv 1904.05746, 2019-04, Interspeech 2019-09). Predicts 6 phonological categories (nasal, bilabial, etc.) from imagined-speech EEG and uses them as an intermediate stage to classify 11 phonemes and words. Classification rather than speech synthesis; taken as a boundary case for articulatory features"
   },
   {
    "pid": "isca-sudhakar14_interspeech",
@@ -484,7 +484,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "入力が音響（音響→調音推定→音素認識）"
+   "reason": "Input is acoustic (acoustics→articulatory estimation→phoneme recognition)"
   },
   {
    "pid": "isca-yan23_interspeech",
@@ -499,7 +499,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "日本語 EMA コーパスの統合。神経→調音→音声の構想を背景に述べるが、自身は音響と EMA の対応を扱う"
+   "reason": "Integration of Japanese EMA corpora. Describes a neural→articulatory→speech concept as background, but itself deals with the correspondence between acoustics and EMA"
   },
   {
    "pid": "pmc-10303480-speechhand",
@@ -514,7 +514,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "pmc-10326283-lineardecode",
@@ -529,7 +529,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.3389-fnhum.2023.1124065 の別版"
+   "reason": "Another version of doi-10.3389-fnhum.2023.1124065"
   },
   {
    "pid": "pmc-10326283-overtdec",
@@ -544,7 +544,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.3389-fnhum.2023.1124065 の別版"
+   "reason": "Another version of doi-10.3389-fnhum.2023.1124065"
   },
   {
    "pid": "pmc-10628285-uecog",
@@ -559,7 +559,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1038-s41467-023-42555-1 の別版。同じ理由"
+   "reason": "Another version of doi-10.1038-s41467-023-42555-1. Same reason"
   },
   {
    "pid": "pmc-11581396-whisper-eeg-context",
@@ -574,7 +574,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "聴取中の EEG と音声認識モデルの比較。調音素性は言語処理理論の説明に出るだけ"
+   "reason": "Comparison of EEG during listening with speech recognition models. Articulatory features appear only in explaining theories of language processing"
   },
   {
    "pid": "pmc-12333864-b2content",
@@ -589,7 +589,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "pmc-12333864-bci20",
@@ -604,7 +604,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ総説の別版"
+   "reason": "Another version of the same review"
   },
   {
    "pid": "pmc-12363778-anarthria-ibci",
@@ -619,7 +619,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版。調音は解析対象で復号経路の中間ではない"
+   "reason": "Another version of the same study. Articulation is an object of analysis, not an intermediate in the decoding pathway"
   },
   {
    "pid": "pmc-13335209-anarthria",
@@ -634,7 +634,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-13335209-celrep",
@@ -649,7 +649,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-13335209-ibcilong",
@@ -664,7 +664,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-13335209-intended-bci",
@@ -679,7 +679,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同じ研究の別版"
+   "reason": "Another version of the same study"
   },
   {
    "pid": "pmc-8293867-dorsal",
@@ -694,7 +694,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1088-1741-2552-abbfef の別版"
+   "reason": "Another version of doi-10.1088-1741-2552-abbfef"
   },
   {
    "pid": "pmc-9714519-speechsynth",
@@ -710,7 +710,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "対象論文の別フォルダ（同じ著者稿 XML、SHA-256 一致）。版の重複として 1 件に数える"
+   "reason": "Separate folder of the target paper (same author manuscript XML, SHA-256 match). Counted as one item as a version duplicate"
   }
  ],
  "known_item_recall": {
@@ -725,7 +725,7 @@
   "read": 44,
   "unread": 0,
   "confirmed_unique": 4,
-  "confirmed_本文確認": 4,
+  "confirmed_text_verified": 4,
   "recall_sample_read": 30,
   "recall_sample_included": 1,
   "recall_estimate": 0.74

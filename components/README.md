@@ -1,19 +1,19 @@
-# 13 部品の索引
+# The 13 components
 
-音声意図のデコードは、センサーを問わず 13 の部品（M01〜M13）で書ける。ここには、レビューのために部品ごとに分野全体を調べた結果を置く。表は回を重ねて追記していく。
+Any speech-intention decoder, whatever its sensor, can be described by the same 13 components (M01–M13). For each component, these are the topics searched across the whole field for the reviews, with every candidate paper and its decision. Tables grow with each review.
 
-| 部品 | 内容 | 話題 |
+| Component | Name | Topics |
 | --- | --- | --- |
 | M01 | Training-time act | — |
 | M02 | Teacher signal | — |
 | M03 | Train / calibrate | [length-curriculum](M03/) |
 | M04 | Use-time act | [overt-to-silent-transfer](M04/) |
 | M05 | Sensing | — |
-| M06 | Decoding | [articulatory-intermediate](M06/)、[attention-seq2seq-decoding](M06/)、[ctc-vs-attention](M06/) |
+| M06 | Decoding | [articulatory-intermediate](M06/), [attention-seq2seq-decoding](M06/), [ctc-vs-attention](M06/) |
 | M07 | Runtime aids | — |
 | M08 | Output | [neural-speech-synthesis](M08/) |
 | M09 | Confirmation | — |
 | M10 | Correction | — |
 | M11 | Eval reference | [in-the-wild-sentence-benchmark](M11/) |
-| M12 | Evaluation | [human-lipreader-baseline](M12/)、[listener-intelligibility-test](M12/) |
+| M12 | Evaluation | [human-lipreader-baseline](M12/), [listener-intelligibility-test](M12/) |
 | M13 | Hardware & limits | — |

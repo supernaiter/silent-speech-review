@@ -5,7 +5,7 @@
  "pattern": "\\b(seq2seq|sequence[- ]to[- ]sequence|encoder[- ]decoder|attend and spell|attention[- ]based (decoder|encoder|seq\\w*|model|sequence|recogni\\w+)|attention(al)? decoder|transformer decoder|wlas|listen,? attend)",
  "scope": "ledger",
  "fulltext_pattern": "(attention|attentional)[^.]{0,60}(encoder-decoder|sequence-to-sequence|seq2seq|decoder)|(encoder-decoder|sequence-to-sequence|seq2seq)[^.]{0,60}attention",
- "inclusion_rule": "映像・生体信号・神経信号など音声以外の入力（音声映像の併用を含む）から、注意機構つきの符号器・復号器（系列変換、Transformer 復号器を含む）で文字・単語・音素などの記号系列を自己回帰的に出力し、評価結果を報告した研究を含める。境界：注意を特徴抽出や単語分類だけに使うもの、CTC だけのもの（Transformer 符号器＋CTC を含む）は除く。出力が音声特徴（音声合成）のものは除く。CTC と注意の併用（hybrid）は注意復号器を持つので含める。音声だけの ASR は wiki 外なので対象外。同一研究の別版は1件。",
+ "inclusion_rule": "Include studies that autoregressively output symbol sequences such as characters, words or phonemes from non-audio input such as video, biosignals or neural signals (including combined audio-visual input) with an attention-based encoder-decoder (including sequence-to-sequence and Transformer decoders), and report evaluation results. Boundary: exclude those that use attention only for feature extraction or word classification, and those that use only CTC (including Transformer encoder + CTC). Exclude those whose output is speech features (speech synthesis). The CTC-attention combination (hybrid) has an attention decoder and is included. Audio-only ASR is outside the wiki and out of scope. Count different versions of the same study as one item.",
  "counts": {
   "scanned_folders": 8995,
   "scanned_unique": 7388,
@@ -139,8 +139,8 @@
    "decision": "include",
    "quote": "a novel dual attention mechanism that can operate over visual input only, audio input only, or both",
    "loc": "§2.3, §6",
-   "provenance": "本文確認",
-   "reason": "対象（2016-11）。口元映像と音声を別々の LSTM で符号化し、二つの注意で読む LSTM 復号器が文字を出す"
+   "provenance": "text-verified",
+   "reason": "Target (2016-11). Encodes mouth video and audio with separate LSTMs; an LSTM decoder reading with two attention mechanisms outputs characters"
   },
   {
    "pid": "arxiv-1703.04105",
@@ -155,7 +155,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。対象の紹介。自身は単語分類"
+   "reason": "Full-text-only match. Describes the target paper. Itself does word classification"
   },
   {
    "pid": "arxiv-1703.10893",
@@ -170,7 +170,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声強調（音声特徴の出力）"
+   "reason": "Speech enhancement (outputs speech features)"
   },
   {
    "pid": "arxiv-1704.03152",
@@ -185,7 +185,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "GRU 符号器・復号器による多モーダル表現学習で、記号系列の復号ではない"
+   "reason": "Multimodal representation learning with a GRU encoder-decoder; not decoding of a symbol sequence"
   },
   {
    "pid": "arxiv-1709.00944",
@@ -200,7 +200,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "音声強調（音声特徴の出力）"
+   "reason": "Speech enhancement (outputs speech features)"
   },
   {
    "pid": "arxiv-1710.11201",
@@ -245,8 +245,8 @@
    "decision": "include",
    "quote": "online monotonic attention, and a joint Connectionist Temporal Classiﬁcation- Sequence-to-Sequence loss",
    "loc": "Abstract",
-   "provenance": "本文確認",
-   "reason": "後続（2018-05）。TCD-TIMIT で Seq2seq と CTC 併用・単調注意を比較"
+   "provenance": "text-verified",
+   "reason": "Later (2018-05). Compares Seq2seq with combined CTC and monotonic attention on TCD-TIMIT"
   },
   {
    "pid": "arxiv-1806.06053",
@@ -260,8 +260,8 @@
    "decision": "include",
    "quote": "the transformer is a sequence-to-sequence model",
    "loc": "Abstract, §1",
-   "provenance": "本文確認",
-   "reason": "後続（2018-06）。Transformer 系列変換の唇読み"
+   "provenance": "text-verified",
+   "reason": "Later (2018-06). Transformer sequence-to-sequence lip reading"
   },
   {
    "pid": "arxiv-1807.05162",
@@ -275,9 +275,9 @@
    "snippet": "r to LRS3-TED (±90deg). | task_family=sentence_recognition | extra.Task.scope=T1 {professional, Audio-Ph, LipNet-Ch/Ph, Seq2seq-Ch, LipNet-Large-Ph, V2P-FullyConv/-NoLM/V2P} x PER/CER/WER x params; T2 V2P vs TM-seq2seq on LRS3 filtered/full. | int",
    "decision": "include",
    "quote": "Seq2seq-Ch",
-   "loc": "Table 3 (台帳の比較行)",
-   "provenance": "台帳のみ",
-   "reason": "後続（2018-07）。主方式は CTC だが Seq2seq-Ch を自前で学習し比較表に載せる（境界例）"
+   "loc": "Table 3 (ledger comparison row)",
+   "provenance": "ledger only",
+   "reason": "Later (2018-07). The main approach is CTC, but trains Seq2seq-Ch itself and includes it in the comparison table (boundary case)"
   },
   {
    "pid": "arxiv-1807.08469",
@@ -292,7 +292,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "系列変換は文字→音素（G2P）で、信号からの復号ではない"
+   "reason": "The sequence-to-sequence is grapheme-to-phoneme (G2P), not decoding from a signal"
   },
   {
    "pid": "arxiv-1809.02108",
@@ -307,8 +307,8 @@
    "decision": "include",
    "quote": "TM-seq2seq",
    "loc": "§3, Table 2",
-   "provenance": "本文確認",
-   "reason": "後続（2018-09）。TM-seq2seq（Transformer 系列変換）で音声映像認識"
+   "provenance": "text-verified",
+   "reason": "Later (2018-09). Audio-visual recognition with TM-seq2seq (Transformer sequence-to-sequence)"
   },
   {
    "pid": "arxiv-1810.00108",
@@ -324,7 +324,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "doi-10.1109-slt.2018.8639643 の別版"
+   "reason": "Another version of doi-10.1109-slt.2018.8639643"
   },
   {
    "pid": "arxiv-1811.01194",
@@ -353,9 +353,9 @@
    "snippet": "ttention (LSTM-scored per-modality weighting over time) fused into LAS-style e2e AVSR; CER at clean/10/5/0dB vs LAS/WAS/WLAS/AValign; multi-condition variant; attention-weight analysis. | task_family=sentence_recognition | extra.Task.scope=in-h",
    "decision": "include",
    "quote": "LAS/WAS/WLAS",
-   "loc": "台帳 M12",
-   "provenance": "台帳のみ",
-   "reason": "後続（2018-11）。モダリティ注意つき端から端までの音声映像認識、LAS/WAS/WLAS と比較"
+   "loc": "Ledger M12",
+   "provenance": "ledger only",
+   "reason": "Later (2018-11). End-to-end audio-visual recognition with modality attention; compared with LAS/WAS/WLAS"
   },
   {
    "pid": "arxiv-1904.04817",
@@ -386,7 +386,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "テキストコーパス生成の系列変換で、信号入力がない"
+   "reason": "Sequence-to-sequence for generating a text corpus; no signal input"
   },
   {
    "pid": "arxiv-1907.10210",
@@ -401,7 +401,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "舌輪郭の画像分割"
+   "reason": "Image segmentation of tongue contours"
   },
   {
    "pid": "arxiv-1908.04917",
@@ -415,9 +415,9 @@
    "snippet": "paper_id=arxiv-1908.04917 | title=A Cascade Sequence-to-Sequence Model for Chinese Mandarin Lip Reading | Study.research_objective=CSSMCM cascade V2P→VP2T→VPT2C with tone inference; ne",
    "decision": "include",
    "quote": "cascade V2P→VP2T→VPT2C",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2019-08）。中国語唇読みの多段系列変換"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2019-08). Multi-stage sequence-to-sequence for Mandarin lip reading"
   },
   {
    "pid": "arxiv-1908.05743-eegasr",
@@ -432,8 +432,8 @@
    "decision": "include",
    "quote": "a RNN decoder with attention mechanism",
    "loc": "§3",
-   "provenance": "本文確認",
-   "reason": "後続（2019-08）。EEG から注意つき RNN 符号器・復号器で単語列"
+   "provenance": "text-verified",
+   "reason": "Later (2019-08). Word sequences from EEG with an attention RNN encoder-decoder"
   },
   {
    "pid": "arxiv-1911.04890",
@@ -449,7 +449,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "RNN 変換器（transducer）で注意復号器ではない。TM-seq2seq は文献値の行"
+   "reason": "RNN transducer, not an attention decoder. TM-seq2seq is a row of literature values"
   },
   {
    "pid": "arxiv-1911.11502",
@@ -463,9 +463,9 @@
    "snippet": "y Distilling Speech Recognizers | Study.research_objective=LIBS: multi-granularity KD from speech recognizer teacher to seq2seq lip reader (frame/context/seq-level LKD1-3); CMLR+LRS2; 3 teacher archs (BiGRU256, GRU512, pyramidal GRU); 20%-data low",
    "decision": "include",
    "quote": "seq2seq lip reader",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2019-11）。系列変換の唇読みへ音声認識器から知識蒸留"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2019-11). Knowledge distillation from a speech recognizer to sequence-to-sequence lip reading"
   },
   {
    "pid": "arxiv-2001.00501-eegtransformer",
@@ -480,8 +480,8 @@
    "decision": "include",
    "quote": "sequence-to-sequence EEG models",
    "loc": "Abstract",
-   "provenance": "本文確認",
-   "reason": "後続（2020-01）。EEG から Transformer 系列変換で連続音声認識"
+   "provenance": "text-verified",
+   "reason": "Later (2020-01). Continuous speech recognition from EEG with Transformer sequence-to-sequence"
   },
   {
    "pid": "arxiv-2001.01656",
@@ -497,7 +497,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "自前の方式は TDNN（LF-MMI）。TM-seq2seq は文献値の行"
+   "reason": "The authors' own system is TDNN (LF-MMI). TM-seq2seq is a row of literature values"
   },
   {
    "pid": "arxiv-2003.03983",
@@ -510,9 +510,9 @@
    "snippet": "paper_id=arxiv-2003.03983 | title=Pseudo-Convolutional Policy Gradient for Sequence-to-Sequence Lip-Reading | Study.research_objective=PCPG: policy-gradient reward computed over k-step windows w/ stride s (pseudo-co",
    "decision": "include",
    "quote": "Sequence-to-Sequence Lip-Reading",
-   "loc": "題名・台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2020-03）。系列変換唇読みの方策勾配学習"
+   "loc": "Title and ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2020-03). Policy-gradient training for sequence-to-sequence lip reading"
   },
   {
    "pid": "arxiv-2003.06439",
@@ -541,9 +541,9 @@
    "snippet": "l LSTM outputs) fixes visual front-end convergence failure; + AU (facial Action Unit) aux loss regularizes visual repr; WLAS comparison; fusion variants M1-M5; alignment monotonicity controls (time-flip, blank frames). | task_family=sentence_re",
    "decision": "include",
    "quote": "WLAS comparison",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2020-04）。AV Align の注意を視覚表現の正則化で改善、WLAS と比較"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2020-04). Improves AV Align attention by regularizing the visual representation; compared with WLAS"
   },
   {
    "pid": "arxiv-2004.09347",
@@ -589,7 +589,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "出力が音声（メルスペクトル）"
+   "reason": "The output is speech (mel spectrogram)"
   },
   {
    "pid": "arxiv-2005.09297",
@@ -603,9 +603,9 @@
    "snippet": "udio-TF / AV-TF / AV-TF+AU; AU-loss ablation; width/depth ablation (not worth compute) | TrainingRun.training_objective=encoder-decoder CE; AU auxiliary loss toggles visual-stream supervision; larger TF than LSTM (25/36MB vs 9.3MB) | EvaluationProtocol.st",
    "decision": "include",
    "quote": "encoder-decoder CE",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2020-05）。系列変換唇読みで Transformer と LSTM を比較"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2020-05). Compares Transformer and LSTM in sequence-to-sequence lip reading"
   },
   {
    "pid": "arxiv-2006.01261-eegsep",
@@ -634,9 +634,9 @@
    "snippet": "| representation_kind=VER % + human-eval preference ratios | technical_essence=STCNN+BiLSTM per-view encoder; joint CTC/attention decoder | technical_essence=location-aware attention chosen over additive/multiplicative (T4); multi-view attention weights ran",
    "decision": "include",
    "quote": "joint CTC/attention decoder",
-   "loc": "台帳 M06",
-   "provenance": "台帳のみ",
-   "reason": "後続（2020-06）。多視点の唇読み、CTC と注意の併用復号器"
+   "loc": "Ledger M06",
+   "provenance": "ledger only",
+   "reason": "Later (2020-06). Multi-view lip reading with a combined CTC and attention decoder"
   },
   {
    "pid": "arxiv-2007.14223",
@@ -651,7 +651,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "WLAS の数値を文献から引いた説明的比較"
+   "reason": "Illustrative comparison citing WLAS numbers from the literature"
   },
   {
    "pid": "arxiv-2008.02516",
@@ -667,7 +667,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "非自己回帰の復号（規則の境界外）"
+   "reason": "Non-autoregressive decoding (outside the rule's boundary)"
   },
   {
    "pid": "arxiv-2009-01225-wakewords",
@@ -727,7 +727,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "単語分類（LRW）"
+   "reason": "Word classification (LRW)"
   },
   {
    "pid": "arxiv-2011.11315",
@@ -742,8 +742,8 @@
    "decision": "include",
    "quote": "combines the CNN and attention-based encoder-decoder network",
    "loc": "Abstract",
-   "provenance": "本文確認",
-   "reason": "後続（2020-11）。音響センシングの無声発話を注意つき符号器・復号器で文に"
+   "provenance": "text-verified",
+   "reason": "Later (2020-11). Acoustic-sensing silent speech to sentences with an attention encoder-decoder"
   },
   {
    "pid": "arxiv-2012.07467",
@@ -802,9 +802,9 @@
    "snippet": "e=End-to-end hybrid CTC/attention AVSR: raw pixels+waveform -> ResNet front-ends -> conformer encoders -> MLP fusion -> transformer decoder + LM | Study.study_design=controlled_experiment | extra.Task.target=sentence transcription on LRS2/LRS3; ablation of E2",
    "decision": "include",
    "quote": "transformer decoder + LM",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2021-02）。Conformer 音声映像認識、Transformer 復号器"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2021-02). Conformer audio-visual recognition with a Transformer decoder"
   },
   {
    "pid": "arxiv-2104.04784",
@@ -817,9 +817,9 @@
    "snippet": "l viseme decoding | Study.research_objective=Decompose sentence lipreading: video->viseme (3DCNN+s2s) then viseme->char seq2seq trained on external text (OpenSubtitles via CMU G2P + phoneme->viseme map); beats word-level WAS baseline w/o lipreadin",
    "decision": "include",
    "quote": "3DCNN+s2s",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2021-04）。映像→視素→文字の二段系列変換"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2021-04). Two-stage sequence-to-sequence: video→visemes→characters"
   },
   {
    "pid": "arxiv-2104.05418",
@@ -848,8 +848,8 @@
    "decision": "include",
    "quote": "the focus of the attention decoder",
    "loc": "§5",
-   "provenance": "本文確認",
-   "reason": "後続（2021、全文のみ一致）。注意復号器の焦点に信頼度を合わせる音声映像認識"
+   "provenance": "text-verified",
+   "reason": "Later (2021, full-text-only match). Audio-visual recognition that aligns confidence with the focus of the attention decoder"
   },
   {
    "pid": "arxiv-2104.13332",
@@ -879,7 +879,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "想像発話の分類"
+   "reason": "Imagined-speech classification"
   },
   {
    "pid": "arxiv-2107.12051",
@@ -910,7 +910,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "出力が音声（筋電→音声）"
+   "reason": "The output is speech (EMG→speech)"
   },
   {
    "pid": "arxiv-2108.03543",
@@ -941,7 +941,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "変換器（transducer）型の同時唇読みで注意復号器ではない"
+   "reason": "Transducer-type simultaneous lip reading, not an attention decoder"
   },
   {
    "pid": "arxiv-2109.03551",
@@ -956,7 +956,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "時刻合わせの研究で、系列変換は比較用"
+   "reason": "Study of time alignment; sequence-to-sequence is for comparison"
   },
   {
    "pid": "arxiv-2109.04894",
@@ -984,9 +984,9 @@
    "snippet": "h Visual Attention | Study.research_objective=VTP visual-pooling attention over CNN feature maps + sub-word (WordPiece) seq2seq lipreading; +LM rescoring + VSD application on AVA-ActiveSpeaker. | task_family=sentence_recognition | extra.Task.scope",
    "decision": "include",
    "quote": "sub-word (WordPiece) seq2seq lipreading",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2021-10）。サブワード単位の Transformer 符号器・復号器唇読み"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2021-10). Subword-level Transformer encoder-decoder lip reading"
   },
   {
    "pid": "arxiv-2110.07879",
@@ -1017,7 +1017,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "出力が音声"
+   "reason": "The output is speech"
   },
   {
    "pid": "arxiv-2112.02690",
@@ -1030,9 +1030,9 @@
    "snippet": "ask combos | representation_kind=word-level EEG feature sequence E; aggregated ê for baselines | technical_essence=BART seq2seq decoder + additional multi-layer transformer encoder on EEG features | technical_essence=zero-shot sentiment: EEG->text",
    "decision": "include",
    "quote": "BART seq2seq decoder",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2021-12）。EEG から BART 系列変換で文"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2021-12). Sentences from EEG with BART sequence-to-sequence"
   },
   {
    "pid": "arxiv-2112.04432",
@@ -1063,7 +1063,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "出力が音声"
+   "reason": "The output is speech"
   },
   {
    "pid": "arxiv-2112.09239",
@@ -1078,7 +1078,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。EEG の分類に Transformer 符号器を使う"
+   "reason": "Full-text-only match. Uses a Transformer encoder for EEG classification"
   },
   {
    "pid": "arxiv-2201.01763",
@@ -1275,7 +1275,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。音声抽出"
+   "reason": "Full-text-only match. Speech extraction"
   },
   {
    "pid": "arxiv-2207.06020",
@@ -1580,7 +1580,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。音声分離（参考文献）"
+   "reason": "Full-text-only match. Speech separation (references)"
   },
   {
    "pid": "arxiv-2306.06410",
@@ -2370,7 +2370,7 @@
    "via": [
     "ledger"
    ],
-   "snippet": "能力と顔動画が前提。COPD等でmurmur/whisper不能な症例では音声依存のGTシミュレーションが不適と明記（lip単独手法を探索）。 | extra.Task.target=NAM vibration → 音声波形（direct sequence-to-sequence translation として定式化） | extra.Task.output_kind=converted speech（音声波形） | extra.Task.target=paired whisper / NAM / 顔動画（＋テキス",
+   "snippet": "ability and face video are prerequisites. States explicitly that speech-dependent GT simulation is unsuitable for cases unable to murmur/whisper, such as COPD (explores lip-only methods). | extra.Task.target=NAM vibration → speech waveform (formulated as direct sequence-to-sequence translation) | extra.Task.output_kind=converted speech (speech waveform) | extra.Task.target=paired whisper / NAM / face video (+ tex",
    "decision": null,
    "quote": null,
    "loc": null,
@@ -3145,7 +3145,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。一般的記述"
+   "reason": "Full-text-only match. General statement"
   },
   {
    "pid": "arxiv-2512.14083-scalableavsr",
@@ -3389,7 +3389,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。参考文献の題名"
+   "reason": "Full-text-only match. Title in the references"
   },
   {
    "pid": "arxiv-2603.08249",
@@ -3434,7 +3434,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。既存 AVSR モデルの寄与分析で、復号器の提案・評価ではない（境界）"
+   "reason": "Full-text-only match. Contribution analysis of existing AVSR models, not the proposal or evaluation of a decoder (boundary)"
   },
   {
    "pid": "arxiv-2603.12279",
@@ -3540,8 +3540,8 @@
    "decision": "include",
    "quote": "attention-based sequence-to-sequence Cross-Entropy (CE) loss",
    "loc": "§3",
-   "provenance": "本文確認",
-   "reason": "後続（2026、全文のみ一致）。AV-HuBERT の系列変換 CE 微調整"
+   "provenance": "text-verified",
+   "reason": "Later (2026, full-text-only match). Sequence-to-sequence CE fine-tuning of AV-HuBERT"
   },
   {
    "pid": "arxiv-2604.05751",
@@ -3889,7 +3889,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。WLAS の紹介"
+   "reason": "Full-text-only match. Describes WLAS"
   },
   {
    "pid": "arxiv-2609-28988-korlip",
@@ -4054,8 +4054,8 @@
    "decision": "include",
    "quote": "an LSTM attention decoder over a 51-symbol IPA vocabulary",
    "loc": "§3",
-   "provenance": "本文確認",
-   "reason": "後続（2026、全文のみ一致）。神経信号から Conformer＋LSTM 注意復号器で IPA 記号（境界例：CTC 損失も使う）"
+   "provenance": "text-verified",
+   "reason": "Later (2026, full-text-only match). IPA symbols from neural signals with a Conformer + LSTM attention decoder (boundary case: also uses CTC loss)"
   },
   {
    "pid": "cmc-nestlipgnn",
@@ -4086,7 +4086,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1611.05358 の別版"
+   "reason": "Another version of arxiv-1611.05358"
   },
   {
    "pid": "cvf-dai24-modalbias",
@@ -4211,7 +4211,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "出力が音声（メルスペクトル）"
+   "reason": "The output is speech (mel spectrogram)"
   },
   {
    "pid": "cvf-prajwal22-subword-vtp",
@@ -4226,7 +4226,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-2110.07603 の別版"
+   "reason": "Another version of arxiv-2110.07603"
   },
   {
    "pid": "cvf-ren21-master-kd",
@@ -4239,9 +4239,9 @@
    "snippet": "ent — dynamic fusion loss L_DF + CE; student feedback regularizes master; curriculum learning; backends TC (word) or TM-Seq2Seq (sentence) | extra.Configuration.configuration_scope=Two-phase: pretrain TC word-level on LRW+pretrain sets (lr 1e-3) →",
    "decision": "include",
    "quote": "TM-Seq2Seq backend (sentence-level)",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2021）。文単位は TM-Seq2Seq 後段"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2021). Sentence level is the TM-Seq2Seq back end"
   },
   {
    "pid": "cvf-xu20-aemsr",
@@ -4255,9 +4255,9 @@
    "snippet": "(visual-aware magnitude spectrogram enhancement, TCN replacing 1D-ResNet blocks) + MSR sub-network (EleAtt-GRU enc2dec, seq2seq char decoding) — visual awareness applied twice | extra.Configuration.configuration_scope=P3D front-end pre-trained on",
    "decision": "include",
    "quote": "EleAtt-GRU enc2dec, seq2seq char decoding",
-   "loc": "台帳 M06",
-   "provenance": "台帳のみ",
-   "reason": "後続（2020）。EleAtt-GRU 符号器・復号器で文字を出す音声映像認識"
+   "loc": "Ledger M06",
+   "provenance": "ledger only",
+   "reason": "Later (2020). Audio-visual recognition outputting characters with an EleAtt-GRU encoder-decoder"
   },
   {
    "pid": "cvf-xu20-msr",
@@ -4286,9 +4286,9 @@
    "snippet": "Lip Reading | authors=Zhang, Cheng, Wang | Study.research_objective=Spatio-temporal fusion (STF) blocks + convolutional seq2seq for lip reading; lighter than RNN/Transformer baselines, less training data. | Study.study_design=controlled_experiment",
    "decision": "include",
    "quote": "convolutional seq2seq for lip reading",
-   "loc": "台帳 M06",
-   "provenance": "台帳のみ",
-   "reason": "後続（2019）。畳み込み系列変換の唇読み"
+   "loc": "Ledger M06",
+   "provenance": "ledger only",
+   "reason": "Later (2019). Convolutional sequence-to-sequence lip reading"
   },
   {
    "pid": "cvf-zhang24-es3",
@@ -4363,7 +4363,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "cvf-ren21-master-kd の別版"
+   "reason": "Another version of cvf-ren21-master-kd"
   },
   {
    "pid": "cvpr22-prajwal",
@@ -4378,7 +4378,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-2110.07603 の別版"
+   "reason": "Another version of arxiv-2110.07603"
   },
   {
    "pid": "doi-10.1002-aisy.70440",
@@ -4573,7 +4573,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。WLAS の紹介"
+   "reason": "Full-text-only match. Describes WLAS"
   },
   {
    "pid": "doi-10.1038-s42256-024-00824-8",
@@ -4741,7 +4741,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "サーベイ"
+   "reason": "Survey"
   },
   {
    "pid": "doi-10.1109-access.2025.3623842",
@@ -4817,9 +4817,9 @@
    "snippet": "TC/attention AVSR | SystemConfiguration.component_versions=ResNet visual+audio frontends on raw inputs; BLSTM encoders; attention decoder + CTC loss | technical_essence=shared CTC loss forces monotonic alignments while attention removes conditional independ",
    "decision": "include",
    "quote": "attention decoder + CTC loss",
-   "loc": "台帳 M06",
-   "provenance": "台帳のみ",
-   "reason": "後続（2018）。CTC と注意復号器の併用で LRS2 の音声映像認識"
+   "loc": "Ledger M06",
+   "provenance": "ledger only",
+   "reason": "Later (2018). Audio-visual recognition on LRS2 with combined CTC and attention decoder"
   },
   {
    "pid": "doi-10.1109-tbme.2026.3691322",
@@ -4881,7 +4881,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1809.02108 の別版"
+   "reason": "Another version of arxiv-1809.02108"
   },
   {
    "pid": "doi-10.1145-3338533.3366579",
@@ -4897,7 +4897,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1908.04917 の別版"
+   "reason": "Another version of arxiv-1908.04917"
   },
   {
    "pid": "doi-10.1145-3411764.3445565",
@@ -4987,7 +4987,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "BMI の符号化・復号モデルの組で、注意つき系列変換ではない"
+   "reason": "A paired encoding/decoding model for BMI; not attention-based sequence-to-sequence"
   },
   {
    "pid": "doi-10.1371-journal.pone.0319328",
@@ -5063,7 +5063,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1911.11502 の別版"
+   "reason": "Another version of arxiv-1911.11502"
   },
   {
    "pid": "doi-10.1609-aaai.v35i16.17693",
@@ -5079,7 +5079,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "出力が音声（Tacotron2 系）"
+   "reason": "The output is speech (Tacotron2-based)"
   },
   {
    "pid": "doi-10.18653-v1-2022.acl-long.308",
@@ -5198,9 +5198,9 @@
    "snippet": "orpora only (LRW/LRS2/LRS3; Multilingual TEDx 8 languages, 765 h; CMU-MOSEAS): LRS2 WER 33.6±0.5 (best 32.9) vs 37.9 CM-seq2seq — +9.2% at equal data, +12.4% with extra data; multilingual CER -12.9% absolute vs SOTA; beats models trained on 21x mo",
    "decision": "include",
    "quote": "CM-seq2seq",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2022）。多言語唇読み、CTC/注意併用"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2022). Multilingual lip reading, hybrid CTC/attention"
   },
   {
    "pid": "doi-10.21203-rs.3.rs-3927907-v1",
@@ -5290,7 +5290,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。他研究の紹介"
+   "reason": "Full-text-only match. Describes other studies"
   },
   {
    "pid": "doi-10.31234-osf.io-g34v7",
@@ -5351,8 +5351,8 @@
    "decision": "include",
    "quote": "Hybrid CTC/Attention Decoder",
    "loc": "§3",
-   "provenance": "本文確認",
-   "reason": "後続（2023、全文のみ一致）。6 層 Transformer 復号器と CTC の併用"
+   "provenance": "text-verified",
+   "reason": "Later (2023, full-text-only match). Combines a 6-layer Transformer decoder with CTC"
   },
   {
    "pid": "doi-10.3390-bioengineering11121216",
@@ -5398,7 +5398,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "出力が音声（筋電→音声）"
+   "reason": "The output is speech (EMG→speech)"
   },
   {
    "pid": "doi-10.3390-e27111121",
@@ -5548,7 +5548,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "lrec22-ssr7000 の別版（一致箇所は一般的記述）"
+   "reason": "Another version of lrec22-ssr7000 (the matched passage is a general statement)"
   },
   {
    "pid": "doi-10.64898-2025.11.30.691403",
@@ -5608,7 +5608,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。自己注意ブロックの「decoder」は神経復号器の意味で、自己回帰の系列変換かはスニペットで判別できない"
+   "reason": "Full-text-only match. The \"decoder\" of the self-attention block means a neural decoder; whether it is autoregressive sequence-to-sequence cannot be determined from the snippet"
   },
   {
    "pid": "doi-10.7554-elife.109400",
@@ -5653,7 +5653,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "系列変換は文字→音素（G2P）で、信号からの復号ではない"
+   "reason": "The sequence-to-sequence is grapheme-to-phoneme (G2P), not decoding from a signal"
   },
   {
    "pid": "entropy-27-01121-mviblip",
@@ -5668,7 +5668,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。一般的記述"
+   "reason": "Full-text-only match. General statement"
   },
   {
    "pid": "entropy-27-1121-mvib",
@@ -5712,9 +5712,9 @@
    "snippet": "architecture=Ma et al. hybrid CTC/Attention VSR: 3D-conv-first-layer ResNet-18 front-end → 12-layer Conformer encoder → Transformer decoder + 6-layer Transformer character LM (beam size 10); pre-trained on >1000 h English corpora then Spanish CMU-MOSEAS + Mul",
    "decision": "include",
    "quote": "Conformer encoder → Transformer decoder",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2022）。Conformer 符号器＋Transformer 復号器の話者適応唇読み"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2022). Speaker-adaptive lip reading with a Conformer encoder + Transformer decoder"
   },
   {
    "pid": "ib24-neural2speech",
@@ -5910,7 +5910,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1806.06053 の別版"
+   "reason": "Another version of arxiv-1806.06053"
   },
   {
    "pid": "isca-afouras18b_deeplipread",
@@ -5926,7 +5926,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1806.06053 の別版"
+   "reason": "Another version of arxiv-1806.06053"
   },
   {
    "pid": "isca-afouras18b_interspeech",
@@ -5941,7 +5941,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1806.06053 の別版"
+   "reason": "Another version of arxiv-1806.06053"
   },
   {
    "pid": "isca-akinrintoyo25_interspeech",
@@ -6001,7 +6001,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "系列変換は自己符号化器で、出力は話者属性"
+   "reason": "The sequence-to-sequence is an autoencoder; the output is speaker attributes"
   },
   {
    "pid": "isca-fernandezlopez24_interspeech",
@@ -6030,9 +6030,9 @@
    "snippet": "RGB tubelets (146 tokens) | ProcessingStep.architecture={'stages': ['spectrogram patch + full-frame tubelet encoders', 'seq2seq transformer fusion decode', 'random/content word masking (10%) in training', 'HowTo100M pretrain → How2/VisSpeech finet",
    "decision": "include",
    "quote": "seq2seq transformer fusion decode",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2022）。AVATAR、系列変換 Transformer の音声映像認識"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2022). AVATAR, sequence-to-sequence Transformer audio-visual recognition"
   },
   {
    "pid": "isca-ghosh24b_interspeech",
@@ -6092,7 +6092,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "isca-hong22_interspeech の別版"
+   "reason": "Another version of isca-hong22_interspeech"
   },
   {
    "pid": "isca-hong22_interspeech",
@@ -6106,9 +6106,9 @@
    "snippet": "ns) → noise-reduction mask', 'mask noisy audio features', 'fuse enhanced audio + visual features', 'Conformer encoder + Transformer decoder AVSR'], 'mechanism': 'AV correspondence → audio enhancement → recognition'} | extra.Output.output_kind=transcripts; WER",
    "decision": "include",
    "quote": "Conformer encoder + Transformer decoder AVSR",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2022）。Conformer＋Transformer 復号器の音声映像認識"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2022). Audio-visual recognition with Conformer + Transformer decoder"
   },
   {
    "pid": "isca-jiang23c-tasd",
@@ -6258,7 +6258,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。系列変換を今後の選択肢として述べるだけ（同時期）"
+   "reason": "Full-text-only match. Only mentions sequence-to-sequence as a future option (concurrent)"
   },
   {
    "pid": "isca-li19j_artattr",
@@ -6361,9 +6361,9 @@
    "snippet": "s | model_family=cnn, transformer | technical_essence=downstream heads: MS-TCN classifier (word) or Conformer encoder + Transformer decoder hybrid CTC/attention (sentence) | decoder_route=closed_set_classification | decoder_route=recognition_to_text | languag",
    "decision": "include",
    "quote": "Transformer decoder hybrid CTC/attention (sentence)",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2021）。Conformer＋Transformer 復号器の CTC/注意併用"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2021). Hybrid CTC/attention with Conformer + Transformer decoder"
   },
   {
    "pid": "isca-ma23-streamingav",
@@ -6423,7 +6423,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "感情分類"
+   "reason": "Emotion classification"
   },
   {
    "pid": "isca-nguyen25b-cocktail",
@@ -6559,7 +6559,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。出力が音声"
+   "reason": "Full-text-only match. The output is speech"
   },
   {
    "pid": "isca-prajwal24-lipreaders",
@@ -6604,7 +6604,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "系列変換は今後の方向として述べるだけ"
+   "reason": "Only mentions sequence-to-sequence as a future direction"
   },
   {
    "pid": "isca-qu19-lipsound",
@@ -6634,7 +6634,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。注意つき符号器・復号器はメルスペクトル再構成用"
+   "reason": "Full-text-only match. The attention encoder-decoder is for mel-spectrogram reconstruction"
   },
   {
    "pid": "isca-rallabandi19_vac",
@@ -6754,7 +6754,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "isca-shi22_interspeech の別版"
+   "reason": "Another version of isca-shi22_interspeech"
   },
   {
    "pid": "isca-shi22_interspeech",
@@ -6768,9 +6768,9 @@
    "snippet": "4 transformer blocks, 16 heads, 1024/4096 dim; pretrain 600K steps on 64 V100, 5 iterations | technical_essence=9-layer transformer decoder appended for CTC-free fine-tuning; no input masking/modality dropout at FT | decoder_route=recognition_to_text | system",
    "decision": "include",
    "quote": "9-layer transformer decoder appended",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2022）。AV-HuBERT に Transformer 復号器を足して微調整"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2022). Adds a Transformer decoder to AV-HuBERT and fine-tunes"
   },
   {
    "pid": "isca-shillingford19-largescale",
@@ -6785,7 +6785,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1807.05162 の別版"
+   "reason": "Another version of arxiv-1807.05162"
   },
   {
    "pid": "isca-shillingford19_interspeech",
@@ -6801,7 +6801,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1807.05162 の別版"
+   "reason": "Another version of arxiv-1807.05162"
   },
   {
    "pid": "isca-simic26-adaptive",
@@ -6846,7 +6846,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "rtMRI 画像の分割用の畳み込み符号器・復号器"
+   "reason": "Convolutional encoder-decoder for segmenting rtMRI images"
   },
   {
    "pid": "isca-stafylakis17-resnetlstm",
@@ -6861,7 +6861,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。対象（[2]）の紹介。自身は単語分類（同時期）"
+   "reason": "Full-text-only match. Describes the target paper ([2]). Itself does word classification (concurrent)"
   },
   {
    "pid": "isca-stafylakis17_interspeech",
@@ -6876,7 +6876,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。対象の紹介。自身は単語分類"
+   "reason": "Full-text-only match. Describes the target paper. Itself does word classification"
   },
   {
    "pid": "isca-stafylakis17_lipread",
@@ -6891,7 +6891,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。対象の紹介。自身は単語分類"
+   "reason": "Full-text-only match. Describes the target paper. Itself does word classification"
   },
   {
    "pid": "isca-sterpu20-transformer",
@@ -6997,7 +6997,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "「encoder-decoder」は唇形状の分類用の砂時計型ネットで、系列出力ではない"
+   "reason": "The \"encoder-decoder\" is an hourglass network for classifying lip shapes, not sequence output"
   },
   {
    "pid": "isca-wu21e-cocktail",
@@ -7012,7 +7012,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。注意は融合の一般的記述で、復号器の種類はスニペットで判別できない"
+   "reason": "Full-text-only match. Attention is a general statement about fusion; the decoder type cannot be determined from the snippet"
   },
   {
    "pid": "isca-wu21e_interspeech",
@@ -7115,9 +7115,9 @@
    "snippet": "layer →3D conv) video encoder + Conformer audio encoder, representations fused by two-linear-layer MLP, autoregressive transformer decoder (beam 4, len-penalty 1), Adam lr 5e-5, bs 3, CE loss. wav2vec-2.0 AVSR: wav2vec2-large-xlsr-cantonese + ImageNet-pretra",
    "decision": "include",
    "quote": "autoregressive transformer decoder",
-   "loc": "台帳",
-   "provenance": "台帳のみ",
-   "reason": "後続（2022）。広東語音声映像データ、自己回帰 Transformer 復号器"
+   "loc": "Ledger",
+   "provenance": "ledger only",
+   "reason": "Later (2022). Cantonese audio-visual data, autoregressive Transformer decoder"
   },
   {
    "pid": "lrec22-ssr7000",
@@ -7131,9 +7131,9 @@
    "snippet": "me moving-average filtering of the 60fps UTI to suppress white noise | ProcessingStep.architecture=Hybrid CTC/attention encoder-decoder trained on DCT features with SpecAugment (time-warp ≤5 frames, 2×time-masks ≤40, 2×freq-masks 5/10/30/30 by DCT order);",
    "decision": "include",
    "quote": "Hybrid CTC/attention encoder-decoder",
-   "loc": "台帳 M06",
-   "provenance": "台帳のみ",
-   "reason": "後続（2022）。超音波舌画像と唇映像、CTC/注意併用の符号器・復号器"
+   "loc": "Ledger M06",
+   "provenance": "ledger only",
+   "reason": "Later (2022). Ultrasound tongue images and lip video; encoder-decoder with hybrid CTC/attention"
   },
   {
    "pid": "mdpi-app13116521_sa",
@@ -7256,7 +7256,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。今後の可能性として述べるだけ、出力は音声"
+   "reason": "Full-text-only match. Only mentioned as a future possibility; the output is speech"
   },
   {
    "pid": "pmc-10560395-makin",
@@ -7271,7 +7271,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "RNN 符号器・復号器だが注意機構を使わない（本文に attention の機構の記述なし）"
+   "reason": "RNN encoder-decoder but without an attention mechanism (the text describes no attention mechanism)"
   },
   {
    "pid": "pmc-10980022-satrans-decode",
@@ -7466,7 +7466,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。注意課題の fMRI 復号"
+   "reason": "Full-text-only match. fMRI decoding of an attention task"
   },
   {
    "pid": "pmc-12313072-natsoundrecon",
@@ -7751,7 +7751,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。聴覚注意の復号"
+   "reason": "Full-text-only match. Decoding of auditory attention"
   },
   {
    "pid": "pmc-13406005-cocktail",
@@ -7887,7 +7887,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。聴覚注意の MEG 復号器"
+   "reason": "Full-text-only match. MEG decoder of auditory attention"
   },
   {
    "pid": "pmc-5568457-trfest",
@@ -7902,7 +7902,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。聴覚注意の復号"
+   "reason": "Full-text-only match. Decoding of auditory attention"
   },
   {
    "pid": "pmc-5623038-encdec",
@@ -7917,7 +7917,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。「attention」は注意状態の意味"
+   "reason": "Full-text-only match. \"attention\" means the attentional state"
   },
   {
    "pid": "pmc-5650628-coverteegmeg",
@@ -7932,7 +7932,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。注意の検出"
+   "reason": "Full-text-only match. Attention detection"
   },
   {
    "pid": "pmc-5938416-bayesatt",
@@ -8067,7 +8067,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。注意状態の線形復号"
+   "reason": "Full-text-only match. Linear decoding of attentional state"
   },
   {
    "pid": "pmc-8321361-altconv-lipread",
@@ -8082,7 +8082,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "単語分類（MS-TCN）"
+   "reason": "Word classification (MS-TCN)"
   },
   {
    "pid": "pmc-8322190-aadrl",
@@ -8142,7 +8142,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。参考文献の題名"
+   "reason": "Full-text-only match. Title in the references"
   },
   {
    "pid": "pmc-8512903-intracorticaltimesteps",
@@ -8263,7 +8263,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "出力が音声（筋電→音声）"
+   "reason": "The output is speech (EMG→speech)"
   },
   {
    "pid": "pmc-9312762-ssrnet-tonal",
@@ -8279,7 +8279,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "出力が音声（筋電→音声）"
+   "reason": "The output is speech (EMG→speech)"
   },
   {
    "pid": "pmc-9370936-reliability-avsr",
@@ -8293,8 +8293,8 @@
    "decision": "include",
    "quote": "six multi-head attention blocks in the transformer decoder",
    "loc": "§3",
-   "provenance": "本文確認",
-   "reason": "後続（2022、全文のみ一致）。信頼度つき Transformer 復号器の音声映像認識"
+   "provenance": "text-verified",
+   "reason": "Later (2022, full-text-only match). Audio-visual recognition with a confidence-aware Transformer decoder"
   },
   {
    "pid": "pmc-9427107-avtaskswitch",
@@ -8324,7 +8324,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "全文のみ一致。注意状態の復号"
+   "reason": "Full-text-only match. Decoding of attentional state"
   },
   {
    "pid": "pmc-9609693-mavsr",
@@ -8490,7 +8490,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "本文は CNN（複数タワー）による 500 単語分類で、注意つき復号器はない（台帳の「WLAS」記述は誤り）"
+   "reason": "The text describes 500-word classification with a CNN (multiple towers); no attention decoder (the ledger's \"WLAS\" description is wrong)"
   }
  ],
  "known_item_recall": {
@@ -8505,7 +8505,7 @@
   "read": 115,
   "unread": 441,
   "confirmed_unique": 36,
-  "confirmed_本文確認": 12,
+  "confirmed_text_verified": 12,
   "recall_sample_read": 30,
   "recall_sample_included": 6,
   "recall_estimate": 0.33
