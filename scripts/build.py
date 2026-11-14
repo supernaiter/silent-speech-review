@@ -603,6 +603,20 @@ def metadata(papers):
     }, indent=2, ensure_ascii=False) + "\n"
 
 
+def moved_stub(p):
+    """Page at the pre-folder URL reviews/<slug>.md, so indexed links keep working."""
+    return "\n".join([
+        f"# {p['title']}",
+        "",
+        f"**This review has moved to [reviews/{p['slug']}/]({p['slug']}/).**",
+        "",
+        p["en"].get("summary", ""),
+        "",
+        f"[Read the full review]({p['slug']}/) · [All reviews](../README.md)",
+        "",
+    ])
+
+
 def outputs(papers):
     files = {
         ROOT / "README.md": readme(papers),
@@ -610,8 +624,12 @@ def outputs(papers):
         DATA / "papers.csv": papers_csv(papers),
         DATA / "metadata.json": metadata(papers),
     }
+    moved_list = DATA / "moved_pages.txt"
+    moved = set(moved_list.read_text(encoding="utf-8").split()) if moved_list.exists() else set()
     for p in papers:
         files[paper_dir(p) / "README.md"] = review_page(p, papers)
+        if p["slug"] in moved:
+            files[REVIEWS_DIR / f"{p['slug']}.md"] = moved_stub(p)
         for fig in paper_figures(p):
             for mode, svg in (F.render(fig) or {}).items():
                 files[paper_dir(p) / "figures" / f"{fig['id']}-{mode}.svg"] = svg

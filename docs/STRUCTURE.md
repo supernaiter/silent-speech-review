@@ -34,7 +34,10 @@ components/
   <Mxx>/<topic>.json               元    話題の採否表（検索式、範囲、候補、採否、理由、集計）
   <Mxx>/<topic>.csv                生成  同じ表を GitHub で読める形に
 
+reviews/<slug>.md                  生成  旧 URL の転送ページ（data/moved_pages.txt にある slug だけ。検索に載った旧リンクを切らさない）
+
 data/
+  moved_pages.txt                  元    フォルダ化の前に reviews/<slug>.md で公開していた slug の一覧
   reviews.jsonl                    元    全論文の書誌・分類・要約・英語項目（1 行 1 本）
   field.json                       元    分野全体の図の定義
   papers.csv, metadata.json        生成  外部向けの一覧
