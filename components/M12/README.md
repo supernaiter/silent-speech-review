@@ -4,7 +4,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## human-lipreader-baseline
 
-- Table: [`human-lipreader-baseline.csv`](human-lipreader-baseline.csv) (7 confirmed, 116 candidates read, 0 unread)
+- Table: [`human-lipreader-baseline.csv`](human-lipreader-baseline.csv) (6960 slot-filled, 64 pattern match, 116 read in full)
 - Inclusion rule: Include studies that place, on the same metric, the results of machine lipreading or silent speech recognition alongside the results of human lipreaders (experts, people with hearing impairment, or general participants) reading the same data (the same test set or a subset of it). Boundary: exclude intelligibility assessments in which people listen to reconstructed speech. Exclude those that only cite human performance as literature values. Exclude studies of lipreading ability among humans with no machine results. Count different versions of the same study as one item.
 - Used in: [Lip Reading Sentences in the Wild](../../reviews/lip-reading-sentences-in-the-wild/)
 
@@ -20,7 +20,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## listener-intelligibility-test
 
-- Table: [`listener-intelligibility-test.csv`](listener-intelligibility-test.csv) (29 confirmed, 106 candidates read, 0 unread)
+- Table: [`listener-intelligibility-test.csv`](listener-intelligibility-test.csv) (6960 slot-filled, 37 pattern match, 106 read in full)
 - Inclusion rule: Include studies that evaluate speech synthesized from non-acoustic signals (neural activity, EMG, articulatory measurements such as EMA or PMA, ultrasound, mouth video) with an intelligibility test in which human listeners transcribe it or identify words or sentences from a set of choices, and report accuracy, WER or similar. Boundary: exclude those with only naturalness, preference or MOS ratings. Exclude conversion from acoustic input (whisper, NAM microphone, esophageal speech, etc.). Exclude synthesis from text and stimulus sounds for perception experiments. Exclude those that evaluate synthesized speech only with automatic speech recognition. Exclude matches in reviews or citations only. Count different versions of the same study as one item.
 - Used in: [Speech synthesis from neural decoding of spoken sentences](../../reviews/speech-synthesis-from-neural-decoding-of-spoken-sentences/)
 

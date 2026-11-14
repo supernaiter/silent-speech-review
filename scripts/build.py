@@ -329,6 +329,13 @@ def topics():
 
 def tally_line(d):
     t = d.get("tally", {})
+    if "slot_filled_unique" in t:
+        ua = t.get("usual_approach") or {}
+        parts = [f"{t['slot_filled_unique']} slot-filled", f"{t.get('string_match_unique', 0)} pattern match"]
+        if ua.get("n") is not None:
+            parts.append(f"usual design in {ua['n']}")
+        parts.append(f"{t.get('read', 0)} read in full")
+        return ", ".join(parts)
     return f"{t.get('confirmed_unique', 0)} confirmed, {t.get('read', 0)} candidates read, {t.get('unread', 0)} unread"
 
 

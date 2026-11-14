@@ -4,7 +4,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## neural-speech-synthesis
 
-- Table: [`neural-speech-synthesis.csv`](neural-speech-synthesis.csv) (15 confirmed, 140 candidates read, 361 unread)
+- Table: [`neural-speech-synthesis.csv`](neural-speech-synthesis.csv) (3268 slot-filled, 35 pattern match, 140 read in full)
 - Inclusion rule: Include studies that decode continuous acoustic representations (spectrograms, MFCC or vocoder features, formants) from non-acoustic neural signals (ECoG, sEEG, intracortical electrodes, EEG, MEG, etc.) associated with speech production (overt, mouthed, attempted, imagined) and either output them as speech or evaluate them in a form convertible to speech. Boundary: exclude studies that reconstruct heard speech from activity during listening (perception). Exclude those that only decode text and then read it aloud with a standard speech synthesizer. Exclude BCIs that operate a synthesizer through limb motor imagery or the like, since this is not activity associated with speech production. Exclude matches in reviews, ethics papers or citations only. Count different versions of the same study as one item.
 - Used in: [Speech synthesis from neural decoding of spoken sentences](../../reviews/speech-synthesis-from-neural-decoding-of-spoken-sentences/)
 

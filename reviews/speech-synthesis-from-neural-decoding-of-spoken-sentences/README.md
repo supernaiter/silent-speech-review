@@ -166,10 +166,10 @@ Data behind this review. Full texts of the papers are not included.
 - [`refs.bib`](refs.bib): references (BibTeX)
 - [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
 - [`figures.json`](figures.json): figure definitions
-- [`components/M04/overt-to-silent-transfer.csv`](../../components/M04/overt-to-silent-transfer.csv): M04 topic "overt-to-silent-transfer", every candidate paper with its decision (23 confirmed, 104 candidates read, 0 unread)
-- [`components/M06/articulatory-intermediate.csv`](../../components/M06/articulatory-intermediate.csv): M06 topic "articulatory-intermediate", every candidate paper with its decision (4 confirmed, 44 candidates read, 0 unread)
-- [`components/M08/neural-speech-synthesis.csv`](../../components/M08/neural-speech-synthesis.csv): M08 topic "neural-speech-synthesis", every candidate paper with its decision (15 confirmed, 140 candidates read, 361 unread)
-- [`components/M12/listener-intelligibility-test.csv`](../../components/M12/listener-intelligibility-test.csv): M12 topic "listener-intelligibility-test", every candidate paper with its decision (29 confirmed, 106 candidates read, 0 unread)
+- [`components/M04/overt-to-silent-transfer.csv`](../../components/M04/overt-to-silent-transfer.csv): M04 topic "overt-to-silent-transfer", every candidate paper with its decision (5595 slot-filled, 33 pattern match, 104 read in full)
+- [`components/M06/articulatory-intermediate.csv`](../../components/M06/articulatory-intermediate.csv): M06 topic "articulatory-intermediate", every candidate paper with its decision (7345 slot-filled, 12 pattern match, 44 read in full)
+- [`components/M08/neural-speech-synthesis.csv`](../../components/M08/neural-speech-synthesis.csv): M08 topic "neural-speech-synthesis", every candidate paper with its decision (3268 slot-filled, 35 pattern match, 140 read in full)
+- [`components/M12/listener-intelligibility-test.csv`](../../components/M12/listener-intelligibility-test.csv): M12 topic "listener-intelligibility-test", every candidate paper with its decision (6960 slot-filled, 37 pattern match, 106 read in full)
 
 
 ## More reviews in Brain signals (EEG, MEG, intracortical)

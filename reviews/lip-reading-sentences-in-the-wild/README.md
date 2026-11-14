@@ -159,10 +159,10 @@ Data behind this review. Full texts of the papers are not included.
 - [`refs.bib`](refs.bib): references (BibTeX)
 - [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
 - [`figures.json`](figures.json): figure definitions
-- [`components/M03/length-curriculum.csv`](../../components/M03/length-curriculum.csv): M03 topic "length-curriculum", every candidate paper with its decision (18 confirmed, 71 candidates read, 5 unread)
-- [`components/M06/attention-seq2seq-decoding.csv`](../../components/M06/attention-seq2seq-decoding.csv): M06 topic "attention-seq2seq-decoding", every candidate paper with its decision (36 confirmed, 115 candidates read, 441 unread)
-- [`components/M11/in-the-wild-sentence-benchmark.csv`](../../components/M11/in-the-wild-sentence-benchmark.csv): M11 topic "in-the-wild-sentence-benchmark", every candidate paper with its decision (5 confirmed, 49 candidates read, 293 unread)
-- [`components/M12/human-lipreader-baseline.csv`](../../components/M12/human-lipreader-baseline.csv): M12 topic "human-lipreader-baseline", every candidate paper with its decision (7 confirmed, 116 candidates read, 0 unread)
+- [`components/M03/length-curriculum.csv`](../../components/M03/length-curriculum.csv): M03 topic "length-curriculum", every candidate paper with its decision (1526 slot-filled, 39 pattern match, 71 read in full)
+- [`components/M06/attention-seq2seq-decoding.csv`](../../components/M06/attention-seq2seq-decoding.csv): M06 topic "attention-seq2seq-decoding", every candidate paper with its decision (7345 slot-filled, 210 pattern match, 115 read in full)
+- [`components/M11/in-the-wild-sentence-benchmark.csv`](../../components/M11/in-the-wild-sentence-benchmark.csv): M11 topic "in-the-wild-sentence-benchmark", every candidate paper with its decision (234 slot-filled, 271 pattern match, 49 read in full)
+- [`components/M12/human-lipreader-baseline.csv`](../../components/M12/human-lipreader-baseline.csv): M12 topic "human-lipreader-baseline", every candidate paper with its decision (6960 slot-filled, 64 pattern match, 116 read in full)
 
 
 ## More reviews in Lip & face video

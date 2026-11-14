@@ -141,8 +141,8 @@ Data behind this review. Full texts of the papers are not included.
 - [`refs.bib`](refs.bib): references (BibTeX)
 - [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
 - [`figures.json`](figures.json): figure definitions
-- [`components/M06/ctc-vs-attention.csv`](../../components/M06/ctc-vs-attention.csv): M06 topic "ctc-vs-attention", every candidate paper with its decision (3 confirmed, 42 candidates read, 128 unread)
-- [`components/M11/in-the-wild-sentence-benchmark.csv`](../../components/M11/in-the-wild-sentence-benchmark.csv): M11 topic "in-the-wild-sentence-benchmark", every candidate paper with its decision (5 confirmed, 49 candidates read, 293 unread)
+- [`components/M06/ctc-vs-attention.csv`](../../components/M06/ctc-vs-attention.csv): M06 topic "ctc-vs-attention", every candidate paper with its decision (7345 slot-filled, 114 pattern match, 42 read in full)
+- [`components/M11/in-the-wild-sentence-benchmark.csv`](../../components/M11/in-the-wild-sentence-benchmark.csv): M11 topic "in-the-wild-sentence-benchmark", every candidate paper with its decision (234 slot-filled, 271 pattern match, 49 read in full)
 
 
 ## More reviews in Lip & face video
