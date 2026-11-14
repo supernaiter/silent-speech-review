@@ -5,6 +5,7 @@
 Each paper judged component by component against the usual approach and the state of the art.
 
 - [EMG-to-Speech with Fewer Channels](emg-to-speech-with-fewer-channels/) (2026). Halving EMG electrodes costs synthesis the same ~35% relative WER known from recognition; initialization helps, channel dropout does not, and a weak unrepeated baseline undercuts the ranking.
+- [A high-performance neuroprosthesis for speech decoding and avatar control](a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/) (2023). Text, voice and avatar from ECoG in one participant hold as a demonstration; sensor and decoder are standard, and an LM trained on the test pool inflates the text result.
 - [A high-performance speech neuroprosthesis](a-high-performance-speech-neuroprosthesis/) (2023). Large-vocabulary attempted-speech decoding in one participant holds; sensor, decoder and LM are now field standard, but the spiking attribution and cross-study ratios outrun the evidence.
 - [Speech synthesis from neural decoding of spoken sentences](speech-synthesis-from-neural-decoding-of-spoken-sentences/) (2019). A milestone demonstration of sentence synthesis from ECoG, but its articulatory-intermediate claim is confounded by extra supervision and its intelligibility rests on closed word pools.
 - [Deep Audio-Visual Speech Recognition](deep-audio-visual-speech-recognition/) (2018). LRS2-BBC outlasts the models: the CTC vs seq2seq comparison is confounded, the 22-point gain is not attributable to the new architecture, and test speaker overlap is unreported.
@@ -82,7 +83,6 @@ Earlier format: evaluation conditions, results and limitations per paper.
 - [Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset](advancing-nam-to-speech-conversion-with-novel-methods-and-the-multinam-dataset/) (2024)
 - [An Accurate and Rapidly Calibrating Speech Neuroprosthesis](an-accurate-and-rapidly-calibrating-speech-neuroprosthesis/) (2024)
 - [Unvoiced: Designing an LLM-assisted Unvoiced User Interface using Earables](unvoiced-designing-an-llm-assisted-unvoiced-user-interface-using-earables/) (2024)
-- [A high-performance neuroprosthesis for speech decoding and avatar control](a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/) (2023)
 - [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks/) (2023)
 - [Audio Knowledge Empowered Visual Speech Recognition](akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model/) (2023)
 - [Audio-visual video-to-speech synthesis with synthesized input audio](audio-visual-video-to-speech-synthesis-with-synthesized-input-audio/) (2023)

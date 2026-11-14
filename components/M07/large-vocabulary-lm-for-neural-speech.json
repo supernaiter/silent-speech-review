@@ -104,24 +104,29 @@
      "biorxiv-2022.11.15.516461",
      "arxiv-2605.08075"
     ]
+   },
+   {
+    "design": "InformationUse.use_stage=evaluation",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-13042181-ecog-als-longitudinal",
+     "biorxiv-2022.11.15.516461"
+    ]
+   },
+   {
+    "design": "InformationUse.information_consumer=lipvoicer (pred) conditioning via pre-trained lip-reading network",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
    }
   ],
   "pattern_counts": [
    {
-    "design": "neural_llm_rescoring",
-    "n": 152,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2601.20447",
-     "arxiv-2602.20219",
-     "arxiv-2603.02847",
-     "arxiv-2603.11877",
-     "arxiv-2603.17109"
-    ]
-   },
-   {
     "design": "ngram_lm",
-    "n": 146,
+    "n": 134,
     "tier": "pattern match",
     "pids": [
      "arxiv-2502.05762",
@@ -132,31 +137,19 @@
     ]
    },
    {
-    "design": "closed_vocab_50",
-    "n": 55,
+    "design": "neural_llm_rescoring",
+    "n": 14,
     "tier": "pattern match",
     "pids": [
-     "arxiv-2601-18177-lipsiri",
      "arxiv-2603.11877",
-     "arxiv-2608.25204",
-     "arxiv-2609-02887-commbci",
-     "arxiv-2609-03231-pnpl26"
-    ]
-   },
-   {
-    "design": "large_vocab_ge1000",
-    "n": 45,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2510.23969",
-     "arxiv-2603.18299-align",
-     "arxiv-2605.24313",
-     "arxiv-2608-20186-silentread",
-     "arxiv-2609-03231-pnpl26"
+     "doi-10.21203-rs.3.rs-9916752.v1",
+     "isca-feghhi26_interspeech",
+     "pmc-13375540-ltbci",
+     "pmc-13483768-speechnp"
     ]
    }
   ],
-  "metric_pattern": "WER|word error",
+  "metric_pattern": "(?i)WER|word error",
   "better": "lower"
  },
  "sota_candidates": [
@@ -230,6 +223,24 @@
    "raw": "0.44",
    "pid": "arxiv-2603.12279",
    "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t1 lipnet-ph wer se",
+   "value": 0.5,
+   "unit": "percent",
+   "raw": "0.5",
+   "pid": "arxiv-1807.05162",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "0.6% WER",
+   "value": 0.6,
+   "unit": "%",
+   "raw": "best WER babble",
+   "pid": "isca-heckmann01-annhmm",
+   "year": 2001,
    "tier": "ledger only"
   }
  ],
@@ -13219,9 +13230,16 @@
   ],
   "unread": 1290,
   "confirmed_unique": 0,
-  "known_item_recall": null
+  "known_item_recall": 1.0
  },
  "used_by": [
+  "a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control",
   "a-high-performance-speech-neuroprosthesis"
- ]
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
+ }
 }
