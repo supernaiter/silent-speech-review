@@ -1,161 +1,161 @@
 {
-  "M01": {
-    "choice": [
-      "Voiced+silent EMG",
-      "Gaddy corpus",
-      "inherited setup"
-    ],
-    "field": "Train voiced, use silent; modes reported apart",
-    "n": 8995,
-    "matched": 4014,
-    "verdict": "standard",
-    "matched_tier": "slot_filled",
-    "note": "Inherited from Gaddy corpus; matches field practice."
-  },
-  "M02": {
-    "choice": [
-      "Voiced audio mels",
-      "Phoneme alignment",
-      "as teacher"
-    ],
-    "field": "Paired audio/text/phoneme supervision",
-    "n": 8995,
-    "matched": 258,
-    "verdict": "standard",
-    "matched_tier": "slot_filled (M03 supervision_kind = paired audio)",
-    "note": "Standard supervision; ledger records it under M03."
-  },
-  "M03": {
-    "choice": [
-      "8ch pretrain",
-      "Fine-tune on subset",
-      "Dropout p<=0.25"
-    ],
-    "field": "Channel masking known; day-layer/pos transfer",
-    "n": 8995,
-    "matched": 23,
-    "verdict": "standard",
-    "matched_tier": "confirmed (9 masking + 14 transfer, unique studies)",
-    "note": "Downgraded from ahead: full-to-subset initialization has no other example only within the wiki regex search (recall not measured) and rests on runs with no reported run/seed count and a weak baseline; channel dropout is not novel and not supported."
-  },
-  "M04": {
-    "choice": [
-      "Silent or voiced",
-      "test unstated"
-    ],
-    "field": "Silent and voiced results reported apart",
-    "n": 8995,
-    "matched": 1024,
-    "verdict": "missing",
-    "matched_tier": "regex",
-    "note": "missing = not reported: the paper does not state whether the test set is silent or voiced EMG."
-  },
-  "M05": {
-    "choice": [
-      "8->1 backward elim.",
-      "All 70 4-of-8 sets",
-      "Best 4ch 47.2%"
-    ],
-    "field": "Subset selection in EMG/EEG/MEG/EMA/accel/magnetometer/video; EMG exhaustive 2,047-subset search exists",
-    "n": 8995,
-    "matched": 53,
-    "verdict": "standard",
-    "matched_tier": "confirmed (50 via ledger regex + 3 via independent full-text search; not exhaustive)",
-    "note": "Relative 8->4 cost (+35%) matches EMG recognition precedents (+32%, +36%); only the retrained exhaustive search with open-vocabulary synthesis WER is new within the wiki search."
-  },
-  "M06": {
-    "choice": [
-      "Gaddy21 encoder",
-      "HiFi-GAN vocoder",
-      "1st conv resized"
-    ],
-    "field": "Encoder + neural vocoder pipeline",
-    "n": 8995,
-    "matched": 240,
-    "verdict": "standard",
-    "matched_tier": "regex",
-    "note": "Same-lab standard configuration."
-  },
-  "M07": {
-    "choice": [
-      "No LM at use time",
-      "Whisper LM in eval"
-    ],
-    "field": "LM for text decoding; none for synthesis",
-    "n": 8995,
-    "matched": 2262,
-    "verdict": "standard",
-    "matched_tier": "source-text term occurrence (upper bound)",
-    "note": "No use-time LM is normal for synthesis; Whisper's internal LM is an implicit evaluation-time LM (reviewer hypothesis)."
-  },
-  "M08": {
-    "choice": [
-      "Speech waveform"
-    ],
-    "field": "Audio output (425 papers)",
-    "n": 8995,
-    "matched": 425,
-    "verdict": "standard",
-    "matched_tier": "regex",
-    "note": "Standard."
-  },
-  "M09": {
-    "choice": [
-      "None"
-    ],
-    "field": "Online BCIs confirm output (button/gaze)",
-    "n": 8995,
-    "matched": 82,
-    "verdict": "missing",
-    "matched_tier": "slot_filled",
-    "note": "missing = not applicable: offline synthesis studies normally do not address output confirmation; not a defect of this paper."
-  },
-  "M10": {
-    "choice": [
-      "None"
-    ],
-    "field": "Correction rare; mostly online BCI/AAC",
-    "n": 8995,
-    "matched": 82,
-    "verdict": "missing",
-    "matched_tier": "slot_filled",
-    "note": "missing = not applicable: offline study; correction/re-entry is out of scope."
-  },
-  "M11": {
-    "choice": [
-      "Corpus transcripts",
-      "norm. unstated"
-    ],
-    "field": "Text reference + ASR or human listeners",
-    "n": 8995,
-    "matched": 239,
-    "verdict": "standard",
-    "matched_tier": "slot_filled",
-    "note": "Standard; Whisper text normalization not stated."
-  },
-  "M12": {
-    "choice": [
-      "Whisper-med WER",
-      "Runs/seeds unstated",
-      "Baseline ~35%"
-    ],
-    "field": "Seed repeats, held-out subset choice",
-    "n": 8995,
-    "matched": 114,
-    "verdict": "behind",
-    "matched_tier": "regex",
-    "note": "Behind the best comparable sensor-reduction studies (seed repeats, held-out selection); typical of speech synthesis, where seed repetition is rare (1 of 425 regex matches)."
-  },
-  "M13": {
-    "choice": [
-      "Virtual deletion",
-      "No reduced device"
-    ],
-    "field": "Record with reduced layout (11->8); device prototypes",
-    "n": 8995,
-    "matched": 337,
-    "verdict": "missing",
-    "matched_tier": "regex",
-    "note": "missing = not applicable: offline virtual-deletion study; relevant only as a limit on device-design claims."
-  }
+ "M01": {
+  "choice": [
+   "Voiced+silent EMG",
+   "Gaddy corpus",
+   "inherited setup"
+  ],
+  "field": "Train voiced, use silent; modes reported apart",
+  "n": 8995,
+  "matched": 4014,
+  "verdict": "standard",
+  "matched_tier": "slot_filled",
+  "note": "Inherited Gaddy-corpus setup (voiced plus silent EMG in training); standard."
+ },
+ "M02": {
+  "choice": [
+   "Voiced audio mels",
+   "Phoneme alignment",
+   "as teacher"
+  ],
+  "field": "Paired audio/text/phoneme supervision",
+  "n": 8995,
+  "matched": 258,
+  "verdict": "standard",
+  "matched_tier": "slot_filled (M03 supervision_kind = paired audio)",
+  "note": "Voiced-audio mels and phoneme alignment as teacher are the standard supervision for this corpus."
+ },
+ "M03": {
+  "choice": [
+   "8ch pretrain",
+   "Fine-tune on subset",
+   "Dropout p<=0.25"
+  ],
+  "field": "Channel masking known; day-layer/pos transfer",
+  "n": 8995,
+  "matched": 23,
+  "verdict": "standard",
+  "matched_tier": "confirmed (9 masking + 14 transfer, unique studies)",
+  "note": "Full-to-subset initialization helps at 4-6 electrodes but is unrepeated against a weak baseline, and channel dropout is neither new nor supported by Fig. 3 (p=0 best at 6 and 4)."
+ },
+ "M04": {
+  "choice": [
+   "Silent or voiced",
+   "test unstated"
+  ],
+  "field": "Silent and voiced results reported apart",
+  "n": 8995,
+  "matched": 1024,
+  "verdict": "missing",
+  "matched_tier": "regex",
+  "note": "Not reported: the paper never says whether the test EMG is silent or voiced, which changes what the throat electrode's rank means."
+ },
+ "M05": {
+  "choice": [
+   "8->1 backward elim.",
+   "All 70 4-of-8 sets",
+   "Best 4ch 47.2%"
+  ],
+  "field": "Subset selection in EMG/EEG/MEG/EMA/accel/magnetometer/video; EMG exhaustive 2,047-subset search exists",
+  "n": 8995,
+  "matched": 53,
+  "verdict": "standard",
+  "matched_tier": "confirmed (50 via ledger regex + 3 via full-text search)",
+  "note": "The +35% relative 8->4 cost repeats EMG recognition (+32%, +36%) and exhaustive EMG subset search exists (2,047 subsets), so only its use with open-vocabulary synthesis WER is new."
+ },
+ "M06": {
+  "choice": [
+   "Gaddy21 encoder",
+   "HiFi-GAN vocoder",
+   "1st conv resized"
+  ],
+  "field": "Encoder + neural vocoder pipeline",
+  "n": 8995,
+  "matched": 240,
+  "verdict": "standard",
+  "matched_tier": "regex",
+  "note": "Same-lab standard encoder plus HiFi-GAN pipeline with only the first convolution resized."
+ },
+ "M07": {
+  "choice": [
+   "No LM at use time",
+   "Whisper LM in eval"
+  ],
+  "field": "LM for text decoding; none for synthesis",
+  "n": 8995,
+  "matched": 2262,
+  "verdict": "standard",
+  "matched_tier": "source-text term occurrence (upper bound)",
+  "note": "No use-time LM is normal for synthesis, though Whisper adds an implicit LM at evaluation."
+ },
+ "M08": {
+  "choice": [
+   "Speech waveform"
+  ],
+  "field": "Audio output (425 papers)",
+  "n": 8995,
+  "matched": 425,
+  "verdict": "standard",
+  "matched_tier": "regex",
+  "note": "Speech waveform output is standard."
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "Online BCIs confirm output (button/gaze)",
+  "n": 8995,
+  "matched": 82,
+  "verdict": "not_applicable",
+  "matched_tier": "slot_filled",
+  "note": "Not applicable to an offline synthesis study."
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "Correction rare; mostly online BCI/AAC",
+  "n": 8995,
+  "matched": 82,
+  "verdict": "not_applicable",
+  "matched_tier": "slot_filled",
+  "note": "Not applicable to an offline synthesis study."
+ },
+ "M11": {
+  "choice": [
+   "Corpus transcripts",
+   "norm. unstated"
+  ],
+  "field": "Text reference + ASR or human listeners",
+  "n": 8995,
+  "matched": 239,
+  "verdict": "standard",
+  "matched_tier": "slot_filled",
+  "note": "Corpus text scored by ASR is standard; Whisper normalization is unstated."
+ },
+ "M12": {
+  "choice": [
+   "Whisper-med WER",
+   "Runs/seeds unstated",
+   "Baseline ~35%"
+  ],
+  "field": "Seed repeats, held-out subset choice",
+  "n": 8995,
+  "matched": 114,
+  "verdict": "behind",
+  "matched_tier": "regex",
+  "note": "Behind: no seeds or variance, no held-out subset choice, and a ~35% baseline 8-10 points worse than the same lab's later reports, so the subset ranking sits inside seed noise."
+ },
+ "M13": {
+  "choice": [
+   "Virtual deletion",
+   "No reduced device"
+  ],
+  "field": "Record with reduced layout (11->8); device prototypes",
+  "n": 8995,
+  "matched": 337,
+  "verdict": "not_applicable",
+  "matched_tier": "regex",
+  "note": "Not applicable as an offline study, but virtual deletion cannot support the device-design claims."
+ }
 }

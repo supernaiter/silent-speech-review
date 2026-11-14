@@ -1,75 +1,75 @@
 decision,paper_id,title,year,found_via,reason,location,quote
-include,arxiv-1611.05358,Lip Reading Sentences in the Wild,2017,ledger+fulltext,対象（2016-11）。単語の例から始め、学習とともに系列長を伸ばす,§3.1,"We introduce a new strategy where we start training only on single word examples, and then let the sequence length grow as the network trains"
-include,arxiv-1806.06053,Deep Lip Reading: a comparison of models and an online application,,ledger+fulltext,"後続（2018-06）。2 語、{2,3} 語、… と長さを伸ばし、検証集合の最長まで続ける",§3,we continued the curriculum in order to cover the length up to the longest sample in the validation set
-include,arxiv-1809.02108,Deep Audio-Visual Speech Recognition,,ledger+fulltext,後続（2018-09）。単語から文へ長さを伸ばす（WLAS §3.1 とほぼ同文）,§5.2,"we start training only on single word examples, and then let the sequence"
-include,arxiv-1904.04817,Learning from Videos with Deep Convolutional LSTM Networks,,ledger,後続（2019-04）。長さ 8 の部分系列から学習を始めて伸ばす,§4,Training began on subsequences of length 8
-include,arxiv-1906.12170,LipReading with 3D-2D-CNN BLSTM-HMM and word-CTC models,,fulltext,後続（2019-06）。切り出した単語を初期エポックに使い、確率を線形に下げて文へ移す,§3,"train the network with segmented words for initial epochs, then in later epochs the network is trained on full sentences"
-include,arxiv-2204.01725,Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading,,ledger,後続（2022-04）。LRS2/LRS3 の pre-train 集合をカリキュラム設定で学習（Chung 2017 に従う）,§4,pre-train the whole network using pre-train sets of the LRS2 and the LRS3 with curriculum setting
-include,arxiv-2209.01768,Predict-and-Update Network: Audio-Visual Speech Recognition Inspired by Human Speech Perception,,ledger,後続（2022-09）。最初の 100 エポックは 6 秒以内の例だけを使う,§4,only samples within 6 seconds will be picked at the ﬁrst 100 epochs
-include,arxiv-2303.08536,Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring,,ledger,後続（2023-03）。100→150→300→600 フレームと伸ばす,台帳 M03,curriculum 100->150->300->600f
-include,arxiv-2410.16438,AlignVSR: Audio-Visual Cross-Modal Alignment for Visual Speech Recognition,,ledger,後続（2024-10）。4 秒未満の切り出しで学習してから全体で微調整,台帳 M03,train <4s clips then FT full set
-include,arxiv-2603.21808,Cascade-Free Mandarin Visual Speech Recognition via Semantic-Guided Cross-Representation Alignment,,ledger,後続（2026-03）。64 フレーム未満の部分集合で 50 エポック学習してから全体,§4,all the models are firstly trained for 50 epochs on the subset that is less than 64 frames
-include,cvf-zhang19-stfcsl,Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading,2019,fulltext,後続（2019）。LRS2/LRS3 で [11] の単語から伸ばすカリキュラムを採用,§4,We start training on single word examples and then let the sequence length grow
-include,doi-10.20944-preprints202505.0540.v1,MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio-Visual Learning,2025,fulltext,後続（2025）。4 秒未満の例で学習してから全長で微調整,§4,on samples less than 4 s long in the LRS3-TED dataset
-include,doi-10.3390-s21237890,An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading,2021,fulltext,後続（2021）。視素→単語変換器を 1 語、2 語、3 語…と伸ばして学習,§4,"sentences are clipped to one word followed by two words in the next iteration, then three words"
-include,doi-10.9766-kimst.2024.27.2.167,Korean Lip-Reading: Data Construction and Sentence-Level Lip-Reading,2024,ledger,後続（2024）。韓国語の文単位唇読みで、時間長に応じたカリキュラム学習,§3,커리큘럼 학습(Curriculum Learning)
-include,isca-ma21c_interspeech,LiRA: Learning Visual Speech Representations from Audio through Self-supervision,2021,ledger,後続（2021）。155 フレーム未満の動画で先に学習してから全体で学習,§4,"we ﬁrst train the model using 11 % of the labelled training set, which is composed of videos with less than 155 frames"
-include,isca-yang23w_interspeech,An Improved End-to-End Audio-Visual Speech Recognition Model,,ledger,後続（2023、境界例）。LRW の単語で前段をカリキュラム学習してから LRS2 の文で学習,§3.1,We also utilize the LRW dataset for Curriculum Learning to train the visual front-end
-include,mdpi-math11071733,Research on Robust Audio-Visual Speech Recognition Algorithms,2023,ledger+fulltext,後続（2023）。単語から文へのカリキュラム,台帳 M03,curriculum single-word -> full sentences
-include,scirep-62988-livevsr-net,E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience,2026,ledger,後続（2026）。1–3 秒→3–6 秒→10 秒まで,台帳 M06,1-3s ep1-20 / 3-6s ep21-50 / up to 10s ep51-100
-exclude,arxiv-1804.04121,,,ledger,3 段の学習は音声合成側の段階で、系列長ではない,,
-exclude,arxiv-2004.08250,How to Teach DNNs to Pay Attention to the Visual Modality in Speech Recognition,,ledger,雑音の強さのカリキュラム,,
-exclude,arxiv-2009.01225,Seeing wake words: Audio-visual Keyword Spotting,,ledger,データ集合を LRW→LRS2→LRS3 と移すキーワード検出で、系列復号ではない,,
-exclude,arxiv-2012.07467,AV Taris: Online Audio-Visual Speech Recognition,,ledger,雑音の強さのカリキュラム,,
-exclude,arxiv-2104.04784,Lip reading using external viseme decoding,,fulltext,カリキュラムが単語境界の注釈を要する点を課題として述べるだけ,,
-exclude,arxiv-2110.07603,Sub-word Level Lip Reading With Visual Attention,,fulltext,カリキュラムの代わりに n-gram 部分系列の増強を使うと明記（境界外。長さを伸ばす手順は不要と主張）,,
-exclude,arxiv-2308.06112,Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visual to Audio Representation Mapping,,fulltext,他研究のカリキュラムの紹介,,
-exclude,arxiv-2311.14063,Do VSR Models Generalize Beyond LRS3?,,fulltext,他研究のカリキュラムの紹介,,
-exclude,arxiv-2312.07254,The GUA-Speech System Description for CNVSRC Challenge 2023,,ledger,データ集合の順序のカリキュラム,,
-exclude,arxiv-2401.09802,Efficient Training for Multilingual Visual Speech Recognition: Pre-training with Discretized Visual Speech Representation,,ledger,マスク率のカリキュラム,,
-exclude,arxiv-2407.01034,,2024,ledger,データ集合の 2 段学習,,
-exclude,arxiv-2507.06060,,2025,ledger,データ集合の 3 段学習,,
-exclude,arxiv-2510.21038,"Elementary, My Dear Watson: Non-Invasive Neural Keyword Spotting in the LibriBrain Dataset",,fulltext,一般的な比喩,,
-exclude,arxiv-2601.12436,Purification Before Fusion: Toward Mask-Free Speech Enhancement for Robust Audio-Visual Speech Recognition,,ledger,高 SNR から始める雑音のカリキュラム,,
-exclude,arxiv-2608-25204-libribrain100,LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale,2026,fulltext,課題の順序の意味,,
-exclude,arxiv-2608.25204,LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale,2026,fulltext,課題の順序の意味,,
-exclude,arxiv-2608.25204-libribrain100,LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale,2026,ledger+fulltext,課題の順序の意味,,
-exclude,arxiv-2609-03231-pnpl26,The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100,2026,fulltext,課題の順序の意味,,
-exclude,arxiv-2609-20839-currnoise,Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition,2026,ledger+fulltext,雑音のカリキュラム,,
-exclude,arxiv-2609-20839-currvsr,Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition,2026,ledger+fulltext,雑音のカリキュラム,,
-exclude,arxiv-2609.03231,The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100,2026,fulltext,課題の順序の意味,,
-exclude,arxiv-2609.20839,Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition,2026,ledger+fulltext,雑音のカリキュラム,,
-exclude,arxiv-2609.20839-pect,Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition,2026,ledger+fulltext,雑音のカリキュラム,,
-exclude,cmc-nestlipgnn,NestLipGNN: A Hierarchical Graph Neural Network Framework with Nested Multi-Granularity Learning for Robust Visual Speech Recognition,2026,fulltext,音素→単語の入れ子最適化で、系列長ではない,,
-exclude,cvf-chung17-lipreadwild,Lip Reading Sentences in the Wild,2017,fulltext,arxiv-1611.05358 の別版,,
-exclude,cvf-kim25-facesvoices,From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech,2025,ledger,内容→声質→韻律の段階で、出力は音声,,
-exclude,cvf-prajwal22-subword-vtp,Sub-word Level Lip Reading With Visual Attention,2022,ledger+fulltext,arxiv-2110.07603 の別版,,
-exclude,cvf-seo23-avformer,AVFormer: Injecting Vision into Frozen Speech Models for Zero-Shot AV-ASR,2023,ledger,カリキュラムは学習する部品の段階で、系列長ではない（台帳）,,
-exclude,cvf23-djilali_lip2vec,Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visual to Audio Representation Mapping,2023,fulltext,他研究のカリキュラムの紹介,,
-exclude,cvpr22-prajwal,Sub-word Level Lip Reading With Visual Attention,2022,ledger+fulltext,arxiv-2110.07603 の別版,,
-exclude,doi-10.1038-s41598-026-62988-0,E-commerce video & content understanding via vision: a comprehensive study on lip reading and visual speech recognition for enhanced shopping experience,2026,ledger,scirep-62988-livevsr-net の別版,,
-exclude,doi-10.1101-2025.08.04.668236,Silent Speech Recognition with Wearable Magnetometers,2025,ledger,校正試行を足す適応,,
-exclude,doi-10.1109-tbme.2026.3691322,Neural Spelling: A Spell-Based BCI System for Language Neural Decoding,2026,ledger+fulltext,手書き軌跡のカリキュラムで、系列長ではない,,
-exclude,doi-10.1109-tpami.2018.2889052,Deep Audio-Visual Speech Recognition,2019,fulltext,arxiv-1809.02108 の別版（§5.2 は WLAS §3.1 とほぼ同文）,,
-exclude,doi-10.3390-electronics14122310,MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning,2025,fulltext,doi-10.20944-preprints202505.0540.v1 の別版,,
-exclude,in24-mamauv,Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders,2024,ledger,欠損モダリティ補完の学習段階,,
-exclude,isca-afouras18b-deeplip,Deep Lip Reading: a comparison of models and an online application,2018,fulltext,arxiv-1806.06053 の別版,,
-exclude,isca-afouras18b_deeplipread,Deep Lip Reading: A Comparison of Models and an Online Application,2018,fulltext,arxiv-1806.06053 の別版,,
-exclude,isca-afouras18b_interspeech,Deep Lip Reading: a comparison of models and an online application,,fulltext,arxiv-1806.06053 の別版,,
-exclude,isca-krnoul08_avsp,Evaluation of synthesized sign and visual speech by deaf,2008,ledger,教育課程の意味の curriculum,,
-exclude,isca-stafylakis17_interspeech,,,ledger,後段を段階的に付け足す 3 段の学習で、系列長は変えない（単語分類）,,
-exclude,isca-zhou22g-avwake,Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Deep Analysis,2022,fulltext,参考文献,,
-exclude,isca-zhou22g_interspeech,Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Deep Analysis,2022,fulltext,参考文献,,
-exclude,mdpi-e14122310_multiavsr,MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning,2025,fulltext,doi-10.20944-preprints202505.0540.v1 の別版,,
-exclude,pmc-10055479-rosesyntax,ROSE: A Neurocomputational Architecture for Syntax,2023,fulltext,参考文献,,
-exclude,pmc-10973108-talkfaces,Monolingual and bilingual infants attention to talking faces: evidence from eye-tracking and Bayesian modeling,2024,fulltext,参考文献,,
-exclude,pmc-12213747-hypoxia-listening,Exploring the EEG representation of English listening comprehension under hypoxic conditions,2025,ledger,語彙・文法の難易度カリキュラム,,
-exclude,pmc-12383669-sign-literacy,A Scoping Review of Literacy Interventions Using Signed Languages for School-Age Deaf Students.,2025,fulltext,教育課程の意味,,
-exclude,pmc-5119784-spatio,Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task,2016,ledger,長さの記述は課題設計で、学習手順ではない,,
-exclude,pmc-5581506-simcommci,Simultaneous Communication Supports Learning in Noise by Cochlear Implant Users,2017,fulltext,教育課程の意味（参考文献）,,
-exclude,pmc-8659639-vis2word,An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading,2021,ledger+fulltext,doi-10.3390-s21237890 の別版,,
-exclude,pmc-8659639-viseme2word,An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading,2021,fulltext,doi-10.3390-s21237890 の別版,,
-exclude,pmc-8659639-visemeword,An Effective Conversion of Visemes to Words for High-Performance Autom,2021,fulltext,doi-10.3390-s21237890 の別版,,
+include,arxiv-1611.05358,Lip Reading Sentences in the Wild,2017,ledger+fulltext,Target (2016-11). Starts with word examples and grows the sequence length as training proceeds,§3.1,"We introduce a new strategy where we start training only on single word examples, and then let the sequence length grow as the network trains"
+include,arxiv-1806.06053,Deep Lip Reading: a comparison of models and an online application,,ledger+fulltext,"Later (2018-06). Grows the length from 2 words to {2,3} words and so on, up to the longest in the validation set",§3,we continued the curriculum in order to cover the length up to the longest sample in the validation set
+include,arxiv-1809.02108,Deep Audio-Visual Speech Recognition,,ledger+fulltext,Later (2018-09). Grows the length from words to sentences (nearly identical to WLAS §3.1),§5.2,"we start training only on single word examples, and then let the sequence"
+include,arxiv-1904.04817,Learning from Videos with Deep Convolutional LSTM Networks,,ledger,Later (2019-04). Starts training from subsequences of length 8 and grows them,§4,Training began on subsequences of length 8
+include,arxiv-1906.12170,LipReading with 3D-2D-CNN BLSTM-HMM and word-CTC models,,fulltext,Later (2019-06). Uses segmented words in early epochs and moves to sentences by linearly decreasing the probability,§3,"train the network with segmented words for initial epochs, then in later epochs the network is trained on full sentences"
+include,arxiv-2204.01725,Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading,,ledger,Later (2022-04). Trains on the LRS2/LRS3 pre-train sets with a curriculum setting (following Chung 2017),§4,pre-train the whole network using pre-train sets of the LRS2 and the LRS3 with curriculum setting
+include,arxiv-2209.01768,Predict-and-Update Network: Audio-Visual Speech Recognition Inspired by Human Speech Perception,,ledger,Later (2022-09). Uses only examples of up to 6 seconds for the first 100 epochs,§4,only samples within 6 seconds will be picked at the ﬁrst 100 epochs
+include,arxiv-2303.08536,Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring,,ledger,Later (2023-03). Grows from 100→150→300→600 frames,Ledger M03,curriculum 100->150->300->600f
+include,arxiv-2410.16438,AlignVSR: Audio-Visual Cross-Modal Alignment for Visual Speech Recognition,,ledger,"Later (2024-10). Trains on clips shorter than 4 seconds, then fine-tunes on the whole set",Ledger M03,train <4s clips then FT full set
+include,arxiv-2603.21808,Cascade-Free Mandarin Visual Speech Recognition via Semantic-Guided Cross-Representation Alignment,,ledger,"Later (2026-03). Trains for 50 epochs on the subset shorter than 64 frames, then on the whole set",§4,all the models are firstly trained for 50 epochs on the subset that is less than 64 frames
+include,cvf-zhang19-stfcsl,Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading,2019,fulltext,"Later (2019). Adopts the curriculum of [11] that grows from words, on LRS2/LRS3",§4,We start training on single word examples and then let the sequence length grow
+include,doi-10.20944-preprints202505.0540.v1,MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio-Visual Learning,2025,fulltext,"Later (2025). Trains on examples shorter than 4 seconds, then fine-tunes on full length",§4,on samples less than 4 s long in the LRS3-TED dataset
+include,doi-10.3390-s21237890,An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading,2021,fulltext,Later (2021). Trains a viseme-to-word converter growing from 1 word to 2 words to 3 words and so on,§4,"sentences are clipped to one word followed by two words in the next iteration, then three words"
+include,doi-10.9766-kimst.2024.27.2.167,Korean Lip-Reading: Data Construction and Sentence-Level Lip-Reading,2024,ledger,Later (2024). Korean sentence-level lip reading with curriculum learning by duration,§3,커리큘럼 학습(Curriculum Learning)
+include,isca-ma21c_interspeech,LiRA: Learning Visual Speech Representations from Audio through Self-supervision,2021,ledger,"Later (2021). Trains first on videos shorter than 155 frames, then on the whole set",§4,"we ﬁrst train the model using 11 % of the labelled training set, which is composed of videos with less than 155 frames"
+include,isca-yang23w_interspeech,An Improved End-to-End Audio-Visual Speech Recognition Model,,ledger,"Later (2023, boundary case). Trains the front end with a curriculum on LRW words, then trains on LRS2 sentences",§3.1,We also utilize the LRW dataset for Curriculum Learning to train the visual front-end
+include,mdpi-math11071733,Research on Robust Audio-Visual Speech Recognition Algorithms,2023,ledger+fulltext,Later (2023). Curriculum from words to sentences,Ledger M03,curriculum single-word -> full sentences
+include,scirep-62988-livevsr-net,E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience,2026,ledger,Later (2026). 1–3 s→3–6 s→up to 10 s,Ledger M06,1-3s ep1-20 / 3-6s ep21-50 / up to 10s ep51-100
+exclude,arxiv-1804.04121,,,ledger,"The 3-stage training is staging on the speech-synthesis side, not sequence length",,
+exclude,arxiv-2004.08250,How to Teach DNNs to Pay Attention to the Visual Modality in Speech Recognition,,ledger,Curriculum over noise level,,
+exclude,arxiv-2009.01225,Seeing wake words: Audio-visual Keyword Spotting,,ledger,Keyword spotting that moves across datasets LRW→LRS2→LRS3; not sequence decoding,,
+exclude,arxiv-2012.07467,AV Taris: Online Audio-Visual Speech Recognition,,ledger,Curriculum over noise level,,
+exclude,arxiv-2104.04784,Lip reading using external viseme decoding,,fulltext,Only mentions as an issue that the curriculum requires word-boundary annotations,,
+exclude,arxiv-2110.07603,Sub-word Level Lip Reading With Visual Attention,,fulltext,States explicitly that n-gram subsequence augmentation is used instead of a curriculum (outside the boundary; argues that a length-growing procedure is unnecessary),,
+exclude,arxiv-2308.06112,Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visual to Audio Representation Mapping,,fulltext,Describes curricula from other studies,,
+exclude,arxiv-2311.14063,Do VSR Models Generalize Beyond LRS3?,,fulltext,Describes curricula from other studies,,
+exclude,arxiv-2312.07254,The GUA-Speech System Description for CNVSRC Challenge 2023,,ledger,Curriculum over the order of datasets,,
+exclude,arxiv-2401.09802,Efficient Training for Multilingual Visual Speech Recognition: Pre-training with Discretized Visual Speech Representation,,ledger,Curriculum over masking rate,,
+exclude,arxiv-2407.01034,,2024,ledger,Two-stage training across datasets,,
+exclude,arxiv-2507.06060,,2025,ledger,Three-stage training across datasets,,
+exclude,arxiv-2510.21038,"Elementary, My Dear Watson: Non-Invasive Neural Keyword Spotting in the LibriBrain Dataset",,fulltext,Generic metaphor,,
+exclude,arxiv-2601.12436,Purification Before Fusion: Toward Mask-Free Speech Enhancement for Robust Audio-Visual Speech Recognition,,ledger,Noise curriculum starting from high SNR,,
+exclude,arxiv-2608-25204-libribrain100,LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale,2026,fulltext,In the sense of task order,,
+exclude,arxiv-2608.25204,LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale,2026,fulltext,In the sense of task order,,
+exclude,arxiv-2608.25204-libribrain100,LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale,2026,ledger+fulltext,In the sense of task order,,
+exclude,arxiv-2609-03231-pnpl26,The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100,2026,fulltext,In the sense of task order,,
+exclude,arxiv-2609-20839-currnoise,Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition,2026,ledger+fulltext,Noise curriculum,,
+exclude,arxiv-2609-20839-currvsr,Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition,2026,ledger+fulltext,Noise curriculum,,
+exclude,arxiv-2609.03231,The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100,2026,fulltext,In the sense of task order,,
+exclude,arxiv-2609.20839,Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition,2026,ledger+fulltext,Noise curriculum,,
+exclude,arxiv-2609.20839-pect,Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition,2026,ledger+fulltext,Noise curriculum,,
+exclude,cmc-nestlipgnn,NestLipGNN: A Hierarchical Graph Neural Network Framework with Nested Multi-Granularity Learning for Robust Visual Speech Recognition,2026,fulltext,Nested phoneme→word optimization; not sequence length,,
+exclude,cvf-chung17-lipreadwild,Lip Reading Sentences in the Wild,2017,fulltext,Another version of arxiv-1611.05358,,
+exclude,cvf-kim25-facesvoices,From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech,2025,ledger,Stages of content→voice quality→prosody; the output is speech,,
+exclude,cvf-prajwal22-subword-vtp,Sub-word Level Lip Reading With Visual Attention,2022,ledger+fulltext,Another version of arxiv-2110.07603,,
+exclude,cvf-seo23-avformer,AVFormer: Injecting Vision into Frozen Speech Models for Zero-Shot AV-ASR,2023,ledger,"The curriculum stages which components are trained, not sequence length (ledger)",,
+exclude,cvf23-djilali_lip2vec,Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visual to Audio Representation Mapping,2023,fulltext,Describes curricula from other studies,,
+exclude,cvpr22-prajwal,Sub-word Level Lip Reading With Visual Attention,2022,ledger+fulltext,Another version of arxiv-2110.07603,,
+exclude,doi-10.1038-s41598-026-62988-0,E-commerce video & content understanding via vision: a comprehensive study on lip reading and visual speech recognition for enhanced shopping experience,2026,ledger,Another version of scirep-62988-livevsr-net,,
+exclude,doi-10.1101-2025.08.04.668236,Silent Speech Recognition with Wearable Magnetometers,2025,ledger,Adaptation by adding calibration trials,,
+exclude,doi-10.1109-tbme.2026.3691322,Neural Spelling: A Spell-Based BCI System for Language Neural Decoding,2026,ledger+fulltext,Curriculum over handwriting trajectories; not sequence length,,
+exclude,doi-10.1109-tpami.2018.2889052,Deep Audio-Visual Speech Recognition,2019,fulltext,Another version of arxiv-1809.02108 (§5.2 is nearly identical to WLAS §3.1),,
+exclude,doi-10.3390-electronics14122310,MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning,2025,fulltext,Another version of doi-10.20944-preprints202505.0540.v1,,
+exclude,in24-mamauv,Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders,2024,ledger,Training stage for missing-modality completion,,
+exclude,isca-afouras18b-deeplip,Deep Lip Reading: a comparison of models and an online application,2018,fulltext,Another version of arxiv-1806.06053,,
+exclude,isca-afouras18b_deeplipread,Deep Lip Reading: A Comparison of Models and an Online Application,2018,fulltext,Another version of arxiv-1806.06053,,
+exclude,isca-afouras18b_interspeech,Deep Lip Reading: a comparison of models and an online application,,fulltext,Another version of arxiv-1806.06053,,
+exclude,isca-krnoul08_avsp,Evaluation of synthesized sign and visual speech by deaf,2008,ledger,"""curriculum"" in the sense of an educational curriculum",,
+exclude,isca-stafylakis17_interspeech,,,ledger,3-stage training that adds later stages progressively; sequence length is not changed (word classification),,
+exclude,isca-zhou22g-avwake,Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Deep Analysis,2022,fulltext,References,,
+exclude,isca-zhou22g_interspeech,Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Deep Analysis,2022,fulltext,References,,
+exclude,mdpi-e14122310_multiavsr,MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning,2025,fulltext,Another version of doi-10.20944-preprints202505.0540.v1,,
+exclude,pmc-10055479-rosesyntax,ROSE: A Neurocomputational Architecture for Syntax,2023,fulltext,References,,
+exclude,pmc-10973108-talkfaces,Monolingual and bilingual infants attention to talking faces: evidence from eye-tracking and Bayesian modeling,2024,fulltext,References,,
+exclude,pmc-12213747-hypoxia-listening,Exploring the EEG representation of English listening comprehension under hypoxic conditions,2025,ledger,Curriculum over lexical and grammatical difficulty,,
+exclude,pmc-12383669-sign-literacy,A Scoping Review of Literacy Interventions Using Signed Languages for School-Age Deaf Students.,2025,fulltext,In the sense of an educational curriculum,,
+exclude,pmc-5119784-spatio,Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task,2016,ledger,"The description of length concerns task design, not the training procedure",,
+exclude,pmc-5581506-simcommci,Simultaneous Communication Supports Learning in Noise by Cochlear Implant Users,2017,fulltext,In the sense of an educational curriculum (references),,
+exclude,pmc-8659639-vis2word,An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading,2021,ledger+fulltext,Another version of doi-10.3390-s21237890,,
+exclude,pmc-8659639-viseme2word,An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading,2021,fulltext,Another version of doi-10.3390-s21237890,,
+exclude,pmc-8659639-visemeword,An Effective Conversion of Visemes to Words for High-Performance Autom,2021,fulltext,Another version of doi-10.3390-s21237890,,
 unread,arxiv-2508.07608,AD-AVSR: Asymmetric Dual-stream Enhancement for Robust Audio-Visual Speech Recognition,,ledger,,,
 unread,arxiv-2607.25626,Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception,2026,ledger,,,
 unread,arxiv-2607.25626-eegalign,Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception,2026,ledger,,,

@@ -5,7 +5,7 @@
  "pattern": "(dataset|corpus|benchmark)[^|]{0,100}(in[- ]the[- ]wild|broadcast|television|\\btv\\b|youtube|\\bted\\b|bbc)|(in[- ]the[- ]wild|broadcast|television|youtube|\\bted\\b|bbc)[^|]{0,100}(dataset|corpus|benchmark)",
  "scope": "ledger",
  "fulltext_pattern": "(new|introduce|release|collect)\\w*[^.]{0,60}(dataset|corpus)[^.]{0,80}(television|broadcast|youtube|ted talks|in the wild)",
- "inclusion_rule": "放送・YouTube・TED など撮影条件を統制しない映像から、自動で書き起こしを付けた文・句単位の音声映像データを作り、評価用のテスト分割を定めた研究を含める（分割の方法を記録する）。境界：単語単位（LRW、LRW-1000）は除く。既存データの再利用だけ、訓練用の追加データだけ（テスト分割を定めない）は除く。同一研究の別版は1件。",
+ "inclusion_rule": "Include studies that build sentence- or phrase-level audio-visual data with automatically generated transcriptions from video with uncontrolled recording conditions, such as broadcast, YouTube or TED, and define a test split for evaluation (record how the split was made). Boundary: exclude word-level data (LRW, LRW-1000). Exclude those that only reuse existing data or only add training data (no test split defined). Count different versions of the same study as one item.",
  "counts": {
   "scanned_folders": 8995,
   "scanned_unique": 7388,
@@ -96,8 +96,8 @@
    "decision": "include",
    "quote": "The training, validation and test sets are divided according to broadcast date",
    "loc": "§4, Table 2",
-   "provenance": "本文確認",
-   "reason": "LRS（2017）。放送日で分割、話者の分離は管理していない"
+   "provenance": "text-verified",
+   "reason": "LRS (2017). Split by broadcast date; speaker separation is not controlled"
   },
   {
    "pid": "arxiv-1703.04105",
@@ -112,7 +112,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "LRW（単語単位）の利用"
+   "reason": "Use of LRW (word level)"
   },
   {
    "pid": "arxiv-1710.11201",
@@ -186,8 +186,8 @@
    "decision": "include",
    "quote": "We evaluate it on a held-out test set roughly 37 minutes long",
    "loc": "§5",
-   "provenance": "本文確認",
-   "reason": "LSVSR（同時期）。YouTube から構築、約37分のテスト集合"
+   "provenance": "text-verified",
+   "reason": "LSVSR (concurrent). Built from YouTube; test set of about 37 minutes"
   },
   {
    "pid": "arxiv-1809.00496",
@@ -201,8 +201,8 @@
    "decision": "include",
    "quote": "it is unlikely that there are many identities that appear in both training and test sets",
    "loc": "§2",
-   "provenance": "本文確認",
-   "reason": "LRS3-TED（同時期）。TED は同じ話者が繰り返し出にくいので、テストと訓練の話者重複は少ないと著者が述べる。LRS2-BBC は同じ人物が出やすいと明記"
+   "provenance": "text-verified",
+   "reason": "LRS3-TED (concurrent). The authors state that speakers rarely recur in TED, so speaker overlap between test and training is small. States explicitly that the same people tend to appear in LRS2-BBC"
   },
   {
    "pid": "arxiv-1809.02108",
@@ -217,7 +217,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "対象論文そのもの"
+   "reason": "The target paper itself"
   },
   {
    "pid": "arxiv-1810.06990",
@@ -233,7 +233,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "単語単位（LRW-1000）"
+   "reason": "Word level (LRW-1000)"
   },
   {
    "pid": "arxiv-1811.05250",
@@ -669,7 +669,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同上（別版）"
+   "reason": "Same as above (another version)"
   },
   {
    "pid": "arxiv-2110.07879",
@@ -699,7 +699,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "arxiv-2112.09239",
@@ -804,7 +804,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "arxiv-2205.10839-vsa-survey",
@@ -1614,8 +1614,8 @@
    "decision": "include",
    "quote": "We introduce the VoxLRS-SA dataset to validate speaker adaptive lip reading methods in the wild, sentence-level lip reading",
    "loc": "§1",
-   "provenance": "本文確認",
-   "reason": "VoxLRS-SA（後続、2024）。話者適応評価用の文単位・実環境データ"
+   "provenance": "text-verified",
+   "reason": "VoxLRS-SA (later, 2024). Sentence-level, in-the-wild data for evaluating speaker adaptation"
   },
   {
    "pid": "arxiv-2409.12319",
@@ -2020,7 +2020,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "isca-nguyen25d_interspeech の別版"
+   "reason": "Another version of isca-nguyen25d_interspeech"
   },
   {
    "pid": "arxiv-2506.04635-vicocktail",
@@ -2307,7 +2307,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "単語単位（LRW 型）のペルシャ語データで、採否規則の境界外（後続）"
+   "reason": "Word-level (LRW-style) Persian data; outside the inclusion rule's boundary (later)"
   },
   {
    "pid": "arxiv-2510.22716",
@@ -2339,7 +2339,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-2510-22716-lrwpersian の別版。単語単位"
+   "reason": "Another version of arxiv-2510-22716-lrwpersian. Word level"
   },
   {
    "pid": "arxiv-2511.07253",
@@ -2924,7 +2924,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "NAM マイクの音声認識。映像データではない"
+   "reason": "Speech recognition with a NAM microphone. Not video data"
   },
   {
    "pid": "cvf-chung17-lipreadwild",
@@ -2940,7 +2940,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1611.05358 の別版"
+   "reason": "Another version of arxiv-1611.05358"
   },
   {
    "pid": "cvf-hong23-wol",
@@ -3015,7 +3015,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "TEDx の追加訓練データでテスト分割を定めない"
+   "reason": "Additional TEDx training data; no test split is defined"
   },
   {
    "pid": "cvf-seo23-avformer",
@@ -3242,7 +3242,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "doi-10.1109-access.2017.2761539",
@@ -3257,7 +3257,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "LRW（単語単位）と自前の収録データを使う"
+   "reason": "Uses LRW (word level) and the authors' own recorded data"
   },
   {
    "pid": "doi-10.1109-access.2020.3036865",
@@ -3528,7 +3528,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "doi-10.3390-electronics14122310",
@@ -3649,7 +3649,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "VidTIMIT（事務室での収録）"
+   "reason": "VidTIMIT (recorded in an office)"
   },
   {
    "pid": "doi-10.5281-zenodo.19709456",
@@ -3679,7 +3679,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "放送映像 28 本での発話区間検出"
+   "reason": "Detection of speech segments in 28 broadcast videos"
   },
   {
    "pid": "doi-10.63317-46wjh8y2d29k",
@@ -3846,7 +3846,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "ieee-9272286-vislrs2",
@@ -3891,7 +3891,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "in24-interleaved-av",
@@ -3951,7 +3951,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "isca-botelho21_interspeech",
@@ -3997,7 +3997,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "チェコ語テレビ放送の音声書き起こしと視覚的話者同定の仕組みで、音声映像認識の評価データ・テスト分割を定めていない"
+   "reason": "Pipeline for speech transcription and visual speaker identification of Czech TV broadcasts; does not define evaluation data or a test split for audio-visual recognition"
   },
   {
    "pid": "isca-chen21k_interspeech",
@@ -4027,7 +4027,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "放送の短い切り出しを話者照合に使う（書き起こしの認識評価ではない）"
+   "reason": "Uses short broadcast clips for speaker verification (not a recognition evaluation of transcriptions)"
   },
   {
    "pid": "isca-choi23_interspeech",
@@ -4057,7 +4057,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "構音障害の音声認識。TED 音声は領域外データ"
+   "reason": "Speech recognition for dysarthria. TED audio is out-of-domain data"
   },
   {
    "pid": "isca-correia18_wsm",
@@ -4132,7 +4132,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "isca-ghosh26b_interspeech",
@@ -4253,7 +4253,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "ささやき声の音声認識。放送ニュースは音響モデルの学習用"
+   "reason": "Whispered speech recognition. Broadcast news is for training the acoustic model"
   },
   {
    "pid": "isca-jou06_interspeech",
@@ -4268,7 +4268,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "表面筋電の連続音声認識。放送ニュースは言語モデル用"
+   "reason": "Continuous speech recognition from surface EMG. Broadcast news is for the language model"
   },
   {
    "pid": "isca-kim01-lipsynccorpus",
@@ -4283,7 +4283,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "アナウンサー 1 人の収録コーパス（撮影条件を統制）"
+   "reason": "Corpus recorded from one announcer (controlled recording conditions)"
   },
   {
    "pid": "isca-krnoul09_avsp",
@@ -4298,7 +4298,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "手話通訳者の唇形状の合成用データ"
+   "reason": "Data for synthesizing lip shapes of sign-language interpreters"
   },
   {
    "pid": "isca-li23k_interspeech",
@@ -4418,7 +4418,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "同時期（2016-09）の境界例。YouTube の作業解説動画から 94 時間（訓練 90・テスト 4 時間）の音声映像データを作るが、映像は話者が映らないことも多い場面特徴で口元のデータではなく、書き起こしの作り方も本文で確認できない"
+   "reason": "Concurrent (2016-09) boundary case. Builds 94 hours (90 h training, 4 h test) of audio-visual data from YouTube instructional videos, but the video consists of scene features that often do not show the speaker, not mouth-region data, and how the transcriptions were produced cannot be confirmed in the text"
   },
   {
    "pid": "isca-nguyen25b_interspeech",
@@ -4448,7 +4448,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "isca-nguyen25d_interspeech の別版"
+   "reason": "Another version of isca-nguyen25d_interspeech"
   },
   {
    "pid": "isca-nguyen25d_interspeech",
@@ -4462,8 +4462,8 @@
    "decision": "include",
    "quote": "the test dataset is selected from YouTube videos to ensure that the speakers do not overlap with the training set",
    "loc": "§2",
-   "provenance": "本文確認",
-   "reason": "ViCocktail（後続、2025）。テスト話者が訓練と重ならないよう選んだと明記"
+   "provenance": "text-verified",
+   "reason": "ViCocktail (later, 2025). States explicitly that test speakers were chosen not to overlap with training"
   },
   {
    "pid": "isca-ochiai19_interspeech",
@@ -4493,7 +4493,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "isca-pham25_interspeech",
@@ -4583,7 +4583,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "ドイツ語の収録データと放送ニュース映像を唇モデルの構築に使うだけで、文単位の書き起こし付き評価データではない"
+   "reason": "Uses German recorded data and broadcast news video only to build a lip model; not sentence-level evaluation data with transcriptions"
   },
   {
    "pid": "isca-shi22_interspeech",
@@ -4613,7 +4613,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "生活空間の音声インタフェース"
+   "reason": "Speech interfaces for living spaces"
   },
   {
    "pid": "isca-shillingford19-largescale",
@@ -4628,7 +4628,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "arxiv-1807.05162 の刊行版"
+   "reason": "Published version of arxiv-1807.05162"
   },
   {
    "pid": "isca-shillingford19_interspeech",
@@ -4674,7 +4674,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "LRW（単語単位）の利用"
+   "reason": "Use of LRW (word level)"
   },
   {
    "pid": "isca-stafylakis17_lipread",
@@ -4689,7 +4689,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "LRW（単語単位）の利用"
+   "reason": "Use of LRW (word level)"
   },
   {
    "pid": "isca-sterpu20_interspeech",
@@ -4749,7 +4749,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "構音障害の単語認識"
+   "reason": "Word recognition for dysarthria"
   },
   {
    "pid": "isca-whispery05",
@@ -4764,7 +4764,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "ささやき声の音声認識。放送ニュースは学習用"
+   "reason": "Whispered speech recognition. Broadcast news is for training"
   },
   {
    "pid": "isca-wojdel02_icslp",
@@ -4779,7 +4779,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "スタジオ収録のオランダ語コーパス"
+   "reason": "Studio-recorded Dutch corpus"
   },
   {
    "pid": "isca-yang23w_interspeech",
@@ -4974,7 +4974,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "NAM マイクの音声認識。映像データではない"
+   "reason": "Speech recognition with a NAM microphone. Not video data"
   },
   {
    "pid": "pmc-12031098-st3d-ptm",
@@ -5019,7 +5019,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "pmc-6953975-facetrack",
@@ -5109,7 +5109,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "sdata-2026-07745-eegtv",
@@ -5139,7 +5139,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "単語単位（LRW）"
+   "reason": "Word level (LRW)"
   },
   {
    "pid": "w4405706429-turkishcnnlstm",
@@ -5169,7 +5169,7 @@
    "quote": null,
    "loc": null,
    "provenance": null,
-   "reason": "既存データの言及・紹介、または対象外の課題（データ構築とテスト分割の定義なし）"
+   "reason": "Mentions or describes existing data, or a task outside scope (no data construction or test-split definition)"
   },
   {
    "pid": "zenodo-19695887-lipsynclite",
@@ -5203,7 +5203,7 @@
   "read": 49,
   "unread": 293,
   "confirmed_unique": 5,
-  "confirmed_本文確認": 5,
+  "confirmed_text_verified": 5,
   "recall_sample_read": 19,
   "recall_sample_included": 2,
   "recall_estimate": 0.6

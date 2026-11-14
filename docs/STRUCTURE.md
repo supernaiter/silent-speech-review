@@ -1,76 +1,58 @@
-# リポジトリ構造の仕様
+# Repository structure
 
-この文書は silent-speech-review の置き場所の正本である。手で書く人も自動運用も、ファイルを足す前にここに従う。変えるときはこの文書を先に直す。
+This file is the authority on where things live in silent-speech-review. People and the automated review loop both follow it; change this file first when the layout changes.
 
-## 原則
+## Principles
 
-1. **入口は論文のフォルダ。** 1 本の論文に関わるもの（レビュー、判定データ、評価、図、文献）は `reviews/<slug>/` に集める。フォルダを開けばレビューが表示され、材料は同じ場所に並ぶ。
-2. **分野の知識は部品の側に置く。** 候補論文の採否表は 1 本のレビューのためではなく分野の地図なので、`components/<Mxx>/` に置いて論文をまたいで育てる。レビューはそれを参照する。
-3. **元データと生成物を分ける。** 人やループが書くのは元データだけ。ページ、図、索引、CSV は `scripts/build.py` が作り、CI が `--check` で一致を確かめる。生成物を手で直さない。
-4. **事実は一か所。** 同じ値を二か所に書かない。書誌と分類は `data/reviews.jsonl`、部品の判定は `slots.json`、採否は話題の表が正本。
-5. **原典は置かない。** wiki の `source/`（PDF、全文）、全文からの長い抜き出しは公開しない。引用は位置つきの 1〜2 文まで。wiki へのリンクは `papers/<id>/article.md` まで。
-6. **URL は変えない。** 一度公開したパスは動かさない。動かすときは同じ PR で全てのリンク元を直す。
+1. **The paper folder is the entry point.** Everything about one paper (review, per-component verdicts, evaluation, figures, references) lives in `reviews/<slug>/`. Opening the folder shows the review.
+2. **Field knowledge lives with the components.** Tables of candidate papers are maps of the field, not of one review, so they live in `components/<Mxx>/` and grow across reviews.
+3. **Sources and generated files are separate.** People and the loop write sources only. Pages, figures, indexes and CSVs are written by `scripts/build.py`; CI runs `--check`. Never edit generated files by hand.
+4. **One fact, one place.** Bibliographic data and classification: `data/reviews.jsonl`. Per-component verdicts: `slots.json`. Inclusion decisions: the topic table.
+5. **No source texts.** Never publish the wiki's `source/` files (PDFs, full texts) or long excerpts. Quotes are one or two sentences with a location. Wiki links go to `papers/<id>/article.md` only.
+6. **English only.** Reviews follow the published format (Verdict, component-by-component comparison, claims vs evidence, what the field needs next, questions, literature search appendix, references). They contain only what a reader cannot get from the paper itself.
+7. **Stable URLs.** A published path does not move; if it must, every link to it is fixed in the same PR.
 
-## 配置
+## Layout
 
 ```
-README.md, README.ja.md            生成  全論文の索引（センサー別）と分野の図
+README.md                          generated  index of all papers by sensor, field figures
 CONTRIBUTING.md, CITATION.cff, LICENSE
-docs/STRUCTURE.md                  元    この仕様
+docs/STRUCTURE.md                  source     this file
 
-reviews/<slug>/                    論文ごとのフォルダ
-  README.md                        生成  レビューのページ（下記の順に組む）
-  review.ja.md                     元    構成要素別レビュー本文（日本語）
-  refs.bib                         元    本文の参考文献
-  slots.json                       元    13 部品それぞれの選択・分野の通例・該当数・判定
-  figures.json                     元    この論文の図の定義（部品図ほか）
-  figures/*.svg                    生成  figures.json から作る図（明暗 2 枚ずつ）
-  evaluation.ja.md                 元    執筆者と別の評価者による検証（複数あれば evaluation-<評価者>.ja.md）
-  triage.ja.md                     元    評価の指摘を原典で確かめた判定と対応
+reviews/<slug>/                    one folder per paper
+  README.md                        generated  the page
+  review.md                        source     the component review (English)
+  verdict.json                     source     {"short": one-line position, "position": Verdict text}; used in indexes
+  refs.bib                         source     references of review.md
+  slots.json                       source     per component: this paper's choice, field practice, count, verdict
+  figures.json                     source     figure definitions
+  figures/*.svg                    generated  from figures.json (light and dark)
+  evaluation*.md                   source     independent evaluation(s)
+  triage.md                        source     how each evaluation finding was checked and resolved
 
 components/
-  README.md                        生成  13 部品の索引：定義、記録率、話題、使ったレビュー
-  <Mxx>/README.md                  生成  その部品の話題一覧と、各話題の確認済み論文
-  <Mxx>/<topic>.json               元    話題の採否表（検索式、範囲、候補、採否、理由、集計）
-  <Mxx>/<topic>.csv                生成  同じ表を GitHub で読める形に
-
-reviews/<slug>.md                  生成  旧 URL の転送ページ（data/moved_pages.txt にある slug だけ。検索に載った旧リンクを切らさない）
+  README.md                        generated  index of the 13 components and their topics
+  <Mxx>/README.md                  generated  topics of one component and their confirmed papers
+  <Mxx>/<topic>.json               source     topic table: search, scope, inclusion rule, candidates, decisions, tally
+  <Mxx>/<topic>.csv                generated  the same table, readable on GitHub
 
 data/
-  moved_pages.txt                  元    フォルダ化の前に reviews/<slug>.md で公開していた slug の一覧
-  reviews.jsonl                    元    全論文の書誌・分類・要約・英語項目（1 行 1 本）
-  field.json                       元    分野全体の図の定義
-  papers.csv, metadata.json        生成  外部向けの一覧
+  reviews.jsonl                    source     bibliographic data, classification, English index fields (one line per paper)
+  field.json                       source     field-wide figure definitions
+  papers.csv, metadata.json        generated  exports
 
-figures/                           生成  分野全体の図だけ（field-map、components）
-scripts/                           build.py（生成）、figures.py（図）
+figures/                           generated  field-wide figures
+scripts/                           build.py (generation), figures.py (figures)
 ```
 
-`<slug>` は題名の小文字・ハイフン区切り（`data/reviews.jsonl` の `slug`）。`<topic>` は内容を表す英語の短い名前（例 `ctc-vs-attention`）。
+`<slug>` is the lower-case hyphenated title (`slug` in `data/reviews.jsonl`). `<topic>` is a short English kebab-case name (e.g. `ctc-vs-attention`).
 
-## 論文ページ（reviews/<slug>/README.md）の組み立て
+## Paper page
 
-1. 題名、書誌、DOI・arXiv へのリンク、英語の要約と条件表（`reviews.jsonl` の `en`）
-2. 図（`figures/`）
-3. 構成要素別レビュー（`review.ja.md`）。無い論文は従来の項目別レビュー
-4. **材料**：このフォルダの元データと、使った話題の採否表（`components/` へのリンク、確認済み数と未読数）の一覧
-5. 関連論文と脚注
+For a component review: the review's title and citation line, the section link, figures, the review body, Materials (the folder's sources and the topic tables it used), related reviews. Papers without a component review show the older English itemized review until they are rewritten.
 
-## 話題の採否表（components/<Mxx>/<topic>.json）
+## Topic tables
 
-- 1 つの話題を 1 ファイルで持ち、レビューのたびに追記して育てる。既にある候補の判定を変えるときは理由を残す。
-- 各候補：`pid`、`title`、`year`、`via`（ledger／fulltext）、`decision`（include／exclude／空＝未読）、`reason`、`loc`、`quote`（1〜2 文まで）。全文の抜き出し（`fulltext_snippet`）は書き出さない。
-- 集計 `tally` と、走査した wiki のコミット `wiki_commit` を持つ。レビュー側はどのコミット時点の表を使ったかを本文の `**状態**` 行に書く。
-
-## 移行（2026-11 時点の配置から）
-
-| 旧 | 新 |
-|---|---|
-| `reviews/<slug>.md` | `reviews/<slug>/README.md` |
-| `data/component/<slug>.ja.md`、`.bib` | `reviews/<slug>/review.ja.md`、`refs.bib` |
-| `data/figures/<slug>.json` | `reviews/<slug>/figures.json` |
-| `figures/<slug>/*.svg` | `reviews/<slug>/figures/*.svg` |
-| `data/figures/_field.json` | `data/field.json` |
-| 作業フォルダの監査 `*.audit.json` | `components/<Mxx>/<topic>.json` |
-
-移行の PR で、README、プロフィール README、nao-ki-mura.com の `reviews/<slug>.md` へのリンクを全て張り替える。
+- One topic per file, extended by each review that uses it. Changing an existing decision keeps a reason.
+- Each candidate: `pid`, `title`, `year`, `via` (ledger / fulltext), `decision` (include / exclude / empty = unread), `reason`, `loc`, `quote` (one or two sentences). Full-text snippets are never written.
+- `tally` and `wiki_commit` record the counts and the wiki state searched. `used_by` lists the reviews that rely on the table.

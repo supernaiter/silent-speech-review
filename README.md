@@ -6,8 +6,6 @@ Silent speech interfaces turn articulation without audible voice into text or sp
 
 Topics covered: silent speech recognition, lip reading and visual speech recognition (VSR), lip-to-speech and video-to-speech synthesis, EMG-to-speech, ultrasound tongue imaging, imagined and inner speech decoding from EEG and MEG, brain-to-text and speech neuroprostheses, radar and Wi-Fi sensing, and wearable silent speech text entry.
 
-[日本語の説明](README.ja.md)
-
 **Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (18) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (37) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (47) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (10)
 
 ## The field in 13 components

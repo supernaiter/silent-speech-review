@@ -9,7 +9,7 @@
   "matched": 3882,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Inherited from the LRW data pipeline."
+  "note": "Inherited from the LRW pipeline; broadcast voiced speech is the field default."
  },
  "M02": {
   "choice": [
@@ -19,9 +19,9 @@
   "field": "Paired transcripts as labels",
   "n": 7388,
   "matched": 31,
-  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "matched_tier": "slot_filled (sparse)",
   "verdict": "standard",
-  "note": "Automatic labels as in LRW; slot under-recorded in the ledger."
+  "note": "Automatic subtitle-aligned labels inherited from LRW; standard for broadcast data."
  },
  "M03": {
   "choice": [
@@ -34,7 +34,7 @@
   "matched": 18,
   "matched_tier": "confirmed (0 prior, 0 concurrent, 17 later, incl. target)",
   "verdict": "standard",
-  "note": "No earlier example in the wiki (recall estimate 0.78), but the gain (76.5 to 61.1% WER) is one run on one dataset and not separated from sub-sequence augmentation, so not ahead."
+  "note": "First length curriculum in the wiki and widely copied, but the 76.5 to 61.1% WER gain is one run and was later attributed to sub-sequence augmentation, so not ahead."
  },
  "M04": {
   "choice": [
@@ -46,7 +46,7 @@
   "matched": 5595,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Inherited."
+  "note": "Inherited; voiced speech at use time is the field default."
  },
  "M05": {
   "choice": [
@@ -59,7 +59,7 @@
   "matched": 7329,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Inherited from LRW."
+  "note": "Inherited from LRW; camera mouth ROI plus microphone is the field default."
  },
  "M06": {
   "choice": [
@@ -72,7 +72,7 @@
   "matched": 36,
   "matched_tier": "confirmed (0 prior, 0 concurrent, 35 later, incl. target)",
   "verdict": "standard",
-  "note": "No earlier example in the wiki (all pre-2017-05 hits read; topic recall estimate 0.33); results on LRS, LRW and GRID, but LRW/GRID fine-tune the LRS model, so method and data scale are not separated; not ahead."
+  "note": "LAS imported from audio ASR; no decoder comparison on LRS and LRW/GRID results are fine-tunes of the LRS model, so method and data scale are confounded and it is not ahead."
  },
  "M07": {
   "choice": [
@@ -85,7 +85,7 @@
   "matched": 745,
   "matched_tier": "regex (LM / beam / lexicon in ledger text)",
   "verdict": "standard",
-  "note": "Common practice; the M07 slot itself is under-recorded."
+  "note": "No external LM with beam 4 is ordinary practice for attention decoders."
  },
  "M08": {
   "choice": [
@@ -97,7 +97,7 @@
   "matched": 3268,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Standard."
+  "note": "Character output is standard."
  },
  "M09": {
   "choice": [
@@ -108,7 +108,7 @@
   "matched": 82,
   "matched_tier": "slot_filled",
   "verdict": "not_applicable",
-  "note": "Offline benchmark study."
+  "note": "Offline benchmark study; confirmation does not apply."
  },
  "M10": {
   "choice": [
@@ -119,7 +119,7 @@
   "matched": 82,
   "matched_tier": "slot_filled",
   "verdict": "not_applicable",
-  "note": "Offline benchmark study."
+  "note": "Offline benchmark study; correction does not apply."
  },
  "M11": {
   "choice": [
@@ -132,7 +132,7 @@
   "matched": 5,
   "matched_tier": "confirmed (target plus 4 later)",
   "verdict": "not_reported",
-  "note": "Train/test speaker overlap not reported; the authors only say thousands of speakers make the model speaker agnostic."
+  "note": "LRS made in-the-wild sentence lipreading measurable, but train/test speaker overlap is not reported and BBC presenters recur across broadcasts."
  },
  "M12": {
   "choice": [
@@ -145,7 +145,7 @@
   "matched": 7,
   "matched_tier": "confirmed (2 prior, 2 concurrent, 2 later, incl. target)",
   "verdict": "not_reported",
-  "note": "Whether the 50.2% was scored on the same 200 clips, and run-to-run variance, are not reported."
+  "note": "The machine beats the lipreader in direction, but whether 50.2% was scored on the same 200 clips and run-to-run variance are not reported."
  },
  "M13": {
   "choice": [
@@ -157,6 +157,6 @@
   "matched": 6075,
   "matched_tier": "slot_filled",
   "verdict": "standard",
-  "note": "Compute reported; the release sentence is in arXiv v2 but not in the CVF version, and the follow-up paper says LRS was withheld for licence reasons."
+  "note": "Compute is reported; the dataset release promised in arXiv v2 was dropped from the CVF version and LRS stayed unreleased."
  }
 }
