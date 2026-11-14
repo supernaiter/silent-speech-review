@@ -4,7 +4,7 @@
  "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
  "pattern": "(listeners?|listening test|intelligibility test|human transcri\\w*)[^|]{0,80}(synthes|reconstruct|generated speech)|(synthes|reconstruct)\\w*[^|]{0,80}(listeners?|listening test|intelligibility test|mturk|mechanical turk|human transcri)",
  "scope": "ledger",
- "fulltext_pattern": "(listeners?|participants|subjects|raters|annotators)[^.]{0,60}(transcrib|identif)\\w*[^.]{0,80}(synthesi[sz]ed|reconstructed|decoded|generated) (speech|audio|sentences|words|utterances)|(mechanical turk|mturk)[^.]{0,120}(synthesi|reconstruct|decod)|(intelligibility|listening) (test|tests|experiment|study)[^.]{0,80}(synthesi[sz]ed|reconstructed|decoded|generated) (speech|audio|utterances)|perceptual (identification |transcription )?tests?[^.]{0,80}(intelligib|synthes|silent)|human (evaluation|transcription)[^.]{0,80}(word error|intelligib)|intelligibility of (the )?(audio|speech|sentences) (generated|synthesi[sz]ed|reconstructed|decoded)|(word error rate|wer)[^.]{0,40}human (evaluation|transcription)",
+ "fulltext_pattern": null,
  "inclusion_rule": "Include studies that evaluate speech synthesized from non-acoustic signals (neural activity, EMG, articulatory measurements such as EMA or PMA, ultrasound, mouth video) with an intelligibility test in which human listeners transcribe it or identify words or sentences from a set of choices, and report accuracy, WER or similar. Boundary: exclude those with only naturalness, preference or MOS ratings. Exclude conversion from acoustic input (whisper, NAM microphone, esophageal speech, etc.). Exclude synthesis from text and stimulus sounds for perception experiments. Exclude those that evaluate synthesized speech only with automatic speech recognition. Exclude matches in reviews or citations only. Count different versions of the same study as one item.",
  "counts": {
   "scanned_folders": 8995,
@@ -70,8 +70,7 @@
    "title": "Lip2AudSpec: Speech reconstruction from silent lip movements video",
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "spectrogram constrained by 32-node autoencoder bottleneck features; additive noise for robustness | representation_kind=reconstructed audio; STMI/PESQ/Corr2D + MTurk acc/natural/gender/hard-to-say + category acc | technical_essence=3D-conv lip encoder -> frame embedding | technical_es",
    "decision": "include",
@@ -86,14 +85,10 @@
    "title": "Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces",
    "year": 2019,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "es beat raw-pixel DNN baseline: test correlation 0.776-0.787 vs 0.680 (+30-33% relative), NMSE -25-29% relative | claim=synthesized utterances rated more natural by 14 native listeners than baseline in MUSHRA | recording subject | recorded sentences | ultrasound frame rate | estimated speech parameters",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "14 people only rate the naturalness of speech synthesized from ultrasound; not transcription or identification"
   },
   {
@@ -106,9 +101,6 @@
    ],
    "snippet": "lization — gender-balanced corpora recommended; ICC 0.94-0.96 = excellent reliability. | Study.unit_of_analysis=whisper synthesis quality judged by listeners, bounded above by the vocoder/extraction chain — the ceiling is technological, not algorithmic. | ICC Fig2 | ICC Fig3a",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Conversion from whisper (acoustic input)"
   },
   {
@@ -346,9 +338,6 @@
    ],
    "snippet": "red representations. | task_family=speech_reconstruction | intended_use_cases=speech_restoration | scope_limits=Offline reconstruction of heard Japanese utterances from EEG for one listener on one multi-session dataset; not cross-participant generalization, user-generated speech, or live communication. | pop",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Reconstructs heard Japanese utterances from EEG during listening. No transcription or identification listening test in the ledger"
   },
   {
@@ -387,14 +376,10 @@
    "title": "Data driven articulatory synthesis with deep neural networks",
    "year": 2016,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "t Glasgow Herald sentences (~220s); MCD on non-silent frames vs sGMM/dGMM; context sweep (10-80ms); architecture sweep; synthesis-time comparison; MTurk 30 listeners × 30 pairs, randomized order, pairwise t-tests | vocabulary_regime=closed_lexicon | validation_state=demonstrated_test",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "The subjective test of articulatory synthesis from EMA is a pairwise preference comparison on MTurk, not transcription or identification"
   },
   {
@@ -422,9 +407,6 @@
    ],
    "snippet": "extra.Task.target=Perceptual evaluation of sEMG-driven prosody for SSI: listeners rate naturalness of synthesized sentences whose fo contour is manipulated 4 ways (flat/discrete-classification/continuous-mapping/EL-emulated) and",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Only naturalness ratings of sentences with EMG-derived prosody"
   },
   {
@@ -463,8 +445,7 @@
    "title": null,
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "en sentences using an articulatory intermediate representation | evidence_relation=supported_within_scope | claim=human listeners transcribed neurally synthesized speech at median 31% WER (25-word pool) / 53% WER (50-word pool) on 101 test sentences | Claim.claim_type=generaliz",
    "decision": "include",
@@ -524,8 +505,7 @@
    "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
    "year": 2024,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "igible sentences), implantable-BCI trial NCT03567213 | Cohort.demographics=21 native English speakers recruited for the synthesized-word listening test | sensor_hardware=chronically implanted two 8x8 ECoG electrode grids over ventral sensorimotor cortex and dorsal laryng",
    "decision": "include",
@@ -630,8 +610,7 @@
    "title": "End-to-End Mandarin Speech Reconstruction Based on Ultrasound Tongue Images Using Deep Learning",
    "year": 2025,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "n; MCD; LogF0 RMSE/CORR/V-U; MOS 1-5 | EvaluationProtocol.experimental_design={'design': 'subjective listening tests', 'listeners': '30 healthy Mandarin-speaking', 'items': '80 utterances (natural+reconstructed)', 'tests': ['MOS naturalness', 'tone dictation TER']} | Cohort.recruitment=one healthy native Mandarin speaker, no s",
    "decision": "include",
@@ -650,9 +629,6 @@
    ],
    "snippet": "vity | intrusiveness=skin_contact | technical_essence=EEG-estimated speech reception threshold: 20 young normal-hearing listeners hear audiobook excerpts at varying SNR while a linear decoder reconstructs the speech envelope; SRTneuro (sigmoid midpoint of reconstruction accuracy vs SNR) lands within 3 dB of behavioral SRT",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Auditory study estimating the speech reception threshold from EEG during listening"
   },
   {
@@ -665,9 +641,6 @@
    ],
    "snippet": "air_acoustics, position, shape | intrusiveness=external_noncontact | technical_essence=Speech-in-noise benefit of a DNN-synthesized talking face: listeners transcribe masked sentences (SNR −9/−6/−3/0 dB) under synthesized-AV, natural-AV and audio-only static-image conditions",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Study of listening in noise while viewing a synthesized talker's face; not synthesized speech"
   },
   {
@@ -695,9 +668,6 @@
    ],
    "snippet": "h | observed_quantities=neural_activity | intrusiveness=skin_contact | technical_essence=Word-gap pauses boost envelope reconstruction: 16 normal-hearing listeners hear ~10min natural continuous speech vs the same with 250ms/500ms silent gaps between words (16/21min); mTRF decoders",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Reconstruction of the envelope of continuous speech (perception); not a listening test"
   },
   {
@@ -800,9 +770,6 @@
    ],
    "snippet": "uity (max RT at maximally uncertain PVCA), r=0.88, rather than added processing stages | extra.Limitation.limitation=11 listeners, single VCV contrast, synthesized continua; RT–uncertainty correlation depends on per-subject maxima and one removed outlier | extra.Limitation.statu",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Perception experiment on voicing using a synthetic continuum"
   },
   {
@@ -815,9 +782,6 @@
    ],
    "snippet": "on the 10-sentence test set; one model per emotion | EvaluationProtocol.test_material_selection=held-out test sentences synthesized per emotion; diagnostic perceptual test: 10 listeners classify silent-video emotion (happy/angry/sad/neutral) paired with neutral audio | system_boundary=phoneme string + em",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Visual synthesis study in which listeners classify synthesized facial expressions"
   },
   {
@@ -830,9 +794,6 @@
    ],
    "snippet": "TractLab for male and female voices | Study.unit_of_analysis=5 German words x 2 genders x 405 parameter variants = 4050 synthesized stimuli; 30 listeners rate naturalness | task_encoding=natural_utterance | target_population=general_population | tested_population=healthy_v",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Naturalness ratings of sounds synthesized by a vocal-tract model"
   },
   {
@@ -860,9 +821,6 @@
    ],
    "snippet": "bands), MCD (60-dim), V/UV error on test phrases; subjective: preference scores for naturalness + voice similarity, 10 listeners x 20 synthesized phrases, pairwise (baseline vs DI vs DI+FM) | EvaluationProtocol.experimental_design=3 systems x 2 speakers speaker",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Subjective tests are only pairwise comparisons of naturalness and speaker similarity"
   },
   {
@@ -875,9 +833,6 @@
    ],
    "snippet": "al_utterance | extra.Task.scope=NEURAL stimulus-category decoding background: SVM decodes which of 10 sound classes the listener heard from MEG — speech selectivity analyzed, no phoneme/word/language reconstruction | target_population=general_population | tested_population=healthy_volunteers | Cohort.demographics=10 subjects list",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "MEG decoding of sound categories; not a listening test of synthesized speech"
   },
   {
@@ -950,9 +905,6 @@
    ],
    "snippet": "the plane boundaries, consistent with male/female category priors shaping identity | technical_limits=small sample (10 listeners, single source speaker resynthesized); synthetic contour manipulation via STRAIGHT only; boundary effects partly confounded by category membership; no p",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Speaker-perception experiment; not intelligibility of synthesized speech"
   },
   {
@@ -965,9 +917,6 @@
    ],
    "snippet": "lysis=VCV syllable sequences [aba],[aga] from 2 speakers (JL, PE); LP/PARCOR filter interpolation α·[aga]+(1−α)·[aba] resynthesis; 7 French listeners identify output; perceptual identification responses | task_encoding=natural_utterance | target_population=general_popu",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Perception experiment on the McGurk effect"
   },
   {
@@ -1025,9 +974,6 @@
    ],
    "snippet": "speaker (AT4031, 15cm); acoustic analysis (duration/intensity/formant/spectral tilt) + amplitude-modulated pink-noise resynthesis (duration+amplitude only) + 20-listener forced-choice tone ID | task_family=phoneme_or_character_classification | task_encoding=natural_utterance | intended_us",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Perception experiment on whispered tone"
   },
   {
@@ -1085,9 +1031,6 @@
    ],
    "snippet": "average -> linear regression onto NAT/PLN per gender | EvaluationProtocol.test_material_selection=formal P.85 attribute listening tests at two independent institutes; correlation per stimulus and per synthesizer; only voiced segments analyzed | system_boundary=single-ended signal analysis; input TTS waveform, output estimated",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Quality estimation for text-to-speech"
   },
   {
@@ -1100,9 +1043,6 @@
    ],
    "snippet": "z | split_protocol=random_trial | Study.study_design=controlled_experiment | Study.research_objective=predict perceived synthesized-speech quality objectively from listener EEG | claim=EEG signals differentiate natural vs 4 synthesized speech types (SVM 96.61% best, alpha band strongest over",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Study estimating quality from the EEG of people listening to synthesized speech"
   },
   {
@@ -1115,9 +1055,6 @@
    ],
    "snippet": "ulatory RMS error + correlation (+/- lowpass filter); acoustic-domain perceptually-weighted LSF Euclidean distance of resynthesised sentences; 30 native British listeners, 9 pairwise preference tests x 10 pairs, paid 5 GBP, 95% CI | system_boundary=evaluation methodology pipeline: acoustic",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Evaluation of acoustic-to-articulatory inversion; listening is a pairwise preference"
   },
   {
@@ -1160,9 +1097,6 @@
    ],
    "snippet": "system_lifecycle=implemented_evaluated | system_boundary=TE speech recording -> LPC source/filter -> manipulations -> resynthesized stimuli -> listener ratings | EvaluationProtocol.temporal_accounting=listener perceived-intelligibility ratings per manipulation (regressio",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Operation of esophageal speech (acoustic input)"
   },
   {
@@ -1175,9 +1109,6 @@
    ],
    "snippet": "ntification for directional (parametric-array) audio, and characterize the device’s distortion | Study.unit_of_analysis=listeners identify 7 unvoiced consonants [f,s,m,n,k,p,t] in synthesized [a_a] VCVs (Infovox MBROLA) delivered through a 40kHz-carrier parametric loudspeaker at 0° and 45° off-axis, with a",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Consonant identification experiment with a directional loudspeaker"
   },
   {
@@ -1220,9 +1151,6 @@
    ],
    "snippet": "articulatory-control errors; assess intelligibility and naturalness subjectively | Study.unit_of_analysis=per-sentence synthesized waveform + per-listener 5-point MOS ratings for intelligibility and naturalness | task_encoding=natural_utterance | task_family=speech_reconstr",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Measures the intelligibility of articulatory synthesis with 5-point ratings (not transcription or identification)"
   },
   {
@@ -1351,8 +1279,7 @@
    "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
    "year": 2024,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "y=training data from 64 ECoG electrodes during 6-keyword spoken commands | EvaluationProtocol.experimental_design=human-listener intelligibility test of synthesized words (closed 6-word vocab, chance 16.7%); nVAD held-out frame accuracy | representation_kind=high-gamma activity f",
    "decision": "include",
@@ -1397,14 +1324,10 @@
    "title": "Using Automatic Speech Recognition to Measure the Intelligibility of Speech Synthesized from Brain Signals",
    "year": 2023,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "trics; phoneme-based LM tuned candidate | EvaluationRun.execution_artifacts=all ASR candidates report the published BCI-synthesized voices as unintelligible, consistent with human listeners; phoneme-output candidate gives best transcription accuracy | extra.Output.output_kind=automated intelligibility benchm",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Study of methods for measuring the intelligibility of synthesized speech with automatic speech recognition"
   },
   {
@@ -1413,14 +1336,10 @@
    "title": "An instantaneous voice-synthesis neuroprosthesis",
    "year": 2025,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "valuation_mode=live_interactive | Reference.reference_kind=verbatim_transcript | claim=instantaneous brain-to-voice BCI synthesizes intelligible speech from attempted speech in ALS: listener transcription PER 34.00% / WER 43.75% vs 83.87% / 96.43% for residual dysarthric speech — restores real-time expressive",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Another version of Wairagkar et al. (doi-10.1038-s41586-025-09127-3)"
   },
   {
@@ -1489,8 +1408,7 @@
    "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
    "year": 2025,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "HuBERT speech units -> GSLM audio, without paired voiced ground-truth | Study.unit_of_analysis=intelligibility of sEMG-synthesized audio rated by human transcribers on 499-item date/time corpus; per-subject informative-electrode dimensionality via PCA+SFS | task_encoding=natural_",
    "decision": "include",
@@ -1569,9 +1487,6 @@
    ],
    "snippet": "rocess across production modes | extra.Limitation.status=acknowledged | extra.Limitation.limitation=Single participant; reconstructed audio not yet intelligible to listeners; restricted to single-word utterances; electrode coverage fixed by clinical indication | r .89 | 119 contacts | 3 modes",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Real-time synthesis from imagined speech. The ledger records that it was not intelligible to listeners; no listening-test figures"
   },
   {
@@ -1651,23 +1566,210 @@
   }
  ],
  "known_item_recall": {
-  "seeds_in_wiki": 6,
-  "found": 6,
+  "seeds_in_wiki": 1,
+  "found": 1,
   "recall": 1.0,
   "missed": []
  },
  "tally": {
   "slot_filled_unique": 6960,
   "string_match_unique": 37,
-  "read": 106,
+  "fulltext_only_folders": 66,
+  "usual_approach": {
+   "design": "crowd_workers",
+   "n": 15,
+   "tier": "pattern match",
+   "population_unique": 79
+  },
+  "state_of_the_art": {
+   "pid": "pmc-12369848-voice-synth-np",
+   "year": 2025,
+   "metric": "median listener open-transcription WER of synthesized speech (intracortical, attempted vocalized speech)",
+   "value": "43.75%",
+   "timing": "later"
+  },
+  "read": 2,
+  "read_prior": [
+   "doi-10.1038-s41586-019-1119-1"
+  ],
   "unread": 0,
   "confirmed_unique": 29,
-  "confirmed_text_verified": 16,
-  "recall_sample_read": 30,
-  "recall_sample_included": 13,
-  "recall_estimate": 0.3
+  "known_item_recall": 1.0
  },
  "used_by": [
+  "a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control",
   "speech-synthesis-from-neural-decoding-of-spoken-sentences"
- ]
+ ],
+ "ledger_tally": {
+  "design_slot": "M12",
+  "design_slot_fill": 0.932,
+  "sparse": false,
+  "design_values": [],
+  "pattern_counts": [
+   {
+    "design": "crowd_workers",
+    "n": 15,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-12369848-voice-synth-np",
+     "pmc-10256166-tonal-synth",
+     "arxiv-2207.03800",
+     "pmc-9714519-speechsynth",
+     "doi-10.1016-j.csl.2015.02.003"
+    ]
+   },
+   {
+    "design": "closed_set_identification",
+    "n": 13,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1038-s41593-026-02456-0",
+     "doi-10.1038-s41598-024-60277-2",
+     "pmc-11053081-onlinesyn",
+     "pmc-11424044-ailistener",
+     "doi-10.1088-1741-2552-ace8be"
+    ]
+   },
+   {
+    "design": "open_transcription",
+    "n": 10,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2510.23969",
+     "doi-10.1109-tnsre.2024.3520498",
+     "pmc-12369848-voice-synth-np",
+     "pmc-13537912-semglar",
+     "pmc-9714519-speechsynth"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "t2 gt wer",
+   "value": 0.71,
+   "unit": "percent",
+   "raw": "0.71%",
+   "pid": "arxiv-2502.12002",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Makin 2020 lowest WER (cited)",
+   "value": 3,
+   "unit": "percent",
+   "raw": "word error rates as low as 3%",
+   "pid": "doi-10.1038-s41583-024-00819-9",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T4 WER ours",
+   "value": 3.6,
+   "unit": "%",
+   "raw": "3.6",
+   "pid": "arxiv-2010.02960",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER vocalized natural ref",
+   "value": 4.11,
+   "unit": "%",
+   "raw": "4.11",
+   "pid": "arxiv-2304.05574",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CNN-CTC + LM word error rate, 20-word vocab",
+   "value": 10.7,
+   "unit": "percent",
+   "raw": "10.7%",
+   "pid": "oa-W2992647453",
+   "year": 2019,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Whisper WER on ground-truth audio, test split",
+   "value": 12.66,
+   "unit": "percent",
+   "raw": "12.66",
+   "pid": "arxiv-2510.23969",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "grid ours wer",
+   "value": 14.08,
+   "unit": "percent",
+   "raw": "14.08",
+   "pid": "arxiv-2005.08209",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "reference 14.88% WER",
+   "value": 14.88,
+   "unit": "% reference WER",
+   "raw": "held-out, CI [6.83,24.87]",
+   "pid": "pmc-13537912-semg_laryngectomy",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "human eval2 WER",
+   "value": 28.5,
+   "unit": "%",
+   "raw": "28.5",
+   "pid": "arxiv-2106.01933",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BCI synthesized-speech word error rate (median)",
+   "value": 43.75,
+   "unit": "percent",
+   "raw": "43.75%",
+   "pid": "pmc-12369848-voice-synth-np",
+   "year": 2025,
+   "tier": "ledger only"
+  }
+ ],
+ "usual_approach": {
+  "design": "crowd_workers",
+  "n": 15,
+  "tier": "pattern match",
+  "pids": [
+   "pmc-12369848-voice-synth-np",
+   "pmc-10256166-tonal-synth",
+   "arxiv-2207.03800",
+   "pmc-9714519-speechsynth",
+   "doi-10.1016-j.csl.2015.02.003"
+  ],
+  "population_unique": 79
+ },
+ "read_fulltext": [
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "role": "sota",
+   "loc": "Results",
+   "quote": "The transcription median phoneme error rate (PER) was 34.00% and median word error rate (WER) was 43.75%."
+  },
+  {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "role": "prior",
+   "loc": "Synthesis performance",
+   "quote": "Transcribed sentences had a median 31% WER with a 25-word pool size"
+  }
+ ],
+ "state_of_the_art": {
+  "pid": "pmc-12369848-voice-synth-np",
+  "year": 2025,
+  "metric": "median listener open-transcription WER of synthesized speech (intracortical, attempted vocalized speech)",
+  "value": "43.75%",
+  "timing": "later"
+ }
 }

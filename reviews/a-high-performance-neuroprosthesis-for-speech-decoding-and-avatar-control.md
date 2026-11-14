@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/](a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/).**
 
-253-channel ECoG neuroprosthesis decodes silently attempted speech into text, synthesized voice and avatar movements; real-time median WER 25.5% at 78 wpm on a 1,024-word sentence set in one person with anarthria.
+Text, voice and avatar from ECoG in one participant hold as a demonstration; sensor and decoder are standard, and an LM trained on the test pool inflates the text result.
 
 [Read the full review](a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/) · [All reviews](../README.md)

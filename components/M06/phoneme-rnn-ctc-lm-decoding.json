@@ -45,18 +45,6 @@
     ]
    },
    {
-    "design": "model_family=rnn",
-    "n": 22,
-    "tier": "slot-filled",
-    "pids": [
-     "arxiv-2502.05762",
-     "arxiv-2607-26751-phonchar",
-     "arxiv-2609-36736-speechbcirev",
-     "arxiv-2609.33538",
-     "doi-10.21203-rs.3.rs-9916752.v1"
-    ]
-   },
-   {
     "design": "ProcessingStep.step_role=rescore",
     "n": 21,
     "tier": "slot-filled",
@@ -66,30 +54,6 @@
      "arxiv-2102.06657",
      "doi-10.1109-tpami.2018.2889052",
      "oa-W2992647453"
-    ]
-   },
-   {
-    "design": "model_family=transformer",
-    "n": 16,
-    "tier": "slot-filled",
-    "pids": [
-     "arxiv-2604-16441-iphoneme",
-     "arxiv-2609-36736-speechbcirev",
-     "doi-10.64898-2026.02.19.26346583",
-     "doi-10.64898-2026.07.23.739430",
-     "pmc-13375540-ibciterm"
-    ]
-   },
-   {
-    "design": "model_family=other",
-    "n": 14,
-    "tier": "slot-filled",
-    "pids": [
-     "arxiv-2604.16441",
-     "arxiv-2607-26751-phonchar",
-     "arxiv-2609.33538",
-     "pmc-13483768-speechnp",
-     "pmc-12363778-anarthria-ibci"
     ]
    },
    {
@@ -117,81 +81,59 @@
     ]
    },
    {
-    "design": "model_family=cnn",
-    "n": 10,
+    "design": "ProcessingStep.step_role=postprocess",
+    "n": 5,
     "tier": "slot-filled",
     "pids": [
-     "doi-10.20944-preprints202505.0540.v1",
-     "arxiv-2205.10839-vsa-survey",
-     "doi-10.1038-s41598-022-26155-5",
-     "arxiv-2201.02184",
-     "arxiv-2102.06657"
+     "arxiv-2002.03851",
+     "arxiv-2301.01456",
+     "arxiv-2502.00464",
+     "arxiv-2603.18299",
+     "isca-lan10_avsp"
     ]
    },
    {
-    "design": "decoder_route=recognition_to_text",
-    "n": 9,
+    "design": "ProcessingStep.step_role=select",
+    "n": 4,
     "tier": "slot-filled",
     "pids": [
-     "arxiv-2502.05762",
      "arxiv-2609.33538",
-     "arxiv-2201.02184",
-     "arxiv-2102.06657",
-     "arxiv-1611.06986"
+     "arxiv-2107.00692",
+     "arxiv-2209.01768",
+     "isca-lihan05_interspeech"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=search",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2107.00692",
+     "arxiv-2603.18299"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=retrieve",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2104.04784",
+     "arxiv-2204.01725"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=segment",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "oa-W2992647453",
+     "arxiv-2607.26751"
     ]
    }
   ],
-  "pattern_counts": [
-   {
-    "design": "ctc",
-    "n": 79,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2502.05762",
-     "arxiv-2604-16441-iphoneme",
-     "arxiv-2605.24313",
-     "arxiv-2606.00751",
-     "arxiv-2607-26751-phonchar"
-    ]
-   },
-   {
-    "design": "recurrent",
-    "n": 76,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2502.05762",
-     "arxiv-2604-16441-iphoneme",
-     "arxiv-2605.24313",
-     "arxiv-2606.00751",
-     "arxiv-2607-26751-phonchar"
-    ]
-   },
-   {
-    "design": "transformer",
-    "n": 61,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2604-16441-iphoneme",
-     "arxiv-2605.24313",
-     "arxiv-2606.00751",
-     "arxiv-2607-26751-phonchar",
-     "arxiv-2609-36736-speechbcirev"
-    ]
-   },
-   {
-    "design": "attention_seq2seq",
-    "n": 43,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2502.05762",
-     "arxiv-2605.24313",
-     "arxiv-2606.00751",
-     "arxiv-2607-26751-phonchar",
-     "arxiv-2609-36736-speechbcirev"
-    ]
-   }
-  ],
-  "metric_pattern": "WER|word error",
+  "pattern_counts": [],
+  "metric_pattern": "(?i)WER|word error",
   "better": "lower"
  },
  "sota_candidates": [
@@ -1525,9 +1467,11 @@
  ],
  "known_item_recall": {
   "seeds_in_wiki": 2,
-  "found": 2,
-  "recall": 1.0,
-  "missed": []
+  "found": 1,
+  "recall": 0.5,
+  "missed": [
+   "doi-10.1056-nejmoa2027540"
+  ]
  },
  "state_of_the_art": {
   "pid": "pmc-11328962-rapidcal",
@@ -1559,9 +1503,10 @@
   ],
   "unread": 120,
   "confirmed_unique": 0,
-  "known_item_recall": 1.0
+  "known_item_recall": 0.5
  },
  "used_by": [
+  "a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control",
   "a-high-performance-speech-neuroprosthesis"
  ]
 }
