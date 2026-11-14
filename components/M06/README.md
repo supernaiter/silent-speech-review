@@ -2,6 +2,19 @@
 
 この部品について調べた話題と、確認済みの論文。各話題の表は分野全体（wiki の台帳と全文）を検索し、候補を原典で読んで採否を決めたもの。
 
+## articulatory-intermediate
+
+- 採否表：[`articulatory-intermediate.csv`](articulatory-intermediate.csv)（確認済み 4、読んだ候補 44、未読 0、wiki 730b0b4）
+- 採る条件：音響以外の信号（神経活動、筋電、映像、超音波など）から、明示的な調音表現（計測または推定した調音器官の運動軌跡、調音素性・音韻範疇）をいったん復号し、それを次段で音響特徴・音声波形・記号列に変換する復号経路を持つ研究を含める。境界：入力そのものが調音計測（EMA・PMA・超音波）で、調音表現を中間に復号しないものは除く。音響から調音を推定してから音声に戻すもの（入力が音響）は除く。調音を補助損失・正則化にだけ使い、経路の中間に置かないものは除く。調音表現を復号するだけで次段がないものは除く。総説・引用だけの言及は除く。同一研究の別版は1件。
+- 使ったレビュー：[Speech synthesis from neural decoding of spoken sentences](../../reviews/speech-synthesis-from-neural-decoding-of-spoken-sentences/)
+
+| 論文 | 年 | 根拠の位置 |
+| --- | --- | --- |
+| Articulatory Feature Prediction from Surface EMG during Speech Production | 2025 | 要旨 |
+| doi-10.1038-s41586-019-1119-1 |  | 要旨、Methods「Neural decoder」 |
+| Overt speech decoding from cortical activity: a comparison of different linear methods | 2023 | Abstract（Methods）、§2.6.3 |
+| SPEAK YOUR MIND! Towards Imagined Speech Recognition With Hierarchical Deep Learning |  | Abstract |
+
 ## attention-seq2seq-decoding
 
 - 採否表：[`attention-seq2seq-decoding.csv`](attention-seq2seq-decoding.csv)（確認済み 36、読んだ候補 115、未読 441、wiki 730b0b4）

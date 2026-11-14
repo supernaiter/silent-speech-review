@@ -1,0 +1,1655 @@
+{
+ "topic": "overt-to-silent-transfer",
+ "slot": "M04",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(audible|vocali[sz]ed|overt|voiced|aloud|phonated)[^|]{0,60}(->|→| to )[^|]{0,10}(silent|mimed|covert|mouthed)|\\bcross[- ]mode\\b|not trained on (mimed|silent)|train\\w*[^|]{0,30}(audible|vocali[sz]ed|overt|voiced)[^|]{0,80}test\\w*[^|]{0,40}(silent|mimed|covert|mouthed)",
+ "scope": "ledger",
+ "fulltext_pattern": "(trained|training|train) (only )?(on|with) (the )?(audible|vocali[sz]ed|overt|voiced|aloud|spoken)[^.]{0,150}(tested|applied|evaluated|decod\\w+|test)[^.]{0,80}(silent|mimed|covert|imagined|mouthed)|trained (on|with|from) [^.]{0,40}(overt|audible|vocali[sz]ed) speech[^.]{0,120}(covert|silent|mimed)|(not|never) (been )?trained on (silent|mimed|covert|imagined|mouthed)|(overt|audible|vocali[sz]ed|aloud)[- ]to[- ](covert|silent|mimed)\\b|\\bcross[- ](speaking[- ])?modes?\\b",
+ "inclusion_rule": "声に出した（または声に出そうと試みた）発話だけで学習した復号器を、無声の発話（口だけ動かす、無声で調音する、内言・想像）に再学習なしで当て、その結果を報告した研究を含める。信号は問わない（神経、筋電、超音波、映像など）。境界：無声のデータでも学習するもの（可聴側の目標を移す方法など）は、可聴学習のみの基準条件を別に報告していれば含める。可聴モデルを無声データの時刻合わせや初期化にだけ使うものは除く。音響音声のささやき声と通常声の間の転移は除く。聴取（知覚）から内言への転移は除く。神経活動の類似性の解析だけで復号器を当てないものは除く。総説・引用だけの一致は除く。同一研究の別版は1件。",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 6538,
+  "slot_filled_unique": 5595,
+  "string_match_folders": 42,
+  "string_match_unique": 33,
+  "fulltext_only_folders": 62
+ },
+ "recall_sample": [
+  "isca-ahmadi13-mouthus",
+  "pmc-9714519-speechsynth",
+  "isca-lim16_interspeech",
+  "doi-10.1101-2024.08.14.607690",
+  "arxiv-2603.11715",
+  "doi-10.1038-s41586-025-09127-3",
+  "doi-10.5220-0002814100220031",
+  "isca-janke10_interspeech",
+  "isca-ahmadi13_interspeech",
+  "pmc-12245923-pron2img-eeg",
+  "pmc-4034498-spectemp",
+  "doi-10.3389-fnhum.2022.804832",
+  "isca-florescu10-silentvocal",
+  "doi-10.1007-s40820-025-02042-2",
+  "doi-10.1101-2024.10.04.616375",
+  "doi-10.3389-fneng.2014.00014",
+  "doi-10.1109-taslp-2017-2738568",
+  "pmc-12245923-multicond",
+  "pmc-13326865-grammar",
+  "doi-10.18653-v1-2020.emnlp-main.445",
+  "issp2011-hueber-ema-silent",
+  "pmc-6351601-audrecon",
+  "pmc-4034498-overtcovert",
+  "pmc-12263900-electrode",
+  "doi-10.5220-0003169702950300",
+  "pmc-12369848-voicesynth",
+  "pmc-6351601-intelligible",
+  "doi-10.3390-jintelligence13120156",
+  "doi-10.1186-s12911-026-03552-8",
+  "pmc-11106343-covert"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1802.06399",
+   "key": "t:visualonlyrecognitionofnormalwhisperedandsilentspeech",
+   "title": "Visual-Only Recognition of Normal, Whispered and Silent Speech",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "-independent visual-only lipreading of 10 digits + 10 phrases, each recorded in normal/whispered/silent mode; CNN+LSTM; cross-mode train/test accuracy grid (3x3 x 2 tasks). | task_family=isolated_word_recognition | intended_use_cases=noisy_environmen",
+   "decision": "include",
+   "quote": "this may degrade the performance of models trained on vocalised speech and tested on silent speech",
+   "loc": "Introduction、実験の格子",
+   "provenance": "本文確認",
+   "reason": "先行（2018-02）。映像のみの読唇で通常・ささやき・無声の各様式を学習・試験の 3×3 で比べる"
+  },
+  {
+   "pid": "arxiv-2010.02960",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ts to silent EMG | technical_essence=WaveNet vocoder synthesizes waveform | technical_essence=direct-transfer baseline: vocalized-trained model applied to silent EMG (throat-electrode variants) | extra.Output.output_kind=synthesized audio (transcription WER) | extra.Configuration.",
+   "decision": "include",
+   "quote": "direct-transfer baseline: vocalized-trained model applied to silent EMG",
+   "loc": "台帳（基準条件）、§Abstract",
+   "provenance": "台帳のみ",
+   "reason": "後続（2020）。主手法は無声 EMG でも学習するが、可聴学習のみのモデルを無声 EMG に当てる直接転移の基準条件を報告"
+  },
+  {
+   "pid": "arxiv-2206.12947",
+   "key": "t:improvedprocessingofultrasoundtonguevideosbycombiningconvlstmand3dconvolutionaln",
+   "title": "Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convolutional Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "veGlow vocoding. | intended_use_cases=speech_restoration, private_communication | production_instruction=Read sentences ALOUD while UTI records tongue — voiced corpus used to train silent-interface mapping. | modalities=ultrasound_imaging | sensor_hardware=\"Micro\" ultrasound (Articulate Instruments), midsa",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "有声の読み上げで超音波→音声の写像を学ぶが、無声での試験は台帳に記録がない（台帳で判定）"
+  },
+  {
+   "pid": "arxiv-2212.02047",
+   "key": "t:towardsneuraldecodingofimaginedspeechbasedonspokenspeech",
+   "title": "Towards Neural Decoding of Imagined Speech based on Spoken Speech",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "by simply applying the pre-trained model trained with spoken speech brain signals to decode imagined speech",
+   "loc": "Abstract",
+   "provenance": "本文確認",
+   "reason": "後続（2022）。発声時 EEG で学習したモデルをそのまま想像発話の分類に当てる"
+  },
+  {
+   "pid": "arxiv-2304.05574",
+   "key": "t:speechreconstructionfromsilenttongueandliparticulationbypseudotargetgenerationan",
+   "title": "Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "intelligible speech from silent (non-vocalized) UTI+lip articulation: iterative DTW pseudo-target generation against a vocalized-trained TaLNet + domain-adversarial encoder to close the silent/vocalized domain gap. | task_family=speech_reconstruction | extra.Task.scope=Mel-spectrogram reconstruction from synchr",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "無声の超音波・唇データでも学習する（擬似目標と領域敵対学習）。可聴のみの基準の扱いは台帳から確定できない"
+  },
+  {
+   "pid": "arxiv-2403.05583",
+   "key": "t:acrossmodalapproachtosilentspeechwithllmenhancedrecognition",
+   "title": "A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", 'result': 'modest degradation in all models'} | ProcessingStep.hyperparameters={'align': 'DTW in latent space warping vocalized audio latents to silent EMG latents'} | ProcessingStep.hyperparameters={'input': 'top-k beams or ensemble-of-models predictions + beam-search N",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "無声 EMG と有声音声を潜在空間で揃えて学習する。可聴学習のみの条件ではない"
+  },
+  {
+   "pid": "arxiv-2502-04132-covtr",
+   "key": "t:transferlearningforcovertspeechclassificationusingeeghilbertenvelopeandtemporalf",
+   "title": "Transfer learning for covert speech classification using EEG Hilbert envelope and temporal fine structure",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y.study_design=system_proposal | Study.research_objective=Reduce imagined-speech-BCI training burden by transferring an overt-speech classifier to covert (silent) speech classification | Study.unit_of_analysis=Subject-specific 5-word command classification accuracy for overt and c",
+   "decision": "include",
+   "quote": "Overt->covert transfer learning on EEG Hilbert ENV/TFS",
+   "loc": "台帳（研究目的）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2025）。EEG の発声分類器を内言分類に転移（同じ鍵の別版）"
+  },
+  {
+   "pid": "arxiv-2502.04132",
+   "key": "t:transferlearningforcovertspeechclassificationusingeeghilbertenvelopeandtemporalf",
+   "title": "Transfer Learning for Covert Speech Classification Using EEG Hilbert Envelope and Temporal Fine Structure",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on Using EEG Hilbert Envelope and Temporal Fine Structure | venue=IEEE TBME letter; v1 (3pp) | Study.research_objective=Overt->covert transfer learning on EEG Hilbert ENV/TFS (15 subjects, 5 commands, 400 seg each): overt BiLSTM 86.44% avg; transferred",
+   "decision": "include",
+   "quote": "Overt->covert transfer learning on EEG Hilbert ENV/TFS",
+   "loc": "台帳（研究目的）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2025）。EEG の発声分類器を内言分類に転移（同じ鍵の別版）"
+  },
+  {
+   "pid": "arxiv-2602-01247-mechint",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "bjective=causal mechanistic-interpretability analysis of a neural speech decoder across vocalized/mimed/imagined modes: cross-mode activation patching + tri-modal interpolation reveal a shared causal manifold with asymmetry in representational comple",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "既存の復号器を発話様式間で解析する機構解釈の研究で、新たに転移を測る研究ではない"
+  },
+  {
+   "pid": "arxiv-2602-22597-vmi",
+   "key": "t:relatingtheneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "When trained on Vocalized speech, the model achieves its highest performance on Vocalized respon",
+   "loc": "Results（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2026）。発声・口だけ・想像の神経表現で、発声で学習したモデルを他条件に当てる（同じ鍵の別版）"
+  },
+  {
+   "pid": "arxiv-2602.01247",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "of internal representations in a neural speech decoder across vocalized, mimed, and imagined speech. | question=Whether cross-mode decoding performance differences arise from input signal properties or decoder-internal representations, how those repr",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "arxiv-2602.01247-mib2s",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Use mechanistic interpretability (cross-mode activation patching, tri-modal interpolation, coarse-to-fine causal tracing, scrubbing) to causally localize how a trai",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "arxiv-2603.08046",
+   "key": "t:whispearabidirectionalframeworkforscalingwhisperedspeechconversionviapseudoparal",
+   "title": "WhispEar: A Bi-directional Framework for Scaling Whispered Speech Conversion via Pseudo-Parallel Whisper Generation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "der produces waveform output. | technical_essence=Train separate target-space semantic tokenizers for W2N and N2W, with cross-mode objectives and consistency terms. | technical_essence=Resample and normalize audio; align ASR-derived frames using CTC",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "ささやき声と通常声の音響変換で、無声の発話ではない"
+  },
+  {
+   "pid": "arxiv-2603.11715",
+   "key": "t:affectdecodinginphonatedandsilentspeechproductionfromsurfaceemg",
+   "title": "Affect Decoding in Phonated and Silent Speech Production from Surface EMG",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "cross-mode refers to training on one mode and testing on the other",
+   "loc": "表の説明（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2026）。表面 EMG の感情復号で発声→無声の交差条件を報告"
+  },
+  {
+   "pid": "biorxiv-747136-chinesewords",
+   "key": "t:sharedanddistincttemporalrepresentationsofchinesewordsacrossimaginedsilentandove",
+   "title": "Shared and distinct temporal representations of Chinese words across imagined, silent, and overt speech",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "nt | task_family=isolated_word_recognition | extra.Task.output_kind=word-identity decode of 10 Chinese words per mode + cross-mode generalization + RSA geometry | modalities=scalp_eeg, surface_emg | sensor_hardware=EEG + facial sEMG at 1,000 Hz (open",
+   "decision": "include",
+   "quote": "word-identity decode of 10 Chinese words per mode + cross-mode generalization",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2026）。EEG・EMG で中国語単語の様式間汎化を報告"
+  },
+  {
+   "pid": "doi-10.1007-s40820-025-02042-2",
+   "key": "t:noninvasivebraincomputerinterfacesconvergingfrontiersinneuralsignaldecodingandfl",
+   "title": "Non-Invasive Brain-Computer Interfaces: Converging Frontiers in Neural Signal Decoding and Flexible Bioelectronics Integration",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "非侵襲 BCI の総説"
+  },
+  {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "key": "p:doi-10.1038-s41586-019-1119-1",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Even though the decoder was not trained on mimed sentences, the spectrograms of synthesized silent speech demonstrated similar spectral patterns",
+   "loc": "Results「Synthesizing mimed speech」",
+   "provenance": "本文確認",
+   "reason": "対象論文。可聴の文で学習した復号器を、P1 が口だけ動かした 58 試行（10 文の反復と読める）に当てる"
+  },
+  {
+   "pid": "doi-10.1038-s41586-025-09127-3",
+   "key": "p:doi-10.1038-s41586-025-09127-3",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Although the decoder was only trained on attempted vocalized speech, it generalized well to mimed speech",
+   "loc": "Results（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2024 プレプリント、2025 刊行）。声に出そうと試みた発話で学習した復号器を、口だけ動かす試行に当てる"
+  },
+  {
+   "pid": "doi-10.1038-s41591-026-04414-6",
+   "key": "p:doi-10.1038-s41591-026-04414-6",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "皮質内 BCI の長期使用。参加者が声から無声に移ったことへの適応を述べるが、可聴学習のみの評価ではない"
+  },
+  {
+   "pid": "doi-10.1038-s41598-018-37359-z",
+   "key": "t:towardsreconstructingintelligiblespeechfromthehumanauditorycortex",
+   "title": "Towards reconstructing intelligible speech from the human auditory cortex",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "聴取中の聴覚皮質からの再構成（知覚）。発声→内言の汎化は先行研究として触れるだけ"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-62230-9",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "evaluated the model’s performance when trained with overt task for decoding covert speech",
+   "loc": "Abstract（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2024）。ECoG で発声課題だけで学習した Transformer を声に出さない文の復号に当てる（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.1038-s41598-025-18537-2",
+   "key": "t:mimedspeechasanintermediarystatebetweenovertandimaginedspeechproductioninanelect",
+   "title": "Mimed speech as an intermediary state between overt and imagined speech production in an electrocorticography study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "study_design=controlled_experiment | Study.research_objective=characterize shared/distinct HGA neural mechanisms across overt, mimed, imagined word production to leverage mimed speech as a verifiable-reference bridge for imagined-speech BCI decoding | Study.unit_of_analysis=663 electrodes x 13 e",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "発声・口だけ・想像の高ガンマ活動の比較解析。発声で学習した復号器を他様式に当てる評価は台帳にない"
+  },
+  {
+   "pid": "doi-10.1038-s42003-024-06518-6",
+   "key": "t:imaginedspeecheventdetectionfromelectrocorticographyanditstransferbetweenspeechm",
+   "title": "Imagined speech event detection from electrocorticography and its transfer between speech modes and subjects",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "performed, perceived, imagined) on 20 Dutch sentences; per-electrode linear regressor on 7-band Hilbert envelopes; test cross-mode and cross-subject model transfer; multi-electrode second-stage regressor | production_labels=ordinary_voiced_speech, in",
+   "decision": "include",
+   "quote": "test cross-mode and cross-subject model transfer",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2024）。ECoG の発話区間検出を様式間で転移（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ae3a1b",
+   "key": "t:wordclassificationacrossspeechmodesfromlowdensityelectrocorticographysignals",
+   "title": "Word classification across speech modes from low-density electrocorticography signals",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "model transfer/augmentation between modes | Study.unit_of_analysis=5-word LDA classification accuracy per speech mode + cross-mode transfer | task_family=isolated_word_recognition | target_population=speech_impairment, other | Cohort.demographics=ten",
+   "decision": "include",
+   "quote": "5-word LDA classification accuracy per speech mode + cross-mode transfer",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2026）。低密度 ECoG の単語分類で様式間の転移を報告"
+  },
+  {
+   "pid": "doi-10.1101-2022.08.04.502829",
+   "key": "t:thenestedhierarchyofovertmouthedandimaginedspeechactivityevidentinintracranialre",
+   "title": "The Nested Hierarchy of Overt, Mouthed, and Imagined Speech Activity Evident in Intracranial Recordings",
+   "year": 2022,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "s: overt, mouthed (articulate silently), imagined; decode speech vs non-speech intent frames from sEEG in each mode and cross-mode | production_labels=ordinary_voiced_speech, silent_articulation, instructed_imagery | Cohort.demographics=7 native Engl",
+   "decision": "include",
+   "quote": "decode speech vs non-speech intent frames from sEEG in each mode and cross-mode",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2022）。sEEG の発話意図検出を声・口だけ・想像の様式間で試す"
+  },
+  {
+   "pid": "doi-10.1101-2022.11.13.516334",
+   "key": "t:onlinedecodingofcovertspeechbasedonthepassiveperceptionofspeech",
+   "title": "Online decoding of covert speech based on the passive perception of speech",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ferring a passive-perception model to covert rehearsal yields online decoding above chance (75.3% vs 60%) and improves covert-speech SNR — a practical route to online covert-speech BCIs",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "聴取（知覚）のモデルを内言に転移する。発声学習ではない"
+  },
+  {
+   "pid": "doi-10.1101-2024.02.05.578911",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "target=token error rate (TER) averaged over 800 results (10 models x 5 folds x 16 sentences) per participant; in-sample Overt->Overt, Covert->Covert; out-of-sample Overt->Covert; shuffle-model chance check; Holm-Bonferroni correction over six comparisons, n=16 | Study.negative_findings=Transforme",
+   "decision": "include",
+   "quote": "evaluated the model’s performance when trained with overt task for decoding covert speech",
+   "loc": "Abstract（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2024）。ECoG で発声課題だけで学習した Transformer を声に出さない文の復号に当てる（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.1101-2024.03.21.586130",
+   "key": "t:evidenceforcommonspikebasedtemporalcodingofovertandcovertspeechinparstriangulari",
+   "title": "Evidence for common spike-based temporal coding of overt and covert speech in pars triangularis of human Broca's area",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rt sentence paradigm; ensemble spike-train matching on inter-spike intervals decodes sentence identity above chance for overt speech and generalizes to covert production — decoding covert sentences 75% better than spike counts alone, supporting two encoding modes (rate + tempor",
+   "decision": "include",
+   "quote": "decodes sentence identity above chance for overt speech and generalizes to covert production",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2024）。発声の文で作った照合が声に出さない文に汎化"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.14.607690",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+  },
+  {
+   "pid": "doi-10.1101-2024.10.04.616375",
+   "key": "t:representationofverbalthoughtinmotorcortexandimplicationsforspeechneuroprosthese",
+   "title": "Representation of verbal thought in motor cortex and implications for speech neuroprostheses",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Offline performance of a decoder trained on overt speech and evaluated on covert speech trials",
+   "loc": "図の説明（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2024）。皮質内電極で、発声で学習した復号器を内言の試行で評価"
+  },
+  {
+   "pid": "doi-10.1101-478644",
+   "key": "t:speechsynthesisfromecogusingdenselyconnected3dconvolutionalneuralnetworks",
+   "title": "Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "8.5-12.7min data; step toward neural speech prostheses; hypothesizes similar results for mute users | technical_limits=overt voiced speech only in non-paralyzed subjects (extension to silent/attempted not demonstrated); extremely small 8.5-12.7min per-subject data; speaker-dependent models; grid placement var",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Angrick ら 2019。台帳は無声・試行発話への拡張は示していないと記録"
+  },
+  {
+   "pid": "doi-10.1109-embc58623.2025.11253269",
+   "key": "t:speechenvelopereconstructionfromstereoeeginaspeechproductiontask",
+   "title": "Speech Envelope Reconstruction From Stereo EEG in a Speech Production Task",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ld-out trials | Dataset.collection_protocol=50 unique phonetically-balanced Harvard sentences; narrated prompt → recite aloud → mouth silently → imagine aloud, 4 s per phase; only audible (aloud) trials analyzed; failed/silent trials excluded; demographics in",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "声・口だけ・想像を収録するが、解析したのは声に出した試行だけ"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2018.8461596",
+   "key": "t:visualonlyrecognitionofnormalwhisperedandsilentspeech",
+   "title": "Visual-Only Recognition of Normal, Whispered and Silent Speech",
+   "year": 2018,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "label classification head | EvaluationProtocol.experimental_design={'modes': ['normal', 'whisper', 'silent'], 'split': 'cross-mode'} | system_name=visual-only mode-robust lipreader | SystemConfiguration.component_versions={'front': 'camera', 'mid': '",
+   "decision": "include",
+   "quote": "this may degrade the performance of models trained on vocalised speech and tested on silent speech",
+   "loc": "Introduction、実験の格子",
+   "provenance": "本文確認",
+   "reason": "先行（2018-02）。映像のみの読唇で通常・ささやき・無声の各様式を学習・試験の 3×3 で比べる"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2738568",
+   "key": "t:emgtospeechdirectgenerationofspeechfromfacialelectromyographicsignals",
+   "title": "EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "we use the Gaussian models that were trained on audible speech and evaluate the mapping on EMG signals from silent test data",
+   "loc": "§6.3 Mapping on EMG Data",
+   "provenance": "本文確認",
+   "reason": "先行（2016 年の学位論文。wiki の本文は KIT の学位論文の版）。可聴 EMG で学習した EMG→音声写像を無声 EMG に当て、DTW で MCD を出す"
+  },
+  {
+   "pid": "doi-10.1186-s12911-026-03552-8",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "脳→音声の系統的総説"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0166872",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "発声・非発声の音読中の ECoG の相関解析で、復号器を当てない"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0223782",
+   "key": "t:visualinputsdecreasebrainactivityinfrontalareasduringsilentlipreading",
+   "title": "Visual inputs decrease brain activity in frontal areas during silent lipreading",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "brain activity in frontal areas | claim=silent lipreading engages/modulates the frontal speech network differently from overt naming, relevant to silent-speech decoding models | participants | female participants | mean age | EPI TR | EPI TE | anatomical TR | anatomical T",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "無声の読唇（見る側）の脳活動の研究"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0228452",
+   "key": "t:brainactivationduringnonhabitualspeechproductionrevisitingtheeffectsofsimulatedd",
+   "title": "Brain activation during non-habitual speech production: Revisiting the effects of simulated disfluencies in fluent speakers",
+   "year": 2020,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "非習慣的な発話の fMRI 活性化の比較で、復号しない"
+  },
+  {
+   "pid": "doi-10.18653-v1-2020.emnlp-main.445",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "direct-transfer baseline: vocalized-trained model applied to silent EMG",
+   "loc": "台帳（基準条件）、§Abstract",
+   "provenance": "台帳のみ",
+   "reason": "後続（2020）。主手法は無声 EMG でも学習するが、可聴学習のみのモデルを無声 EMG に当てる直接転移の基準条件を報告"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-3927907-v1",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "evaluated the model’s performance when trained with overt task for decoding covert speech",
+   "loc": "Abstract（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2024）。ECoG で発声課題だけで学習した Transformer を声に出さない文の復号に当てる（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9365678-v1",
+   "key": "t:semanticawaredecodingofcovertinnerspeechamultimodaleegemgaudioframework",
+   "title": "Semantic-Aware Decoding of Covert Inner Speech: A Multimodal EEG–EMG–Audio Framework",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "): overt-val 0.54 / covert-test 0.42 vs 0.25 chance — EMG contributes weakly to cross-subject transfer, documenting the overt→covert gap in superior temporal regions | target_population=general_population | population_description=10 healthy participant",
+   "decision": "include",
+   "quote": "overt-val 0.54 / covert-test 0.42 vs 0.25 chance",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2026）。発声で検証し内言で試す条件の差を報告"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9694892-v1",
+   "key": "t:thelimitsofimaginedspeechdecodingfromeegacrossdatasetcomparisonandcriticalevalua",
+   "title": "The limits of imagined-speech decoding from EEG: A cross-dataset comparison and critical evaluation",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "想像発話 EEG の限界の検討。一致は参考文献の Rekrut ら 2022 の題名"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2023-1966",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ent most | vocabulary_regime=closed_lexicon | EvaluationProtocol.experimental_design=speaker-independent multi-speaker; trained on voiced, tested on voiced+silent; 13274 train / 1205 test utts, 81 speakers; four feature-conditioning conditions × raw/fMLLR; bigram LM best-weight WER",
+   "decision": "include",
+   "quote": "We trained with voiced utterances, then tested performance on both voiced and silent utterances.",
+   "loc": "本文（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2023）。超音波舌と唇の推定点で、有声で学習し有声と無声で試す（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.3389-fneng.2014.00014",
+   "key": "t:decodingspectrotemporalfeaturesofovertandcovertspeechfromthehumancortex",
+   "title": "Decoding spectrotemporal features of overt and covert speech from the human cortex",
+   "year": 2014,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "a neural decoding model trained from overt speech should be able to predict speech features in the covert condition",
+   "loc": "Introduction、Methods（Dynamic time warping）",
+   "provenance": "本文確認",
+   "reason": "先行（2014）。発声時の ECoG で学習した線形モデルで、声に出さない発話のスペクトル特徴を復号し、発声音声に DTW で合わせて安静時の対照と比べた"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2022.804832",
+   "key": "t:theroleofmotorinhibitionduringcovertspeechproduction",
+   "title": "The Role of Motor Inhibition During Covert Speech Production",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "内言の運動抑制を論じる展望論文"
+  },
+  {
+   "pid": "doi-10.3389-fnrgo.2025.1578586",
+   "key": "t:howlowcanyougoevaluatingelectrodereductionmethodsforeegbasedspeechimagerybcis",
+   "title": "How low can you go: evaluating electrode reduction methods for EEG-based speech imagery BCIs",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "EEG 想像発話の電極削減。一致は参考文献"
+  },
+  {
+   "pid": "doi-10.3390-jintelligence13120156",
+   "key": "t:ctrlaltinnerspeechaverbalcognitivescaffoldvcsmodelofpathwaystocomputationalrepre",
+   "title": "Ctrl + Alt + Inner Speech: A Verbal-Cognitive Scaffold (VCS) Model of Pathways to Computational Representations",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "内言の認知モデルの論考で、復号しない"
+  },
+  {
+   "pid": "doi-10.5220-0002814100220031",
+   "key": "t:aspectralmappingmethodforemgbasedrecognitionofsilentspeech",
+   "title": "A Spectral Mapping Method for EMG-based Recognition of Silent Speech",
+   "year": 2010,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "resulted in 12.3% relative improvement in our audible-to-silent Cross-Modal Testing System",
+   "loc": "Abstract",
+   "provenance": "本文確認",
+   "reason": "先行（2010）。可聴 EMG で学習した認識器を無声 EMG で試す系に、スペクトル写像を加えて相対 12.3% 改善"
+  },
+  {
+   "pid": "doi-10.5220-0003169702950300",
+   "key": "t:sessionindependentemgbasedspeechrecognition",
+   "title": "Session-Independent EMG-Based Speech Recognition",
+   "year": 2011,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "We took the acoustic models from these systems, which had been trained on audible EMG, and applied them to the available silent EMG test sets.",
+   "loc": "§（Cross-Modal Testing の節）",
+   "provenance": "本文確認",
+   "reason": "先行（2011）。可聴 EMG で学習した音響モデルを無声 EMG のテスト集合に当てる（Cross-Modal Testing）"
+  },
+  {
+   "pid": "essex-43322-tates-thesis",
+   "key": "t:researchingtheviabilityofspeechimageryasabciparadigm",
+   "title": "Researching The Viability of Speech Imagery as a BCI Paradigm",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "想像発話 BCI の学位論文。一致は参考文献の Rekrut ら 2022 の題名"
+  },
+  {
+   "pid": "isca-ahmadi13-mouthus",
+   "key": "t:humanmouthstatedetectionusinglowfrequencyultrasound",
+   "title": "Human Mouth State Detection Using Low Frequency Ultrasound",
+   "year": 2013,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "低周波超音波の Cross Modes は音響の伝搬モードのことで、発話様式ではない"
+  },
+  {
+   "pid": "isca-ahmadi13_interspeech",
+   "key": "t:humanmouthstatedetectionusinglowfrequencyultrasound",
+   "title": "Human Mouth State Detection Using Low Frequency Ultrasound",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版。音響モードの語"
+  },
+  {
+   "pid": "isca-beeson23-articssr",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "We trained with voiced utterances, then tested performance on both voiced and silent utterances.",
+   "loc": "本文（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2023）。超音波舌と唇の推定点で、有声で学習し有声と無声で試す（同じ鍵の別版）"
+  },
+  {
+   "pid": "isca-beeson23_interspeech",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "o, x,y,conf per frame)→conf<0.1 filter→bidirectional linear interp→Kaldi nnet2 DNN-HMM (raw or fMLLR-adapted features); train voiced, test voiced+silent | task_family=sentence_recognition | task_encoding=natural_utterance | intended_use_cases=speech_restoration, assistive",
+   "decision": "include",
+   "quote": "We trained with voiced utterances, then tested performance on both voiced and silent utterances.",
+   "loc": "本文（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2023）。超音波舌と唇の推定点で、有声で学習し有声と無声で試す（同じ鍵の別版）"
+  },
+  {
+   "pid": "isca-borsdorf24_interspeech",
+   "key": "t:wtimit2mixacocktailpartymixturesdatabasetostudytargetspeakerextractionfornormala",
+   "title": "wTIMIT2mix: A Cocktail Party Mixtures Database to Study Target Speaker Extraction for Normal and Whispered Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ingle-mode training fails to generalize across speech modes (Normal-only model: +17.2 dB same-mode but −6.4 to −12.6 dB cross-mode), yet a model trained on ALL four conditions works under every closed-set condition (SI-SDRi 18.65/8.90/8.99/18.45 dB,",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "話者抽出の音響データで、様式は通常・ささやきなどの音響音声"
+  },
+  {
+   "pid": "isca-duraisamy26_interspeech",
+   "key": "t:subjectinvariantdynamicgraphmodelingforcrosssubjecteegimaginedspeechdecoding",
+   "title": "Subject-Invariant Dynamic Graph Modeling for Cross-Subject EEG Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "EEG の被験者横断の想像発話復号。一致は参考文献"
+  },
+  {
+   "pid": "isca-florescu10",
+   "key": "p:isca-florescu10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "6 recordings (3 vocalized + 3 silent) per speaker per system; 4 train/test articulation-mode combinations incl. cross (vocalized<->silent); mean score +/- 95% CI, optimal fusion weight tongue 70%/lip 30% | representation_kind=EigenTongues/EigenLips PCA (5,5",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Florescu ら 2010 の別フォルダ（鍵が別）。版の重複"
+  },
+  {
+   "pid": "isca-florescu10-silentvocal",
+   "key": "t:silentvsvocalizedarticulationforaportableultrasoundbasedsilentspeechinterface",
+   "title": "Silent vs Vocalized Articulation for a Portable Ultrasound-Based Silent Speech Interface",
+   "year": 2010,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "systems trained on vocalized speech exhibit reduced performance when tested on silent articulation",
+   "loc": "Abstract",
+   "provenance": "本文確認",
+   "reason": "先行（2010）。超音波舌画像と唇映像で、発声で学習し無声で試す条件を含む 4 通りの組合せを比べ、交差条件で有意に低下"
+  },
+  {
+   "pid": "isca-florescu10_interspeech",
+   "key": "t:silentvsvocalizedarticulationforaportableultrasoundbasedsilentspeechinterface",
+   "title": "Silent vs Vocalized Articulation for a Portable Ultrasound-Based Silent Speech Interface",
+   "year": 2010,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "oral_accounting=within-mode scores vs cross scores; fixed vs portable; 95% CI | Claim.claim_type=generalization | claim=cross-mode (vocalized-train/silent-test and reverse) recognition is significantly degraded; silent-trained models recover much of",
+   "decision": "include",
+   "quote": "systems trained on vocalized speech exhibit reduced performance when tested on silent articulation",
+   "loc": "Abstract",
+   "provenance": "本文確認",
+   "reason": "先行（2010）。超音波舌画像と唇映像で、発声で学習し無声で試す条件を含む 4 通りの組合せを比べ、交差条件で有意に低下"
+  },
+  {
+   "pid": "isca-janke10",
+   "key": "p:isca-janke10",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Janke ら 2010（Interspeech）の別フォルダ"
+  },
+  {
+   "pid": "isca-janke10-emgfeedback",
+   "key": "t:impactoflackofacousticfeedbackinemgbasedsilentspeechrecognition",
+   "title": "Impact of Lack of Acoustic Feedback in EMG-based Silent Speech Recognition",
+   "year": 2010,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Janke ら 2010 の別版。可聴モデルは無声 EMG の時刻合わせ（初期化）にだけ使い、無声で学習し直す"
+  },
+  {
+   "pid": "isca-janke10_interspeech",
+   "key": "t:impactoflackofacousticfeedbackinemgbasedsilentspeechrecognition",
+   "title": "Impact of Lack of Acoustic Feedback in EMG-based Silent Speech Recognition",
+   "year": 2010,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "可聴・ささやき EMG で学習したモデルは無声 EMG の時刻合わせ（初期化）に使うだけで、無声で学習し直す（境界例）"
+  },
+  {
+   "pid": "isca-lee14b-whisperedmandarin",
+   "key": "t:awhisperedmandarincorpusforspeechtechnologyapplications",
+   "title": "A Whispered Mandarin Corpus for Speech Technology Applications",
+   "year": 2014,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "音響のささやき声コーパス"
+  },
+  {
+   "pid": "isca-lee14b_interspeech",
+   "key": "t:awhisperedmandarincorpusforspeechtechnologyapplications",
+   "title": "A Whispered Mandarin Corpus for Speech Technology Applications",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "s) enables DNN whispered ASR (matched whisper WER 60.18% vs MLE 66.76%; neutral 53.55 vs 61.73) and same-mode VAD beats cross-mode (train-test mode mismatch costs big accuracy) | evidence_relation=supported_within_scope | technical_limits=whispered M",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版。音響のささやき声"
+  },
+  {
+   "pid": "isca-lim16-whispertl",
+   "key": "t:transferlearningwithbottleneckfeaturenetworksforwhisperedspeechrecognition",
+   "title": "Transfer Learning with Bottleneck Feature Networks for Whispered Speech Recognition",
+   "year": 2016,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "音響のささやき声認識の転移学習"
+  },
+  {
+   "pid": "isca-lim16_interspeech",
+   "key": "t:transferlearningwithbottleneckfeaturenetworksforwhisperedspeechrecognition",
+   "title": "Transfer Learning with Bottleneck Feature Networks for Whispered Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "isca-maghsoudi26_interspeech",
+   "key": "t:relatingtheneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "When trained on Vocalized speech, the model achieves its highest performance on Vocalized respon",
+   "loc": "Results（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2026）。発声・口だけ・想像の神経表現で、発声で学習したモデルを他条件に当てる（同じ鍵の別版）"
+  },
+  {
+   "pid": "isca-melenchon07-vis",
+   "key": "t:objectivevisemeextractionandaudiovisualuncertaintyestimationlimitsbetweenauditor",
+   "title": "Objective Viseme Extraction and Audiovisual Uncertainty: Estimation Limits between Auditory and Visual Modes",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rtifacts=Objective viseme groups correlate highly with tedious English subjective evaluations despite Spanish material; cross-mode estimation shows a stable tradeoff — raising one mode performance lowers the other, max–min gap <7% in all examples | e",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "視覚素の抽出で、cross-mode は音声・映像の推定のこと"
+  },
+  {
+   "pid": "isca-zhou07_interspeech",
+   "key": "t:anarticulatoryandacousticstudyofretroflexandbunchedamericanenglishrhoticsoundbas",
+   "title": "An articulatory and acoustic study of retroflex and bunched American English rhotic sound based on MRI",
+   "year": 2007,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "s); sustained /r/ static posture; FEM omits radiation (VTAR compensates, lowers F2); area-function model cannot produce cross-mode zeros >5kHz; articulatory variability across 22-subject continuum understates binary classification",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "英語 /r/ の音響解析で、cross modes は音響の交差モード"
+  },
+  {
+   "pid": "issp2011-hueber-ema-silent",
+   "key": "t:differencesinarticulatorystrategiesbetweensilentwhisperedandnormalspeechapilotst",
+   "title": "Differences in articulatory strategies between silent, whispered and normal speech? A pilot study using electromagnetic articulography",
+   "year": 2011,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "無声・ささやき・通常発話の EMA の調音の違いの解析。可聴学習モデルの低下は先行研究として引くだけ"
+  },
+  {
+   "pid": "peerj-40989443-eegimgrev",
+   "key": "t:systematicreviewprogressineegbasedspeechimagerybcidecodingandencodingresearch",
+   "title": "Systematic review: progress in EEG-based speech imagery BCI decoding and encoding research",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "EEG 想像発話の系統的総説"
+  },
+  {
+   "pid": "pmc-11106343-covert",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformer",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Komeiji ら 2024 の別版（題名が途中で切れたフォルダ）"
+  },
+  {
+   "pid": "pmc-11106343-coverttransf",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrain",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer train",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Komeiji ら 2024 の別版（題名が途中で切れたフォルダ）"
+  },
+  {
+   "pid": "pmc-11106343-ecogtransformer",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "cipant TER over 800 decoded sentences from a 3-token/8-sentence Japanese set; five train/test speech combinations incl. Overt→Covert and Covert→Covert plus shuffle | task_encoding=imagined_utterance | task_family=sentence_recognition | Cohort.demographics=16 patients (8",
+   "decision": "include",
+   "quote": "evaluated the model’s performance when trained with overt task for decoding covert speech",
+   "loc": "Abstract（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2024）。ECoG で発声課題だけで学習した Transformer を声に出さない文の復号に当てる（同じ鍵の別版）"
+  },
+  {
+   "pid": "pmc-11226700-ecogevent",
+   "key": "t:imaginedspeecheventdetectionfromelectrocorticographyanditstransferbetweenspeechm",
+   "title": "Imagined speech event detection from electrocorticography and its transfer between speech modes and subjects",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "amily=linear_model | ProcessingStep.hyperparameters=7 band-pass bands (delta..gamma); per-electrode detection accuracy; cross-mode transfer | Dataset.counts_by_unit=16 participants; 588 electrodes pooled; 3 speech modes | tested_population=target_use",
+   "decision": "include",
+   "quote": "test cross-mode and cross-subject model transfer",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2024）。ECoG の発話区間検出を様式間で転移（同じ鍵の別版）"
+  },
+  {
+   "pid": "pmc-11226700-imagineddetect",
+   "key": "t:imaginedspeecheventdetectionfromelectrocorticographyanditstransferbetweenspeechm",
+   "title": "Imagined speech event detection from electrocorticography and its transfer between speech modes and subjects",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "magined modes; per-electrode frame-level detection accuracy under leave-one-trial-out CV with permutation significance; cross-mode and cross-subject transfer | task_encoding=natural_utterance | task_family=speech_activity_detection | Cohort.demograph",
+   "decision": "include",
+   "quote": "test cross-mode and cross-subject model transfer",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2024）。ECoG の発話区間検出を様式間で転移（同じ鍵の別版）"
+  },
+  {
+   "pid": "pmc-11370360-instvoice",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+  },
+  {
+   "pid": "pmc-12245923-multicond",
+   "key": "t:frompronouncedtoimaginedimprovingspeechdecodingwithmulticond",
+   "title": "From pronounced to imagined: improving speech decoding with multi-cond",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "pmc-12245923-pron2img-eeg の別版（題名が途中で切れたフォルダ）"
+  },
+  {
+   "pid": "pmc-12245923-pron2img-eeg",
+   "key": "t:frompronouncedtoimaginedimprovingspeechdecodingwithmulticonditioneegdata",
+   "title": "From pronounced to imagined: improving speech decoding with multi-condition EEG data",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Intra-subject overt speech training: The model is trained exclusively with overt speech data and tested with imagined speech data.",
+   "loc": "Methods",
+   "provenance": "本文確認",
+   "reason": "後続（2025）。EEG で発声データだけで学習し想像発話で試す条件を含む"
+  },
+  {
+   "pid": "pmc-12263900-elecred",
+   "key": "t:howlowcanyougoevaluatingelectrodereductionmethodsforeeg",
+   "title": "How low can you go: evaluating electrode reduction methods for EEG",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版。一致は参考文献"
+  },
+  {
+   "pid": "pmc-12263900-electrode",
+   "key": "t:howlowcanyougoevaluatingelectrodereductionmethodsforeegbasedspeechimagerybcis",
+   "title": "How low can you go: evaluating electrode reduction methods for EEG-based speech imagery BCIs",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版。一致は参考文献"
+  },
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice-synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+  },
+  {
+   "pid": "pmc-12369848-voicesynth",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+  },
+  {
+   "pid": "pmc-12453656-eegspeech-review",
+   "key": "t:systematicreviewprogressineegbasedspeechimagerybraincomputerinterfacedecodingand",
+   "title": "Systematic review: progress in EEG-based speech imagery brain-computer interface decoding and encoding research",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ecoders reviewed: SVM, ELM/ELM-R/ELM-L, LDA, RF, LightGBM, kNN + deep CNN/TCN+DWT, RNN, DBN, CapsNet; transfer learning overt->covert | claim=SI-BCI research decomposes into mechanisms, paradigms, encoding, decoding; paradigms evolved vowel->word/Chines",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ総説の別版"
+  },
+  {
+   "pid": "pmc-12480242-mimedecog",
+   "key": "t:mimedspeechasanintermediarystatebetweenovertandimaginedspeechproductioninanelect",
+   "title": "Mimed speech as an intermediary state between overt and imagined speech production in an electrocorticography study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "LogReg/KNN consistency checks; feature-importance windows | extra.Configuration.configuration_scope=Fixed session order overt→mimed→imagined (108 Korean words each, 3s word+1s fixation) to prime imagination | EvaluationProtocol.experimental_design=Bal",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-12686446-mandataset",
+   "key": "t:anopendatasetofmultidimensionalsignalsbasedondifferentspeechpatternsinpragmaticm",
+   "title": "An open dataset of multidimensional signals based on different speech patterns in pragmatic Mandarin",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ap: simultaneous neural+muscular+acoustic signals for Mandarin overt/silent/imagined speech, enabling tone-encoding and cross-mode transfer research | claim=EEG quality validated: EEGNet 10-class overt-mode accuracy 45.73% mean across 30 subjects, we",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "発声・無声・想像の多信号データセットの公開論文で、転移の結果は台帳にない"
+  },
+  {
+   "pid": "pmc-12734259-vcs",
+   "key": "t:ctrlaltinnerspeechaverbalcognitivescaffoldvcsmodelofpathwaystocomputationalthink",
+   "title": "Ctrl + Alt + Inner Speech: A Verbal-Cognitive Scaffold (VCS) Model of Pathways to Computational Thinking",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ論考の別版"
+  },
+  {
+   "pid": "pmc-12837114-visual-erp-bci-spi",
+   "key": "t:visualerpbasedbraincomputerinterfaceusewithseverephysicalspeechandeyemovementimp",
+   "title": "Visual ERP-based brain–computer interface use with severe physical, speech and eye movement impairments: case studies",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ov+TS+LDA decoders, plus WCBLE covert-VSA scheme; convolution-based score-over-time; cross-condition calibration (train overt → evaluate covert) | EvaluationProtocol.experimental_design=18 randomized blocks (6 targets × 3 VSA conditions); accuracy per condition;",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "視覚 ERP の BCI で、明示的注視と潜在的注意の条件。発話様式ではない"
+  },
+  {
+   "pid": "pmc-13326865-grammar",
+   "key": "t:asharedneuralmechanismforabstractgrammaticalcomputationsacross",
+   "title": "A Shared Neural Mechanism for Abstract Grammatical Computations across",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "文法計算の神経機構の研究で、音声の復号器を当てない"
+  },
+  {
+   "pid": "pmc-13326865-grammeg",
+   "key": "t:asharedneuralmechanismforabstractgrammaticalcomputationsacrosslanguagesinbilingu",
+   "title": "A Shared Neural Mechanism for Abstract Grammatical Computations across Languages in Bilinguals",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-13375540-ibciterm",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain-computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-13375540-ltbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain–computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-13375540-ltc-speechbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain-computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-13383455-b2s",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ総説の別版"
+  },
+  {
+   "pid": "pmc-4034498-overtcovert",
+   "key": "t:decodingspectrotemporalfeaturesofovertandcovertspeechfromthehumancortex",
+   "title": "Decoding spectrotemporal features of overt and covert speech from the human cortex",
+   "year": 2014,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "a neural decoding model trained from overt speech should be able to predict speech features in the covert condition",
+   "loc": "Introduction、Methods（Dynamic time warping）",
+   "provenance": "本文確認",
+   "reason": "先行（2014）。発声時の ECoG で学習した線形モデルで、声に出さない発話のスペクトル特徴を復号し、発声音声に DTW で合わせて安静時の対照と比べた"
+  },
+  {
+   "pid": "pmc-4034498-spectemp",
+   "key": "t:decodingspectrotemporalfeaturesofovertandcovertspeechfromthe",
+   "title": "Decoding spectrotemporal features of overt and covert speech from the",
+   "year": 2014,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Martin ら 2014 の別版（題名が途中で切れたフォルダ）"
+  },
+  {
+   "pid": "pmc-5119784-cortprog",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-5119784-spatio",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ial test contrasting #significant fronto-motor vs temporal electrodes → animate spatio-temporal progression (S1 Video); overt envelope aligned to covert run by identical scroll speed | EvaluationProtocol.experimental_design=Scrolling text (Gettysburg Address / Humpty Dump",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-5843544-transferlearn",
+   "key": "t:neuralpopulationdynamicsunderlyingmotorlearningtransfer",
+   "title": "Neural Population Dynamics Underlying Motor Learning Transfer.",
+   "year": 2018,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "上肢運動学習の転移（サル）で、発話ではない"
+  },
+  {
+   "pid": "pmc-6351601-audrecon",
+   "key": "t:towardsreconstructingintelligiblespeechfromthehumanauditorycortex",
+   "title": "Towards reconstructing intelligible speech from the human auditory cortex",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Akbari ら 2019 の別版"
+  },
+  {
+   "pid": "pmc-6351601-intelligible",
+   "key": "t:towardsreconstructingintelligiblespeechfromthehumanauditorycortex",
+   "title": "Towards reconstructing intelligible speech from the human auditory cortex",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Akbari ら 2019 の別版"
+  },
+  {
+   "pid": "pmc-9714519-speechsynth",
+   "key": "t:speechsynthesisfromneuraldecodingofspokensentences",
+   "title": "Speech synthesis from neural decoding of spoken sentences",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "対象論文の別フォルダ（同じ著者稿）"
+  },
+  {
+   "pid": "zenodo-22441724-leakctrl",
+   "key": "t:doesspokenspeechteachimaginedspeechleakagecontrolledlinearbaselinesonthreepublic",
+   "title": "Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nsfer accuracy | FEIS same-trial apparent transfer | Nieto within-session imagined accuracy (best subject) | Gaddy sEMG voiced->silent top-10 retrieval",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "公開データでの転移主張の漏洩を検証する再解析"
+  },
+  {
+   "pid": "zenodo-23184990-lingframe",
+   "key": "t:machinescanproducewhatwespeakinthebrainalinguisticframeworkfordecodinginnerspeec",
+   "title": "Machines Can Produce What We Speak in the Brain: A Linguistic Framework for Decoding Inner Speech",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "Linguistic Framework for Decoding Inner Speech | Study.research_objective=two-part framework: (1) measurement programme overt->covert stripping articulatory/laryngeal layers to isolate distinctive features (data-A/B/C); (2) inference cascade resolving p",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "内言復号の言語学的枠組みの提案で、実験がない"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 6,
+  "found": 6,
+  "recall": 1.0,
+  "missed": []
+ },
+ "tally": {
+  "slot_filled_unique": 5595,
+  "string_match_unique": 33,
+  "read": 104,
+  "unread": 0,
+  "confirmed_unique": 23,
+  "confirmed_本文確認": 15,
+  "recall_sample_read": 30,
+  "recall_sample_included": 11,
+  "recall_estimate": 0.35
+ },
+ "used_by": [
+  "speech-synthesis-from-neural-decoding-of-spoken-sentences"
+ ]
+}

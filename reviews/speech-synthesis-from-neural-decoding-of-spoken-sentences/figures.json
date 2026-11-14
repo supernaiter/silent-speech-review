@@ -1,0 +1,154 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading). Paper counts come from the maintainer's ledger and undercount some components, notably language models, confirmation and correction.",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Overt reading aloud",
+      "MOCHA-TIMIT sentences and stories"
+     ],
+     "field": "Voiced speech recorded for training",
+     "n": 8995,
+     "matched": 3882,
+     "verdict": "standard",
+     "note": "Inherited from the Chang-lab ECoG reading paradigm."
+    },
+    "M02": {
+     "choice": [
+      "Inferred articulatory kinematics",
+      "Speaker-independent acoustic-to-articulatory inversion"
+     ],
+     "field": "Training-only targets",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Inversion inherited from Chartier et al. 2018 (same lab); slot under-recorded in the ledger."
+    },
+    "M03": {
+     "choice": [
+      "Per-participant training",
+      "Early stopping"
+     ],
+     "field": "Subject-specific training",
+     "n": 8995,
+     "matched": 1526,
+     "verdict": "standard",
+     "note": "Ordinary per-participant training for invasive decoding."
+    },
+    "M04": {
+     "choice": [
+      "Audible-trained decoder",
+      "Applied to 58 mimed trials of 10 sentences (P1)"
+     ],
+     "field": "Overt-to-silent transfer",
+     "n": 8995,
+     "matched": 23,
+     "verdict": "standard",
+     "note": "Martin et al. 2014 used the same transfer-and-DTW evaluation in ECoG (covert silent reading rather than miming); mimed values are in figures only."
+    },
+    "M05": {
+     "choice": [
+      "High-density ECoG",
+      "High gamma 70-200 Hz + 1-30 Hz"
+     ],
+     "field": "Invasive cortical recording",
+     "n": 8995,
+     "matched": 7329,
+     "verdict": "standard",
+     "note": "Standard clinical ECoG features of the lineage."
+    },
+    "M06": {
+     "choice": [
+      "Neural to 33-D articulatory",
+      "Articulatory to 32-D acoustic",
+      "Two 3-layer bLSTMs"
+     ],
+     "field": "Articulatory intermediate in neural decoding",
+     "n": 8995,
+     "matched": 4,
+     "verdict": "standard",
+     "note": "No earlier example found (recall estimate 0.74), but the gain is shown in one participant with no stated repetition, and a later linear study found direct decoding slightly better, so not ahead."
+    },
+    "M07": {
+     "choice": [
+      "None"
+     ],
+     "field": "No language model or lexicon at use time",
+     "n": 8995,
+     "matched": 119,
+     "verdict": "standard",
+     "note": "Direct acoustic synthesis needs no language model."
+    },
+    "M08": {
+     "choice": [
+      "Sentence-level speech waveform",
+      "MLSA vocoder"
+     ],
+     "field": "Speech synthesis from neural signals",
+     "n": 8995,
+     "matched": 15,
+     "verdict": "standard",
+     "note": "Guenther 2009 and Martin 2014 preceded it; sentence waveforms with listener tests are the addition."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "Confirmation in online systems only",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "Correction in online systems only",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Held-out recording sessions"
+     ],
+     "field": "Session-wise held-out test",
+     "n": 8995,
+     "matched": 234,
+     "verdict": "standard",
+     "note": "Split by recording session; Fig. 1 caption mentions 5-fold cross-validation inconsistently."
+    },
+    "M12": {
+     "choice": [
+      "MCD and spectral correlation",
+      "MTurk closed-pool transcription",
+      "P1 only, repetitions not stated"
+     ],
+     "field": "Listener intelligibility tests of synthesized speech",
+     "n": 8995,
+     "matched": 29,
+     "verdict": "standard",
+     "note": "Listener tests were established practice; chance-level WER for the word pools is not given."
+    },
+    "M13": {
+     "choice": [
+      "Temporary clinical ECoG",
+      "Code and data on request"
+     ],
+     "field": "Clinical setting and availability",
+     "n": 8995,
+     "matched": 6075,
+     "verdict": "standard",
+     "note": "Typical of invasive studies."
+    }
+   }
+  }
+ ]
+}

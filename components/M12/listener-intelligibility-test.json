@@ -1,0 +1,1673 @@
+{
+ "topic": "listener-intelligibility-test",
+ "slot": "M12",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(listeners?|listening test|intelligibility test|human transcri\\w*)[^|]{0,80}(synthes|reconstruct|generated speech)|(synthes|reconstruct)\\w*[^|]{0,80}(listeners?|listening test|intelligibility test|mturk|mechanical turk|human transcri)",
+ "scope": "ledger",
+ "fulltext_pattern": "(listeners?|participants|subjects|raters|annotators)[^.]{0,60}(transcrib|identif)\\w*[^.]{0,80}(synthesi[sz]ed|reconstructed|decoded|generated) (speech|audio|sentences|words|utterances)|(mechanical turk|mturk)[^.]{0,120}(synthesi|reconstruct|decod)|(intelligibility|listening) (test|tests|experiment|study)[^.]{0,80}(synthesi[sz]ed|reconstructed|decoded|generated) (speech|audio|utterances)|perceptual (identification |transcription )?tests?[^.]{0,80}(intelligib|synthes|silent)|human (evaluation|transcription)[^.]{0,80}(word error|intelligib)|intelligibility of (the )?(audio|speech|sentences) (generated|synthesi[sz]ed|reconstructed|decoded)|(word error rate|wer)[^.]{0,40}human (evaluation|transcription)",
+ "inclusion_rule": "音響以外の信号（神経活動、筋電、EMA・PMA などの調音計測、超音波、口元映像）から合成した音声を、人間の聴取者が書き取る、または選択肢から語・文を同定する明瞭度試験で評価し、正答率・WER などを報告した研究を含める。境界：自然さ・好み・MOS の評定だけのものは除く。入力が音響（ささやき声、NAM マイク、食道発声など）の変換は除く。テキストからの合成や知覚実験の刺激音は除く。合成音を自動音声認識だけで評価するものは除く。総説・引用だけの一致は除く。同一研究の別版は1件。",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8381,
+  "slot_filled_unique": 6960,
+  "string_match_folders": 40,
+  "string_match_unique": 37,
+  "fulltext_only_folders": 66
+ },
+ "recall_sample": [
+  "doi-10.1109-taslp-2017-2716178",
+  "doi-10.1109-taslp-2017-2757263",
+  "isca-n18_interspeech",
+  "doi-10.1038-s41583-024-00819-9",
+  "pmc-13537912-semg_laryngectomy",
+  "doi-10.1016-j.rlfa.2018.07.004",
+  "arxiv-2506.03831",
+  "pmc-13537912-semg-larynx",
+  "pmc-9714519-speechsynth",
+  "arxiv-2111.01457",
+  "pmc-10510111-recon",
+  "arxiv-2106.01933",
+  "doi-10.1101-2024.08.14.607690",
+  "arxiv-2402.16996",
+  "arxiv-2009.02110",
+  "arxiv-2010.02960",
+  "isca-cornu15-v2speech",
+  "isca-csapo20b-uswaveglow",
+  "arxiv-2306.06514",
+  "pmc-9447996-stgspeechcomp",
+  "doi-10.1088-1741-2552-ace8be",
+  "doi-10.1038-s41593-026-02456-0",
+  "isca-toda05_interspeech",
+  "arxiv-2502.12002",
+  "doi-10.18653-v1-2021.acl-short.23",
+  "isca-uttam19-hushhush",
+  "cvf-prajwal20-lip2wav",
+  "isca-rose22-activespeaker",
+  "isca-csapo20b_interspeech",
+  "pmc-6882773-braintospeech"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1701.00495",
+   "key": "t:vid2speechspeechreconstructionfromsilentvideocvpr2017",
+   "title": "Vid2speech: Speech Reconstruction from Silent Video (CVPR 2017)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dy.research_objective=CNN maps silent-video mouth frames -> PCA-compressed 18-dim LSP coefficient trajectories -> LPC resynthesis; GRID S4 1000-video train; MTurk intelligibility + OOV digit-leaveout. | task_family=speech_reconstruction | extra.Task.scope=audio-only + audio-visual",
+   "decision": "include",
+   "quote": "400 videos containing 38 distinct sequences were transcribed by 23 different MTurk workers",
+   "loc": "§（Human listening study）",
+   "provenance": "本文確認",
+   "reason": "先行（2017-01）。口元映像から合成した音声を MTurk の作業者 23 人が書き取る"
+  },
+  {
+   "pid": "arxiv-1710.09798",
+   "key": "t:lip2audspecspeechreconstructionfromsilentlipmovementsvideo",
+   "title": "Lip2AudSpec: Speech reconstruction from silent lip movements video",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "spectrogram constrained by 32-node autoencoder bottleneck features; additive noise for robustness | representation_kind=reconstructed audio; STMI/PESQ/Corr2D + MTurk acc/natural/gender/hard-to-say + category acc | technical_essence=3D-conv lip encoder -> frame embedding | technical_es",
+   "decision": "include",
+   "quote": "We conducted a survey on Amazon Mechanical Turk to evaluate the intelligibility and quality of reconstructed speech",
+   "loc": "§4.3.4",
+   "provenance": "本文確認",
+   "reason": "先行（2017-10）。口元映像からの再構成音声の明瞭度を MTurk で評価（Vid2Speech と比較）"
+  },
+  {
+   "pid": "arxiv-1904.05259",
+   "key": "t:autoencoderbasedarticulatorytoacousticmappingforultrasoundsilentspeechinterfaces",
+   "title": "Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces",
+   "year": 2019,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "es beat raw-pixel DNN baseline: test correlation 0.776-0.787 vs 0.680 (+30-33% relative), NMSE -25-29% relative | claim=synthesized utterances rated more natural by 14 native listeners than baseline in MUSHRA | recording subject | recorded sentences | ultrasound frame rate | estimated speech parameters",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "超音波からの合成音声の自然さを 14 人が評定するだけで、書き取り・同定ではない"
+  },
+  {
+   "pid": "arxiv-1912.05289",
+   "key": "t:voiceconversionforwhisperedspeechsynthesis",
+   "title": "Voice Conversion for Whispered Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lization — gender-balanced corpora recommended; ICC 0.94-0.96 = excellent reliability. | Study.unit_of_analysis=whisper synthesis quality judged by listeners, bounded above by the vocoder/extraction chain — the ceiling is technological, not algorithmic. | ICC Fig2 | ICC Fig3a",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "ささやき声（音響入力）からの変換"
+  },
+  {
+   "pid": "arxiv-2005.08209",
+   "key": "t:learningindividualspeakingstylesforaccurateliptospeechsynthesis",
+   "title": "Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "human evaluation shows that our method is four times more intelligible",
+   "loc": "Abstract",
+   "provenance": "台帳のみ",
+   "reason": "後続（2020）。口元映像から音声を合成し、人の評価で明瞭度を比較（同じ鍵の別版）"
+  },
+  {
+   "pid": "arxiv-2008.03152",
+   "key": "t:ultrasoundbasedarticulatorytoacousticmappingwithwaveglowspeechsynthesis",
+   "title": "Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "超音波からの合成の主観試験は自然さの比較で、書き取り・同定ではない"
+  },
+  {
+   "pid": "arxiv-2009.02110",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "無声発話インタフェースの総説（対象を紹介）"
+  },
+  {
+   "pid": "arxiv-2010.02960",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "transcription word error rate (WER) from a human evaluation improves from 64% to just 4%",
+   "loc": "§1",
+   "provenance": "本文確認",
+   "reason": "後続（2020）。無声 EMG からの合成音声を人が書き取り WER を出す"
+  },
+  {
+   "pid": "arxiv-2106.01933",
+   "key": "t:animprovedmodelforvoicingsilentspeech",
+   "title": "An Improved Model for Voicing Silent Speech",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "We evaluate intelligibility of audio synthesized by our model",
+   "loc": "§（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2021）。EMG からの合成音声の明瞭度を人の書き取りでも評価（同じ鍵の別版）"
+  },
+  {
+   "pid": "arxiv-2111.01457",
+   "key": "t:synthesizingspeechfromintracranialdepthelectrodesusinganencoderdecoderframework",
+   "title": "Synthesizing Speech from Intracranial Depth Electrodes using an Encoder-Decoder Framework",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "we conducted a forced-choice listening test",
+   "loc": "§（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2022）。sEEG からの再構成音声で、2 つの文字列から選ぶ強制選択の聴取試験"
+  },
+  {
+   "pid": "arxiv-2207.03800",
+   "key": "t:fastltsnonautoregressiveendtoendunconstrainedliptospeechsynthesis",
+   "title": "FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "We therefore mainly use human evaluation for intelligibility evaluation.",
+   "loc": "§（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2022）。口元映像からの合成で、明瞭度は主に人の評価で測る"
+  },
+  {
+   "pid": "arxiv-2209.06337",
+   "key": "t:deepspeechsynthesisfromarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from Articulatory Representations",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Our models have comparable WERs for both the objective and human evaluations",
+   "loc": "§（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2022）。調音表現からの合成で、人の評価による WER を報告"
+  },
+  {
+   "pid": "arxiv-2304.05574",
+   "key": "t:speechreconstructionfromsilenttongueandliparticulationbypseudotargetgenerationan",
+   "title": "Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "超音波・唇からの再構成の明瞭度は自動認識の誤り率で測る（台帳・一致箇所で判定）"
+  },
+  {
+   "pid": "arxiv-2306.06514",
+   "key": "t:vocoderfreenonparallelconversionofwhisperedspeechwithmaskedcycleconsistentgenera",
+   "title": "Vocoder-Free Non-Parallel Conversion of Whispered Speech With Masked Cycle-Consistent Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "ささやき声（音響入力）からの変換で、MOS のみ"
+  },
+  {
+   "pid": "arxiv-2402.16996",
+   "key": "t:towardsdecodingbrainactivityduringpassivelisteningofspeech",
+   "title": "Towards Decoding Brain Activity During Passive Listening of Speech",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "聴取中の EEG からの合成で、著者 1 人の非公式な聴取のみ"
+  },
+  {
+   "pid": "arxiv-2502.12002",
+   "key": "t:naturall2sendtoendhighqualitymultispeakerliptospeechsynthesiswithdifferentialdig",
+   "title": "NaturalL2S: End-to-End High-quality Multispeaker Lip-to-Speech Synthesis with Differential Digital Signal Processing",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "口元映像からの合成で、MOS 評定のみ"
+  },
+  {
+   "pid": "arxiv-2506.03831",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "超音波からの変換で、主観試験は自然さの評定（台帳・一致箇所で判定）"
+  },
+  {
+   "pid": "arxiv-2506.04495",
+   "key": "t:frenchlisteningtestsfortheassessmentofintelligibilityqualityandidentityofbodycon",
+   "title": "French Listening Tests for the Assessment of Intelligibility, Quality, and Identity of Body-Conducted Speech Enhancement",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "体内伝導マイク（音響入力）の音声の聴取試験"
+  },
+  {
+   "pid": "arxiv-2510.23969",
+   "key": "t:emg2speechsynthesizingspeechfromelectromyographyusingselfsupervisedspeechmodels",
+   "title": "emg2speech: synthesizing speech from electromyography using self-supervised speech models",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "measure word error rate (WER) using human transcriptions",
+   "loc": "§（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2025）。EMG から合成した 60 音声を人が書き取り WER を測る"
+  },
+  {
+   "pid": "arxiv-2608.16360",
+   "key": "t:contrastivelearningwithvariationalregularizationformultisessioneegtospeechdecodi",
+   "title": "Contrastive Learning with Variational Regularization for Multi-Session EEG-to-Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "red representations. | task_family=speech_reconstruction | intended_use_cases=speech_restoration | scope_limits=Offline reconstruction of heard Japanese utterances from EEG for one listener on one multi-session dataset; not cross-participant generalization, user-generated speech, or live communication. | pop",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "聴取中の EEG から聞いた日本語発話を再構成。書き取り・同定の聴取試験は台帳にない"
+  },
+  {
+   "pid": "cvf-prajwal20-lip2wav",
+   "key": "t:learningindividualspeakingstylesforaccurateliptospeechsynthesis",
+   "title": "Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis",
+   "year": 2020,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "human evaluation shows that our method is four times more intelligible",
+   "loc": "Abstract",
+   "provenance": "台帳のみ",
+   "reason": "後続（2020）。口元映像から音声を合成し、人の評価で明瞭度を比較（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.1002-lio2.70559",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Five additional participants served as human transcribers of the synthesized speech.",
+   "loc": "Methods（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2025–2026）。喉頭摘出者の表面 EMG からの合成音声を 5 人が書き取る（同じ研究の別版）"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2015.02.003",
+   "key": "t:datadrivenarticulatorysynthesiswithdeepneuralnetworks",
+   "title": "Data driven articulatory synthesis with deep neural networks",
+   "year": 2016,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "t Glasgow Herald sentences (~220s); MCD on non-silent frames vs sGMM/dGMM; context sweep (10-80ms); architecture sweep; synthesis-time comparison; MTurk 30 listeners × 30 pairs, randomized order, pairwise t-tests | vocabulary_regime=closed_lexicon | validation_state=demonstrated_test",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "EMA からの調音合成の主観試験は MTurk での対比較の好みで、書き取り・同定ではない"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2015.09.008",
+   "key": "t:statisticalconversionofsilentarticulationintoaudiblespeechusingfullcovariancehmm",
+   "title": "Statistical Conversion of Silent Articulation into Audible Speech using Full-Covariance HMM",
+   "year": 2016,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Two perceptual tests were conducted: a transcription test and a discrimination test",
+   "loc": "§（Perceptual evaluation）",
+   "provenance": "本文確認",
+   "reason": "先行（2016）。超音波・唇映像からの合成音声を書き取り試験と同定試験で評価"
+  },
+  {
+   "pid": "doi-10.1016-j.jvoice.2024.10.024",
+   "key": "p:doi-10.1016-j.jvoice.2024.10.024",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "extra.Task.target=Perceptual evaluation of sEMG-driven prosody for SSI: listeners rate naturalness of synthesized sentences whose fo contour is manipulated 4 ways (flat/discrete-classification/continuous-mapping/EL-emulated) and",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "筋電由来の韻律を付けた文の自然さ評定のみ"
+  },
+  {
+   "pid": "doi-10.1016-j.rlfa.2018.07.004",
+   "key": "t:arealtimesilentspeechsystemforvoicerestorationaftertotallaryngectomy",
+   "title": "A Real-Time Silent Speech System for Voice Restoration after Total Laryngectomy",
+   "year": 2018,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "we conducted a listening test to evaluate the intelligibility of the speech generated by the SSI. Twenty one raters",
+   "loc": "§（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "同時期（Crossref で DOI 登録 2018-09、冊子 2018-10）。喉頭摘出後向けの実時間 PMA 無声発話系で、21 人の評定者が明瞭度を聴取評価"
+  },
+  {
+   "pid": "doi-10.1038-s41583-024-00819-9",
+   "key": "t:thespeechneuroprosthesis",
+   "title": "The speech neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "音声神経補綴の総説"
+  },
+  {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "key": "p:doi-10.1038-s41586-019-1119-1",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "en sentences using an articulatory intermediate representation | evidence_relation=supported_within_scope | claim=human listeners transcribed neurally synthesized speech at median 31% WER (25-word pool) / 53% WER (50-word pool) on 101 test sentences | Claim.claim_type=generaliz",
+   "decision": "include",
+   "quote": "Listeners heard the entire synthesized sentence and transcribed what they heard by selecting words from a defined pool",
+   "loc": "Results「Synthesis performance」、Methods「Intelligibility Assessment」",
+   "provenance": "本文確認",
+   "reason": "対象論文。P1 の 101 文を MTurk で単語同定（10/25/50 択）と語群つき書き取り（25/50 語）"
+  },
+  {
+   "pid": "doi-10.1038-s41586-025-09127-3",
+   "key": "p:doi-10.1038-s41586-025-09127-3",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "We used the crowd analytics platform Amazon Mechanical Turk to evaluate 1,014 synthesized sentences",
+   "loc": "Methods（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "後続（2024–2025）。合成文を MTurk で 6 文からの選択と書き取りで評価"
+  },
+  {
+   "pid": "doi-10.1038-s41593-026-02456-0",
+   "key": "t:aneuralarchitectureforimaginedandovertspeechmotordynamics",
+   "title": "A neural architecture for imagined and overt speech motor dynamics",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "five listeners performed a forced-choice identification task",
+   "loc": "Methods（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2026）。発声・想像の ECoG からの合成音声で 5 人の強制選択同定と MOS（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.1038-s41598-018-37359-z",
+   "key": "t:towardsreconstructingintelligiblespeechfromthehumanauditorycortex",
+   "title": "Towards reconstructing intelligible speech from the human auditory cortex",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "h reconstruction: ECoG -> DNN -> vocoder params -> speech synthesizer | extra.Protocol.evaluation_target=subjective: 11 listeners digit recognition accuracy + MOS quality + speaker-gender ID on 160 reconstructed tokens; objective: ESTOI on reconstructed speech; comparisons across 4 model combos | Study.negative_findings=linear",
+   "decision": "include",
+   "quote": "Eleven subjects listened to digit sounds (zero to nine) spoken by two male and two female speakers.",
+   "loc": "主観評価の図の説明",
+   "provenance": "本文確認",
+   "reason": "同時期（bioRxiv 2018-06、Sci Rep 2019-01）。聴取中の聴覚皮質から再構成した数字を 11 人の聴取者が同定（知覚の復号だが評価法は同じ）"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-60277-2",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterfaceinanindivid",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "igible sentences), implantable-BCI trial NCT03567213 | Cohort.demographics=21 native English speakers recruited for the synthesized-word listening test | sensor_hardware=chronically implanted two 8x8 ECoG electrode grids over ventral sensorimotor cortex and dorsal laryng",
+   "decision": "include",
+   "quote": "human-listener intelligibility test of synthesized words (closed 6-word vocab",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2024）。ALS の慢性 ECoG からオンライン合成した 6 語を 21 人が聴取同定（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ace8be",
+   "key": "t:directspeechreconstructionfromsensorimotorbrainactivitywithoptimizeddeeplearning",
+   "title": "Direct speech reconstruction from sensorimotor brain activity with optimized deep learning models",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "感覚運動野からの直接再構成の明瞭度を STOI 系の客観指標で測る（一致箇所で判定）"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.14.607690",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ総説の別版"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2716178",
+   "key": "p:doi-10.1109-taslp-2017-2716178",
+   "title": null,
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.1109-taslp.2017.2716178（Cornu と Milner 2017）の別フォルダ（鍵が別）。版の重複"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2757263",
+   "key": "p:doi-10.1109-taslp-2017-2757263",
+   "title": null,
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "we obtain up to 92% intelligibility on the challenging CMU Arctic material",
+   "loc": "Abstract",
+   "provenance": "本文確認",
+   "reason": "先行（2017）。永久磁石調音計測（PMA）からの合成音声で、聴取試験により明瞭度最大 92%"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2716178",
+   "key": "t:generatingintelligibleaudiospeechfromvisualspeech",
+   "title": "Generating Intelligible Audio Speech from Visual Speech",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "The intelligibility of speech reconstructed from visual fea- tures is now evaluated.",
+   "loc": "§VI",
+   "provenance": "本文確認",
+   "reason": "先行（2017）。Cornu と Milner の雑誌版。映像特徴から再構成した音声の明瞭度を聴取者で評価"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2024.3520498",
+   "key": "t:endtoendmandarinspeechreconstructionbasedonultrasoundtongueimagesusingdeeplearni",
+   "title": "End-to-End Mandarin Speech Reconstruction Based on Ultrasound Tongue Images Using Deep Learning",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "n; MCD; LogF0 RMSE/CORR/V-U; MOS 1-5 | EvaluationProtocol.experimental_design={'design': 'subjective listening tests', 'listeners': '30 healthy Mandarin-speaking', 'items': '80 utterances (natural+reconstructed)', 'tests': ['MOS naturalness', 'tone dictation TER']} | Cohort.recruitment=one healthy native Mandarin speaker, no s",
+   "decision": "include",
+   "quote": "subjective listening tests', 'listeners': '30 healthy Mandarin-speaking'",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2025）。超音波からの中国語音声再構成で、30 人の主観聴取試験"
+  },
+  {
+   "pid": "doi-10.1111-ejn.70083",
+   "key": "t:speechreceptionthresholdestimationviaeegbasedcontinuousspeechenvelopereconstruct",
+   "title": "Speech Reception Threshold Estimation via EEG-Based Continuous Speech Envelope Reconstruction",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vity | intrusiveness=skin_contact | technical_essence=EEG-estimated speech reception threshold: 20 young normal-hearing listeners hear audiobook excerpts at varying SNR while a linear decoder reconstructs the speech envelope; SRTneuro (sigmoid midpoint of reconstruction accuracy vs SNR) lands within 3 dB of behavioral SRT",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "聴取中の EEG から音声受容閾値を推定する聴覚研究"
+  },
+  {
+   "pid": "doi-10.1177-23312165221136934",
+   "key": "t:speechinnoisecomprehensionisimprovedwhenviewingadeepneuralnetworkgeneratedtalkin",
+   "title": "Speech-In-Noise Comprehension is Improved When Viewing a Deep-Neural-Network-Generated Talking Face",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "air_acoustics, position, shape | intrusiveness=external_noncontact | technical_essence=Speech-in-noise benefit of a DNN-synthesized talking face: listeners transcribe masked sentences (SNR −9/−6/−3/0 dB) under synthesized-AV, natural-AV and audio-only static-image conditions",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "合成した話者の顔を見せたときの雑音下聴取の研究で、合成音声ではない"
+  },
+  {
+   "pid": "doi-10.1371-journal.pcbi.1005119",
+   "key": "t:realtimecontrolofanarticulatorybasedspeechsynthesizerforbraincomputerinterfaces",
+   "title": "Real-Time Control of an Articulatory-Based Speech Synthesizer for Brain Computer Interfaces",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "thesizer (EMA->DNN->MLSA) controllable in closed loop, as prerequisite for cortical speech BCI | Study.unit_of_analysis=listener identification accuracy for synthesized vowels/VCVs/sentences offline and in real-time closed-loop control | task_encoding=attempted_utterance | task_famil",
+   "decision": "include",
+   "quote": "highly intelligible speech could be obtained as assessed by perceptual evaluation performed by 12 listeners",
+   "loc": "Abstract",
+   "provenance": "本文確認",
+   "reason": "先行（2016）。EMA から DNN と MLSA で合成した母音・VCV・文を 12 人の聴取者が同定"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0289288",
+   "key": "t:continuousspeechwithpausesinsertedbetweenwordsincreasescorticaltrackingofspeeche",
+   "title": "Continuous speech with pauses inserted between words increases cortical tracking of speech envelope",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "h | observed_quantities=neural_activity | intrusiveness=skin_contact | technical_essence=Word-gap pauses boost envelope reconstruction: 16 normal-hearing listeners hear ~10min natural continuous speech vs the same with 250ms/500ms silent gaps between words (16/21min); mTRF decoders",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "連続音声の包絡の再構成（知覚）で、聴取試験ではない"
+  },
+  {
+   "pid": "doi-10.18653-v1-2020.emnlp-main.445",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "transcription word error rate (WER) from a human evaluation improves from 64% to just 4%",
+   "loc": "§1",
+   "provenance": "本文確認",
+   "reason": "後続（2020）。無声 EMG からの合成音声を人が書き取り WER を出す"
+  },
+  {
+   "pid": "doi-10.18653-v1-2021.acl-short.23",
+   "key": "t:animprovedmodelforvoicingsilentspeech",
+   "title": "An Improved Model for Voicing Silent Speech",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "We evaluate intelligibility of audio synthesized by our model",
+   "loc": "§（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2021）。EMG からの合成音声の明瞭度を人の書き取りでも評価（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2014-449",
+   "key": "t:robustarticulatoryspeechsynthesisusingdeepneuralnetworksforbciapplications",
+   "title": "Robust Articulatory Speech Synthesis using Deep Neural Networks for BCI Applications",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "few parameters, robust to control-parameter noise | Study.unit_of_analysis=HMM objective phone-recognition accuracy and listener subjective identification accuracy of synthesized vowels/VCVs under clean, noisy and reduced-parameter conditions | task_encoding=attempted_utterance | task_family=s",
+   "decision": "include",
+   "quote": "listener subjective identification accuracy of synthesized vowels/VCVs",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "先行（2014）。EMA から合成した母音・VCV を聴取者が同定（Bocquelet ら 2014）"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2015-139",
+   "key": "t:reconstructingintelligibleaudiospeechfromvisualspeechfeatures",
+   "title": "Reconstructing intelligible audio speech from visual speech features",
+   "year": 2015,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "human listeners are used to determine the intelligibility (word accuracy) of the recon- structed speech",
+   "loc": "§1",
+   "provenance": "本文確認",
+   "reason": "先行（2015）。口元映像から再構成した音声の語正答率を聴取者で測る（同じ鍵の別版）"
+  },
+  {
+   "pid": "doi-10.21437-speechprosody.2008-25",
+   "key": "t:predictingf0andvoicingfromnamcapturedwhisperedspeech",
+   "title": "Predicting F0 and voicing from NAM-captured whispered speech",
+   "year": 2008,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "NAM マイク（体内伝導の音響入力）からの変換"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2019.01267",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Listening Tests To evaluate the intelligibility of our synthesized audio",
+   "loc": "Methods「Listening Tests」",
+   "provenance": "本文確認",
+   "reason": "後続（2019-11）。ECoG からの合成音声の聴取試験"
+  },
+  {
+   "pid": "isca-berthommier11_avsp",
+   "key": "t:audiovisualstreaminginvoicingperceptionnewevidenceforalowlevelinteractionbetween",
+   "title": "Audiovisual streaming in voicing perception: new evidence for a low-level interaction between audio and visual modalities",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uity (max RT at maximally uncertain PVCA), r=0.88, rather than added processing stages | extra.Limitation.limitation=11 listeners, single VCV contrast, synthesized continua; RT–uncertainty correlation depends on per-subject maxima and one removed outlier | extra.Limitation.statu",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "合成連続体を使う有声性の知覚実験"
+  },
+  {
+   "pid": "isca-beskow05_interspeech",
+   "key": "t:datadrivensynthesisofexpressivevisualspeechusinganmpeg4talkinghead",
+   "title": "Data-driven Synthesis of Expressive Visual Speech using an MPEG-4 Talking Head",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on the 10-sentence test set; one model per emotion | EvaluationProtocol.test_material_selection=held-out test sentences synthesized per emotion; diagnostic perceptual test: 10 listeners classify silent-video emotion (happy/angry/sad/neutral) paired with neutral audio | system_boundary=phoneme string + em",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "表情の合成を聴取者が分類する視覚合成の研究"
+  },
+  {
+   "pid": "isca-birkholz19_vfgeo",
+   "key": "t:perceptualoptimizationofanenhancedgeometricvocalfoldmodelforarticulatoryspeechsy",
+   "title": "Perceptual optimization of an enhanced geometric vocal fold model for articulatory speech synthesis",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "TractLab for male and female voices | Study.unit_of_analysis=5 German words x 2 genders x 405 parameter variants = 4050 synthesized stimuli; 30 listeners rate naturalness | task_encoding=natural_utterance | target_population=general_population | tested_population=healthy_v",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "声道モデルの合成音の自然さ評定"
+  },
+  {
+   "pid": "isca-bocquelet14_interspeech",
+   "key": "t:robustarticulatoryspeechsynthesisusingdeepneuralnetworksforbciapplications",
+   "title": "Robust articulatory speech synthesis using deep neural networks for BCI applications",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "to EMA coords at matched SNR | EvaluationProtocol.test_material_selection=objective: HMM phonetic decoding accuracy on synthesized sounds; subjective: listeners identify isolated vowels / VCV middle consonants (explicit unintelligible option); conditions: clean, SNR sweep, SNR=10",
+   "decision": "include",
+   "quote": "listener subjective identification accuracy of synthesized vowels/VCVs",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "先行（2014）。EMA から合成した母音・VCV を聴取者が同定（Bocquelet ら 2014）"
+  },
+  {
+   "pid": "isca-cao17_interspeech",
+   "key": "p:isca-cao17_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "bands), MCD (60-dim), V/UV error on test phrases; subjective: preference scores for naturalness + voice similarity, 10 listeners x 20 synthesized phrases, pairwise (baseline vs DI vs DI+FM) | EvaluationProtocol.experimental_design=3 systems x 2 speakers speaker",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "主観試験は自然さ・話者類似の対比較のみ"
+  },
+  {
+   "pid": "isca-cheng23e_interspeech",
+   "key": "t:similarhierarchicalrepresentationofspeechandothercomplexsoundsinthebrainanddeepr",
+   "title": "Similar Hierarchical Representation of Speech and Other Complex Sounds In the Brain and Deep Residual Networks: An MEG Study",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al_utterance | extra.Task.scope=NEURAL stimulus-category decoding background: SVM decodes which of 10 sound classes the listener heard from MEG — speech selectivity analyzed, no phoneme/word/language reconstruction | target_population=general_population | tested_population=healthy_volunteers | Cohort.demographics=10 subjects list",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "MEG の音カテゴリ復号で、合成音声の聴取試験ではない"
+  },
+  {
+   "pid": "isca-cornu15-v2speech",
+   "key": "t:reconstructingintelligibleaudiospeechfromvisualspeechfeatures",
+   "title": "Reconstructing intelligible audio speech from visual speech features",
+   "year": 2015,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "human listeners are used to determine the intelligibility (word accuracy) of the recon- structed speech",
+   "loc": "§1",
+   "provenance": "本文確認",
+   "reason": "先行（2015）。口元映像から再構成した音声の語正答率を聴取者で測る（同じ鍵の別版）"
+  },
+  {
+   "pid": "isca-cornu15_interspeech",
+   "key": "t:reconstructingintelligibleaudiospeechfromvisualspeechfeatures",
+   "title": "Reconstructing intelligible audio speech from visual speech features",
+   "year": 2015,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "human listeners are used to determine the intelligibility (word accuracy) of the recon- structed speech",
+   "loc": "§1",
+   "provenance": "本文確認",
+   "reason": "先行（2015）。口元映像から再構成した音声の語正答率を聴取者で測る（同じ鍵の別版）"
+  },
+  {
+   "pid": "isca-csapo20b-uswaveglow",
+   "key": "t:ultrasoundbasedarticulatorytoacousticmappingwithwaveglowspeechsynthesis",
+   "title": "Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis",
+   "year": 2020,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-2008.03152 の別版。自然さの評定"
+  },
+  {
+   "pid": "isca-csapo20b_interspeech",
+   "key": "p:isca-csapo20b_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版。自然さの評定"
+  },
+  {
+   "pid": "isca-gaudrain09_interspeech",
+   "key": "t:theroleofglottalpulserateandvocaltractlengthintheperceptionofspeakeridentity",
+   "title": "The role of glottal pulse rate and vocal tract length in the perception of speaker identity",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "the plane boundaries, consistent with male/female category priors shaping identity | technical_limits=small sample (10 listeners, single source speaker resynthesized); synthetic contour manipulation via STRAIGHT only; boundary effects partly confounded by category membership; no p",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "話者知覚の実験で、合成音声の明瞭度ではない"
+  },
+  {
+   "pid": "isca-girin03_avsp",
+   "key": "t:pureaudiomcgurkeffect",
+   "title": "Pure audio McGurk effect",
+   "year": 2003,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lysis=VCV syllable sequences [aba],[aga] from 2 speakers (JL, PE); LP/PARCOR filter interpolation α·[aga]+(1−α)·[aba] resynthesis; 7 French listeners identify output; perceptual identification responses | task_encoding=natural_utterance | target_population=general_popu",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "マガーク効果の知覚実験"
+  },
+  {
+   "pid": "isca-ibrahimov25-usconformer",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-2506.03831 の別版"
+  },
+  {
+   "pid": "isca-ibrahimov25_interspeech",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "isca-illa19_interspeech",
+   "key": "p:isca-illa19_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "調音合成の自然さ評定のみ"
+  },
+  {
+   "pid": "isca-jiao15_interspeech",
+   "key": "t:perceptualcuesofwhisperedtonesaretheyreallyspecial",
+   "title": "Perceptual cues of whispered tones: Are they really special?",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speaker (AT4031, 15cm); acoustic analysis (duration/intensity/formant/spectral tilt) + amplitude-modulated pink-noise resynthesis (duration+amplitude only) + 20-listener forced-choice tone ID | task_family=phoneme_or_character_classification | task_encoding=natural_utterance | intended_us",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "ささやき声調の知覚実験"
+  },
+  {
+   "pid": "isca-n18_interspeech",
+   "key": "t:reconstructingneutralspeechfromtracheoesophagealspeech",
+   "title": "Reconstructing Neutral Speech from Tracheoesophageal Speech",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "食道発声（音響入力）からの変換"
+  },
+  {
+   "pid": "isca-nakagiri06_interspeech",
+   "key": "p:isca-nakagiri06_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "NAM（音響入力）からの変換"
+  },
+  {
+   "pid": "isca-nitta11_interspeech",
+   "key": "t:speechsynthesisbasedonarticulatorymovementhmmswithvoicesourcecodebooks",
+   "title": "Speech Synthesis based on Articulatory-Movement HMMs with Voice-source Codebooks",
+   "year": 2011,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "調音運動 HMM による合成の音質・個人性の評定"
+  },
+  {
+   "pid": "isca-norrenbrock11_interspeech",
+   "key": "t:aperiodicityanalysisforqualityestimationoftexttospeechsignals",
+   "title": "Aperiodicity Analysis for Quality Estimation of Text-to-Speech Signals",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "average -> linear regression onto NAT/PLN per gender | EvaluationProtocol.test_material_selection=formal P.85 attribute listening tests at two independent institutes; correlation per stimulus and per synthesizer; only voiced segments analyzed | system_boundary=single-ended signal analysis; input TTS waveform, output estimated",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "テキスト音声合成の品質推定"
+  },
+  {
+   "pid": "isca-parmonangan19_interspeech",
+   "key": "t:speechqualityevaluationofsynthesizedjapanesespeechusingeeg",
+   "title": "Speech Quality Evaluation of Synthesized Japanese Speech using EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "z | split_protocol=random_trial | Study.study_design=controlled_experiment | Study.research_objective=predict perceived synthesized-speech quality objectively from listener EEG | claim=EEG signals differentiate natural vs 4 synthesized speech types (SVM 96.61% best, alpha band strongest over",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "合成音声を聞く人の EEG から品質を推定する研究"
+  },
+  {
+   "pid": "isca-richmond13_interspeech",
+   "key": "t:ontheevaluationofinversionmappingperformanceintheacousticdomain",
+   "title": "On the Evaluation of Inversion Mapping Performance in the Acoustic Domain",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ulatory RMS error + correlation (+/- lowpass filter); acoustic-domain perceptually-weighted LSF Euclidean distance of resynthesised sentences; 30 native British listeners, 9 pairwise preference tests x 10 pairs, paid 5 GBP, 95% CI | system_boundary=evaluation methodology pipeline: acoustic",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "音響→調音逆推定の評価で、聴取は対比較の好み"
+  },
+  {
+   "pid": "isca-rose22-activespeaker",
+   "key": "t:endtoendmultitalkeraudiovisualasrusinganactivespeakerattentionmodule",
+   "title": "End-to-end multi-talker audio-visual ASR using an active speaker attention module",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "多話者の音声映像認識で、人の書き取りは原音声の話"
+  },
+  {
+   "pid": "isca-rose22_interspeech",
+   "key": "t:endtoendmultitalkeraudiovisualasrusinganactivespeakerattentionmodule",
+   "title": "End-to-End Multi-Talker Audio-Visual ASR Using an Active Speaker Attention Module",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "isca-son10_interspeech",
+   "key": "t:manipulatingtracheoesophagealspeech",
+   "title": "Manipulating Tracheoesophageal Speech",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_lifecycle=implemented_evaluated | system_boundary=TE speech recording -> LPC source/filter -> manipulations -> resynthesized stimuli -> listener ratings | EvaluationProtocol.temporal_accounting=listener perceived-intelligibility ratings per manipulation (regressio",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "食道発声（音響入力）の操作"
+  },
+  {
+   "pid": "isca-svanfeldt05_talkhead",
+   "key": "t:perceptionexperimentcombiningaparametricloudspeakerandasynthetictalkinghead",
+   "title": "Perception Experiment Combining a Parametric Loudspeaker and a Synthetic Talking Head",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ntification for directional (parametric-array) audio, and characterize the device’s distortion | Study.unit_of_analysis=listeners identify 7 unvoiced consonants [f,s,m,n,k,p,t] in synthesized [a_a] VCVs (Infovox MBROLA) delivered through a 40kHz-carrier parametric loudspeaker at 0° and 45° off-axis, with a",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "指向性スピーカーの子音同定実験"
+  },
+  {
+   "pid": "isca-taguchi18_interspeech",
+   "key": "p:isca-taguchi18_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_target=objective: mel-cepstrum distortion dB, bap/power RMSE, v/uv error %, F0 RMSE Hz; subjective: WER of transcribed synthesis via mturk (estimated vs analysis-synthesis target) | EvaluationProtocol.experimental_design=existing mngu0 1208/63/65 split; obje",
+   "decision": "include",
+   "quote": "subjective: WER of transcribed synthesis via mturk",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "同時期（2018-09、対象の bioRxiv 版 2018-11 から 6 か月以内）。EMA から合成した音声の WER を MTurk の書き取りで測る"
+  },
+  {
+   "pid": "isca-toda05_interspeech",
+   "key": "p:isca-toda05_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "NAM（音響入力）からの変換"
+  },
+  {
+   "pid": "isca-toutios13_interspeech",
+   "key": "t:articulatorysynthesisoffrenchconnectedspeechfromemadata",
+   "title": "Articulatory Synthesis of French Connected Speech from EMA Data",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "articulatory-control errors; assess intelligibility and naturalness subjectively | Study.unit_of_analysis=per-sentence synthesized waveform + per-listener 5-point MOS ratings for intelligibility and naturalness | task_encoding=natural_utterance | task_family=speech_reconstr",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "調音合成の明瞭度を 5 段階の評定で測る（書き取り・同定ではない）"
+  },
+  {
+   "pid": "isca-uttam19-hushhush",
+   "key": "t:hushhushspeakspeechreconstructionusingsilentvideos",
+   "title": "Hush-Hush Speak: Speech Reconstruction Using Silent Videos",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "we asked ﬁve judges (not authors of this paper) to assess the intelligibility of the speech generated",
+   "loc": "§（Human evaluation）",
+   "provenance": "本文確認",
+   "reason": "後続（2019-09、対象の bioRxiv 版 2018-11 から 6 か月超）。映像からの再構成音声の明瞭度を 5 人の判定者が評価"
+  },
+  {
+   "pid": "isca-uttam19_interspeech",
+   "key": "t:hushhushspeakspeechreconstructionusingsilentvideos",
+   "title": "Hush-Hush Speak: Speech Reconstruction Using Silent Videos",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "we asked ﬁve judges (not authors of this paper) to assess the intelligibility of the speech generated",
+   "loc": "§（Human evaluation）",
+   "provenance": "本文確認",
+   "reason": "後続（2019-09、対象の bioRxiv 版 2018-11 から 6 か月超）。映像からの再構成音声の明瞭度を 5 人の判定者が評価"
+  },
+  {
+   "pid": "natneuro-02456-motordyn",
+   "key": "t:aneuralarchitectureforimaginedandovertspeechmotordynamics",
+   "title": "A neural architecture for imagined and overt speech motor dynamics",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "five listeners performed a forced-choice identification task",
+   "loc": "Methods（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2026）。発声・想像の ECoG からの合成音声で 5 人の強制選択同定と MOS（同じ鍵の別版）"
+  },
+  {
+   "pid": "nature-02456-motor-dyn",
+   "key": "t:aneuralarchitectureforimaginedandovertspeechmotordynamics",
+   "title": "A neural architecture for imagined and overt speech motor dynamics",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "five listeners performed a forced-choice identification task",
+   "loc": "Methods（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2026）。発声・想像の ECoG からの合成音声で 5 人の強制選択同定と MOS（同じ鍵の別版）"
+  },
+  {
+   "pid": "oa-W2992647453",
+   "key": "t:acontinuoussilentspeechrecognitionsystemforalteregoasilentspeechinterface",
+   "title": "A Continuous Silent Speech Recognition System for AlterEgo, a Silent Speech Interface",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "AlterEgo の学位論文。一致箇所は対象の結果を紹介する文"
+  },
+  {
+   "pid": "pmc-10256166-tonal-synth",
+   "key": "t:decodingandsynthesizingtonallanguagespeechfrombrainactivity",
+   "title": "Decoding and synthesizing tonal language speech from brain activity",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "anguage speech can be decoded and synthesized from direct neural (ECoG) recording: tonal syllable decoding up to 91.4%, synthesized tones intelligible to naïve listeners (IA 81.7–92.3%) | Claim.claim_scope=Tones and base syllables are represented by separable cortical codes (46 vs 44 disc",
+   "decision": "include",
+   "quote": "synthesized tones intelligible to naïve listeners (IA 81.7–92.3%)",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2023）。ECoG から合成した声調を素人の聴取者が同定（81.7–92.3%）"
+  },
+  {
+   "pid": "pmc-10510111-berezutskaya",
+   "key": "t:directspeechreconstructionfromsensorimotorbrainactivitywithoptimizeddeeplearning",
+   "title": "Direct speech reconstruction from sensorimotor brain activity with optimized deep learning models",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版。客観指標"
+  },
+  {
+   "pid": "pmc-10510111-recon",
+   "key": "t:directspeechreconstructionfromsensorimotorbrainactivitywithoptimizeddeeplearning",
+   "title": "Direct speech reconstruction from sensorimotor brain activity with optimized deep-learning models",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版。客観指標"
+  },
+  {
+   "pid": "pmc-11053081-als-ecog-synth",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterfaceinanindivid",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "y=training data from 64 ECoG electrodes during 6-keyword spoken commands | EvaluationProtocol.experimental_design=human-listener intelligibility test of synthesized words (closed 6-word vocab, chance 16.7%); nVAD held-out frame accuracy | representation_kind=high-gamma activity f",
+   "decision": "include",
+   "quote": "human-listener intelligibility test of synthesized words (closed 6-word vocab",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2024）。ALS の慢性 ECoG からオンライン合成した 6 語を 21 人が聴取同定（同じ鍵の別版）"
+  },
+  {
+   "pid": "pmc-11053081-onlinesyn",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterface",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Angrick ら 2024 の別版（鍵が別）"
+  },
+  {
+   "pid": "pmc-11370360-instvoice",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+  },
+  {
+   "pid": "pmc-11424044-ailistener",
+   "key": "t:usingautomaticspeechrecognitiontomeasuretheintelligibilityofspeechsynthesizedfro",
+   "title": "Using Automatic Speech Recognition to Measure the Intelligibility of Speech Synthesized from Brain Signals",
+   "year": 2023,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "trics; phoneme-based LM tuned candidate | EvaluationRun.execution_artifacts=all ASR candidates report the published BCI-synthesized voices as unintelligible, consistent with human listeners; phoneme-output candidate gives best transcription accuracy | extra.Output.output_kind=automated intelligibility benchm",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "合成音声の明瞭度を自動音声認識で測る手法の研究"
+  },
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice-synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "valuation_mode=live_interactive | Reference.reference_kind=verbatim_transcript | claim=instantaneous brain-to-voice BCI synthesizes intelligible speech from attempted speech in ALS: listener transcription PER 34.00% / WER 43.75% vs 83.87% / 96.43% for residual dysarthric speech — restores real-time expressive",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+  },
+  {
+   "pid": "pmc-12369848-voicesynth",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "Wairagkar ら（doi-10.1038-s41586-025-09127-3）の別版"
+  },
+  {
+   "pid": "pmc-13537912-larysemg",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Five additional participants served as human transcribers of the synthesized speech.",
+   "loc": "Methods（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2025–2026）。喉頭摘出者の表面 EMG からの合成音声を 5 人が書き取る（同じ研究の別版）"
+  },
+  {
+   "pid": "pmc-13537912-semg-larynx",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Five additional participants served as human transcribers of the synthesized speech.",
+   "loc": "Methods（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2025–2026）。喉頭摘出者の表面 EMG からの合成音声を 5 人が書き取る（同じ研究の別版）"
+  },
+  {
+   "pid": "pmc-13537912-semg_laryngectomy",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Five additional participants served as human transcribers of the synthesized speech.",
+   "loc": "Methods（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2025–2026）。喉頭摘出者の表面 EMG からの合成音声を 5 人が書き取る（同じ研究の別版）"
+  },
+  {
+   "pid": "pmc-13537912-semglar",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "HuBERT speech units -> GSLM audio, without paired voiced ground-truth | Study.unit_of_analysis=intelligibility of sEMG-synthesized audio rated by human transcribers on 499-item date/time corpus; per-subject informative-electrode dimensionality via PCA+SFS | task_encoding=natural_",
+   "decision": "include",
+   "quote": "Five additional participants served as human transcribers of the synthesized speech.",
+   "loc": "Methods（一致箇所）",
+   "provenance": "台帳のみ",
+   "reason": "後続（2025–2026）。喉頭摘出者の表面 EMG からの合成音声を 5 人が書き取る（同じ研究の別版）"
+  },
+  {
+   "pid": "pmc-4809489-vocal",
+   "key": "t:highresolutionnoninvasiveimagingofuppervocaltractarticulatorscompatible",
+   "title": "High-Resolution, Non-Invasive Imaging of Upper Vocal Tract Articulators Compatible",
+   "year": 2016,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "we demonstrate perceptual identification",
+   "loc": "Abstract（一致箇所）",
+   "provenance": "本文確認",
+   "reason": "先行（2016）。声道の画像計測から合成した音声で、MTurk による知覚同定を示す"
+  },
+  {
+   "pid": "pmc-6871759-selfspeech",
+   "key": "t:neuralcorrelatesofthemisattributionofselfgeneratedspeech",
+   "title": "Neural correlates of the misattribution of self-generated speech",
+   "year": 2005,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "自己音声の誤帰属の fMRI 研究"
+  },
+  {
+   "pid": "pmc-6882773-b2speech",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Listening Tests To evaluate the intelligibility of our synthesized audio",
+   "loc": "Methods「Listening Tests」",
+   "provenance": "本文確認",
+   "reason": "後続（2019-11）。ECoG からの合成音声の聴取試験"
+  },
+  {
+   "pid": "pmc-6882773-braintospeech",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "Listening Tests To evaluate the intelligibility of our synthesized audio",
+   "loc": "Methods「Listening Tests」",
+   "provenance": "本文確認",
+   "reason": "後続（2019-11）。ECoG からの合成音声の聴取試験"
+  },
+  {
+   "pid": "pmc-8460739-realtimesynth",
+   "key": "t:realtimesynthesisofimaginedspeechprocessesfromminimallyinvasiverecordingsofneura",
+   "title": "Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rocess across production modes | extra.Limitation.status=acknowledged | extra.Limitation.limitation=Single participant; reconstructed audio not yet intelligible to listeners; restricted to single-word utterances; electrode coverage fixed by clinical indication | r .89 | 119 contacts | 3 modes",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "想像発話からの実時間合成。台帳は聴取者に明瞭でなかったと記録し、聴取試験の数値はない"
+  },
+  {
+   "pid": "pmc-9312762-semgmandarin",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al SSD work stopped — via Seq2Seq mel generation with toneme-aware losses | Study.unit_of_analysis=Per-speaker sEMG→mel reconstruction; CER via Mandarin ASR + 10 native listeners; ablations on toneme-classification and sEMGv-reconstruction losses | task_encoding=task_evoked_inner | task_family=spe",
+   "decision": "include",
+   "quote": "CER via Mandarin ASR + 10 native listeners",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2022）。中国語の表面 EMG からの再構成音声を母語話者 10 人の書き取りで CER"
+  },
+  {
+   "pid": "pmc-9312762-ssrnet-tonal",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speech in a tonal language (Mandarin) where pitch/tonemes carry lexical meaning | Study.unit_of_analysis=Per-utterance reconstructed audio scored by character error rate (CER, Levenshtein) from human transcriptions | task_encoding=attempted_utterance | task_family=speech_reconstruction | tested_population=healthy_volunteers |",
+   "decision": "include",
+   "quote": "CER via Mandarin ASR + 10 native listeners",
+   "loc": "台帳",
+   "provenance": "台帳のみ",
+   "reason": "後続（2022）。中国語の表面 EMG からの再構成音声を母語話者 10 人の書き取りで CER"
+  },
+  {
+   "pid": "pmc-9447996-stgspeechcomp",
+   "key": "t:speechcomputationsofthehumansuperiortemporalgyrus",
+   "title": "Speech Computations of the Human Superior Temporal Gyrus",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "上側頭回の音声計算の総説"
+  },
+  {
+   "pid": "pmc-9714519-speechsynth",
+   "key": "t:speechsynthesisfromneuraldecodingofspokensentences",
+   "title": "Speech synthesis from neural decoding of spoken sentences",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "対象論文の別フォルダ"
+  },
+  {
+   "pid": "w-2246823171",
+   "key": "t:silentcommunicationwhisperedspeechtoclearspeechconversion",
+   "title": "Silent Communication: whispered speech-to-clear speech conversion",
+   "year": 2010,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "NAM のささやき声（音響入力）から通常声への変換"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 6,
+  "found": 6,
+  "recall": 1.0,
+  "missed": []
+ },
+ "tally": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 37,
+  "read": 106,
+  "unread": 0,
+  "confirmed_unique": 29,
+  "confirmed_本文確認": 16,
+  "recall_sample_read": 30,
+  "recall_sample_included": 13,
+  "recall_estimate": 0.3
+ },
+ "used_by": [
+  "speech-synthesis-from-neural-decoding-of-spoken-sentences"
+ ]
+}
