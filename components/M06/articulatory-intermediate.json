@@ -1,0 +1,736 @@
+{
+ "topic": "articulatory-intermediate",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "articulat\\w*[^|]{0,40}(intermediate|intermediary)|intermediate[^|]{0,30}articulat|(neural|ecog|cortical|emg|eeg|brain)[^|]{0,60}articulatory kinematic[^|]{0,80}(acoustic|speech|synthes)|kinematic\\w*[^|]{0,30}(then|->|→)[^|]{0,30}acoustic",
+ "scope": "ledger",
+ "fulltext_pattern": "intermediate articulatory|articulatory (kinematic |movement )?(intermediate|intermediary)|articulatory[^.]{0,30} as (an )?intermediar|(ecog|emg|eeg|neural|cortical|brain|electromyogra)[^.]{0,80}(to|into) (the )?articulatory (kinematic|feature|movement|representation|trajector|parameter)[^.]{0,100}(acoustic|speech|audio|waveform)",
+ "inclusion_rule": "音響以外の信号（神経活動、筋電、映像、超音波など）から、明示的な調音表現（計測または推定した調音器官の運動軌跡、調音素性・音韻範疇）をいったん復号し、それを次段で音響特徴・音声波形・記号列に変換する復号経路を持つ研究を含める。境界：入力そのものが調音計測（EMA・PMA・超音波）で、調音表現を中間に復号しないものは除く。音響から調音を推定してから音声に戻すもの（入力が音響）は除く。調音を補助損失・正則化にだけ使い、経路の中間に置かないものは除く。調音表現を復号するだけで次段がないものは除く。総説・引用だけの言及は除く。同一研究の別版は1件。",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 12,
+  "string_match_unique": 12,
+  "fulltext_only_folders": 32
+ },
+ "recall_sample": [
+  "pmc-12363778-anarthria-ibci",
+  "isca-csapo23_interspeech",
+  "doi-10.1101-2025.10.08.680888",
+  "doi-10.1101-2025.08.12.668516",
+  "pmc-13335209-celrep",
+  "arxiv-2512.04618",
+  "arxiv-2609.36736",
+  "arxiv-2609-36736-speechbcirev",
+  "doi-10.1038-s41467-023-42555-1",
+  "isca-csapo23-eegus",
+  "doi-10.1088-1741-2552.ae4cca",
+  "pmc-10303480-speechhand",
+  "pmc-13335209-intended-bci",
+  "doi-10.21203-rs.3.rs-9916752.v1",
+  "pmc-10628285-uecog",
+  "arxiv-2306.05374",
+  "pmc-10326283-overtdec",
+  "pmc-13335209-ibcilong",
+  "doi-10.1016-j.celrep.2026.117162",
+  "doi-10.1109-msp.2024.3484629",
+  "pmc-10326283-lineardecode",
+  "pmc-11581396-whisper-eeg-context",
+  "doi-10.3389-fnhum.2023.1124065",
+  "doi-10.3390-s23125575",
+  "arxiv-2609-36736-bcreview",
+  "pmc-8293867-dorsal",
+  "arxiv-2603-12279-icbci",
+  "pmc-12333864-b2content",
+  "pmc-12333864-bci20",
+  "pmc-13335209-anarthria"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1611.06986",
+   "key": "p:arxiv-1611.06986",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "/ 83.0% PA w/ general LM); viseme acc 65.7% (SIFT+landmarks+speed/accel); video CTC peaks precede audio (anticipatory coarticulation), AV peaks intermediate; +-330ms AV offset no WER/PA change; multi-condition training helps noise; full fusion <= audio+landmarks at high SNR |",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "音声映像認識で、台帳の intermediate は CTC のピーク時刻の話。調音表現を中間に置かない"
+  },
+  {
+   "pid": "arxiv-2305.03582",
+   "key": "t:amultimodaldynamicalvariationalautoencoderforaudiovisualspeechrepresentationlear",
+   "title": "A Multimodal Dynamical Variational Autoencoder for Audiovisual Speech Representation Learning",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ms; Adam; utterance-level modeling | extra.Decoder.inference_information=per-modality VQ-VAE gives compact discrete-ish intermediates; jaw/lips are visible-articulator factors shared with audio | extra.Decoder.inference_information=generative model: p(x|w,z(av),z(a),z(v)); hierarchica",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "音声映像の変分自己符号化器。顎・唇は潜在因子の解釈で、明示的な調音表現を復号する経路ではない"
+  },
+  {
+   "pid": "arxiv-2306.05374",
+   "key": "t:towardsultrasoundtongueimagepredictionfromeegduringspeechproduction",
+   "title": "Towards Ultrasound Tongue Image prediction from EEG during speech production",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "EEG から超音波舌画像を予測するだけで、調音から音声への次段がない（対象を引用して動機づけ）"
+  },
+  {
+   "pid": "arxiv-2505.13814",
+   "key": "t:articulatoryfeaturepredictionfromsurfaceemgduringspeechproduction",
+   "title": "Articulatory Feature Prediction from Surface EMG during Speech Production",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "former, cnn | technical_essence=EMG encoder + separate EMA/pitch/loudness/aux-phoneme predictors over conv+transformer; articulatory-feature intermediate representation decoded to waveform; L2 loss | ProcessingStep.hyperparameters={'emg_channels': 8, 'emg_channels_reduced'",
+   "decision": "include",
+   "quote": "we demonstrate that these predicted articulatory features can be decoded into intelligible speech waveforms",
+   "loc": "要旨",
+   "provenance": "本文確認",
+   "reason": "後続（2025）。表面筋電から EMA 型の調音特徴を予測し、それを音声波形に復号する"
+  },
+  {
+   "pid": "arxiv-2512.04618",
+   "key": "p:arxiv-2512.04618",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "対象を関連研究として引く文に一致しただけで、自身は調音中間表現を使わない（台帳・一致箇所で判定）"
+  },
+  {
+   "pid": "arxiv-2603-12279-icbci",
+   "key": "t:towardrobustreproducibleandwidelyaccessibleintracranialspeechbraincomputerinterf",
+   "title": "Toward Robust, Reproducible, and Widely Accessible Intracranial Speech Brain-Computer Interfaces: A Comprehensive Narrative Review",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "頭蓋内 BCI の総説。調音中間表現を手法の類型として挙げるだけ"
+  },
+  {
+   "pid": "arxiv-2603.12279",
+   "key": "t:towardrobustreproducibleandwidelyaccessibleintracranialspeechbraincomputerinterf",
+   "title": "Toward Robust, Reproducible, and Widely Accessible Intracranial Speech Brain-Computer Interfaces: A Comprehensive Narrative Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "stratifies by evidence weight not unified splits | representation_kind=reviewed: high-gamma ECoG, MEA spike/bandpower, articulatory-kinematic intermediates | technical_essence=surveyed decoders: RNN phoneme->text, seq2seq, CTC for unaligned silent attempts, multimodal text+",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ総説の別版"
+  },
+  {
+   "pid": "arxiv-2609-36736-bcreview",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "音声 BCI の総説。対象を文献 81 として引くだけ"
+  },
+  {
+   "pid": "arxiv-2609-36736-speechbcirev",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ総説の別版"
+  },
+  {
+   "pid": "arxiv-2609.36736",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ総説の別版"
+  },
+  {
+   "pid": "doi-10.1016-j.celrep.2026.117162",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "皮質内アレイの単語・文復号。6v の活動が調音運動でまとまるという解析で、調音を中間に復号しない"
+  },
+  {
+   "pid": "doi-10.1038-s41467-023-42555-1",
+   "key": "t:highresolutionneuralrecordingsimprovetheaccuracyofspeechdecoding",
+   "title": "High-resolution neural recordings improve the accuracy of speech decoding",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "µECoG の音素復号。調音素性を中間に使えばさらに改善しうると今後の課題として書くだけ"
+  },
+  {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "key": "p:doi-10.1038-s41586-019-1119-1",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "xperiment | Study.research_objective=synthesize intelligible speech directly from ECoG during spoken sentences using an articulatory intermediate representation | evidence_relation=supported_within_scope | claim=human listeners transcribed neurally synthesized spee",
+   "decision": "include",
+   "quote": "Recurrent neural networks first decoded directly recorded cortical activity into articulatory movement representations, and then transformed those representations into speech acoustics.",
+   "loc": "要旨、Methods「Neural decoder」",
+   "provenance": "本文確認",
+   "reason": "対象論文（刊行版の識別子、本文は著者稿）。ECoG→推定調音 33 次元→音響 32 次元の二段 bLSTM"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abbfef",
+   "key": "t:decodingspokenenglishfromintracorticalelectrodearraysindorsalprecentralgyrus",
+   "title": "Decoding spoken English from intracortical electrode arrays in dorsal precentral gyrus",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "皮質内アレイの英語復号。調音中間表現は関連研究（対象）として挙げるだけ"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552.ae4cca",
+   "key": "t:acrossspeakerarticulatoryreconstructionfromsensorimotorcortexforgeneralizablebra",
+   "title": "Across-speaker articulatory reconstruction from sensorimotor cortex for generalizable brain-computer interfaces",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "後続（2026）。公開 EMA から話者をまたいで調音特徴を再構成するが、音響・音声への次段は作らない（次段なしの境界例）"
+  },
+  {
+   "pid": "doi-10.1101-2025.08.12.668516",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with longstanding anarthria and locked-in syndrome",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.1016-j.celrep.2026.117162 のプレプリント。同じ理由"
+  },
+  {
+   "pid": "doi-10.1101-2025.10.08.680888",
+   "key": "p:doi-10.1101-2025.10.08.680888",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.1088-1741-2552.ae4cca のプレプリント。同じ理由"
+  },
+  {
+   "pid": "doi-10.1109-msp.2024.3484629",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "生成 AI と BCI の総説。対象の二段構成を紹介するだけ"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9916752.v1",
+   "key": "t:noninvasivebraintotextbcisphonemelevelsentencereconstructionfrommeg",
+   "title": "Non-Invasive Brain-to-Text BCIs: Phoneme-Level Sentence Reconstruction from MEG",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "MEG の音素文復号。調音中間表現は関連研究として触れるだけ"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1124065",
+   "key": "t:overtspeechdecodingfromcorticalactivityacomparisonofdifferentlinearmethods",
+   "title": "Overt speech decoding from cortical activity: a comparison of different linear methods",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "indirect decoding of vocoder features through an intermediate articulatory representation chained with a real-time-compatible DNN-based articulatory-to-acoustic synthesizer",
+   "loc": "Abstract（Methods）、§2.6.3",
+   "provenance": "本文確認",
+   "reason": "後続（2023）。ECoG から線形法で調音軌跡を復号し、DNN の調音→音響合成器につなぐ間接法と、直接法を同じデータで比べた"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "音声と手書きの BCI 総説。対象の二段構成を紹介するだけ"
+  },
+  {
+   "pid": "isca-bukmaier14_interspeech",
+   "key": "t:synchronicvariationinthearticulationandtheacousticsofthepolishthreewayplacedisti",
+   "title": "Synchronic variation in the articulation and the acoustics of the Polish three-way place distinction in sibilants and its implications for diachronic change",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "3 vowels x 2 rates; C2 ratio, F2 mean/slope, TT position & orientation at 30% of constriction | system_boundary=EMA TT kinematics + acoustic spectra/F2 -> articulatory-acoustic comparison -> diachronic-merger inference; analysis only | SystemConfiguration.system_lifecycle=implemented_evaluated |",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "EMA と音響の音声学的比較。復号経路を持たない"
+  },
+  {
+   "pid": "isca-csapo17_ussynth",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ment | Study.research_objective=convert 2D ultrasound tongue-image sequences to synthesized speech via DNN regression — articulatory-to-acoustic mapping without intermediate phone labels | Study.unit_of_analysis=per-frame MGC-LSP coefficient prediction (NMSE/R²) + subjective naturalness on 90",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "入力が超音波舌画像（調音計測そのもの）で、中間に調音表現を復号しない"
+  },
+  {
+   "pid": "isca-csapo23-eegus",
+   "key": "t:towardsultrasoundtongueimagepredictionfromeegduringspeechproduction",
+   "title": "Towards Ultrasound Tongue Image prediction from EEG during speech production",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-2306.05374 と同じ研究の別版。EEG→舌画像のみで次段なし"
+  },
+  {
+   "pid": "isca-csapo23_interspeech",
+   "key": "t:towardsultrasoundtongueimagepredictionfromeegduringspeechproduction",
+   "title": "Towards Ultrasound Tongue Image Prediction from EEG during Speech Production",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "arxiv-2306.05374 と同じ研究の別版。EEG→舌画像のみで次段なし"
+  },
+  {
+   "pid": "isca-lee26b-rtmrieeg",
+   "key": "t:anapproachtosimultaneousacquisitionofrealtimemrivideoeegandsurfaceemgforarticula",
+   "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speech.2026 (lee26b) | Study.research_objective=first simultaneous rtMRI video + EEG + surface EMG acquisition spanning neural planning, muscle activation and articulatory kinematics in speech | Study.study_design=dataset_resource | task_family=phoneme_or_character_classification | modalities=fmri, scalp_eeg, s",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "rtMRI・EEG・筋電の同時収録データの論文で、復号経路を作らない"
+  },
+  {
+   "pid": "isca-richmond13_interspeech",
+   "key": "t:ontheevaluationofinversionmappingperformanceintheacousticdomain",
+   "title": "On the Evaluation of Inversion Mapping Performance in the Acoustic Domain",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "(LSF) -> inversion method -> articulatory trajectories -> FSS-MRHMM synthesis -> acoustic error / listener preference; articulatory signals themselves are the intermediate representation | SystemConfiguration.system_lifecycle=implemented_evaluated | extra.Output.output_kind=reconstructed_si",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "入力が音響（音響→調音逆推定→合成）で、音響以外の信号からの復号ではない"
+  },
+  {
+   "pid": "isca-saha19_interspeech",
+   "key": "t:speakyourmindtowardsimaginedspeechrecognitionwithhierarchicaldeeplearning",
+   "title": "SPEAK YOUR MIND! Towards Imagined Speech Recognition With Hierarchical Deep Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| Study.study_design=controlled_experiment | Study.research_objective=subject-independent imagined-speech decoding via articulatory phonological intermediates + hierarchical deep nets | claim=the hierarchical CCV→CNN/TCNN→DAE→XgBoost model reaches 83.42% avg on 6 binary phonol",
+   "decision": "include",
+   "quote": "exploits predicted articulatory information of six phonological categories (e.g., nasal, bilabial) as an intermediate step for classifying the phonemes and words",
+   "loc": "Abstract",
+   "provenance": "本文確認",
+   "reason": "同時期（arXiv 1904.05746、2019-04、Interspeech 2019-09）。想像発話の EEG から 6 つの音韻範疇（鼻音・両唇など）を予測し、それを中間段として 11 種の音素・単語を分類する。音声合成ではなく分類で、調音素性の境界例として採る"
+  },
+  {
+   "pid": "isca-sudhakar14_interspeech",
+   "key": "t:sparsesmoothingofarticulatoryfeaturesfromgaussianmixturemodelbasedacoustictoarti",
+   "title": "Sparse smoothing of articulatory features from Gaussian mixture model based acoustic-to-articulatory inversion: benefit to speech recognition",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_boundary=speech acoustics -> GMM AAI -> smoothed articulatory features -> HTK broad-class phonetic recognition; articulators used only as intermediate representation | SystemConfiguration.system_lifecycle=implemented_evaluated | extra.Output.output_kind=predicted_labels",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "入力が音響（音響→調音推定→音素認識）"
+  },
+  {
+   "pid": "isca-yan23_interspeech",
+   "key": "t:combininglanguagecorporainajapaneseelectromagneticarticulographydatabaseforacous",
+   "title": "Combining language corpora in a Japanese electromagnetic articulography database for acoustic-to-articulatory inversion",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "日本語 EMA コーパスの統合。神経→調音→音声の構想を背景に述べるが、自身は音響と EMA の対応を扱う"
+  },
+  {
+   "pid": "pmc-10303480-speechhand",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuraldata",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Data",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ総説の別版"
+  },
+  {
+   "pid": "pmc-10326283-lineardecode",
+   "key": "t:overtspeechdecodingfromcorticalactivityacomparisonofdifferentlinearmethods",
+   "title": "Overt speech decoding from cortical activity: a comparison of different linear methods",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.3389-fnhum.2023.1124065 の別版"
+  },
+  {
+   "pid": "pmc-10326283-overtdec",
+   "key": "t:overtspeechdecodingfromcorticalactivityacomparisonofdifferent",
+   "title": "Overt speech decoding from cortical activity: a comparison of different",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.3389-fnhum.2023.1124065 の別版"
+  },
+  {
+   "pid": "pmc-10628285-uecog",
+   "key": "t:highresolutionneuralrecordingsimprovetheaccuracyofspeechdecoding",
+   "title": "High-resolution neural recordings improve the accuracy of speech decoding",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.1038-s41467-023-42555-1 の別版。同じ理由"
+  },
+  {
+   "pid": "pmc-11581396-whisper-eeg-context",
+   "key": "t:deeplearningmodelsrevealhowcontextandlistenerattentionshapeelectrophysiologicalc",
+   "title": "Deep-learning models reveal how context and listener attention shape electrophysiological correlates of speech-to-language transformation",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "聴取中の EEG と音声認識モデルの比較。調音素性は言語処理理論の説明に出るだけ"
+  },
+  {
+   "pid": "pmc-12333864-b2content",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ総説の別版"
+  },
+  {
+   "pid": "pmc-12333864-bci20",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ総説の別版"
+  },
+  {
+   "pid": "pmc-12363778-anarthria-ibci",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with longstanding anarthria and locked-in syndrome",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版。調音は解析対象で復号経路の中間ではない"
+  },
+  {
+   "pid": "pmc-13335209-anarthria",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-13335209-celrep",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-13335209-ibcilong",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-13335209-intended-bci",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "同じ研究の別版"
+  },
+  {
+   "pid": "pmc-8293867-dorsal",
+   "key": "t:decodingspokenenglishfromintracorticalelectrodearraysindorsalmotorcortex",
+   "title": "Decoding spoken English from intracortical electrode arrays in dorsal motor cortex",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "doi-10.1088-1741-2552-abbfef の別版"
+  },
+  {
+   "pid": "pmc-9714519-speechsynth",
+   "key": "t:speechsynthesisfromneuraldecodingofspokensentences",
+   "title": "Speech synthesis from neural decoding of spoken sentences",
+   "year": 2019,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "olled_experiment | task_family=speech_reconstruction | extra.Production.scope_note=two-stage neural decoder translating ECoG recordings during overt sentence reading into articulatory kinematics then acoustic features for audible speech synthesis | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=high-density ECoG over",
+   "decision": "exclude",
+   "quote": null,
+   "loc": null,
+   "provenance": null,
+   "reason": "対象論文の別フォルダ（同じ著者稿 XML、SHA-256 一致）。版の重複として 1 件に数える"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 4,
+  "recall": 1.0,
+  "missed": []
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 12,
+  "read": 44,
+  "unread": 0,
+  "confirmed_unique": 4,
+  "confirmed_本文確認": 4,
+  "recall_sample_read": 30,
+  "recall_sample_included": 1,
+  "recall_estimate": 0.74
+ },
+ "used_by": [
+  "speech-synthesis-from-neural-decoding-of-spoken-sentences"
+ ]
+}
