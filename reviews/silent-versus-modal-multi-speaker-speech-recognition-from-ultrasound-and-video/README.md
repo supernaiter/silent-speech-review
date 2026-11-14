@@ -3,7 +3,7 @@
 Manuel Sam Ribeiro, Aciel Eshky, Korin Richmond, Steve Renals  
 arXiv 2021 · [arXiv](https://arxiv.org/abs/2103.00333)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Silent versus modal multi-speaker speech recognition from ultrasound and video* (Manuel Sam Ribeiro et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

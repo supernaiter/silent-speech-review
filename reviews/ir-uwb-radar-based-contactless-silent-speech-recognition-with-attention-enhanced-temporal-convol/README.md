@@ -3,7 +3,7 @@
 Sunghwa Lee, Jaewon Yu  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2509.26409)
 
-**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Review basis:** full_text+summary
+**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *IR-UWB Radar-Based Contactless Silent Speech Recognition with Attention-Enhanced Temporal Convolutional Networks* (Sunghwa Lee and Jaewon Yu, arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

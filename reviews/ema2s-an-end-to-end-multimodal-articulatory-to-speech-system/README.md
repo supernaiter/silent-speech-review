@@ -3,7 +3,7 @@
 Yu-Wen Chen, Kuo-Hsuan Hung, Shang-Yi Chuang, Jonathan Sherman, Wen-Chin Huang, Xugang Lu, Yu Tsao  
 arXiv 2021 · [arXiv](https://arxiv.org/abs/2102.03786)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *EMA2S: An End-to-End Multimodal Articulatory-to-Speech System* (Yu-Wen Chen et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

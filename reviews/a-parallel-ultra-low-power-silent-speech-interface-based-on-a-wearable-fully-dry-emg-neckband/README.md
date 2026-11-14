@@ -3,7 +3,7 @@
 Fiona Meier, Giusy Spacone, Sebastian Frey, Luca Benini, Andrea Cossettini  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2509.21964)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *A Parallel Ultra-Low Power Silent Speech Interface based on a Wearable, Fully-dry EMG Neckband* (Fiona Meier et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

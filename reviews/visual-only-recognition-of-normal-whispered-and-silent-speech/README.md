@@ -3,7 +3,7 @@
 Stavro Petridis, Jie Shen, Doruk Cetin, Maja Pantic  
 arXiv 2018 · [arXiv](https://arxiv.org/abs/1802.06399)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Visual-Only Recognition of Normal, Whispered and Silent Speech* (Stavro Petridis et al., arXiv 2018) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

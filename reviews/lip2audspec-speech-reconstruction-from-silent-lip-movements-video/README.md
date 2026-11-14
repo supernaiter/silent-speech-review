@@ -3,7 +3,7 @@
 Hassan Akbari, Himani Arora, Liangliang Cao, Nima Mesgarani  
 arXiv 2017 · [arXiv](https://arxiv.org/abs/1710.09798)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Lip2AudSpec: Speech reconstruction from silent lip movements video* (Hassan Akbari et al., arXiv 2017) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

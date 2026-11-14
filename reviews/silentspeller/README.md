@@ -3,7 +3,7 @@
 Naoki Kimura, Tan Gemicioglu, Jonathan Womack, Yuhui Zhao, Richard Li, Abdelkareem Bedri, Zixiong Su, Alex Olwal, Jun Rekimoto, Thad Starner  
 CHI '22 · [DOI](https://doi.org/10.1145/3491102.3502015)
 
-**Section:** [Electropalatography & in-mouth sensors](../../README.md#electropalatography--in-mouth-sensors) · **Review basis:** full_text+existing_expert_seed
+**Section:** [Electropalatography & in-mouth sensors](../../README.md#electropalatography--in-mouth-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *SilentSpeller: Towards mobile, hands-free, silent speech text entry using electropalatography* (Naoki Kimura et al., CHI '22) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

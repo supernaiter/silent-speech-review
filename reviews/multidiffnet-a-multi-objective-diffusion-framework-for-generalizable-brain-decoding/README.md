@@ -3,7 +3,7 @@
 Mengchun Zhang, Kateryna Shapovalenko, Yucheng Shao, Eddie Guo, Parusha Pradhan  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2511.18294)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding* (Mengchun Zhang et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Daniel Michelsanti, Zheng-Hua Tan, Shi-Xiong Zhang, Yong Xu, Meng Yu, Dong Yu, Jesper Jensen  
 arXiv 2020 · [arXiv](https://arxiv.org/abs/2008.09586)
 
-**Section:** [Surveys](../../README.md#surveys) · **Review basis:** full_text
+**Section:** [Surveys](../../README.md#surveys) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *An Overview of Deep-Learning-Based Audio-Visual Speech Enhancement and Separation* (Daniel Michelsanti et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

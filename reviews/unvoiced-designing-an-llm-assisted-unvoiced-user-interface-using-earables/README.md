@@ -3,7 +3,7 @@
 Tanmay Srivastava, Prerna Khanna, Shijia Pan, Phuc Nguyen, Shubham Jain  
 Proceedings of the 22nd ACM Conference on Embedded Networked Sensor Systems (SenSys '24), pp. 784-798 · [DOI](https://doi.org/10.1145/3666025.3699374)
 
-**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text
+**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Unvoiced: Designing an LLM-assisted Unvoiced User Interface using Earables* (Tanmay Srivastava et al., Proceedings of the 22nd ACM Conference on Embedded Networked Sensor Systems (SenSys '24), pp. 784-798) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Mohammed Salah Al-Radhi, Géza Németh, Andon Tchechmedjiev, Binbin Xu  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2604.05751)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction* (Mohammed Salah Al-Radhi et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

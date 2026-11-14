@@ -3,7 +3,7 @@
 Yuyue Wang, Xin Cheng, Yihan Wu, Xihua Wang, Jinchuan Tian, Ruihua Song  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2511.22229)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task* (Yuyue Wang et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

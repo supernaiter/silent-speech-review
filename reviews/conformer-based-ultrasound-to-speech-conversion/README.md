@@ -3,7 +3,7 @@
 Ibrahim Ibrahimov, Zainkó Csaba, Gábor Gosztolya  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2506.03831)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text+summary
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Conformer-based Ultrasound-to-Speech Conversion* (Ibrahim Ibrahimov et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

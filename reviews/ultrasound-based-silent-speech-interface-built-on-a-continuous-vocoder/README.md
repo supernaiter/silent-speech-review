@@ -3,7 +3,7 @@
 Moham Salah Alradhi, Géza Németh, Gábor Gosztolya, Tamás Gábor Csapó, László Tóth, Alexandra Markó  
 arXiv 2019 · [arXiv](https://arxiv.org/abs/1906.09885)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text+structured_benchmark+summary
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder* (Moham Salah Alradhi et al., arXiv 2019) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Neil Shah, Shirish Karande, Vineet Gandhi  
 arXiv 2024 · [arXiv](https://arxiv.org/abs/2412.18839)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset* (Neil Shah et al., arXiv 2024) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

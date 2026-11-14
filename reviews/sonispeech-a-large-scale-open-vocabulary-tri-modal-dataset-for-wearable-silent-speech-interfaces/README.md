@@ -3,7 +3,7 @@
 Ruidong Zhang, Jiacheng Liu, François Guimbretière, Cheng Zhang  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2608.00803)
 
-**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text+summary
+**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces* (Ruidong Zhang et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

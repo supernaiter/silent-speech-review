@@ -3,7 +3,7 @@
 Ruidong Zhang, Ke Li, Yihong Hao, Yufan Wang, Zhengnan Lai, François Guimbretière, Cheng Zhang  
 CHI '23 · [DOI](https://doi.org/10.1145/3544548.3580801)
 
-**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text
+**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *EchoSpeech: Continuous Silent Speech Recognition on Minimally-obtrusive Eyewear Powered by Acoustic Sensing* (Ruidong Zhang et al., CHI '23) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

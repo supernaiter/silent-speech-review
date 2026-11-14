@@ -3,7 +3,7 @@
 Jung-Sun Lee, Ha-Na Jo, Eunyeong Ko  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2511.07918)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Distinct Theta Synchrony across Speech Modes: Perceived, Spoken, Whispered, and Imagined* (Jung-Sun Lee et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Amin Honarmandi Shandiz, Laszlo Toth  
 arXiv 2021 · [DOI](https://doi.org/10.1007/978-3-030-83527-9_43) · [arXiv](https://arxiv.org/abs/2105.13718)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convolutional Neural Networks* (Amin Honarmandi Shandiz and Laszlo Toth, arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

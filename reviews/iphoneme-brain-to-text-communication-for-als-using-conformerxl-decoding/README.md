@@ -3,7 +3,7 @@
 Yoonmin Cha, Dawit Chun, Sung Park  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2604.16441)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding* (Yoonmin Cha et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

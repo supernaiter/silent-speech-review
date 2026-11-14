@@ -3,7 +3,7 @@
 Yongqi Wang, Zhou Zhao  
 arXiv 2022 · [DOI](https://doi.org/10.1145/3503161.3548194) · [arXiv](https://arxiv.org/abs/2207.03800)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis* (Yongqi Wang and Zhou Zhao, arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

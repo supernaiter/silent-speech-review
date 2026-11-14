@@ -3,7 +3,7 @@
 Joanna Hong, Minsu Kim, Yong Man Ro  
 arXiv 2022 · [arXiv](https://arxiv.org/abs/2206.07458)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *VisageSynTalk: Unseen Speaker Video-to-Speech Synthesis via Speech-Visage Feature Selection* (Joanna Hong et al., arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

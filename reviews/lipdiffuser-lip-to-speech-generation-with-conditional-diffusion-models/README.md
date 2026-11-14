@@ -3,7 +3,7 @@
 Julius Richter, Danilo de Oliveira, Tal Peer, Timo Gerkmann  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2505.11391)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *LipDiffuser: Lip-to-Speech Generation with Conditional Diffusion Models* (Julius Richter et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

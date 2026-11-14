@@ -3,7 +3,7 @@
 Gábor Gosztolya, MTA-SZTE Research Group on Artificial Intelligence, University of Szeged, Hungary, Gábor Infusz, ginfusz@inf.u-szeged.hu, Ádám Pintér, Institute of Informatics, University of Szeged, Szeged, Hungary, László Tóth, Institute of Informatics, University of Szeged, Szeged, Hungary, Alexandra Markó, Department of Phonetics, Eötvös Loránd University, MTA-ELTE Lendület Lingual Articulation Research Group, Budapest, Hungary, Gábor Csapó, Department of Telecommunications and Media Informatics, Budapest University of Technology and Economics, MTA-ELTE Lendület Lingual Articulation Research Group, Budapest, Hungary  
 arXiv 2019 · [arXiv](https://arxiv.org/abs/1904.05259)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text+structured_benchmark+summary
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces* (Gábor Gosztolya et al., arXiv 2019) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

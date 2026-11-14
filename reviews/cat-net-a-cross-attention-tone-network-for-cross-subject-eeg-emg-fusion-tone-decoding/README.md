@@ -3,7 +3,7 @@
 Yifan Zhuang, Calvin Huang, Zepeng Yu, Yongjie Zou, Jiawei Ju  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2511.10935)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding* (Yifan Zhuang et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 David Gaddy, Dan Klein  
 arXiv 2021 · [arXiv](https://arxiv.org/abs/2106.01933)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *An Improved Model for Voicing Silent Speech* (David Gaddy and Dan Klein, arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

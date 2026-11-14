@@ -3,7 +3,7 @@
 Fatima Shalhoub, Mariam Al Mawla, Kabalan Chaccour, Iván López-Espejo, Hoda Fares  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2607.03844)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture* (Fatima Shalhoub et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

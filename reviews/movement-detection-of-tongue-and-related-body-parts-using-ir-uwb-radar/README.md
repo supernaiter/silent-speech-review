@@ -3,7 +3,7 @@
 Sunghwa Lee, Younghoon Shin  
 arXiv 2022 · [DOI](https://doi.org/10.1109/ICTC55196.2022.9952644) · [arXiv](https://arxiv.org/abs/2209.01762)
 
-**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Review basis:** full_text
+**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Movement Detection of Tongue and Related Body Parts Using IR-UWB Radar* (Sunghwa Lee and Younghoon Shin, arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

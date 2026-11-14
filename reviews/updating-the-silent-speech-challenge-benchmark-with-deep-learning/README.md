@@ -3,7 +3,7 @@
 Yan Ji, Licheng Liu, Hongcui Wang, Zhilei Liu, Zhibin Niu, Bruce Denby  
 arXiv 2017 · [arXiv](https://arxiv.org/abs/1709.06818)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Updating the silent speech challenge benchmark with deep learning* (Yan Ji et al., arXiv 2017) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

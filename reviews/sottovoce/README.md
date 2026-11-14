@@ -3,7 +3,7 @@
 Naoki Kimura, Michinari Kono, Jun Rekimoto  
 CHI '19 · [DOI](https://doi.org/10.1145/3290605.3300376)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text+existing_expert_seed
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks* (Naoki Kimura et al., CHI '19) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

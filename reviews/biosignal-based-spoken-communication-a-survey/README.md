@@ -3,7 +3,7 @@
 Tanja Schultz, Michael Wand, Thomas Hueber, Dean J. Krusienski, Christian Herff, Jonathan S. Brumberg  
 IEEE/ACM Transactions on Audio, Speech, and Language Processing 25(12), 2257-2271 2017 · [DOI](https://doi.org/10.1109/TASLP.2017.2752365)
 
-**Section:** [Surveys](../../README.md#surveys) · **Review basis:** abstract
+**Section:** [Surveys](../../README.md#surveys) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Biosignal-Based Spoken Communication: A Survey* (Tanja Schultz et al., IEEE/ACM Transactions on Audio, Speech, and Language Processing 25(12), 2257-2271 2017) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Simon Pistrosch, Kleanthis Avramidis, Zhao Ren, Tiantian Feng, Jihwan Lee, Monica Gonzalez-Machorro, Anton Batliner, Tanja Schultz, Shrikanth Narayanan, Björn W. Schuller  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2603.11715)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Affect Decoding in Phonated and Silent Speech Production from Surface EMG* (Simon Pistrosch et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

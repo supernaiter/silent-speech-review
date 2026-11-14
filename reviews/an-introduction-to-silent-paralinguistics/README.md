@@ -3,7 +3,7 @@
 Zhao Ren, Simon Pistrosch, Buket Coşkun, Kevin Scheck, Anton Batliner, Björn W. Schuller, Tanja Schultz  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2508.18127)
 
-**Section:** [Surveys](../../README.md#surveys) · **Review basis:** full_text+summary
+**Section:** [Surveys](../../README.md#surveys) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *An Introduction to Silent Paralinguistics* (Zhao Ren et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

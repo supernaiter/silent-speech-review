@@ -3,7 +3,7 @@
 Francis R. Willett, Erin M. Kunz, Chaofei Fan, Donald T. Avansino, Guy H. Wilson, Eun Young Choi, Foram Kamdar, Matthew F. Glasser, Leigh R. Hochberg, Shaul Druckmann, Krishna V. Shenoy, Jaimie M. Henderson  
 Nature 620(7976):1031-1036 2023 · [DOI](https://doi.org/10.1038/s41586-023-06377-x)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *A high-performance speech neuroprosthesis* (Francis R. Willett et al., Nature 620(7976):1031-1036 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

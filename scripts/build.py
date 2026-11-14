@@ -146,7 +146,7 @@ def review_page(p, papers=()):
         f"{', '.join(p.get('authors') or [])}  ",
         f"{venue_year(p)} · {' · '.join(links)}",
         "",
-        f"**Section:** [{sec_en}](../../README.md#{anchor(sec_en)}) · **Review basis:** {p.get('review_basis', '')}",
+        f"**Section:** [{sec_en}](../../README.md#{anchor(sec_en)}) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))",
         "",
         f"A structured review of *{p['title']}* ({authors_short(p) + ', ' if authors_short(p) else ''}{venue_year(p)}) "
         f"for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.",
@@ -429,6 +429,27 @@ def table(rows):
     return out
 
 
+def has_component_review(p):
+    return (paper_dir(p) / "review.md").exists()
+
+
+def component_list(papers, prefix):
+    rows = sorted((p for p in papers if has_component_review(p)), key=lambda p: (-int(p["year"]), p["title"]))
+    return [f"- [{p['title']}]({prefix}{p['slug']}/) ({p['year']}). {blurb(p)}" for p in rows]
+
+
+def reviews_index(papers):
+    out = ["# Reviews", "",
+           "## Component reviews", "",
+           "Each paper judged component by component against the usual approach and the state of the art.", ""]
+    out += component_list(papers, "")
+    out += ["", "## Itemized summaries", "",
+            "Earlier format: evaluation conditions, results and limitations per paper.", ""]
+    rows = sorted((p for p in papers if not has_component_review(p)), key=lambda p: (-int(p["year"]), p["title"]))
+    out += [f"- [{p['title']}]({p['slug']}/) ({p['year']})" for p in rows]
+    return "\n".join(out) + "\n"
+
+
 def readme(papers):
     by_slug = {p["slug"]: p for p in papers}
     years = [p["year"] for p in papers]
@@ -452,6 +473,13 @@ def readme(papers):
         "brain-to-text and speech neuroprostheses, radar and Wi-Fi sensing, and wearable silent speech text entry.",
         "",
         f"**Sections:** {nav}",
+        "",
+        "## Component reviews",
+        "",
+        "Each paper judged component by component against the usual approach and the current state of the art. "
+        "The remaining papers have itemized summaries in the earlier format ([all reviews](reviews/README.md)).",
+        "",
+        *component_list(papers, "reviews/"),
         "",
         "## The field in 13 components",
         "",
@@ -574,6 +602,7 @@ def moved_stub(p):
 def outputs(papers):
     files = {
         ROOT / "README.md": readme(papers),
+        REVIEWS_DIR / "README.md": reviews_index(papers),
         DATA / "papers.csv": papers_csv(papers),
         DATA / "metadata.json": metadata(papers),
     }

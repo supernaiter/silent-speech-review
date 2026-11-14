@@ -3,7 +3,7 @@
 Kele Xu, Yin Yang, Clemence Leboullenger, Pierre Roussel, Bruce Denby  
 arXiv 2016 · [arXiv](https://arxiv.org/abs/1605.05967)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Contour-based 3d tongue motion visualization using ultrasound image sequences* (Kele Xu et al., arXiv 2016) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

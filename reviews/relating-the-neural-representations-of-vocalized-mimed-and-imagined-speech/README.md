@@ -3,7 +3,7 @@
 Maryam Maghsoudi, Rupesh Chillale, Shihab A. Shamma  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2602.22597)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech* (Maryam Maghsoudi et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

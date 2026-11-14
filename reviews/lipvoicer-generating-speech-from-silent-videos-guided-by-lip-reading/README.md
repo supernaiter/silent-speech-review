@@ -3,7 +3,7 @@
 Yochai Yemini, Aviv Shamsian, Lior Bracha, Sharon Gannot, Ethan Fetaya  
 arXiv 2023 · [arXiv](https://arxiv.org/abs/2306.03258)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading* (Yochai Yemini et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

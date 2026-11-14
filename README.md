@@ -8,6 +8,15 @@ Topics covered: silent speech recognition, lip reading and visual speech recogni
 
 **Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (18) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (37) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (47) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (10)
 
+## Component reviews
+
+Each paper judged component by component against the usual approach and the current state of the art. The remaining papers have itemized summaries in the earlier format ([all reviews](reviews/README.md)).
+
+- [EMG-to-Speech with Fewer Channels](reviews/emg-to-speech-with-fewer-channels/) (2026). Halving EMG electrodes costs synthesis the same ~35% relative WER known from recognition; initialization helps, channel dropout does not, and a weak unrepeated baseline undercuts the ranking.
+- [Speech synthesis from neural decoding of spoken sentences](reviews/speech-synthesis-from-neural-decoding-of-spoken-sentences/) (2019). A milestone demonstration of sentence synthesis from ECoG, but its articulatory-intermediate claim is confounded by extra supervision and its intelligibility rests on closed word pools.
+- [Deep Audio-Visual Speech Recognition](reviews/deep-audio-visual-speech-recognition/) (2018). LRS2-BBC outlasts the models: the CTC vs seq2seq comparison is confounded, the 22-point gain is not attributable to the new architecture, and test speaker overlap is unreported.
+- [Lip Reading Sentences in the Wild](reviews/lip-reading-sentences-in-the-wild/) (2017). Made sentence lipreading measurable with LRS, but its decoder and curriculum gains are confounded with data and augmentation, and the beats-a-lipreader claim is on unequal terms.
+
 ## The field in 13 components
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="figures/field/components-dark.svg"><img alt="Speech-intention decoding in 13 components: what the ledger records" src="figures/field/components-light.svg"></picture>

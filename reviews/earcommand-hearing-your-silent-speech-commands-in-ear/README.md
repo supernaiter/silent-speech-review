@@ -3,7 +3,7 @@
 Yincheng Jin, Yang Gao, Xuhai Xu, Seokmin Choi, Jiyang Li, Feng Liu, Zhengxiong Li, Zhanpeng Jin  
 Proc. ACM IMWUT 6(2), Article 57 2022 · [DOI](https://doi.org/10.1145/3534613)
 
-**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** abstract+secondary_sources
+**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *EarCommand: "Hearing" Your Silent Speech Commands In Ear* (Yincheng Jin et al., Proc. ACM IMWUT 6(2), Article 57 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

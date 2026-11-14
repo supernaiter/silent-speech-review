@@ -3,7 +3,7 @@
 David Gaddy, Dan Klein  
 EMNLP 2020 · [DOI](https://doi.org/10.18653/v1/2020.emnlp-main.445) · [arXiv](https://arxiv.org/abs/2010.02960)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Digital Voicing of Silent Speech* (David Gaddy and Dan Klein, EMNLP 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Chenyu Tang, Muzi Xu, Wentian Yi, Zibo Zhang, Edoardo Occhipinti, Chaoqun Dong, Dafydd Ravenscroft, Sung-Min Jung, Shuo Gao, Jong Min Kim, Luigi G. Occhipinti  
 arXiv 2023 · [arXiv](https://arxiv.org/abs/2311.15683)
 
-**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text
+**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency* (Chenyu Tang et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

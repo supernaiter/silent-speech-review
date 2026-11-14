@@ -3,7 +3,7 @@
 Yaman Kumar, Mayank Aggarwal, Pratham Nawal, Shin’ichi Satoh, Rajiv Ratn Shah, Roger Zimmermann  
 arXiv 2018 · [DOI](https://doi.org/10.1145/3240508.3241911) · [arXiv](https://arxiv.org/abs/1807.00619)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+structured_benchmark+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed* (Yaman Kumar et al., arXiv 2018) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

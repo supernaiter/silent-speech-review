@@ -3,7 +3,7 @@
 Ariel Ephrat, Shmuel Peleg  
 arXiv 2017 · [arXiv](https://arxiv.org/abs/1701.00495)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Vid2speech: Speech Reconstruction from Silent Video* (Ariel Ephrat and Shmuel Peleg, arXiv 2017) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

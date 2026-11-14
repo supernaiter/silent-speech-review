@@ -3,7 +3,7 @@
 Benjamin Ballyk, Teyun Kwon, Miran Özdogan, Oiwi Parker Jones  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2607.05165)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Physiological Noise Augmentation Improves Non-Invasive Brain-to-Speech* (Benjamin Ballyk et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

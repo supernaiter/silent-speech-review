@@ -3,7 +3,7 @@
 Lei Yang, Junshan Jin, Mingyuan Zhang, Yi He, Bofan Chen, Shilin Wang  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2508.07233)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource* (Lei Yang et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

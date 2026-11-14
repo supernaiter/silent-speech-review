@@ -15,10 +15,11 @@ This file is the authority on where things live in silent-speech-review. People 
 ## Layout
 
 ```
-README.md                          generated  index of all papers by sensor, field figures
+README.md                          generated  component reviews first, then all papers by sensor, field figures
 CONTRIBUTING.md, CITATION.cff, LICENSE
 docs/STRUCTURE.md                  source     this file
 
+reviews/README.md                  generated  component reviews first, then the earlier itemized summaries
 reviews/<slug>/                    one folder per paper
   README.md                        generated  the page
   review.md                        source     the component review (English)

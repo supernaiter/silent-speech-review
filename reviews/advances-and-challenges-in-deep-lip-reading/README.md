@@ -3,7 +3,7 @@
 Marzieh Oghbaie, Arian Sabaghi, Kooshan Hashemifard, Mohammad Akbari  
 arXiv 2021 · [arXiv](https://arxiv.org/abs/2110.07879)
 
-**Section:** [Surveys](../../README.md#surveys) · **Review basis:** full_text
+**Section:** [Surveys](../../README.md#surveys) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Advances and Challenges in Deep Lip Reading* (Marzieh Oghbaie et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

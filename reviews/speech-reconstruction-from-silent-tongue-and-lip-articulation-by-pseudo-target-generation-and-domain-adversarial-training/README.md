@@ -3,7 +3,7 @@
 Ruichen Zheng, Yang Ai, Zhenhua Ling  
 arXiv 2023 · [arXiv](https://arxiv.org/abs/2304.05574)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training* (Ruichen Zheng et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Chenyu Tang, Josée Mallah, Dominika Kazieczko, Wentian Yi, Tharun Reddy Kandukuri, Edoardo Occhipinti, Bhaskar Mishra, Sunita Mehta, Luigi G. Occhipinti  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2504.13921)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Wireless Silent Speech Interface Using Multi-Channel Textile EMG Sensors Integrated into Headphones* (Chenyu Tang et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

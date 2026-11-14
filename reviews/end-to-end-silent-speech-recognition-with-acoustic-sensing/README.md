@@ -3,7 +3,7 @@
 Jian Luo, Jianzong Wang, Ning Cheng, Guilin Jiang, Jing Xiao  
 IEEE SLT 2021 2020 · [arXiv](https://arxiv.org/abs/2011.11315)
 
-**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text
+**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *End-to-end Silent Speech Recognition with Acoustic Sensing* (Jian Luo et al., IEEE SLT 2021 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

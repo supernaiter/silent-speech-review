@@ -3,7 +3,7 @@
 Sajid Fardin Dipto, Tarikul Islam Tamiti, David Vergano, Luke Baja-Ricketts, Anomadarshi Barua  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2607.18629)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *CS-ETS: Chaos-Inspired Samba-Based EMG-To-Speech Synthesis with Nonlinear Chaotic Losses* (Sajid Fardin Dipto et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Yifan Liang, Andong Li, Kang Yang, Guochen Yu, Fangkun Liu, Lingling Dai, Xiaodong Li, Chengshi Zheng  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2602.11477)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis* (Yifan Liang et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

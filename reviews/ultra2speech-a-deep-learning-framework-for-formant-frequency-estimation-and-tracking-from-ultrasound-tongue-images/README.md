@@ -3,7 +3,7 @@
 Pramit Saha, Yadong Liu, Bryan Gick, Sidney Fels  
 arXiv 2020 · [arXiv](https://arxiv.org/abs/2006.16367)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Ultra2Speech -- A Deep Learning Framework for Formant Frequency Estimation and Tracking from Ultrasound Tongue Images* (Pramit Saha et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

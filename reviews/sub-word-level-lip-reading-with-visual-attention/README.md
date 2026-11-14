@@ -3,7 +3,7 @@
 K R Prajwal, Triantafyllos Afouras, Andrew Zisserman  
 arXiv 2021 · [arXiv](https://arxiv.org/abs/2110.07603)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Sub-word Level Lip Reading With Visual Attention* (K R Prajwal et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

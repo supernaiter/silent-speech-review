@@ -3,7 +3,7 @@
 Wenqiang Lai, Qihan Yang, Ye Mao, Endong Sun, Jiangnan Ye  
 arXiv 2023 · [arXiv](https://arxiv.org/abs/2308.06533)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Knowledge Distilled Ensemble Model for sEMG-based Silent Speech Interface* (Wenqiang Lai et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

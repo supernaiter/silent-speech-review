@@ -3,7 +3,7 @@
 Rishabh Jain, Naomi Harte  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2609.10366)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *AVSRBench: A Multi-Condition AVSR Benchmark* (Rishabh Jain and Naomi Harte, arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

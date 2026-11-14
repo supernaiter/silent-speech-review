@@ -3,7 +3,7 @@
 Yaman Kumar, Rohit Jain, Khwaja Mohd. Salik, Rajiv Ratn Shah, Yifang Yin, Roger Zimmermann  
 arXiv 2019 · [arXiv](https://arxiv.org/abs/1907.01367)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Lipper: Synthesizing Thy Speech using Multi-View Lipreading* (Yaman Kumar et al., arXiv 2019) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

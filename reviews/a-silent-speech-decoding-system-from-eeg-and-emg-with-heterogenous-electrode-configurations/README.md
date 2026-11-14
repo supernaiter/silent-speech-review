@@ -3,7 +3,7 @@
 Masakazu Inoue, Motoshige Sato, Kenichi Tomeoka, Nathania Nah, Eri Hatakeyama, Kai Arulkumaran, Ilya Horiguchi, Shuntaro Sasai  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2506.13835)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations* (Masakazu Inoue et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

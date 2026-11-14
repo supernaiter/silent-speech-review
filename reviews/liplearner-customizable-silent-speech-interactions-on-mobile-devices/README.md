@@ -3,7 +3,7 @@
 Zixiong Su, Shitao Fang, Jun Rekimoto  
 arXiv 2023 · [DOI](https://doi.org/10.1145/3544548.3581465) · [arXiv](https://arxiv.org/abs/2302.05907)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *LipLearner: Customizable Silent Speech Interactions on Mobile Devices* (Zixiong Su et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

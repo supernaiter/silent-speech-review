@@ -3,7 +3,7 @@
 Ji-Hoon Kim, Jaehun Kim, Joon Son Chung  
 arXiv 2023 · [arXiv](https://arxiv.org/abs/2308.15256)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Let There Be Sound: Reconstructing High Quality Speech from Silent Videos* (Ji-Hoon Kim et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

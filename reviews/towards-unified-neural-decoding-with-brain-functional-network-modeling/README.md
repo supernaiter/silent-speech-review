@@ -3,7 +3,7 @@
 Di Wu, Linghao Bu, Yifei Jia, Lu Cao, Siyuan Li, Siyu Chen, Yueqian Zhou, Sheng Fan, Wenjie Ren, Dengchang Wu, Kang Wang, Yue Zhang, Yuehui Ma, Jie Yang, Mohamad Sawan  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2506.12055)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Towards Unified Neural Decoding with Brain Functional Network Modeling* (Di Wu et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

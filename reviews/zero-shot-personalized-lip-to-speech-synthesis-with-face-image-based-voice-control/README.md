@@ -3,7 +3,7 @@
 Zheng-Yan Sheng, Yang Ai, Zhen-Hua Ling  
 arXiv 2023 · [arXiv](https://arxiv.org/abs/2305.14359)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Zero-shot personalized lip-to-speech synthesis with face image based voice control* (Zheng-Yan Sheng et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

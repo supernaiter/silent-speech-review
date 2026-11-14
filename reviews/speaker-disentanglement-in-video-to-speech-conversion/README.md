@@ -3,7 +3,7 @@
 Dan Oneata, Adriana Stan, Horia Cucu  
 arXiv 2021 · [arXiv](https://arxiv.org/abs/2105.09652)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Speaker disentanglement in video-to-speech conversion* (Dan Oneata et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
