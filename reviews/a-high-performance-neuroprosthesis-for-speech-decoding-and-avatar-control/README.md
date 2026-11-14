@@ -100,7 +100,7 @@ Synthesized speech is far less intelligible than text output on general sentence
 
 ## More reviews in Brain signals (EEG, MEG, intracortical)
 
-- [A high-performance speech neuroprosthesis](../a-high-performance-speech-neuroprosthesis/) (2023). Intracortical speech BCI in a person with ALS decodes attempted speech to text in real time: 23.8% WER on a 125,000-word vocabulary at 62 words per minute; silently mouthed attempts reach 24.7%.
+- [A high-performance speech neuroprosthesis](../a-high-performance-speech-neuroprosthesis/) (2023). Large-vocabulary attempted-speech decoding in one participant holds; sensor, decoder and LM are now field standard, but the spiking attribution and cross-study ratios outrun the evidence.
 - [Decoding speech perception from non-invasive brain recordings](../decoding-speech-perception-from-non-invasive-brain-recordings/) (2023). Contrastive deep model identifies heard 3 s speech segments from MEG/EEG across 175 participants; MEG top-1 up to 41% (best participants above 80%) among 1,000+ candidates, EEG much lower.
 - [An Accurate and Rapidly Calibrating Speech Neuroprosthesis](../an-accurate-and-rapidly-calibrating-speech-neuroprosthesis/) (2024). Intracortical speech BCI in a man with ALS reaches 9.8% WER on a 125,000-word vocabulary on day 2 and about 2.5% later, and was used for 248 hours of self-paced conversation over 8.4 months.
 - [Towards Neural Decoding of Imagined Speech based on Spoken Speech](../towards-neural-decoding-of-imagined-speech-based-on-spoken-speech/) (2022). Transfers CSP+SVM models trained on spoken-speech EEG to imagined speech decoding; accuracy is slightly lower but not significantly different from direct training in a 5-class, 7-subject offline task.

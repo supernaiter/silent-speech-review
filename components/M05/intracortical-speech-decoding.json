@@ -1,0 +1,1433 @@
+{
+ "topic": "intracortical-speech-decoding",
+ "slot": "M05",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)(intracortical|utah array|microelectrode array)[^|]{0,300}(speech|phonem|articulat|vocali)|(speech|phonem|articulat|vocali)[^|]{0,300}(intracortical|utah array|microelectrode array)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Papers that decode speech units (phonemes, words, sentences, sound) from intracortical microelectrode recordings in humans. Included: attempted, imagined or overt speech; any array count. Excluded: intracortical decoding of hand/arm movement or handwriting only; ECoG/sEEG.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8898,
+  "slot_filled_unique": 7329,
+  "string_match_folders": 111,
+  "string_match_unique": 75,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M05",
+  "design_slot_fill": 0.989,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "modalities=intracortical_microelectrode",
+    "n": 67,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603-18299-align",
+     "arxiv-2605.00025-modal",
+     "arxiv-2605.24313",
+     "arxiv-2607-26751-phonchar",
+     "arxiv-2609-02887-commbci"
+    ]
+   },
+   {
+    "design": "modalities=ecog",
+    "n": 20,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609-02887-commbci",
+     "arxiv-2609-36736-speechbcirev",
+     "doi-10.1080-02688697.2026.2682817",
+     "pmc-12987850-anarthria-devices",
+     "pmc-13142457-premotor-words"
+    ]
+   },
+   {
+    "design": "modalities=scalp_eeg",
+    "n": 12,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609-02887-commbci",
+     "pmc-12987850-anarthria-devices",
+     "pmc-13383455-b2srev",
+     "doi-10.1016-j.clinph.2025.2110942",
+     "doi-10.1038-s42003-025-08511-z"
+    ]
+   },
+   {
+    "design": "modalities=other",
+    "n": 10,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609-02887-commbci",
+     "doi-10.1080-02688697.2026.2682817",
+     "pmc-13335209-intended-bci",
+     "doi-10.1038-s42003-025-08511-z",
+     "doi-10.3390-brainsci15040336"
+    ]
+   },
+   {
+    "design": "modalities=meg",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609-02887-commbci",
+     "pmc-13383455-b2srev",
+     "doi-10.1016-j.clinph.2025.2110942",
+     "doi-10.1038-s42003-025-08511-z",
+     "pmc-6174918-dsbci-review"
+    ]
+   },
+   {
+    "design": "modalities=fmri",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1016-j.clinph.2025.2110942",
+     "doi-10.1038-s42003-025-08511-z",
+     "pmc-6174918-dsbci-review"
+    ]
+   },
+   {
+    "design": "modalities=surface_emg",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s23125575",
+     "doi-10.1016-j.specom.2009.08.002",
+     "doi-10.1109-access.2020.3026579"
+    ]
+   },
+   {
+    "design": "modalities=fnirs",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1080-02688697.2026.2682817",
+     "pmc-12460843-linguistic-neural-decoding",
+     "pmc-6174918-dsbci-review"
+    ]
+   },
+   {
+    "design": "modalities=microphone",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2305.08354",
+     "pmc-11424044-ailistener"
+    ]
+   },
+   {
+    "design": "modalities=magnetic_tracking",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1016-j.specom.2009.08.002",
+     "doi-10.1109-access.2020.3026579"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "Text WER",
+   "value": 2.1,
+   "unit": "percent",
+   "raw": "0.021",
+   "pid": "arxiv-2609.04455",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "oracle word error over the 1,397 cached lists",
+   "value": 2.5,
+   "unit": "percent",
+   "raw": "2.5",
+   "pid": "arxiv-2609.33538",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "final-5-session WER",
+   "value": 2.5,
+   "unit": "percent",
+   "raw": "2.5",
+   "pid": "doi-10.1056-nejmoa2314132",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Intracortical and ECoG recordings decode covert/overt speech units at usable accuracy, validating implanted neural substrates for AAC speech decoding",
+   "value": 3,
+   "unit": "% WER",
+   "raw": "ECoG word-sequence decoding 3% WER, ~250-word vocabulary, single participant",
+   "pid": "doi-10.1007-s13311-022-01190-2",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "latent3 WER",
+   "value": 3.5,
+   "unit": "percent",
+   "raw": "teacher-forced WER, latent model 3",
+   "pid": "doi-10.64898-2026.07.08.737343",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T1 WER5gram bitc comp",
+   "value": 4.1,
+   "unit": "percent",
+   "raw": "4.1",
+   "pid": "arxiv-2603.13321",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T2 pub WER LightBeam-causal 25",
+   "value": 4.44,
+   "unit": "percent",
+   "raw": "4.44",
+   "pid": "arxiv-2603.14002",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Li DCoND-LIFT WER",
+   "value": 5.77,
+   "unit": "percent",
+   "raw": "5.77",
+   "pid": "arxiv-2603.20246",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Brain-to-Text 9.76->5.77",
+   "value": 5.77,
+   "unit": "% WER",
+   "raw": "Brain-to-Text 24 benchmark WER reduced 9.76% -> 5.77% by ensembling+selection",
+   "pid": "doi-10.64898-2026.06.02.729705",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Card WER, hierarchical cross-subject model",
+   "value": 6.67,
+   "unit": "percent",
+   "raw": "reaching 9.1% PER and 6.67% WER",
+   "pid": "doi-10.64898-2026.02.27.708564",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2305.08354",
+   "key": "t:decodingchinesephonemesfromintracorticalbrainsignalswithhyperbolicspaceneuralrep",
+   "title": "Decoding Chinese phonemes from intracortical brain signals with hyperbolic-space neural representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2305.08354 | doi=10.48550/arxiv.2305.08354 | title=Decoding Chinese phonemes from intracortical brain signals with hyperbolic-space neural representations | venue=SCIENCE CHINA Information Sciences (research paper)"
+  },
+  {
+   "pid": "arxiv-2311.03611",
+   "key": "t:plugandplaystabilityforintracorticalbraincomputerinterfacesaoneyeardemonstration",
+   "title": "Plug-and-Play Stability for Intracortical Brain-Computer Interfaces: A One-Year Demonstration of Seamless Brain-to-Text Communication",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ion.partition_membership=15 monthly evaluation sessions; within-session no-recalib vs CORP blocks | representation_kind=intracortical features -> RNN phoneme/char decoder; neural nonstationarity over days | technical_essence=RNN character decoder (seed model trained on prior"
+  },
+  {
+   "pid": "arxiv-2406.11568",
+   "key": "t:towardsanendtoendframeworkforinvasivebrainsignaldecodingwithlargelanguagemodels",
+   "title": "Towards an End-to-End Framework for Invasive Brain Signal Decoding with Large Language Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eng Wang | source_url=https://arxiv.org/pdf/2406.11568v1 | Study.research_objective=Evaluate an end-to-end mapping from intracortical neural signals during attempted or silent speech to text using a brain feature extractor, linear projection and LLM decoder; compare feature-pretraining and LLM configu"
+  },
+  {
+   "pid": "arxiv-2501.09459",
+   "key": "p:arxiv-2501.09459",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=test whether pretrained audio Wav2Vec2 transfers to intracortical speech decoding | task_family=sentence_recognition | intended_use_cases=speech_restoration | ProductionCondition.activity_orig"
+  },
+  {
+   "pid": "arxiv-2506.05320",
+   "key": "t:generalizablerealtimeneuraldecodingwithhybridstatespacemodels",
+   "title": "Generalizable, real-time neural decoding with hybrid state-space models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "GRU,S4D,Mamba from-scratch + NDT-2,POYO-1 pretrained; NHP R2; cross-dataset; bidirectional ablations | system_boundary=intracortical spikes -> spike tokenization -> causal SSM -> online phoneme/kinematic predictions; human attempted speech + NHP reaching + handwriting | SystemConfiguration.system_lifecycle=implemented_evaluated | claim=POSSM matches/outperf"
+  },
+  {
+   "pid": "arxiv-2508.18127",
+   "key": "t:anintroductiontosilentparalinguistics",
+   "title": "An Introduction to Silent Paralinguistics",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ree', 'maximum-likelihood linear regression', 'FNN'], 'data': 'self-recorded', 'mode': ['silent'], 'outputs': ['text', 'speech', 'stress']}, {'study': 'Wairagkar et al. 2025', 'input': 'intracortical spike-band signals', 'features': 'spike-band power', 'methods': ['Transformer encoder', 'LPCNet vocoder'], 'data': 'sel"
+  },
+  {
+   "pid": "arxiv-2511.21740",
+   "key": "t:acrossspeciesneuralfoundationmodelforendtoendspeechdecoding",
+   "title": "A cross-species neural foundation model for end-to-end speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "entry, research_of_inner_speech | acoustic_mode=no_vocalization | Cohort.demographics=2 human participants T12/T15 with Utah arrays (B2T24/25 + inner speech); plus monkey pretraining subjects (cross-species) | modalities=intracortical_microelectrode | Acquisition.instrument_c"
+  },
+  {
+   "pid": "arxiv-2603-18299-align",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Harvard Kempner) | venue=arXiv 2603.18299 | Study.research_objective=ALIGN adversarial cross-session generalization for intracortical speech neuroprosthesis on T15: gradient-reversal layer forces encoder to learn session-invariant features; without TTA, held-o"
+  },
+  {
+   "pid": "arxiv-2603.13321",
+   "key": "t:brainwhispererleveraginglargescaleasrmodelsforneuralspeechdecoding",
+   "title": "BrainWhisperer: Leveraging Large-Scale ASR Models for Neural Speech Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on, assistive_text_entry | acoustic_mode=no_vocalization | Cohort.demographics=BrainGate2 participants with 256-channel Utah arrays in speech motor cortex (Card et al. public MEA dataset; cross-subject training) | modalities=intracortical_microelectrode | Acqui"
+  },
+  {
+   "pid": "arxiv-2603.14002",
+   "key": "t:lightbeamanaccurateandmemoryefficientctcdecoderforspeechneuroprostheses",
+   "title": "LightBeam: An Accurate and Memory-Efficient CTC Decoder for Speech Neuroprostheses",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "search_of_inner_speech | acoustic_mode=no_vocalization | Cohort.demographics=distinct participant(s) per benchmark with intracortical speech-motor-cortex arrays (B2T24/25 datasets) | modalities=intracortical_microelectrode | Acquisition.signal_bandwidth=thresh"
+  },
+  {
+   "pid": "arxiv-2603.18299",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ive=Evaluate whether multi-source adversarial session alignment and temporal stretch augmentation improve cross-session intracortical speech decoding, with optional pseudo-label test-time adaptation. | Study.unit_of_analysis=Sentence-level attempted-speech tri"
+  },
+  {
+   "pid": "arxiv-2603.18299-align",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "3.18299 | review_state=source_checked | Study.study_design=system_proposal | Study.research_objective=Session-invariant intracortical speech decoding: adversarially train encoder vs domain classifier so latents keep phoneme info but drop session cues; few-shot unsupervised target alignment, no phoneme labels | Study.unit_of_analysis=T12+T15 attempted-speech intracortical data; per-session splits (12-8-3, 15-5-3, 12-4-"
+  },
+  {
+   "pid": "arxiv-2603.20246",
+   "key": "t:decodingthedecodercontextualsequencetosequencemodelingforintracorticalspeechdeco",
+   "title": "Decoding the decoder: Contextual sequence-to-sequence modeling for intracortical speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.20246 | title=Decoding the decoder: Contextual sequence-to-sequence modeling for intracortical speech decoding | venue=arXiv 2026; v1 | Study.research_objective=Contextual Transformer seq2seq intracortical speech decoding"
+  },
+  {
+   "pid": "arxiv-2605.00025-modal",
+   "key": "t:modalselfsupervisedneuralmodalitydiscoveryviadecorrelationforspeechneuroprosthes",
+   "title": "MoDAl: Self-Supervised Neural Modality Discovery via Decorrelation for Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "coders capture syntax (sentence length, voice, wh-words) | extra.Output.output_kind=Sentence transcription of attempted speech from intracortical signals (single-participant neuroprosthesis) | Dataset.collection_protocol=Brain-to-Text Benchmark 24: 12,100 large-voc"
+  },
+  {
+   "pid": "arxiv-2605.24313",
+   "key": "t:endtoendintracorticalspeechdecodingfromneuralactivity",
+   "title": "End-to-End Intracortical Speech Decoding from Neural Activity",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2605.24313 | paper_version=2605.24313v1 | title=End-to-End Intracortical Speech Decoding from Neural Activity | authors=Owais M. Khanday, Jose A. Gonzalez-Lopez, Marc Ouellet, Alberto Galdón, Gonzalo"
+  },
+  {
+   "pid": "arxiv-2607-26751-phonchar",
+   "key": "t:phonemevscharacterleveltargetsandselectivestatespacemodelsforintracorticalbraint",
+   "title": "Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text | authors=Zamora Vera (UOC), Gonzalez-Lopez (Univ. Granada CITIC) | venue=arXiv 2607.26751 | Study.resear"
+  },
+  {
+   "pid": "arxiv-2607.26751",
+   "key": "t:phonemevscharacterleveltargetsandselectivestatespacemodelsforintracorticalbraint",
+   "title": "Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text | arxiv_id=2607.26751v1 | paper_version=arXiv v1, 29 Jul 2026 | source_url=https://arxiv.org/pdf/2607.267"
+  },
+  {
+   "pid": "arxiv-2607.26751-convmamba",
+   "key": "t:phonemevscharacterleveltargetsandselectivestatespacemodelsforintracorticalbraint",
+   "title": "Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.26751-convmamba | title=Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text | authors=Lucas Zamora Vera, Jose A. Gonzalez-Lopez | venue=arXiv:2607.26751 | review_state=source_checke"
+  },
+  {
+   "pid": "arxiv-2609-02887-commbci",
+   "key": "t:acommonmeasureofcommunicationforspeechbraincomputerinterfaces",
+   "title": "A Common Measure of Communication for Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ed_speech, other | modalities=intracortical_microelectrode, ecog, scalp_eeg, meg, other | sensor_hardware=heterogeneous speech-BCI recording methods covered by the survey (intracortical, ECoG, EEG/MEG systems compared on a common scale) | observed_quantities=neural_activity | Representation.transformatio"
+  },
+  {
+   "pid": "arxiv-2609-04455-b2snet",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", Cai, Tsao, King, Sisman (JHU/UTD/Academia Sinica/Edinburgh) | venue=arXiv 2609.04455 | Study.research_objective=Brain2Speech-Net: single-stage neural-to-speech generation without intermediate text; differentiable phoneme bottleneck + deep-HMM alignment maps long intracortical recordings into TTS latent space; Willett et al. ALS iBCI data (256 motor-cortex channels, pseudo-speech VITS targets,"
+  },
+  {
+   "pid": "arxiv-2609-33538-jevres",
+   "key": "t:jevmatches7blanguagemodelsforspeechneuroprosthesisrescoring",
+   "title": "Jev Matches 7B Language Models for Speech-Neuroprosthesis Rescoring",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ustic_mode=no_vocalization | elicitation=instructed_content | modalities=intracortical_microelectrode | sensor_hardware=intracortical speech-BCI decoder candidates (published system) | observed_quantities=neural_activity | Representation.transformation_definit"
+  },
+  {
+   "pid": "arxiv-2609-36736-speechbcirev",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", Ferrante (Tether Evo; Monash; Tor Vergata) | venue=arXiv 2609.36736 | Study.research_objective=system-level review of speech BCIs: neural substrates, intracortical/ECoG hardware, decoding architectures, LM priors, feedback and user learning as an adaptive clinical system beyond neur"
+  },
+  {
+   "pid": "arxiv-2609.04455",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ow-real-time RTF in their comparison. | system_name=Brain2Speech-Net | question=Can a structured single-stage neural-to-speech model balance intelligibility and latency when trained on limited intracortical data, without an intermediate text-decoding stage? | task_family=speech_reconstruction | task_encoding=attempted_uttera"
+  },
+  {
+   "pid": "arxiv-2609.04455-brain2speech",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Sisman Berrak | venue=arXiv preprint | doi=10.48550/arXiv.2609.04455 | Study.research_objective=single-stage neural-to-speech synthesis from intracortical signals without intermediate text decoding; phoneme-aware differentiable linguistic bottleneck preserves phonemic struc"
+  },
+  {
+   "pid": "arxiv-2609.33538",
+   "key": "t:jevmatches7blanguagemodelsforspeechneuroprosthesisrescoring",
+   "title": "Jev Matches 7B Language Models for Speech-Neuroprosthesis Rescoring",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ate sentence lists (Kaldi 3-gram decoder output), cached so all arms score identical candidates | technical_essence=in: intracortical neural activity (256 electrodes) → out: phoneme probabilities | decoder_route=recognition_to_text | language_support=lexicon, ngram | ProcessingStep.architecture=Kald"
+  },
+  {
+   "pid": "cell-40816265-innersp",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dar, ... Henderson, Willett (Stanford; BrainGate2 consortium) | Study.research_objective=neural representation of inner speech in motor cortex of 4 BrainGate2 participants (microelectrode arrays, precentral gyrus); inner/attempted/perceived speech and reading representation; proof-of-concept real-time inner-spee"
+  },
+  {
+   "pid": "doi-10.1007-s00415-026-13734-z",
+   "key": "t:theevolutionofspeechcommunicationdevicesforanarthriaareview",
+   "title": "The evolution of speech communication devices for anarthria: a review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ngStep.architecture=P300 event-related-potential letter selection on 5×5 grid; MI linear/nonlinear dependency decoding; intracortical attempted-handwriting and speech-gesture decoders | EvaluationProtocol.test_material_selection=communication rate/accuracy reported for constituent syst"
+  },
+  {
+   "pid": "doi-10.1007-s13311-022-01190-2",
+   "key": "t:braincomputerinterfaceapplicationstospeechdecodingandsynthesistoaugmentcommunica",
+   "title": "Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speech, silent_articulation, ordinary_voiced_speech | observed_quantities=neural_activity | technical_essence=Review of speech-decoding/synthesis BCIs as AAC beyond cursor control: surveys intracortical (3 covert vowels ~70% accuracy in LIS), ECoG word decoding (3% WER, ~250-word vocab in one participant), and real-time"
+  },
+  {
+   "pid": "doi-10.1016-j.celrep.2026.117162",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.celrep.2026.117162 | title=Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome | authors=Justin J. Jude, Step"
+  },
+  {
+   "pid": "doi-10.1016-j.clinph.2025.2110942",
+   "key": "t:emergenttechnologiesinclinicalneurophysiologytostudythecentralnervoussystemifcnh",
+   "title": "Emergent technologies in clinical neurophysiology to study the central nervous system: IFCN handbook chapter",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sis of breakthroughs; notes BCI calibration time shrinking to as little as 30 min | representation_kind=high-resolution intracortical/iEEG representations of attempted and inner speech, syntax, speech production | ProcessingStep.architecture={'decoder_types': ['speech_decoders', 'spelling', 'brain_to_text'], 'modalitie"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.08.002",
+   "key": "t:silentspeechinterfaces",
+   "title": "Silent speech interfaces",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ecognizers (CMU/Karlsruhe, NASA, Ambient) | system_name=EEG unspoken-speech BCI (Wester/Schultz, DaSalla) | system_name=intracortical speech-motor BCI (Brumberg/Kennedy/Guenther) | decoder_route=semantic_decoding | output_types=audio, class_label | dataset_des"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2010.01.001",
+   "key": "p:doi-10.1016-j.specom.2010.01.001",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "wel-sequence overt productions used for Kalman calibration within and across sessions | Study.research_objective=survey speech-BCI approaches and demonstrate a real-time intracortical formant-synthesizer prosthesis | evidence_relation=supported_within_scope | claim=a neurotrophic-electrode BCI controll"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06377-x",
+   "key": "t:ahighperformancespeechneuroprosthesis",
+   "title": "A high-performance speech neuroprosthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "blic-access OA) | paper_version=PMC OA article via NCBI BioC API | task_family=sentence_recognition | extra.Task.target=speech-to-text BCI: decode attempted speech (vocalized and silent) from intracortical spiking activity into text at sentence level, small 50-word and large 125,000-word vocabularies, single-participant (T1"
+  },
+  {
+   "pid": "doi-10.1038-s41586-025-09127-3",
+   "key": "p:doi-10.1038-s41586-025-09127-3",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sed-loop brain-to-voice synthesis in a person with ALS | evidence_relation=supported_within_scope | claim=a 256-channel intracortical neuroprosthesis instantaneously synthesizes intelligible voice with closed-loop audio feedback (median PER 34.00%, WER 43.75% vs 83.87%/96.43% for residual dysarthric speech) | claim=participant could modulate paralinguistic features — intonation, word emphasis, and melodies — via a simultane"
+  },
+  {
+   "pid": "doi-10.1038-s41591-026-04414-6",
+   "key": "p:doi-10.1038-s41591-026-04414-6",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "of a multimodal speech+cursor iBCI without researcher assistance | evidence_relation=supported_within_scope | claim=an intracortical speech+cursor BCI supports independent near-daily home use for ~2 years (>3,800 h), sustaining interpersonal communication, pe"
+  },
+  {
+   "pid": "doi-10.1038-s42003-025-08511-z",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d_quantities=neural_activity | technical_essence=Review/taxonomy of deep-learning linguistic neural decoding: invasive (intracortical microelectrode, ECoG) vs non-invasive (EEG/MEG/fMRI, limited by transcranial attenuation and SNR); progression from phoneme-level classification to open-vocabulary sentence decoding and brain-to-speech synthesis; LLM-integrated architectures; WER/CER benchmarks (e.g. 5.22% Top-1 / 13.59% Top-5 vs chance on 180-word voca"
+  },
+  {
+   "pid": "doi-10.1055-s-0045-1810103",
+   "key": "p:doi-10.1055-s-0045-1810103",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cent speech-BCI neuroprosthesis advances for ALS and open challenges | evidence_relation=supported_within_scope | claim=intracortical speech neuroprosthesis reached 99.6% (limited vocabulary) and 90.2% (larger vocabulary) accuracy early in testing, per cited N"
+  },
+  {
+   "pid": "doi-10.1056-NEJMoa2314132",
+   "key": "t:anaccurateandrapidlycalibratingspeechneuroprosthesis",
+   "title": "An Accurate and Rapidly Calibrating Speech Neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "M. Kunz | venue=New England Journal of Medicine | review_state=source_checked | Study.research_objective=demonstrate an intracortical speech neuroprosthesis reaching naturalistic communication accuracy with minimal calibration time | Study.unit_of_analysis=wor"
+  },
+  {
+   "pid": "doi-10.1056-nejmoa2314132",
+   "key": "t:anaccurateandrapidlycalibratingspeechneuroprosthesis",
+   "title": "An accurate and rapidly calibrating speech neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dels compose word sequence -> most likely English sentence; raw phoneme error tracked separately from WER | system_name=intracortical speech neuroprosthesis (RNN phoneme decoder + LM + TTS) | ProcessingStep.architecture=seeded RNN phoneme decoder continuously fine-tuned across days; LM w"
+  },
+  {
+   "pid": "doi-10.1080-02688697.2026.2682817",
+   "key": "t:braincomputerinterfacesandneuroprostheticsinthenexteraofneurosurgery",
+   "title": "Brain–computer interfaces and neuroprosthetics in the next era of neurosurgery",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d=restored communication/movement/sensation incl. speech decoding | Claim.claim_type=generalization | Claim.claim_scope=intracortical, minimally invasive and endovascular systems expand achievable clinical applications incl. speech decoding and communication restoration | Claim.claim_scope=neurosurgical practice increasingly involves BCI translation"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abbfef",
+   "key": "t:decodingspokenenglishfromintracorticalelectrodearraysindorsalprecentralgyrus",
+   "title": "Decoding spoken English from intracortical electrode arrays in dorsal precentral gyrus",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ipt via NCBI BioC API | task_family=phoneme_or_character_classification | extra.Task.target=discriminate all 39 English phonemes and synthesize speech (Brain-to-Speech pattern matching) from intracortical spiking/HLFP signals in dorsal precentral gyrus; quantify confounds (acoustic/microphonic contamination, phoneme onset"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552.add0e5",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ch_restoration | tested_population=target_users | Cohort.demographics=single BrainGate2 participant T15 (ALS), 4x 64-ch Utah arrays in left vPCG (55b/6v/area4); same arrays previously ran a speech BCI | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=4x 64-electrode Utah arrays, left vPCG (mid"
+  },
+  {
+   "pid": "doi-10.1093-jmp-jhac011",
+   "key": "t:speakerresponsibilityforsyntheticspeechderivedfromneuralactivity",
+   "title": "Speaker Responsibility for Synthetic Speech Derived from Neural Activity",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ed) | modalities=intracortical_microelectrode, ecog, scalp_eeg | sensor_hardware=representative system: recordings from articulatory-motor cortex driving a simulated articulatory system (Bocquelet et al. 2016; Brumberg 2011; Mugler et al. 2014 cited); options discussed range intracortical probes / ECoG arrays / scalp electrodes | technical_essence=neural signals associated with covert speech are recorded/p"
+  },
+  {
+   "pid": "doi-10.1101-2024.03.21.586130",
+   "key": "t:evidenceforcommonspikebasedtemporalcodingofovertandcovertspeechinparstriangulari",
+   "title": "Evidence for common spike-based temporal coding of overt and covert speech in pars triangularis of human Broca's area",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_evoked_inner_speech | observed_quantities=neural_activity | technical_essence=Single-unit temporal code for covert speech: intracortical Utah-array recording in human pars triangularis (Broca) during read-repeat-covert sentence paradigm; ensemble spike-tra"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.14.607690",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rvision | TrainingRun.training_objective=predict time-aligned synthetic personalized-voice target waveforms from binned intracortical features (no ground-truth speech) | system_name=instantaneous voice synthesis neuroprosthesis: 256-electrode iBCI -> 10ms causal Transformer decode -> p"
+  },
+  {
+   "pid": "doi-10.1101-2024.11.12.623096",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "96v2 (PMC11601350 NIHMS) | task_family=command_selection | extra.Task.target=drive macOS mouse cursor + click with vPCG intracortical signals: Radial8 calibration (8 radial + center targets, dwell/click selection), Grid Evaluation (bitrate), Simultaneous Speech+Cursor interference test, free personal use (Netflix, NYT Spelling Bee, settings) | production_labels=attempted_speech,"
+  },
+  {
+   "pid": "doi-10.1101-2025.05.30.657105",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rain-to-text sentence output with uppercase/lowercase formatting driven by decoded attempted loudness | claim=attempted speech mode/loudness decodable from vPCG intracortical ensembles: 94% (T15) and 89% (T16) offline; 94% closed-loop online accuracy modulating brain-to-text output | evidence_"
+  },
+  {
+   "pid": "doi-10.1101-2025.08.12.668516",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with longstanding anarthria and locked-in syndrome",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.1101/2025.08.12.668516 | title=Decoding intended speech with an intracortical brain-computer interface in a person with longstanding anarthria and locked-in syndrome | authors=Justin J Jude, Stepha"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ging, optical_camera, magnetic_tracking, other | sensor_hardware=taxonomy across reviewed studies: EEG, ECoG, implanted microelectrode arrays (brain); sEMG, intramuscular EMG (muscle); EMA, PMA, ultrasound, video/lipreading, NAM microphone (articulator/glottal effects) | ProductionCondition.activity_origin=attempted_speech | production_labels=silent_articulation, NAM,"
+  },
+  {
+   "pid": "doi-10.1227-neu.0000000000003360_251",
+   "key": "p:doi-10.1227-neu.0000000000003360_251",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "iginal_report | EvaluationProtocol.experimental_design=BrainGate2 NCT00912041; T15 45yo man ALS severe dysarthria; 4x64 Utah arrays ventral-precentral gyrus; attempted speech -> real-time DNN synthesis; reported: target recreation r=0.90 at 30wpm natural pace; emphasis-word discrimination 95.5"
+  },
+  {
+   "pid": "doi-10.1586-erd.10.34",
+   "key": "t:developmentofspeechprosthesescurrentstatusandrecentadvances",
+   "title": "Development of speech prostheses: current status and recent advances",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "SystemConfiguration.system_lifecycle=proposed_only | system_boundary=surveyed design space: EEG/MEG noninvasive vs ECoG/intracortical invasive recording -> discrete (letter selection) vs continuous decoding -> speech synthesizer; speech BCI requires invasive continuous decoding | Claim.claim_type=generalization | claim=existing communication BCIs (SCP/P3"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2022.874199",
+   "key": "t:slowfiringsingleunitsareessentialforoptimaldecodingofsilentspeech",
+   "title": "Slow Firing Single Units Are Essential for Optimal Decoding of Silent Speech",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n, attempted_speech | modalities=intracortical_microelectrode | observed_quantities=neural_activity | technical_essence=Intracortical single-unit physiology for silent-speech decoding: long-duration electrodes in motor speech cortex (up to 13 y in locked-in participant + intact participant speaking silently) — SLOW-firing single units are esse"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2011.00065",
+   "key": "p:doi-10.3389-fnins.2011.00065",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=intracortical intended-phoneme classifier | task_family=inner_experience_analysis | intended_use_cases=speech_restoration | modalities=intracortical_"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2018.00422",
+   "key": "t:decodinginnerspeechusingelectrocorticographyprogressandchallengestowardaspeechpr",
+   "title": "Decoding Inner Speech Using Electrocorticography: Progress and Challenges Toward a Speech Prosthesis",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "own-study classification examples | ReviewProtocol.selection_criteria=intracranial-recording studies of inner/imagined speech decoding for neuroprosthetic applications; broader area coverage than intracortical arrays emphasized | InformationResource.resource_provenance=ECoG word-pair imagined-speech classification results (e.g."
+  },
+  {
+   "pid": "doi-10.3390-brainsci15040336",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain-Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "far exceeding cursor-control spelling; one ALS patient reached 62 wpm with 23.8% WER on 125,000-word vocabulary | claim=intracortical speech decoding accuracies: 99.6% on 50-word vocabulary and 97.5% on 125,000-word vocabulary (256-electrode precentral arrays)"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s: A Review | authors=Nigam, Singh, Mirza | venue=Sensors 23(12):5575 | extra.Task.target=survey ML methods that decode speech (overt, silent, imagined, attempted) and handwriting from invasive (ECoG/sEEG/intracortical) and non-invasive (EEG/SSVEP/sEMG) neural signals published 2014-2022: signal collection, preprocessing, feature extrac"
+  },
+  {
+   "pid": "doi-10.64898-2026.02.27.708564",
+   "key": "t:crosssubjectdecodingofhumanneuraldataforspeechbraincomputerinterfaces",
+   "title": "Cross-subject decoding of human neural data for speech Brain Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "+ hierarchical GRU with intermediate CTC and feedback | supervision_kind=phoneme_label | dataset_id=Willett et al. 2023 intracortical attempted-speech (Brain2Text) | dataset_id=Card et al. 2024 intracortical attempted-speech | dataset_id=Kunz et al. 2025 inner-speech (T"
+  },
+  {
+   "pid": "doi-10.64898-2026.04.02.715749-cocontrol",
+   "key": "t:probabilisticcocontrolinbraincomputerinterfacesuncertaintyasacontrolsignalinbrai",
+   "title": "Probabilistic Co-Control in Brain-Computer Interfaces: Uncertainty as a Control Signal in Brain-to-Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ed_population=target_users | Dataset.counts_by_unit={'days': {'t12': 19, 't15': 45}} | Dataset.content_inventory=Public intracortical datasets T12 (two 96-channel Utah arrays, areas 44/6v, 19 days) and T15 (256 channels, areas 6v/4/55b, 45 days), delayed-sentence attempted speech | information_availability=evaluation_only | evaluator_chain=Neural decoder predictive distribution pND combined with L"
+  },
+  {
+   "pid": "doi-10.64898-2026.04.27.721195",
+   "key": "t:premotorcortexusesacompositionalneuralgeometrytoplanwords",
+   "title": "Premotor cortex uses a compositional neural geometry to plan words",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "or cortex — whether multi-phoneme plans are compositional across serial positions | Study.unit_of_analysis=per-position phoneme decoding and cross-position generalization (AUC) from preparatory intracortical activity; word-level activity extent across multi-word utterances | task_encoding=attempted_utterance | task_family=pho"
+  },
+  {
+   "pid": "doi-10.64898-2026.06.02.729705",
+   "key": "t:neuraldecodingofspeechusingdeepneuralensembles",
+   "title": "Neural decoding of speech using deep neural ensembles",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_design=controlled_experiment | Study.research_objective=first real-time closed-loop test of deep-ensemble decoding for intracortical speech BCI; characterize gains vs baseline WER, dataset size, ensemble size | Study.unit_of_analysis=word error rate on copy-s"
+  },
+  {
+   "pid": "doi-10.64898-2026.07.08.737343",
+   "key": "t:diffusionlatentrepresentationsforneuraldecoding",
+   "title": "Diffusion Latent Representations for Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "er-decoders predict from neural activity, with a frozen diffusion model reconstructing the signal — proof-of-concept on intracortical speech decoding | Study.unit_of_analysis=teacher-forced / autoregressive Word Error Rate per latent-model timestep and per con"
+  },
+  {
+   "pid": "doi-10.64898-2026.07.23.739430",
+   "key": "t:ageneralizablespeechneuroprosthesis",
+   "title": "A generalizable speech neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "led_experiment | Study.research_objective=multi-user (MU) transformer brain-to-text decoder pretrained jointly across 6 intracortical participants via user-specific projections → shared latent space → shared decoder → phoneme CTC; compare vs single-user (SU) baselines offline+closed-loop; few-shot adaptation to held-out users | Study.unit_of_"
+  },
+  {
+   "pid": "doi-10.7554-elife.46015",
+   "key": "p:doi-10.7554-elife.46015",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=hand-knob intracortical speech decoder (BrainGate2) | task_family=speech_reconstruction | intended_use_cases=speech_restoration | modalities=intracort"
+  },
+  {
+   "pid": "gatech-matthews-201212-phd",
+   "key": "t:probabilisticmodelingofneuraldataforanalysisandsynthesisofspeech",
+   "title": "Probabilistic Modeling of Neural Data for Analysis and Synthesis of Speech",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e=Georgia Institute of Technology (PhD thesis) | review_state=source_checked | Study.research_objective=decode intended speech (vowel classes, speech activity, articulation gestures) from intracortical neural signals of a Locked-In subject toward a real-time neural speech prosthesis; develop joint waveform+timing spike-"
+  },
+  {
+   "pid": "isca-brumberg09_bcisynth",
+   "key": "t:artificialspeechsynthesizercontrolbybraincomputerinterface",
+   "title": "Artificial speech synthesizer control by brain-computer interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "checked | Study.study_design=controlled_experiment | Study.research_objective=restore real-time vowel production via an intracortical BCI driving a formant speech synthesizer with instantaneous auditory feedback | Study.unit_of_analysis=25y male locked-in (brainstem stroke, age 16)"
+  },
+  {
+   "pid": "isca-feng24-ibrainllm",
+   "key": "t:towardsanendtoendframeworkforinvasivebrainsignaldecodingwithlargelanguagemodels",
+   "title": "Towards an End-to-End Framework for Invasive Brain Signal Decoding with Large Language Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| doi=10.21437/Interspeech.2024-1497 | Study.research_objective=first end-to-end framework decoding attempted/intended speech from intracortical signals directly with LLM decoders (no cascade phone+HMM stage), on 125k-word vocabulary | Study.study_design=system_pr"
+  },
+  {
+   "pid": "isca-ody26-khanday",
+   "key": "t:endtoendintracorticalspeechdecodingfromneuralactivity",
+   "title": "End-to-End Intracortical Speech Decoding from Neural Activity",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-End Intracortical Speech Decoding from Neural Activity | authors=Khanday, Gonzalez-Lopez, Ouellet, Galdon, Olivares Granados (Univ. Granada + Ho"
+  },
+  {
+   "pid": "isca-odyssey2026-24",
+   "key": "t:endtoendintracorticalspeechdecodingfromneuralactivity",
+   "title": "End-to-End Intracortical Speech Decoding from Neural Activity",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-odyssey2026-24 | title=End-to-End Intracortical Speech Decoding from Neural Activity | authors=Owais M. Khanday, Jose A. Gonzalez-Lopez, Marc Ouellet, Alberto Galdón, Gonzalo"
+  },
+  {
+   "pid": "jne-17-abb25e-acoustic",
+   "key": "t:observationandassessmentofacousticcontaminationofelectrophysiologicalbrainsignal",
+   "title": "Observation and assessment of acoustic contamination of electrophysiological brain signals during speech production and sound perception",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "erception | authors=Philémon Roussel, et al | venue=Journal of Neural Engineering | doi=10.1088/1741-2552/abb25e | tags=speech prostheses, decoding, microphonic effect, ECoG, intracortical recordings, high-gamma | Study.study_design=controlled_experiment | Study.research_objective=Assess presence/absence an"
+  },
+  {
+   "pid": "pmc-10468393-neuroprosthesis",
+   "key": "t:ahighperformancespeechneuroprosthesis",
+   "title": "A high-performance speech neuroprosthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A high-performance speech neuroprosthesis | authors=Willett; Kunz; Fan et al | Study.research_objective=intracortical speech neuroprosthesis: 9.1% WER 50-vocab, 23.8% WER 125k-vocab, 62 WPM attempted speech (ALS) | task_family=sentence_recognition | elicitation=instructed_content | extra.Production.scope_note=attempted speec"
+  },
+  {
+   "pid": "pmc-11424044-ailistener",
+   "key": "t:usingautomaticspeechrecognitiontomeasuretheintelligibilityofspeechsynthesizedfro",
+   "title": "Using Automatic Speech Recognition to Measure the Intelligibility of Speech Synthesized from Brain Signals",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s=intracortical_microelectrode, ecog, microphone | Acquisition.sensor_geometry=published BCI-synthesized audio corpora: intracortical speech BCI (Wilson2020, BrainGate T5), ECoG decoder (Herff2019, P5), ECoG synthesizer (Anumanchipalli2019 supplementary) | rep"
+  },
+  {
+   "pid": "pmc-11540306-speechnprev",
+   "key": "t:thespeechneuroprosthesis",
+   "title": "The speech neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ode, ecog | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=review of ECoG, intracortical MEA and sEEG speech-decoding studies in epilepsy-monitoring participants and paralysis clinical-trial participants | Dataset.counts_by_unit"
+  },
+  {
+   "pid": "pmc-12026362-invasive-bci-communication",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain–Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Embase — 41 included studies tabulated by device, target, task, and outcome metric | EvaluationRun.execution_artifacts=Speech-to-text/speech-to-audio decoding achieved from intracortical devices; real-time full-sentence decoding from silent speech attempts; up to 62 words/min; SMG word decoding 24–55% off"
+  },
+  {
+   "pid": "pmc-12026362-invbcirev",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain-Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "f device type x anatomy x task x performance (chars/min, WPM, CER, accuracy) | evaluation_mode=qualitative_only | claim=intracortical BCIs now deliver direct speech-to-text and speech-to-audio decoding at ~62 words/min in patients unable to speak, still below natural 120-150 wpm | claim=ECoG converts a"
+  },
+  {
+   "pid": "pmc-12208300-vpcg-cursor",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ting BCI | Study.unit_of_analysis=T15, a 45-year-old left-handed man with ALS, tetraplegic with severe dysarthria; four intracortical arrays in vPCG previously used for a speech BCI | task_encoding=learned_code_or_gesture | task_family=command_selection | tested_population=target_users | Cohort.d"
+  },
+  {
+   "pid": "pmc-12259010-spcherr",
+   "key": "t:errorencodinginhumanspeechmotorcortex",
+   "title": "Error encoding in human speech motor cortex",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ical_microelectrode, ecog | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=intracortical error encoding in speech motor cortex | Dataset.counts_by_unit=implanted participants | tested_population=target_users"
+  },
+  {
+   "pid": "pmc-12360486-inner-motor",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "te participants (T12, T15, T16, T17): ALS-dysarthric ×2, pontine-stroke dysarthric, ALS-anarthric ventilator-dependent; intracortical arrays in speech motor cortex | task_encoding=task_evoked_inner | task_family=sentence_recognition | tested_population=target_users | Co"
+  },
+  {
+   "pid": "pmc-12360486-innercell",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "racortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=intracortical motor-cortex inner-speech recording and decoding | Dataset.counts_by_unit=implanted participants | tested_population=target_users"
+  },
+  {
+   "pid": "pmc-12363778-anarthria-ibci",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with longstanding anarthria and locked-in syndrome",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding intended speech with an intracortical brain-computer interface in a person with longstanding anarthria and locked-in syndrome | authors=Jude JJ, Haro S, Levi"
+  },
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice-synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al activity supply training targets | system_name=instantaneous brain-to-voice neuroprosthesis | system_boundary=256-ch intracortical signals (vPCG/6v/M1/55b) -> neural feature extraction -> real-time brain-to-voice decoder + pitch decoder -> vocoder -> audio playback (closed-loop feedback as user attempts speech) | SystemConfiguration.system_lifecycle=implemented_evaluated | TrainingRun.training_objective=train neural-to-acoustic"
+  },
+  {
+   "pid": "pmc-12369848-voicesynth",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tle=An instantaneous voice synthesis neuroprosthesis | authors=Wairagkar et al | Study.research_objective=instantaneous intracortical voice synthesis: causal low-latency speech r=0.83 to target, <10ms frame latency, paralinguistic features | task_family=speech_reconstruction | extra.Production.s"
+  },
+  {
+   "pid": "pmc-12460843-linguistic-neural-decoding",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ublished decoding studies across paradigms: passive reading/listening stimulus classification; imagined/attempted/overt speech production for inner-speech recognition, speech neuroprosthesis, brain-to-speech, and spelling; on invasive (ECoG, intracortical microelectrodes) and non-invasive (EEG, MEG, fMRI, fNIRS) recordings | task_family=semantic_or_intent_decoding | Cohort"
+  },
+  {
+   "pid": "pmc-12871243-xbrain",
+   "key": "t:crossbraintransferofhighperformanceintracorticalspeechandhandwritingbcis",
+   "title": "Cross-brain transfer of high-performance intracortical speech and handwriting BCIs",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Cross-brain transfer of high-performance intracortical speech and handwriting BCIs | authors=Levin AD; Avansino DT; Kamdar FB; Card NS; Wairagkar M; Jacques BG; Jude JJ; Iacobacci C"
+  },
+  {
+   "pid": "pmc-12987850-anarthria-devices",
+   "key": "t:theevolutionofspeechcommunicationdevicesforanarthriaareview",
+   "title": "The evolution of speech communication devices for anarthria: a review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d silent miming); earlier AAC stages: letter boards, eye/head trackers, eye-blink binary yes/no | system_name=anarthria speech-communication device lineage (AAC -> EEG -> intracortical) | system_boundary=patient attempted/silent speech intent -> EEG or implanted cortical/ECoG signals -> neural decoding"
+  },
+  {
+   "pid": "pmc-13142457-premotor-words",
+   "key": "t:premotorcortexusesacompositionalneuralgeometrytoplanwords",
+   "title": "Premotor cortex uses a compositional neural geometry to plan words",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ay | system_boundary=audio-cued CVCVCVCV sequences (K/N/SH, 4 syllables, word vs pair) -> instructed delay -> attempted speech; intracortical prep activity -> LDA/TDRA phoneme-position decoding | SystemConfiguration.system_lifecycle=implemented_evaluated | Trai"
+  },
+  {
+   "pid": "pmc-13142457-wordgeom",
+   "key": "t:premotorcortexusesacompositionalneuralgeometrytoplanwords",
+   "title": "Premotor cortex uses a compositional neural geometry to plan words",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "participant | Study.study_design=controlled_experiment | task_family=sentence_recognition | extra.Production.scope_note=intracortical speech-planning compositional geometry | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implem"
+  },
+  {
+   "pid": "pmc-13251988-deepems",
+   "key": "t:neuraldecodingofspeechusingdeepneuralensembles",
+   "title": "Neural decoding of speech using deep neural ensembles",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Avansino DT; Madugula S; Levin AD; Fan C | Study.research_objective=first closed-loop test of deep neural ensembles for intracortical speech BCI decoding plus efficient pseudoensembling via test-time augmentation | Study.study_design=controlled_experiment | ta"
+  },
+  {
+   "pid": "pmc-13335209-anarthria",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13335209-anarthria | title=Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome | authors=Justin J. Jude et al"
+  },
+  {
+   "pid": "pmc-13335209-celrep",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13335209-celrep | title=Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome | authors=Justin J. Jude, Step"
+  },
+  {
+   "pid": "pmc-13335209-ibcilong",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome | authors=Justin, Haro, Levi-A"
+  },
+  {
+   "pid": "pmc-13335209-intended-bci",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome | venue=Cell Reports (2026) |"
+  },
+  {
+   "pid": "pmc-13375540-ibciterm",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain-computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term independent use of an intracortical brain-computer interface for speech and cursor control | authors=Card, Singer-Clark, Peracha, Iacobacci et al (UC Davis / BrainGate2) | venue=Nature Medici"
+  },
+  {
+   "pid": "pmc-13375540-ltbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain–computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13375540-ltbci | title=Long-term independent use of an intracortical brain–computer interface for speech and cursor control | authors=Nicholas S. Card, Tyler Singer-Clark, Hamza Peracha, Carrina Iacobacci | venue=Nature Medi"
+  },
+  {
+   "pid": "pmc-13375540-ltc-speechbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain-computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term independent use of an intracortical brain-computer interface for speech and cursor control | authors=Card NS, Singer-Clark T, Peracha H, Iacobacci C, Hou X, Wairagkar M, Fogg Z, et al. | venu"
+  },
+  {
+   "pid": "pmc-13383455-b2srev",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d / Lab Info Tech) | venue=journal (PMC13383455) | Study.research_objective=PRISMA systematic review of 115 AI brain-to-speech-decoding studies (2019-2025): invasive median multiclass acc 77.7% (IQR 61.4-93.2) vs non-invasive 73.0% (IQR 49.3-89.2), N=82; isolated-word 7.1-90.0%; continuous WER 25.6-58.8%; no non-invasive study showed functional decoding in paralyzed populations; modalities ECoG 21.7% sEEG 12.2% intracortical 7.8% MEG 11.3% | Study.study_design=meta_analysis | dataset_id=115 included studies (537 screened after dedup) across E"
+  },
+  {
+   "pid": "pmc-13468166-langblocks",
+   "key": "t:mappingtheneuronalbuildingblocksofhumanlanguagewithlanguagemodels",
+   "title": "Mapping the neuronal building blocks of human language with language models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "f_analysis=8 participants (3F/5M, 27-52y), 14 sessions, 579 well-isolated neurons from semichronic 96-ch frontotemporal microelectrode arrays during natural speech; SAP+LFP; neurons encode grammatical relations/POS, phrase transitions, sentence syntactic structure | task_encoding=na"
+  },
+  {
+   "pid": "pmc-13483768-gennp",
+   "key": "t:ageneralizablespeechneuroprosthesis",
+   "title": "A generalizable speech neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_checked | Study.study_design=controlled_experiment | Study.research_objective=train a joint transformer decoder across intracortical speech-BCI users to cut per-patient data needs | Study.unit_of_analysis=relative WER of multi-user vs single-user decoders and"
+  },
+  {
+   "pid": "pmc-13483768-speechnp",
+   "key": "t:ageneralizablespeechneuroprosthesis",
+   "title": "A generalizable speech neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ragkar M; Srinivasan A; Singer-Clark T; Hou X; Okorokova E; Peracha H | Study.research_objective=multi-user transformer intracortical speech decoder pooled across six speech BCI participants for generalizable brain-to-text decoding | Study.study_design=controlled_experiment | task_family=sent"
+  },
+  {
+   "pid": "pmc-13633112-nngest",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "6% seen vs unseen; no significant drop when combined | extra.Limitation.limitation=n=3 with differing etiologies; prior intracortical work showed cross-effector interference (vPC speech degrades cursor) — residual interference possible | extra.Limitation.status=acknowledged | 65.8 | 253"
+  },
+  {
+   "pid": "pmc-2784218-wireless",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A wireless brain-machine interface for real-time speech synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eech communication for locked-in individuals | task_family=speech_reconstruction | extra.Production.scope_note=wireless intracortical BMI decoding intended vowel formants in real time to drive a speech synthesizer with auditory feedback | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=imp"
+  },
+  {
+   "pid": "pmc-2784218-wirelesssynth",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A Wireless Brain-Machine Interface for Real-Time Speech Synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "edy | venue=PLoS One 4(12): e8218 | paper_version=publisher version (PMC OA) | Study.research_objective=decode intended speech formant frequencies from intracortical signals in a locked-in participant and drive a real-time speech synthesizer with closed-loop auditory feedback | task_f"
+  },
+  {
+   "pid": "pmc-3096823-phoneme-intracortical",
+   "key": "t:classificationofintendedphonemeproductionfromchronicintracorticalmicroelectroder",
+   "title": "Classification of intended phoneme production from chronic intracortical microelectrode recordings in speech-motor cortex",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3096823-phoneme-intracortical | title=Classification of intended phoneme production from chronic intracortical microelectrode recordings in speech-mo"
+  },
+  {
+   "pid": "pmc-3096823-phonintent",
+   "key": "t:classificationofintendedphonemeproductionfromchronicintracortic",
+   "title": "Classification of intended phoneme production from chronic intracortic",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "intended phoneme production from chronic intracortic | authors=phoneme-intent group | Study.research_objective=chronic intracortical intended-phoneme 16-21% | task_family=sentence_recognition | modalities=intracortical_microelectrode | SystemConfiguration.system_lifec"
+  },
+  {
+   "pid": "pmc-3637898-guenther",
+   "key": "t:brainmachineinterfacesforrealtimespeechsynthesis",
+   "title": "Brain-Machine Interfaces for Real-time Speech Synthesis",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "=Brain-Machine Interfaces for Real-time Speech Synthesis | authors=Guenther et al. | Study.research_objective=real-time speech-synthesis BMI — locked-in, intracortical F1/F2 | Study.study_design=controlled_experiment | task_family=sentence_recognition | modalities=intracortical_microele"
+  },
+  {
+   "pid": "pmc-6174918-dsbci-review",
+   "key": "t:neurolinguisticsresearchadvancingdevelopmentofadirectspeechbraincomputerinterfac",
+   "title": "Neurolinguistics Research Advancing Development of a Direct-Speech Brain-Computer Interface",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ". Coyle | review_state=source_checked | Study.research_objective=Review the neurolinguistics of imagined/overt/intended speech to inform direct-speech BCI design: which neural signals (EEG, ECoG, intracortical, fMRI, fNIRS, MEG), which brain regions (IFG BA44/45, SMA, premotor, STG/MTG, pSTC), and which linguistic units (phonem"
+  },
+  {
+   "pid": "pmc-6954053-dorsalmcx",
+   "key": "t:neuralensembledynamicsindorsalmotorcortexduringspeechinpeoplewithparalysis",
+   "title": "Neural ensemble dynamics in dorsal motor cortex during speech in people with paralysis",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "udy.research_objective=Characterize single-neuron and ensemble dynamics in dorsal motor-cortex ‘hand knob’ during overt speech in people with paralysis — testing whether intracortical spiking could decode spoken words/syllables and whether arm-movement dynamical motifs recur during speaking | Study.uni"
+  },
+  {
+   "pid": "pmc-7824107-bci50y",
+   "key": "t:summaryofoverfiftyyearswithbraincomputerinterfacesareview",
+   "title": "Summary of over fifty years with brain-computer interfaces—a review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "that made brain-controlled communication and prosthesis routine | Study.unit_of_analysis=Chronological survey: EEG/ECoG/intracortical methods × paradigms (P300/SSVEP/ASSR/SCP/SMR/ERD-ERS/MI/imagined+mental speech/hybrid) × applications (spellers, cursor, robotic/prosthetic arms with 7-DoF, wheelchairs, smart homes, gaming) × comme"
+  },
+  {
+   "pid": "pmc-8293867-dorsal",
+   "key": "t:decodingspokenenglishfromintracorticalelectrodearraysindorsalmotorcortex",
+   "title": "Decoding spoken English from intracortical electrode arrays in dorsal motor cortex",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ent | task_family=phoneme_or_character_classification | elicitation=instructed_content | extra.Production.scope_note=39 phonemes, intracortical dorsal motor cortex | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evalua"
+  },
+  {
+   "pid": "pmc-9186423-graspspeech",
+   "key": "t:decodinggraspandspeechsignalsfromthecorticalgraspcircuitinatetraplegichuman",
+   "title": "Decoding grasp and speech signals from the cortical grasp circuit in a tetraplegic human",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cal grasp circuit in a tetraplegic human | Study.study_design=controlled_experiment | extra.Production.scope_note=grasp speech decoding intracortical | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep"
+  },
+  {
+   "pid": "pmc-9643551-bravospell",
+   "key": "t:generalizablespellingusingaspeechneuroprosthesisinanindividualwithseverelimbandv",
+   "title": "Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ion to people who cannot speak or type due to paralysis | task_family=spelling_text_entry | extra.Production.scope_note=intracortical speech neuroprosthesis spelling sentences silently via phoneme-based decoding from hand-area and speech-area signals | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | P"
+  },
+  {
+   "pid": "zenodo-21672819",
+   "key": "t:fromthoughttotextacomprehensivereviewofbraincomputerinterfacesforspeechrestorati",
+   "title": "From Thought to Text: A Comprehensive Review of Brain-Computer Interfaces for Speech Restoration",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uganti Sudhakar | venue=Zenodo preprint | review_state=source_checked | Study.research_objective=contextualise Stanford intracortical speech-BCI (62 wpm) and discuss principles + adoption challenges | Study.unit_of_analysis=one reported intracortical speech-BC"
+  }
+ ],
+ "usual_approach": {
+  "design": "modalities=intracortical_microelectrode",
+  "n": 67,
+  "tier": "slot-filled",
+  "pids": [
+   "arxiv-2603-18299-align",
+   "arxiv-2605.00025-modal",
+   "arxiv-2605.24313",
+   "arxiv-2607-26751-phonchar",
+   "arxiv-2609-02887-commbci"
+  ],
+  "population_unique": 72
+ },
+ "read_fulltext": [
+  {
+   "pid": "pmc-11328962-rapidcal",
+   "role": "sota",
+   "loc": "Results",
+   "quote": "Average Copy Task decoding performance in the final 5 evaluation sessions had a word error rate of 2.5% (95% CI, 2.0% to 3.1%)"
+  },
+  {
+   "pid": "pmc-11328962-rapidcal",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "underwent surgical implantation of four microelectrode arrays into his left precentral gyrus, which recorded neural activity from 256 intracortical electrodes"
+  },
+  {
+   "pid": "doi-10.1056-nejmoa2027540",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "at a median rate of 15.2 words per minute, with a median word error rate of 25.6%"
+  },
+  {
+   "pid": "pmc-8163299-b2thand",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "90 characters per minute at 94.1% raw accuracy online"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 1,
+  "recall": 0.33,
+  "missed": [
+   "doi-10.1038-s41586-021-03506-2",
+   "doi-10.1056-nejmoa2027540"
+  ]
+ },
+ "chronology": {
+  "unique": 75,
+  "prior_2022_or_earlier": 20,
+  "year_2023": 4,
+  "later_2024_or_after": 37,
+  "date_unresolved": 14
+ },
+ "state_of_the_art": {
+  "pid": "pmc-11328962-rapidcal",
+  "year": 2024,
+  "metric": "online WER, 125,000-word vocabulary",
+  "value": "2.5%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 7329,
+  "string_match_unique": 75,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "modalities=intracortical_microelectrode",
+   "n": 67,
+   "tier": "slot-filled",
+   "population_unique": 72
+  },
+  "state_of_the_art": {
+   "pid": "pmc-11328962-rapidcal",
+   "year": 2024,
+   "metric": "online WER, 125,000-word vocabulary",
+   "value": "2.5%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "doi-10.1056-nejmoa2027540",
+   "pmc-8163299-b2thand"
+  ],
+  "unread": 111,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.33
+ },
+ "used_by": [
+  "a-high-performance-speech-neuroprosthesis"
+ ]
+}

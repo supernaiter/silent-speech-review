@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/a-high-performance-speech-neuroprosthesis/](a-high-performance-speech-neuroprosthesis/).**
 
-Intracortical speech BCI in a person with ALS decodes attempted speech to text in real time: 23.8% WER on a 125,000-word vocabulary at 62 words per minute; silently mouthed attempts reach 24.7%.
+Large-vocabulary attempted-speech decoding in one participant holds; sensor, decoder and LM are now field standard, but the spiking attribution and cross-study ratios outrun the evidence.
 
 [Read the full review](a-high-performance-speech-neuroprosthesis/) · [All reviews](../README.md)

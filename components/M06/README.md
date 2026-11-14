@@ -71,3 +71,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Deep Lip Reading: a comparison of models and an online application |  | §3.3, Table 1 |
 | State-of-the-art Speech Recognition using EEG and Towards Decoding of Speech Spectrum From EEG | 2020 | §2 |
 | End-to-end Silent Speech Recognition with Acoustic Sensing |  | §4.4, Fig. 4(c) |
+
+## phoneme-rnn-ctc-lm-decoding
+
+- Table: [`phoneme-rnn-ctc-lm-decoding.csv`](phoneme-rnn-ctc-lm-decoding.csv) (7345 slot-filled, 97 pattern match, usual design in 61, 3 read in full)
+- Inclusion rule: Neural or articulatory speech decoders that emit phoneme (or character) probabilities with a recurrent or CTC-trained network and convert them to words with an n-gram or neural language model. Included: sEMG, EEG, ECoG and intracortical; online or offline. Excluded: closed-set word classifiers and direct audio synthesis.
+- Used in: [A high-performance speech neuroprosthesis](../../reviews/a-high-performance-speech-neuroprosthesis/)
