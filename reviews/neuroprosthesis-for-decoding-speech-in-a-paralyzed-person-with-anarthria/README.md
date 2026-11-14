@@ -1,97 +1,142 @@
 # Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria
 
-David A. Moses, Sean L. Metzger, Jessie R. Liu, Gopala K. Anumanchipalli, Joseph G. Makin, Pengfei F. Sun, Josh Chartier, Maximilian E. Dougherty, Patricia M. Liu, Gary M. Abrams, Adelyn Tu-Chan, Karunesh Ganguly, Edward F. Chang  
-New England Journal of Medicine 385(3) 2021 · [DOI](https://doi.org/10.1056/NEJMoa2027540)
+Moses, Metzger, Liu, Anumanchipalli, Makin, Sun, Chartier, Dougherty, Liu, Abrams, Tu-Chan, Ganguly, Chang. New England Journal of Medicine 385, 217–227 (2021). [doi:10.1056/NEJMoa2027540](https://doi.org/10.1056/NEJMoa2027540)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria* (David A. Moses et al., New England Journal of Medicine 385(3) 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical)
 
-ECoG speech neuroprosthesis in a man with anarthria decodes attempted sentences from a 50-word vocabulary in real time: median 25.6% WER with a language model at 15.2 words per minute.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | 128-electrode high-density ECoG over sensorimotor cortex |
-| Task | Attempted word and sentence decoding to text |
-| Vocabulary | 50 words |
-| Speaker | Speaker-dependent |
-| Session | Cross-session |
-| Online / offline | Both |
-| Key result | Median WER 25.6% with LM (60.5% without), 15.2 wpm; isolated words 47.1% (chance 2%) |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Single participant, 50-word vocabulary, strong reliance on the language model, spurious detections, no independent use.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Cued attempted word production, 50 words | Attempted or overt cued speech | 4,015 of 8,995 | ● Standard (Same training action as speaking-participant ECoG work.) |
+| M02 Teacher signal | Cued word identity; no audio | Text-derived labels | 31 of 8,995 | ● Standard (No acoustic target exists for this participant.) |
+| M03 Train / calibrate | 22 h over 48 sessions, cumulative | Supervised training on accumulated sessions | 1,608 of 8,995 | ● Standard (Stability claim rests on post hoc offline cross-validation.) |
+| M04 Use-time act | Attempted speech, participant with anarthria | Overt speech by speaking participants | 6,538 of 8,995 | ● Standard (Population departure is real; one participant.) |
+| M05 Sensing | 128-electrode chronic ECoG, sensorimotor cortex | ECoG (233 of 246, slot-filled) | 233 of 8,995 | ● Standard (Chronic implant is the departure; channel count not tested.) |
+| M06 Decoding | Speech detector + 50-word classifier + Viterbi with LM | Model family 'other' (82 of 355, slot-filled) | 82 of 8,995 | ● Standard (Same pipeline shape as the 2019 decoder [@moses2019].) |
+| M07 Runtime aids | LM restricted to the 50 words | LLM rescoring over large vocabularies (152, pattern match) | 152 of 8,995 | ● Standard (Vocabulary 5 times smaller than [@makin2020] (inference).) |
+| M08 Output | Text | Text | 3,760 of 8,995 | ● Standard (–) |
+| M09 Confirmation | Decoded sentence shown on screen; no confirmation | Absent in most studies | 82 of 8,995 | ● Standard (No commit step before output.) |
+| M10 Correction | None | Absent in most studies | 82 of 8,995 | ● Standard (No correction or re-entry.) |
+| M11 Eval reference | Cued target sentence | Cued prompt text | 239 of 8,995 | ● Standard (No acoustic reference possible.) |
+| M12 Evaluation | Median WER over 15 blocks, words per minute, LM-sampled chance | WER or accuracy on held-out trials | 8,381 of 8,995 | ● Standard (No repeated training runs.) |
+| M13 Hardware & limits | One chronic implant, percutaneous connector, supervised use, 81 weeks | Acute clinical recordings | 6,721 of 8,995 | ● Standard (Not used independently.) |
 
-First demonstration of real-time sentence decoding from attempted speech in a person with long-standing anarthria: 50-word vocabulary, median 25.6% WER with a language model, 15.2 words per minute.
+</details>
 
-### Review
+## Verdict
 
-The BRAVO1 study implanted a 128-electrode high-density ECoG array over left sensorimotor cortex of a man with anarthria for more than 15 years after brainstem stroke. A speech-detection model, a 50-word classifier and a 50-word language model combined via Viterbi decoding produced sentences in real time. Median WER over 15 blocks was 25.6% with the language model versus 60.5% without, against 92.1% chance, at a median 15.2 words per minute; 80 of 150 trials were error-free. Offline isolated-word classification reached 47.1% mean accuracy (chance 2%) over 9,800 trials. Stability analyses suggest models can use data spanning 81 weeks without daily recalibration, but they were designed post hoc. For SSI, the significance is proof that cortical activity during attempted articulation remains decodable years after loss of speech; the limitations are the tiny vocabulary, the heavy reliance on the language model, single-participant design and frequent spurious detections (968) in isolated-word analysis.
+The paper changed who is decoded (M04, a participant with anarthria and a chronic implant) and moved a closed-vocabulary pipeline from speaking epilepsy patients into that setting (M06, M07); each component is standard for 2021 ECoG work, and the advance is the population, not the decoder. The main claim, sentences decoded from a person who cannot speak, holds for 50 words and one participant at 25.6% median WER. The strongest overreach is the language model: it was trained only on sentences built from the same 50 words as the test set, so the drop from 60.5% to 25.6% WER measures a closed-world prior. The no-recalibration claim rests on a post hoc offline analysis of isolated words, not on real-time sentence use. Against today the decoder is far behind: 99.6% accuracy on 50 words after 30 minutes of data [[1]](#ref-1) ([later]), where this paper used 22 hours.
 
-### Why it matters
+## Against the field, component by component
 
-Clinical proof of concept that attempted-speech cortical signals persist and are decodable into sentences long after anarthria onset, setting the baseline later ECoG and intracortical systems improved upon.
+### M06 Decoding: speech detection plus closed-set word classification
 
-### Prior state of the art
+**Usual approach:** Of 360 studies classifying detected words or utterances into a closed set (pattern match, unique studies), the most frequent ledger model family is "other" (82 of 355, slot-filled), then CNNs (35) and HMMs (25); the paper's [[2]](#ref-2) detector, 50-word classifier and Viterbi search repeat the 2019 real-time ECoG design of event detection, closed-set classification and context priors [[3]](#ref-3).
 
-Speech decoding from ECoG had been shown in epilepsy patients who could speak; decoding in people who had lost speech was unproven.
+**State of the art:** 99.6% on a 50-word vocabulary on day one, intracortical, 2024 [[1]](#ref-1) ([later]); the paper's real-time sentence result is 25.6% median WER.
 
-### What changed
+The prior design reached 61% produced-utterance accuracy (chance 7%) in three speaking epilepsy patients [[3]](#ref-3). The decoder is unchanged in kind and is not compared with any alternative on the same data (§ Methods, Modeling). Verdict: standard. The 2024 system used about 44 times less data (inference) and another sensor: it marks where the field went.
 
-First real-time sentence decoding in anarthria using speech detection, word classification and a language model, with long-term stability analysis over 81 weeks.
+### M07 Language model: a prior restricted to the test vocabulary
 
-### Position in the field
+**Usual approach:** Of 1,162 studies naming a vocabulary or language model at use time (pattern match, unique studies), the usual design is large-vocabulary neural or LLM rescoring (152, pattern match); the paper trains an n-gram model only on sentences built from its 50 words.
 
-Foundational clinical ECoG speech neuroprosthesis; predecessor of Metzger et al. 2023.
+**State of the art:** 2.5% WER at 125,000 words in 2024 [[1]](#ref-1) ([later]); within ECoG, 25.5% WER at 1,024 words in 2023 [[4]](#ref-4) ([later]), the same error on a vocabulary about 20 times larger (inference).
 
-### Practical value
+The deciding prior, an ECoG encoder-decoder in speaking participants, reported WERs as low as 3% on a set of about 250 words [[5]](#ref-5). The paper's gain from its language model (a 58% relative reduction, inference) is measured on a vocabulary five times smaller than that (inference) and on test sentences drawn from the model's own word set. Verdict: standard; generalisation beyond the 50 words is untested.
 
-Establishes feasibility and a stability argument for chronic ECoG; vocabulary and speed are too limited for general communication.
+### M05 Sensors: chronic ECoG in anarthria
 
-### Advanced
+**Usual approach:** ECoG appears in 233 of 246 studies in the ECoG speech-decoding topic (slot-filled); the paper uses 128 chronic electrodes for 81 weeks.
 
-Clinical population (anarthria), real-time sentence decoding, long-term signal stability.
+**State of the art:** 253-channel high-density ECoG in a participant with anarthria, 25.5% WER at 1,024 words, 2023 [[4]](#ref-4) ([later]).
 
-### Unresolved
+The chronic implant is the departure; the electrode analysis (Fig. 3A) is attribution, not ablation. Verdict: standard.
 
-Vocabulary size, speed, multiple participants, independent use, false detection rate.
+## The 13 components
 
-### Evaluation details
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Cued attempted word production, 50 words | Attempted or overt cued speech (slot-filled 4,015) | – | standard |
+| M02 Training-only supervision | Cued word identity; no audio | Text-derived labels (slot-filled 31) | – | standard |
+| M03 Training and adaptation | 22 h over 48 sessions, cumulative | Supervised training on accumulated sessions (slot-filled 1,608) | 99.6% on 50 words after 30 min of data, 2024 [[1]](#ref-1) | standard |
+| M04 Use-time action | Attempted speech, participant with anarthria | Overt speech by speaking participants (slot-filled 6,538) | – | standard |
+| M05 Sensors | 128-electrode chronic ECoG, sensorimotor cortex | ECoG (233 of 246, slot-filled) (slot-filled 233) | 253-channel ECoG, 25.5% WER at 1,024 words, 2023 [[4]](#ref-4) | standard |
+| M06 Processing and decoding | Speech detector + 50-word classifier + Viterbi with LM | Model family 'other' (82 of 355, slot-filled) (slot-filled 82) | 99.6% on 50 words, intracortical, 2024 [[1]](#ref-1) | standard |
+| M07 Lexicon and LM | LM restricted to the 50 words | LLM rescoring over large vocabularies (152, pattern match) (pattern match 152) | 2.5% WER at 125,000 words, 2024 [[1]](#ref-1) | standard |
+| M08 Output | Text | Text (slot-filled 3,760) | – | standard |
+| M09 Confirmation | Decoded sentence shown on screen; no confirmation | Absent in most studies (slot-filled 82) | – | standard |
+| M10 Correction | None | Absent in most studies (slot-filled 82) | – | standard |
+| M11 Reference construction | Cued target sentence | Cued prompt text (slot-filled 239) | – | standard |
+| M12 Evaluation | Median WER over 15 blocks, words per minute, LM-sampled chance | WER or accuracy on held-out trials (slot-filled 8,381) | – | standard |
+| M13 Device and cost | One chronic implant, percutaneous connector, supervised use, 81 weeks | Acute clinical recordings (slot-filled 6,721) | – | standard |
 
-| Item | Details |
-| --- | --- |
-| Task | Real-time decoding of attempted words and sentences from a fixed 50-word vocabulary. |
-| Input | High-density ECoG high-gamma activity during attempted speech. |
-| Sensor | 128-electrode (16 x 8, 4 mm spacing) high-density ECoG array, subdural over left sensorimotor cortex. |
-| Body site | Brain (left precentral, postcentral, posterior middle frontal and posterior inferior frontal gyri). |
-| Output | Text (words and sentences). |
-| Vocabulary type | Closed vocabulary; 50 target sentences built from the same words. |
-| Vocabulary size | 50 words. |
-| Metrics and results | Real-time sentence decoding: median WER 25.6% with LM (95% CI 17.1-37.1), 60.5% without LM, chance 92.1%; median 15.2 words per minute (12.5 correct wpm); 80/150 trials error-free. Offline isolated-word accuracy 47.1% (chance 2%); 98% of attempts detected, 968 spurious detections. |
-| Evaluation protocol | Real-time sentence decoding plus offline isolated-word classification and post hoc stability analyses. |
+## Where the claims outrun the evidence
 
-### Limits
+- Language model: trained on sentences limited to the 50 words, with chance itself sampled from that model (92.1% WER; § Methods, Modeling). The 35-point gain holds only in this closed world.
+- Stability: "without daily or weekly recalibration" rests on offline cross-validation of isolated words from weeks 79–81, designed post hoc (§ Statistical analyses; Fig. 4). The [later] intracortical participant asked for recalibration three times in personal use [[1]](#ref-1).
+- Usability: "usable at word error rates below 30%" is uncited (§ Discussion) and applied to a vocabulary where every word is known in advance.
+- Speed: the only same-participant baseline is head-movement typing at 5 correct words per minute (§ Methods, Participant); no spelling BCI was compared.
 
-- **Technical:** Word-level classification over a fixed 50-word set; sentence accuracy depends strongly on the LM (60.5% WER without vs 25.6% with). High-gamma (70-150 Hz) features only.
-- **Evaluation:** Single participant; sentence results from 15 blocks / 150 trials; isolated-word results offline without LM; stability analyses post hoc with no multiple-comparison adjustment.
-- **Deployment:** Percutaneous connector prevented independent daily use; testing at the participant's home with researchers.
-- **Scope of this review:** Read the author-manuscript full text (eScholarship PDF) via automated extraction; Supplementary Appendix (model layer details, Fig. S5, S10) not read. No independent reproduction.
+## What the field needs next
 
-### Evidence
+- M07: a language model trained on text excluding the test sentences, and vocabularies of 1,000 words or more.
+- M03: real-time sentence WER against weeks since last training, without retraining, in more than one participant.
+- M05: electrode-dropping ablations on the chronic array.
+- M06: word classification against phoneme decoding on the same recordings.
 
-- Participant: 36-year-old man with anarthria and spastic quadriparesis after pontine stroke at age 20; 50 sessions over 81 weeks. (Methods, Participant; Discussion)
-- A 128-electrode 16 x 8 high-density ECoG array (4 mm spacing) was implanted subdurally over left sensorimotor cortex. (Methods, Implant Device)
-- Median real-time sentence WER was 25.6% with the language model and 60.5% without; chance was 92.1%; median rate 15.2 words per minute. (Results, Sentence Decoding; Fig. 2)
-- Offline isolated-word classification averaged 47.1% across 50 words (chance 2%) from about 22 hours of data (9,800 trials). (Results, Word Detection and Classification; Abstract)
-- Pipeline combines a speech-detection model, a 50-word classifier using 1 s before to 3 s after onset, and a language model via Viterbi decoding. (Methods, Modeling)
-- 98% of word attempts were detected, but 968 detections were spurious. (Results; Fig. S5 referenced)
-- Models performed consistently without daily or weekly recalibration and benefited from data spanning more than a year; these stability analyses were post hoc. (Results, Long-Term Stability; Fig. 4)
-- Single participant, 50-word vocabulary, and no independent use because of the percutaneous connector. (Discussion; Methods)
+## Questions for the authors
+
+- Do test sentences appear verbatim in the language-model training set, and how were the 50 chosen?
+- Were stability folds split by session or by trial, and how many training runs underlie each value?
+- Which data selected hyperparameters, ensembles and detection thresholds?
+- How were features normalised?
+- How was trial time defined for words per minute, and what was the WER of the conversational demonstration?
+
+## Appendix: literature search
+
+Ledger at wiki commit 730b0b4: 7,388 unique studies.
+
+**M06, closed-vocabulary-word-classification.** Inclusion rule: studies that decode words or utterances from non-acoustic signals by classifying each detected segment into a closed set of at most a few hundred words or utterances, with or without a language-model or context prior; open-vocabulary phoneme or character decoders are excluded unless they also report a closed-set word test; acoustic-only ASR is excluded. Ledger counts: 7,345 slot-filled unique studies; 360 pattern match (unique studies). Usual design: model family "other", 82 (slot-filled) of 355 with a record; CNN 35, HMM 25. Read in full: [[1]](#ref-1) (state of the art), [[3]](#ref-3) (prior). Known-item recall: 0.5.
+
+**M07, large-vocabulary-lm-for-neural-speech.** Inclusion rule: neural speech decoders that constrain output with a vocabulary of at least 1,000 words via an n-gram or neural language model at use time; 50-word or command sets count as small vocabulary; LLM rescoring counts. Ledger counts: 119 slot-filled unique studies (sparse slot); 1,162 pattern match (unique studies). Usual design: neural LLM rescoring, 152 (pattern match). Read in full: [[1]](#ref-1), [[4]](#ref-4) (state of the art), [[5]](#ref-5) (prior). Known-item recall: 1.0.
+
+**M05, ecog-speech-decoding.** Inclusion rule: papers that decode speech units, words, sentences or acoustics from ECoG in humans during produced, attempted, mimed or imagined speech; clinical and high-density grids, micro-ECoG, online or offline are included; intracortical, sEEG-only and listening-only studies are excluded. Ledger counts: 7,329 slot-filled unique studies; 253 pattern match (unique studies). Usual design: modalities = ECoG, 233 (slot-filled) of 246. Read in full: [[1]](#ref-1), [[4]](#ref-4) (state of the art). Known-item recall: 1.0.
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Card, N. S., Wairagkar, M., Iacobacci, C., Hou, X., Singer-Clark, T., Willett, F. R., et al. “An accurate and rapidly calibrating speech neuroprosthesis.” *New England Journal of Medicine*, 2024, 391(7), 609–618. doi:[10.1056/NEJMoa2314132](https://doi.org/10.1056/NEJMoa2314132). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/an-accurate-and-rapidly-calibrating-speech-neuroprosthesis) [wiki: doi-10.1056-nejmoa2314132](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1056-nejmoa2314132/article.md) [wiki: doi-10.1056-NEJMoa2314132](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1056-NEJMoa2314132/article.md) [wiki: pmc-11328962-rapidcal](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-11328962-rapidcal/article.md)
+2. <a id="ref-2"></a>Moses, D. A., Metzger, S. L., Liu, J. R., Anumanchipalli, G. K., Makin, J. G., Sun, P. F., et al. “Neuroprosthesis for decoding speech in a paralyzed person with anarthria.” *New England Journal of Medicine*, 2021, 385(3), 217–227. doi:[10.1056/NEJMoa2027540](https://doi.org/10.1056/NEJMoa2027540). [concurrent] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria) [wiki: doi-10.1056-nejmoa2027540](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1056-nejmoa2027540/article.md) [wiki: pmc-8972947-nejmspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-8972947-nejmspeech/article.md)
+3. <a id="ref-3"></a>Moses, D. A., Leonard, M. K., Makin, J. G., Chang, E. F. “Real-time decoding of question-and-answer speech dialogue using human cortical activity.” *Nature Communications*, 2019, 10, 3096. doi:[10.1038/s41467-019-10994-4](https://doi.org/10.1038/s41467-019-10994-4). [wiki: pmc-6667454-qa](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6667454-qa/article.md) [wiki: doi-10.1038-s41467-019-10994-4](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41467-019-10994-4/article.md) [wiki: pmc-6667454-qadecode](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6667454-qadecode/article.md) [wiki: pmc-6667454-qadialogue](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6667454-qadialogue/article.md)
+4. <a id="ref-4"></a>Metzger, S. L., Littlejohn, K. T., Silva, A. B., Moses, D. A., Seaton, M. P., Wang, R., et al. “A high-performance neuroprosthesis for speech decoding and avatar control.” *Nature*, 2023, 620, 1037–1046. doi:[10.1038/s41586-023-06443-4](https://doi.org/10.1038/s41586-023-06443-4). [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control) [wiki: doi-10.1038-s41586-023-06443-4](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41586-023-06443-4/article.md) [wiki: pmc-10826467-avatarnp](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10826467-avatarnp/article.md)
+5. <a id="ref-5"></a>Makin, J. G., Moses, D. A., Chang, E. F. “Machine translation of cortical activity to text with an encoder-decoder framework.” *Nature Neuroscience*, 2020, 23, 575–582. doi:[10.1038/s41593-020-0608-8](https://doi.org/10.1038/s41593-020-0608-8). [wiki: doi-10.1038-s41593-020-0608-8](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41593-020-0608-8/article.md) [wiki: pmc-10560395-makin](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10560395-makin/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M05/ecog-speech-decoding.csv`](../../components/M05/ecog-speech-decoding.csv): M05 topic "ecog-speech-decoding", every candidate paper with its decision (7329 slot-filled, 253 pattern match, usual design in 233, 3 read in full)
+- [`components/M06/closed-vocabulary-word-classification.csv`](../../components/M06/closed-vocabulary-word-classification.csv): M06 topic "closed-vocabulary-word-classification", every candidate paper with its decision (7345 slot-filled, 360 pattern match, usual design in 82, 2 read in full)
+- [`components/M07/large-vocabulary-lm-for-neural-speech.csv`](../../components/M07/large-vocabulary-lm-for-neural-speech.csv): M07 topic "large-vocabulary-lm-for-neural-speech", every candidate paper with its decision (119 slot-filled, 1162 pattern match, usual design in 152, 4 read in full)
+
 
 ## More reviews in Brain signals (EEG, MEG, intracortical)
 

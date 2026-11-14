@@ -1,7 +1,7 @@
-# Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria
+# Neuroprosthesis for decoding speech in a paralyzed person with anarthria
 
 **This review has moved to [reviews/neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria/](neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria/).**
 
-ECoG speech neuroprosthesis in a man with anarthria decodes attempted sentences from a 50-word vocabulary in real time: median 25.6% WER with a language model at 15.2 words per minute.
+Sentence decoding from a person who cannot speak holds for 50 words and one participant; the decoder is standard, and an LM restricted to the test vocabulary drives the gain.
 
 [Read the full review](neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria/) · [All reviews](../README.md)

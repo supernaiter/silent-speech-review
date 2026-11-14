@@ -60,6 +60,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition | 2022 | Ledger M06 |
 | Reliability-Based Large-Vocabulary Audio-Visual Speech Recognition | 2022 | §3 |
 
+## closed-vocabulary-word-classification
+
+- Table: [`closed-vocabulary-word-classification.csv`](closed-vocabulary-word-classification.csv) (7345 slot-filled, 360 pattern match, usual design in 82, 2 read in full)
+- Inclusion rule: Studies that decode words or utterances from non-acoustic signals (neural, EMG, articulatory, video) by classifying each detected segment into a closed set of at most a few hundred words or utterances, with or without a language-model or context prior over the sequence. Boundary: open-vocabulary phoneme or character decoders are excluded unless they also report a closed-set word test; acoustic-only ASR is excluded.
+- Used in: [Neuroprosthesis for decoding speech in a paralyzed person with anarthria](../../reviews/neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria/)
+
 ## ctc-vs-attention
 
 - Table: [`ctc-vs-attention.csv`](ctc-vs-attention.csv) (3 confirmed, 42 candidates read, 128 unread)

@@ -155,7 +155,7 @@ Data behind this review. Full texts of the papers are not included.
 - [`figures.json`](figures.json): figure definitions
 - [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
 - [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
-- [`components/M05/ecog-speech-decoding.csv`](../../components/M05/ecog-speech-decoding.csv): M05 topic "ecog-speech-decoding", every candidate paper with its decision (7329 slot-filled, 253 pattern match, usual design in 233, 2 read in full)
+- [`components/M05/ecog-speech-decoding.csv`](../../components/M05/ecog-speech-decoding.csv): M05 topic "ecog-speech-decoding", every candidate paper with its decision (7329 slot-filled, 253 pattern match, usual design in 233, 3 read in full)
 - [`components/M06/phoneme-rnn-ctc-lm-decoding.csv`](../../components/M06/phoneme-rnn-ctc-lm-decoding.csv): M06 topic "phoneme-rnn-ctc-lm-decoding", every candidate paper with its decision (7345 slot-filled, 97 pattern match, usual design in 61, 3 read in full)
 - [`components/M07/large-vocabulary-lm-for-neural-speech.csv`](../../components/M07/large-vocabulary-lm-for-neural-speech.csv): M07 topic "large-vocabulary-lm-for-neural-speech", every candidate paper with its decision (119 slot-filled, 1162 pattern match, usual design in 152, 4 read in full)
 - [`components/M08/neural-speech-synthesis.csv`](../../components/M08/neural-speech-synthesis.csv): M08 topic "neural-speech-synthesis", every candidate paper with its decision (3268 slot-filled, 35 pattern match, usual design in 11, 2 read in full)
