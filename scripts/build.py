@@ -329,7 +329,7 @@ def topics():
 
 def tally_line(d):
     t = d.get("tally", {})
-    if "slot_filled_unique" in t:
+    if "usual_approach" in t:
         ua = t.get("usual_approach") or {}
         parts = [f"{t['slot_filled_unique']} slot-filled", f"{t.get('string_match_unique', 0)} pattern match"]
         if ua.get("n") is not None:

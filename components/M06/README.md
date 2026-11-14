@@ -4,7 +4,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## articulatory-intermediate
 
-- Table: [`articulatory-intermediate.csv`](articulatory-intermediate.csv) (7345 slot-filled, 12 pattern match, 44 read in full)
+- Table: [`articulatory-intermediate.csv`](articulatory-intermediate.csv) (4 confirmed, 44 candidates read, 0 unread)
 - Inclusion rule: Include studies with a decoding pathway that first decodes an explicit articulatory representation (measured or estimated movement trajectories of the articulators, articulatory features or phonological categories) from non-acoustic signals (neural activity, EMG, video, ultrasound, etc.) and then converts it in a next stage to acoustic features, speech waveforms or symbol sequences. Boundary: exclude those whose input itself is an articulatory measurement (EMA, PMA, ultrasound) and that do not decode an articulatory representation as an intermediate. Exclude those that estimate articulation from acoustics and then return to speech (acoustic input). Exclude those that use articulation only as an auxiliary loss or regularization without placing it in the middle of the pathway. Exclude those that only decode an articulatory representation with no next stage. Exclude mentions in reviews or citations only. Count different versions of the same study as one item.
 - Used in: [Speech synthesis from neural decoding of spoken sentences](../../reviews/speech-synthesis-from-neural-decoding-of-spoken-sentences/)
 
@@ -17,7 +17,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## attention-seq2seq-decoding
 
-- Table: [`attention-seq2seq-decoding.csv`](attention-seq2seq-decoding.csv) (7345 slot-filled, 210 pattern match, 115 read in full)
+- Table: [`attention-seq2seq-decoding.csv`](attention-seq2seq-decoding.csv) (36 confirmed, 115 candidates read, 441 unread)
 - Inclusion rule: Include studies that autoregressively output symbol sequences such as characters, words or phonemes from non-audio input such as video, biosignals or neural signals (including combined audio-visual input) with an attention-based encoder-decoder (including sequence-to-sequence and Transformer decoders), and report evaluation results. Boundary: exclude those that use attention only for feature extraction or word classification, and those that use only CTC (including Transformer encoder + CTC). Exclude those whose output is speech features (speech synthesis). The CTC-attention combination (hybrid) has an attention decoder and is included. Audio-only ASR is outside the wiki and out of scope. Count different versions of the same study as one item.
 - Used in: [Lip Reading Sentences in the Wild](../../reviews/lip-reading-sentences-in-the-wild/)
 
@@ -62,7 +62,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## ctc-vs-attention
 
-- Table: [`ctc-vs-attention.csv`](ctc-vs-attention.csv) (7345 slot-filled, 114 pattern match, 42 read in full)
+- Table: [`ctc-vs-attention.csv`](ctc-vs-attention.csv) (3 confirmed, 42 candidates read, 128 unread)
 - Inclusion rule: Include studies that train, on the same input front end (visual, biosignal, or audio-visual), both a decoder trained with CTC and an attention/sequence-to-sequence decoder (seq2seq or Transformer decoder) and compare the results side by side. Boundary: exclude those that use only the CTC-attention combination (hybrid) with no result for either alone. Exclude comparisons that only list numbers from other papers. Audio-only ASR is outside the wiki and out of scope. Count different versions of the same study as one item.
 - Used in: [Deep Audio-Visual Speech Recognition](../../reviews/deep-audio-visual-speech-recognition/)
 

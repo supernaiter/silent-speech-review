@@ -4,7 +4,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## overt-to-silent-transfer
 
-- Table: [`overt-to-silent-transfer.csv`](overt-to-silent-transfer.csv) (5595 slot-filled, 33 pattern match, 104 read in full)
+- Table: [`overt-to-silent-transfer.csv`](overt-to-silent-transfer.csv) (23 confirmed, 104 candidates read, 0 unread)
 - Inclusion rule: Include studies that apply a decoder trained only on overt (or attempted overt) speech to silent speech (mouthed, silently articulated, inner or imagined speech) without retraining and report the results. Any signal qualifies (neural, EMG, ultrasound, video, etc.). Boundary: those that also train on silent data (such as methods that transfer audible-side targets) are included if they separately report an audible-training-only baseline condition. Exclude those that use an audible model only for time alignment or initialization of silent data. Exclude transfer between whispered and normal voice in acoustic speech. Exclude transfer from listening (perception) to inner speech. Exclude those that only analyse similarity of neural activity without applying a decoder. Exclude matches in reviews or citations only. Count different versions of the same study as one item.
 - Used in: [Speech synthesis from neural decoding of spoken sentences](../../reviews/speech-synthesis-from-neural-decoding-of-spoken-sentences/)
 

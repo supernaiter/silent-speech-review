@@ -4,7 +4,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## in-the-wild-sentence-benchmark
 
-- Table: [`in-the-wild-sentence-benchmark.csv`](in-the-wild-sentence-benchmark.csv) (234 slot-filled, 271 pattern match, 49 read in full)
+- Table: [`in-the-wild-sentence-benchmark.csv`](in-the-wild-sentence-benchmark.csv) (5 confirmed, 49 candidates read, 293 unread)
 - Inclusion rule: Include studies that build sentence- or phrase-level audio-visual data with automatically generated transcriptions from video with uncontrolled recording conditions, such as broadcast, YouTube or TED, and define a test split for evaluation (record how the split was made). Boundary: exclude word-level data (LRW, LRW-1000). Exclude those that only reuse existing data or only add training data (no test split defined). Count different versions of the same study as one item.
 - Used in: [Deep Audio-Visual Speech Recognition](../../reviews/deep-audio-visual-speech-recognition/), [Lip Reading Sentences in the Wild](../../reviews/lip-reading-sentences-in-the-wild/)
 

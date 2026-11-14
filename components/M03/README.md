@@ -4,7 +4,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## length-curriculum
 
-- Table: [`length-curriculum.csv`](length-curriculum.csv) (1526 slot-filled, 39 pattern match, 71 read in full)
+- Table: [`length-curriculum.csv`](length-curriculum.csv) (18 confirmed, 71 candidates read, 5 unread)
 - Inclusion rule: Include studies that train a sequence-output decoder with a procedure that starts from examples of short units (words, short segments) and grows the input sequence length as training proceeds (moving to sentences, long segments). Boundary: exclude curricula that only progressively change noise level, difficulty or data amount. A two-stage procedure that pretrains on words and then retrains on sentences is included if it is described as an explicit procedure moving from short to long units. Include studies that actually use the procedure, not only those that say they inherited a predecessor's procedure. Count different versions of the same study as one item.
 - Used in: [Lip Reading Sentences in the Wild](../../reviews/lip-reading-sentences-in-the-wild/)
 
