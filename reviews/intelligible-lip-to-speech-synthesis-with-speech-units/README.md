@@ -3,7 +3,7 @@
 Jeongsoo Choi, Minsu Kim, Yong Man Ro  
 Interspeech 2023 · [arXiv](https://arxiv.org/abs/2305.19603)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Intelligible Lip-to-Speech Synthesis with Speech Units* (Jeongsoo Choi et al., Interspeech 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

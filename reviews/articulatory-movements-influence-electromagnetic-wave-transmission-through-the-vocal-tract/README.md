@@ -3,7 +3,7 @@
 Remi Blandin, Martin Laabs, Rudolf von Bunau, Bryn Lloyd, Silvia Farcito, Denys Nikolayev, Gabriela Hossu, Peter Birkholz, Dirk Plettemeier  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2604.19362)
 
-**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Review basis:** full_text+summary
+**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Articulatory movements influence electromagnetic wave transmission through the vocal tract* (Remi Blandin et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

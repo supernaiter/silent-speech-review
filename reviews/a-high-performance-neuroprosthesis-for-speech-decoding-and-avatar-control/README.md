@@ -3,7 +3,7 @@
 Sean L. Metzger, Kaylo T. Littlejohn, Alexander B. Silva, David A. Moses, Margaret P. Seaton, Ran Wang, Maximilian E. Dougherty, Jessie R. Liu, Peter Wu, Michael A. Berger, Inga Zhuravleva, Adelyn Tu-Chan, Karunesh Ganguly, Gopala K. Anumanchipalli, Edward F. Chang  
 Nature 620(7976):1037-1046 2023 · [DOI](https://doi.org/10.1038/s41586-023-06443-4)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *A high-performance neuroprosthesis for speech decoding and avatar control* (Sean L. Metzger et al., Nature 620(7976):1037-1046 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

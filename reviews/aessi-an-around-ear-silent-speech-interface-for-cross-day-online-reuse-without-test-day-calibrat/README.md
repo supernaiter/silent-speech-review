@@ -3,7 +3,7 @@
 Xiran Xu, Mochu Dong, Yujie Yan, Chenxi Wang, Yu Jiao, Jing Chen  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2609.21436)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration* (Xiran Xu et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

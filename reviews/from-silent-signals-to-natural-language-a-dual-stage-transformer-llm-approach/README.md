@@ -3,7 +3,7 @@
 Nithyashree Sivasubramaniam  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2509.04507)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach* (Nithyashree Sivasubramaniam, arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

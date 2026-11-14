@@ -3,7 +3,7 @@
 Disong Wang, Shan Yang, Dan Su, Xunying Liu, Dong Yu, Helen Meng  
 arXiv 2022 · [arXiv](https://arxiv.org/abs/2202.09081)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *VCVTS: Multi-speaker Video-to-Speech synthesis via cross-modal knowledge transfer from voice conversion* (Disong Wang et al., arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Bowen Shi, Wei-Ning Hsu, Kushal Lakhotia, Abdelrahman Mohamed  
 ICLR 2022 / arXiv · [arXiv](https://arxiv.org/abs/2201.02184)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction* (Bowen Shi et al., ICLR 2022 / arXiv) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

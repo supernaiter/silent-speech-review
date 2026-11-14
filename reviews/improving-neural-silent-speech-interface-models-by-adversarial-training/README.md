@@ -3,7 +3,7 @@
 Amin Honarmandi Shandiz, László Tóth, Gábor Gosztolya, Alexandra Markó, Tamás Gábor Csapó  
 arXiv 2021 · [DOI](https://doi.org/10.1007/978-3-030-76346-6_39) · [arXiv](https://arxiv.org/abs/2104.11601)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Improving Neural Silent Speech Interface Models by Adversarial Training* (Amin Honarmandi Shandiz et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

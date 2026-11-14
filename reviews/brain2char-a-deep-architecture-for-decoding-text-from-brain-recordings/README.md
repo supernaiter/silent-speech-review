@@ -3,7 +3,7 @@
 Pengfei Sun, Gopala K. Anumanchipalli, Edward F. Chang  
 arXiv 2019 · [arXiv](https://arxiv.org/abs/1909.01401)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+structured_benchmark+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Brain2Char: A Deep Architecture for Decoding Text from Brain Recordings* (Pengfei Sun et al., arXiv 2019) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Rodrigo Mira, Alexandros Haliassos, Stavros Petridis, Björn W. Schuller, Maja Pantic  
 arXiv 2022 · [arXiv](https://arxiv.org/abs/2205.02058)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *SVTS: Scalable Video-to-Speech Synthesis* (Rodrigo Mira et al., arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

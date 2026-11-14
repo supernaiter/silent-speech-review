@@ -3,7 +3,7 @@
 Amin Honarmandi Shandiz, László Tóth  
 arXiv 2022 · [arXiv](https://arxiv.org/abs/2206.12947)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convolutional Networks* (Amin Honarmandi Shandiz and László Tóth, arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

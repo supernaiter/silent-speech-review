@@ -3,7 +3,7 @@
 László Tóth, Amin Honarmandi Shandiz, Gábor Gosztolya, Tamás Gábor Csapó  
 the Proceedings of Interspeech 2023 · [DOI](https://doi.org/10.21437/Interspeech.2023-1607) · [arXiv](https://arxiv.org/abs/2305.19130)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text+structured_benchmark+summary
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks* (László Tóth et al., the Proceedings of Interspeech 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

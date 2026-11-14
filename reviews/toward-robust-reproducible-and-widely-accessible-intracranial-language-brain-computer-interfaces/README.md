@@ -3,7 +3,7 @@
 Dongyi He, Wai Ting Siok, Nizhuan Wang  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2603.12279)
 
-**Section:** [Surveys](../../README.md#surveys) · **Review basis:** full_text+summary
+**Section:** [Surveys](../../README.md#surveys) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Toward Robust, Reproducible, and Widely Accessible Intracranial Language Brain-Computer Interfaces: A Comprehensive Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions* (Dongyi He et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

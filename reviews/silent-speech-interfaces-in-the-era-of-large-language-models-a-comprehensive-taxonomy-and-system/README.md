@@ -3,7 +3,7 @@
 Kele Xu, Yifan Wang, Ming Feng, Qisheng Xu, Wuyang Chen, Yutao Dou, Cheng Yang, Huaimin Wang  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2603.11877)
 
-**Section:** [Surveys](../../README.md#surveys) · **Review basis:** full_text+summary
+**Section:** [Surveys](../../README.md#surveys) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review* (Kele Xu et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

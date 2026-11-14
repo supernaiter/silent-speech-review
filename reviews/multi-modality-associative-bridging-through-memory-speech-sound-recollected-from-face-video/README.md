@@ -3,7 +3,7 @@
 Minsu Kim, Joanna Hong, Se Jin Park, Yong Man Ro  
 arXiv 2022 · [arXiv](https://arxiv.org/abs/2204.01265)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video* (Minsu Kim et al., arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

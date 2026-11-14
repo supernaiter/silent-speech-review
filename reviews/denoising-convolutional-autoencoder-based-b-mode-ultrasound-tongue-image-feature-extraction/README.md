@@ -3,7 +3,7 @@
 Bo Li, Kele Xu, Dawei Feng, Haibo Mi, Huaimin Wang, Jian Zhu  
 arXiv 2019 · [arXiv](https://arxiv.org/abs/1903.00888)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text+structured_benchmark+summary
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Denoising convolutional autoencoder based B-mode ultrasound tongue image feature extraction* (Bo Li et al., arXiv 2019) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

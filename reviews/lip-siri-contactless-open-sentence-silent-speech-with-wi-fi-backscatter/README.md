@@ -3,7 +3,7 @@
 Ye Tian, Haohua Du, Chao Gu, Junyang Zhang, Shanyue Wang, Hao Zhou, Jiahui Hou, Xiang-Yang Li  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2601.18177)
 
-**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Review basis:** full_text+summary
+**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter* (Ye Tian et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

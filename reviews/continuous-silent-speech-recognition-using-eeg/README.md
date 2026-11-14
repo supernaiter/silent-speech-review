@@ -3,7 +3,7 @@
 Gautam Krishna, Co Tran, Mason Carnahan, Ahmed H Tewfik  
 arXiv 2020 · [arXiv](https://arxiv.org/abs/2002.03851)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Continuous Silent Speech Recognition using EEG* (Gautam Krishna et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

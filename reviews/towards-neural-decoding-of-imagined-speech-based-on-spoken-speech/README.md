@@ -3,7 +3,7 @@
 Seo-Hyun Lee, Young-Eun Lee, Soowon Kim, Byung-Kwan Ko, Seong-Whan Lee  
 arXiv 2022 · [arXiv](https://arxiv.org/abs/2212.02047)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Towards Neural Decoding of Imagined Speech based on Spoken Speech* (Seo-Hyun Lee et al., arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

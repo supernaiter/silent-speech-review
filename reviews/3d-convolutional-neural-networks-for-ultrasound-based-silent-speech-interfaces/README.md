@@ -3,7 +3,7 @@
 László Tóth, Amin Honarmandi Shandiz  
 arXiv 2021 · [DOI](https://doi.org/10.1007/978-3-030-61401-0_16) · [arXiv](https://arxiv.org/abs/2104.11532)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Review basis:** full_text
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces* (László Tóth and Amin Honarmandi Shandiz, arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

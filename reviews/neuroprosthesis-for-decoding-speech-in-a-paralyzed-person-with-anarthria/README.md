@@ -3,7 +3,7 @@
 David A. Moses, Sean L. Metzger, Jessie R. Liu, Gopala K. Anumanchipalli, Joseph G. Makin, Pengfei F. Sun, Josh Chartier, Maximilian E. Dougherty, Patricia M. Liu, Gary M. Abrams, Adelyn Tu-Chan, Karunesh Ganguly, Edward F. Chang  
 New England Journal of Medicine 385(3) 2021 · [DOI](https://doi.org/10.1056/NEJMoa2027540)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria* (David A. Moses et al., New England Journal of Medicine 385(3) 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

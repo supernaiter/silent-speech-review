@@ -3,7 +3,7 @@
 Jarod Lévy, Mingfang (Lucy) Zhang, Svetlana Pinet, Jérémy Rapin, Hubert Banville, Stéphane d'Ascoli, Jean-Rémi King  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2502.17480)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Brain-to-Text Decoding: A Non-invasive Approach via Typing* (Jarod Lévy et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

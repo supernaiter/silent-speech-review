@@ -3,7 +3,7 @@
 Lin Chen, Jingping Fang, Hairui Liu, Chenyang Xu, Junhao Chen, Xiaorui Li, Weidong Cai, Xiaoming Chen  
 ECCV 2026 · [DOI](https://doi.org/10.1007/978-3-032-37281-9_8) · [arXiv](https://arxiv.org/abs/2606.31225)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR* (Lin Chen et al., ECCV 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

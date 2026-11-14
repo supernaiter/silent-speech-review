@@ -3,7 +3,7 @@
 Laxmi Pandey, Ahmed Sabbir Arif  
 arXiv 2021 · [arXiv](https://arxiv.org/abs/2106.08706)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI* (Laxmi Pandey and Ahmed Sabbir Arif, arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

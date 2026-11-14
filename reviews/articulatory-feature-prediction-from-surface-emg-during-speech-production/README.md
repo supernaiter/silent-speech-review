@@ -3,7 +3,7 @@
 Jihwan Lee, Kevin Huang, Kleanthis Avramidis, Simon Pistrosch, Monica Gonzalez-Machorro, Yoonjeong Lee, Björn Schuller, Louis Goldstein, Shrikanth Narayanan  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2505.13814)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Articulatory Feature Prediction from Surface EMG during Speech Production* (Jihwan Lee et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

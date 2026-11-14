@@ -3,7 +3,7 @@
 Bruce Denby, Tanja Schultz, Kiyoshi Honda, Thomas Hueber, James M. Gilbert, Jonathan S. Brumberg  
 Speech Communication 52(4), 270-287 2010 · [DOI](https://doi.org/10.1016/j.specom.2009.08.002)
 
-**Section:** [Surveys](../../README.md#surveys) · **Review basis:** full_text
+**Section:** [Surveys](../../README.md#surveys) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Silent speech interfaces* (Bruce Denby et al., Speech Communication 52(4), 270-287 2010) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Jinzhao Zhou, Zehong Cao, Yiqun Duan, Connor Barkley, Daniel Leong, Xiaowei Jiang, Quoc-Toan Nguyen, Ziyi Zhao, Thomas Do, Yu-Cheng Chang, Sheng-Fu Liang, Chin-teng Lin  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2504.21214)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Pretraining Large Brain Language Model for Active BCI: Silent Speech* (Jinzhao Zhou et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

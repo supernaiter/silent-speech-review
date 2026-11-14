@@ -3,7 +3,7 @@
 Jaejun Lee, Yoori Oh, Kyogu Lee  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2602.01879)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only* (Jaejun Lee et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Triantafyllos Kefalas, Yannis Panagakis, Maja Pantic  
 arXiv 2023 · [arXiv](https://arxiv.org/abs/2306.15464)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Large-scale unsupervised audio pre-training for video-to-speech synthesis* (Triantafyllos Kefalas et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

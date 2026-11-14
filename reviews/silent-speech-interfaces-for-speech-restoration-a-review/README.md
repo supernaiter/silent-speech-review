@@ -3,7 +3,7 @@
 Jose A. Gonzalez-Lopez, Alejandro Gomez-Alanis, Juan M. Martin-Donas, Jose L. Perez-Cordoba, Angel M. Gomez  
 arXiv 2020 · [DOI](https://doi.org/10.1109/ACCESS.2020.3026579) · [arXiv](https://arxiv.org/abs/2009.02110)
 
-**Section:** [Surveys](../../README.md#surveys) · **Review basis:** full_text
+**Section:** [Surveys](../../README.md#surveys) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Silent Speech Interfaces for Speech Restoration: A Review* (Jose A. Gonzalez-Lopez et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

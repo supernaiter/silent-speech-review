@@ -3,7 +3,7 @@
 Alexandre Défossez, Charlotte Caucheteux, Jérémy Rapin, Ori Kabeli, Jean-Rémi King  
 Nature Machine Intelligence 5:1097-1107 2023 · [DOI](https://doi.org/10.1038/s42256-023-00714-5) · [arXiv](https://arxiv.org/abs/2208.12266)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Decoding speech perception from non-invasive brain recordings* (Alexandre Défossez et al., Nature Machine Intelligence 5:1097-1107 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Sara Kashiwagi, Keitaro Tanaka, Qi Feng, Shigeo Morishima  
 Interspeech 2023 · [DOI](https://doi.org/10.21437/Interspeech.2023-370) · [arXiv](https://arxiv.org/abs/2305.14203)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning* (Sara Kashiwagi et al., Interspeech 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

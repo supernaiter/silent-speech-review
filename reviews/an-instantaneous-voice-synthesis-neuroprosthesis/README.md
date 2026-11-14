@@ -3,7 +3,7 @@
 Maitreyee Wairagkar, Nicholas S. Card, Tyler Singer-Clark, Xianda Hou, Carrina Iacobacci, Lee M. Miller, Leigh R. Hochberg, David M. Brandman, Sergey D. Stavisky  
 Nature 644(8075):145-152 2025 · [DOI](https://doi.org/10.1038/s41586-025-09127-3)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+secondary_sources
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *An instantaneous voice-synthesis neuroprosthesis* (Maitreyee Wairagkar et al., Nature 644(8075):145-152 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

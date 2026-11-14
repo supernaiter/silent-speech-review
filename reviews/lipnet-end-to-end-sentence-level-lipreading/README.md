@@ -3,7 +3,7 @@
 Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, Nando de Freitas  
 arXiv 2016 · [arXiv](https://arxiv.org/abs/1611.01599)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *LipNet: End-to-End Sentence-level Lipreading* (Yannis M. Assael et al., arXiv 2016) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

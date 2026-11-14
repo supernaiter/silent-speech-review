@@ -3,7 +3,7 @@
 Ji-Ha Park, Heon-Gyu Kwak, Gi-Hwan Shin, Yoo-In Jeon, Sun-Min Park, Ji-Yeon Hwang, Seong-Whan Lee  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2511.07936)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System* (Ji-Ha Park et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

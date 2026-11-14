@@ -3,7 +3,7 @@
 Daniel Michelsanti, Olga Slizovskaia, Gloria Haro, Emilia Gomez, Zheng-Hua Tan, Jesper Jensen  
 arXiv 2020 · [arXiv](https://arxiv.org/abs/2004.02541)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Vocoder-Based Speech Synthesis from Silent Videos* (Daniel Michelsanti et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

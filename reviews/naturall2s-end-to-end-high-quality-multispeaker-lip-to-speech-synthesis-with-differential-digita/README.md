@@ -3,7 +3,7 @@
 Yifan Liang, Fangkun Liu, Andong Li, Xiaodong Li, Chengshi Zheng  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2502.12002)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *NaturalL2S: End-to-End High-quality Multispeaker Lip-to-Speech Synthesis with Differential Digital Signal Processing* (Yifan Liang et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

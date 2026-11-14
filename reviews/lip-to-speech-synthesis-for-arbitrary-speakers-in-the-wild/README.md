@@ -3,7 +3,7 @@
 Sindhu B Hegde, K R Prajwal, Rudrabha Mukhopadhyay, Vinay P Namboodiri, C. V. Jawahar  
 arXiv 2022 · [DOI](https://doi.org/10.1145/3503161.3548081) · [arXiv](https://arxiv.org/abs/2209.00642)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild* (Sindhu B Hegde et al., arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

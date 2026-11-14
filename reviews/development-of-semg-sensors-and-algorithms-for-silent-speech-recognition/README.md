@@ -3,7 +3,7 @@
 Geoffrey S. Meltzner, James T. Heaton, Yunbin Deng, Gianluca De Luca, Serge H. Roy, Joshua C. Kline  
 Journal of Neural Engineering 15(4), 046031 2018 · [DOI](https://doi.org/10.1088/1741-2552/aac965)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** abstract
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Development of sEMG sensors and algorithms for silent speech recognition* (Geoffrey S. Meltzner et al., Journal of Neural Engineering 15(4), 046031 2018) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

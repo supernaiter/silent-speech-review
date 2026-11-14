@@ -3,7 +3,7 @@
 Maryam Maghsoudi, Mohsen Rezaeizadeh, Shihab Shamma  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2512.03458)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses* (Maryam Maghsoudi et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

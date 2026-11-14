@@ -3,7 +3,7 @@
 Sunghwa Lee, Younghoon Shin, Myungjong Kim, Jiwon Seo  
 IEEE Access 2023 · [DOI](https://doi.org/10.1109/ACCESS.2023.3344177) · [arXiv](https://arxiv.org/abs/2312.09572)
 
-**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Review basis:** full_text
+**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases* (Sunghwa Lee et al., IEEE Access 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Junchen Lu, Berrak Sisman, Rui Liu, Mingyang Zhang, Haizhou Li  
 arXiv 2022 · [arXiv](https://arxiv.org/abs/2110.03342)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *VisualTTS: TTS with Accurate Lip-Speech Synchronization for Automatic Voice Over* (Junchen Lu et al., arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

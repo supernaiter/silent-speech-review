@@ -3,7 +3,7 @@
 Jae Moon, Silvia Orlandi, Tom Chau  
 arXiv 2020 · [arXiv](https://arxiv.org/abs/2009.02816)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *A comparison of oscillatory characteristics in covert speech and speech perception* (Jae Moon et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

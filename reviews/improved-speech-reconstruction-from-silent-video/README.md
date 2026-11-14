@@ -3,7 +3,7 @@
 Ariel Ephrat, Tavi Halperin, Shmuel Peleg  
 arXiv 2017 · [arXiv](https://arxiv.org/abs/1708.01204)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Improved Speech Reconstruction from Silent Video* (Ariel Ephrat et al., arXiv 2017) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

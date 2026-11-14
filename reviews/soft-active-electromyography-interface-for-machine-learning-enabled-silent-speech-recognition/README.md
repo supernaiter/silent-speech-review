@@ -3,7 +3,7 @@
 Yuta Kurotaki, Shusuke Yamakoshi, Reitaro Yoshida, Yutaka Isoda, Tamami Takano, Yuji Isano, Yusuke Miyake, Kentaro Kuribayashi, Hiroki Ota  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2608.27048)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Soft Active Electromyography Interface for Machine Learning-Enabled Silent Speech Recognition* (Yuta Kurotaki et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

@@ -3,7 +3,7 @@
 Jun Rekimoto, Yu Nishimura, Bojian Yang  
 CHI '26 / arXiv · [DOI](https://doi.org/10.1145/3772318.3791397) · [arXiv](https://arxiv.org/abs/2603.10324)
 
-**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text+existing_expert_seed
+**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction* (Jun Rekimoto et al., CHI '26 / arXiv) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

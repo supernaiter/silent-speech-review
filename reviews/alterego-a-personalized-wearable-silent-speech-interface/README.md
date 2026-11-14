@@ -3,7 +3,7 @@
 Arnav Kapur, Shreyas Kapur, Pattie Maes  
 Proceedings of the 23rd International Conference on Intelligent User Interfaces (IUI '18), pp. 43-53 · [DOI](https://doi.org/10.1145/3172944.3172977)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** abstract+secondary_sources
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *AlterEgo: A Personalized Wearable Silent Speech Interface* (Arnav Kapur et al., Proceedings of the 23rd International Conference on Intelligent User Interfaces (IUI '18), pp. 43-53) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

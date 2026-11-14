@@ -3,7 +3,7 @@
 Huiyan Li, Haohong Lin, You Wang, Hengyang Wang, Ming Zhang, Han Gao, Qing Ai, Zhiyuan Luo, Guang Li  
 arXiv 2022 · [arXiv](https://arxiv.org/abs/2108.00190)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language* (Huiyan Li et al., arXiv 2022) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

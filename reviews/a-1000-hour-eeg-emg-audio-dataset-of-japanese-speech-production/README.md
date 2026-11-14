@@ -3,7 +3,7 @@
 Motoshige Sato, Ilya Horiguchi, Masakazu Inoue, Kenichi Tomeoka, Eri Hatakeyama, Yuya Kita, Atsushi Yamamoto, Ippei Fujisawa, Shuntaro Sasai  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2606.01264)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *A 1000-hour EEG-EMG-audio dataset of Japanese speech production* (Motoshige Sato et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

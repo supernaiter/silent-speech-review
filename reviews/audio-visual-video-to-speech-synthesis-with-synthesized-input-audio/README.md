@@ -3,7 +3,7 @@
 Triantafyllos Kefalas, Yannis Panagakis, Maja Pantic  
 arXiv 2023 · [arXiv](https://arxiv.org/abs/2307.16584)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Audio-visual video-to-speech synthesis with synthesized input audio* (Triantafyllos Kefalas et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

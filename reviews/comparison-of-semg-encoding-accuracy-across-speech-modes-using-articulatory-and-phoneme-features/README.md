@@ -3,7 +3,7 @@
 Chenqian Le, Ruisi Li, Beatrice Fumagalli, Yasamin Esmaeili, Xupeng Chen, Amirhossein Khalilian-Gourtani, Tianyu He, Adeen Flinker, Yao Wang  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2604.18920)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Review basis:** full_text+summary
+**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features* (Chenqian Le et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

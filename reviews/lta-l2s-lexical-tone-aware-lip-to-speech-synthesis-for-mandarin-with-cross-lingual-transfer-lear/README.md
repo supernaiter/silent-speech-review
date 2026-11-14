@@ -3,7 +3,7 @@
 Kang Yang, Yifan Liang, Fangkun Liu, Zhenping Xie, Chengshi Zheng  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2509.25670)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text+summary
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning* (Kang Yang et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

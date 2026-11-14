@@ -3,7 +3,7 @@
 Nicholas S. Card, Maitreyee Wairagkar, Carrina Iacobacci, Xianda Hou, Tyler Singer-Clark, Francis R. Willett, Erin M. Kunz, Chaofei Fan, Maryam Vahdati Nia, Darrel R. Deo, Aparna Srinivasan, Eun Young Choi, Matthew F. Glasser, Leigh R. Hochberg, Jaimie M. Henderson, Kiarash Shahlaie, Sergey D. Stavisky, David M. Brandman  
 New England Journal of Medicine 391(7):609-618 2024 · [DOI](https://doi.org/10.1056/NEJMoa2314132)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *An Accurate and Rapidly Calibrating Speech Neuroprosthesis* (Nicholas S. Card et al., New England Journal of Medicine 391(7):609-618 2024) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

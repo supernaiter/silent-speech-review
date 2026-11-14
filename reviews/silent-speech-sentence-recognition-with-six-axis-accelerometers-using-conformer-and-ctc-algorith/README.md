@@ -3,7 +3,7 @@
 Yudong Xie, Zhifeng Han, Qinfan Xiao, Liwei Liang, Lu-Qi Tao, Tian-Ling Ren  
 arXiv 2025 · [arXiv](https://arxiv.org/abs/2502.17829)
 
-**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Review basis:** full_text+summary
+**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm* (Yudong Xie et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

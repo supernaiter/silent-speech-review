@@ -3,7 +3,7 @@
 Ravindra Yadav, Ashish Sardana, Vinay P Namboodiri, Rajesh M Hegde  
 arXiv 2020 · [arXiv](https://arxiv.org/abs/2011.07340)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Review basis:** full_text
+**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Speech Prediction in Silent Videos using Variational Autoencoders* (Ravindra Yadav et al., arXiv 2020) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 

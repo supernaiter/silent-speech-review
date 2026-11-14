@@ -3,7 +3,7 @@
 Owais Mujtaba Khanday, Mohamed Baha Ben Ticha, Sanae Belfrouh, Marc Ouellet, Jose A. Gonzalez-Lopez  
 arXiv 2026 · [arXiv](https://arxiv.org/abs/2607.27268)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Review basis:** full_text+summary
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
 A structured review of *Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding* (Owais Mujtaba Khanday et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
 
