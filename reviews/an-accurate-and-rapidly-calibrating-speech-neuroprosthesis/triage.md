@@ -1,34 +1,22 @@
-# Triage of the ChatGPT evaluation (2026-11-15, round 1)
+# Triage of the independent evaluation (2026-11-15, round 2)
 
-Source: an-accurate-and-rapidly-calibrating-speech-neuroprosthesis.eval-chatgpt.md. Checked by short passage searches in the target and named papers; new evidence entries c1-c4, w6, m3, p2, l3, y4, y5 added to notes.json (verify_quotes: 77 found, 0 missing).
+Source: an-accurate-and-rapidly-calibrating-speech-neuroprosthesis.eval.md (14 required fixes). Checked by short passage searches in the target and named papers. New evidence entries t61-t65 and p3 added to notes.json (verify_quotes: 83 found, 0 missing). Result: 11 applied, 2 rejected, 1 unverified. Gate after round 2: 0 FAIL, 1 WARN (9 papers read in full besides the target; budget 8).
 
 | # | Verdict | Evidence | Where applied |
 |---|---|---|---|
-| 1 | applied | "Best in the field" was wider than the evidence; 2.5% is final-session Copy Task WER (t8) | Verdict: "lowest online large-vocabulary WER among the topic's ledger candidates (Appendix)", Copy Task named |
-| 2 | applied | 213 + 260 sentences confirmed (c1, c2); sentence count is not calibration time | Verdict: "comparable to one day of T12's calibration sentences (inference)" |
-| 3 | rejected | 97.5% = 100 - 2.5 is already marked (inference); conversational measures already kept distinct | none |
-| 4 | rejected | "real advance" / "main advance" is the reviewer's position, backed by t13 and the M13 tally | none |
-| 5 | rejected | "over the course of 13 days of training-data collection" (m3, Metzger Results); counts are in the Appendix, absent from the compact only | claims.md mapping |
-| 6 | rejected | "We recorded 213 sentences over 30" minutes (c1); "an additional 260 sentences of training data" (c2) | claims.md mapping |
-| 7 | rejected | Arithmetic confirmed by the evaluator; the confound is already stated | none |
-| 8 | rejected | CORP = "Continual Online Recalibration with Pseudo-labels" (p2); "without Recalibration for 3 Months" (l3, title) | claims.md mapping |
-| 9 | rejected | "two in area 6v ... and two in area 44 (part of Broca's area)" (w6): half of T12's arrays | claims.md mapping |
-| 10 | rejected | Ledger tally in Appendix and audit M05 | none |
-| 11 | rejected | Area 4 targeted (c4); 55b named in the target's Discussion (t38); four arrays in T12 (w6) | claims.md mapping |
-| 12 | applied | "best" narrowed to "lowest ... among the topic's ledger candidates (Appendix)" | M05 State of the art |
-| 13 | applied | Offline confirmed (y5: ensembles "have not been tested in real-time settings"); T15 = this participant is not stated in the target | M05: "T15 data, this paper's participant (inference)"; "later gains come from the decoder" |
-| 14 | applied | 39 unique vs 21 slot-filled records mixed bases; audit gives 31 with a recorded design | M13 Usual approach: "of the 31 with a recorded design, 21 ... and 2 deployed" |
-| 15 | applied | Target wording is "self-paced"; a researcher launched the system (t47) | M13: "self-paced conversation" |
-| 16 | rejected | Three months from Luo title (l3); [concurrent] by date (Luo online 2023-10-24, target medRxiv 2024-04-10) | none |
-| 17 | rejected | Online prompted-sentence WER is the stated evaluation in both priors (w1, m2) | none |
-| 18 | applied | t55 is an absence in the main text only | M12: "the main text reports no training seeds" |
-| 19 | applied | Accuracy vs WER mixed in one comparison | M12: "99.6% accuracy ... to set against T12's 9.1% WER" |
-| 20 | rejected | Evaluator marks it correct | none |
-| 21 | rejected | Source: "1-2% word error rate when reading a paragraph" (target Discussion) | none |
-| 22 | applied | "most plausible driver" ranked placement without evidence | M05: "one candidate driver of the gain over T12, untested within the participant" |
-| 23 | rejected | Self-recalibration in [3] confirmed (p2); proposal tied to M13, handwriting stated in M03 | claims.md mapping |
-| 24 | unverified | Appendix counts and verdict rules were not in the compact; they come from the audits | verification_status |
-| F6 | rejected | Chronology: Fan 2023-11 and Luo 2023-10 are within 6 months of target first public 2024-04 (c3: NEJM text "based on a previously available preprint posted on medRxiv", April 10, 2024). Target's own [concurrent] label is a build artifact | verification_status |
-| F2-T15 | unverified | T15 identity inferred from Yoon et al. (y4) and the trial context; target text does not use the label | verification_status |
+| 1 | applied | Target: "a word error rate of 2.5% ... by session 15, and this approximate accuracy was maintained through session 84" (t61); abstract: "With further training data" (t3). The 23.8% to 2.5% gap crosses participant, placement, language models and accumulated data; home use does not lower WER | Verdict: causal "together they move" replaced; accumulated data and language models named as confounds; verdict.json position and short updated |
+| 2 | applied | 213 + 260 sentences (c1, c2) fall within T12's 260-480 per day (w3) | M03 Usual approach: "shrinks it" removed; Verdict: "a lower WER at a similar quantity, not less data" |
+| 3 | applied | Yoon: "deep ensembles have not been tested in real-time settings" (y5); 35.0% is a relative offline reduction (y1) | M05 State of the art: "later gains come from the decoder" replaced by "untested in real time, it does not rank against the online 2.5%" |
+| 4 | applied | Luo title: "without Recalibration for 3 Months" (l3); target: three 7.5-minute recalibrations on request | M13 State of the art: "extends vocabulary and duration, not recalibration-free use" |
+| 5 | applied | References partly from "asking the participant after the session what he meant to say" (t49); the bias is the reviewer's reasoning | Overreach bullet 2: "this can bias conversational WER downward (inference)" |
+| 6 | applied | Abstract Conclusions: "In an individual with ALS ... suitable to restore naturalistic communication after brief training" (t62), while 97.5% came "With further training data" (t3). The conclusion is scoped to one individual, so "read more generally" was imprecise | Overreach bullet 4 rewritten on the "brief training" vs "further training data" contrast |
+| 7 | rejected | Claim correct: "We implanted four microelectrode arrays ... into the left precentral gyrus" (t63); "Broadmann area 4 (primary motor cortex" and "and area 55b" (t64, t65, Discussion) | Quotes added to notes.json and claims.md row 11; sentence trimmed to "all four arrays (256 electrodes) on precentral gyrus, one each in area 4 and 55b" |
+| 8 | rejected | Claim correct: Fan 2023 abstract: "CORP achieved a stable decoding accuracy of 93.84% in an online handwriting iBCI task" (p3) | Quote added to notes.json and claims.md row 9 |
+| 9 | applied | Main text defers counts: "Error rates were aggregated over all evaluation sentences for each session (Section S1.09)"; the supplement is not in the fixed text. Session selection ("selected Conversation Mode sessions", t11) has no stated rule | M12 verdict narrowed to "the rule that selects Conversation sessions"; slots M12 note "Session selection unstated." |
+| 10 | applied | 7,329 is the topic's slot-filled total; 67 of 72 counts studies with a recorded modality (audit M05). Intracortical is an inclusion criterion | M05 Usual approach: "intracortical by inclusion"; placement (T12: two arrays in 6v, two in area 44, w6) given as the informative design |
+| 11 | applied | build_refs labels every reference except the first-cited one by date; the target was cited sixth and got [concurrent] | Verdict now cites the target first ("The paper [1]"); the target carries no label |
+| 12 | applied | Text calls home use the main advance while the table named only [4] | slots M13 sota: "248.3 h open vocabulary [1]; 3 months without recalibration, six commands [5]"; M13 State of the art names this paper for open-vocabulary home use |
+| 13 | applied | "52.9% and 32.3% of all Conversation Mode sentences were decoded correctly or mostly correctly" (t12) | Overreach bullet 1 gives both values; "only" removed |
+| 14 | unverified | Wairagkar et al. 2025 is in the wiki, but M08 (text and speech output) is inherited in this paper and that work was not read for this review | No change; recorded in verification_status (m08_later_voice_synthesis) |
 
-Counts: 9 applied, 13 rejected, 2 unverified (plus F6 rejected, counted in 16). Verdict classes unchanged; short verdict unchanged.
+Also trimmed for the body limit (7,276 to 6,979 characters): Verdict, M03 and M13 sentences shortened; the array-removal question dropped (it stays in What the field needs next, M05). Reference numbers shifted (target now [1]); claims.md regenerated, unchanged rows keep their mappings, changed rows mapped to notes entries.
