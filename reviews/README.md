@@ -5,6 +5,7 @@
 Each paper judged component by component against the usual approach and the state of the art.
 
 - [EMG-to-Speech with Fewer Channels](emg-to-speech-with-fewer-channels/) (2026). Halving EMG electrodes costs synthesis the same ~35% relative WER known from recognition; initialization helps, channel dropout does not, and a weak unrepeated baseline undercuts the ranking.
+- [An Accurate and Rapidly Calibrating Speech Neuroprosthesis](an-accurate-and-rapidly-calibrating-speech-neuroprosthesis/) (2024). Moves online large-vocabulary decoding to 2.5% WER and 248 h of home use; rapid calibration is a cross-study claim and the 97.5% conversation accuracy matches the Copy Task figure.
 - [A high-performance neuroprosthesis for speech decoding and avatar control](a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/) (2023). Text, voice and avatar from ECoG in one participant hold as a demonstration; sensor and decoder are standard, and an LM trained on the test pool inflates the text result.
 - [A high-performance speech neuroprosthesis](a-high-performance-speech-neuroprosthesis/) (2023). Large-vocabulary attempted-speech decoding in one participant holds; sensor, decoder and LM are now field standard, but the spiking attribution and cross-study ratios outrun the evidence.
 - [Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction](learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/) (2022). AV-HuBERT's masked audio-visual cluster pre-training (M03) was a large step past distillation, but its LRS3 gains lack repeated runs and later work beats it at matched budgets.
@@ -84,7 +85,6 @@ Earlier format: evaluation conditions, results and limitations per paper.
 - [Wireless Silent Speech Interface Using Multi-Channel Textile EMG Sensors Integrated into Headphones](wireless-silent-speech-interface-using-multi-channel-textile-emg-sensors-integrated-into-headpho/) (2025)
 - [emg2speech: Synthesizing speech from electromyography using self-supervised speech models](emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models/) (2025)
 - [Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset](advancing-nam-to-speech-conversion-with-novel-methods-and-the-multinam-dataset/) (2024)
-- [An Accurate and Rapidly Calibrating Speech Neuroprosthesis](an-accurate-and-rapidly-calibrating-speech-neuroprosthesis/) (2024)
 - [Unvoiced: Designing an LLM-assisted Unvoiced User Interface using Earables](unvoiced-designing-an-llm-assisted-unvoiced-user-interface-using-earables/) (2024)
 - [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks/) (2023)
 - [Audio Knowledge Empowered Visual Speech Recognition](akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model/) (2023)

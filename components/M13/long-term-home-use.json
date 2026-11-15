@@ -1,0 +1,693 @@
+{
+ "topic": "long-term-home-use",
+ "slot": "M13",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)(home|at-home|personal use|independent use|daily use|long-term|months)[^|]{0,200}(intracortical|microelectrode|ecog|electrocorticograph|neuroprosthes|brain-computer|BCI|sEEG)|(intracortical|microelectrode|ecog|electrocorticograph|neuroprosthes|brain-computer|BCI|sEEG)[^|]{0,200}(home use|at-home|personal use|independent use|long-term use)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Neural speech or communication BCIs evaluated in sustained use outside a single lab session: home use, independent or personal use, or follow-up of three months or more. Included: speech, command and handwriting BCIs used for communication. Excluded: offline re-analysis of archived data without new use; acoustic or optical silent-speech devices.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 6721,
+  "slot_filled_unique": 6075,
+  "string_match_folders": 43,
+  "string_match_unique": 39,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M13",
+  "design_slot_fill": 0.747,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "SystemConfiguration.system_lifecycle=implemented_evaluated",
+    "n": 21,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-9156039.v1",
+     "doi-10.64898-2026.03.02.709171",
+     "doi-10.64898-2026.06.02.729705",
+     "pmc-13633112-gesturedeco",
+     "pmc-12236888-bgate14"
+    ]
+   },
+   {
+    "design": "SystemConfiguration.system_lifecycle=deployed",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-9156039-v1",
+     "pmc-13375540-ibciterm"
+    ]
+   },
+   {
+    "design": "Risk.risk_kind=fairness",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969"
+    ]
+   },
+   {
+    "design": "Risk.risk_kind=consent",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969"
+    ]
+   },
+   {
+    "design": "system_name=care home smart speaker (multi-agent voice-enabled)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.23625"
+    ]
+   },
+   {
+    "design": "device_form_factor=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.23625"
+    ]
+   },
+   {
+    "design": "Risk.risk_kind=clinical",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.23625"
+    ]
+   },
+   {
+    "design": "system_name=braingate wireless broadband 192-channel ibci (bwd transmitter)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-tbme.2021.3069119"
+    ]
+   },
+   {
+    "design": "system_boundary=offline decoding of syllable identity only — no online text/speech output",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-9156039-v1"
+    ]
+   },
+   {
+    "design": "system_boundary=subdural ecog hg features -> eegnet -> 12-class syllable identity (offline)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-9156039.v1"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "months_followup",
+    "n": 23,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.21203-rs.3.rs-9156039-v1",
+     "pmc-13375540-ibciterm",
+     "pmc-13633112-gesturedeco",
+     "pmc-12236888-bgate14",
+     "pmc-12236888-longterm14"
+    ]
+   },
+   {
+    "design": "home_use",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-13375540-ibciterm",
+     "doi-10.3390-brainsci15040336",
+     "doi-10.1088-1741-2552-ad5c02",
+     "pmc-11245360-ecogstab",
+     "pmc-11395392-bcilong"
+    ]
+   },
+   {
+    "design": "lab_only",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-9166490-homebci"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "Brain-to-Text 9.76->5.77",
+   "value": 5.77,
+   "unit": "% WER",
+   "raw": "Brain-to-Text 24 benchmark WER reduced 9.76% -> 5.77% by ensembling+selection",
+   "pid": "doi-10.64898-2026.06.02.729705",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best single-block WER",
+   "value": 7.0,
+   "unit": "percent",
+   "raw": "was 7.0%",
+   "pid": "doi-10.1056-nejmoa2027540",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "silent-speech WER",
+   "value": 10.53,
+   "unit": "%",
+   "raw": "10.53",
+   "pid": "doi-10.3390-brainsci15040336",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Whisper WER on ground-truth audio, test split",
+   "value": 12.66,
+   "unit": "percent",
+   "raw": "12.66",
+   "pid": "arxiv-2510.23969",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2510.23969",
+   "key": "t:emg2speechsynthesizingspeechfromelectromyographyusingselfsupervisedspeechmodels",
+   "title": "emg2speech: synthesizing speech from electromyography using self-supervised speech models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "placement, skin impedance, fatigue, disease progression) not characterized. | extra.Limitation.limitation=No sustained long-term performance demonstrated for this non-invasive neuroprosthesis. | extra.Limitation.limitation=Large-scale pretrained EMG-to-speech models not explored (cf. EMG2QWERTY pretraining a"
+  },
+  {
+   "pid": "arxiv-2603.23625",
+   "key": "t:evaluatingamultiagentvoiceenabledsmartspeakerforcarehomesasafetyfocusedframework",
+   "title": "Evaluating a Multi-Agent Voice-Enabled Smart Speaker for Care Homes: A Safety-Focused Framework",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Baseer Ahmad, Tanaya Maslekar | Study.research_objective=assurance-driven end-to-end evaluation of a voice-enabled care-home smart speaker: resident/category identification, reminder recognition/extraction, scheduling correctness under uncertainty (safe deferral/clarification) | task_family=semantic_or_inte"
+  },
+  {
+   "pid": "doi-10.1002-advs.202304853",
+   "key": "t:stabledecodingfromaspeechbcienablescontrolforanindividualwithalswithoutrecalibra",
+   "title": "Stable Decoding from a Speech BCI Enables Control for an Individual with ALS without Recalibration for 3 Months",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "empted_utterance | production_labels=attempted_speech | observed_quantities=neural_activity | technical_essence=Chronic ECoG speech BCI for assistive control: HGE event detection (no exogenous cues) → CNN command classifier; fixed model runs 3 months at 90.59% median without recalibration; self‐paced home use | target_population=speech_impairment, motor_impairment | population_description=Single ALS clinical-trial participant"
+  },
+  {
+   "pid": "doi-10.1007-s13311-018-00692-2",
+   "key": "t:thepotentialforaspeechbraincomputerinterfaceusingchronicelectrocorticography",
+   "title": "The Potential for a Speech Brain-Computer Interface Using Chronic Electrocorticography",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ure paralysis/locked-in users) | decoder_route=semantic_decoding | Chronic ECoG offers mesoscopic, clinically tolerated long-term recordings well matched to distributed speech representations — a viable speech-BCI substrate pending decoding+electrode advances"
+  },
+  {
+   "pid": "doi-10.1038-s41591-026-04414-6",
+   "key": "p:doi-10.1038-s41591-026-04414-6",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| vocabulary_regime=open_vocabulary | dataset_description=single ALS participant, nearly 2 years, >3,800 h independent home use; 183,060 sentences / 1,960,163 words at 56 wpm average; formal prompted-word evaluations >99% word accuracy at 125k vocabulary; participant-rated 92% sentences ≥mostly correct; concurrent cursor BCI for PC control | Study.research_objective=demonstrate independent, reliable, long-term home operation of a multimodal s"
+  },
+  {
+   "pid": "doi-10.1056-NEJMoa2314132",
+   "key": "t:anaccurateandrapidlycalibratingspeechneuroprosthesis",
+   "title": "An Accurate and Rapidly Calibrating Speech Neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ed sentences + self-paced free conversation; 50-word and 125,000-word vocabularies | system_boundary=implanted 256-site intracortical array → on-screen text + personalized TTS; real-time home use | SystemConfiguration.system_lifecycle=implemented_evaluated | extra.Output.output_kind=99.6% day-1 (50-word), 90.2% da"
+  },
+  {
+   "pid": "doi-10.1056-nejmoa2027540",
+   "key": "t:neuroprosthesisfordecodingspeechinaparalyzedpersonwithanarthria",
+   "title": "Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eed | claim=speech-attempt detection reached 98% and performance was stable over the 81-week implant period, supporting long-term viability of ECoG decoding | participant age at study start | age at pontine stroke | baseline typing rate | ECoG electrodes | array leng"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ad5c02",
+   "key": "t:stabilityofecoghighgammasignalsduringspeechandimplicationsforaspeechbcisystemina",
+   "title": "Stability of ECoG high gamma signals during speech and implications for a speech BCI system in an individual with ALS: a year-long longitudinal study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speech-related ECoG HG responses are stable across a 12-month period in an implanted ALS participant — ECoG is a viable long-term speech-BCI modality | claim=classification accuracy shows no significant longitudinal trend with either training window; decoders"
+  },
+  {
+   "pid": "doi-10.1101-2024.11.12.623096",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "96v2 (PMC11601350 NIHMS) | task_family=command_selection | extra.Task.target=drive macOS mouse cursor + click with vPCG intracortical signals: Radial8 calibration (8 radial + center targets, dwell/click selection), Grid Evaluation (bitrate), Simultaneous Speech+Cursor interference test, free personal use (Netflix, NYT Spelling Bee, settings) | production_labels=attempted_speech, instructed_imagery | Cohort.demographics=T1"
+  },
+  {
+   "pid": "doi-10.1109-tbme.2021.3069119",
+   "key": "p:doi-10.1109-tbme.2021.3069119",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "recording from two arrays in one participant | Study.research_objective=remove cable tethering and expert oversight so iBCIs can be available for extended independent use incl. at home | evidence_relation=supported_within_scope | claim=first human use of a wireless broadband iBCI: 192-elec"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9156039-v1",
+   "key": "t:stablespeechbciperformanceduringslowprogressionofalsalongitudinalecogstudy",
+   "title": "Stable speech BCI performance during slow progression of ALS: A longitudinal ECoG study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "le participant with slowly progressive bulbar-variant ALS tracked 25 months post-implant | Dataset.content_inventory=25 months of ECoG+audio during overt 12-token consonant-vowel repetition; HG band-limited features and acoustic tVSA | modalities=ecog, m"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9156039.v1",
+   "key": "t:stablespeechbciperformanceduringslowprogressionofalsalongitudinalecogstudy",
+   "title": "Stable speech BCI performance during slow progression of ALS: A longitudinal ECoG study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "research_objective=determine how speech-related high-gamma ECoG signals and offline decoding performance evolve over 25 months of slowly progressive bulbar ALS, i.e. whether signal changes compromise long-term speech-BCI stability | Study.unit_of_analysis=HG activation ratio, SNR (HG/HF), peak z-scored HG; acoustic F1/F2 and tVSA; EEGNet"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2019.00335",
+   "key": "t:theprincipleofinverseeffectivenessinaudiovisualspeechperception",
+   "title": "The Principle of Inverse Effectiveness in Audiovisual Speech Perception",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ded audiovisual sentence videos (lipreading) + calibrated acoustic noise masker | Representation.feature_dimensions=psychometric word-recognition parameters per modality; AV enhancement derived from unimodal fit parameters (probability summation) | Processing"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2024.1388267",
+   "key": "p:doi-10.3389-fnhum.2024.1388267",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ring clinical population; within-participant decode only | dataset_id=AJILE12 (Peterson et al. 2022) — public annotated long-term ECoG+video | changed_roles=acquisition, representation | accuracy | participantCount | channelCount | minutes | pValue | sam"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2020.00123",
+   "key": "t:thepotentialofstereotacticeegforbraincomputerinterfacescurrentprogressandfutured",
+   "title": "The Potential of Stereotactic-EEG for Brain-Computer Interfaces: Current Progress and Future Directions",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e=Frontiers in Neuroscience 14:123 | Study.research_objective=review current progress and future directions of sEEG for long-term BCI | Study.unit_of_analysis=narrative review of sEEG/ECoG BCI studies | extra.Task.target=BCI signal acquisition via penet"
+  },
+  {
+   "pid": "doi-10.3389-fpsyg.2021.772867",
+   "key": "t:detectionandrecognitionofasynchronousauditoryvisualspeecheffectsofagehearingloss",
+   "title": "Detection and Recognition of Asynchronous Auditory/Visual Speech: Effects of Age, Hearing Loss, and Talker Accent",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "onous) + recognition accuracy vs asynchrony offset | model_family=linear_model, other | ProcessingStep.architecture=psychometric simultaneity-window estimation + recognition scoring by group/accent; performance-equated comparisons | EvaluationProtocol.test_material_selection=English + S"
+  },
+  {
+   "pid": "doi-10.3390-brainsci15040336",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain-Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "roduction / 96% perception / 88% imagery | claim=chronic stability demonstrated: no recalibration for 138 days (LFP), 3 months stable speech decoding (median accuracy 90.59%), 262 days ALS use (89±6%), and BCI control maintained 1000+ days post-implant | included articles | ALS intracortical cases | brainstem stroke cases | SCI"
+  },
+  {
+   "pid": "doi-10.64898-2026.03.02.709171",
+   "key": "t:dissociablefrequencyregimesinhumantemporalcortexintegratefacialandacousticcuesdu",
+   "title": "Dissociable frequency regimes in human temporal cortex integrate facial and acoustic cues during natural speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sers | Cohort.demographics=8 patients (4M/4F): 6 glioma w/ intraoperative PMT high-density ECoG, 2 language-disorder w/ long-term implanted arrays (Neuroxess 256-ch ECoG + flexible) | Acquisition.sensor_geometry=high-density ECoG grids (Integra/PMT), 4mm pitch, 1.17mm contacts, 128 or 256"
+  },
+  {
+   "pid": "doi-10.64898-2026.06.02.729705",
+   "key": "t:neuraldecodingofspeechusingdeepneuralensembles",
+   "title": "Neural decoding of speech using deep neural ensembles",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ns approximates full ensembles with a single base decoder for resource-constrained deployment | Claim.claim_scope=Prior intracortical speech BCI maintained independent use >3,800 cumulative hours / 600 days at 56.1 wpm | extra.Limitation.limitation=Closed-loop test on single participant (T1"
+  },
+  {
+   "pid": "isca-dumouchel09_interspeech",
+   "key": "t:cepstralandlongtermfeaturesforemotionrecognition",
+   "title": "Cepstral and Long-Term Features for Emotion Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Cepstral and Long-Term Features for Emotion Recognition | observed_quantities=air_acoustics | decoder_route=closed_set_classification | split_protocol=subject_holdout |"
+  },
+  {
+   "pid": "pmc-10061076-datasetsize",
+   "key": "t:impactofdatasetsizeandlongtermecogbasedbciusageondeeplearningmethods",
+   "title": "Impact of dataset size and long-term ECoG-based BCI usage on deep learning methods",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Impact of dataset size and long-term ECoG-based BCI usage on deep learning methods | authors=Śliwowski, Martin, Souloumiac | venue=Frontiers in Human Neuroscience | Study."
+  },
+  {
+   "pid": "pmc-10462094-driftmanifold",
+   "key": "t:flexibleregulationofrepresentationsonadriftingmanifoldenableslongtermstabledecod",
+   "title": "Flexible regulation of representations on a drifting manifold enables long-term stable decoding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "luated | ProcessingStep.hyperparameters=sensorimotor ECoG study of representation regulation on a drifting manifold for long-term stable BCI decoding | tested_population=target_users | metric"
+  },
+  {
+   "pid": "pmc-11245360-ecogstab",
+   "key": "t:stabilityofecoghighgammasignalsduringspeechandimplicationsforaspeechbcisystem",
+   "title": "Stability of ECoG high gamma signals during speech and implications for a speech BCI system",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system | authors=Wyse-Sookoo, Luo, Candrea, Schippers | venue=Journal of Neural Engineering | Study.research_objective=long-term stability of ECoG high-gamma speech signals for speech BCI | Study.study_design=controlled_experiment | task_family=speech_reconstruction | extra.Production.scope_note=ECoG speec"
+  },
+  {
+   "pid": "pmc-11395392-bcilong",
+   "key": "t:longevityofabraincomputerinterfaceforamyotrophiclateralsclerosis",
+   "title": "Longevity of a Brain-Computer Interface for Amyotrophic Lateral Sclerosis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "6/NEJMoa2314598 | Study.research_objective=document the complete lifecycle and durability of an implanted communication BCI over years of at-home use in advanced ALS | task_family=command_selection | acoustic_mode=no_vocalization | elicitation=self_chosen_content | pro"
+  },
+  {
+   "pid": "pmc-11494208-icinstab",
+   "key": "t:measuringinstabilityinchronichumanintracorticalneuralrecordingstowardsstablelong",
+   "title": "Measuring instability in chronic human intracortical neural recordings towards stable, long-term brain-computer interfaces",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Measuring instability in chronic human intracortical neural recordings towards stable, long-term brain-computer interfaces | venue=Communications Biology | doi=10.1038/s42003-024-06784-4 | Study.study_design=controlled_experiment |"
+  },
+  {
+   "pid": "pmc-12236888-bgate14",
+   "key": "t:longtermperformanceofintracorticalmicroelectrodearraysin14braingateclinicaltrial",
+   "title": "Long-term performance of intracortical microelectrode arrays in 14 BrainGate clinical trial participants",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term performance of intracortical microelectrode arrays in 14 BrainGate clinical trial participants | authors=Hahn, Stein, BrainGate Consortium, Donoghue | Study.resear"
+  },
+  {
+   "pid": "pmc-12236888-longterm14",
+   "key": "t:longtermperformanceofintracorticalmicroelectrodearraysin14bra",
+   "title": "Long-term performance of intracortical microelectrode arrays in 14 Bra",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term performance of intracortical microelectrode arrays in 14 Bra | authors=long-term group | Study.research_objective=long-term iBCI 14 participants 35.6% | Study.stud"
+  },
+  {
+   "pid": "pmc-12286133-lipread-review",
+   "key": "t:lipreadingadvancesandunresolvedquestionsinakeycommunicationskill",
+   "title": "Lip-Reading: Advances and Unresolved Questions in a Key Communication Skill",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "the lifespan and with socio-cultural context; infants show mouth-orienting and audio-visual congruence detection within months, and assessment tools (CUNY, Tri-BAS) operationalize visual speech recognition | extra.Limitation.status=acknowledged | extra.Limitation.limitation=Narrative (non-systematic) review; notes tha"
+  },
+  {
+   "pid": "pmc-13042181-ecog-als-longitudinal",
+   "key": "t:stablespeechbciperformanceduringslowprogressionofalsalongitudinalecogstudy",
+   "title": "Stable speech BCI performance during slow progression of ALS: A longitudinal ECoG study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "; chance 8.33% (12 classes) | claim=speech-related cortical HG features remain stable enough after initial settling (~6 months) to support durable ECoG speech BCIs without frequent recalibration, even during slow ALS progression | technical_limits=single-participant longitudinal ca"
+  },
+  {
+   "pid": "pmc-13375540-ibciterm",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain-computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term independent use of an intracortical brain-computer interface for speech and cursor control | authors=Card, Singer-Clark, Peracha, Iacobacci et al (UC Davis / BrainGate2)"
+  },
+  {
+   "pid": "pmc-13375540-ltbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain–computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13375540-ltbci | title=Long-term independent use of an intracortical brain–computer interface for speech and cursor control | authors=Nicholas S. Card, Tyler Singer-Clark, Hamza Peracha, C"
+  },
+  {
+   "pid": "pmc-13375540-ltc-speechbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain-computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term independent use of an intracortical brain-computer interface for speech and cursor control | authors=Card NS, Singer-Clark T, Peracha H, Iacobacci C, Hou X, Wairagkar M,"
+  },
+  {
+   "pid": "pmc-13633112-gesturedeco",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e @30, enrolled 47); B6 ALS @56, enrolled 60, anarthric | tested_population=target_users | Cohort.participant_expertise=long-term implanted BCI users (UCSF Bravo series) | EvaluationProtocol.experimental_design=10-fold CV offline + real-time closed-loop copy task"
+  },
+  {
+   "pid": "pmc-6342453-lcpuecog",
+   "key": "t:longtermrecordingreliabilityofliquidcrystalpolymerecogarrays",
+   "title": "Long-term recording reliability of liquid crystal polymer µECoG arrays",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term recording reliability of liquid crystal polymer µECoG arrays | authors=Woods V, Trumpis M, Bent B | venue=Journal of neural engineering | Study.research_objective=long-term"
+  },
+  {
+   "pid": "pmc-7183617-bcirehab",
+   "key": "t:immediateandlongtermeffectsofbcibasedrehabilitationoftheupperextremityafterstrok",
+   "title": "Immediate and long-term effects of BCI-based rehabilitation of the upper extremity after stroke: a systematic review and meta-analysis",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Immediate and long-term effects of BCI-based rehabilitation of the upper extremity after stroke: a systematic review and meta-analysis | authors=Bai Z, Fong K"
+  },
+  {
+   "pid": "pmc-7824107-bci50y",
+   "key": "t:summaryofoverfiftyyearswithbraincomputerinterfacesareview",
+   "title": "Summary of over fifty years with brain-computer interfaces—a review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "imagined+mental speech/hybrid) × applications (spellers, cursor, robotic/prosthetic arms with 7-DoF, wheelchairs, smart homes, gaming) × commercial headsets (NeuroSky MindWave $99+, Emotiv, OpenBCI, g.tec) with efficacy marks — 93–99% μ/β cursor control, 82% smart-home P300 at <149 s/response | task_encoding=task_ev"
+  },
+  {
+   "pid": "pmc-7952767-cybathlon",
+   "key": "t:longtermmutualtrainingforthecybathlonbciracewithatetraplegicpilotacasestudyonint",
+   "title": "Long-Term Mutual Training for the CYBATHLON BCI Race With a Tetraplegic Pilot: A Case Study on Inter-Session Transfer and Intra-Session Adaptation",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-Term Mutual Training for the CYBATHLON BCI Race With a Tetraplegic Pilot: A Case Study on Inter-Session Transfer and Intra-Session Adaptation | authors=Hehenberge"
+  },
+  {
+   "pid": "pmc-8218873-wirelesshomebci",
+   "key": "t:homeuseofapercutaneouswirelessintracorticalbraincomputerinterfacebyindividualswi",
+   "title": "Home Use of a Percutaneous Wireless Intracortical Brain-Computer Interface by Individuals With Tetraplegia",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Home Use of a Percutaneous Wireless Intracortical Brain-Computer Interface by Individuals With Tetraplegia | authors=Simeral JD, Hosman T, Saab J | venue=IEEE transactions on bio-medic"
+  },
+  {
+   "pid": "pmc-8239283-bbitraining",
+   "key": "t:designconsiderationsforlongtermnoninvasivebraincomputerinterfacetrainingwithtetr",
+   "title": "Design Considerations for Long Term Non-invasive Brain Computer Interface Training With Tetraplegic CYBATHLON Pilot",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ve brain compu | Study.study_design=controlled_experiment | task_family=command_selection | extra.Production.scope_note=long-term non-invasive BCI training tetraplegic design | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=n=1 p"
+  },
+  {
+   "pid": "pmc-9166490-homebci",
+   "key": "t:designdevelopmentofanathomemodularbraincomputerinterfacebciplatforminacasestudyo",
+   "title": "Design-development of an at-home modular brain-computer interface (BCI) platform in a case study of cervical spinal cord injury",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Design-development of an at-home modular brain-computer interface (BCI) platform in a case study of cervical spinal cord injury | authors=Davis KC, Meschede-Krasa B, Cajigas I | venue=Journa"
+  },
+  {
+   "pid": "pmc-9254548-cybathlon",
+   "key": "t:neuralcorrelatesofuserlearningduringlongtermbcitrainingforthecybathloncompetitio",
+   "title": "Neural correlates of user learning during long-term BCI training for the Cybathlon competition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural correlates of user learning during long-term BCI training for the Cybathlon competition | authors=Tortora, Beraldo, Bettella | venue=Journal of neuroengineering and reh"
+  },
+  {
+   "pid": "pmc-9555862-motorstabparalysis",
+   "key": "t:stabilityofmotorrepresentationsafterparalysis",
+   "title": "Stability of motor representations after paralysis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=observational | task_family=intermediate_signal_processing | extra.Production.scope_note=primary N: long-term motor representation stability for iBCI | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep"
+  },
+  {
+   "pid": "pmc-9915729-cursorrecal",
+   "key": "t:longtermunsupervisedrecalibrationofcursorbcis",
+   "title": "Long-term unsupervised recalibration of cursor BCIs",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term unsupervised recalibration of cursor BCIs | authors=Wilson GH, Willett FR | Study.research_objective=long-term unsupervised recalibration of cursor brain-comput"
+  }
+ ],
+ "usual_approach": {
+  "design": "SystemConfiguration.system_lifecycle=implemented_evaluated",
+  "n": 21,
+  "tier": "slot-filled",
+  "pids": [
+   "doi-10.21203-rs.3.rs-9156039.v1",
+   "doi-10.64898-2026.03.02.709171",
+   "doi-10.64898-2026.06.02.729705",
+   "pmc-13633112-gesturedeco",
+   "pmc-12236888-bgate14"
+  ],
+  "population_unique": 31
+ },
+ "read_fulltext": [
+  {
+   "pid": "pmc-11086983-plugplay",
+   "role": "sota",
+   "loc": "Introduction",
+   "quote": "Over a period of more than one year (403 days), our participant used the iBCI system monthly"
+  },
+  {
+   "pid": "pmc-10724434-stablebci",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "median accuracy: 90.59%"
+  },
+  {
+   "pid": "doi-10.1056-NEJMoa2314132",
+   "role": "sota",
+   "loc": "Results—Conversational speech using the brain-computer interface",
+   "quote": "communicating a total of 22,679 sentences during 72 (out of 84 total) sessions over 8.4 months (248.3 cumulative hours"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 0,
+  "recall": 0.0,
+  "missed": [
+   "pmc-10724434-stablebci",
+   "pmc-11086983-plugplay"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.1056-NEJMoa2314132",
+  "year": 2024,
+  "metric": "cumulative self-initiated home conversation use",
+  "value": "248.3 h over 8.4 months",
+  "timing": "target"
+ },
+ "used_by": [
+  "an-accurate-and-rapidly-calibrating-speech-neuroprosthesis"
+ ],
+ "tally": {
+  "slot_filled_unique": 6075,
+  "string_match_unique": 39,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "SystemConfiguration.system_lifecycle=implemented_evaluated",
+   "n": 21,
+   "tier": "slot-filled",
+   "population_unique": 31
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1056-NEJMoa2314132",
+   "year": 2024,
+   "metric": "cumulative self-initiated home conversation use",
+   "value": "248.3 h over 8.4 months",
+   "timing": "target"
+  },
+  "read": 3,
+  "read_prior": [],
+  "unread": 43,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.0
+ }
+}

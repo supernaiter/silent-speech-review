@@ -6,7 +6,7 @@ Any speech-intention decoder, whatever its sensor, can be described by the same 
 | --- | --- | --- |
 | M01 | Training-time act | — |
 | M02 | Teacher signal | [auxiliary-representation-prediction](M02/) |
-| M03 | Train / calibrate | [length-curriculum](M03/), [self-supervised-pretraining](M03/) |
+| M03 | Train / calibrate | [length-curriculum](M03/), [self-supervised-pretraining](M03/), [speech-bci-calibration-data](M03/) |
 | M04 | Use-time act | [overt-to-silent-transfer](M04/) |
 | M05 | Sensing | [ecog-speech-decoding](M05/), [intracortical-speech-decoding](M05/) |
 | M06 | Decoding | [articulatory-intermediate](M06/), [attention-seq2seq-decoding](M06/), [closed-vocabulary-word-classification](M06/), [ctc-vs-attention](M06/), [phoneme-rnn-ctc-lm-decoding](M06/) |
@@ -16,4 +16,4 @@ Any speech-intention decoder, whatever its sensor, can be described by the same 
 | M10 | Correction | — |
 | M11 | Eval reference | [in-the-wild-sentence-benchmark](M11/) |
 | M12 | Evaluation | [human-lipreader-baseline](M12/), [listener-intelligibility-test](M12/), [lrs3-visual-only-wer](M12/) |
-| M13 | Hardware & limits | — |
+| M13 | Hardware & limits | [long-term-home-use](M13/) |
