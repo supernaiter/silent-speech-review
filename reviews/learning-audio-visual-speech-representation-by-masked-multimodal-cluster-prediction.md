@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/](learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/).**
 
-Self-supervised audio-visual pretraining (masked multimodal cluster prediction) enabling lipreading at 32.5% WER on LRS3 with only 30 h of labels, and 26.9% with 433 h plus self-training.
+AV-HuBERT's masked audio-visual cluster pre-training (M03) was a large step past distillation, but its LRS3 gains lack repeated runs and later work beats it at matched budgets.
 
 [Read the full review](learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/) · [All reviews](../README.md)

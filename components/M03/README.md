@@ -28,3 +28,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 | An Improved End-to-End Audio-Visual Speech Recognition Model |  | §3.1 |
 | Research on Robust Audio-Visual Speech Recognition Algorithms | 2023 | Ledger M03 |
 | E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience | 2026 | Ledger M06 |
+
+## self-supervised-pretraining
+
+- Table: [`self-supervised-pretraining.csv`](self-supervised-pretraining.csv) (1526 slot-filled, 123 pattern match, usual design in 31, 3 read in full)
+- Inclusion rule: Include studies that pre-train an encoder on unlabelled non-audio-only input (video, audio-visual, biosignal or neural recordings) with a self-supervised or teacher-generated objective (masked prediction, contrastive, feature regression, cross-modal distillation) before supervised fine-tuning for speech or text decoding. Boundary: exclude audio-only self-supervised ASR; exclude studies that only reuse a released pre-trained checkpoint without training a new objective; count versions of one study once.
+- Used in: [Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction](../../reviews/learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/)

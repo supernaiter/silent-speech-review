@@ -1,0 +1,1607 @@
+{
+ "topic": "self-supervised-pretraining",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "self[_ -]?supervised|masked (prediction|autoencod|frame|cluster)|contrastive pre-?train|unlabel+ed (video|data)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include studies that pre-train an encoder on unlabelled non-audio-only input (video, audio-visual, biosignal or neural recordings) with a self-supervised or teacher-generated objective (masked prediction, contrastive, feature regression, cross-modal distillation) before supervised fine-tuning for speech or text decoding. Boundary: exclude audio-only self-supervised ASR; exclude studies that only reuse a released pre-trained checkpoint without training a new objective; count versions of one study once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 138,
+  "string_match_unique": 123,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=self_supervised",
+    "n": 31,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2601.13866",
+     "arxiv-2605.00025",
+     "arxiv-2606.30319",
+     "arxiv-2608.01623",
+     "arxiv-2608.10836"
+    ]
+   },
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 17,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2601.13866",
+     "arxiv-2606-05763-m2savsr",
+     "arxiv-2606.30319",
+     "arxiv-2608.01623",
+     "arxiv-2608.10836"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2608.10836",
+     "arxiv-2608.17983",
+     "arxiv-2609.03231",
+     "doi-10.1038-s41598-026-37421-1",
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2605.00025",
+     "arxiv-2606-05763-m2savsr",
+     "arxiv-2412.18839",
+     "arxiv-2407.18541",
+     "doi-10.1145-3526113.3545685"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1088-2515-7647.ae869f",
+     "doi-10.1162-imag.a.1301",
+     "arxiv-2502.03128",
+     "isca-wu24k_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=unpaired",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-gurbuz05_interspeech",
+     "doi-10.1145-3544548.3580706",
+     "doi-10.3389-fnins.2025.1565848",
+     "preprint-rs-8703722"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2605.00025",
+     "arxiv-2412.18839",
+     "arxiv-2201.02184"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "LRS3.*(WER|VSR)|VSR.*LRS3",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "AVSR WER Huge LRS3",
+   "value": 0.8,
+   "unit": "percent",
+   "raw": "0.8",
+   "pid": "arxiv-2602.19316",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS3 ASR WER % (A-HuBERT LARGE, AV clusters, 433h/1759h)",
+   "value": 1.3,
+   "unit": "percent",
+   "raw": "ASR WER %, audio-HuBERT LARGE w/ AV clusters, 433h lab + 1759h",
+   "pid": "arxiv-2201.02184",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS3 SOTA WER",
+   "value": 18.7,
+   "unit": "percent",
+   "raw": "LRS3 visual-only WER (30h labeled)",
+   "pid": "iccv25-thomas_vallr",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "USR LRS3 VSR SOTA",
+   "value": 21.5,
+   "unit": "%",
+   "raw": "21.5",
+   "pid": "arxiv-2411.02256",
+   "year": 2024,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "acl-2024emnlp858-audiovsr",
+   "key": "t:audiovsrenhancingvideospeechrecognitionwithaudiodata",
+   "title": "AudioVSR: Enhancing Video Speech Recognition with Audio Data",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "generation, Wav2Lip) synthesizes lip video from audio for data inflation / zero-video languages | system_name=AudioVSR (self-supervised cross-language-family audio-lip alignment) | system_name=Opensr (Shi et al. 2022) audio-enhanced lip-reading baseline |"
+  },
+  {
+   "pid": "acl-emnlp24-vspll",
+   "key": "t:wherevisualspeechmeetslanguagevspllmframeworkforefficientandcontextawarevisualsp",
+   "title": "Where Visual Speech Meets Language: VSP-LLM Framework for Efficient and Context-Aware Visual Speech Processing",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "via deduplicated visual speech units | Study.unit_of_analysis=WER (VSR) & BLEU (VST) on LRS3/MuAViC vs prior supervised/self-supervised | task_encoding=natural_utterance | task_family=sentence_recognition | extra.Task.scope=visual speech recognition + vis"
+  },
+  {
+   "pid": "arxiv-1809.08001",
+   "key": "t:perfectmatchimprovedcrossmodalembeddingsforaudiovisualsynchronisation",
+   "title": "Perfect match: Improved cross-modal embeddings for audio-visual synchronisation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "8001 | title=Perfect match: Improved cross-modal embeddings for audio-visual synchronisation | Study.research_objective=Self-supervised PM (perfect-match, N-way listwise) loss learns AV embeddings for lip-sync; big gains over pairwise SyncNet/AVE-Net at s"
+  },
+  {
+   "pid": "arxiv-2003.05709",
+   "key": "t:deformationflowbasedtwostreamnetworkforlipreading",
+   "title": "Deformation Flow Based Two-Stream Network for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arxiv-2003.05709 | title=Deformation Flow Based Two-Stream Network for Lip Reading | Study.research_objective=DFTN: DFN self-supervised deformation flow (frame-pair L1 warp) + grayscale branch, multiplicative-prob fusion + bidirectional KD loss; LRW/LRW-1"
+  },
+  {
+   "pid": "arxiv-2004.14326",
+   "key": "t:seeingvoicesandhearingvoiceslearningdiscriminativeembeddingsusingcrossmodalselfs",
+   "title": "Seeing voices and hearing voices: learning discriminative embeddings using cross-modal self-supervision",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "es and hearing voices: learning discriminative embeddings using cross-modal self-supervision | Study.research_objective=Self-supervised AV embedding: IL identity + CL sync content losses (+Angular/CDDL margin variants) on two-stream net; audio-vs-face pai"
+  },
+  {
+   "pid": "arxiv-2101.03149",
+   "key": "p:arxiv-2101.03149",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "target speaker using not only lip motion but face appearance as a cross-modal prior over vocal qualities, learned from unlabeled video | task_family=speech_reconstruction | decoder_route=enhancement_to_audio | target_unit=audio_signal | vocabulary_regime"
+  },
+  {
+   "pid": "arxiv-2104.05418",
+   "key": "t:contrastivelearningofgloballocalvideorepresentations",
+   "title": "Contrastive Learning of Global-Local Video Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2104.05418 | title=Contrastive Learning of Global-Local Video Representations | Study.research_objective=Self-supervised AV contrastive pretraining learning global+local spatio-temporal video reps via space-time factorized encoders (Eg_v S-"
+  },
+  {
+   "pid": "arxiv-2106.11769",
+   "key": "t:improvingultrasoundtongueimagereconstructionfromlipimagesusingselfsupervisedlear",
+   "title": "Improving Ultrasound Tongue Image Reconstruction from Lip Images Using Self-supervised Learning and Attention Mechanism",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2106.11769 | title=Improving Ultrasound Tongue Image Reconstruction from Lip Images Using Self-supervised Learning and Attention Mechanism | venue=2021 (ICASSP-adjacent workshop); v1 | Study.research_objective=TS-CNN-LSTM (tw"
+  },
+  {
+   "pid": "arxiv-2106.14016",
+   "key": "t:anattentionselfsupervisedcontrastivelearningbasedthreestagemodelforhandshapefeat",
+   "title": "An Attention Self-supervised Contrastive Learning based Three-stage Model for Hand Shape Feature Representation in Cued Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2106.14016 | title=An Attention Self-supervised Contrastive Learning based Three-stage Model for Hand Shape Feature Representation in Cued Speech | Study.research_obje"
+  },
+  {
+   "pid": "arxiv-2112.04432",
+   "key": "t:audiovisualsynchronisationinthewild",
+   "title": "Audio-Visual Synchronisation in the wild",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pairs ±0.8s'} | Claim.claim_scope=AVSTenc-mp ~98.6% LRS3/99.9% LRS2 at 15 frames beats SyncNet/PM/AV-objects; robust to masked frames at long inputs; ±5-frame human tolerance. | Study.unit_of_analysis=T1 human categorisation + T2 baseline rows descript"
+  },
+  {
+   "pid": "arxiv-2112.04748",
+   "key": "t:lipsound2selfsupervisedpretrainingforliptospeechreconstructionandlipreading",
+   "title": "LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2112.04748 | title=LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading | Study.research_objective=LipSound2: self-supervised PT"
+  },
+  {
+   "pid": "arxiv-2201.01763",
+   "key": "t:robustselfsupervisedaudiovisualspeechrecognition",
+   "title": "Robust Self-Supervised Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2201.01763 | title=Robust Self-Supervised Audio-Visual Speech Recognition | Study.research_objective=noise-augmented AV-HuBERT pretraining+finetuning for robust"
+  },
+  {
+   "pid": "arxiv-2201.02184",
+   "key": "t:learningaudiovisualspeechrepresentationbymaskedmultimodalclusterprediction",
+   "title": "Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Shi, Wei-Ning Hsu, Kushal Lakhotia, Abdelrahman Mohamed | venue=ICLR 2022 (arXiv:2201.02184) | Study.research_objective=Self-supervised audio-visual speech representation via masked multimodal cluster prediction, transferable to lip-reading and ASR | Stud"
+  },
+  {
+   "pid": "arxiv-2203.01265",
+   "key": "p:arxiv-2203.01265",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rch_objective=annotation-free robust lip-motion features for generalizable deepfake detection | Study.negative_findings=self-supervised slightly below supervised on FF++ LQ (96.7 vs 98.1); ResNet50 gain limited by frontend scale | system_boundary=video+au"
+  },
+  {
+   "pid": "arxiv-2203.07996",
+   "key": "t:leveragingunimodalselfsupervisedlearningformultimodalaudiovisualspeechrecognitio",
+   "title": "Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2203.07996 | title=Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition | Study.research_objective=plug pretrained unimodal front-ends"
+  },
+  {
+   "pid": "arxiv-2205.02058",
+   "key": "t:svtsscalablevideotospeechsynthesis",
+   "title": "SVTS: Scalable Video-to-Speech Synthesis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nditioning; Parallel WaveGAN (WaveNet-based) vocoder; L1 + spectral-convergence losses | supervision_kind=paired_audio, self_supervised | TrainingRun.training_objective=AdamW lr1e-3 (7e-3 LRS3-seen), cosine w/ 10% warmup, wd 1e-2; 200/150/500/150 epochs G"
+  },
+  {
+   "pid": "arxiv-2206.02671",
+   "key": "p:arxiv-2206.02671",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Passos/Papa/Hussain/Adeel) | Study.study_design=controlled_experiment | Study.research_objective=biologically-plausible self-supervised multimodal model with memory for AV speech enhancement | task_family=speech_reconstruction | decoder_route=enhancement_"
+  },
+  {
+   "pid": "arxiv-2207.07036",
+   "key": "t:asingleselfsupervisedmodelformanyspeechmodalitiesenableszeroshotmodalitytransfer",
+   "title": "A Single Self-Supervised Model for Many Speech Modalities Enables Zero-Shot Modality Transfer (u-HuBERT)",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2207.07036 | title=A Single Self-Supervised Model for Many Speech Modalities Enables Zero-Shot Modality Transfer (u-HuBERT) | authors=Hsu WN (Meta AI), Shi B (TTIC"
+  },
+  {
+   "pid": "arxiv-2208.12266-natmi",
+   "key": "t:decodingspeechperceptionfromnoninvasivebrainrecordings",
+   "title": "Decoding speech perception from non-invasive brain recordings",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "formationUse.retrieval_scope=3s speech waveform segments encoded by wav2vec 2.0 as alignment targets | information_kind=self-supervised speech model pretrained on 56k hours of speech in 53 languages | TrainingRun.training_objective=CLIP contrastive loss a"
+  },
+  {
+   "pid": "arxiv-2209.09735",
+   "key": "t:relaxedattentionfortransformermodels",
+   "title": "Relaxed Attention for Transformer Models",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "scription=LRS3: 1,321 test videos English TED; ft 30h/433h splits | dataset_description=VoxCeleb2 English subset 1,326h unlabeled video (pretrain + pseudo-labels) | split_protocol=subject_holdout | representation_kind=3D conv + ResNet-18 preproc over vide"
+  },
+  {
+   "pid": "arxiv-2210.11723",
+   "key": "t:evidenceofvocaltractarticulationinselfsupervisedlearningofspeech",
+   "title": "Evidence of Vocal Tract Articulation in Self-Supervised Learning of Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evidence of Vocal Tract Articulation in Self-Supervised Learning of Speech | intended_use_cases=research_of_inner_speech, other | task_family=intermediate_signal_processing |"
+  },
+  {
+   "pid": "arxiv-2210.17456",
+   "key": "t:audiovisualspeechenhancementandseparationbyutilizingmultimodalselfsupervisedembe",
+   "title": "Audio-Visual Speech Enhancement and Separation by Utilizing Multi-Modal Self-Supervised Embeddings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2210.17456 | title=Audio-Visual Speech Enhancement and Separation by Utilizing Multi-Modal Self-Supervised Embeddings | Study.research_objective=AVSE+AVSS fine-tuning pretrained AV-HuBERT embeddings (WF/TFS/EF/PF strategies) +"
+  },
+  {
+   "pid": "arxiv-2211.11275",
+   "key": "t:vatlmvisualaudiotextpretrainingwithunifiedmaskedpredictionforspeechrepresentatio",
+   "title": "VATLM: Visual-Audio-Text Pre-Training with Unified Masked Prediction for Speech Representation Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2211.11275 | title=VATLM: Visual-Audio-Text Pre-Training with Unified Masked Prediction for Speech Representation Learning | Study.research_objective=VATLM: unified masked-prediction pre-training over visual"
+  },
+  {
+   "pid": "arxiv-2212.02782",
+   "key": "t:selfsupervisedaudiovisualspeechrepresentationslearningbymultimodalselfdistillati",
+   "title": "Self-Supervised Audio-Visual Speech Representations Learning by Multimodal Self-Distillation",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2212.02782 | title=Self-Supervised Audio-Visual Speech Representations Learning by Multimodal Self-Distillation | authors=Zhang JX, Wan G, Ling ZH, Pan J,"
+  },
+  {
+   "pid": "arxiv-2212.11377",
+   "key": "t:reviseselfsupervisedspeechresynthesiswithvisualinputforuniversalandgeneralizedsp",
+   "title": "ReVISE: Self-Supervised Speech Resynthesis with Visual Input for Universal and Generalized Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2212.11377 | title=ReVISE: Self-Supervised Speech Resynthesis with Visual Input for Universal and Generalized Speech Enhancement | Study.research_objective=ReVISE"
+  },
+  {
+   "pid": "arxiv-2302.05907",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n Mobile Devices | venue=CHI 2023 (arXiv v3) | Study.research_objective=On-device customizable silent-speech interface: contrastive pre-trained lip encoder (LRW) + few-shot logistic head for arbitrary user commands; Voice2Lip voice-assisted registration; simila"
+  },
+  {
+   "pid": "arxiv-2302.06419",
+   "key": "t:avdata2vecselfsupervisedlearningofaudiovisualspeechrepresentationswithcontextual",
+   "title": "AV-data2vec: Self-supervised Learning of Audio-Visual Speech Representations with Contextualized Target Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2302.06419 | title=AV-data2vec: Self-supervised Learning of Audio-Visual Speech Representations with Contextualized Target Representations | Study.research_objective=J"
+  },
+  {
+   "pid": "arxiv-2303.09455",
+   "key": "t:learningcrosslingualvisualspeechrepresentations",
+   "title": "Learning Cross-Lingual Visual Speech Representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "perial College London) | venue=arXiv:2303.09455 v1 | task_family=sentence_recognition | extra.Task.target=cross-lingual self-supervised visual speech representation: RAVEn-pretrain on 6 languages then finetune visual-only lipreader per language; questions"
+  },
+  {
+   "pid": "arxiv-2303.14307",
+   "key": "p:arxiv-2303.14307",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "15,20,inf] dB; evaluated with babble, pink and white noise | generalization_gap=ASR performance saturates beyond ~1578h unlabelled data; noisy labels still help VSR | WER (audio-visual, LRS3) | WER (visual-only, LRS2) | WER (audio-only & AV, LRS2) | WER ("
+  },
+  {
+   "pid": "arxiv-2303.17480",
+   "key": "p:arxiv-2303.17480",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ur-fold loss: L1, adversarial, contrastive, lip-reading; lip-reading expert frozen AV-Hubert-base, trained audio-visual self-supervised on pseudo labels | Study.research_objective=improve visual intelligibility (readable lip content) of generated talking"
+  },
+  {
+   "pid": "arxiv-2305.15403",
+   "key": "t:avtranspeechaudiovisualrobustspeechtospeechtranslation",
+   "title": "AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "am10 AR decode; Adam b.9/.98 eps1e-8 20k steps on 6xV100; auxiliary tasks removed | extra.Decoder.inference_information=self-supervised AV-HuBERT masked multi-stream pretraining gives contextual AV representation; Table2: AVHubert AV 45.2 BLEU vs 0.67 no-"
+  },
+  {
+   "pid": "arxiv-2306.06514",
+   "key": "t:vocoderfreenonparallelconversionofwhisperedspeechwithmaskedcycleconsistentgenera",
+   "title": "Vocoder-Free Non-Parallel Conversion of Whispered Speech With Masked Cycle-Consistent Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e-consistency, identity, and a second adversarial loss intended to mitigate oversmoothing. | TrainingRun.augmentation={'self_supervised_feature_masking': {'masked_region': 'random contiguous temporal frames', 'masked_value': 0, 'unmasked_value': 1, 'mask_"
+  },
+  {
+   "pid": "arxiv-2306.10799",
+   "key": "p:arxiv-2306.10799",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "izer text) | Study.research_objective=improve lip accuracy/comprehensibility while reducing labeled-data dependence via self-supervised cross-modal constraints | Study.negative_findings=ablation shows each constraint contributes; latent consistency remova"
+  },
+  {
+   "pid": "arxiv-2307.01233",
+   "key": "t:robustl2sspeakerspecificliptospeechsynthesisexploitingselfsupervisedrepresentati",
+   "title": "RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2307.01233 | title=RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Representations | authors=Neha Sahipjohn, Neil Shah, Vishal Tambrahalli, Vineet Gandhi | venue=ICASSP 2023 / arXiv 2307"
+  },
+  {
+   "pid": "arxiv-2307.07748",
+   "key": "t:leveragingselfsupervisedaudiovisualpretrainedmodelstoimprovevocodedspeechintelli",
+   "title": "Leveraging Self-Supervised Audio-Visual Pretrained Models to Improve Vocoded Speech Intelligibility in Cochlear Implant Simulation",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307.07748 | title=Leveraging Self-Supervised Audio-Visual Pretrained Models to Improve Vocoded Speech Intelligibility in Cochlear Implant Simulation | authors=Lai R"
+  },
+  {
+   "pid": "arxiv-2308.07787-diffv2s",
+   "key": "t:diffv2sdiffusionbasedvideotospeechsynthesiswithvisionguidedspeakerembedding",
+   "title": "DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "m face/lip imagery when no reference audio exists | representation_kind=Vision-guided speaker embedding extracted via a self-supervised audio-visual pretrained model + prompt tuning, capturing speaking-style cues from face dynamics alone | ProcessingStep."
+  },
+  {
+   "pid": "arxiv-2309.08030",
+   "key": "t:av2wavdiffusionbasedresynthesisfromcontinuousselfsupervisedfeaturesforaudiovisua",
+   "title": "AV2Wav: Diffusion-Based Re-synthesis from Continuous Self-supervised Features for Audio-Visual Speech Enhancement",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2309.08030 | title=AV2Wav: Diffusion-Based Re-synthesis from Continuous Self-supervised Features for Audio-Visual Speech Enhancement | authors=Chou JC, Chien CM, Livescu K (Toyota Technological Institute at"
+  },
+  {
+   "pid": "arxiv-2312.09727",
+   "key": "t:litevsrefficientvisualspeechrecognitionbylearningfromspeechrepresentationsofunla",
+   "title": "LiteVSR: Efficient Visual Speech Recognition by Learning from Speech Representations of Unlabeled Data",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "per_id=arxiv-2312.09727 | title=LiteVSR: Efficient Visual Speech Recognition by Learning from Speech Representations of Unlabeled Data | Study.research_objective=Efficient CTC VSR pretrained to match a frozen ASR encoder (NeMo Conformer d=176) on 639h un"
+  },
+  {
+   "pid": "arxiv-2312.13600",
+   "key": "t:braintalkerlowresourcebraintospeechsynthesiswithtransferlearningusingwav2vec20",
+   "title": "BrainTalker: Low-Resource Brain-to-Speech Synthesis with Transfer Learning using Wav2Vec 2.0",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "itial_learning_rate': 5e-05, 'scheduler': 'StepLR', 'decay_factor': 0.9, 'decay_period_epochs': 100} | information_kind=Self-supervised speech representation checkpoint Wav2Vec 2.0; exact checkpoint/configuration and pretraining corpus are not specified h"
+  },
+  {
+   "pid": "arxiv-2312.13873",
+   "key": "t:selfsupervisedadaptiveavfusionmoduleforpretrainedasrmodels",
+   "title": "Self-Supervised Adaptive AV Fusion Module for Pre-Trained ASR Models",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2312.13873 | title=Self-Supervised Adaptive AV Fusion Module for Pre-Trained ASR Models | Study.research_objective=13M adaptive AV fusion module grafted o"
+  },
+  {
+   "pid": "arxiv-2405.11459",
+   "key": "t:duindiscreteunitsguidedmaskmodelingfordecodingspeechfromintracranialneuralsignal",
+   "title": "Du-IN: Discrete units-guided mask modeling for decoding speech from Intracranial Neural signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "masked-MAE pretraining on region tokens; Du-IN CLS head for 61-way decoding; Laplacian re-reference | supervision_kind=self_supervised | TrainingRun.training_objective=VQ-VAE discrete codex then masked-reconstruction (MAE) of sEEG region tokens; finetune"
+  },
+  {
+   "pid": "arxiv-2405.18639",
+   "key": "p:arxiv-2405.18639",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "conv (8,4,2)/(5,3,2) to ~100Hz + 3 conv (2,3,4) stride1, 512ch, causal, ELU, ~70ms receptive field | technical_essence=self-supervised representation learning on unlabeled OOD ECoG; context vectors fed to supervised decoder | decoder_route=recognition_to"
+  },
+  {
+   "pid": "arxiv-2407.18541",
+   "key": "t:towardsimprovingnamtospeechsynthesisintelligibilityusingselfsupervisedspeechmode",
+   "title": "Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d=arxiv-2407.18541 | paper_version=2407.18541v1 | title=Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models | authors=Neil Shah, Shirish Karande, Vineet Gandhi | Study.research_objective=Evaluate an SSL/Seq2Seq NA"
+  },
+  {
+   "pid": "arxiv-2407.21211",
+   "key": "t:leveragingselfsupervisedmodelsforautomaticwhisperedspeechrecognition",
+   "title": "Leveraging Self-Supervised Models for Automatic Whispered Speech Recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arxiv_id=2407.21211v2 | paper_version=arXiv v2; 3 Nov 2024 | title=Leveraging Self-Supervised Models for Automatic Whispered Speech Recognition | source_url=https://arxiv.org/pdf/2407.21211v2 | authors=Aref Farhad"
+  },
+  {
+   "pid": "arxiv-2411.02256",
+   "key": "t:unifiedspeechrecognitionasinglemodelforauditoryvisualandaudiovisualinputs",
+   "title": "Unified Speech Recognition: A Single Model for Auditory, Visual, and Audiovisual Inputs",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "VSR (lipreading), and AVSR on LRS3/LRS2/WildVSR; greedy EMA-teacher pseudo-labelling over unlabelled samples; optional self-supervised pre-training | production_labels=ordinary_voiced_speech | Cohort.demographics=no human subjects; corpora LRS3 (433h), L"
+  },
+  {
+   "pid": "arxiv-2412.18839",
+   "key": "t:advancingnamtospeechconversionwithnovelmethodsandthemultinamdataset",
+   "title": "Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "R NAM TIMIT Plus corpus [11] — studio-recorded; sensor details not described in this paper | representation_kind=HuBERT self-supervised speech representations at 50 Hz (content-focused; speaker/ambient de-emphasized) | Representation.transformation_defini"
+  },
+  {
+   "pid": "arxiv-2502.03128",
+   "key": "t:metisafoundationspeechgenerationmodelwithmaskedgenerativepretraining",
+   "title": "Metis: A Foundation Speech Generation Model with Masked Generative Pre-training",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rediction + iterative sampling; condition concatenated at fine-tune (text/audio/video); LoRA support | supervision_kind=self_supervised, paired_audio, gesture_label | TrainingRun.training_objective=unconditional masked-generative pretrain on 300Kh SSL tok"
+  },
+  {
+   "pid": "arxiv-2506.12055",
+   "key": "t:towardsunifiedneuraldecodingwithbrainfunctionalnetworkmodeling",
+   "title": "Towards Unified Neural Decoding with Brain Functional Network Modeling",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "egated network; whole functional brain network model integrating sEEG across subjects via learnable region prototypes + masked autoencoding self-supervision; validated on Mandarin initial-phoneme articulation decoding (audible + silent), online and offline"
+  },
+  {
+   "pid": "arxiv-2506.16969",
+   "key": "t:statespacemodelsinefficientwhisperedandmultidialectspeechrecognition",
+   "title": "State-Space Models in Efficient Whispered and Multi-dialect Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ormal English speech across Singaporean, US, and Irish dialect conditions, including a Mamba-based model and fine-tuned self-supervised models. | Study.unit_of_analysis=Word error rate on the reported test conditions; utterance-level aggregation details a"
+  },
+  {
+   "pid": "arxiv-2508.09913",
+   "key": "p:arxiv-2508.09913",
+   "title": null,
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "facebookresearch/av_hubert; fixed-offset sliding window (default) or DTW | system_boundary=two-stage offline pipeline: self-supervised AV speech rep learning on real videos, then unsupervised similarity-based forgery scoring; no fake videos in training |"
+  },
+  {
+   "pid": "arxiv-2508.18734",
+   "key": "t:improvingnoiserobustaudiovisualspeechrecognitionviaroutergatedcrossmodalfeaturef",
+   "title": "Improving Noise Robust Audio-Visual Speech Recognition via Router-Gated Cross-Modal Feature Fusion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eb2+LRS3 pretrain), frozen first τ=50% of FT | technical_essence=AVFF router (MARLIN video + AudioMAE audio) pretrained self-supervised 50ep, frozen during FT; produces sv scores | technical_essence=6-layer Transformer decoder + GCA gated cross-attention;"
+  },
+  {
+   "pid": "arxiv-2509-26301-neurottt",
+   "key": "t:neurotttbridgingthegapfrompretrainingtodownstreamtasksforeegfoundationmodels",
+   "title": "NeuroTTT: bridging the gap from pretraining to downstream tasks for EEG foundation models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "SSL heads (Amplitude-Scaling for IS; Anterior-Posterior flip for stress; Temporal Jigsaw for MI). Stage II: per-sample self-supervised TTT or Tent entropy-minimization updating only batch-norm stats; reset or online carry-forward | EvaluationProtocol.exp"
+  },
+  {
+   "pid": "arxiv-2510.10069",
+   "key": "p:arxiv-2510.10069",
+   "title": null,
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "TMAE-B decoder + WanVACE-1.3B/VACE AudioPack dubbing; frozen pretrain tokens drive 4 downstream heads | system_boundary=self-supervised AV pretraining (MAE+contrastive) then frozen-token transfer: lag detection by cosine argmax (no head), linear facial cl"
+  },
+  {
+   "pid": "arxiv-2510.10069-synclipmae",
+   "key": "t:synclipmaecontrastivemaskedpretrainingforaudiovisualtalkingfacerepresentations",
+   "title": "SyncLipMAE: Contrastive Masked Pretraining for Audio-Visual Talking-Face Representations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ations | authors=Zeyu Ling, Xiaodong Gu, Jiangnan Tang, Changqing Zou | venue=arXiv preprint | Study.research_objective=self-supervised pretraining of synchronization-aware transferable facial dynamics from unlabeled audio-visual talking-face video | Stud"
+  },
+  {
+   "pid": "arxiv-2510.23969",
+   "key": "t:emg2speechsynthesizingspeechfromelectromyographyusingselfsupervisedspeechmodels",
+   "title": "emg2speech: synthesizing speech from electromyography using self-supervised speech models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.23969 | title=emg2speech: synthesizing speech from electromyography using self-supervised speech models | authors=Harshavardhana T. Gowda, Daniel C. Comstock, Lee M. Miller | venue=arXiv preprint [cs.SD]; Univ"
+  },
+  {
+   "pid": "arxiv-2511.18993",
+   "key": "p:arxiv-2511.18993",
+   "title": null,
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on LRS3, frozen, separate audio and visual encoders feeding transformer; iterative clustering of multimodal features + masked prediction | ProcessingStep.hyperparameters=1D-conv autoencoder R: pre lr_pre=2, down lr_down=3 (k=15,s=2), up lr_up=3, post lr_po"
+  },
+  {
+   "pid": "arxiv-2512.15830",
+   "key": "t:fromminutestodaysscalingintracranialspeechdecodingwithsupervisedpretraining",
+   "title": "From Minutes to Days: Scaling Intracranial Speech Decoding with Supervised Pretraining",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n=controlled_experiment | Study.research_objective=leverage week-long iEEG+audio recordings from epilepsy monitoring as contrastive pretraining (100x+) for intracranial speech decoding, measure scaling law and representation change | Study.unit_of_analysis=per"
+  },
+  {
+   "pid": "arxiv-2601.13866",
+   "key": "t:audiooutperformstextforvisualdecoding",
+   "title": "Audio Outperforms Text for Visual Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "coders -> MoPoE joint posterior -> shared latent z=32 -> ELBO + intra/inter-modality MI regularizers | supervision_kind=self_supervised, paired_audio | TrainingRun.training_objective=weighted-ELBO + intra/inter MI (lambda1=lambda2=.001); Adam 1e-4, 500ep,"
+  },
+  {
+   "pid": "arxiv-2602.19316",
+   "key": "t:payattentiontoctcfastandrobustpseudolabellingforunifiedspeechrecognition",
+   "title": "Pay Attention to CTC: Fast and Robust Pseudo-Labelling for Unified Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ".0 halves training time, ~40x faster decoding, and sets SOTA: Huge (2500h) VSR 17.6/ASR 0.9/AVSR 0.8; Large beats USR & self-supervised baselines at every scale and is far more robust OOD and to long inputs | VSR WER Huge LRS3 | AVSR WER Huge LRS3 | CTC v"
+  },
+  {
+   "pid": "arxiv-2605.00025",
+   "key": "t:modalselfsupervisedneuralmodalitydiscoveryviadecorrelationforspeechneuroprosthes",
+   "title": "MoDAl: Self-Supervised Neural Modality Discovery via Decorrelation for Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2605.00025 | paper_version=arXiv 2605.00025v3; 11-page PDF dated 6 Aug 2026 | title=MoDAl: Self-Supervised Neural Modality Discovery via Decorrelation for Speech Neuroprosthesis | authors=Yuanhao Chen, Peter Chin | venue=ACM I"
+  },
+  {
+   "pid": "arxiv-2605.00025-modal",
+   "key": "t:modalselfsupervisedneuralmodalitydiscoveryviadecorrelationforspeechneuroprosthes",
+   "title": "MoDAl: Self-Supervised Neural Modality Discovery via Decorrelation for Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2605.00025-modal | title=MoDAl: Self-Supervised Neural Modality Discovery via Decorrelation for Speech Neuroprosthesis | authors=Yuanhao Chen, Peter Chin | venue=arXiv"
+  },
+  {
+   "pid": "arxiv-2606-05763-m2savsr",
+   "key": "t:m2savsrmodalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspe",
+   "title": "M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition | authors=Fei Su, Cancan Li, Ming Li, Juan Liu | venue=arXiv"
+  },
+  {
+   "pid": "arxiv-2606.05763",
+   "key": "t:m2savsrmodalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspe",
+   "title": "M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2606.05763v2 | title=M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition | authors=Fei Su, Cancan Li, Ming Li, Juan Liu | source_url=h"
+  },
+  {
+   "pid": "arxiv-2606.05763-m2savsr",
+   "key": "t:modalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspeechreco",
+   "title": "Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2606.05763-m2savsr | title=Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition | authors=Fei Su, Cancan Li, Ming Li, Juan Liu | venue=arXiv:"
+  },
+  {
+   "pid": "arxiv-2606.07259",
+   "key": "t:assessingtruegeneralisabilityofaudiovisualspeechrecognisers",
+   "title": "Assessing True Generalisability of Audio-Visual Speech Recognisers",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "entity. | TrainingRun.initialization={'model': 'Llama-AVSR'} | SystemConfiguration.component_versions={'description': 'Self-supervised pretraining on unlabelled audio-visual data, then fine-tuning on LRS3.'} | SystemConfiguration.component_versions={'des"
+  },
+  {
+   "pid": "arxiv-2606.07435",
+   "key": "t:thelipreadinggapdovsrmodelsperceivevisualspeechlikehumanlipreaders",
+   "title": "The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "fine-tuning in this study', 'parameter_count': '250M'} | SystemConfiguration.component_versions={'system_description': 'Self-supervised AV-HuBERT, 95M parameters.', 'evaluation_weight_source': 'publicly released pretrained weights; no additional fine-tuni"
+  },
+  {
+   "pid": "arxiv-2606.30319",
+   "key": "t:brainjanusaunifiedmodelforunderstandingandgenerationacrossbrainvisionandlanguage",
+   "title": "BrainJanus: A Unified Model for Understanding and Generation across Brain, Vision, and Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oregressive next-token model over interleaved brain/image/text tokens; no frozen CLIP/LDM/LLM priors | supervision_kind=self_supervised, paired_audio | TrainingRun.training_objective=tokenizer AdamW 1e-4 bs256 100ep commitment .25 entropy .1 cross-subject"
+  },
+  {
+   "pid": "arxiv-2607.12071",
+   "key": "t:beyondparalleltrackinginteractivemultifeaturefusiondrivessemanticreconstructionf",
+   "title": "Beyond Parallel Tracking: Interactive Multi-Feature Fusion Drives Semantic Reconstruction from Non-invasive Brain Recordings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ediction and fused semantic target; maximize diagonal matches and minimize off-diagonal distractors. | supervision_kind=self_supervised | EvaluationProtocol.metric_denominator={'definition': 'A retrieval counts as successful when the ground-truth semantic"
+  },
+  {
+   "pid": "arxiv-2608.01623",
+   "key": "t:sageswitchawareeegguidedsoftgatingfortargetspeakerextractionwithintrialswitching",
+   "title": "SAGE: Switch-Aware EEG-Guided Soft Gating for Target Speaker Extraction with In-Trial Switching",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "atency alignment + uncertainty u(t)=Var_K(g)->smoothness weight + switch-aware TV loss | supervision_kind=paired_audio, self_supervised | TrainingRun.training_objective=reconstruction + gating regularization + switch-structure constraints; switch-aware TV"
+  },
+  {
+   "pid": "arxiv-2608.08510-mcorec",
+   "key": "t:fromspeechtointeractionanalyzingmultimodalsystemsincocktailpartyscenarios",
+   "title": "From Speech to Interaction: Analyzing Multimodal Systems in Cocktail-Party Scenarios",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oss systems: (1) explicit or implicit audio-visual target-speech separation, (2) improved AVSR per target speaker incl. self-supervised front-ends, (3) LLM-conditioned decoding and reasoning over conversational context for grouping (e.g., Qwen-based refin"
+  },
+  {
+   "pid": "arxiv-2608.10836",
+   "key": "t:whisperawarellmselfsuperviseduncertaintylearningforrobustwhisperedspeechrecognit",
+   "title": "Whisper-Aware LLM: Self-Supervised Uncertainty Learning for Robust Whispered Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "r_id=arxiv-2608.10836 | paper_version=arXiv:2608.10836v1 [cs.SD], 11 Aug 2026 (PDF, 5 pages) | title=Whisper-Aware LLM: Self-Supervised Uncertainty Learning for Robust Whispered Speech Recognition | authors=Gaopeng Xu, Zhenyu Wang, Zheng Xue, Yinfeng Xia,"
+  },
+  {
+   "pid": "arxiv-2608.17983",
+   "key": "t:dualcotraincrossdatasetultrasoundtonguesegmentationunderextremedatascarcity",
+   "title": "DUALCO-TRAIN: CROSS-DATASET ULTRASOUND TONGUE SEGMENTATION UNDER EXTREME DATA SCARCITY",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "an noise) → single-channel ultrasound image; PatchGAN discriminator on concatenated mask/image/noise | supervision_kind=self_supervised, other | adaptation=machine_finetuning | ProcessingStep.hyperparameters=source pretrain: Lsup=0.8·focal+0.2·dice (focal"
+  },
+  {
+   "pid": "arxiv-2609-10394-candorlr",
+   "key": "t:candorlradyadicconversationaldatasetforaudiovisualspeechrecognition",
+   "title": "Candor-LR: A Dyadic Conversational Dataset for Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "m_name=Candor-LR benchmark | SystemConfiguration.system_lifecycle=implemented_evaluated | supervision_kind=text_prompt, self_supervised | Auto-AVSR-L VO WER Candor-LR | Auto-AVSR-L AV WER Candor-LR | AV-HuBERT VO WER LRS3 (LRS3-trained)"
+  },
+  {
+   "pid": "arxiv-2609.03231",
+   "key": "t:the2026pnplcompetitionwordclassificationandefficientcrosssubjectgeneralisationin",
+   "title": "The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "i word-decoding baseline (Broad track) | system_name=Random-chance baseline | information_kind=MEG-XL is described as a self-supervised foundation model pre-trained on approximately 300 hours of MEG from 800 subjects; corpus details and exact pretraining"
+  },
+  {
+   "pid": "cvf-yuan25-notonlyvision",
+   "key": "t:notonlyvisionevolvevisualspeechrecognitionviaperipheralinformation",
+   "title": "Not Only Vision: Evolve Visual Speech Recognition via Peripheral Information",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "with explicit reasoning preamble phrase | EvaluationProtocol.experimental_design=LRS3 benchmark vs fully-supervised and self-supervised SOTA under comparable labeled hours; AVSpeech real-world generalization; ablations toggling guidance/expertise/perturba"
+  },
+  {
+   "pid": "cvf-zhang24-es3",
+   "key": "t:es3evolvingselfsupervisedlearningofrobustaudiovisualspeechrepresentations",
+   "title": "ES3: Evolving Self-Supervised Learning of Robust Audio-Visual Speech Representations",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-zhang24-es3 | title=ES3: Evolving Self-Supervised Learning of Robust Audio-Visual Speech Representations | authors=Y. Zhang, S. Yang, S. Shan, X. Chen | review_state=sou"
+  },
+  {
+   "pid": "cvf24-zhang_es3",
+   "key": "t:es3evolvingselfsupervisedlearningofrobustaudiovisualspeechrepresentations",
+   "title": "ES3: Evolving Self-Supervised Learning of Robust Audio-Visual Speech Representations",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf24-zhang_es3 | title=ES3: Evolving Self-Supervised Learning of Robust Audio-Visual Speech Representations | authors=Yuanhang Zhang, Shuang Yang, Shiguang Shan, Xilin Chen"
+  },
+  {
+   "pid": "doi-10.1038-s41598-025-28855-0",
+   "key": "t:rehanetarevinhybridattentionnetworkwithmultiscaleconvolutionforrobusteegartifact",
+   "title": "ReHA-Net: a ReVIN–hybrid attention network with multiscale convolution for robust EEG artifact removal in brain–computer interfaces",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g | observed_quantities=neural_activity | intrusiveness=skin_contact | model_family=cnn, transformer | supervision_kind=self_supervised | technical_essence=EEG artifact removal (NOT speech decoding): U-Net encoder-decoder + Hybrid Attention (temporal/spat"
+  },
+  {
+   "pid": "doi-10.1038-s41598-026-37421-1",
+   "key": "t:murhythmmotorauditorydelayinimaginedspeechmirrorsovertspeechtiming",
+   "title": "Mu rhythm motor-auditory delay in imagined speech mirrors overt speech timing",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s,<=10 removed); Stockwell TFR; forward model source reconstruction; cluster-based permutation stats | supervision_kind=self_supervised, other | TrainingRun.training_objective=covert articulation w/ EMG-verified stillness; overt pretest provides individua"
+  },
+  {
+   "pid": "doi-10.1088-2515-7647.ae869f",
+   "key": "t:remoteopticaldecodingofinnerspeechinbrocasareaviaaibasedspecklepatternanalysis",
+   "title": "Remote optical decoding of inner speech in Broca's area via AI-based speckle pattern analysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ner-speech class | decoder_route=closed_set_classification | model_family=transformer, other | technical_essence=LV-MAE self-supervised pretrain on 9 subjects' speckle dynamics; per-subject XGBoost on embeddings from 1-minute calibration; 40 ms input wind"
+  },
+  {
+   "pid": "doi-10.1109-cvprw59228.2023.00609",
+   "key": "t:visualspeechawareperceptual3dfacialexpressionreconstructionfromvideosspectre",
+   "title": "Visual Speech-Aware Perceptual 3D Facial Expression Reconstruction from Videos (SPECTRE)",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "r direct 3D supervision | author_claimed_contribution=first visual-speech-aware perceptual 3D reconstruction; trains on unlabeled data without text/audio | extra.Limitation.limitation=prior methods (landmark losses, emotional consistency) capture speech"
+  },
+  {
+   "pid": "doi-10.1109-iccv51070.2023.01409",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ns=visual encoder (masked speech-unit pre-training) + Language-specific Memory banks + text decoder | technical_essence=masked predictions of speech units teach general speech knowledge on high-resource English | technical_essence=LMDecoder reads memory ban"
+  },
+  {
+   "pid": "doi-10.1109-tnnls.2022.3191677",
+   "key": "t:lipsound2selfsupervisedpretrainingforliptospeechreconstructionandlipreading",
+   "title": "LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading | authors=L. Qu; C. Weber; S. Wermter | Study.research_ob"
+  },
+  {
+   "pid": "doi-10.1145-3526113.3545685",
+   "key": "t:dualvoicespeechinteractionthatdiscriminatesbetweennormalandwhisperedvoiceinput",
+   "title": "DualVoice: Speech Interaction that Discriminates between Normal and Whispered Voice Input",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "C; also HuBERT large compared; normal recognizer speaker-independent | model_family=transformer, cnn | supervision_kind=self_supervised, paired_audio, text_prompt | adaptation=machine_finetuning, user_specific_training | TrainingRun.training_objective=pre"
+  },
+  {
+   "pid": "doi-10.1145-3544548.3580706",
+   "key": "p:doi-10.1145-3544548.3580706",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "decoder_route=direct_signal_to_audio | tested_population=healthy_volunteers, target_users | TrainingRun.initialization=self-supervised pre-training on LibriSpeech 960h (LPC-whispered) + wTIMIT 58 h; no paired whisper-normal dataset, no transcripts | supe"
+  },
+  {
+   "pid": "doi-10.1145-3544548.3581465",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "r=automatic accuracy/F1 | evaluation_mode=live_interactive | SystemConfiguration.component_versions=3D CNN lip encoder (contrastive pre-train) + linear classifier; Core ML on-device; visual keyword spotting | technical_essence=contrastive semi-supervised pre-tr"
+  },
+  {
+   "pid": "doi-10.1162-imag.a.1301",
+   "key": "t:meggptatransformerbasedfoundationmodelformagnetoencephalographydata",
+   "title": "MEG-GPT: A transformer-based foundation model for magnetoencephalography data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| supervision_kind=gesture_label | TrainingRun.training_objective=next-time-point prediction on tokenised parcel data (self-supervised) then supervised decoding probes/fine-tuning | EvaluationProtocol.test_material_selection=PSD/1f/alpha-peak fidelity +"
+  },
+  {
+   "pid": "doi-10.1186-s13636-025-00403-8",
+   "key": "t:silentspeechrecognitionusingvisualcascadingfusionoftonguelipmovementsbasedonpret",
+   "title": "Silent speech recognition using visual cascading fusion of tongue-lip movements based on pre-trained and fine-tuned model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "streams | technical_essence=Visual-HuBERT: masked-frame prediction of k-means cluster labels over fused visual stream (self-supervised pre-train) | Study.negative_findings=overfitting grows as single-speaker data rises (train WER rises while test WER sti"
+  },
+  {
+   "pid": "doi-10.18653-v1-2022.acl-long.308",
+   "key": "t:leveragingunimodalselfsupervisedlearningformultimodalaudiovisualspeechrecognitio",
+   "title": "Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition | intended_use_cases=other, noisy_environment | task_family=sen"
+  },
+  {
+   "pid": "doi-10.20517-ss.2026.38",
+   "key": "t:biointegratedsystemsforsilentspeechrecognitionfromadvancedbioplatformstomedicala",
+   "title": "Bio-integrated systems for silent speech recognition: from advanced bioplatforms to medical applications",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eck | extra.Limitation.limitation=small/single-user datasets limit cross-user scalability; transfer/domain-adaptation + self-supervised are partial remedies | extra.Limitation.limitation=real-time computation on low-power wearables unresolved; lightweight"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-10789510-v1",
+   "key": "t:noncontactopticaldecodingofmultiplecorticallanguageandauditoryresponsestatesinwe",
+   "title": "Non-contact optical decoding of multiple cortical language and auditory response states in Wernicke's area",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ion_kind=LV-MAE 128-dim embedding per 40ms segment; 4x concat -> 512-dim per 160ms window | ProcessingStep.architecture=self-supervised LV-MAE autoencoder pretrained on separate Broca inner-speech dataset; XGBoost head; NVIDIA A100 | EvaluationProtocol.ex"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-8670830-v1",
+   "key": "t:robustaudiovisualspeechrecognitionusingnoiseresilientattentionanddynamicfeaturef",
+   "title": "Robust Audio-Visual Speech Recognition Using Noise-Resilient Attention and Dynamic Feature Fusion",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "M+1, M=3) + Quality Control (CNN/BN/FFN) + Confidence-Driven fusion F=wv*Fv+wa*Fa+Finv | supervision_kind=paired_audio, self_supervised | TrainingRun.training_objective=Adam 1e-4, tri-stage scheduler 20k warmup/60k steps, grad-accum 4, bs6; ablation small"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-8703722-v1",
+   "key": "t:remoteopticaldecodingofinnerspeechinbrocasareaviaaibasedspecklepatternanalysis",
+   "title": "Remote Optical Decoding of Inner Speech in Broca’s Area via AI-based Speckle Pattern Analysis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "TACTLESS optical BCI: laser speckle-pattern dynamics over Broca's area decode binary inner speech (silent \"yes\"/\"no\") — self-supervised conv-LSTM + lightweight classifier adaptation on millions of video frames from 10 volunteers; AUC 0.97 / 95.7% @40 ms ("
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9141990-v1",
+   "key": "t:contactlessopticaldecodingofcorticallanguageresponsesviaregiontransferablespeckl",
+   "title": "Contactless optical decoding of cortical language responses via region-transferable speckle dynamics",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_objective=contactless decoding of cortical language responses via laser speckle dynamics; test region/task transfer of self-supervised speckle representations (Broca inner-speech -> Wernicke comprehension) | Study.unit_of_analysis=speckle-pattern video s"
+  },
+  {
+   "pid": "doi-10.26092-elib.5498",
+   "key": "t:personalizingmyoelectricsilentspeechinterfacesviacrossspeakertrainingandvoicetim",
+   "title": "Personalizing Myoelectric Silent Speech Interfaces via Cross-Speaker Training and Voice Timbre Control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "er; cross-speaker multi-speaker training; streaming variants Stream-Enc(Sig/TD)+LPCNet | supervision_kind=paired_audio, self_supervised | adaptation=joint, machine_finetuning | TrainingRun.training_objective=pre-train with other biosignals (EMA, MRI), unl"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2026.1838064",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfromnoninvasivebrainsigna",
+   "title": "The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ensions=FM stack: tokenization layers -> local representation blocks -> spatiotemporal attention -> task heads; SSL via masked prediction/reconstruction or contrastive positive/negative pairs | ProcessingStep.architecture=tokenization (window/overlap patch"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2025.1565848",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e EEG, Chebyshev 1–45 Hz bandpass, three speech conditions per subject | split_protocol=random_trial | supervision_kind=self_supervised, unpaired | Study.study_design=system_proposal | Study.research_objective=synthesize intelligible utterances directly f"
+  },
+  {
+   "pid": "doi-10.3758-s13423-025-02846-8",
+   "key": "t:adeepneuralnetworkmodelofaudiovisualspeechrecognitionreportsthemcgurkeffect",
+   "title": "A deep neural network model of audiovisual speech recognition reports the McGurk effect",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ions=open-vocabulary transcript percepts incl. fusion da, ah, fa and auditory ba | ProcessingStep.architecture=AVHuBERT self-supervised AV speech model; variants compared to human percepts on same stimuli | EvaluationProtocol.test_material_selection=same"
+  },
+  {
+   "pid": "iccv25-thomas_vallr",
+   "key": "t:vallrvisualasrlanguagemodelforlipreading",
+   "title": "VALLR: Visual ASR Language Model for Lip Reading",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.unit_of_analysis=LRS3 supervised finetune on 30h train-val (test 1,321 utt); LRS2 28h train (test 1,243 utt); no self-supervised pretrain set used | task_encoding=natural_utterance | task_family=sentence_recognition | target_population=speech_impai"
+  },
+  {
+   "pid": "iccv25-yeo_zeroavsr",
+   "key": "t:zeroavsrzeroshotaudiovisualspeechrecognitionwithllmsbylearninglanguageagnosticsp",
+   "title": "Zero-AVSR: Zero-Shot Audio-Visual Speech Recognition with LLMs by Learning Language-Agnostic Speech Representations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nscripts) substantially expands AV corpus linguistic diversity | extra.Limitation.limitation=language IDs/graphemes for unlabeled data come from pretrained LID+ASR models that may misclassify; zero-shot quality depends on LLM de-romanization coverage | e"
+  },
+  {
+   "pid": "in24-mamauv",
+   "key": "t:tacklingmissingmodalitiesinaudiovisualrepresentationlearningusingmaskedautoencod",
+   "title": "Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders | authors=Georgios Chochlakis, Chandrashekhar Lavania, Prashant Mathur, Kyu J. Han | venue=Proc. Interspeech 2024 |"
+  },
+  {
+   "pid": "isca-chochlakis24-missingmod",
+   "key": "t:tacklingmissingmodalitiesinaudiovisualrepresentationlearningusingmaskedautoencod",
+   "title": "Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders | authors=Chochlakis, et-al | venue=Interspeech 2024 | Study.research_objective=masked autoencoders for missing AV m"
+  },
+  {
+   "pid": "isca-choi23_interspeech",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ystem_proposal | Study.research_objective=synthesize intelligible speech from silent lip-movement video using quantized self-supervised speech units as extra prediction target plus multi-input vocoder | Study.unit_of_analysis=WER/STOI/ESTOI/PESQ of synthe"
+  },
+  {
+   "pid": "isca-eshky19_interspeech",
+   "key": "t:synchronisingaudioandultrasoundbylearningcrossmodalembeddings",
+   "title": "Synchronising audio and ultrasound by learning cross-modal embeddings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "(v,a) with Euclidean distance contrastive objective; 5 UTI frames + 20 MFCC frames per ~200ms input | supervision_kind=self_supervised, paired_audio | dataset_description=UltraSuite repository (UXTD + UXSSD + UPX): child-therapy ultrasound+audio, 13,815"
+  },
+  {
+   "pid": "isca-gudnason09_interspeech",
+   "key": "t:voicesourcewaveformanalysisandsynthesisusingprincipalcomponentanalysisandgaussia",
+   "title": "Voice Source Waveform Analysis and Synthesis using Principal Component Analysis and Gaussian Mixture Modelling",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e; diagonal-covariance GMM (M=16) on 64-dim PCA spectra; prototypes = back-transformed mixture means | supervision_kind=self_supervised | TrainingRun.training_objective=EM until 50 iterations or log-likelihood gain < 1e-4; M=16 chosen where Fisher-ratio p"
+  },
+  {
+   "pid": "isca-gurbuz05_interspeech",
+   "key": "t:realtimeouterlipcontourtrackingforhciapplications",
+   "title": "Real-time Outer Lip Contour Tracking for HCI Applications",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ayes quadratic discriminant -> contour -> least-squares generalized ellipse (5-point representation) | supervision_kind=self_supervised, unpaired | TrainingRun.training_objective=online unsupervised learning: define dynamic lip/non-lip (r,g) regions off t"
+  },
+  {
+   "pid": "isca-hewer14_interspeech",
+   "key": "t:ahybridapproachto3dtonguemodelingfromvocaltractmriusingunsupervisedimagesegmenta",
+   "title": "A hybrid approach to 3d tongue modeling from vocal tract MRI using unsupervised image segmentation and mesh deformation",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ints+normals, deform generic template mesh to point cloud (alpha=1, beta=3-4, tmax=5-20 per dataset) | supervision_kind=self_supervised, other | TrainingRun.training_objective=minimize Chan-Vese within-region gray-value variance, then template-matching de"
+  },
+  {
+   "pid": "isca-ishikawa25-avmae",
+   "key": "t:languageguidedcontrastiveaudiovisualmaskedautoencoderwithautomaticallygenerateda",
+   "title": "Language-Guided Contrastive Audio-Visual Masked Autoencoder with Automatically Generated Audio",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Language-Guided Contrastive Audio-Visual Masked Autoencoder with Automatically Generated Audio | authors=Ishikawa, et-al | venue=Interspeech 2025 | Study.research_objective=lang"
+  },
+  {
+   "pid": "isca-kim21b-sslavvad",
+   "key": "t:noisetolerantselfsupervisedlearningforaudiovisualvoiceactivitydetection",
+   "title": "Noise-Tolerant Self-Supervised Learning for Audio-Visual Voice Activity Detection",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Noise-Tolerant Self-Supervised Learning for Audio-Visual Voice Activity Detection | authors=Kim, Kyeong, Lee, Ko, Kim | venue=Interspeech 2021 | Study"
+  },
+  {
+   "pid": "isca-kim21b_interspeech",
+   "key": "p:isca-kim21b_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "V attention on swwm5a.mpg | extra.Limitation.limitation=supervised method still best in matched noise (95.58 vs 86.95); self-supervised advantage only under mismatch / low SNR; noise-free-trained proposed (83.86) still loses to baseline? no - beats it (82"
+  },
+  {
+   "pid": "isca-kroger06_interspeech",
+   "key": "t:modelingsensorytomotormappingsusingneuralnetsanda3darticulatoryspeechsynthesizer",
+   "title": "Modeling sensory-to-motor mappings using neural nets and a 3D articulatory speech synthesizer",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s (auditory/somatosensory state+error), spatial-coordinate motor map, and joint-coordinate motor map | supervision_kind=self_supervised | TrainingRun.training_objective=batch training of each mapping: spatial->joint 100k cycles; tactile->motor 20k; audito"
+  },
+  {
+   "pid": "isca-li24l-brainssr",
+   "key": "t:refiningselfsupervisedlearntspeechrepresentationusingbrainactivations",
+   "title": "Refining Self-Supervised Learnt Speech Representation using Brain Activations",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Refining Self-Supervised Learnt Speech Representation using Brain Activations | venue=Interspeech 2024 | Study.research_objective=refining SSL s"
+  },
+  {
+   "pid": "isca-ma21c-lira",
+   "key": "t:liralearningvisualspeechrepresentationsfromaudiothroughselfsupervision",
+   "title": "LiRA: Learning Visual Speech Representations from Audio Through Self-Supervision",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "m Audio Through Self-Supervision | authors=Ma, Panagakis, Zisserman | venue=Interspeech 2021 | Study.research_objective=self-supervised visual speech representations from audio | Study.study_design=controlled_experiment | task_family=isolated_word_recogni"
+  },
+  {
+   "pid": "isca-ma21c_interspeech",
+   "key": "t:liralearningvisualspeechrepresentationsfromaudiothroughselfsupervision",
+   "title": "LiRA: Learning Visual Speech Representations from Audio through Self-supervision",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "h.2021-1360 | Study.research_objective=Learn visual speech representations by predicting acoustic (PASE+) features from unlabelled video; transfer to word/sentence lip-reading | Study.study_design=controlled_experiment | task_family=isolated_word_recogniti"
+  },
+  {
+   "pid": "isca-montesinos23_interspeech",
+   "key": "t:avinpaintingaudiovisualspeechinpainting",
+   "title": "Av-Inpainting: Audio-Visual Speech Inpainting",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Claim.claim_scope=AV transformer beats prior AV state-of-the-art and audio-only baselines | Claim.claim_scope=AV-HuBERT self-supervised features are suitable for speech synthesis | Claim.claim_scope=lip/facial visual cues carry content needed to restore m"
+  },
+  {
+   "pid": "isca-moulinfrier13_interspeech",
+   "key": "t:theroleofintrinsicmotivationsinlearningsensorimotorvocalmappingsadevelopmentalro",
+   "title": "The role of intrinsic motivations in learning sensorimotor vocal mappings: a developmental robotics study",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "I=12 over (t,x,c) tuples of last im_step=12 updates, weights biased by t-c covariance) | TrainingRun.training_objective=self-supervised: intrinsic reward = empirical competence progress (correlation of time and competence); no external labels — the agent"
+  },
+  {
+   "pid": "isca-oota23_interspeech",
+   "key": "t:speechtaskonomywhichspeechtasksarethemostpredictiveoffmribrainactivity",
+   "title": "Speech Taskonomy: Which Speech Tasks are the most Predictive of fMRI Brain Activity?",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "presentations differ in brain-encoding power; task choice matters | Claim.claim_type=generalization | Claim.claim_scope=self-supervised speech Transformer representations predict naturalistic-listening brain data | extra.Limitation.limitation=encoding-onl"
+  },
+  {
+   "pid": "isca-prajwal24_interspeech",
+   "key": "t:speechrecognitionmodelsarestronglipreaders",
+   "title": "Speech Recognition Models are Strong Lip-readers",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tation_kind=AV-HuBERT-Large visual features (ResNet18 + 24-layer transformer encoder d1024 h16, SSL clustering on 1759h unlabeled video) | technical_essence=cross-modal mapping M = 2-FC MLP (ReLU+LN) + N=3 transformer encoder layers (C=1024, heads=16) map"
+  },
+  {
+   "pid": "isca-puffay22_interspeech",
+   "key": "t:relatingthefundamentalfrequencyofspeechwitheegusingadilatedconvolutionalnetwork",
+   "title": "Relating the Fundamental Frequency of Speech with EEG Using a Dilated Convolutional Network",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "EEG identically filtered | decoder_route=closed_set_classification | elicitation=instructed_content | supervision_kind=self_supervised | tested_population=healthy_volunteers | dataset_description=10 Flemish-narrated stories (~14.5min avg, 8 female + 2 ma"
+  },
+  {
+   "pid": "isca-ramanarayanan11_interspeech",
+   "key": "t:automaticdatadrivenlearningofarticulatoryprimitivesfromrealtimemridatausingconvo",
+   "title": "Automatic Data-Driven Learning of Articulatory Primitives from Real-Time MRI Data using Convolutive NMF with Sparseness Constraints",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "set to target sparseness; W updated multiplicatively; W optimized jointly on Q=10 files, H per-file | supervision_kind=self_supervised | TrainingRun.training_objective=minimize squared reconstruction error of image-sequence matrix under row-wise sparsene"
+  },
+  {
+   "pid": "isca-rastogi25_interspeech",
+   "key": "t:towardssentencelevelimaginedspeechgenerationfromeegsignals",
+   "title": "Towards Sentence Level Imagined Speech Generation from EEG signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ended-Infomax, 1-100Hz then 2-50Hz, avg-ref, downsample 250Hz, interpolate to 11s | TrainingRun.optimization=two-stage: self-supervised SMA (mask ratio 0.8, pooling 4, embedding 256, 8 heads, 100 epochs) then BETO fine-tuning supervised next-token; VICReg"
+  },
+  {
+   "pid": "isca-shah24-namssl",
+   "key": "t:towardsimprovingnamtospeechsynthesisintelligibilityusingselfsupervisedspeechmode",
+   "title": "Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models | venue=Interspeech 2024 | Study.research_objective=SSL models for NAM-to-speech synthesis | Study.study_"
+  },
+  {
+   "pid": "isca-shi22-robustav",
+   "key": "t:robustselfsupervisedaudiovisualspeechrecognition",
+   "title": "Robust Self-Supervised Audio-Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Robust Self-Supervised Audio-Visual Speech Recognition | authors=Shi, Hsu, Mohamed | venue=Interspeech 2022 | Study.research_objective=robust"
+  },
+  {
+   "pid": "isca-shi22_interspeech",
+   "key": "t:robustselfsupervisedaudiovisualspeechrecognition",
+   "title": "Robust Self-Supervised Audio-Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-shi22_interspeech | title=Robust Self-Supervised Audio-Visual Speech Recognition | authors=Bowen Shi, Wei-Ning Hsu, Abdelrahman Mohamed | venue=Interspeech 2022 | doi=1"
+  },
+  {
+   "pid": "isca-shin26-eegxtr",
+   "key": "t:breakingshortcutlearningforcrosstrialeegguidedtargetspeechextractionviatwostaget",
+   "title": "Breaking Shortcut Learning for Cross-Trial EEG-Guided Target Speech Extraction via Two-Stage Training",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ed_quantities=neural_activity | intrusiveness=external_noncontact | Representation.transformation_definition=two-stage: contrastive pretraining (attended vs unattended EEG-source alignment) then fine-tune extraction with confidence-weighted SI-SDR objective |"
+  },
+  {
+   "pid": "isca-vougioukas19_ganv2s",
+   "key": "t:videodrivenspeechreconstructionusinggenerativeadversarialnetworks",
+   "title": "Video-Driven Speech Reconstruction Using Generative Adversarial Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "WER(ASR GRID-trained, 4% GT)/MCD/SyncNet AV offset; vs Lip2AudSpec | extra.Configuration.configuration_scope=end-to-end self-supervised training on naturally paired video+audio (no transcriptions needed) | qualitative_observation=vs Lip2AudSpec (seen spea"
+  },
+  {
+   "pid": "isca-wang25w-avintegration",
+   "key": "t:theroleofaudiovisualintegrationinthetimecourseofphoneticencodinginselfsupervised",
+   "title": "The role of audio-visual integration in the time course of phonetic encoding in self-supervised",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The role of audio-visual integration in the time course of phonetic encoding in self-supervised | venue=Interspeech 2025 | Study.research_objective=AV integration in phonetic encoding SSL | Study.study_design=contro"
+  },
+  {
+   "pid": "isca-wang25w_interspeech",
+   "key": "t:theroleofaudiovisualintegrationinthetimecourseofphoneticencodinginselfsupervised",
+   "title": "The role of audio-visual integration in the time course of phonetic encoding in self-supervised speech models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "per_id=isca-wang25w_interspeech | title=The role of audio-visual integration in the time course of phonetic encoding in self-supervised speech models | authors=Yi Wang, Oli Danyi Liu, Peter Bell | venue=Interspeech 2025 | review_state=source_checked | Stu"
+  },
+  {
+   "pid": "isca-wu24k_interspeech",
+   "key": "t:towardsemgtospeechwithanecklaceformfactor",
+   "title": "Towards EMG-to-Speech with a Necklace Form Factor",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "2 needed; neck-only confusions match neck+face behavior (same phonological info); EMG spectrogram bins linearly predict self-supervised speech-representation dims → EMG→speech feasible from the neck | evidence_relation=supported_within_scope | technical_l"
+  },
+  {
+   "pid": "mdpi-e14122310_multiavsr",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| ProcessingStep.architecture={'loss': 'hybrid_ctc_attention_multitask', 'tasks': ['vsr', 'asr', 'avsr'], 'pretrain': 'self_supervised'} | extra.Output.output_kind=sentence transcript per task | Claim.claim_scope=VSR WER 21.0% LRS3-TED; 44.7% WildVSR bet"
+  },
+  {
+   "pid": "mdpi-math11071733",
+   "key": "t:researchonrobustaudiovisualspeechrecognitionalgorithms",
+   "title": "Research on Robust Audio-Visual Speech Recognition Algorithms",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ROI 112x112@25fps; visual-only inference in VSR condition; lip+aux visual stream in AVSR | information_kind=wav2vec 2.0 self-supervised speech model pretrained on Libri-Light | information_kind=MoCo v2 momentum-contrast model pretrained on ImageNet, adapt"
+  },
+  {
+   "pid": "pmc-12460843-linguistic-neural-decoding",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lution architectures → Transformer/attention models and contextual embeddings (BERT) → generative pipelines (GPT/LLM) → self-supervised pretraining (wav2vec 2.0) — applied to classification, text reconstruction, and speech-wave generation | EvaluationProt"
+  },
+  {
+   "pid": "pmc-12917083-mcgurk-avhubert",
+   "key": "t:adeepneuralnetworkmodelofaudiovisualspeechrecognitionreportsthemcgurkeffect",
+   "title": "A deep neural network model of audiovisual speech recognition reports the McGurk effect",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "timuli to phoneme/percept categories, yielding fusion (“da”) and other non-“ba” responses | ProcessingStep.architecture=Self-supervised audiovisual DNN (AVHuBERT) evaluated as a model of perception; contrasted with Bayesian causal-inference models | Evalu"
+  },
+  {
+   "pid": "pmc-12944054-bonecond",
+   "key": "t:enhancingboneconductionsensorsignalsviaselfsupervisedacousticpriorsandkeyvalueme",
+   "title": "Enhancing Bone Conduction Sensor Signals via Self-Supervised Acoustic Priors and Key-Value Memory.",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Enhancing Bone Conduction Sensor Signals via Self-Supervised Acoustic Priors and Key-Value Memory. | authors=Zheng C, He H, Fan X, Li L, Zhao Y, Yan Y | venue=Sensors (Basel, Switz"
+  },
+  {
+   "pid": "pmc-13521586-barista",
+   "key": "t:baristabrainscaleinformedspatiotemporalrepresentationofhumanintracranialneuralac",
+   "title": "BaRISTA: Brain Scale Informed Spatiotemporal Representation of Human Intracranial Neural Activity",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| Study.study_design=controlled_experiment | Study.research_objective=dissociate spatial encoding vs masking scales for self-supervised iEEG neurofoundation model | Study.unit_of_analysis=ROC-AUC per downstream task across test sessions and finetuning see"
+  },
+  {
+   "pid": "pmc-13622872-mapa-ieeg",
+   "key": "t:pretrainingforsampleefficientneuralinterfaces",
+   "title": "Pretraining for Sample-Efficient Neural Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "le=Pretraining for Sample-Efficient Neural Interfaces | authors=Tang B; Spalding Z; Cogan GB | Study.research_objective=self-supervised masked-autoencoder pretraining of iEEG representations for sample-efficient cross-subject neural decoding | Study.study"
+  },
+  {
+   "pid": "pmc-13650247-bci-dyslexia",
+   "key": "t:towardsabraincomputerinterfacebciforimprovingphonologicalprocessingindevelopment",
+   "title": "Towards a Brain–Computer Interface (BCI) for Improving Phonological Processing in Developmental Dyslexia: An Exploratory Study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "T batteries | sensor_hardware=CGX Quick-20m wireless dry-electrode EEG headset, 19 channels @ 500 Hz | supervision_kind=self_supervised | TrainingRun.training_objective=16 sessions: decrease log theta/delta power ratio (increase slow delta) from personali"
+  },
+  {
+   "pid": "preprint-rs-8703722",
+   "key": "t:remoteopticaldecodingofinnerspeechinbrocasareaviaaibasedspecklepatternanalysis",
+   "title": "Remote Optical Decoding of Inner Speech in Broca’s Area via AI-based Speckle Pattern Analysis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tern video frames; 3,180 s balanced recordings across 10 volunteers | split_protocol=subject_holdout | supervision_kind=self_supervised, unpaired | Study.study_design=system_proposal | Study.research_objective=decode binary inner speech from remote optica"
+  }
+ ],
+ "usual_approach": {
+  "design": "supervision_kind=self_supervised",
+  "n": 31,
+  "tier": "slot-filled",
+  "pids": [
+   "arxiv-2601.13866",
+   "arxiv-2605.00025",
+   "arxiv-2606.30319",
+   "arxiv-2608.01623",
+   "arxiv-2608.10836"
+  ],
+  "population_unique": 75
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-ma21c-lira",
+   "role": "prior",
+   "loc": "Sec. 2.1; Table 2",
+   "quote": "LiRA predicts PASE+ features from raw video"
+  },
+  {
+   "pid": "arxiv-1911.12747",
+   "role": "prior",
+   "loc": "Sec. 4",
+   "quote": "for LRS2 and 59.8% for LRS3"
+  },
+  {
+   "pid": "arxiv-2602.19316",
+   "role": "sota",
+   "loc": "Table 2 (low-resource, Large)",
+   "quote": "USR 2.0 ✓ 23.7 2.3 2.2"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 1,
+  "found": 1,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2602.19316",
+  "year": 2026,
+  "metric": "LRS3 VSR WER, Large, LRS3+VoxCeleb2 unlabelled, 30 h labelled",
+  "value": 23.7,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 123,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "supervision_kind=self_supervised",
+   "n": 31,
+   "tier": "slot-filled",
+   "population_unique": 75
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2602.19316",
+   "year": 2026,
+   "metric": "LRS3 VSR WER, Large, LRS3+VoxCeleb2 unlabelled, 30 h labelled",
+   "value": 23.7,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-1911.12747",
+   "isca-ma21c-lira"
+  ],
+  "unread": 138,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction"
+ ]
+}
