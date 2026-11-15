@@ -72,3 +72,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices | 2019 | Methods「Listening Tests」 |
 | Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language | 2022 | Ledger |
 | Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language | 2022 | Ledger |
+
+## lrs3-visual-only-wer
+
+- Table: [`lrs3-visual-only-wer.csv`](lrs3-visual-only-wer.csv) (6960 slot-filled, 258 pattern match, usual design in 18, 1 read in full)
+- Inclusion rule: Include studies that report word error rate of visual-only (lip-reading) recognition on the LRS3 test set, any training regime. Boundary: exclude audio-only and audio-visual WER rows, LRS2/LRW/GRID-only results, and numbers quoted from other papers without new training; count versions of one study once.
+- Used in: [Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction](../../reviews/learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/)
