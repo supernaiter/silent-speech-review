@@ -1,0 +1,921 @@
+{
+ "topic": "speech-bci-calibration-data",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)(intracortical|microelectrode|ecog|electrocorticograph|neuroprosthes|brain-computer|BCI|sEEG)[^|]{0,300}(calibrat|training (data|sentences|minutes|hours)|recalibrat)|(calibrat|recalibrat)[^|]{0,300}(intracortical|microelectrode|ecog|electrocorticograph|neuroprosthes|brain-computer|BCI|sEEG)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Neural speech-decoding studies (intracortical, ECoG, sEEG, EEG) that state how much same-participant calibration or training data the decoder needs, or how it is recalibrated across days. Included: daily supervised recalibration, cumulative multi-day training, unsupervised or no recalibration, cross-participant pretraining. Excluded: non-neural silent-speech sensors; perception-only recalibration studies; cursor or handwriting BCIs unless they decode speech.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 59,
+  "string_match_unique": 51,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-9156039.v1",
+     "arxiv-2412.18839",
+     "isca-noda14_interspeech",
+     "isca-bocquelet15_interspeech"
+    ]
+   },
+   {
+    "design": "adaptation=user_specific_training",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436",
+     "isca-belfrouh26_odyssey",
+     "arxiv-2412.18839",
+     "isca-noda14_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "isca-maier09b_interspeech",
+     "isca-wan05b_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "issp2011-denby-portable-ssi",
+     "isca-bocquelet15_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436",
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "adaptation=machine_finetuning",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-belfrouh26_odyssey",
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "supervision_kind=self_supervised",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436",
+     "pmc-13650247-bci-dyslexia"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-belfrouh26_odyssey",
+     "doi-10.21203-rs.3.rs-8703722-v1"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=modified hifigan-v2 trained (batch 16",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=lr 2e-4",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "unsupervised_or_no_recalibration",
+    "n": 14,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609-36736-speechbcirev",
+     "doi-10.21203-rs.3.rs-9156039-v1",
+     "doi-10.1088-1741-2552-adf50e",
+     "pmc-12488916-distdecode",
+     "doi-10.1038-s41551-024-01207-5"
+    ]
+   },
+   {
+    "design": "daily_recalibration",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-13375540-ltbci",
+     "doi-10.21203-rs.3.rs-8703722-v1",
+     "doi-10.1038-s41551-024-01207-5",
+     "pmc-9915729-cursorrecal",
+     "arxiv-2311.03611"
+    ]
+   },
+   {
+    "design": "cross_session_accumulation",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-13375540-ltbci",
+     "doi-10.1056-nejmoa2314132",
+     "pmc-7582276-rldecoder",
+     "pmc-5591042-clickcal",
+     "arxiv-2311.03611"
+    ]
+   },
+   {
+    "design": "cross_subject_pretraining",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2607.27268-eegf",
+     "arxiv-2609-36736-speechbcirev",
+     "isca-belfrouh26-xcalib",
+     "pmc-12488916-distdecode",
+     "arxiv-2603.12279"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "card WER 50-word",
+   "value": 0.44,
+   "unit": "percent",
+   "raw": "0.44",
+   "pid": "arxiv-2603.12279",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 1.07,
+   "unit": "percent",
+   "raw": "1.07",
+   "pid": "arxiv-2412.18839",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "final-5-session WER",
+   "value": 2.5,
+   "unit": "percent",
+   "raw": "2.5",
+   "pid": "doi-10.1056-nejmoa2314132",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best reported WER (1200w)",
+   "value": 7.0,
+   "unit": "percent",
+   "raw": "7.0%",
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "year": 2020,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "silent-speech WER",
+   "value": 10.53,
+   "unit": "%",
+   "raw": "10.53",
+   "pid": "doi-10.3390-brainsci15040336",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "wer_median_english_pct",
+   "value": 22.2,
+   "unit": "%",
+   "raw": "22.2% (99% CI: 7.14, 44.4%) for English phrases",
+   "pid": "doi-10.1038-s41551-024-01207-5",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "median WER/WPM (iBCI decode)",
+   "value": 25.6,
+   "unit": "percent",
+   "raw": "25.6% median WER at 15.2 WPM",
+   "pid": "arxiv-2609-36736-speechbcirev",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2311.03611",
+   "key": "t:plugandplaystabilityforintracorticalbraincomputerinterfacesaoneyeardemonstration",
+   "title": "Plug-and-Play Stability for Intracortical Brain-Computer Interfaces: A One-Year Demonstration of Seamless Brain-to-Text Communication",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ation of Seamless Brain-to-Text Communication | venue=NeurIPS 2023; v1 | Study.research_objective=CORP continual online recalibration for handwriting iBCI (T5, 403 days): unsupervised recalibration after each sentence maintains 93.84%±2.28 accuracy, CER 6.35±1.75 vs degradi"
+  },
+  {
+   "pid": "arxiv-2411-09400-plvconn",
+   "key": "t:neurostructurebasedelectroencephalographydecodingandunderstandingofspeechandemot",
+   "title": "Neuro-structure based electroencephalography decoding and understanding of speech and emotion",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "im.claim_scope=Visual imagery can serve as a complementary paradigm for users with speech impairments, and personalized calibration is crucial for optimizing BCI performance | extra.Limitation.status=acknowledged | extra.Limitation.limitation=Modest cohort (16) and 13 classes; mul"
+  },
+  {
+   "pid": "arxiv-2412.18839",
+   "key": "t:advancingnamtospeechconversionwithnovelmethodsandthemultinamdataset",
+   "title": "Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nance=https://keithito.com/LJ-Speech-Dataset/ [15] | information_kind=LRS3 (LRS3-TED) [23] — large-scale visual speech recognition dataset; training data for lip-to-speech models; 16 kHz speech extracted for mel-spectrograms | InformationResource.resource_provenance=arXiv:"
+  },
+  {
+   "pid": "arxiv-2603.12279",
+   "key": "t:towardrobustreproducibleandwidelyaccessibleintracranialspeechbraincomputerinterf",
+   "title": "Toward Robust, Reproducible, and Widely Accessible Intracranial Speech Brain-Computer Interfaces: A Comprehensive Narrative Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ification accuracy — heterogeneous across studies; review flags inconsistency'} | Claim.claim_scope=Intracranial speech BCIs progress but remain limited by subject-specific calibration, nonstationarity, heterogeneous metrics, single-participant evidence; need cross-subject/cross-language + chronic re"
+  },
+  {
+   "pid": "arxiv-2603.12628",
+   "key": "t:towardsunifiedbraintotextdecodingacrossspeechproductionandperception",
+   "title": "Towards unified brain-to-text decoding across speech production and perception",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sEEG depth electrodes across functional regions | modalities=intracortical_microelectrode, other | dataset_description=sEEG recordings of Mandarin sentences: speaking (produced) + listening (perceived) paradigms; isolated-character training data -> sentence generalization | split_protocol=sentence_holdout | DataPartition.partition_membership=per-participant model"
+  },
+  {
+   "pid": "arxiv-2607.27268-eegf",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ationProtocol.experimental_design=Unified preprocessing + fine-tuning; LOSO (14 UGR subj) + within-subject and LOSO (15 BCI subj); Bal.Acc/kappa/W-F1 mean±SD; Wilcoxon vs chance + pairwise; verified BCIC2020-T3 absent from FM pretraining data (leakage-free) | EvaluationRun.execution_artifacts=UGR LOSO: mode EEGNet 61.3 [56.5,66.1] > LaBraM 57.3/EEGMamba 56.6 ("
+  },
+  {
+   "pid": "arxiv-2609-36736-speechbcirev",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "attempted-speech neuroprosthesis speed/WER | median WER/WPM (iBCI decode) | synthesizing RNN+CTC+Vocoder speed | rapid-calibration neuroprosthesis"
+  },
+  {
+   "pid": "arxiv-2609.21436",
+   "key": "t:aessianaroundearsilentspeechinterfaceforcrossdayonlinereusewithouttestdaycalibra",
+   "title": "AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "udy.study_design=controlled_experiment | Study.research_objective=Learn representations for around-ear silent sentence recognition that remain usable after electrode reapplication on a later day, enabling online reuse without test-day calibration. | Study.unit_of_analysis=trial: one 3 s silent-articulation observation window mapped to one of 25 sentence classes"
+  },
+  {
+   "pid": "doi-10.1002-advs.202304853",
+   "key": "t:stabledecodingfromaspeechbcienablescontrolforanindividualwithalswithoutrecalibra",
+   "title": "Stable Decoding from a Speech BCI Enables Control for an Individual with ALS without Recalibration for 3 Months",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1002-advs.202304853 | title=Stable Decoding from a Speech BCI Enables Control for an Individual with ALS without Recalibration for 3 Months | authors=Shiyu Luo, Miguel Angrick, Christopher Coogan et al. | venue=Advanced Science | review_state="
+  },
+  {
+   "pid": "doi-10.1016-j.clinph.2025.2110942",
+   "key": "t:emergenttechnologiesinclinicalneurophysiologytostudythecentralnervoussystemifcnh",
+   "title": "Emergent technologies in clinical neurophysiology to study the central nervous system: IFCN handbook chapter",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", handwriting brain-to-text | EvaluationProtocol.experimental_design=review protocol: synthesis of breakthroughs; notes BCI calibration time shrinking to as little as 30 min | representation_kind=high-resolution intracortical/iEEG representations of at"
+  },
+  {
+   "pid": "doi-10.1038-s41467-023-39814-6",
+   "key": "p:doi-10.1038-s41467-023-39814-6",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "or visual and auditory BCIs | evidence_relation=supported_within_scope | claim=in-ear SpiralE electrodes support visual BCI performance: 95% offline 9-target SSVEP accuracy (8 s) across 9 subjects and successful calibration-free 40-target online spelling | claim=in-ear sensing also supports auditory BCI: natural speech classification reac"
+  },
+  {
+   "pid": "doi-10.1038-s41467-026-75455-1",
+   "key": "t:sharedlatentrepresentationsofspeechproductionforcrosspatientspeechdecoding",
+   "title": "Shared latent representations of speech production for cross-patient speech decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ".24) and far exceeds unaligned (0.19) — shared latent speech representations across patients | Claim.claim_scope=speech BCIs trainable across patients → more accurate and rapidly deployable, less individual calibration | Claim.claim_scope=alignment depends on true speech neural info (permuted-articulator controls fail; clustering str"
+  },
+  {
+   "pid": "doi-10.1038-s41551-024-01207-5",
+   "key": "p:doi-10.1038-s41551-024-01207-5",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ntended language inferred automatically via LM scoring | production_labels=attempted_speech | Dataset.content_inventory=ECoG recordings during isolated-target (104 bilingual words, cued go windows) and phrase-decoding tasks (3 repetitions x 56 phrases across both languages, 178-word vocabulary); models trained on preceding sessions only, no day-of recalibration; stability tracked 48 days / over 1300 days post-implant | extra.Configuration.configuration_scope=128-channel high-"
+  },
+  {
+   "pid": "doi-10.1038-s42003-025-07464-7",
+   "key": "t:learningtooperateanimaginedspeechbraincomputerinterfaceinvolvesthespatialandfreq",
+   "title": "Learning to operate an imagined speech Brain-Computer Interface involves the spatial and frequency tuning of neural activity",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e EMG monitor | Session.session_timing=5 consecutive days same time/day, ~2.5h each, 12-13h total; mental chronometry + BCI-control; offline calibration runs then online real-time | Dataset.collection_protocol=offline runs calibrate classifier; online battery-fill 5s i"
+  },
+  {
+   "pid": "doi-10.1056-NEJMoa2314132",
+   "key": "t:anaccurateandrapidlycalibratingspeechneuroprosthesis",
+   "title": "An Accurate and Rapidly Calibrating Speech Neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1056/NEJMoa2314132 | title=An Accurate and Rapidly Calibrating Speech Neuroprosthesis | authors=Nicholas S. Card, Maitreyee Wairagkar, Carrina Iacobacci, Xianda Hou, Tyler Singer-Clark, Francis R. Willet"
+  },
+  {
+   "pid": "doi-10.1056-nejmoa2314132",
+   "key": "t:anaccurateandrapidlycalibratingspeechneuroprosthesis",
+   "title": "An accurate and rapidly calibrating speech neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1056-nejmoa2314132 | doi=10.1056/NEJMoa2314132 | title=An accurate and rapidly calibrating speech neuroprosthesis | venue=New England Journal of Medicine (Card et al.; UC Davis / BrainGate2); PMC11030484 deposit | task_family=sente"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-aaab6f",
+   "key": "t:realtimeclassificationofauditorysentencesusingevokedcorticalactivityinhumans",
+   "title": "Real-time classification of auditory sentences using evoked cortical activity in humans",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| extra.Output.output_kind=real-time >=90% single-trial sentence ID from cortical HG in both subjects | claim=real-time ECoG high-gamma decoding classifies heard sentences at >=90% single-trial accuracy with <7 minutes of training data | evidence_relation=supported_within_scope | Claim.claim_type=generalization | claim=rtNSR is a viable platform for ass"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "key": "t:brain2charadeeparchitecturefordecodingtextfrombrainrecordings",
+   "title": "Brain2Char: a deep architecture for decoding text from brain recordings",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ng copy) via BioC | task_family=spelling_text_entry | extra.Task.target=end-to-end decode character sequences/text from ECoG during prompted sentence reading and limited-domain picture description; cross-session calibration via latent regularization | production_labels=ordinary_voiced_speech | Cohort.demographics=4 volunteer epilepsy part"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-adf50e",
+   "key": "t:implicationsofsharedmotorandperceptualactivationsonthesensorimotorcortexforneuro",
+   "title": "Implications of shared motor and perceptual activations on the sensorimotor cortex for neuroprosthetic decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d_utterance | production_labels=attempted_speech | observed_quantities=neural_activity | technical_essence=BRAVO online ECoG speech decoder hardened against perceptual false positives: SMC shared motor/perceptual electrodes localize to midPrCG with task-distinct response profiles; nonlinear NN + passive-listening training data → zero false-positive activations over 63.2 min of reading/listening in 2 paralysis/anarthria participants | target_pop"
+  },
+  {
+   "pid": "doi-10.1101-2024.02.05.578911",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "6.6% — difference not significant (p>0.05, d=0.07): overt speech can serve as training data for covert decoding | claim=ECoG of overt speech can be used as training data for sentence decoding of covert speech (Overt->Covert TER 46.3%, statistically indistinguishable from Covert->Covert 46"
+  },
+  {
+   "pid": "doi-10.1101-2024.11.12.623096",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "96v2 (PMC11601350 NIHMS) | task_family=command_selection | extra.Task.target=drive macOS mouse cursor + click with vPCG intracortical signals: Radial8 calibration (8 radial + center targets, dwell/click selection), Grid Evaluation (bitrate), Simultaneous Speech+Cursor interferen"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-8703722-v1",
+   "key": "t:remoteopticaldecodingofinnerspeechinbrocasareaviaaibasedspecklepatternanalysis",
+   "title": "Remote Optical Decoding of Inner Speech in Broca’s Area via AI-based Speckle Pattern Analysis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tex | observed_quantities=blood_flow, other | intrusiveness=external_noncontact | technical_essence=CONTACTLESS optical BCI: laser speckle-pattern dynamics over Broca's area decode binary inner speech (silent \"yes\"/\"no\") — self-supervised conv-LSTM + lightweight classifier adaptation on millions of video frames from 10 volunteers; AUC 0.97 / 95.7% @40 ms (10-fold CV, 3180 s), ~1 min/subject calibration — remote neural decoding proof of concept | target_population=general_population, speech_impairment | population_des"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9156039-v1",
+   "key": "t:stablespeechbciperformanceduringslowprogressionofalsalongitudinalecogstudy",
+   "title": "Stable speech BCI performance during slow progression of ALS: A longitudinal ECoG study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tures stabilize: a decoder trained on months 7–11 keeps 65.9% accuracy >1 year later with no temporal decline — durable ECoG speech BCI without frequent recalibration | evidence_relation=supported_within_scope | claim=early implants are unstable: a months-1–6 model reaches only 55.7"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9156039.v1",
+   "key": "t:stablespeechbciperformanceduringslowprogressionofalsalongitudinalecogstudy",
+   "title": "Stable speech BCI performance during slow progression of ALS: A longitudinal ECoG study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "line (chance 8.33%), vs the months-1-6 model at 55.7% with significant decay — cortical speech features support durable ECoG BCIs without frequent recalibration | technical_limits=single participant with slow bulbar course — needs larger varied cohort; restricted 12-syllable t"
+  },
+  {
+   "pid": "doi-10.3390-brainsci15040336",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain-Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "thalamic/sEEG vowel decoding 100% production / 96% perception / 88% imagery | claim=chronic stability demonstrated: no recalibration for 138 days (LFP), 3 months stable speech decoding (median accuracy 90.59%), 262 days ALS use (89±6%), and BCI control maintained 1000+ days post-implant | included articles | ALS intracortical cases | brainstem stroke cases | SCI"
+  },
+  {
+   "pid": "iccv25-yeo_zeroavsr",
+   "key": "t:zeroavsrzeroshotaudiovisualspeechrecognitionwithllmsbylearninglanguageagnosticsp",
+   "title": "Zero-AVSR: Zero-Shot Audio-Visual Speech Recognition with LLMs by Learning Language-Agnostic Speech Representations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tate=source_checked | Study.study_design=controlled_experiment | Study.research_objective=zero-shot multilingual AVSR: recognize speech in target languages with zero target-language audio-visual training data via Romanized intermediate representation | Study.unit_of_analysis=MuAViC zero-shot eval across 8 held-out languages +"
+  },
+  {
+   "pid": "isca-belfrouh26-xcalib",
+   "key": "t:rapidcalibrationforcrosssubjectimaginedspeechdecodingtowardrestoringcommunicatio",
+   "title": "Rapid Calibration for Cross-Subject Imagined Speech Decoding Toward Restoring Communication",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ingful gains at 3min (1.43x) and 7min (1.75x) | claim=source-domain training accuracy is a strong positive predictor of calibration performance (r=0.94), a candidate model-selection objective for calibration-targeted BCIs | technical_limits=correlation computed over only six configurations; does not establish causality | technical_limits="
+  },
+  {
+   "pid": "isca-belfrouh26_odyssey",
+   "key": "t:rapidcalibrationforcrosssubjectimaginedspeechdecodingtowardrestoringcommunicatio",
+   "title": "Rapid Calibration for Cross-Subject Imagined Speech Decoding Toward Restoring Communication",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eview_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=quantify whether rapid calibration can overcome the zero-shot cross-subject generalization barrier in EEG imagined-speech decoding, toward clinically viable BCIs for paralyzed individuals | Study.unit_of_analysis=single imagined-word trial | task_family=isolated_word_recognition"
+  },
+  {
+   "pid": "isca-bocquelet15_interspeech",
+   "key": "t:realtimecontrolofadnnbasedarticulatorysynthesizerforsilentspeechconversionapilot",
+   "title": "Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a pilot study",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "adaptation net and MLSA vocoder can drive a real-time (<50ms) silent-speech interface: converted phones reached 62.42% (calibration corpus) / 61.5% (unseen real-time corpus) recognition accuracy, above chance (p<1e-6) though below the reference-session accuracy | evidence_relation=partially_support"
+  },
+  {
+   "pid": "isca-brumberg09_bcisynth",
+   "key": "t:artificialspeechsynthesizercontrolbybraincomputerinterface",
+   "title": "Artificial speech synthesizer control by brain-computer interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "F1/F2 formant trajectory driving Klatt cascade/parallel formant synthesizer | ProcessingStep.architecture={'stages': ['intracortical spike/firing features', 'Kalman-filter center-out calibration maps neural state to 2-D formant space', 'Klatt formant synthesizer renders vowel', 'auditory feedback to subject <5"
+  },
+  {
+   "pid": "isca-maier09b_interspeech",
+   "key": "t:amicrophoneindependentvisualizationtechniqueforspeechdisorders",
+   "title": "A Microphone-Independent Visualization Technique for Speech Disorders",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "9); Q must be tuned per dataset (analytic break-even ~0.99 but random-init artifacts at very high Q); requires replayed calibration recordings per microphone; SCHMM features are recognizer-dependent"
+  },
+  {
+   "pid": "isca-matthews08_avsp",
+   "key": "t:activeappearancemodelsforfacialanalysis",
+   "title": "Active appearance models for facial analysis",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y (Matthews/CMU/Weta) | SystemConfiguration.component_versions={'model': 'PCA shape+appearance AAM', 'fit': 'multi-view/calibration/occlusion-robust fitting', 'apply': 'expression cloning, action recognition, refinement'} | claim=AAMs enable accurate real-time face description beyond detection/ID | claim=sliding-window"
+  },
+  {
+   "pid": "isca-noda14_interspeech",
+   "key": "t:lipreadingusingconvolutionalneuralnetwork",
+   "title": "Lipreading using Convolutional Neural Network",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eme-posterior visual features | extra.Limitation.limitation=speaker-dependent CNNs required because single-CNN phoneme recognition degrades; training data insufficient for speaker-invariant model | generalization_gap=CNN phoneme features are speaker-dependent; speaker-indep"
+  },
+  {
+   "pid": "isca-walter14_interspeech",
+   "key": "t:anevaluationofunsupervisedacousticmodeltrainingforadysarthricspeechinterface",
+   "title": "An Evaluation of Unsupervised Acoustic Model Training for a Dysarthric Speech Interface",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nces | system_boundary=dysarthric/normal speech utterances -> unsupervised acoustic representation -> NMF command/slot recognition for home automation; fully self-learning, no transcribed training data | SystemConfiguration.system_lifecycle=implemented_evaluated | extra.Output.output_kind=symbolic_label_or_text | claim="
+  },
+  {
+   "pid": "isca-wan05b_interspeech",
+   "key": "t:polynomialdynamictimewarpingkernelsupportvectormachinesfordysarthricspeechrecogn",
+   "title": "Polynomial Dynamic Time Warping Kernel Support Vector Machines for Dysarthric Speech Recognition with Sparse Training Data",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d=isca/wan05b-interspeech | title=Polynomial Dynamic Time Warping Kernel Support Vector Machines for Dysarthric Speech Recognition with Sparse Training Data | authors=Vincent Wan, James Carmichael | venue=Interspeech 2005 | review_state=source_checked | Study.study_design=con"
+  },
+  {
+   "pid": "issp2011-denby-portable-ssi",
+   "key": "t:towardsapracticalsilentspeechinterfacebasedonvocaltractimaging",
+   "title": "Towards a Practical Silent Speech Interface Based on Vocal Tract Imaging",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tput_kind=recognized_commands_and_audio | output_types=class_label, audio | claim=portable-helmet silent-speech visual recognition reaches 94% word accuracy on 100 held-out dialing instructions (47-word vocabulary, two lighting sessions w/ recalibration) | evidence_relation=supported_within_scope | claim=interactive DTW digit demonstrator achieves 100% recognition aft"
+  },
+  {
+   "pid": "pmc-11106343-ecogtransformer",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lled_experiment | Study.research_objective=Test whether a Transformer seq2seq text decoder trained only on overt-speech ECoG can decode covert (imagined) sentences — removing the need to collect hard-to-record covert training data — and compare against BLSTM and temporal-shuffle controls | Study.unit_of_analysis=16 epilepsy patients (js1–js16); per"
+  },
+  {
+   "pid": "pmc-11204283-lip-mocap",
+   "key": "t:adataefficientandeasytouseliplanguageinterfacebasedonwearablemotioncaptureandspe",
+   "title": "A data-efficient and easy-to-use lip language interface based on wearable motion capture and speech movement reconstruction",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| ProcessingStep.architecture=Custom temporal convolutional network (TCN) deep-learning decoder for both isolated-word recognition and continuous fluent sentence recognition; training data augmented by artificial sentence synthesis with general segmentation parameters | EvaluationProtocol.experimental_desig"
+  },
+  {
+   "pid": "pmc-11328962-rapidcal",
+   "key": "t:anaccurateandrapidlycalibratingspeechneuroprosthesis",
+   "title": "An Accurate and Rapidly Calibrating Speech Neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Accurate and Rapidly Calibrating Speech Neuroprosthesis | venue=N Engl J Med | Study.research_objective=rapidly calibrating speech neuroprosthesis: 99.6% 50-vocab, 90.2% 125"
+  },
+  {
+   "pid": "pmc-11494208-icinstab",
+   "key": "t:measuringinstabilityinchronichumanintracorticalneuralrecordingstowardsstablelong",
+   "title": "Measuring instability in chronic human intracortical neural recordings towards stable, long-term brain-computer interfaces",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Biology | doi=10.1038/s42003-024-06784-4 | Study.study_design=controlled_experiment | Study.research_objective=measure iBCI neural-data instability (MINDFUL) without intention labels to infer performance and time recalibration | task_family=command_selection | acoustic_mode=no_vocalization | production_labels=attempted_speech | tested_popula"
+  },
+  {
+   "pid": "pmc-12106081-whisperecog",
+   "key": "t:aunifiedacoustictospeechtolanguageembeddingspacecapturestheneuralbasisofnaturall",
+   "title": "A unified acoustic-to-speech-to-language embedding space captures the neural basis of natural language processing in everyday conversations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "natural conversation | extra.Limitation.status=acknowledged | extra.Limitation.limitation=Four left-hemisphere clinical ECoG patients; encoding is correlational not causal; Whisper’s training data may overlap test material conceptually; word-level alignment loses sub-word timing; no direct neural decoding to audio/"
+  },
+  {
+   "pid": "pmc-12208300-vpcg-cursor",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "asurement; later self-directed control of his personal desktop computer | EvaluationRun.execution_artifacts=vPCG cursor BCI calibrated rapidly (first target 40 s into first-ever use) and reached average 2.90 bits/s (peak 3.16); participant then control"
+  },
+  {
+   "pid": "pmc-12488916-distdecode",
+   "key": "t:transferlearningviadistributedbrainrecordingsenablesreliablespeechdecoding",
+   "title": "Transfer learning via distributed brain recordings enables reliable speech decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "research_objective=Cross-subject transfer learning for neural speech decoding: shared latent manifolds from distributed sEEG to enable decoding in patients with incomplete cortical coverage and minimal calibration | Study.unit_of_analysis=Phoneme Error Rate via Seq2Seq+CTC on tongue-twister trials across 3641 sEEG electrodes/25"
+  },
+  {
+   "pid": "pmc-12824084-megzerocal",
+   "key": "t:towardzerocalibrationmegbraincomputerinterfacesbasedoneventrelatedfields",
+   "title": "Toward zero-calibration MEG brain-computer interfaces based on event-related fields",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc:12824084 | title=Toward zero-calibration MEG brain-computer interfaces based on event-related fields | authors=Dong-Uk Kim, Min-A Yoo, Sung-Il Choi, Moon-Young Kim, Seong-Pil Kim"
+  },
+  {
+   "pid": "pmc-12837114-visual-erp-bci-spi",
+   "key": "t:visualerpbasedbraincomputerinterfaceusewithseverephysicalspeechandeyemovementimp",
+   "title": "Visual ERP-based brain–computer interface use with severe physical, speech and eye movement impairments: case studies",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oding strategies and applied-validation needs under gaze impairment | Claim.claim_scope=Gaze-independent visual-oddball BCIs lose accuracy under centrally-fixated covert VSA, but free VSA can approximate overt performance — decoding and calibration must adapt to gaze impairment | Claim.claim_scope=Calibrating decoders on overt-VSA data improves decoding under cov"
+  },
+  {
+   "pid": "pmc-13042181-ecog-als-longitudinal",
+   "key": "t:stablespeechbciperformanceduringslowprogressionofalsalongitudinalecogstudy",
+   "title": "Stable speech BCI performance during slow progression of ALS: A longitudinal ECoG study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| claim=speech-related cortical HG features remain stable enough after initial settling (~6 months) to support durable ECoG speech BCIs without frequent recalibration, even during slow ALS progression | technical_limits=single-participant longitudinal case; restricted syllable task"
+  },
+  {
+   "pid": "pmc-13375540-ltbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain–computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| review_state=source_checked | Study.research_objective=demonstrate independent at-home long-term use of a multimodal intracortical BCI for brain-to-text speech + cursor control without researcher assistance or frequent recalibration | Study.unit_of_analysis=single participant T15 (ALS, severe dysarthria); ~2yr post-implant, independent use from da"
+  },
+  {
+   "pid": "pmc-13650247-bci-dyslexia",
+   "key": "t:towardsabraincomputerinterfacebciforimprovingphonologicalprocessingindevelopment",
+   "title": "Towards a Brain–Computer Interface (BCI) for Improving Phonological Processing in Developmental Dyslexia: An Exploratory Study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", 7F/5M), 20 dyslexic (23.65±5.52y, 16F/4M); all >18y; dyslexia group formal dx required | Dataset.content_inventory=16 BCI neurofeedback sessions per participant; 4-min baseline each session calibrating decoder; pre/post phonology/reading/acoustic-ART batteries | sensor_hardware=CGX Quick-20m wireless dry-electrode EE"
+  },
+  {
+   "pid": "pmc-5591042-clickcal",
+   "key": "t:retrospectivelysupervisedclickdecodercalibrationforselfcalibratingpointandclickb",
+   "title": "Retrospectively supervised click decoder calibration for self-calibrating point-and-click brain-computer interfaces.",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Retrospectively supervised click decoder calibration for self-calibrating point-and-click brain-computer interfaces. | authors=Jarosiewicz B, Sarma AA, Saab J, Franco B, Cash SS, Eskandar EN | venue=Journal of physiology, Pa"
+  },
+  {
+   "pid": "pmc-5823702-rapidcalib",
+   "key": "t:rapidcalibrationofanintracorticalbraincomputerinterfaceforpeoplewithtetraplegia",
+   "title": "Rapid calibration of an intracortical brain-computer interface for people with tetraplegia.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Rapid calibration of an intracortical brain-computer interface for people with tetraplegia. | authors=Brandman DM; Hosman T; Saab J; Burkhart MC; Shanahan BE; Ciancibello J"
+  },
+  {
+   "pid": "pmc-6043406-intentcalib",
+   "key": "t:acomparisonofintentionestimationmethodsfordecodercalibrationinintracorticalbrain",
+   "title": "A Comparison of Intention Estimation Methods for Decoder Calibration in Intracortical Brain-Computer Interfaces.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Comparison of Intention Estimation Methods for Decoder Calibration in Intracortical Brain-Computer Interfaces. | authors=Willett FR; Murphy BA; Young DR; Memberg WD; Blabe CH; Pandarinath C; Franco B; Saab J; Walter BL"
+  },
+  {
+   "pid": "pmc-6882773-braintospeech",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "“Persian”) by all listeners | extra.Output.output_kind=Intelligible audible speech in the participant’s own voice from ECoG alone — natural prosody/accentuation; method is simple, real-time ready, and requires little training data; authors expect extensibility to attempted speech | Claim.claim_scope=ECoG high-gamma from motor/premotor/IFG during ov"
+  },
+  {
+   "pid": "pmc-7283463-eegbcirev",
+   "key": "t:currentstatuschallengesandpossiblesolutionsofeegbasedbraincomputerinterfaceacomp",
+   "title": "Current status, challenges, and possible solutions of EEG-based brain-computer interface: a comprehensive review",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ot. | review_state=source_checked | Study.research_objective=A comprehensive state-of-the-art of the complete EEG-based BCI pipeline — brain-activity measurement, preprocessing, feature extraction, classification, command translation — plus paradigms, applications, and the challenges (noise, non-stationarity, calibration) with candidate solutions | Study.unit_of_analysis=Survey spans (i) control-signal taxonomy — SCP, P300, MI, MRCP, E"
+  },
+  {
+   "pid": "pmc-7582276-rldecoder",
+   "key": "t:reinforcementlearningbasedfastselfrecalibratingdecoderforintracorticalbrainmachi",
+   "title": "Reinforcement Learning Based Fast Self-Recalibrating Decoder for Intracortical Brain-Machine Interface",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Reinforcement Learning Based Fast Self-Recalibrating Decoder for Intracortical Brain-Machine Interface | authors=Zhang P, Chao L, Chen Y | venue=Sensors (Basel, Switzerland) | Study.research_objecti"
+  },
+  {
+   "pid": "pmc-9915729-cursorrecal",
+   "key": "t:longtermunsupervisedrecalibrationofcursorbcis",
+   "title": "Long-term unsupervised recalibration of cursor BCIs",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term unsupervised recalibration of cursor BCIs | authors=Wilson GH, Willett FR | Study.research_objective=long-term unsupervised recalibration of cursor brain-comput"
+  },
+  {
+   "pid": "pmc-PMC11245360",
+   "key": "t:stabilityofecoghighgammasignalsduringspeechandimplicationsforaspeechbcisystemina",
+   "title": "Stability of ECoG high gamma signals during speech and implications for a speech BCI system in an individual with ALS: a year-long longitudinal study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "2-class accuracy +4.5% (LDA) / +0.1% (NCA); no significant trend in classification over time | extra.Output.output_kind=ECoG HG speech signals judged stable for a year; early post-implant drift dominates; long-term decoding viable without frequent recalibration | extra.Protocol.evaluation_target=regression rates per metric/channel; kNN accuracy vs chance; training-window comp"
+  },
+  {
+   "pid": "pmc-pmc11086983",
+   "key": "t:plugandplaystabilityforintracorticalbraincomputerinterfacesaoneyeardemonstration",
+   "title": "Plug-and-Play Stability for Intracortical Brain-Computer Interfaces: A One-Year Demonstration of Seamless Brain-to-Text Communication",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Neural Information Processing Systems (NeurIPS) 36 | review_state=source_checked | Study.research_objective=enable self-recalibration of a communication iBCI without interrupting the user, using LM-corrected outputs as pseudo-labels for continual online decoder updates | Study"
+  },
+  {
+   "pid": "pmc12929501-indivbci",
+   "key": "t:individualizedbraincomputerinterfaceforpeoplewithdisabilitiesareview",
+   "title": "Individualized brain-computer interface for people with disabilities: a review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "view finds adaptable/personalized design essential: heterogeneous disability types and levels define user needs; speech BCIs reached 50-word decoding; persistent calibration burden from inter-session/subject variability remains the scalability bottleneck | extra.Output.output_kind=Synthesi"
+  },
+  {
+   "pid": "ucl-smc25-1960-phonemes",
+   "key": "t:eegbasedneuralrepresentationanddecodingofimaginedphonemes",
+   "title": "EEG-based Neural Representation and Decoding of Imagined Phonemes",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rend | Claim.claim_type=generalization | claim=Subject-specific phoneme pairs yield the best performance; motivates pre-calibration phoneme-pair selection for participant-specific speech BCIs | technical_limits=Data restriction identified as primary challenge; lightweight decoder chosen to fit small dataset a"
+  }
+ ],
+ "usual_approach": {
+  "design": "supervision_kind=phoneme_label",
+  "n": 4,
+  "tier": "slot-filled",
+  "pids": [
+   "doi-10.21203-rs.3.rs-9156039.v1",
+   "arxiv-2412.18839",
+   "isca-noda14_interspeech",
+   "isca-bocquelet15_interspeech"
+  ],
+  "population_unique": 15
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1038-s41586-023-06377-x",
+   "role": "prior",
+   "loc": "Methods",
+   "quote": "T12 attempted to speak 260–480 sentences at her own pace"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06377-x",
+   "role": "prior",
+   "loc": "Results",
+   "quote": "By the final day our training dataset consisted of 10,850 total sentences"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "role": "prior",
+   "loc": "Results",
+   "quote": "9,506 sentence trials corresponding to about 1.6 h of training data per day"
+  },
+  {
+   "pid": "doi-10.1056-NEJMoa2314132",
+   "role": "target",
+   "loc": "Results—Online decoding performance",
+   "quote": "the neuroprosthesis decoded the participant’s attempted speech with a Copy Task word error rate of 9.8% (95% CI, 4.1% to 16.0%"
+  },
+  {
+   "pid": "doi-10.1056-NEJMoa2314132",
+   "role": "sota",
+   "loc": "Abstract; Results—Online decoding performance",
+   "quote": "achieved 99.6% accuracy with a 50-word vocabulary"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 0,
+  "recall": 0.0,
+  "missed": [
+   "doi-10.1038-s41586-023-06377-x",
+   "doi-10.1038-s41586-023-06443-4",
+   "pmc-10724434-stablebci",
+   "pmc-11086983-plugplay"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.1056-NEJMoa2314132",
+  "year": 2024,
+  "metric": "online WER, 125,000-word vocabulary, session 2, after 30 min + 1.4 h of data",
+  "value": "9.8%",
+  "timing": "target"
+ },
+ "used_by": [
+  "an-accurate-and-rapidly-calibrating-speech-neuroprosthesis"
+ ],
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 51,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "supervision_kind=phoneme_label",
+   "n": 4,
+   "tier": "slot-filled",
+   "population_unique": 15
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1056-NEJMoa2314132",
+   "year": 2024,
+   "metric": "online WER, 125,000-word vocabulary, session 2, after 30 min + 1.4 h of data",
+   "value": "9.8%",
+   "timing": "target"
+  },
+  "read": 3,
+  "read_prior": [
+   "doi-10.1038-s41586-023-06377-x",
+   "doi-10.1038-s41586-023-06443-4"
+  ],
+  "unread": 59,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.0
+ }
+}
