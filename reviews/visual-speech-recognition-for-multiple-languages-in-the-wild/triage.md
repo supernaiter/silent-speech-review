@@ -1,33 +1,32 @@
-# Triage of the ChatGPT evaluation (2026-11-15)
+# Triage of the independent evaluation (2026-11-15)
 
-Source: visual-speech-recognition-for-multiple-languages-in-the-wild.eval-chatgpt.md. Findings checked against notes.json and short reads of the target text (Table S9, Table S13, Sec. 1.4, Sec. 2.2, Abstract).
+Source: visual-speech-recognition-for-multiple-languages-in-the-wild.eval.md (25 claim checks, 14 required fixes, 2 state-of-the-art notes). Each item was checked against short reads of the target text (Table 2, Table 5, Table S2, Table S9, Table S26, Tables 4 and S13-S17, Sec. 1.4, Sec. 1.5, Sec. 1.7, Sec. 2.2, Sec. 3.3, Sec. 3.5, Supp. Sec. S9.8-S9.9), the USR 2.0 text (Table 2, Sec. 4) and the SynthVSR text (Abstract). Numbering follows the required-fix list; F-items are the state-of-the-art notes; C-items are claim checks not covered by a fix.
 
 | # | Verdict | Evidence | Where applied |
 |---|---|---|---|
-| 1 | applied | t3 quote names both prediction targets (pretrained ASR and VSR representations) | claim table row 1 |
-| 2 | rejected | Verdict rule: standard needs no identical prior; LiRA (p1), ASR-is-all-you-need (p3), Hearing Lips (p4) read and cited; joint placement is stated as the departure | none |
-| 3 | applied | 'standard for its data scale' had no ledger support; replaced by usual-design wording and the 90,000 h non-public condition (t28, t113) | Verdict; M12 verdict line |
-| 4 | applied | 'usually as pretraining or output distillation' not tallied; narrowed to the read priors | M02 usual approach |
-| 5 | applied | t63 quote placed in claim table; joint placement from t3 | claim table row 5 |
-| 6 | applied | Valid: 17.0% (t28, Table 2) is lower than 17.6%; now '17.0% overall (90,000 h non-public), 17.6% best with public labelled data' (t113 'non-publicly available', s1 '~2500 hours of unlabelled data') | M02 and M12 State of the art; slots M02/M12 |
-| 7 | confirmed | Values match p2, p3 | none |
-| 8 | applied | Denominator now the full model: 3.7/29.5 = 12.5%, 1.5/32.1 = 4.7%; t95 (33.6±0.6) and t99 caveat quoted | M02 evidence paragraph; claim table row 9 |
-| 9 | applied | Added next category from ledger tally (paired audio 17) | M03 usual approach |
-| 10 | applied | Supervised LRW initialization quoted from source (t111, 'on the LRW dataset for initialization') | M03 usual approach; notes t111 |
-| 11 | applied | 23.7% / 30 h confirmed in published M03 topic table read_fulltext (arxiv-2602.19316 Table 2); row now cites it | claim table row 12 |
-| 12 | applied | 44.9 confirmed in Table S9 baseline row (t112) | notes t112; claim table row 13 |
-| 13 | applied | 32.6 quoted from Table 5 (t90) | claim table row 14 |
-| 14 | applied | 641 h quoted (t68); distribution added (text 18, paired audio 17) | M12 usual approach; claim table row 15 |
-| 15 | applied | Same as 6: comparison classes made explicit | M12 State of the art |
-| 16 | confirmed | Arithmetic correct | none |
-| 17 | applied | Target best 35.1% (t19) and CM-seq2seq 43.3% (t22) now stated; [7] is the target's reference [10], End-to-end AVSR with Conformers | M12 evidence; claim table row 18 |
-| 18 | applied | Abstract phrase quoted (t113); sentence now says it leaves out the 90,000 h system | M12 evidence |
-| 19 | applied | Quotes t80 (best of ten reported) and t48 (up to 0.8) placed; comparator rows show a single value without SD (t22 condition) | claim table row 20 |
-| 20 | applied | Table S13 row verified in source: only CM-seq2seq [10] retrained on MTit (t110); wording narrowed from 'authors' own baseline' to that comparator; Verdict wording adjusted | claims-outrun item 2; Verdict |
-| 21 | applied | 60% threshold and 641 h quoted (t68) | claim table row 22 |
-| 22 | unverified | Code values rest on the reader's repository read (t83-t85 code_condition); repository not reopened | verification_status |
-| 23 | applied | t72 replaced by t109 ('subject-independent [36] VSR ...') from Sec. 2.2 | claims-outrun item 5; notes t109 |
-| 24 | rejected | Proposal, not a factual claim; 30 h setting is in the published M03 topic table | none |
-| 25 | applied | M08/M11 notes now say what is given and what is not reported; verdict rules are in the procedure, not the review | slots M08, M11 |
+| 1 | applied | The 2.1-point gain over the 31,000 h RNN-T belongs to the 1,459 h model: "our best model, trained on 1 453 h of video, leads to a 2.1 % absolute improvement over [16] which uses 31 000 hours" (Sec. 1.5); 33.6-31.5=2.1 | M12 evidence, split into two sentences |
+| 2 | applied | "380 h" is in the source ("trained using the LRW and LRS2 datasets, in a total of 380 hours", Supp. Sec. S9.9). The cross-test-set point is right: Table 5's LRS3 column (LRW+LRS3, 595 h) gives 35.8 vs 37.8 without both auxiliary losses, 2.0 points (5.6%), against 1.5 points (4.7%) at 1,459 h (Table S26). On the same test set the effect barely shrinks, so "fades" was dropped | Verdict; M02 evidence and verdict line; slots M02 note |
+| 3 | applied | 57.9 and 67.0 are the paper's own models (MTit 57.9±0.7, CMfr 67.0±0.6), not CM-seq2seq. CM-seq2seq means are 58.9/66.4 (Es), 71.5 (It), 70.2/65.7 (Pt), 84.0/79.9 (Fr). Retraining is stated: "there are no results from previous works, we trained the end-to-end model presented in [10] to serve as the baseline" (Sec. 1.7) | Claims-outrun bullet now gives 58.9-84.0 and names Spanish; notes t114 |
+| 4 | applied | The same Sec. 1.7 quote shows Spanish (CMes) also has only the authors' retrained baseline; Mandarin (CMLR) has published systems in Table 3 | Verdict last sentence (English and Mandarin only); verdict.short "4 of 6" |
+| 5 | applied in part | Table S9 labels the 39.1 row "+ Improved LM" (LRS3 44.9 -> 40.6 -> 39.1) and Sec. 3.5 describes the larger LM and beam 40; Table 5's last row (no auxiliary losses, no masking) is also 39.1 on LRS3, so the chain is consistent and the LM point stands. The "as much as" framing was imprecise: on LRS3 tuning+LM (5.8) and time masking (2.7) each exceed both losses (2.0); on LRS2 both losses (3.7) exceed masking (3.1) | Verdict sentence 3 restated with LRS3 numbers; M03 evidence gives both test sets; notes t116 |
+| 6 | applied | USR 2.0 Table 2: Large, LRS3+Vox2 unlabelled, 30 h low-resource setting, 23.7; abstract: "~2500 hours of unlabelled data", pseudo-labelling throughout. SynthVSR (in the M12 ledger) gives 16.9% "using publicly available data only", lower than both 17.0% and 17.6%, so the state of the art moved to 16.9% [later] | M02 and M12 State of the art; M03 State of the art condition; slots M02/M12; M12 audit state_of_the_art and read_fulltext; refs.json (liu2023synthvsr); notes s2, s3 |
+| 7 | applied | Normalization by "the overall mean and variance of the training set" is in Sec. 3.3, and the 88x88 input is in Supp. Table S2. Only the decoding length penalty remains undisclosed (paper gives the LM and beam size 40 only) | Claims-outrun code bullet; crop question replaced by length penalty; notes t83 corrected, t115 added |
+| 8 | applied in part | Sec. 2.2: subject-independent VSR "is another area that deserves further attention", a future-direction statement; wording now quotes it. No speaker-disjointness statement found for any corpus | Claims-outrun bullet rephrased |
+| 9 | applied | "Not reported" refers to the token set / OOV policy and speaker overlap (slot notes); the table entries now say so | slots M08 and M11 "This paper" entries |
+| 10 | applied in part | The M12 topic is the LRS3 benchmark and its tally is by supervision kind; kept as the usual design for systems evaluated there, but 18 vs 17 is now called "barely ahead" | M12 Usual approach |
+| 11 | rejected | Sec. 1.4: "we used the models trained on LRW + LRS3 and LRW + LRS2 as initialization and fine-tuned them further on LRS2 and LRS3"; wording made explicit | M03 Usual approach |
+| 12 | rejected | The Appendix M02 line lists "audio feature regression 5 (pattern match)"; the evaluator saw a truncated row | none |
+| 13 | applied | Sec. 1.5: "it performs worse than [6], which presents a model trained on 90 000 hours" | M12 evidence: "(disclosed in Sec. 1.5)" |
+| 14 | applied | The changed slot is M02 only, but the Verdict now states that the gain rests more on the M03 recipe | Verdict sentences 1 and 3 |
+| F1 | unverified | LP-Conformer (ICASSP 2024, 12.8% LRS3, non-public data) is not in the wiki ledger; not checked against its source. The review's non-public comparator stays 17.0% [concurrent] | verification_status |
+| F2 | rejected | Auto-AVSR 19.1% does not beat 16.9% or 17.6%; no change needed | none |
+| C5 | rejected | Not an error: Table 2 lists two 90,000 h systems, ViT3D-TM [6] (25.9) and ViT3D-CM [17] (17.0); Sec. 1.5 cites [6]. Both beat 31.5%, so the review's statements hold | none |
+| C17 | rejected | Sec. 1.8 confirms mean and best over ten runs in Tables 1-4; no best-run selection split is stated (absence finding kept) | none |
 
-Counts: applied 20, rejected 2, confirmed 2, unverified 1 (25 findings). Verdict classes unchanged; short verdict reworded to drop 'standard for 2022 scale'.
+Claim checks 2, 7, 8, 11, 12, 15, 16, 18, 19, 21, 22, 23 and 25 are covered by the fixes above; the remaining checks were marked correct and needed no change.
+
+Counts: applied 12 (fixes 1, 2, 3, 4, 6, 7, 9, 13, 14; fixes 5, 8, 10 in part), rejected 5 (fixes 11, 12; F2; C5; C17), unverified 1 (F1).
+
+Unverified items recorded in reader/extra.json verification_status: the released-code length penalty (t84; repository not re-opened), the Serdyuk 17.0% (read from target Table 2 only) and LP-Conformer (F1).
+
+Rerun of steps 6-8: render_review, build_refs, fill_row, check_review (0 FAIL, 0 WARN, body 6,994 characters, 9 references), claim_table with every body row mapped to a notes entry, a tally or an inference. The Verdict changed and verdict.json was updated.
