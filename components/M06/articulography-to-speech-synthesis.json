@@ -1,0 +1,1074 @@
+{
+ "topic": "articulography-to-speech-synthesis",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*(\\bema\\b|electromagnetic articulograph|articulograph|\\bpma\\b|permanent magnet|magnetic_tracking|electromagnetic midsagittal))(?=.*(articulatory-to-(speech|acoustic)|articulation-to-speech|to-speech|speech synthesis|synthesi[sz]ed speech|vocoder|waveform))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include studies that synthesize speech audio from measured articulatory kinematics (EMA, PMA or other magnetic tracking) and report how acoustic features are turned into a waveform. Boundary: exclude acoustic-to-articulatory inversion, talking-head animation and articulatory synthesizers driven by model parameters rather than measurements; count versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 76,
+  "string_match_unique": 69,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "technical_essence=tts synthesis incl unit selection and dnn-based approaches",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2009.02110"
+    ]
+   },
+   {
+    "design": "technical_essence=ema encoder + spectral encoder, joint multimodal loss l1spec+l2spec+l2mel+l2df",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2102.03786"
+    ]
+   },
+   {
+    "design": "representation_kind=ema 5-frame context -> stft magnitude (1024 win/256 hop) + mel",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2102.03786"
+    ]
+   },
+   {
+    "design": "technical_essence=parallel wavegan vocoder (jnas pretrained)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2102.03786"
+    ]
+   },
+   {
+    "design": "representation_kind=spectrogram conv stride4 kernels7->20ms effective",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.17395"
+    ]
+   },
+   {
+    "design": "representation_kind=continuously-regenerated pseudo-labels",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.17395"
+    ]
+   },
+   {
+    "design": "representation_kind=video frames 25fps",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.17395"
+    ]
+   },
+   {
+    "design": "technical_essence=ctc greedy or beam-search + 4-gram lm (30h/433h transcripts)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.17395"
+    ]
+   },
+   {
+    "design": "technical_essence=transformer encoder (base 96m/large 315m) ctc",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.17395"
+    ]
+   },
+   {
+    "design": "technical_essence=conv audio + modality addition beats concat; modality dropout pm=pa=0.5",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.17395"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "parametric_vocoder",
+    "n": 40,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.26092-elib.5498",
+     "arxiv-2412.13387",
+     "doi-10.21437-iberspeech.2024-18",
+     "arxiv-2203.17072"
+    ]
+   },
+   {
+    "design": "neural_vocoder",
+    "n": 20,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "arxiv-2608.16360",
+     "doi-10.26092-elib.5498",
+     "arxiv-2505.13814",
+     "arxiv-2508.18127"
+    ]
+   },
+   {
+    "design": "griffin_lim",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.26092-elib.5498"
+    ]
+   }
+  ],
+  "metric_pattern": "mcd|mel[- ]cepstral distortion",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "32% of CV syllable stimuli mis-transcribed by 25 listeners; consonant errors mostly substitutions, vowel errors mostly insertions (endpointing residue); MCD-error correlation rho=0.60 (0.75 excl. [T r])",
+   "value": 0.32,
+   "unit": null,
+   "raw": "error_rate",
+   "pid": "doi-10.1016-j.csl.2016.02.002",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "inter-speaker MCD spread (dB)",
+   "value": 0.6,
+   "unit": "dB",
+   "raw": "~0.6 dB best-vs-worst speaker spread",
+   "pid": "doi-10.5220-0005754100960105",
+   "year": 2016,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "MCD",
+   "value": 3.03,
+   "unit": "dB",
+   "raw": "MCD=3.03 dB",
+   "pid": "arxiv-2603.11877",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "average mel-cepstral distortion (dB), EMA-to-spectrum LSTM-RNN, Table 1",
+   "value": 3.09,
+   "unit": "dB",
+   "raw": "LSTM-RNN average MCD 3.09 dB vs DNN 3.43 vs GMM 3.61 (Table 1)",
+   "pid": "isca-liu16g_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "emaMcd",
+   "value": 4.46,
+   "unit": null,
+   "raw": "EMA-to-speech sanity-check MCD (sd 1.67), MOCHA msak0",
+   "pid": "isca-toth09_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Mel-cepstral distortion of spectral reconstruction, lower better",
+   "value": 4.89,
+   "unit": "dB",
+   "raw": "best male MCD 4.89±0.011 dB at 50ms delay (men 5.73/5.60/4.89; woman 6.17)",
+   "pid": "doi-10.1121-1.4978364",
+   "year": 2017,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SPK2 DI+FM MCD dB",
+   "value": 4.985,
+   "unit": null,
+   "raw": "4.985",
+   "pid": "isca-cao17_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ATS MCD dB",
+   "value": 5.21,
+   "unit": null,
+   "raw": "5.21",
+   "pid": "isca-cao21_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "RNN MCD 5.56dB / UV err 13.23%; BiRNN 5.52/13.12; GMM 5.84/18.71; ABX prefers RNN",
+   "value": 5.56,
+   "unit": "dB",
+   "raw": "RNN MCD 5.56 dB vs BiRNN 5.52 / DNN 5.74 / GMM 5.84; UV err 13.23% RNN / 13.12% BiRNN / 18.71% GMM; ABX preferred RNN",
+   "pid": "isca-gonzalez17_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "VC MCD sample",
+   "value": 6.32,
+   "unit": "dB",
+   "raw": "example VC MCD F01->F02 (Table 4 first cell)",
+   "pid": "doi-10.3390-s22166056",
+   "year": 2022,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1201.4080",
+   "key": "t:progressinanimationofanemacontrolledtonguemodelforacousticvisualspeechsynthesis",
+   "title": "Progress in Animation of an EMA-Controlled Tongue Model for Acoustic-Visual Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Progress in Animation of an EMA-Controlled Tongue Model for Acoustic-Visual Speech Synthesis | language=french, ge"
+  },
+  {
+   "pid": "arxiv-1203.3574",
+   "key": "t:artimateanarticulatoryanimationframeworkforaudiovisualspeechsynthesis",
+   "title": "Artimate: an articulatory animation framework for audiovisual speech synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Artimate: an articulatory animation framework for audiovisual speech synthesis | task_family=intermediate_signal_p"
+  },
+  {
+   "pid": "arxiv-2006.12594",
+   "key": "t:articulatorywavenetautoregressivemodelforacoustictoarticulatoryinversion",
+   "title": "Articulatory-WaveNet: Autoregressive Model For Acoustic-to-Articulatory Inversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Articulatory-WaveNet: Autoregressive Model For Acoustic-to-Articulatory Inversion | intended_use_cases=research_of"
+  },
+  {
+   "pid": "arxiv-2009.02110",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2009.02110 | title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 2020; v3"
+  },
+  {
+   "pid": "arxiv-2012.15184",
+   "key": "t:multiviewtemporalalignmentfornonparallelarticulatorytoacousticspeechsynthesis",
+   "title": "Multi-view Temporal Alignment for Non-parallel Articulatory-to-Acoustic Speech Synthesis",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2012.15184 | title=Multi-view Temporal Alignment for Non-parallel Articulatory-to-Acoustic Speech Synthes"
+  },
+  {
+   "pid": "arxiv-2102.03786",
+   "key": "t:ema2sanendtoendmultimodalarticulatorytospeechsystem",
+   "title": "EMA2S: An End-to-End Multimodal Articulatory-to-Speech System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2102.03786 | title=EMA2S: An End-to-End Multimodal Articulatory-to-Speech System | venue=ICASSP 2021; v2"
+  },
+  {
+   "pid": "arxiv-2203.17072",
+   "key": "t:manipulationoforalcancerspeechusingneuralarticulatorysynthesis",
+   "title": "Manipulation of oral cancer speech using neural articulatory synthesis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2203.17072 | title=Manipulation of oral cancer speech using neural articulatory synthesis | authors=Bence"
+  },
+  {
+   "pid": "arxiv-2209.06337",
+   "key": "t:deepspeechsynthesisfromarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from Articulatory Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep Speech Synthesis from Articulatory Representations | intended_use_cases=speech_restoration, other | task_fami"
+  },
+  {
+   "pid": "arxiv-2210.15173",
+   "key": "t:articulationganunsupervisedmodelingofarticulatorylearning",
+   "title": "Articulation GAN: Unsupervised Modeling of Articulatory Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Articulation GAN: Unsupervised Modeling of Articulatory Learning | intended_use_cases=research_of_inner_speech, sp"
+  },
+  {
+   "pid": "arxiv-2302.06774",
+   "key": "t:speakerindependentacoustictoarticulatoryspeechinversion",
+   "title": "Speaker-Independent Acoustic-to-Articulatory Speech Inversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-Independent Acoustic-to-Articulatory Speech Inversion | intended_use_cases=research_of_inner_speech, other"
+  },
+  {
+   "pid": "arxiv-2307.02471",
+   "key": "t:deepspeechsynthesisfrommribasedarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from MRI-Based Articulatory Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep Speech Synthesis from MRI-Based Articulatory Representations | intended_use_cases=speech_restoration, other |"
+  },
+  {
+   "pid": "arxiv-2309.17395",
+   "key": "t:avcplcontinuouspseudolabelingforaudiovisualspeechrecognition",
+   "title": "AV-CPL: Continuous Pseudo-Labeling for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2309.17395 | title=AV-CPL: Continuous Pseudo-Labeling for Audio-Visual Speech Recognition | Study.researc"
+  },
+  {
+   "pid": "arxiv-2312.13603",
+   "key": "t:stylemodelingformultispeakerarticulationtospeech",
+   "title": "Style Modeling for Multi-Speaker Articulation-to-Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Style Modeling for Multi-Speaker Articulation-to-Speech | intended_use_cases=speech_restoration, other | task_fami"
+  },
+  {
+   "pid": "arxiv-2409.02451",
+   "key": "t:fasthighqualityandparameterefficientarticulatorysynthesisusingdifferentiabledsp",
+   "title": "Fast, High-Quality and Parameter-Efficient Articulatory Synthesis using Differentiable DSP",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Fast, High-Quality and Parameter-Efficient Articulatory Synthesis using Differentiable DSP | intended_use_cases=sp"
+  },
+  {
+   "pid": "arxiv-2412.13387",
+   "key": "t:deepspeechsynthesisfrommultimodalarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from Multimodal Articulatory Representations",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.13387 | doi=10.48550/arxiv.2412.13387 | title=Deep Speech Synthesis from Multimodal Articulatory Rep"
+  },
+  {
+   "pid": "arxiv-2505.13814",
+   "key": "t:articulatoryfeaturepredictionfromsurfaceemgduringspeechproduction",
+   "title": "Articulatory Feature Prediction from Surface EMG during Speech Production",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2505.13814v2 | title=Articulatory Feature Prediction from Surface EMG during Speech Production | authors="
+  },
+  {
+   "pid": "arxiv-2508.18127",
+   "key": "t:anintroductiontosilentparalinguistics",
+   "title": "An Introduction to Silent Paralinguistics",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2508.18127 | paper_version=2508.18127v1 | title=An Introduction to Silent Paralinguistics | authors=Zhao"
+  },
+  {
+   "pid": "arxiv-2509.04507-dualstg",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach | authors=Nithyashree Sivasubramani"
+  },
+  {
+   "pid": "arxiv-2603.11877",
+   "key": "t:silentspeechinterfacesintheeraoflargelanguagemodelsacomprehensivetaxonomyandsyst",
+   "title": "Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.11877 | arxiv_id=2603.11877v1 | source_url=https://arxiv.org/pdf/2603.11877v1 | title=Silent Speech"
+  },
+  {
+   "pid": "arxiv-2608.16360",
+   "key": "t:contrastivelearningwithvariationalregularizationformultisessioneegtospeechdecodi",
+   "title": "Contrastive Learning with Variational Regularization for Multi-Session EEG-to-Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.16360 | paper_version=arXiv:2608.16360v1 [eess.AS], 17 Aug 2026 | title=Contrastive Learning with Va"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2015.02.003",
+   "key": "t:datadrivenarticulatorysynthesiswithdeepneuralnetworks",
+   "title": "Data driven articulatory synthesis with deep neural networks",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1016/j.csl.2015.02.003 | title=Data driven articulatory synthesis with deep neural networks | authors=Sa"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2016.02.002",
+   "key": "t:asilentspeechsystembasedonpermanentmagnetarticulographyanddirectsynthesis",
+   "title": "A silent speech system based on permanent magnet articulography and direct synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A silent speech system based on permanent magnet articulography and direct synthesis | venue=Computer Speech & Lan"
+  },
+  {
+   "pid": "doi-10.1016-j.rlfa.2018.07.004",
+   "key": "t:arealtimesilentspeechsystemforvoicerestorationaftertotallaryngectomy",
+   "title": "A Real-Time Silent Speech System for Voice Restoration after Total Laryngectomy",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1016/j.rlfa.2018.07.004 | title=A Real-Time Silent Speech System for Voice Restoration after Total Laryn"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.08.002",
+   "key": "t:silentspeechinterfaces",
+   "title": "Silent speech interfaces",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Speech Communication | doi=10.1016/j.specom.2009.08.002 | title=Silent speech interfaces | authors=B. Denby, T. Sc"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases"
+  },
+  {
+   "pid": "doi-10.1121-1.4978364",
+   "key": "t:restoringspeechfollowingtotalremovalofthelarynxbyalearnedtransformationfromsenso",
+   "title": "Restoring speech following total removal of the larynx by a learned transformation from sensor data to acoustics",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1121/1.4978364 | title=Restoring speech following total removal of the larynx by a learned transformatio"
+  },
+  {
+   "pid": "doi-10.18653-v1-w19-1703",
+   "key": "t:permanentmagneticarticulographpmavselectromagneticarticulographemainarticulation",
+   "title": "Permanent Magnetic Articulograph (PMA) vs Electromagnetic Articulograph (EMA) in Articulation-to-Speech Synthesis for Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Permanent Magnetic Articulograph (PMA) vs Electromagnetic Articulograph (EMA) in Articulation-to-Speech Synthesis"
+  },
+  {
+   "pid": "doi-10.21437-iberspeech.2024-18",
+   "key": "t:directspeechsynthesisfromnonaudiblespeechbiosignalsacomparativestudy",
+   "title": "Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study | needs_manual_check=glottal param"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2014-449",
+   "key": "t:robustarticulatoryspeechsynthesisusingdeepneuralnetworksforbciapplications",
+   "title": "Robust Articulatory Speech Synthesis using Deep Neural Networks for BCI Applications",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2014-449 | title=Robust Articulatory Speech Synthesis using Deep Neural Networks for B"
+  },
+  {
+   "pid": "doi-10.26092-elib.5498",
+   "key": "t:personalizingmyoelectricsilentspeechinterfacesviacrossspeakertrainingandvoicetim",
+   "title": "Personalizing Myoelectric Silent Speech Interfaces via Cross-Speaker Training and Voice Timbre Control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.26092/elib/5498 | title=Personalizing Myoelectric Silent Speech Interfaces via Cross-Speaker Training an"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1124065",
+   "key": "t:overtspeechdecodingfromcorticalactivityacomparisonofdifferentlinearmethods",
+   "title": "Overt speech decoding from cortical activity: a comparison of different linear methods",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnhum.2023.1124065 | title=Overt speech decoding from cortical activity: a comparison of different line"
+  },
+  {
+   "pid": "doi-10.3390-app12031167",
+   "key": "p:doi-10.3390-app12031167",
+   "title": null,
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Applied Sciences 12(3):1167 | needs_manual_check=Table 1 per-condition sentence counts partially captured; Table 2"
+  },
+  {
+   "pid": "doi-10.3390-s22166056",
+   "key": "p:doi-10.3390-s22166056",
+   "title": null,
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Sensors 22(16):6056 | needs_manual_check=per-speaker MCD cells in Table 3 aggregated; only mean/STD recorded as ob"
+  },
+  {
+   "pid": "doi-10.5220-0005754100960105",
+   "key": "t:directspeechgenerationforasilentspeechinterfacebasedonpermanentmagnetarticulogra",
+   "title": "Direct Speech Generation for a Silent Speech Interface based on Permanent Magnet Articulography",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.5220/0005754100960105 | title=Direct Speech Generation for a Silent Speech Interface based on Permanent"
+  },
+  {
+   "pid": "iber24-pma2speech",
+   "key": "t:directspeechsynthesisfromnonaudiblespeechbiosignalsacomparativestudy",
+   "title": "Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=iber24-pma2speech | title=Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study | aut"
+  },
+  {
+   "pid": "isca-aryal15_interspeech",
+   "key": "t:articulatorybasedconversionofforeignaccentswithdeepneuralnetworks",
+   "title": "Articulatory-based conversion of foreign accents with deep neural networks",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/aryal15-interspeech | title=Articulatory-based conversion of foreign accents with deep neural networks | a"
+  },
+  {
+   "pid": "isca-barbosa07b_avsp",
+   "key": "t:matlabtoolboxforaudiovisualspeechprocessing",
+   "title": "MATLAB Toolbox for Audiovisual Speech Processing",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MATLAB Toolbox for Audiovisual Speech Processing | authors=Adriano V. Barbosa; Hani C. Yehia; Eric Vatikiotis-Bate"
+  },
+  {
+   "pid": "isca-bocquelet14_interspeech",
+   "key": "t:robustarticulatoryspeechsynthesisusingdeepneuralnetworksforbciapplications",
+   "title": "Robust articulatory speech synthesis using deep neural networks for BCI applications",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/bocquelet14-interspeech | title=Robust articulatory speech synthesis using deep neural networks for BCI ap"
+  },
+  {
+   "pid": "isca-bocquelet15_interspeech",
+   "key": "t:realtimecontrolofadnnbasedarticulatorysynthesizerforsilentspeechconversionapilot",
+   "title": "Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a pilot study",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a pilot study | system_nam"
+  },
+  {
+   "pid": "isca-cao17_interspeech",
+   "key": "p:isca-cao17_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2017 | task_family=speech_reconstruction | vocabulary_regime=closed_lexicon | scope_limits=speaker-dep"
+  },
+  {
+   "pid": "isca-cao21_interspeech",
+   "key": "p:isca-cao21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2021 | task_family=speech_reconstruction | vocabulary_regime=closed_lexicon | scope_limits=frame-level"
+  },
+  {
+   "pid": "isca-engwall05_interspeech",
+   "key": "t:articulatorysynthesisusingcorpusbasedestimationoflinespectrumpairs",
+   "title": "Articulatory synthesis using corpus-based estimation of line spectrum pairs",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/engwall05-interspeech | title=Articulatory synthesis using corpus-based estimation of line spectrum pairs"
+  },
+  {
+   "pid": "isca-engwall09_avsp",
+   "key": "t:canyoutelliftonguemovementsarerealorsynthesized",
+   "title": "Can you tell if tongue movements are real or synthesized?",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Can you tell if tongue movements are real or synthesized? | authors=Olov Engwall; Preben Wik | venue=Proc. AVSP 20"
+  },
+  {
+   "pid": "isca-engwall09_interspeech",
+   "key": "t:arerealtonguemovementseasiertospeechreadthansynthesized",
+   "title": "Are real tongue movements easier to speech read than synthesized?",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/engwall09-interspeech | title=Are real tongue movements easier to speech read than synthesized? | authors="
+  },
+  {
+   "pid": "isca-fagel03_avsp",
+   "key": "t:twoarticulationmodelsforaudiovisualspeechsynthesisdescriptionanddetermination",
+   "title": "Two Articulation Models for Audiovisual Speech Synthesis - Description and Determination",
+   "year": 2003,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Two Articulation Models for Audiovisual Speech Synthesis - Description and Determination | authors=Sascha Fagel, C"
+  },
+  {
+   "pid": "isca-felps10_interspeech",
+   "key": "t:relyingoncriticalarticulatorstoestimatevocaltractspectrainanarticulatoryacoustic",
+   "title": "Relying on critical articulators to estimate vocal tract spectra in an articulatory-acoustic database",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/felps10-interspeech | title=Relying on critical articulators to estimate vocal tract spectra in an articul"
+  },
+  {
+   "pid": "isca-gonzalez17_interspeech",
+   "key": "t:evaluationofasilentspeechinterfacebasedonmagneticsensinganddeeplearningforaphone",
+   "title": "Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learning for a Phonetically Rich Vocabulary",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learning for a Phonetically Rich Vocabu"
+  },
+  {
+   "pid": "isca-gonzalez17_pmassl",
+   "key": "t:evaluationofasilentspeechinterfacebasedonmagneticsensinganddeeplearningforaphone",
+   "title": "Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learning for a Phonetically Rich Vocabulary",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-gonzalez17_pmassl | title=Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learn"
+  },
+  {
+   "pid": "isca-hiroya02_icslp",
+   "key": "t:acoustictoarticulatoryinversemappingusinganhmmbasedspeechproductionmodel",
+   "title": "Acoustic-to-articulatory inverse mapping using an HMM-based speech production model",
+   "year": 2002,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Acoustic-to-articulatory inverse mapping using an HMM-based speech production model | authors=Sadao Hiroya, Masaak"
+  },
+  {
+   "pid": "isca-hofe11-mvoca",
+   "key": "t:speechsynthesisparametergenerationfortheassistivesilentspeechinterfacemvoca",
+   "title": "Speech Synthesis Parameter Generation for the Assistive Silent Speech Interface MVOCA",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Synthesis Parameter Generation for the Assistive Silent Speech Interface MVOCA | authors=Hofe, Cernak | ven"
+  },
+  {
+   "pid": "isca-hofe11_interspeech",
+   "key": "t:speechsynthesisparametergenerationfortheassistivesilentspeechinterfacemvoca",
+   "title": "Speech Synthesis Parameter Generation for the Assistive Silent Speech Interface MVOCA",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Synthesis Parameter Generation for the Assistive Silent Speech Interface MVOCA | system_name=MVOCA / REdRES"
+  },
+  {
+   "pid": "isca-hueber12-trajhmm",
+   "key": "t:continuousarticulatorytoacousticmappingusingphonebasedtrajectoryhmmforasilentspe",
+   "title": "Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface | autho"
+  },
+  {
+   "pid": "isca-kaburagi98_icslp",
+   "key": "t:determinationofthevocaltractspectrumfromthearticulatorymovementsbasedonthesearch",
+   "title": "Determination of the vocal tract spectrum from the articulatory movements based on the search of an articulatory-acoustic database",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Determination of the vocal tract spectrum from the articulatory movements based on the search of an articulatory-a"
+  },
+  {
+   "pid": "isca-ling11_interspeech",
+   "key": "t:featurespacetransformtyinginunifiedacousticarticulatorymodellingforarticulatoryc",
+   "title": "Feature-Space Transform Tying in Unified Acoustic-Articulatory Modelling for Articulatory Control of HMM-based Speech Synthesis",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/ling11-interspeech | title=Feature-Space Transform Tying in Unified Acoustic-Articulatory Modelling for Ar"
+  },
+  {
+   "pid": "isca-liu16g_interspeech",
+   "key": "t:articulatorytoacousticconversionwithcascadedpredictionofspectralandexcitationfea",
+   "title": "Articulatory-to-Acoustic Conversion with Cascaded Prediction of Spectral and Excitation Features Using Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Articulatory-to-Acoustic Conversion with Cascaded Prediction of Spectral and Excitation Features Using Neural Netw"
+  },
+  {
+   "pid": "isca-lu09_3dtalk",
+   "key": "t:fromexperimentstoarticulatorymotionathreedimensionaltalkingheadmodel",
+   "title": "From experiments to articulatory motion—A three dimensional talking head model",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lu09_3dtalk | title=From experiments to articulatory motion—A three dimensional talking head model | autho"
+  },
+  {
+   "pid": "isca-maguer17_tongue",
+   "key": "t:anhmmdnncomparisonforsynchronizedtexttospeechandtonguemotionsynthesis",
+   "title": "An HMM/DNN Comparison for Synchronized Text-to-speech and Tongue Motion Synthesis",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-maguer17_tongue | title=An HMM/DNN Comparison for Synchronized Text-to-speech and Tongue Motion Synthesis"
+  },
+  {
+   "pid": "isca-nguyen98c_icslp",
+   "key": "t:articulatoryacousticandperceptualaspectsoffricativestopcoarticulation",
+   "title": "Articulatory, acoustic and perceptual aspects of fricative/stop coarticulation",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Articulatory, acoustic and perceptual aspects of fricative/stop coarticulation | authors=Noel Nguyen, Alan Wrench,"
+  },
+  {
+   "pid": "isca-okadome98_icslp",
+   "key": "t:trajectoryformationofarticulatorymovementsforagivensequenceofphonemes",
+   "title": "Trajectory formation of articulatory movements for a given sequence of phonemes",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Trajectory formation of articulatory movements for a given sequence of phonemes | authors=Takesi Okadome, Tokihiko"
+  },
+  {
+   "pid": "isca-richmond06_interspeech",
+   "key": "t:atrajectorymixturedensitynetworkfortheacousticarticulatoryinversionmapping",
+   "title": "A trajectory mixture density network for the acoustic-articulatory inversion mapping",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A trajectory mixture density network for the acoustic-articulatory inversion mapping | authors=Korin Richmond | ve"
+  },
+  {
+   "pid": "isca-richmond09b_interspeech",
+   "key": "t:preliminaryinversionmappingresultswithanewemacorpus",
+   "title": "Preliminary inversion mapping results with a new EMA corpus",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Preliminary inversion mapping results with a new EMA corpus | authors=Korin Richmond | venue=Proc. Interspeech 200"
+  },
+  {
+   "pid": "isca-richmond99_eurospeech",
+   "key": "t:estimatingvelumheightfromacousticsduringcontinuousspeech",
+   "title": "Estimating velum height from acoustics during continuous speech",
+   "year": 1999,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Estimating velum height from acoustics during continuous speech | authors=Korin Richmond | venue=Proc. Eurospeech"
+  },
+  {
+   "pid": "isca-scobbie13_interspeech",
+   "key": "t:theedinburghspeechproductionfacilitydoubletalkcorpus",
+   "title": "The Edinburgh Speech Production Facility DoubleTalk Corpus",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/scobbie13-interspeech | title=The Edinburgh Speech Production Facility DoubleTalk Corpus | authors=James M"
+  },
+  {
+   "pid": "isca-steiner09_interspeech",
+   "key": "t:towardsunsupervisedarticulatoryresynthesisofgermanutterancesusingemadata",
+   "title": "Towards unsupervised articulatory resynthesis of German utterances using EMA data",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/steiner09-interspeech | title=Towards unsupervised articulatory resynthesis of German utterances using EMA"
+  },
+  {
+   "pid": "isca-taguchi18_interspeech",
+   "key": "p:isca-taguchi18_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2018 | task_family=speech_reconstruction | vocabulary_regime=open_vocabulary | scope_limits=English re"
+  },
+  {
+   "pid": "isca-tobing14_interspeech",
+   "key": "t:articulatorycontrollablespeechmodificationbasedonstatisticalfeaturemappingwithga",
+   "title": "Articulatory controllable speech modification based on statistical feature mapping with Gaussian mixture models",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/tobing14-interspeech | title=Articulatory controllable speech modification based on statistical feature ma"
+  },
+  {
+   "pid": "isca-tobing15_interspeech",
+   "key": "t:articulatorycontrollablespeechmodificationbasedongaussianmixturemodelswithdirect",
+   "title": "Articulatory Controllable Speech Modification based on Gaussian Mixture Models with Direct Waveform Modification using Spectrum Differential",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/tobing15-interspeech | title=Articulatory Controllable Speech Modification based on Gaussian Mixture Model"
+  },
+  {
+   "pid": "isca-toth09_interspeech",
+   "key": "p:isca-toth09_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=system_proposal | Study.research_objective=test whether FestVox GMM voice-transformation mapping can"
+  },
+  {
+   "pid": "isca-toutios13_interspeech",
+   "key": "t:articulatorysynthesisoffrenchconnectedspeechfromemadata",
+   "title": "Articulatory Synthesis of French Connected Speech from EMA Data",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/toutios13-interspeech | title=Articulatory Synthesis of French Connected Speech from EMA Data | authors=As"
+  },
+  {
+   "pid": "isca-udupa21_interspeech",
+   "key": "p:isca-udupa21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2021 | task_family=intermediate_signal_processing | vocabulary_regime=closed_lexicon | scope_limits=mi"
+  },
+  {
+   "pid": "isca-vilain98_icslp",
+   "key": "t:coarticulationanddegreesoffreedomintheelaborationofanewarticulatoryplantgentiane",
+   "title": "Coarticulation and degrees of freedom in the elaboration of a new articulatory plant: GENTIANE",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Coarticulation and degrees of freedom in the elaboration of a new articulatory plant: GENTIANE | authors=Anne Vila"
+  },
+  {
+   "pid": "isca-wu23k_interspeech",
+   "key": "t:deepspeechsynthesisfrommribasedarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from MRI-Based Articulatory Representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wu23k_interspeech | title=Deep Speech Synthesis from MRI-Based Articulatory Representations | authors=Pete"
+  },
+  {
+   "pid": "isca-xie15_interspeech",
+   "key": "t:generalizedvariableparameterhmmsbasedacoustictoarticulatoryinversion",
+   "title": "Generalized Variable Parameter HMMs Based Acoustic-to-articulatory Inversion",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/xie15-interspeech | title=Generalized Variable Parameter HMMs Based Acoustic-to-articulatory Inversion | a"
+  },
+  {
+   "pid": "pmc-10326283-lineardecode",
+   "key": "t:overtspeechdecodingfromcorticalactivityacomparisonofdifferentlinearmethods",
+   "title": "Overt speech decoding from cortical activity: a comparison of different linear methods",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10326283-lineardecode | title=Overt speech decoding from cortical activity: a comparison of different linea"
+  },
+  {
+   "pid": "pmc-11204283-lip-mocap",
+   "key": "t:adataefficientandeasytouseliplanguageinterfacebasedonwearablemotioncaptureandspe",
+   "title": "A data-efficient and easy-to-use lip language interface based on wearable motion capture and speech movement reconstruction",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11204283-lip-mocap | title=A data-efficient and easy-to-use lip language interface based on wearable motion"
+  },
+  {
+   "pid": "pmc-13524925-mmdataset",
+   "key": "t:amultimodalspeechproductiondatasetwithtimealignedarticulographyeegaudioandvocalt",
+   "title": "A multimodal speech-production dataset with time-aligned articulography, EEG, audio, and vocal-tract anatomy",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13524925-mmdataset | title=A multimodal speech-production dataset with time-aligned articulography, EEG, au"
+  }
+ ],
+ "usual_approach": {
+  "design": "parametric vocoder features (mel-cepstra with STRAIGHT, WORLD or MLPG)",
+  "n": 40,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2603.11877",
+   "doi-10.26092-elib.5498",
+   "arxiv-2412.13387",
+   "doi-10.21437-iberspeech.2024-18",
+   "arxiv-2203.17072"
+  ],
+  "population_unique": 69,
+  "note": "full-text pattern counts over 69 unique studies: parametric_vocoder 40, neural_vocoder 20, griffin_lim 1"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2209.06337",
+   "role": "sota",
+   "loc": "Abstract; Sec. 7.3, Table 3",
+   "quote": "of 18.5% for the EMA-to-speech task"
+  },
+  {
+   "pid": "isca-taguchi18_interspeech",
+   "role": "prior",
+   "loc": "Sec. 4.2.3",
+   "quote": "was 30.1% on average and the WER of the target value was"
+  },
+  {
+   "pid": "arxiv-2102.03786",
+   "role": "target",
+   "loc": "Table I",
+   "quote": "EMA2S L(1), L(2) ! 7.176 1.350 0.716 0.868"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 5,
+  "found": 5,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2209.06337",
+  "year": 2022,
+  "metric": "listener open-transcription WER of EMA-to-speech output (MNGU0, single speaker, HiFi-GAN-based)",
+  "value": 18.5,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 69,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "parametric vocoder features (mel-cepstra with STRAIGHT, WORLD or MLPG)",
+   "n": 40,
+   "tier": "pattern match",
+   "population_unique": 69
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2209.06337",
+   "year": 2022,
+   "metric": "listener open-transcription WER of EMA-to-speech output (MNGU0, single speaker, HiFi-GAN-based)",
+   "value": 18.5,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "isca-taguchi18_interspeech"
+  ],
+  "unread": 76,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "ema2s-an-end-to-end-multimodal-articulatory-to-speech-system"
+ ]
+}

@@ -1,96 +1,136 @@
 # EMA2S: An End-to-End Multimodal Articulatory-to-Speech System
 
-Yu-Wen Chen, Kuo-Hsuan Hung, Shang-Yi Chuang, Jonathan Sherman, Wen-Chin Huang, Xugang Lu, Yu Tsao  
-arXiv 2021 · [arXiv](https://arxiv.org/abs/2102.03786)
+Yu-Wen Chen, Kuo-Hsuan Hung, Shang-Yi Chuang, Jonathan Sherman, Wen-Chin Huang, Xugang Lu, Yu Tsao. IEEE ISCAS, 2021. [doi:10.1109/ISCAS51556.2021.9401485](https://doi.org/10.1109/ISCAS51556.2021.9401485) · [arXiv:2102.03786](https://arxiv.org/abs/2102.03786)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *EMA2S: An End-to-End Multimodal Articulatory-to-Speech System* (Yu-Wen Chen et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical)
 
-End-to-end EMA-to-speech synthesis with multimodal joint loss and a neural vocoder, consistently improving objective and subjective quality over prior EMA-to-speech baselines.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | EMA with nine sensors (lips, jaw, tongue) |
-| Task | Speech synthesis from EMA |
-| Vocabulary | Not applicable |
-| Speaker | Not stated |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | Not reported |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Small dataset (three speakers, 354 utterances each), small listening test, no cross-speaker testing, and intrusive lab-grade EMA hardware.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Read-aloud sentences, voiced | Reading tasks | 4,015 of 8,995 | ● Standard (Inherited.) |
+| M02 Teacher signal | Match a spectral encoder's embedding | Direct spectral regression (10) | 40 of 8,995 | ● Standard (2017 precedent [@akbari2018lip2audspec]; mixed.) |
+| M03 Train / calibrate | Pooled speakers; JNAS vocoder | Per-corpus training | 1,608 of 8,995 | ● Standard (Inherited.) |
+| M04 Use-time act | Voiced speech with EMA | Voiced articulation | 6,538 of 8,995 | ● Standard (Inherited.) |
+| M05 Sensing | Nine EMA coils; four-coil subset | EMA coils on lips, jaw, tongue | 8,898 of 8,995 | ● Standard (Subset as Fig. 5 bars only.) |
+| M06 Decoding | EMA to spectrogram, Parallel WaveGAN | Parametric vocoder features (40) | 69 of 8,995 | ● Standard (Spectrogram-only system loses to WORLD.) |
+| M07 Runtime aids | None | No language model | 120 of 8,995 | ● Standard (Inherited.) |
+| M08 Output | Waveform in the recorded voice | Synthesized audio | 3,760 of 8,995 | ● Standard (Inherited.) |
+| M09 Confirmation | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Same-speaker 304/50 split | Within-corpus splits | 239 of 8,995 | ● Standard (No reference row.) |
+| M12 Evaluation | MCD, PESQ, STOI, ASR CCR; A/B preference | Crowd-worker listener test (15) | 79 of 8,995 | ▼ Behind (No listener transcription.) |
+| M13 Hardware & limits | Laboratory EMA, offline | Laboratory recording | 6,721 of 8,995 | – Not applicable (Offline study.) |
 
-EMA2S achieves consistent quality improvements over prior EMA-to-speech baselines by combining multimodal joint loss training with a neural vocoder, though gains remain confined to lab EMA conditions.
+</details>
 
-### Review
+## Verdict
 
-EMA2S integrates a spectral encoder, EMA encoder, and a shared decoder, training jointly to minimize losses on spectrogram, mel-spectrogram, and a deep feature loss measuring embedding similarity between articulatory and acoustic modalities. The use of a neural vocoder (Parallel WaveGAN) marks a departure from traditional parametric vocoders and yields demonstrable benefit. Evaluated on the NTT EMA corpus with three speakers, EMA2S outperforms a strong BLSTM-based baseline on MCD (7.815 to 7.176), PESQ (1.279 to 1.350), STOI (0.696 to 0.716), and CCR (0.818 to 0.868). In an A/B listening test with 10 participants, EMA2S was preferred 83% of the time. A reduced four-EMA-sensor variant also improves over baseline, indicating potential for reduced sensor setups. Despite these gains, the hardware remains intrusive laboratory EMA, limiting deployment practicalities, and the dataset size and speaker count constrain generalizability. The study contributes a rigorous multimodal joint-loss EMA-to-waveform synthesis pipeline with verified gains over prior methods but does not close the gap to wearable silent speech interfaces.
+EMA2S [[1]](#ref-1) changes two components: a training-only spectral encoder whose embedding the EMA encoder must match (M02), and an end-to-end mapping voiced by a pretrained Parallel WaveGAN instead of WORLD (M06). Both are standard. The speech-latent target already existed in lip-to-speech [[2]](#ref-2), and its increment over the mel-loss variant is 2.2% in MCD and 3.2% in CCR from single training runs (Table I, inference). With spectrogram loss only, the end-to-end system loses to the WORLD baseline on all four metrics; adding either the mel loss or the deep feature loss lifts PESQ, STOI and CCR past the baseline, and only the mel loss also lowers MCD below it (Table I). The evaluation (M12) is behind: the baseline paper scored listener transcription [[3]](#ref-3), while EMA2S reports a two-way preference test and an unnamed ASR on a same-speaker split.
 
-### Why it matters
+## Against the field, component by component
 
-Provides a more natural and intelligible articulatory-to-speech synthesis baseline by effectively leveraging a neural vocoder and multimodal joint loss, improving reconstruction quality beyond prior parametric vocoder pipelines.
+### M02 Training-only supervision: speech-latent target
 
-### Prior state of the art
+**Usual approach:** Of 40 unique non-acoustic-to-speech studies with latent or bottleneck wording (pattern match, Appendix), 10 regress spectral targets from paired audio, 4 use a deep feature loss and 3 a speech-autoencoder latent. EMA2S matches a speech encoder's embedding plus spectral losses (§III-B).
 
-EMA-to-speech systems typically relied on parametric vocoders with a single acoustic loss, limiting naturalness and intelligibility.
+**State of the art:** For this loss, the reference point is a [later] 2024 reuse with an ablation [[4]](#ref-4): tri-modal EMG-to-speech reaches 18.091% WER with it against 18.866% without (Table 4).
 
-### What changed
+Lip2AudSpec (2017) already trained a lip network to predict a spectrogram autoencoder's bottleneck for the pre-trained decoder [[2]](#ref-2). EMA2S claims the cross-modal loss as its contribution (§III-B) and its 44 references do not cite this precedent. Within EMA2S the effect is mixed: S III (deep feature loss, no mel loss) beats S I on PESQ, STOI and CCR (1.303/0.697/0.831 vs 1.259/0.679/0.796) but not MCD (8.445 vs 8.264 dB); added to the mel-loss system it moves MCD from 7.334 to 7.176 dB (-2.2%) and CCR from 0.841 to 0.868 (+3.2%) (inference). In [[4]](#ref-4) it lowers WER in three of four pairs and raises it for tri-modal MRI-to-speech (41.326% vs 39.005%, Table 3). Verdict: standard.
 
-Replaces traditional parametric vocoders with an end-to-end neural vocoder architecture (Parallel WaveGAN) and incorporates a combined loss over spectrogram, mel-spectrogram, and deep features for improved articulatory-to-speech mapping.
+### M06 Processing: end-to-end spectrogram with a neural vocoder
 
-### Position in the field
+**Usual approach:** Of 69 unique articulography-to-speech studies (pattern match, Appendix), 40 mention parametric vocoder features and 20 a neural vocoder; the baseline lineage drives WORLD from a BLSTM [[3]](#ref-3). EMA2S uses Parallel WaveGAN pre-trained on Japanese JNAS, with no adaptation described (§IV-A).
 
-EMA-based articulatory-to-speech synthesis with the integration of modern neural vocoding and multimodal loss training, showing incremental but well-documented gains.
+**State of the art:** A [later] 2022 HiFi-GAN-based model reaches 18.5% listener transcription WER on MNGU0 [[5]](#ref-5), against 30.1% for the BLSTM-WORLD lineage [[3]](#ref-3); EMA2S gives no comparable number.
 
-### Practical value
+S I (spectrogram loss only) is worse than the WORLD baseline on MCD (8.264 vs 7.815 dB, 5.7% worse), PESQ, STOI and CCR (Table I) (inference). Adding the mel loss (S II) beats the baseline on all four (MCD 11.3% lower, CCR 5.7% higher than S I) (inference). Targets, normalization and vocoder all differ from the baseline (§IV-B), so the final 8.2% MCD gain is not the end-to-end design's (inference). Verdict: standard.
 
-Serves as a significant improved lab baseline for EMA articulatory-to-speech synthesis; useful for research on data-efficient, multimodal articulatory representations but limited for immediate practical use due to hardware requirements.
+### M12 Evaluation: preference test instead of transcription
 
-### Advanced
+**Usual approach:** Of 79 unique studies scoring synthesized speech with listeners (pattern match, Appendix), 15 use crowd workers and 10 open transcription; the baseline paper had 10 listeners transcribe 65 MNGU0 sentences, with an analysis-synthesis ceiling (30.1% vs 14.3% WER) [[3]](#ref-3).
 
-System design; reconstruction quality improved via neural vocoder and joint multimodal loss training.
+**State of the art:** For EMA input, 18.5% WER from 70 listeners, 2022 [[5]](#ref-5).
 
-### Unresolved
+EMA2S offers only an A/B choice against the baseline (10 listeners, 15 pairs each, §IV-C.3) and an ASR character rate from an unnamed recognizer (§IV-A), with no natural or resynthesized reference (Table I). Preference is not intelligibility: in the [later] study listeners agreed on only 28 of 60 A/B pairs, and the authors turned to transcription [[5]](#ref-5). Verdict: behind the 16 prior studies in the topic table that ran a listener intelligibility test (confirmed in text, Appendix), including the baseline paper [[3]](#ref-3).
 
-Hardware practicality; cross-speaker robustness; naturalness ceiling remain unresolved.
+## The 13 components
 
-### Evaluation details
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Read-aloud sentences, voiced | Reading tasks (slot-filled 4,015) | – | standard |
+| M02 Training-only supervision | Match a spectral encoder's embedding | Direct spectral regression (10) (pattern match 40) | 18.09% WER, EMG, loss reused [[4]](#ref-4) | standard |
+| M03 Training and adaptation | Pooled speakers; JNAS vocoder | Per-corpus training (slot-filled 1,608) | – | standard |
+| M04 Use-time action | Voiced speech with EMA | Voiced articulation (slot-filled 6,538) | – | standard |
+| M05 Sensors | Nine EMA coils; four-coil subset | EMA coils on lips, jaw, tongue (slot-filled 8,898) | – | standard |
+| M06 Processing and decoding | EMA to spectrogram, Parallel WaveGAN | Parametric vocoder features (40) (pattern match 69) | 18.5% listener WER, MNGU0 [[5]](#ref-5) | standard |
+| M07 Lexicon and LM | None | No language model (slot-filled 120) | – | standard |
+| M08 Output | Waveform in the recorded voice | Synthesized audio (slot-filled 3,760) | – | standard |
+| M09 Confirmation | None | None (slot-filled 82) | – | not applicable |
+| M10 Correction | None | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Same-speaker 304/50 split | Within-corpus splits (slot-filled 239) | – | standard |
+| M12 Evaluation | MCD, PESQ, STOI, ASR CCR; A/B preference | Crowd-worker listener test (15) (pattern match 79) | 18.5% listener WER, EMA [[5]](#ref-5) | behind |
+| M13 Device and cost | Laboratory EMA, offline | Laboratory recording (slot-filled 6,721) | – | not applicable |
 
-| Item | Details |
-| --- | --- |
-| Task | speech-reconstruction |
-| Input | magnetic (EMA) |
-| Sensor | Electromagnetic midsagittal articulography (EMA) with nine sensors including lips, jaw, and multiple tongue positions. |
-| Body site | jaw; lip; tongue |
-| Output | speech-audio |
-| Metrics and results | Mel-cepstral distortion, PESQ, short-time objective intelligibility, character correct rate by ASR, and subjective A/B listening preference percentages. |
-| Evaluation protocol | Objective evaluation metrics (mel-cepstral distortion, PESQ, STOI, character correct rate with pre-trained ASR) combined with subjective A/B listening preference test and ablation with fewer sensors. |
+## Where the claims outrun the evidence
 
-### Limits
+- The preference result, 83% vs 17% (§IV-C.3), has no chance level, test or interval.
+- "Multimodal jointly training" as the source of improvement (§IV-C.2) rests on single runs without variance (Table I), so 2-3% increments over S II cannot be separated from run-to-run variation (inference).
+- S III adds both a pre-trained spectral encoder and the deep feature loss to S I (§IV-C.2), so its gains cannot be attributed to the loss.
+- The four-sensor result is shown only as bars (§IV-C.4, Fig. 5).
+- The same three speakers appear in training and test (304/50 utterances each), sessions and sentence overlap unstated (§IV-A).
 
-- **Technical:** Small dataset size (three speakers, 354 utterances each), dependence on intrusive EMA sensors, and lack of large-scale or diverse speaker evaluation.
-- **Evaluation:** Evaluations are confined to a small dataset with only three speakers; the subjective A/B listening test involved only 10 participants with 15 questions total, and no cross-speaker generalization testing was reported.
-- **Deployment:** The system requires laboratory-grade EMA hardware, which is intrusive and limits portability. Even the reduced four-sensor configuration still depends on EMA instrumentation and controlled environment recording conditions.
-- **Scope of this review:** Focused on laboratory EMA articulatory-to-speech synthesis with neural vocoder reconstruction; not addressing wearable or silent speech device deployment.
+## What the field needs next
 
-### Evidence
+- M02: the latent-target ablation over several seeds, with a frozen-decoder variant as in [[2]](#ref-2).
+- M06: the baseline's features voiced by the same neural vocoder, to separate mapping from vocoder.
+- M12: listener transcription with an analysis-synthesis ceiling, as in [[3]](#ref-3).
 
-- We present EMA2S, an end-to-end multimodal articulatory-to-speech system that directly converts articulatory movements to speech signals using a neural-network-based vocoder combined with multimodal joint-training of spectrogram, mel-spectrogram, and deep features. (Abstract)
-- EMA2S uses a combined multimodal loss consisting of spectrogram loss, mel-spectrogram loss, and deep feature loss, leveraging the idea of multimodal learning by calculating dissimilarity between articulatory and spectral embeddings during training. (III. PROPOSED METHOD)
-- The system replaces traditional parametric vocoders with a Parallel WaveGAN-based neural vocoder, allowing an end-to-end trainable articulatory-to-speech waveform synthesis pipeline. (III. PROPOSED METHOD)
-- Objective evaluation metrics used include mel-cepstral distortion (MCD), perceptual evaluation of speech quality (PESQ), short-time objective intelligibility (STOI), and character correct rate (CCR) from a pre-trained automatic speech recognition (ASR) system. (IV. EXPERIMENTS)
-- Experiments performed on the NTT EMA corpus with three speakers, each contributing 354 utterances, split into 304 training and 50 testing utterances per speaker, with sensors placed on upper lip, lower lip, upper jaw, lower jaw, tongue tip, tongue blade, tongue dorsum, tongue rear, and velum. (IV. EXPERIMENTS)
-- The EMA2S system achieves superior objective scores compared to the baseline: MCD 7.176 vs 7.815, PESQ 1.350 vs 1.279, STOI 0.716 vs 0.696, and CCR 0.868 vs 0.818, as shown in Table I of the paper. (IV. EXPERIMENTS)
-- The subjective A/B listening test with 10 participants and 15 questions in total shows that EMA2S speech output was preferred 83% over the baseline's 17%. (IV. EXPERIMENTS)
-- The dataset is limited to three speakers and 354 utterances each, recorded in laboratory conditions with EMA sensors, which are intrusive and impractical for general deployment. (IV. EXPERIMENTS)
-- Even with only four less invasive EMA sensors, the system still outperforms the baseline, but still depends on EMA hardware and controlled conditions, limiting portability and real-world deployment. (IV. EXPERIMENTS)
+## Questions for the authors
+
+- Which ASR engine computed CCR, and what CCR does natural speech reach?
+- How were the 50 test utterances per speaker chosen, and do their sentences occur in training?
+- How many training runs were used, and over which data was the EMA maximum for normalization computed?
+
+## Appendix: literature search
+
+- M02 speech-latent-target. Inclusion rule: studies that synthesize speech from a non-acoustic signal (articulography, ultrasound, video, EMG, neural recordings) and supervise the encoder with paired speech, by direct spectral regression or by matching the latent of a speech encoder or autoencoder unused at test time; acoustic-input conversion, recognition-only studies and self-generated targets excluded; versions counted once. Slot-filled 31 unique studies; pattern match 40 unique studies. Usual design: direct spectral regression, 10 (pattern match, full text). Design counts (pattern match, full text): direct spectral regression 10, deep feature loss 4, speech-autoencoder latent 3; M03 supervision_kind=paired_audio 9 of 16 (slot-filled). Read in full: [[2]](#ref-2), [[4]](#ref-4), target. Known-item recall 1.0.
+- M06 articulography-to-speech-synthesis. Inclusion rule: studies that synthesize speech audio from measured articulatory kinematics (EMA, PMA or other magnetic tracking) and state how acoustic features become a waveform; acoustic-to-articulatory inversion, talking-head animation and parameter-driven articulatory synthesizers excluded; versions counted once. Slot-filled 7,345 unique studies; pattern match 69 unique studies. Usual design: parametric vocoder features, 40 (pattern match, full text). Design counts: parametric vocoder 40, neural vocoder 20, Griffin-Lim 1. Read in full: [[5]](#ref-5), [[3]](#ref-3), target. Known-item recall 1.0.
+- M12 listener-intelligibility-test (published topic table, appended). Inclusion rule: studies that evaluate speech synthesized from non-acoustic signals with human listeners who transcribe or identify words or sentences; naturalness-, preference- or MOS-only ratings, ASR-only scoring and acoustic-input conversion excluded. Slot-filled 6,960 unique studies; pattern match 79 unique studies. Usual design: crowd workers, 15 (pattern match). Design counts: crowd workers 15, closed-set identification 13, open transcription 10. Prior to the target (first public before 2020-08): 16 unique studies (confirmed in text). Read in full for this review: [[3]](#ref-3), [[5]](#ref-5). Known-item recall 1.0.
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Chen, Y., Hung, K., Chuang, S., Sherman, J., Huang, W., Lu, X., et al. “EMA2S: An End-to-End Multimodal Articulatory-to-Speech System.” *2021 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2021, 1-5. doi:[10.1109/ISCAS51556.2021.9401485](https://doi.org/10.1109/ISCAS51556.2021.9401485). arXiv:[2102.03786](https://arxiv.org/abs/2102.03786). Target. Read as arXiv v2 (first page dated 9 Jun 2021). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/ema2s-an-end-to-end-multimodal-articulatory-to-speech-system) [wiki: arxiv-2102.03786](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2102.03786/article.md)
+2. <a id="ref-2"></a>Akbari, H., Arora, H., Cao, L., Mesgarani, N. “Lip2AudSpec: Speech Reconstruction from Silent Lip Movements Video.” *arXiv preprint*, 2017. arXiv:[1710.09798](https://arxiv.org/abs/1710.09798). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/lip2audspec-speech-reconstruction-from-silent-lip-movements-video) [wiki: arxiv-1710.09798](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1710.09798/article.md)
+3. <a id="ref-3"></a>Taguchi, F., Kaburagi, T. “Articulatory-to-Speech Conversion Using Bi-directional Long Short-term Memory.” *Interspeech*, 2018. doi:[10.21437/Interspeech.2018-999](https://doi.org/10.21437/Interspeech.2018-999). [wiki: isca-taguchi18_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-taguchi18_interspeech/article.md)
+4. <a id="ref-4"></a>Wu, P., Yu, B., Scheck, K., Black, A. W., Krishnapriyan, A. S., Chen, I. Y., et al. “Deep Speech Synthesis from Multimodal Articulatory Representations.” *arXiv preprint*, 2024. arXiv:[2412.13387](https://arxiv.org/abs/2412.13387). [later] [wiki: arxiv-2412.13387](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2412.13387/article.md)
+5. <a id="ref-5"></a>Wu, P., Watanabe, S., Goldstein, L., Black, A. W., Anumanchipalli, G. K. “Deep Speech Synthesis from Articulatory Representations.” *Interspeech 2022*, 2022, 779-783. doi:[10.21437/Interspeech.2022-10892](https://doi.org/10.21437/Interspeech.2022-10892). arXiv:[2209.06337](https://arxiv.org/abs/2209.06337). [later] [wiki: arxiv-2209.06337](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2209.06337/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M02/speech-latent-target.csv`](../../components/M02/speech-latent-target.csv): M02 topic "speech-latent-target", every candidate paper with its decision (31 slot-filled, 40 pattern match, usual design in 10, 3 read in full)
+- [`components/M06/articulography-to-speech-synthesis.csv`](../../components/M06/articulography-to-speech-synthesis.csv): M06 topic "articulography-to-speech-synthesis", every candidate paper with its decision (7345 slot-filled, 69 pattern match, usual design in 40, 3 read in full)
+- [`components/M12/listener-intelligibility-test.csv`](../../components/M12/listener-intelligibility-test.csv): M12 topic "listener-intelligibility-test", every candidate paper with its decision (6960 slot-filled, 37 pattern match, usual design in 15, 4 read in full)
+
 
 ## More reviews in Brain signals (EEG, MEG, intracortical)
 

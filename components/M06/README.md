@@ -15,6 +15,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Overt speech decoding from cortical activity: a comparison of different linear methods | 2023 | Abstract（Methods）、§2.6.3 |
 | SPEAK YOUR MIND! Towards Imagined Speech Recognition With Hierarchical Deep Learning |  | Abstract |
 
+## articulography-to-speech-synthesis
+
+- Table: [`articulography-to-speech-synthesis.csv`](articulography-to-speech-synthesis.csv) (7345 slot-filled, 69 pattern match, usual design in 40, 3 read in full)
+- Inclusion rule: Include studies that synthesize speech audio from measured articulatory kinematics (EMA, PMA or other magnetic tracking) and report how acoustic features are turned into a waveform. Boundary: exclude acoustic-to-articulatory inversion, talking-head animation and articulatory synthesizers driven by model parameters rather than measurements; count versions once.
+- Used in: [EMA2S: An End-to-End Multimodal Articulatory-to-Speech System](../../reviews/ema2s-an-end-to-end-multimodal-articulatory-to-speech-system/)
+
 ## attention-seq2seq-decoding
 
 - Table: [`attention-seq2seq-decoding.csv`](attention-seq2seq-decoding.csv) (36 confirmed, 115 candidates read, 441 unread)
