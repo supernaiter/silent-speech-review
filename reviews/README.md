@@ -5,6 +5,7 @@
 Each paper judged component by component against the usual approach and the state of the art.
 
 - [EMG-to-Speech with Fewer Channels](emg-to-speech-with-fewer-channels/) (2026). Halving EMG electrodes costs synthesis the same ~35% relative WER known from recognition; initialization helps, channel dropout does not, and a weak unrepeated baseline undercuts the ranking.
+- [Brain-to-Text Decoding: A Non-invasive Approach via Typing](brain-to-text-decoding-a-non-invasive-approach-via-typing/) (2025). Executed typing as the decoded action (M04) was ahead for MEG/EEG in 2025; keystroke-locked decoding (M06) and an n-gram LM (M07) are standard, and decoding needs known keystroke times.
 - [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/) (2025). Face voices (M08) extend 2020 TTS and 2023 lip-to-speech designs to EMG; the pitch-flattening gain (M02) is within seed noise; silent WER 38.91% has no external baseline.
 - [An Accurate and Rapidly Calibrating Speech Neuroprosthesis](an-accurate-and-rapidly-calibrating-speech-neuroprosthesis/) (2024). Reaches 2.5% online large-vocabulary WER and 248 h of home use in one participant; rapid calibration is a cross-study claim and the 97.5% conversation accuracy matches the Copy Task figure.
 - [A high-performance neuroprosthesis for speech decoding and avatar control](a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/) (2023). Text, voice and avatar from ECoG in one participant hold as a demonstration; sensor and decoder are standard, and an LM trained on the test pool inflates the text result.
@@ -59,7 +60,6 @@ Earlier format: evaluation conditions, results and limitations per paper.
 - [An Introduction to Silent Paralinguistics](an-introduction-to-silent-paralinguistics/) (2025)
 - [An instantaneous voice-synthesis neuroprosthesis](an-instantaneous-voice-synthesis-neuroprosthesis/) (2025)
 - [Articulatory Feature Prediction from Surface EMG during Speech Production](articulatory-feature-prediction-from-surface-emg-during-speech-production/) (2025)
-- [Brain-to-Text Decoding: A Non-invasive Approach via Typing](brain-to-text-decoding-a-non-invasive-approach-via-typing/) (2025)
 - [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding/) (2025)
 - [Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling](confidence-based-self-training-for-emg-to-speech-leveraging-synthetic-emg-for-robust-modeling/) (2025)
 - [Conformer-based Ultrasound-to-Speech Conversion](conformer-based-ultrasound-to-speech-conversion/) (2025)

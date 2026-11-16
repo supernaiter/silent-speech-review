@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## noninvasive-text-production-action
+
+- Table: [`noninvasive-text-production-action.csv`](noninvasive-text-production-action.csv) (5595 slot-filled, 1458 pattern match, usual design in 784, 3 read in full)
+- Inclusion rule: Language or text decoding studies whose ledger names scalp EEG or MEG. The design compared is the use-time action that produces the decoded signal: perception (listening or reading), imagined or covert speech, evoked-potential spelling (P300/SSVEP speller), or executed motor text production (typing, handwriting). Boundary: keypresses used only as behavioural responses are not typing decoding; reviews are counted as pattern matches but cannot be deciding priors; versions of one study count once.
+- Used in: [Brain-to-Text Decoding: A Non-invasive Approach via Typing](../../reviews/brain-to-text-decoding-a-non-invasive-approach-via-typing/)
+
 ## overt-to-silent-transfer
 
 - Table: [`overt-to-silent-transfer.csv`](overt-to-silent-transfer.csv) (23 confirmed, 104 candidates read, 0 unread)
