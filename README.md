@@ -1,6 +1,6 @@
 # Silent Speech Interface Review
 
-Reviews of **153 silent speech interface (SSI) papers** (2010–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-10-19.
+Reviews of **153 silent speech interface (SSI) papers** (2010–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-11-16.
 
 Silent speech interfaces turn articulation without audible voice into text or speech, using lip video, ultrasound tongue imaging, EMG, EEG, electropalatography, radar, acoustic sensing and more. Accuracies in this field are hard to compare: one paper recognizes 10 words from one speaker in one session, another decodes open sentences from new speakers on a later day. This review puts those conditions next to every headline number.
 
