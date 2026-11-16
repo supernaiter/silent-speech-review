@@ -132,7 +132,7 @@ Data behind this review. Full texts of the papers are not included.
 - [`figures.json`](figures.json): figure definitions
 - [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
 - [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
-- [`components/M02/auxiliary-representation-prediction.csv`](../../components/M02/auxiliary-representation-prediction.csv): M02 topic "auxiliary-representation-prediction", every candidate paper with its decision (31 slot-filled, 104 pattern match, usual design in 8, 4 read in full)
+- [`components/M02/auxiliary-representation-prediction.csv`](../../components/M02/auxiliary-representation-prediction.csv): M02 topic "auxiliary-representation-prediction", every candidate paper with its decision (31 slot-filled, 104 pattern match, usual design in 8, 6 read in full)
 - [`components/M03/self-supervised-pretraining.csv`](../../components/M03/self-supervised-pretraining.csv): M03 topic "self-supervised-pretraining", every candidate paper with its decision (1526 slot-filled, 123 pattern match, usual design in 31, 3 read in full)
 - [`components/M12/lrs3-visual-only-wer.csv`](../../components/M12/lrs3-visual-only-wer.csv): M12 topic "lrs3-visual-only-wer", every candidate paper with its decision (6960 slot-filled, 258 pattern match, usual design in 18, 1 read in full)
 
