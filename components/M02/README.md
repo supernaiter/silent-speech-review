@@ -13,3 +13,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`ssl-speech-unit-target.csv`](ssl-speech-unit-target.csv) (31 slot-filled, 54 pattern match, usual design in 11, 2 read in full)
 - Inclusion rule: Include studies that synthesize speech from a non-acoustic speech signal and train the signal encoder to predict self-supervised speech representations (HuBERT units, soft units, ContentVec, wav2vec features) derived from paired or aligned audio, instead of or besides spectral targets. Boundary: exclude recognition-only studies, targets the model generates itself, and acoustic-input conversion; count versions once.
 - Used in: [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
+
+## whisper-to-normal-training-pairing
+
+- Table: [`whisper-to-normal-training-pairing.csv`](whisper-to-normal-training-pairing.csv) (31 slot-filled, 60 pattern match, usual design in 39, 5 read in full)
+- Inclusion rule: Include studies that convert whispered, non-audible-murmur or other unvoiced or alaryngeal speech captured acoustically or by body conduction into voiced, normal-sounding speech audio, and classify how the converter is supervised: time-aligned whisper-normal pairs (parallel, DTW), unpaired or non-parallel data, or synthetic whisper made from normal speech. Boundary: exclude whispered-speech recognition without audio output, normal-to-whisper synthesis, speaker verification, and conversion from non-acoustic signals (EMG, video, neural); count versions of one study once.
+- Used in: [WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions](../../reviews/wesper-zero-shot-and-realtime-whisper-to-normal-voice-conversion-for-whisper-based-speech-interactions/)

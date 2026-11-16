@@ -1,0 +1,1019 @@
+{
+ "topic": "whisper-to-normal-training-pairing",
+ "slot": "M02",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(whisper\\w*|murmur|\\bnam\\b|non-audible|alaryngeal|electrolaryn\\w*|body[- ]conducted)[^|]{0,120}(to[- ](normal|neutral|natural|speech|voiced|audible)|(voice|speech|signal) conversion|conversion to)|(whisper\\w*|\\bnam\\b|murmur)[- ]to[- ]\\w+",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include studies that convert whispered, non-audible-murmur or other unvoiced or alaryngeal speech captured acoustically or by body conduction into voiced, normal-sounding speech audio, and classify how the converter is supervised: time-aligned whisper-normal pairs (parallel, DTW), unpaired or non-parallel data, or synthetic whisper made from normal speech. Boundary: exclude whispered-speech recognition without audio output, normal-to-whisper synthesis, speaker verification, and conversion from non-acoustic signals (EMG, video, neural); count versions of one study once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 31,
+  "slot_filled_unique": 31,
+  "string_match_folders": 71,
+  "string_match_unique": 60,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 15,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2407.18541",
+     "apsipa2010-deguchi-acoustic-compensation",
+     "isca-nakamura10_interspeech",
+     "isca-nakamura09_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2407.18541",
+     "naist-tsuruta-nam-intel"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "isca-tanaka13_interspeech",
+     "arxiv-2511.01056"
+    ]
+   },
+   {
+    "design": "supervision_kind=self_supervised",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2407.18541",
+     "doi-10.1145-3544548.3580706"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "supervision_kind=unpaired",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1145-3544548.3580706"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "parallel_paired",
+    "n": 39,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.04296",
+     "arxiv-2603.08046",
+     "arxiv-2412.18839",
+     "arxiv-2506.06675",
+     "isca-shah25-nammultitask"
+    ]
+   },
+   {
+    "design": "unpaired",
+    "n": 15,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.04296",
+     "arxiv-2603.08046",
+     "arxiv-2407.21211",
+     "arxiv-2408.14797",
+     "arxiv-2306.06653"
+    ]
+   },
+   {
+    "design": "synthetic_whisper",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.04296",
+     "arxiv-2603.08046",
+     "arxiv-2506.16969",
+     "arxiv-2407.18541",
+     "arxiv-2407.21211"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)WER|word error|CER|character error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "WER% (Table 2)",
+   "value": 0.12,
+   "unit": "percent",
+   "raw": "0.12",
+   "pid": "arxiv-2506.16969",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 1.07,
+   "unit": "percent",
+   "raw": "1.07",
+   "pid": "arxiv-2412.18839",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CER%",
+   "value": 2.59,
+   "unit": "percent",
+   "raw": "2.59%",
+   "pid": "arxiv-2407.21211",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CER (↓)",
+   "value": 3.331,
+   "unit": "percent",
+   "raw": "3.331",
+   "pid": "arxiv-2511.01056",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (NeMo FastConformer)",
+   "value": 3.9,
+   "unit": "percent",
+   "raw": "Normal Speech table cell",
+   "pid": "arxiv-2603.04296",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER GWO post",
+   "value": 4.15,
+   "unit": "percent",
+   "raw": "4.15",
+   "pid": "doi-10.21203-rs.3.rs-5443479-v1",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table2 wtn cer",
+   "value": 4.66,
+   "unit": "%",
+   "raw": "4.66",
+   "pid": "arxiv-2303.01639",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (English, per Methods 5.1) [source direction: lower]",
+   "value": 6.31,
+   "unit": "percent",
+   "raw": "6.31",
+   "pid": "arxiv-2603.14853",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (English)",
+   "value": 12.36,
+   "unit": "percent",
+   "raw": "12.36",
+   "pid": "arxiv-2603.08046",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CER",
+   "value": 12.43,
+   "unit": "percent",
+   "raw": "12.43",
+   "pid": "arxiv-2407.18541",
+   "year": 2024,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "apsipa2010-deguchi-acoustic-compensation",
+   "key": "t:acousticcompensationmethodforacceptingdifferentrecordingdevicesinbodyconductedvo",
+   "title": "Acoustic Compensation Method for Accepting Different Recording Devices in Body-Conducted Voice Conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ipa2010/deguchi-acoustic-compensation | title=Acoustic Compensation Method for Accepting Different Recording Devices in Body-Conducted Voice Conversion | authors=Daisuke Deguchi, Hironori Doi, Tomoki Toda, Hiroshi Saruwatari, Kiyohiro Shikano | venue=APSIPA ASC 2010 | re"
+  },
+  {
+   "pid": "arxiv-1808.10687",
+   "key": "t:whisperedtovoicedalaryngealspeechconversionwithgenerativeadversarialnetworks",
+   "title": "Whispered-to-voiced Alaryngeal Speech Conversion with Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1808.10687 | title=Whispered-to-voiced Alaryngeal Speech Conversion with Generative Adversarial Networks | Study.research_objective=adapted SEGAN whispered->voiced alaryngeal conversion o"
+  },
+  {
+   "pid": "arxiv-1912.05289",
+   "key": "t:voiceconversionforwhisperedspeechsynthesis",
+   "title": "Voice Conversion for Whispered Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1912.05289 | title=Voice Conversion for Whispered Speech Synthesis | Study.research_objective=speaker-to-whisper voice conversion: SD/sprocket GMM vs All/Excl multi-speaker DNN vs handcrafted DSP on internal 5-speaker + wTIMIT 25-speaker corpora; MU"
+  },
+  {
+   "pid": "arxiv-2004.09347",
+   "key": "t:endtoendwhispertonaturalspeechconversionusingmodifiedtransformernetwork",
+   "title": "End-to-End Whisper to Natural Speech Conversion using Modified Transformer Network",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2004.09347 | title=End-to-End Whisper to Natural Speech Conversion using Modified Transformer Network | Study.research_objective=modified transformer whisper->natural conversion: W1/W2 ("
+  },
+  {
+   "pid": "arxiv-2109.03551",
+   "key": "t:timealignmentusinglipimagesforframebasedelectrolaryngealvoiceconversion",
+   "title": "Time Alignment using Lip Images for Frame-based Electrolaryngeal Voice Conversion",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2109.03551 | doi=10.48550/arxiv.2109.03551 | title=Time Alignment using Lip Images for Frame-based Electrolaryngeal Voice Conversion | venue=arXiv; Academia Sinica + Nagoya University + NCKU Hospital | task_family=intermediate_signal_processing | extra"
+  },
+  {
+   "pid": "arxiv-2111.01342",
+   "key": "t:attentionguidedgenerativeadversarialnetworkforwhispertonormalspeechconversionaga",
+   "title": "Attention-Guided Generative Adversarial Network for Whisper to Normal Speech Conversion (AGAN-W2SC)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2111.01342 | title=Attention-Guided Generative Adversarial Network for Whisper to Normal Speech Conversion (AGAN-W2SC) | Study.research_objective=AGAN-W2SC: attention-guided CycleGAN-style whisper->normal mel-spectrogram conve"
+  },
+  {
+   "pid": "arxiv-2212.01775",
+   "key": "t:generativemodelsforimprovednaturalnessintelligibilityandvoicingofwhisperedspeech",
+   "title": "Generative Models for Improved Naturalness, Intelligibility, and Voicing of Whispered Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Generative Models for Improved Naturalness, Intelligibility, and Voicing of Whispered Speech | Study.research_objective=whisper->normal speech conversion via generative models: SC-MelGAN (source-filter conditioned MelGAN) vs DiscoGAN baseline and SC-VQ-VAE+GAN/+WG; evaluat"
+  },
+  {
+   "pid": "arxiv-2303.01639",
+   "key": "t:wesperzeroshotandrealtimewhispertonormalvoiceconversionforwhisperbasedspeechinte",
+   "title": "WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.01639 | title=WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions | venue=CHI 2023 (arXiv v1) | Study.research_objective=Real-time, zero-shot, spea"
+  },
+  {
+   "pid": "arxiv-2306.06514",
+   "key": "t:vocoderfreenonparallelconversionofwhisperedspeechwithmaskedcycleconsistentgenera",
+   "title": "Vocoder-Free Non-Parallel Conversion of Whispered Speech With Masked Cycle-Consistent Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nn, Tobias Bocklet | source_url=https://arxiv.org/pdf/2306.06514v2 | question=Can cycle-consistent GANs jointly convert whispered speech features into voiced raw audio without parallel supervision or a separate vocoder? | scope_limits=This is conversion of audible whispered sp"
+  },
+  {
+   "pid": "arxiv-2306.06652",
+   "key": "t:audiovisualmandarinelectrolaryngealspeechvoiceconversion",
+   "title": "Audio-Visual Mandarin Electrolaryngeal Speech Voice Conversion",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.06652 | doi=10.48550/arxiv.2306.06652 | title=Audio-Visual Mandarin Electrolaryngeal Speech Voice Conversion | venue=arXiv; NYCU + Academia Sinica + NCKU Hospital | task_family=speech_reconstruction | extra.Task.target=convert e"
+  },
+  {
+   "pid": "arxiv-2306.06653",
+   "key": "t:mandarinelectrolaryngealspeechvoiceconversionusingcrossdomainfeatures",
+   "title": "Mandarin Electrolaryngeal Speech Voice Conversion using Cross-domain Features",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.06653 | title=Mandarin Electrolaryngeal Speech Voice Conversion using Cross-domain Features | authors=Chen HH, Chien YL, Yen MC, Tsai SW, Tsao Y, Chi TS, Wang HM (NYCU / Academia Sini"
+  },
+  {
+   "pid": "arxiv-2307.03168",
+   "key": "t:recoveringimplicitpitchcontoursfromformantsinwhisperedspeech",
+   "title": "Recovering implicit pitch contours from formants in whispered speech",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ayer': 4, 'intermediate_features': 8, 'output': 'fully connected mapping to f0'} | TrainingRun.training_objective=Learn whispered-to-phonated formant mapping from matched whispered/phonated vowel contours using cosine distance. | TrainingRun.training_objective="
+  },
+  {
+   "pid": "arxiv-2407.18541",
+   "key": "t:towardsimprovingnamtospeechsynthesisintelligibilityusingselfsupervisedspeechmode",
+   "title": "Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2407.18541 | paper_version=2407.18541v1 | title=Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models | authors=Neil Shah, Shirish Karande, Vineet Gandhi | Stu"
+  },
+  {
+   "pid": "arxiv-2407.21211",
+   "key": "t:leveragingselfsupervisedmodelsforautomaticwhisperedspeechrecognition",
+   "title": "Leveraging Self-Supervised Models for Automatic Whispered Speech Recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e? | task_family=sentence_recognition | task_encoding=natural_utterance | scope_limits=Offline automatic recognition of whispered English speech; not silent articulation, inner speech, or speech-to-speech conversion. | production_labels=ordinary_voiced_speech | Dataset.counts_by_unit={'style': 'whisper', 'utterances': 8460, 'speakers"
+  },
+  {
+   "pid": "arxiv-2408.14797",
+   "key": "t:maskcycleganbasedwhispertonormalspeechconversion",
+   "title": "MaskCycleGAN-based Whisper to Normal Speech Conversion",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2408.14797v1 | title=MaskCycleGAN-based Whisper to Normal Speech Conversion | authors=K. Rohith Gupta, K. Ramnath, S. Johanan Joysingh, P. Vijayalakshmi, T. Nagarajan | source_url=https://arxiv.o"
+  },
+  {
+   "pid": "arxiv-2412.18839",
+   "key": "t:advancingnamtospeechconversionwithnovelmethodsandthemultinamdataset",
+   "title": "Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.18839 | paper_version=arXiv:2412.18839v2 [cs.SD] 23 Jan 2025 | title=Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset | authors=Neil Shah, Shirish Karande, Vineet Gandhi | venue=CVIT, IIIT Hyde"
+  },
+  {
+   "pid": "arxiv-2506.06675",
+   "key": "t:accurateanalysisofthepitchpulsebasedmagnitudephasestructureofnaturalvowelsandass",
+   "title": "Accurate analysis of the pitch pulse-based magnitude/phase structure of natural vowels and assessment of three lightweight time/frequency voicing restoration methods",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "over natural voiced pitch pulses and compare three lightweight synthetic-voicing alternatives as groundwork for future whisper-to-voice restoration. | scope_limits=The tested input is voiced natural-vowel/word material; actual whispered input, voice-patie"
+  },
+  {
+   "pid": "arxiv-2506.16969",
+   "key": "t:statespacemodelsinefficientwhisperedandmultidialectspeechrecognition",
+   "title": "State-Space Models in Efficient Whispered and Multi-dialect Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "isper 1.19% versus Whisper 2.11%. | TrainingRun.personalization_scope=Author reports SG training exposure to normal and whispered speech; Irish exposure to normal speech only (Irish whispered excluded); no US-dialect data in training. | qualitative_observation=Figure 3 plots traini"
+  },
+  {
+   "pid": "arxiv-2511.01056",
+   "key": "t:whispervcdecoupledcrossdomainalignmentandspeechgenerationforlowresourcewhisperto",
+   "title": "WhisperVC: Decoupled Cross-Domain Alignment and Speech Generation for Low-Resource Whisper-to-Normal Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arxiv_id=2511.01056v3 | paper_version=2511.01056v3; 20 July 2026 | title=WhisperVC: Decoupled Cross-Domain Alignment and Speech Generation for Low-Resource Whisper-to-Normal Conversion | authors=Dong Liu, Juan Liu, Wei Ju, Yao Tian, Ming Li | source_url=https://arxiv.org/pdf/2511.01056v3 | ab"
+  },
+  {
+   "pid": "arxiv-2603.04296",
+   "key": "t:floww2nwhisperedtonormalspeechconversionviaflowmatching",
+   "title": "FlowW2N: Whispered-to-Normal Speech Conversion via Flow-Matching",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Observation.reported_vs_derived=source_reported | paper_version=2603.04296v1 | title=FlowW2N: Whispered-to-Normal Speech Conversion via Flow-Matching | authors=Fabian Ritter-Gutierrez, Md Asif Jalal, Pablo Peso Parada, Karthikeyan Saravanan, Yusun Shu"
+  },
+  {
+   "pid": "arxiv-2603.08046",
+   "key": "t:whispearabidirectionalframeworkforscalingwhisperedspeechconversionviapseudoparal",
+   "title": "WhispEar: A Bi-directional Framework for Scaling Whispered Speech Conversion via Pseudo-Parallel Whisper Generation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2603.08046v1 | title=WhispEar: A Bi-directional Framework for Scaling Whispered Speech Conversion via Pseudo-Parallel Whisper Generation | source_url=https://arxiv.org/pdf/2603.08046v1 | authors=Zihao Fang, Yingda She"
+  },
+  {
+   "pid": "arxiv-2603.14853",
+   "key": "t:whispsynthscalingmultilingualwhispercorpusthroughrealdatacurationandanovelpitchf",
+   "title": "WhispSynth: Scaling Multilingual Whisper Corpus through Real Data Curation and A Novel Pitch-free Generative Framework",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "evaluated by objective metrics and a listener-rating study. | language=English, Mandarin Chinese | scope_limits=Text-to-whisper synthesis and whisper-speech conversion; the paper does not evaluate silent articulation, NAM, or inner speech. | task_encoding=natural_utterance | production_"
+  },
+  {
+   "pid": "arxiv-2605.08075",
+   "key": "t:zeroshotimaginedspeechdecodingviaimaginedtolistenedmegmapping",
+   "title": "Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "norm/GELU/dropout/dilation; temporal average and linear projection to normalized 128d', 'word encoders': 'frozen BERT, Whisper, Wav2Vec2, or concatenated BERT+Wav2Vec2; projection to normalized 128d', 'loss': 'symmetric NT-Xent', 'temperature': 0.07, 'candidate_vocab': 76} | TrainingRun.training_objective={'"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.11.005",
+   "key": "t:improvementtoanamcapturedwhispertospeechsystem",
+   "title": "Improvement to a NAM-captured whisper-to-speech system",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.specom.2009.11.005 | doi=10.1016/j.specom.2009.11.005 | title=Improvement to a NAM-captured whisper-to-speech system | venue=Speech Communication (Elsevier); HAL manuscript of Interspeech 2008 paper, GIPSA-lab | task_family=speec"
+  },
+  {
+   "pid": "doi-10.1088-1742-6596-1237.2.022106",
+   "key": "p:doi-10.1088-1742-6596-1237.2.022106",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ROI sequences + 106 face keypoints; syllable start/end labels for audio and video | technical_essence=release parallel whisper/normal AV corpus (103 syllables+100 sentences) then validate via GMM/DNN whisper-to-normal and m2f conversion, plus AVDCNN multimodal conversion under 20dB white noise; metrics ABX preference + 26-dim cepstral"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2009.4960405",
+   "key": "t:voiceconversionforvarioustypesofbodytransmittedspeech",
+   "title": "Voice conversion for various types of body transmitted speech",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ntelligible than NAM but unnatural prosody from F0 estimation of unvoiced input | technical_essence=single GMM spectral→whisper + white-noise excitation; outperforms NAM-to-Speech on intelligibility & naturalness; joint NAM+BTW→whisper single model trains effectively | technical_essence=speaking ai"
+  },
+  {
+   "pid": "doi-10.1121-1.3384185",
+   "key": "t:voiceconversionforenhancingvarioustypesofbodyconductedspeechdetectedwithnonaudib",
+   "title": "Voice conversion for enhancing various types of body-conducted speech detected with non-audible murmur microphone",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ansformation_definition=statistical voice conversion (GMM-based, per Toda et al IEEE Trans ASLP 15:2222-2235 2007) maps body-conducted to audible speech | extra.Configuration.configuration_scope=NAM microphone acquisition + statistical voice conversion enhancement;"
+  },
+  {
+   "pid": "doi-10.1145-3544548.3580706",
+   "key": "p:doi-10.1145-3544548.3580706",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=WESPER: zero-shot realtime whisper-to-normal voice conversion (STU + UTS + HiFi-GAN) | task_family=speech_reconstruction | task_encoding=natural_utterance | target_unit=audio_signal"
+  },
+  {
+   "pid": "doi-10.1250-ast.29.195",
+   "key": "t:vocaltractshapesofnonaudiblemurmurproduction",
+   "title": "Vocal tract shapes of non-audible murmur production",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ed 1.5T MRI + MECHANICAL FINDER 3D reconstruction | Study.negative_findings=subject results inconsistent: only S1 shows NAM glottis opening + sinus descent + fossae extension (similar to normal voice); S2 no descent/extension; S3 narrower glottis for NAM — diversity of NAM production style; hypothesized MRI nois"
+  },
+  {
+   "pid": "doi-10.14419-ijet.v7i2.32.15723",
+   "key": "t:conversionofbodyconductedunvoicedspeechmurmurtonormalspeechusinghiddenmarkovmode",
+   "title": "Conversion of body conducted unvoiced speech (murmur) to normal speech using hidden Markov model (HMM)",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.14419-ijet.v7i2.32.15723 | doi=10.14419/ijet.v7i2.32.15723 | title=Conversion of body conducted unvoiced speech (murmur) to normal speech using hidden Markov model (HMM) | venue=International Journal of Engineering & Technology 7(2.32) (SciencePubCo,"
+  },
+  {
+   "pid": "doi-10.1587-transinf.e93.d.1909",
+   "key": "t:evaluationofextremelysmallsoundsourcesignalsusedinspeakingaidsystemwithstatistic",
+   "title": "Evaluation of extremely small sound source signals used in speaking-aid system with statistical voice conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "target=speaking-aid for laryngectomees: user articulates with inaudible extremely-small external sound source on neck → NAM-mic body-conducted artificial speech → GMM statistical voice conversion to whispered speech; evaluate which sound-source spectra/powers VC accepts | production_labels=silent_articulation | modal"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-5443479-v1",
+   "key": "t:integratinggraywolfoptimizationwithdeeplearningforenhancingnamtospeechconversion",
+   "title": "Integrating Gray Wolf Optimization with Deep Learning for Enhancing NAM-to-Speech Conversion",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "443479-v1 | doi=10.21203/rs.3.rs-5443479/v1 | title=Integrating Gray Wolf Optimization with Deep Learning for Enhancing NAM-to-Speech Conversion | venue=Research Square preprint (rs-5443479 v1, 20pp) | task_family=speech_reconstruction | extra.Task.target=two-stag"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2009-224",
+   "key": "t:technologiesforprocessingbodyconductedspeechdetectedwithnonaudiblemurmurmicropho",
+   "title": "Technologies for Processing Body-Conducted Speech Detected with Non-Audible Murmur Microphone",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Kaino T, Nakajima Y, Shikano K (NAIST) | venue=Interspeech 2009 | task_family=sentence_recognition | extra.Task.target=NAM mic captures extremely soft body-conducted speech via neck soft tissue; two tech tracks reviewed: (1) GMM statistical voice conversion NAM->normal/whisper incl. F0+spectrum from NAM spectrum, laryngectomee speaking-aid w/ low-power external excitation; ("
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2009-230",
+   "key": "t:multimodalhmmbasedspeechtospeechconversionsystemforsilentspeechinterfaces",
+   "title": "Multimodal HMM-based speech-to-speech conversion system for silent speech interfaces",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tral distortion dB converted vs target for HMM vs GMM systems | system_name=audiovisual HMM-recognition + HMM-synthesis whisper-to-speech conversion | Study.negative_findings=HMM cascade currently inferior to direct GMM mapping (6.4 vs 5.77 dB cepstral distortion) — a"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2015-583",
+   "key": "t:nonaudiblemurmurenhancementbasedonstatisticalconversionusingairandbodyconductive",
+   "title": "Non-audible murmur enhancement based on statistical conversion using air- and body-conductive microphones in noisy environments",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-11.4dBA (U/V error 52.7%); Crowd-noise-2 residual degradation remains even with noise-dependent models; conversion to whisper more noise-robust than to speech because source-target spectra are similar | claim=2ch stereo input achieves almost-best spectral conversion accuracy in"
+  },
+  {
+   "pid": "doi-10.21437-speechprosody.2008-25",
+   "key": "t:predictingf0andvoicingfromnamcapturedwhisperedspeech",
+   "title": "Predicting F0 and voicing from NAM-captured whispered speech",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Campinas (ISCA) | task_family=speech_reconstruction | extra.Task.target=improve F0 estimation + voicing decision in GMM whisper→speech conversion: feed-forward NN detects voiced segments, GMM (voiced-only training) predicts continuous F0 | production_labels=whisper"
+  },
+  {
+   "pid": "doi-10.5281-zenodo.8338270",
+   "key": "t:vocalhumrealtimewhispertospeechenhancementforpatientswithvocalfrailty",
+   "title": "VocalHUM: real-time whisper-to-speech enhancement for patients with vocal frailty",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.5281-zenodo.8338270 | doi=10.5281/zenodo.8338270 | title=VocalHUM: real-time whisper-to-speech enhancement for patients with vocal frailty | venue=Proceedings of the Sound and Music Computing Conference 2023, Stock"
+  },
+  {
+   "pid": "doi-10.7488-ds-2994",
+   "key": "t:cstrnamtimitplusversion08",
+   "title": "CSTR NAM TIMIT Plus (Version 0.8)",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "TIMIT Plus (Version 0.8) | venue=University of Edinburgh DataShare dataset release (CSTR) | extra.Task.target=parallel NAM + air-conducted whispered-speech corpus for silent-speech-interface / NAM-to-speech conversion research; command-vocabulary subset (kiku) for voice-command recognition | production_labels=NAM, whisper | modalities="
+  },
+  {
+   "pid": "ieice2007-nakamura-laryngectomee-vc",
+   "key": "t:aspeechcommunicationaidsystemfortotallaryngectomeesusingvoiceconversionofbodytra",
+   "title": "A Speech Communication Aid System for Total Laryngectomees Using Voice Conversion of Body-Transmitted Artificial Speech",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "objective=speech communication aid for total laryngectomees: weak external source unit -> artificial speech captured by NAM (body-contact) mic -> statistical voice conversion to more natural whispered voice | Study.unit_of_analysis=mel-cepstral distortion per phoneme (objective) + 5-point MOS nat"
+  },
+  {
+   "pid": "isca-ardaillon22-whisperdec",
+   "key": "t:voicingdecisionbasedonphonemesclassificationandspectralmomentsforwhispertospeech",
+   "title": "Voicing decision based on phonemes classification and spectral moments for whisper-to-speech conversion",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Voicing decision based on phonemes classification and spectral moments for whisper-to-speech conversion | authors=Ardaillon, Roebel | venue=Interspeech 2022 | Study.research_objective=voicing decision whisper-to-speech conv"
+  },
+  {
+   "pid": "isca-ardaillon22_interspeech",
+   "key": "t:voicingdecisionbasedonphonemesclassificationandspectralmomentsforwhispertospeech",
+   "title": "Voicing decision based on phonemes classification and spectral moments for whisper-to-speech conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Voicing decision based on phonemes classification and spectral moments for whisper-to-speech conversion | venue=Proc. Interspeech 2022:2254-2258 | intended_use_cases=speech_restoration | task_family=intermediate_signal_proc"
+  },
+  {
+   "pid": "isca-auerjr01-lexicon",
+   "key": "t:theinfluenceofthelexicononvisualspokenwordrecognition",
+   "title": "The influence of the lexicon on visual spoken word recognition",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-V-/d/ recordings, ~viseme classes); lexical statistics from the 1506-word PhLex database | ProcessingStep.architecture=NAM adapted to speechreading: word decision value = segmental-intelligibility numerator minus frequency-weighted neighbor competition (Luce c"
+  },
+  {
+   "pid": "isca-chien23-eleclarynx",
+   "key": "t:audiovisualmandarinelectrolaryngealspeechvoiceconversion",
+   "title": "Audio-Visual Mandarin Electrolaryngeal Speech Voice Conversion",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Mandarin Electrolaryngeal Speech Voice Conversion | authors=Chien, Wang, Li | venue=Interspeech 2023 | Study.research_objective=AV Mandarin electrolaryngeal speech voice"
+  },
+  {
+   "pid": "isca-dinh20b_interspeech",
+   "key": "t:increasingtheintelligibilityandnaturalnessofalaryngealspeechusingvoiceconversion",
+   "title": "Increasing the Intelligibility and Naturalness of Alaryngeal Speech Using Voice Conversion and Synthetic Fundamental Frequency",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Increasing the Intelligibility and Naturalness of Alaryngeal Speech Using Voice Conversion and Synthetic Fundamental Frequency | intended_use_cases=speech_restoration | Study.study_design=system_proposal | test"
+  },
+  {
+   "pid": "isca-fan08_interspeech",
+   "key": "p:isca-fan08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=whispered-speech speaker identification robust to neutral/whisper mismatch via two-stage frequency warping + score competition | intended_use_cases=private_communication, noisy_"
+  },
+  {
+   "pid": "isca-gusev24_interspeech",
+   "key": "t:improvementspeakersimilarityforzeroshotanytoanyvoiceconversionofwhisperedandregu",
+   "title": "Improvement Speaker Similarity for Zero-Shot Any-to-Any Voice Conversion of Whispered and Regular Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oration, other | task_family=speech_reconstruction | Study.study_design=system_proposal | Study.negative_findings=prior whisper-to-speech VC claimed zero-shot but never reported speaker-similarity evals; AMSoftmax speaker loss no better than cosine; SL gain"
+  },
+  {
+   "pid": "isca-meenakshi18-whisper2neutral",
+   "key": "t:whisperedspeechtoneutralspeechconversionusingbidirectionallstms",
+   "title": "Whispered speech to neutral speech conversion using bidirectional LSTMs",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Whispered speech to neutral speech conversion using bidirectional LSTMs | authors=Meenakshi, Ghosh | venue=Interspeech 2018 | Study.research_objective=whispered-to-n"
+  },
+  {
+   "pid": "isca-meenakshi18_interspeech",
+   "key": "t:whisperedspeechtoneutralspeechconversionusingbidirectionallstms",
+   "title": "Whispered speech to neutral speech conversion using bidirectional LSTMs",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Whispered speech to neutral speech conversion using bidirectional LSTMs | system_name=whispered→neutral conversion: STRAIGHT MCEP 26+Δ+ΔΔ (78-dim) → 4 BLSTMs — P-BLS"
+  },
+  {
+   "pid": "isca-moriguchi13_interspeech",
+   "key": "t:adigitalsignalprocessorimplementationofsilentelectrolaryngealspeechenhancementba",
+   "title": "A Digital Signal Processor Implementation of Silent/Electrolaryngeal Speech Enhancement based on Real-Time Statistical Voice Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Digital Signal Processor Implementation of Silent/Electrolaryngeal Speech Enhancement based on Real-Time Statistical Voice Conversion | system_name=DSP real-time statistical VC: NAM mic / electrolarynx audio → mel-cepstral segment features (24 mel-cepst"
+  },
+  {
+   "pid": "isca-naini19-whispercos",
+   "key": "t:whispertoneutralmappingusingcosinesimilaritymaximizationinivectorspaceforspeaker",
+   "title": "Whisper to neutral mapping using cosine similarity maximization in i-vector space for speaker veriﬁcation",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Whisper to neutral mapping using cosine similarity maximization in i-vector space for speaker veriﬁcation | venue=Interspeech 2019 | Study"
+  },
+  {
+   "pid": "isca-naini19_interspeech",
+   "key": "t:whispertoneutralmappingusingcosinesimilaritymaximizationinivectorspaceforspeaker",
+   "title": "Whisper to neutral mapping using cosine similarity maximization in i-vector space for speaker verification",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Whisper to neutral mapping using cosine similarity maximization in i-vector space for speaker verification | system_name=39-dim MFCC → GMM"
+  },
+  {
+   "pid": "isca-nakamura07_interspeech",
+   "key": "t:impactofvarioussmallsoundsourcesignalsonvoiceconversionaccuracyinspeechcommunica",
+   "title": "Impact of Various Small Sound Source Signals on Voice Conversion Accuracy in Speech Communication Aid for Laryngectomees",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rted_within_scope | claim=The NAM+VC speaking aid beats the conventional electrolarynx on naturalness (converted 2.8 vs electrolarynx 1.6 MOS, target whisper 3.9 ceiling): body-transmitted conversion is viable; conversion to whisper is the right target since the source lacks F0 | technical_limits=single able-bodied imitator, not a real laryng"
+  },
+  {
+   "pid": "isca-nakamura08b_interspeech",
+   "key": "t:evaluationofspeakingaidsystemwithvoiceconversionforlaryngectomeestowarditsuseinp",
+   "title": "Evaluation of Speaking-Aid System with Voice Conversion for Laryngectomees Toward Its Use in Practical Environments",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "converted electrolarynx) on 5-point intelligibility and naturalness scales | system_boundary=small sound-source unit -> NAM-mic body-transmitted artificial speech -> GMM voice conversion -> whispered output; explicit auditory feedback loop to user earphone | SystemConfiguration.system_lifecycle=implemente"
+  },
+  {
+   "pid": "isca-nakamura09_interspeech",
+   "key": "t:electrolaryngealspeechenhancementbasedonstatisticalvoiceconversion",
+   "title": "Electrolaryngeal Speech Enhancement Based on Statistical Voice Conversion",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/nakamura09-interspeech | title=Electrolaryngeal Speech Enhancement Based on Statistical Voice Conversion | authors=Keigo Nakamura, Tomoki Toda, Hiroshi Saruwatari, Kiyohiro Shikano | venue=Interspeech 2009 | review_state=sou"
+  },
+  {
+   "pid": "isca-nakamura10_interspeech",
+   "key": "t:theuseofairpressuresensorinelectrolaryngealspeechenhancementbasedonstatisticalvo",
+   "title": "The Use of Air-Pressure Sensor in Electrolaryngeal Speech Enhancement Based on Statistical Voice Conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/nakamura10-interspeech | title=The Use of Air-Pressure Sensor in Electrolaryngeal Speech Enhancement Based on Statistical Voice Conversion | authors=Keigo Nakamura, Tomoki Toda, Hiroshi Saruwatari, Kiyohiro Shikano | venue=Interspeech 2010 | review_state=sou"
+  },
+  {
+   "pid": "isca-rouditchenko24_interspeech",
+   "key": "t:whisperflamingointegratingvisualfeaturesintowhisperforaudiovisualspeechrecogniti",
+   "title": "Whisper-Flamingo: Integrating Visual Features into Whisper for Audio-Visual Speech Recognition and Translation",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ue=Interspeech 2024 | review_state=source_checked | Study.study_design=system_proposal | Study.research_objective=adapt Whisper to accept lip-video input via Flamingo-style gated cross-attention for AVSR and En-X translation in noise | Study.unit_of_analysi"
+  },
+  {
+   "pid": "isca-shah18b-gannam",
+   "key": "t:effectivenessofgenerativeadversarialnetworkfornonaudiblemurmurtowhisperspeechcon",
+   "title": "Effectiveness of Generative Adversarial Network for Non-Audible Murmur-to-Whisper Speech Conversion",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Effectiveness of Generative Adversarial Network for Non-Audible Murmur-to-Whisper Speech Conversion | authors=Shah, Shah, Patil | venue=Interspeech 2018 | Study.research_objective=GAN for non-audible murmur to whisper s"
+  },
+  {
+   "pid": "isca-shah18b_interspeech",
+   "key": "t:effectivenessofgenerativeadversarialnetworkfornonaudiblemurmurtowhisperspeechcon",
+   "title": "Effectiveness of Generative Adversarial Network for Non-Audible Murmur-to-Whisper Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Effectiveness of Generative Adversarial Network for Non-Audible Murmur-to-Whisper Speech Conversion | task_family=speech_reconstruction | Study.study_design=controlled_experiment | tested_population=healthy_volunteers |"
+  },
+  {
+   "pid": "isca-shah24-namssl",
+   "key": "t:towardsimprovingnamtospeechsynthesisintelligibilityusingselfsupervisedspeechmode",
+   "title": "Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models | venue=Interspeech 2024 | Study.research_objective=SSL m"
+  },
+  {
+   "pid": "isca-shah25-nammultitask",
+   "key": "t:namtospeechconversionwithmultitaskenhancedautoregressivemodels",
+   "title": "NAM-to-Speech Conversion with Multitask-Enhanced Autoregressive Models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=NAM-to-Speech Conversion with Multitask-Enhanced Autoregressive Models | venue=Interspeech 2025 | Study.research_objective=multitask autoregress"
+  },
+  {
+   "pid": "isca-shah25_interspeech",
+   "key": "t:namtospeechconversionwithmultitaskenhancedautoregressivemodels",
+   "title": "NAM-to-Speech Conversion with Multitask-Enhanced Autoregressive Models",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=NAM-to-Speech Conversion with Multitask-Enhanced Autoregressive Models | venue=Proc. Interspeech 2025 | intended_use_cases=noisy_environment, sp"
+  },
+  {
+   "pid": "isca-tajiri15_interspeech",
+   "key": "t:nonaudiblemurmurenhancementbasedonstatisticalconversionusingairandbodyconductive",
+   "title": "Non-Audible Murmur Enhancement based on Statistical Conversion using Air- and Body-Conductive Microphones in Noisy Environments",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ": synchronized NAM mic (body-conductive, behind ear/neck via soft tissue) + air-conductive mic near mouth → joint AC+BC NAM feature vector (mel-cep 0–24 + F0/aperiodic, 16kHz) → GMM statistical voice conversion with global-variance → natural-sounding speech; noise-dependent VC models when noise type known | task_family=speech_re"
+  },
+  {
+   "pid": "isca-tanaka13_interspeech",
+   "key": "t:ahybridapproachtoelectrolaryngealspeechenhancementbasedonspectralsubtractionands",
+   "title": "A Hybrid Approach to Electrolaryngeal Speech Enhancement Based on Spectral Subtraction and Statistical Voice Conversion",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/tanaka13-interspeech | title=A Hybrid Approach to Electrolaryngeal Speech Enhancement Based on Spectral Subtraction and Statistical Voice Conversion | authors=Kou Tanaka, Tomoki Toda, Graham Neubig, Sakriani Sakti, Satoshi Nakamura | venue=Proc. Interspeech 2013 | rev"
+  },
+  {
+   "pid": "isca-toda09_interspeech",
+   "key": "t:technologiesforprocessingbodyconductedspeechdetectedwithnonaudiblemurmurmicropho",
+   "title": "Technologies for Processing Body-Conducted Speech Detected with Non-Audible Murmur Microphone",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "aka Nakajima, Kiyohiro Shikano | venue=Interspeech 2009 | review_state=source_checked | Study.research_objective=review NAM-microphone processing technologies (device, GMM voice conversion for human-to-human use incl. laryngectomee aid, MLLR-adapted recognition) and newly test recognition of body-conducted"
+  },
+  {
+   "pid": "isca-tran08_interspeech",
+   "key": "t:improvementtoanamcapturedwhispertospeechsystem",
+   "title": "Improvement to a NAM captured whisper-to-speech system",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/tran08-interspeech | title=Improvement to a NAM captured whisper-to-speech system | authors=Viet-Anh Tran, Gerard Bailly, Helene Loevenbruck, Christian Jutten | venue=Interspeech 2008, pp.1465-1"
+  },
+  {
+   "pid": "naist-tsuruta-nam-intel",
+   "key": "t:improvingintelligibilityofenhancednonaudiblemurmurspeechinnoisyenvironments",
+   "title": "Improving Intelligibility of Enhanced Non-Audible Murmur Speech in Noisy Environments",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eners, quiet vs office noise SNR 0/-10dB | SystemConfiguration.system_lifecycle=implemented_evaluated | system_boundary=NAM -> GMM voice-quality conversion to whispered/voiced+F0 targets -> audio for listener | EvaluationProtocol.temporal_accounting=mora correct rate per target"
+  },
+  {
+   "pid": "oa-W2281035153",
+   "key": "t:tissueconductiveunvoicedspeechrecognitionincleanandnoisyenvironments",
+   "title": "Tissue-conductive unvoiced speech recognition in clean and noisy environments",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "levels real noise | Representation.transformation_definition=body tissue + absent lip radiation act as low-pass filter: NAM spectrum similar to audible speech up to 1 kHz, attenuated above, flat beyond 3 kHz | system_name=clean-trained HMM recognizer + speaker adaptation"
+  },
+  {
+   "pid": "oa-W7208151103",
+   "key": "t:improvingintelligibilityofnonaudiblemurmurenhancementinnoisyenvironments",
+   "title": "Improving intelligibility of Nonaudible Murmur Enhancement in Noisy Environments / 非可聴つぶやき強調音声の雑音環境下における明瞭性改善",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "F0 and is band-limited to ~4kHz | system_name=GMM voice conversion variants (CVSP/CVWH/CVWH+SPCF0/CVEL+CF0) converting whisper/NAM/EL speech to natural voice | ProcessingStep.architecture=GMM-based voice conversion on STRAIGHT spectral features with synthetic F0 (SPCF0/C"
+  },
+  {
+   "pid": "oa-W7208329458",
+   "key": "t:dsprealtimestatisticalvoiceconversionimplementationondsp",
+   "title": "リアルタイム統計的声質変換のDSP上への実装 (Real-time statistical voice conversion implementation on DSP)",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y=speech_reconstruction | extra.Task.target=run two real-time statistical voice conversions on a resource-limited DSP — NAM-to-whisper for silent speech communication and alaryngeal-to-speech as speaking aid — reducing computational cost while keeping accuracy | Cohort.demographics=NAM-to-Whisper: 2 male + 1 f"
+  },
+  {
+   "pid": "w-2246823171",
+   "key": "t:silentcommunicationwhisperedspeechtoclearspeechconversion",
+   "title": "Silent Communication: whispered speech-to-clear speech conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=w-2246823171 | title=Silent Communication: whispered speech-to-clear speech conversion | venue=PhD thesis, Université Toulouse III / ENSEEIHT + GIPSA-lab (HAL tel-00614289) | task_family=speech_reconstructi"
+  },
+  {
+   "pid": "w-2256880750",
+   "key": "t:acousticcompensationmethodforacceptingdifferentrecordingdevicesinbodyconductedvo",
+   "title": "Acoustic compensation method for accepting different recording devices in body-conducted voice conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=w-2256880750 | title=Acoustic compensation method for accepting different recording devices in body-conducted voice conversion | venue=Proc. 2nd APSIPA Annual Summit and Conference, pp.502-505 (Singapore) | task_family=speech_reconstruction | ext"
+  }
+ ],
+ "usual_approach": {
+  "design": "time-aligned parallel whisper-normal pairs (DTW)",
+  "n": 39,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2111.01342",
+   "arxiv-2004.09347",
+   "isca-meenakshi18-whisper2neutral",
+   "isca-naini19-whispercos",
+   "isca-toda09_interspeech"
+  ],
+  "population_unique": 60,
+  "note": "full-text pattern counts over 60 unique studies: parallel_paired 39, unpaired 15, synthetic_whisper 8 (pattern match); M03 supervision_kind=paired_audio 15 (slot-filled)"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2603.04296",
+   "role": "sota",
+   "loc": "Sec. 3.2; Sec. 4.2; Table 1",
+   "quote": "14.0% vs. 26.0% (46% relative)."
+  },
+  {
+   "pid": "arxiv-2111.01342",
+   "role": "prior",
+   "loc": "Sec. I; Sec. III",
+   "quote": "existing whisper to normal speech conversion methods use dynamic time warping (DTW) to align the acoustic features of a whispered speech with those of a normal speech."
+  },
+  {
+   "pid": "arxiv-2004.09347",
+   "role": "prior",
+   "loc": "Sec. 2; Sec. 3",
+   "quote": "where both parallel and non parallel data can be used for"
+  },
+  {
+   "pid": "arxiv-2212.01775",
+   "role": "prior",
+   "loc": "Sec. 2.1; Sec. 3.4",
+   "quote": "we use dynamic time warping (DTW) on the whispered and normal pairs of data."
+  },
+  {
+   "pid": "arxiv-2303.01639",
+   "role": "target",
+   "loc": "Sec. 3.1",
+   "quote": "960 hours"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2603.04296",
+  "year": 2026,
+  "metric": "WER of converted wTIMIT whisper, US test set (1,404 utt.), NeMo FastConformer ASR; trained on synthetic pairs only",
+  "value": 14.0,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 60,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "time-aligned parallel whisper-normal pairs (DTW)",
+   "n": 39,
+   "tier": "pattern match",
+   "population_unique": 60
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2603.04296",
+   "year": 2026,
+   "metric": "WER of converted wTIMIT whisper, US test set (1,404 utt.), NeMo FastConformer ASR; trained on synthetic pairs only",
+   "value": 14.0,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 5,
+  "read_prior": [
+   "arxiv-2004.09347",
+   "arxiv-2111.01342",
+   "arxiv-2212.01775"
+  ],
+  "unread": 71,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "wesper-zero-shot-and-realtime-whisper-to-normal-voice-conversion-for-whisper-based-speech-interactions"
+ ]
+}
