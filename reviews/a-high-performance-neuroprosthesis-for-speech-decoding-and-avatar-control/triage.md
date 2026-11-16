@@ -1,9 +1,26 @@
-# Triage
+# Triage (re-evaluation, 2026-11-16)
 
-| # | Verdict | Evidence | Where applied |
-|---|---|---|---|
-| 1 | applied | Verdict rules: "behind" requires earlier ledger papers; Willett et al. 2023 is [concurrent] | Verdict, sentence 2: "trails" |
-| 2 | applied | Wairagkar et al. evaluation used attempted vocalized speech (notes w2) | M08 State of the art line |
-| 3 | applied | Moses et al. 2021 Results passage: "60.5% (95% confidence interval [CI], 51.4 to 67.6) without language modeling" | notes.json p2 quote; verify_quotes 127 found, 0 missing |
+Source: target text.txt (PMC author manuscript of Metzger et al. 2023), notes.json, topic audits; line numbers refer to papers/doi-10.1038-s41586-023-06443-4/source/text.txt.
 
-Applied 3, rejected 0, unverified 0. One round. Open: independent ChatGPT check (chatgpt_pending).
+| # | Fix | Judgment | Evidence location | Action |
+|---|---|---|---|---|
+| 1 | M08 "real departure" vs slot verdict `standard` | partly correct | Verdict rules (ahead / standard / behind / not reported / not applicable only); "different, unproven" is not an allowed slot verdict | Verdict now calls M08 "the main addition" with the weakest evidence; slot stays `standard`; slots.json M08 note updated |
+| 2 | M12 "no seeds, chance values or variance"; code normalisation without locator | correct (normalisation claim itself is supported) | 99% CIs throughout (e.g. l.243, l.356-358); chance tests l.214, l.345-346, l.364, Ext. Data Table 1 (l.1543-1562); notes c2 (released text_example_decoding notebook, L2 norm over concatenated train+test), c15 (no training seed) | M12 verdict rewritten: no training seeds or repeated runs; CIs over trials/pseudo-blocks only; normalisation attributed to the released text notebook |
+| 3 | Personalised-voice MCDs "higher in all sets" contradicted by "similar" | partly correct (the finding is wrong; the values option is right) | Ext. Data Fig. 5 legend l.1479-1485: 3.87 / 5.12 / 5.57 dB vs Fig. 3c 3.45 / 4.49 / 5.21 dB (l.340-342); authors' "similar" at l.342; notes t58, t59 | Kept the claim, added the per-set values and the authors' wording |
+| 4 | Fourfold speed claim mis-described | correct | Discussion l.588-590 "by a factor of 4 or more1,3,9"; refs l.1698 (Moses 2021), l.1703 (Metzger 2022 spelling), l.1716 (Willett 2021 handwriting); 15.2 WPM (Moses abstract, audit M05 read_fulltext); 62 WPM (Willett 2023, notes s4); 14.2 WPM l.245 | Bullet now names refs 1, 3, 9 with [4] at 15.2 WPM on 50 words, the 1,152-word spelling BCI and a handwriting BCI; notes [1] at 62 WPM is not covered; 14.2 WPM labelled a separate baseline |
+| 5 | M07 count 14 vs 152 for LLM rescoring | correct | M07 audit: usual_approach neural_llm_rescoring n=152 (pattern match, published topic table) vs this run's pattern_counts 14 / n-gram 134 | One count used everywhere: neural LLM rescoring 152 of 1,162 (pattern match) in text, table, slots.json and Appendix; run-regex counts removed |
+| 6 | M05 denominator 253 vs 246 | correct | M05 audit usual_approach n=233, population_unique 246; string_match_unique 253 | Rewritten as "233 of the 246 studies with a sensor record use ECoG (slot-filled); 253 match the ECoG speech-decoding pattern" |
+| 7 | Chronology labels: target [3] labelled [concurrent], [1] unlabelled | correct | refs.json: target is the reviewed paper; Willett 2023 first_public 2023-08 = target month | Removed [concurrent] from [3], added it to [1] in the reference list (count and order unchanged) |
+| 8 | Add Littlejohn et al. 2025 (Nature Neuroscience) streaming brain-to-voice as [later] M08 SOTA | unverifiable | Not in the wiki at the review commit; no source text to confirm metric, set and value | Not applied; recorded in verdict.json verification_status |
+| 9 | "trails" overstates; 120-fold need not be hedged | partly correct | 25.5% (99% CI 19.3-34.5, notes t45) vs 23.8% (notes s3); 78.3 vs 62 WPM (notes t48, s4); 125,000 / 1,024 = 122 | Verdict: "matches ... at a higher rate but on a vocabulary about 120 times smaller (inference)"; hedge kept on the cross-vocabulary reading only |
+| 10 | M05 SOTA referent unclear | correct | M05 State of the art line lists both 2.5% [2] and 23.8% [1] | Now "equals the 23.8% of [1] ([concurrent]) on 122 times more words (inference)" |
+| 11 | M07 verdict "standard in design" ignores leakage | partly correct | Slot verdict set has no leakage value; leakage evidence notes t27/t25 (18,284-sentence pool), Verdict paragraph | Prose verdict now "standard LM type; the test-set overlap makes the WER optimistic outside the pool (inference)"; slots.json M07 note updated |
+| 12 | [4] (2021) under "State of the art" | correct | Moses 2021 is prior (refs.json first_public 2021-07) | Moved to the evidence paragraph as "Prior ECoG work" |
+| 13 | "without listener criteria" unsupported | partly correct (the absence is supported; a location was missing) | Methods l.1050-1058 give platform, 12 evaluators and median aggregation, no screening criteria; notes t95 | Reworded "states no listener screening criteria (Methods, Speech synthesis)" |
+| 14 | 256 vs 253 electrodes; avatar point not attributed | correct | l.1214 (256 in a feature-vector product) vs l.696 CerePlex E256 headstage, l.689 253 electrodes; authors' statement l.398-399 | 256/253 point dropped; 9,655 vs 13,463 kept (l.162, l.768/783); avatar point attributed to the authors, critique limited to the title's "avatar control" |
+
+Counts: correct 8 (2, 4, 5, 6, 7, 10, 12, 14), partly correct 5 (1, 3, 9, 11, 13), wrong 0, unverifiable 1 (8). Applied 13, not applied 1.
+
+Claim-check notes outside the 14 fixes: M01 "13 days" is supported (l.260; the Discussion says 14 days of data collection, l.588); M03 "95/5 development split" is supported (l.788-789). No change made.
+
+Gate: check_review.py 0 FAIL, 0 WARN, 6 references, body 6,995 characters (published slots/refs replaced by reeval/slots.json, reeval/refs.bib, reeval/verdict.json; the work-directory row JSON used as the --json stand-in). Short verdict unchanged.
