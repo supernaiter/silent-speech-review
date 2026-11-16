@@ -1,0 +1,586 @@
+{
+ "topic": "silent-emg-voicing-benchmark",
+ "slot": "M12",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)(?=.*(gaddy|digital voicing|open[- ]vocabulary (semg|emg)))(?=.*(to-speech|synthesi|voicing|vocoder))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include studies that synthesize audible speech from silently articulated surface EMG on the Gaddy open-vocabulary corpus and score it by ASR or listener transcription. Boundary: exclude recognition-only (text output) studies, other corpora, and voiced-EMG-only results; count versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8381,
+  "slot_filled_unique": 6960,
+  "string_match_folders": 24,
+  "string_match_unique": 16,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M12",
+  "design_slot_fill": 0.932,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "evaluation_mode=offline",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-han26f-tapets",
+     "arxiv-2505.13814",
+     "arxiv-2506.11862",
+     "arxiv-2509.04507-dualstg",
+     "doi-10.18653-v1-2020.emnlp-main.445"
+    ]
+   },
+   {
+    "design": "vocabulary_regime=open_vocabulary",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2505.13814",
+     "arxiv-2506.11862",
+     "doi-10.18653-v1-2020.emnlp-main.445",
+     "doi-10.3390-brainsci12070818",
+     "isca-scheck25_interspeech"
+    ]
+   },
+   {
+    "design": "EvaluationRun.execution_stage=executed",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-lee26r_interspeech",
+     "isca-lee26v_interspeech",
+     "isca-toussaint26_interspeech",
+     "pmc-13537912-larysemg",
+     "pmc-9312762-semgmandarin"
+    ]
+   },
+   {
+    "design": "speaking_content_source=read",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.18653-v1-2020.emnlp-main.445",
+     "doi-10.3390-brainsci12070818",
+     "isca-lee25d_interspeech",
+     "isca-scheck25_interspeech"
+    ]
+   },
+   {
+    "design": "demonstrated_use_cases=speech_restoration",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-lee26r_interspeech",
+     "isca-lee26v_interspeech",
+     "pmc-13537912-larysemg",
+     "pmc-9312762-semgmandarin"
+    ]
+   },
+   {
+    "design": "target_unit=phoneme",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.11862",
+     "isca-lee25d_interspeech",
+     "isca-scheck23_interspeech"
+    ]
+   },
+   {
+    "design": "metric_value=3.6",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2010.02960",
+     "arxiv-2405.08021"
+    ]
+   },
+   {
+    "design": "metric_value=68.0",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2010.02960",
+     "arxiv-2106.01933"
+    ]
+   },
+   {
+    "design": "metric_value=46.0",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2106.01933",
+     "isca-scheck25_interspeech"
+    ]
+   },
+   {
+    "design": "metric_value=1.89",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2108.00190",
+     "arxiv-2405.08021"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "whisper_asr",
+    "n": 9,
+    "tier": "pattern match",
+    "pids": [
+     "isca-han26f-tapets",
+     "isca-lee26r_interspeech",
+     "isca-lee26v_interspeech",
+     "arxiv-2505.13814",
+     "arxiv-2602.01879"
+    ]
+   },
+   {
+    "design": "deepspeech_asr",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "isca-lee26r_interspeech",
+     "arxiv-2505.13814",
+     "arxiv-2506.11862",
+     "arxiv-2010.02960",
+     "arxiv-2106.01933"
+    ]
+   },
+   {
+    "design": "listener_transcription",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-13537912-larysemg",
+     "arxiv-2010.02960",
+     "arxiv-2106.01933"
+    ]
+   }
+  ],
+  "metric_pattern": "\\bWER\\b|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 2.85,
+   "unit": "percent",
+   "raw": "2.85",
+   "pid": "arxiv-2602.01879",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GT WER",
+   "value": 2.9,
+   "unit": "percent",
+   "raw": "2.9",
+   "pid": "arxiv-2405.08021",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T4 WER ours",
+   "value": 3.6,
+   "unit": "%",
+   "raw": "3.6",
+   "pid": "arxiv-2010.02960",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "11.89",
+   "value": 11.89,
+   "unit": "WER%",
+   "raw": "silent-EMG WER 11.89% (Whisper); prior best 25.74",
+   "pid": "isca-lee26r_interspeech",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "reference 14.88% WER",
+   "value": 14.88,
+   "unit": "% reference WER",
+   "raw": "held-out, CI [6.83,24.87]",
+   "pid": "pmc-13537912-semg_laryngectomy",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word error rate on decoded speech (%)",
+   "value": 15.5,
+   "unit": "percent",
+   "raw": "15.5%",
+   "pid": "arxiv-2505.13814",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word error rate at ~16h mixed training (%)",
+   "value": 18.03,
+   "unit": "percent",
+   "raw": "18.03%",
+   "pid": "arxiv-2506.11862",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER TAP-ETS",
+   "value": 19.77,
+   "unit": "wer_percent",
+   "raw": "19.77%",
+   "pid": "isca-han26f-tapets",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "25.14",
+   "value": 25.14,
+   "unit": "WER%",
+   "raw": "Ours(Mel) WER 25.14±0.90 vs Gaddy 26.75±0.99",
+   "pid": "isca-lee26v_interspeech",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "human eval2 WER",
+   "value": 28.5,
+   "unit": "%",
+   "raw": "28.5",
+   "pid": "arxiv-2106.01933",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2010.02960",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2010.02960 | title=Digital Voicing of Silent Speech | venue=EMNLP 2020; v1 | Study.research_objective=Gen"
+  },
+  {
+   "pid": "arxiv-2106.01933",
+   "key": "t:animprovedmodelforvoicingsilentspeech",
+   "title": "An Improved Model for Voicing Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2106.01933 | title=An Improved Model for Voicing Silent Speech | venue=ACL/IJCNLP 2021; v2 | Study.resear"
+  },
+  {
+   "pid": "arxiv-2108.00190",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2108.00190 | title=Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language | venu"
+  },
+  {
+   "pid": "arxiv-2405.08021",
+   "key": "t:diffetslearningadiffusionprobabilisticmodelforelectromyographytospeechconversion",
+   "title": "Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2405.08021 | title=Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conv"
+  },
+  {
+   "pid": "arxiv-2505.13814",
+   "key": "t:articulatoryfeaturepredictionfromsurfaceemgduringspeechproduction",
+   "title": "Articulatory Feature Prediction from Surface EMG during Speech Production",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2505.13814v2 | title=Articulatory Feature Prediction from Surface EMG during Speech Production | authors="
+  },
+  {
+   "pid": "arxiv-2506.11862",
+   "key": "t:confidencebasedselftrainingforemgtospeechleveragingsyntheticemgforrobustmodeling",
+   "title": "Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2506.11862v2 | title=Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robus"
+  },
+  {
+   "pid": "arxiv-2509.04507",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.04507 | arxiv_id=2509.04507v1 | source_url=https://arxiv.org/pdf/2509.04507v1 | title=From Silent Si"
+  },
+  {
+   "pid": "arxiv-2509.04507-dualstg",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach | authors=Nithyashree Sivasubramani"
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01879 | arxiv_id=2602.01879v1 | source_url=https://arxiv.org/pdf/2602.01879v1 | title=Speaking Witho"
+  },
+  {
+   "pid": "arxiv-2602.06460",
+   "key": "t:emgtospeechwithfewerchannels",
+   "title": "EMG-to-Speech with Fewer Channels",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.06460 | paper_version=arXiv 2602.06460v1; 5 pages | title=EMG-to-Speech with Fewer Channels | author"
+  },
+  {
+   "pid": "doi-10.18653-v1-2020.emnlp-main.445",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Digital Voicing of Silent Speech | intended_use_cases=noisy_environment, private_communication, speech_restoration"
+  },
+  {
+   "pid": "doi-10.3390-brainsci12070818",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language | intended_use_cases=speech_restor"
+  },
+  {
+   "pid": "isca-han26f-tapets",
+   "key": "t:tapetstimealignedphonemeguidingforemgtospeechsynthesis",
+   "title": "TAP-ETS: Time Aligned Phoneme Guiding for EMG-to-Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=TAP-ETS: Time Aligned Phoneme Guiding for EMG-to-Speech Synthesis | authors=Dongyub Han, Injune Hwang, Jaejun Lee,"
+  },
+  {
+   "pid": "isca-lee25d_interspeech",
+   "key": "t:articulatoryfeaturepredictionfromsurfaceemgduringspeechproduction",
+   "title": "Articulatory Feature Prediction from Surface EMG during Speech Production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Articulatory Feature Prediction from Surface EMG during Speech Production | venue=Proc. Interspeech 2025 | intende"
+  },
+  {
+   "pid": "isca-lee26r_interspeech",
+   "key": "t:getsguidingemgtospeechsynthesisviasilentspeechrecognition",
+   "title": "GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lee26r_interspeech | title=GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition | authors=J"
+  },
+  {
+   "pid": "isca-lee26v_interspeech",
+   "key": "t:enhancingemgtospeechviasilentvoicedrepresentationalignment",
+   "title": "Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lee26v_interspeech | title=Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment | authors=Ji"
+  },
+  {
+   "pid": "isca-scheck23_interspeech",
+   "key": "t:steganspeechtoelectromyographysignalconversionusinggenerativeadversarialnetworks",
+   "title": "STE-GAN: Speech-to-Electromyography Signal Conversion using Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=STE-GAN: Speech-to-Electromyography Signal Conversion using Generative Adversarial Networks | system_name=STE-GAN:"
+  },
+  {
+   "pid": "isca-scheck25_interspeech",
+   "key": "t:diffmvetsdiffusionbasedmultivoiceelectromyographytospeechconversionusingspeakeri",
+   "title": "DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Training Targets",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Tra"
+  },
+  {
+   "pid": "isca-toussaint26_interspeech",
+   "key": "t:emergenceofphoneticrepresentationsinemgbasedsilentspeechinterfaces",
+   "title": "Emergence of Phonetic Representations in EMG-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-toussaint26_interspeech | title=Emergence of Phonetic Representations in EMG-based Silent Speech Interface"
+  },
+  {
+   "pid": "pmc-13537912-larysemg",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-larysemg | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyog"
+  },
+  {
+   "pid": "pmc-13537912-semg-larynx",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semg-larynx | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electrom"
+  },
+  {
+   "pid": "pmc-13537912-semg_laryngectomy",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semg_laryngectomy | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface El"
+  },
+  {
+   "pid": "pmc-9312762-semgmandarin",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9312762-semgmandarin | title=Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Languag"
+  },
+  {
+   "pid": "pmc-9312762-ssrnet-tonal",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9312762-ssrnet-tonal | title=Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Languag"
+  }
+ ],
+ "usual_approach": {
+  "design": "ASR-scored WER with Whisper",
+  "n": 9,
+  "tier": "pattern match",
+  "pids": [
+   "isca-han26f-tapets",
+   "isca-lee26r_interspeech",
+   "isca-lee26v_interspeech",
+   "arxiv-2505.13814",
+   "arxiv-2602.01879"
+  ],
+  "note": "full-text pattern counts over 16 unique studies: whisper 9, deepspeech 7, listener transcription 3"
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-lee26r_interspeech",
+   "role": "sota",
+   "loc": "Abstract; Table 1",
+   "quote": "Word Error Rate (WER) of 11.89% on the"
+  },
+  {
+   "pid": "arxiv-2106.01933",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "This work 42.2"
+  },
+  {
+   "pid": "arxiv-2405.08021",
+   "role": "prior",
+   "loc": "Table I",
+   "quote": "Encoder (no diffusion) – 1.869 0.089 30.0 15.6 3.19"
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "role": "target",
+   "loc": "Table I; Sec. IV-A3",
+   "quote": "that is 40 times"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 4,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "isca-lee26r_interspeech",
+  "year": 2026,
+  "metric": "silent-EMG WER, Gaddy test split, Whisper-medium",
+  "value": 11.89,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 16,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "ASR-scored WER with Whisper",
+   "n": 9,
+   "tier": "pattern match",
+   "population_unique": null
+  },
+  "state_of_the_art": {
+   "pid": "isca-lee26r_interspeech",
+   "year": 2026,
+   "metric": "silent-EMG WER, Gaddy test split, Whisper-medium",
+   "value": 11.89,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2106.01933",
+   "arxiv-2405.08021"
+  ],
+  "unread": 24,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only"
+ ]
+}

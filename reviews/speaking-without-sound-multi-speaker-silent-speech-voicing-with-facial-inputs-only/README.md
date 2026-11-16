@@ -1,112 +1,148 @@
 # Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only
 
-Jaejun Lee, Yoori Oh, Kyogu Lee  
-arXiv 2026 · [arXiv](https://arxiv.org/abs/2602.01879)
+Lee J, Oh Y, Lee K. ICASSP 2025. [arXiv:2602.01879](https://arxiv.org/abs/2602.01879)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only* (Jaejun Lee et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Surface EMG](../../README.md#surface-emg)
 
-Multi-speaker silent speech voicing from one user's EMG with target voices conditioned on facial images, without inference audio; pitch flattening modestly improves silent WER.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Existing facial/neck surface EMG plus target face image |
-| Task | Speech synthesis from EMG |
-| Vocabulary | Not stated |
-| Speaker | Speaker-dependent |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | Silent WER 38.91% with pitch flattening vs 40.12% without |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Only one EMG participant; multi-user decoding and faithful personal-voice recovery not shown; main baseline is the same framework without flattening.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Voiced and silent reading, one speaker | Reading tasks | 4,015 of 8,995 | ● Standard (Inherited.) |
+| M02 Teacher signal | ContentVec of pitch-flattened speech | Mel targets (36) | 54 of 8,995 | ● Standard (Gain within seed noise; no repeated runs.) |
+| M03 Train / calibrate | Per-speaker EMG encoder | Per-speaker training | 1,608 of 8,995 | ● Standard (Inherited.) |
+| M04 Use-time act | Silent articulation, DTW targets | Silent with voiced targets | 6,538 of 8,995 | ● Standard (Inherited.) |
+| M05 Sensing | Surface EMG plus face image | Surface EMG | 8,898 of 8,995 | ● Standard (Face for voice only.) |
+| M06 Decoding | EMG to ContentVec, decoder | Encoder plus vocoder | 8,925 of 8,995 | ● Standard (Inherited.) |
+| M07 Runtime aids | No language model | No language model | 120 of 8,995 | ● Standard (Inherited.) |
+| M08 Output | Voice and pitch from a face image | Speaker label (48) | 93 of 8,995 | ● Standard (Precedents: TTS 2020, lip-to-speech 2023.) |
+| M09 Confirmation | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Gaddy split | Within-corpus splits | 239 of 8,995 | ● Standard (Inherited.) |
+| M12 Evaluation | Base vs Flatten, Whisper | Whisper WER (9) | 16 of 8,995 | ▼ Behind (No external baseline.) |
+| M13 Hardware & limits | Laboratory, offline | Laboratory | 6,721 of 8,995 | – Not applicable (Offline study.) |
 
-Combines one users silent EMG with face-conditioned target voices without inference audio. Pitch flattening modestly helps silent word accuracy, but multi-user decoding and faithful personal-voice recovery are not demonstrated.
+</details>
 
-### Review
+## Verdict
 
-The contribution is an inference pipeline that does not need audible input: EMG supplies linguistic content and a face image supplies a target voice prior. Its multi-speaker label refers to synthesized target identities, however, while the EMG encoder is trained and tested on only one participant. The pitch-flattening intervention is plausible because audio-derived content targets can contain prosody that does not transfer cleanly from silent articulation. It lowers silent WER from 40.12% to 38.91% and CER from 26.14% to 24.28%, while worsening both voiced error measures; this is a mode-dependent trade-off rather than uniformly better content extraction. Objective target-voice similarity improves only slightly, and the silent score of 0.5657 remains close to the same-gender random reference of 0.5521. The reported paired tests support a difference but do not establish faithful recovery of a unique personal voice, especially when subjective consistency does not significantly improve. Local pitch also needs careful interpretation: it is evaluated using the EMG source speakers face, centered pitch contours and a voiced rendition aligned to the silent output by nearest interpolation. It therefore does not demonstrate exact prosody recovery for all sampled target identities or for an unobserved silent utterance. The study is a useful composition and target-preparation experiment, but evidence for new-user EMG operation, meaningful perceptual identity gains and practical communication remains limited.
+The paper [[1]](#ref-1) changes two components: the voice comes from a face image instead of reference audio (M08), and the EMG encoder's ContentVec target from pitch-flattened speech (M02). M08 is standard: face-image voice control dates to 2020 in text-to-speech (cited, §II-B) and 2023 in lip-to-speech [[2]](#ref-2), [[3]](#ref-3); only the transfer to EMG is new. M02 is standard: flattening lowers silent WER from 40.12% to 38.91% but raises voiced CER from 9.96% to 13.28% (Table I), with no repeated training runs on one EMG speaker. The evaluation (M12) is behind: only the paper's own two variants are compared, while earlier work on the same split and ASR reports a published model, at 30.0% WER in the recorded speaker's voice [[4]](#ref-4). The cost of face-chosen voices is never separated from vocoder and content-estimator error. Audio-free multi-speaker voicing holds, and the face predicts global pitch beyond gender (Table III); timbre beyond gender and effective pitch disentanglement remain unsupported.
 
-### Why it matters
+## Against the field, component by component
 
-Shows how to remove audible reference requirements at inference and tests a simple pitch-target intervention that benefits silent more than voiced EMG.
+### M08 Output: voice set from a face image
 
-### Prior state of the art
+**Usual approach:** Of 93 unique studies that synthesize speech from non-acoustic signals with a controllable voice (pattern match, Appendix), 48 condition on a speaker label, 23 on reference audio and 23 on face-image cues. In EMG, the [concurrent] multi-voice system uses target audio [[5]](#ref-5).
 
-Prior EMG synthesizers can separate content and target voice but commonly require target audio. Face-based voice conversion supplies statistical voice cues; it cannot uniquely determine a persons original voice from facial appearance.
+**State of the art:** A 2023 video-to-speech model, speaker embedding from video alone, reached 3.91 MOS for voice matching on unseen LRS3 speakers and speaker similarity of 0.625 against 0.770 with the audio embedding [[3]](#ref-3); neither is on the target's scale.
 
-### What changed
+The deciding prior [[2]](#ref-2) prices the choice: EER of 36.72% from the face against 26.57% from reference audio. The target gives no audio upper bound; its silent Flatten similarity of 0.5657 against 0.5521 for a random same-gender speaker (Table II) is 2.5% higher (inference). The "first" claim (§I) holds only for EMG: the paper's references include the 2020 text-to-speech work but neither lip-to-speech precedent. Verdict: standard.
 
-Replaces source audio with an EMG-predicted ContentVec representation and target audio with face-conditioned identity/global pitch; pitch-flattens training speech to reduce target prosody mismatch.
+### M02 Training-only supervision: pitch-flattened content target
 
-### Position in the field
+**Usual approach:** On the Gaddy benchmark the encoder learns spectral targets from the DTW-aligned voiced recording [[6]](#ref-6). Of 54 unique synthesis studies mentioning self-supervised speech representations (pattern match, Appendix), 36 also use mel targets and 4 remove or perturb pitch.
 
-Contact-EMG content decoding with image-conditioned voice synthesis; one source EMG participant and many synthesized target identities.
+**State of the art:** The best controlled comparison of target types, a [later] 2026 study with 10 seeds, gives 25.14% WER with mel and 26.55% with unit targets [[7]](#ref-7).
 
-### Practical value
+Silent WER improves 3.0% relative, voiced CER worsens 33% (inference), and voiced WER also rises (16.98% to 17.48%). Seed variation on the 98-utterance split is about 1% WER [[7]](#ref-7), the size of the 1.21-point gain (inference), and no repeated training runs are reported (§IV-A3). The authors concede little pitch variation in one-speaker EMG (§V). Verdict: standard; the gain is too small to call.
 
-A reference-audio-free option for selecting a plausible synthetic voice; current error rates and limited user validation prevent assuming communication readiness.
+### M12 Evaluation: no external baseline
 
-### Advanced
+**Usual approach:** Of 16 unique studies on Gaddy silent-EMG voicing (pattern match, Appendix), 9 score with Whisper and 7 with DeepSpeech, and earlier ones report a published model on the same split: 42.2% against 68.0% WER [[6]](#ref-6).
 
-Enables face-conditioned target voices without target reference audio at inference; flattening improves reported silent WER/CER and pitch deviations over the same framework without flattening.
+**State of the art:** With the same Whisper medium.en and split, Diff-ETS (2024) reports 30.0% WER for the Gaddy and Klein encoder, in the recorded speaker's voice [[4]](#ref-4); the target's 38.91%, in face-chosen voices, is 30% worse relative (inference). A [later] 2026 model reaches 11.89% on the silent test set [[8]](#ref-8).
 
-### Unresolved
+Yardstick: best comparable work. The verdict rests on the missing external baseline [[6]](#ref-6), [[4]](#ref-4), not on the gap, which mixes voice change, an in-the-wild vocoder (conceded, §V) and an unreported n_test. Verdict: behind.
 
-New EMG users, actual voice recovery versus plausible face-conditioned output, independence of repeated target assignments, exact evaluation sample counts, optimizer/checkpoint reproducibility and complete latency.
+## The 13 components
 
-### Narrowed or regressed
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Voiced and silent reading, one speaker | Reading tasks (slot-filled 4,015) | – | standard |
+| M02 Training-only supervision | ContentVec of pitch-flattened speech | Mel targets (36) (pattern match 54) | 25.14% WER, mel [[7]](#ref-7) | standard |
+| M03 Training and adaptation | Per-speaker EMG encoder | Per-speaker training (slot-filled 1,608) | – | standard |
+| M04 Use-time action | Silent articulation, DTW targets | Silent with voiced targets (slot-filled 6,538) | – | standard |
+| M05 Sensors | Surface EMG plus face image | Surface EMG (slot-filled 8,898) | – | standard |
+| M06 Processing and decoding | EMG to ContentVec, decoder | Encoder plus vocoder (slot-filled 8,925) | – | standard |
+| M07 Lexicon and LM | No language model | No language model (slot-filled 120) | – | standard |
+| M08 Output | Voice and pitch from a face image | Speaker label (48) (pattern match 93) | 3.91 MOS from video [[3]](#ref-3) | standard |
+| M09 Confirmation | None | None (slot-filled 82) | – | not applicable |
+| M10 Correction | None | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Gaddy split | Within-corpus splits (slot-filled 239) | – | standard |
+| M12 Evaluation | Base vs Flatten, Whisper | Whisper WER (9) (pattern match 16) | 11.89% WER [[8]](#ref-8) | behind |
+| M13 Device and cost | Laboratory, offline | Laboratory (slot-filled 6,721) | – | not applicable |
 
-Flattening worsens voiced WER from 16.98% to 17.48% and voiced CER from 9.96% to 13.28%. Subjective consistency gains are not significant, and silent WER remains 38.91%.
+## Where the claims outrun the evidence
 
-### Evaluation details
+- "Facial cues beyond gender" (§IV-C2) holds for pitch, not timbre: silent Flatten Global F0 errors (24.80, 30.83) are 15% and 18% below a random same-gender voice (29.18 Hz, 37.50 Hz), silent Base errors (28.91, 36.45) only 1% and 3% (inference, Table III); timbre rests on a 0.0136 similarity margin (inference), and the subjective test has no random-face control (§IV-B2).
+- "Effectiveness of the proposed pitch-disentanglement" (Abstract, §IV-C1): the voiced CER loss of 3.32 points exceeds every silent gain, and no probe shows pitch removed from the content embedding.
+- The test set is "40 times" n_test (§IV-A3): trials resample faces, not EMG utterances or models, and the paired t-tests (§IV-C) give no pairing unit; counting every output inflates the sample (inference).
+- Local F0 deviation, the new pitch metric, uses only the EMG speaker's own face and scores silent output against the voiced repetition stretched by nearest interpolation (§IV-B3), so its silent gain (18.74 to 17.93, 4% relative, inference) rests on prosody the silent utterance never had.
 
-| Item | Details |
-| --- | --- |
-| Task | speech-reconstruction |
-| Input | Silent or voiced surface EMG for content plus a target facial image for speaker identity and global pitch. Audio is needed for training targets and evaluation references. |
-| Sensor | Existing Gaddy surface-EMG recordings from facial/neck electrodes plus 112 x 112 center-cropped target face images from LRS3. No new sensing hardware. |
-| Body site | face;throat |
-| Output | speech-audio |
-| Vocabulary type | corpus utterance synthesis with variable target voices |
-| Vocabulary size | Exact test lexicon not reported. |
-| Metrics and results | Table I silent WER/CER 38.91%/24.28% with flattening versus 40.12%/26.14% without; voiced 17.48%/13.28% versus 16.98%/9.96%. Table II silent objective similarity 0.5657 versus 0.5626, same-gender random 0.5521; subjective consistency 3.29 versus 3.24 without significant difference. Table III silent local pitch deviation 17.93 versus 18.74, global pitch errors 24.80/30.83 Hz versus 28.91/36.45 Hz for male/female target groups. Author-reported, not independently reproduced. |
-| Evaluation protocol | Offline voiced/silent EMG synthesis into sampled target-face voices, Whisper medium.en WER/CER, same-gender-controlled speaker similarity, face/voice consistency ratings and pitch deviations. |
+## What the field needs next
 
-### Limits
+- M08: an audio-reference upper bound and a same-voice control from one EMG content estimate [[2]](#ref-2).
+- M02: several training seeds per variant before attributing 1-point changes [[7]](#ref-7).
+- M12: the shared Whisper medium.en protocol against a published model [[4]](#ref-4).
 
-- **Technical:** Broad claims that silent EMG contains no pitch information are not directly tested. Praat PSOLA flattening does not prove complete representation disentanglement. DTW aligns silent inputs to a separate voiced target, and local-pitch evaluation uses nearest interpolation. Generated identity is statistically conditioned, not uniquely recoverable from a face.
-- **Evaluation:** One EMG participant. Repeating target-face assignments ten times does not provide ten independently trained models or forty times as many independent source utterances. Main baseline is the same framework without flattening, not matched contemporary systems. Listener sample sizes and confidence intervals are omitted; paired t-test unit and dependence handling are unclear.
-- **Deployment:** Requires contact EMG plus a facial image; inference is audio-free but training uses speech data. No portable implementation, streaming timing, longitudinal calibration or intended-user communication trial.
-- **Scope of this review:** One-participant EMG benchmark, LRS3 target images and offline ratings; no multi-user EMG or clinical validation.
+## Questions for the authors
 
-### Evidence
+- What is n_test; is it the 98-utterance split?
+- Were target speakers disjoint from LRS3 training speakers?
+- How many training runs and seeds, and which checkpoint?
+- What WER results in the recorded speaker's own voice?
 
-- Inference combines EMG-derived content with face-derived identity and global pitch; speech-based modules supply training targets, and pitch flattening precedes ContentVec extraction. (Section III and Figure 1; PDF pp. 1-3)
-- The EMG dataset contains about twenty hours from a single speaker, while 50 male and 50 female LRS3 speakers provide target faces. Reviewer assessment: target-voice diversity is not multi-user EMG validation. (Sections IV-A and V; PDF pp. 3-4)
-- Table I silent WER/CER improve from 40.12%/26.14% to 38.91%/24.28%, but voiced WER/CER worsen from 16.98%/9.96% to 17.48%/13.28%. (Table I; PDF p. 3)
-- Table II silent objective similarity is 0.5657 with flattening versus 0.5626 without; the same-gender random-speaker reference is 0.5521. (Table II and Section IV-C2; PDF p. 4)
-- Silent subjective face/voice consistency is 3.29 versus 3.24; the paper reports no significant subjective difference in either voiced or silent tests. (Table II and Section IV-C2; PDF p. 4)
-- Table III silent local pitch deviation is 17.93 versus 18.74, while global errors are 24.80/30.83 Hz versus 28.91/36.45 Hz for male/female targets. (Table III; PDF p. 4)
-- Local-pitch evaluation uses the source speakers face and the matching voiced rendition; nearest interpolation aligns silent-output and reference lengths. Reviewer assessment: this is not direct measurement of an unobserved silent acoustic target or all target voices. (Section IV-B3 and continuation; PDF pp. 3-4)
-- Two targets from each gender group are sampled per source utterance across ten repetitions, yielding forty times as many synthesized assignments. Reviewer assessment: these are repeated source utterances, not forty times as much independent EMG evidence. (Section IV-A3; PDF p. 3)
-- Pitch flattening is performed with Praat autocorrelation and PSOLA. Reviewer assessment: downstream ablation improvements do not by themselves demonstrate complete pitch disentanglement in the learned content embedding. (Section III-A4 and results; PDF pp. 2-4)
-- The discussion explicitly recognizes one-speaker EMG data and treats multi-speaker EMG evaluation and stronger vocoding as future work. (Section V; PDF p. 4)
+## Appendix: literature search
+
+- M08 biosignal-to-speech-voice-control. Inclusion rule: studies that synthesize speech audio from a non-acoustic speech signal (surface EMG, mouth or face video, ultrasound, articulography, neural recordings) and set the output voice through a speaker representation, whether from reference audio, a speaker label or a face image; single-voice systems, text-to-speech after text decoding and acoustic-input conversion excluded; versions counted once. Slot-filled 3,268 unique studies; pattern match 93 unique studies. Design counts (pattern match, full text): speaker label 48, reference audio 23, face image 23. Read in full: [[2]](#ref-2), [[3]](#ref-3), [[5]](#ref-5), target [[1]](#ref-1). Known-item recall 1.0.
+- M02 ssl-speech-unit-target. Inclusion rule: studies that synthesize speech from a non-acoustic speech signal and train the encoder to predict self-supervised speech representations (HuBERT units, soft units, ContentVec, wav2vec) derived from paired or aligned audio; recognition-only studies, self-generated targets and acoustic-input conversion excluded; versions counted once. Slot-filled 31 unique studies; pattern match 54 unique studies. Usual design: supervision_kind=paired_audio, 11 (slot-filled, M03 field). Design counts (pattern match, full text): self-supervised units 53, mel targets 36, pitch removed or perturbed 4. Read in full: [[7]](#ref-7), target. Known-item recall 1.0.
+- M12 silent-emg-voicing-benchmark. Inclusion rule: studies that synthesize audible speech from silently articulated surface EMG on the Gaddy open-vocabulary corpus and score it by ASR or listener transcription; recognition-only studies, other corpora and voiced-only results excluded; versions counted once. Slot-filled 6,960 unique studies; pattern match 16 unique studies. Design counts (pattern match, full text): Whisper 9, DeepSpeech 7, listener transcription 3. Read in full: [[6]](#ref-6), [[4]](#ref-4), [[8]](#ref-8), target. Known-item recall 1.0.
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Lee, J., Oh, Y., Lee, K. “Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only.” *IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 2025. arXiv:[2602.01879](https://arxiv.org/abs/2602.01879). Target. arXiv v1 (2026-02-02) states the paper was presented at ICASSP 2025. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only) [wiki: arxiv-2602.01879](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2602.01879/article.md)
+2. <a id="ref-2"></a>Sheng, Z., Ai, Y., Ling, Z. “Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control.” *arXiv preprint*, 2023. arXiv:[2305.14359](https://arxiv.org/abs/2305.14359). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control) [wiki: arxiv-2305.14359](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2305.14359/article.md)
+3. <a id="ref-3"></a>Choi, J., Hong, J., Ro, Y. M. “DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedding.” *arXiv preprint*, 2023. arXiv:[2308.07787](https://arxiv.org/abs/2308.07787). [wiki: arxiv-2308.07787-diffv2s](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2308.07787-diffv2s/article.md) [wiki: cvf23-choi_diffv2s](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/cvf23-choi_diffv2s/article.md)
+4. <a id="ref-4"></a>Ren, Z., Scheck, K., Hou, Q., van Gogh, S., Wand, M., Schultz, T. “Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conversion.” *arXiv preprint*, 2024. arXiv:[2405.08021](https://arxiv.org/abs/2405.08021). [wiki: arxiv-2405.08021](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2405.08021/article.md)
+5. <a id="ref-5"></a>Scheck, K., Dombeck, T., Ren, Z., Wu, P., Wand, M., Schultz, T. “DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Training Targets.” *Proc. Interspeech 2025*, 2025. doi:[10.21437/Interspeech.2025-1914](https://doi.org/10.21437/Interspeech.2025-1914). [concurrent] [wiki: isca-scheck25_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-scheck25_interspeech/article.md)
+6. <a id="ref-6"></a>Gaddy, D., Klein, D. “An Improved Model for Voicing Silent Speech.” *Proc. ACL-IJCNLP 2021 (Short Papers)*, 2021. doi:[10.18653/v1/2021.acl-short.23](https://doi.org/10.18653/v1/2021.acl-short.23). arXiv:[2106.01933](https://arxiv.org/abs/2106.01933). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/an-improved-model-for-voicing-silent-speech) [wiki: arxiv-2106.01933](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2106.01933/article.md) [wiki: doi-10.18653-v1-2021.acl-short.23](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.18653-v1-2021.acl-short.23/article.md)
+7. <a id="ref-7"></a>Lee, J., Hwang, I., Lee, J., Kim, E., Han, D., Lee, K. “Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment.” *Proc. Interspeech 2026*, 2026. doi:[10.21437/Interspeech.2026-2931](https://doi.org/10.21437/Interspeech.2026-2931). [later] [wiki: isca-lee26v_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-lee26v_interspeech/article.md)
+8. <a id="ref-8"></a>Lee, J., Lee, J., Lee, K. “GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition.” *Proc. Interspeech 2026*, 2026. doi:[10.21437/Interspeech.2026-1938](https://doi.org/10.21437/Interspeech.2026-1938). [later] [wiki: isca-lee26r_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-lee26r_interspeech/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M02/ssl-speech-unit-target.csv`](../../components/M02/ssl-speech-unit-target.csv): M02 topic "ssl-speech-unit-target", every candidate paper with its decision (31 slot-filled, 54 pattern match, usual design in 11, 2 read in full)
+- [`components/M08/biosignal-to-speech-voice-control.csv`](../../components/M08/biosignal-to-speech-voice-control.csv): M08 topic "biosignal-to-speech-voice-control", every candidate paper with its decision (3268 slot-filled, 93 pattern match, usual design in 48, 4 read in full)
+- [`components/M12/silent-emg-voicing-benchmark.csv`](../../components/M12/silent-emg-voicing-benchmark.csv): M12 topic "silent-emg-voicing-benchmark", every candidate paper with its decision (6960 slot-filled, 16 pattern match, usual design in 9, 4 read in full)
+
 
 ## More reviews in Surface EMG
 
-- [A 1000-hour EEG-EMG-audio dataset of Japanese speech production](../a-1000-hour-eeg-emg-audio-dataset-of-japanese-speech-production/) (2026). A 1020-hour EEG-EMG-audio dataset of Japanese overt speech from three participants, with signal-quality and physiological validation but no decoding benchmarks.
-- [AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration](../aessi-an-around-ear-silent-speech-interface-for-cross-day-online-reuse-without-test-day-calibrat/) (2026). Around-ear cEEGrid system recognizing 25 fixed Mandarin sentences from silent articulation without test-day calibration; 92.24% mean accuracy on held-out later-day sessions and 98.00% in 250 live trials 21+ days later.
-- [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](../affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg/) (2026). Binary affect (polite vs frustrated) classification from facial/neck sEMG in phonated and silent speech; silent-only within-subject AUC 0.829, but transfer to unseen speakers is weak.
-- [Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features](../comparison-of-semg-encoding-accuracy-across-speech-modes-using-articulatory-and-phoneme-features/) (2026). Forward encoding of sEMG envelopes from articulatory (SPARC) versus phoneme features across speech modes; articulatory features predict muscle activity better on most channels in 24 participants.
-- [Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading](../cross-modal-masking-for-robust-silent-speech-synthesis-using-semg-and-lipreading/) (2026). Silent speech synthesis fusing sEMG and lipreading with cross-modal masked training, improving performance and robustness to modality degradation over monomodal baselines.
-- [CS-ETS: Chaos-Inspired Samba-Based EMG-To-Speech Synthesis with Nonlinear Chaotic Losses](../cs-ets-chaos-inspired-samba-based-emg-to-speech-synthesis-with-nonlinear-chaotic-losses/) (2026). Smaller chaos-inspired Samba-based EMG-to-speech model with nonlinear losses; WER improves modestly from 42.20% to 41.26% while parameters drop from 54.10M to 32.03M.
+- [A Parallel Ultra-Low Power Silent Speech Interface based on a Wearable, Fully-dry EMG Neckband](../a-parallel-ultra-low-power-silent-speech-interface-based-on-a-wearable-fully-dry-emg-neckband/) (2025). A fully dry wearable EMG neckband with ultra-low-power BioGAP-Ultra classifies 8 silently articulated words for one healthy user at 68% accuracy, dropping to 54% on an unseen re-wearing session; acquisition plus BLE uses 22.2 mW.
+- [A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations](../a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations/) (2025). Jointly trains on EEG and EMG data with heterogeneous electrode configurations for silent Japanese 64-word classification, reaching 95.3% for eight healthy subjects and 54.5% for one patient (chance 1.6%).
+- [Articulatory Feature Prediction from Surface EMG during Speech Production](../articulatory-feature-prediction-from-surface-emg-during-speech-production/) (2025). Predicts 12-dim articulatory features, pitch and loudness from vocalized-speech sEMG and resynthesizes audio with an articulatory synthesizer. Feature correlation is about 0.9 against audio-derived proxy targets, but WER is 15.5% versus 12.6% for the Gaddy baseline (one male speaker).
+- [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](../cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding/) (2025). CAT-Net fuses EEG and surface EMG with cross-attention to classify Mandarin lexical tones in silent articulation, reporting 85.10% leave-one-subject-out accuracy over 4 tones.
+- [Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling](../confidence-based-self-training-for-emg-to-speech-leveraging-synthetic-emg-for-robust-modeling/) (2025). Uses confidence-filtered synthetic EMG generated from speech, mixed with real data, for EMG-to-speech; on real vocalized EMG from one speaker, WER falls from 23.30% to 21.87%.
+- [emg2speech: Synthesizing speech from electromyography using self-supervised speech models](../emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models/) (2025). emg2speech synthesizes speech from face and neck surface EMG via HuBERT units without the user's own recordings; silent speech from one ALS participant gives 50.82% human-transcribed WER.
 
 ---
 

@@ -78,3 +78,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`lrs3-visual-only-wer.csv`](lrs3-visual-only-wer.csv) (6960 slot-filled, 258 pattern match, usual design in 18, 1 read in full)
 - Inclusion rule: Include studies that report word error rate of visual-only (lip-reading) recognition on the LRS3 test set, any training regime. Boundary: exclude audio-only and audio-visual WER rows, LRS2/LRW/GRID-only results, and numbers quoted from other papers without new training; count versions of one study once.
 - Used in: [Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction](../../reviews/learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/), [Visual Speech Recognition for Multiple Languages in the Wild](../../reviews/visual-speech-recognition-for-multiple-languages-in-the-wild/)
+
+## silent-emg-voicing-benchmark
+
+- Table: [`silent-emg-voicing-benchmark.csv`](silent-emg-voicing-benchmark.csv) (6960 slot-filled, 16 pattern match, usual design in 9, 4 read in full)
+- Inclusion rule: Include studies that synthesize audible speech from silently articulated surface EMG on the Gaddy open-vocabulary corpus and score it by ASR or listener transcription. Boundary: exclude recognition-only (text output) studies, other corpora, and voiced-EMG-only results; count versions once.
+- Used in: [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
