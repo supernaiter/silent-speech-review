@@ -84,3 +84,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`silent-emg-voicing-benchmark.csv`](silent-emg-voicing-benchmark.csv) (6960 slot-filled, 16 pattern match, usual design in 9, 4 read in full)
 - Inclusion rule: Include studies that synthesize audible speech from silently articulated surface EMG on the Gaddy open-vocabulary corpus and score it by ASR or listener transcription. Boundary: exclude recognition-only (text output) studies, other corpora, and voiced-EMG-only results; count versions once.
 - Used in: [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
+
+## whisper-conversion-evaluation
+
+- Table: [`whisper-conversion-evaluation.csv`](whisper-conversion-evaluation.csv) (6960 slot-filled, 60 pattern match, usual design in 26, 4 read in full)
+- Inclusion rule: Same population as M02/whisper-to-normal-training-pairing (whispered, murmured or alaryngeal speech converted to voiced speech audio); classify how the converted speech is evaluated: listener quality ratings (MOS, CMOS, MUSHRA), spectral distance to a paired reference (MCD), ASR word or character error rate, or listener transcription. Boundary: a study counts under every measure it reports; measures named only in related work do not count; versions counted once.
+- Used in: [WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions](../../reviews/wesper-zero-shot-and-realtime-whisper-to-normal-voice-conversion-for-whisper-based-speech-interactions/)

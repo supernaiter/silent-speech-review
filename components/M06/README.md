@@ -89,3 +89,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`phoneme-rnn-ctc-lm-decoding.csv`](phoneme-rnn-ctc-lm-decoding.csv) (7345 slot-filled, 97 pattern match, usual design in 61, 3 read in full)
 - Inclusion rule: Neural or articulatory speech decoders that emit phoneme (or character) probabilities with a recurrent or CTC-trained network and convert them to words with an n-gram or neural language model. Included: sEMG, EEG, ECoG and intracortical; online or offline. Excluded: closed-set word classifiers and direct audio synthesis.
 - Used in: [A high-performance neuroprosthesis for speech decoding and avatar control](../../reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/), [A high-performance speech neuroprosthesis](../../reviews/a-high-performance-speech-neuroprosthesis/)
+
+## whisper-conversion-intermediate-representation
+
+- Table: [`whisper-conversion-intermediate-representation.csv`](whisper-conversion-intermediate-representation.csv) (7345 slot-filled, 60 pattern match, usual design in 50, 5 read in full)
+- Inclusion rule: Same population as M02/whisper-to-normal-training-pairing (unvoiced or whispered acoustic or body-conducted speech converted to voiced speech audio); classify the intermediate representation the converter maps through: frame-level spectral features (MCEP, mel spectrogram, GMM/DNN mapping), self-supervised speech units or features (HuBERT, wav2vec, ContentVec), or an ASR-to-TTS text cascade. Boundary: an SSL model used only for evaluation does not count; recognition-only and normal-to-whisper studies are excluded; count versions once.
+- Used in: [WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions](../../reviews/wesper-zero-shot-and-realtime-whisper-to-normal-voice-conversion-for-whisper-based-speech-interactions/)
