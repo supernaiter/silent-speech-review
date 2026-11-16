@@ -1,10 +1,29 @@
-# Triage: A high-performance speech neuroprosthesis
+# Triage: A high-performance speech neuroprosthesis (re-evaluation)
 
-Round 1 of at most 2. Findings from `a-high-performance-speech-neuroprosthesis.eval.md`.
+Source: `a-high-performance-speech-neuroprosthesis.eval.md` (14 required fixes, 2026-11-16). Each fix was checked against the target source text (`papers/doi-10.1038-s41586-023-06377-x/source/text.txt`), the named papers' source texts, the released code and the topic audits.
 
-| # | Verdict | Evidence | Where applied |
-|---|---|---|---|
-| 1 | applied | notes t52 (five-layer GRU trained with CTC), t55 (day-specific input layers); the handwriting BCI is cited for the GRU and day-specific layers only | Verdict, first sentence: "a GRU phoneme decoder trained with CTC (M06)" |
-| 2 | applied | notes t16 (Sec. 3: 260–480 sentences) and t85 (Sec. 4: 260–440 sentences) | M03 and M12 section: "260–480 sentences (Sec. 3; 260–440 in Sec. 4)" |
+| # | Fix | Judgment | Evidence location | Action |
+|---|---|---|---|---|
+| 1 | Verdict judges components by later adoption | correct | M05/M06/M07 audit candidates by unique study: 20 of 75, 19 of 97, 233 of 1,162 dated 2022 or earlier (pattern match). `ahead` is not available: pre-2023 ledger studies with the same designs exist | Verdict now judges at publication ("already in use before 2023, ledger years, Appendix"); [2] kept only as [later] confirmation; M07 verdict line cites 233 of 1,162; Appendix gains year counts for M06 and M07 |
+| 2 | ECoG [3] cannot carry the overreach claim (1,024 vs 125,000 words; median vs aggregate) | correct | [3] Abstract and Methods (78 wpm, 25% median WER, 1,024 words); target Table 1 | Verdict and "Where" rest the overreach on the missing within-study sensor/feature control; [3] described as a vocabulary about 120 times smaller (inference) |
+| 3 | Quote does not show the authors crediting spiking resolution | partly | The claim-table quote was the wrong one, but the attribution exists: Abstract, "Enabled by these high-resolution recordings, our study participant ... achieved"; Discussion, "at single-neuron resolution" | Kept as the paper's own claim, now quoting "these high-resolution recordings" (Abstract); no softening to "implies" needed. notes.json t64 should take the new quote |
+| 4 | "the gap is data and sensors, not architecture" unsupported | correct | [2] differs in participant, accumulated data and LM (Results; Methods "two further open-source language models"); target Table 1 (23.8 to 17.4% from LM alone) | Replaced with "The online 2.5% of [2] differs in participant, data and language model" |
+| 5 | Brain-to-Text Benchmark '24 missing as SOTA on the same data | correct | arxiv-2412.17227 source text p. 2: "The baseline algorithm achieved a 9.7% word error rate, while the top entrant achieved a 5.8% word error rate"; abstract: gains from ensembling with a fine-tuned LLM, SSMs/transformers no better than the RNN | Added as reference [7] [later]; M06 State of the art and table row M06 ("5.8% offline WER, same data") |
+| 6 | "same neural evidence" wrong (different sentence sets, PER 19.7 vs 21.4) | correct | Target Sec. 3: 125k sentences from Switchboard, 50-word sentences from Moses et al.; Table 1 | Reworded to "on different sentence sets, similar phoneme error gives a 2.6-fold difference ... (inference)"; added Fig. 4a, which reprocesses the 50-word RNN outputs with larger vocabularies and so fixes the neural data |
+| 7 | M12 "not reported" although evaluation is reported | correct | Target Table 1 (online WER with 95% CIs), Fig. 2 | M12 verdict standard in text, table and slots.json; seeds, selection data and single participant kept as limitations |
+| 8 | M03 SOTA lacks condition (50 words; accumulating data) | correct | [2] Abstract: "99.6% accuracy with a 50-word vocabulary"; Results: "maintained through session 84", "as we collected more training data" | M03 State of the art rewritten with the 50-word condition and accumulating data |
+| 9 | "sentence decoding from cortex was an ECoG result" ignores handwriting BCI [6]; [5] is overt speech in epilepsy patients | correct | [6] "Decoding handwritten sentences" (intracortical); [5] "undergoing treatment for epilepsy", "read aloud sentences" | Reworded to "sentence decoding from speech cortex was an ECoG result, in a paralysed participant [4] and in overt speech of epilepsy patients [5]" |
+| 10 | "dominate" overstates 298 of 1,162 | correct | M07 audit usual design (152, 146 of 1,162; 119 slot-filled) | "lead, though most name neither" |
+| 11 | 23.8% called offline | correct | Target Table 1: 23.8% under Online, 17.4% under Offline (improved LM) | "from 23.8% (online) to 17.4% (offline replay; Table 1), 27% relative (inference)" |
+| 12 | "with neural rescoring" not supported by the quote | partly | Claim-table quote lacked it, but [2] states: "we applied two further open-source language models to translate the sequence of words ... into the most likely English sentence" (Results/Methods) | Kept, reworded to "with two further language models rescoring words [2]"; notes.json needs this quote |
+| 13 | Code leakage claim is inference: no line links valOutputs to 'test' | partly | The link exists: neuralSequenceDecoder.py lines 264-268 (testDir defaults to 'test'; valDir built from it), 270-281 (tfValDatasets from valDir), 481 (valOutputs = self.inference()), 539 (inference iterates tfValDatasets), 494 (best checkpoint on valOutputs) | Kept as fact, made precise: "selects its best checkpoint on the partition named "test" (default validation set)"; line numbers belong in notes.json (q1/q2) |
+| 14 | M08 table SOTA 78 wpm lacks condition | correct | [3] Abstract: 78 wpm, 25% median WER; Methods: 1,024 unique words | Table row and slots.json: "78 words/min, 25% WER, 1,024 words [3]" |
 
-Applied 2, rejected 0, unverified 0. Open: independent ChatGPT evaluation (chatgpt_pending).
+Counts: 11 correct, 3 partly correct, 0 wrong, 0 unverifiable. All 14 applied.
+
+Length: the fixes added about 1,800 characters to a body that was already at 6,979; the text was condensed (redundant clauses, the 11.8% proximal-test figure, the duplicate no-LM question) to 7,000 characters.
+
+Open items (to `verification_status` in verdict.json, not the body):
+- notes.json lacks entries for the new numbers: benchmark 9.7% / 5.8% (arxiv-2412.17227 p. 2), M06/M07 ledger year counts, the [2] language-model quote, the Abstract "high-resolution recordings" quote. The gate passes only with these entries added (stand-in notes); against the unchanged notes.json it fails on 9.7, 38, 34, 230 and 665.
+- Reference [7] was added by hand to the review, refs.bib and the stand-in JSON; build_refs.py and fill_row.py must be rerun before publishing, and the M06 audit needs a read_fulltext entry (role sota) for arxiv-2412.17227.
+- M05 and M07 "standard at publication" rest on pattern-match year counts; the pre-2023 large-vocabulary designs (mostly lip reading) were not read in full.
