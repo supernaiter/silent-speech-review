@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## biosignal-to-speech-voice-control
+
+- Table: [`biosignal-to-speech-voice-control.csv`](biosignal-to-speech-voice-control.csv) (3268 slot-filled, 93 pattern match, usual design in 48, 4 read in full)
+- Inclusion rule: Include studies that synthesize speech audio from a non-acoustic speech signal (surface EMG, mouth or face video, ultrasound, articulography, neural recordings) and set the output voice through a speaker representation, whether taken from reference audio, a speaker label or a face image. Boundary: exclude single-voice systems that only reproduce the recorded speaker, text-to-speech after text decoding, and conversion from acoustic input (whisper, NAM); count versions of one study once.
+- Used in: [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
+
 ## neural-speech-synthesis
 
 - Table: [`neural-speech-synthesis.csv`](neural-speech-synthesis.csv) (3268 slot-filled, 35 pattern match, usual design in 11, 2 read in full)

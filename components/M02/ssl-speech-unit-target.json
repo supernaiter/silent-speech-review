@@ -1,0 +1,964 @@
+{
+ "topic": "ssl-speech-unit-target",
+ "slot": "M02",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*?(to-speech|speech synthesis|synthesi[sz]ed speech|voicing|vocoder|speech reconstruction))(?=.*?(hubert|soft (speech )?unit|speech unit|contentvec|wav2vec|self-supervised speech))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include studies that synthesize speech from a non-acoustic speech signal and train the signal encoder to predict self-supervised speech representations (HuBERT units, soft units, ContentVec, wav2vec features) derived from paired or aligned audio, instead of or besides spectral targets. Boundary: exclude recognition-only studies, targets the model generates itself, and acoustic-input conversion; count versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 31,
+  "slot_filled_unique": 31,
+  "string_match_folders": 68,
+  "string_match_unique": 54,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2511.22229",
+     "arxiv-2602.01879",
+     "arxiv-2308.15256",
+     "arxiv-2407.18541"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2407.18541",
+     "arxiv-2403.01087"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2412.18839",
+     "arxiv-2602.01879"
+    ]
+   },
+   {
+    "design": "supervision_kind=self_supervised",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2407.18541"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-wu24k_interspeech"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "ssl_units",
+    "n": 53,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2509.25670",
+     "arxiv-2510.23969",
+     "arxiv-2602.11477",
+     "arxiv-2603.04296"
+    ]
+   },
+   {
+    "design": "mel_target",
+    "n": 36,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2509.25670",
+     "arxiv-2602.11477",
+     "arxiv-2603.08046",
+     "arxiv-2604.15923"
+    ]
+   },
+   {
+    "design": "pitch_removed",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2602.01879",
+     "arxiv-2502.12002",
+     "doi-10.1101-2024.12.16.628596"
+    ]
+   }
+  ],
+  "metric_pattern": "\\bWER\\b|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "t2 gt wer",
+   "value": 0.71,
+   "unit": "percent",
+   "raw": "0.71%",
+   "pid": "arxiv-2502.12002",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 1.07,
+   "unit": "percent",
+   "raw": "1.07",
+   "pid": "arxiv-2412.18839",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Text WER",
+   "value": 2.1,
+   "unit": "percent",
+   "raw": "0.021",
+   "pid": "arxiv-2609.04455",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 2.85,
+   "unit": "percent",
+   "raw": "2.85",
+   "pid": "arxiv-2602.01879",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (NeMo FastConformer)",
+   "value": 3.9,
+   "unit": "percent",
+   "raw": "Normal Speech table cell",
+   "pid": "arxiv-2603.04296",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "vocoder ablation WER",
+   "value": 7.63,
+   "unit": "percent",
+   "raw": "HiFi-GAN vocoder WER vs Unit-HiFiGAN 14.28",
+   "pid": "arxiv-2503.05223",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table2 wtn wer",
+   "value": 11.55,
+   "unit": "%",
+   "raw": "11.55",
+   "pid": "arxiv-2303.01639",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (English)",
+   "value": 12.36,
+   "unit": "percent",
+   "raw": "12.36",
+   "pid": "arxiv-2603.08046",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Chem WER pct",
+   "value": 12.5,
+   "unit": "percent",
+   "raw": "Chem WER",
+   "pid": "arxiv-2511.22229",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Whisper WER on ground-truth audio, test split",
+   "value": 12.66,
+   "unit": "percent",
+   "raw": "12.66",
+   "pid": "arxiv-2510.23969",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2212.11377",
+   "key": "t:reviseselfsupervisedspeechresynthesiswithvisualinputforuniversalandgeneralizedsp",
+   "title": "ReVISE: Self-Supervised Speech Resynthesis with Visual Input for Universal and Generalized Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2212.11377 | title=ReVISE: Self-Supervised Speech Resynthesis with Visual Input for Universal and General"
+  },
+  {
+   "pid": "arxiv-2301-07173-neurotalk",
+   "key": "t:neurotalktowardsvoicereconstructionfromeegduringimaginedspeech",
+   "title": "NeuroTalk: Towards Voice Reconstruction from EEG during Imagined Speech",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2301-07173-neurotalk | title=NeuroTalk: Towards Voice Reconstruction from EEG during Imagined Speech | au"
+  },
+  {
+   "pid": "arxiv-2303.01639",
+   "key": "t:wesperzeroshotandrealtimewhispertonormalvoiceconversionforwhisperbasedspeechinte",
+   "title": "WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.01639 | title=WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Sp"
+  },
+  {
+   "pid": "arxiv-2305.15403",
+   "key": "t:avtranspeechaudiovisualrobustspeechtospeechtranslation",
+   "title": "AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2305.15403 | title=AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation | authors=Huang R, Liu"
+  },
+  {
+   "pid": "arxiv-2305.19603",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2305.19603 | title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Jeongsoo Choi, Minsu"
+  },
+  {
+   "pid": "arxiv-2306.00489",
+   "key": "t:speechinpaintingcontextbasedspeechsynthesisguidedbyvideo",
+   "title": "Speech inpainting: Context-based speech synthesis guided by video",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.00489 | title=Speech inpainting: Context-based speech synthesis guided by video | authors=Montesinos"
+  },
+  {
+   "pid": "arxiv-2306.06652",
+   "key": "t:audiovisualmandarinelectrolaryngealspeechvoiceconversion",
+   "title": "Audio-Visual Mandarin Electrolaryngeal Speech Voice Conversion",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.06652 | doi=10.48550/arxiv.2306.06652 | title=Audio-Visual Mandarin Electrolaryngeal Speech Voice Co"
+  },
+  {
+   "pid": "arxiv-2307.01233",
+   "key": "t:robustl2sspeakerspecificliptospeechsynthesisexploitingselfsupervisedrepresentati",
+   "title": "RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2307.01233 | title=RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Represe"
+  },
+  {
+   "pid": "arxiv-2307.02471",
+   "key": "t:deepspeechsynthesisfrommribasedarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from MRI-Based Articulatory Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep Speech Synthesis from MRI-Based Articulatory Representations | intended_use_cases=speech_restoration, other |"
+  },
+  {
+   "pid": "arxiv-2307.07748",
+   "key": "t:leveragingselfsupervisedaudiovisualpretrainedmodelstoimprovevocodedspeechintelli",
+   "title": "Leveraging Self-Supervised Audio-Visual Pretrained Models to Improve Vocoded Speech Intelligibility in Cochlear Implant Simulation",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307.07748 | title=Leveraging Self-Supervised Audio-Visual Pretrained Models to Improve Vocoded Speech In"
+  },
+  {
+   "pid": "arxiv-2308.15256",
+   "key": "t:lettherebesoundreconstructinghighqualityspeechfromsilentvideos",
+   "title": "Let There Be Sound: Reconstructing High Quality Speech from Silent Videos",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2308.15256 | title=Let There Be Sound: Reconstructing High Quality Speech from Silent Videos | authors=Ji"
+  },
+  {
+   "pid": "arxiv-2309.08030",
+   "key": "t:av2wavdiffusionbasedresynthesisfromcontinuousselfsupervisedfeaturesforaudiovisua",
+   "title": "AV2Wav: Diffusion-Based Re-synthesis from Continuous Self-supervised Features for Audio-Visual Speech Enhancement",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2309.08030 | title=AV2Wav: Diffusion-Based Re-synthesis from Continuous Self-supervised Features for Audi"
+  },
+  {
+   "pid": "arxiv-2312.06613",
+   "key": "p:arxiv-2312.06613",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vocabulary_regime=open_vocabulary | extra.Production.scope_note=English text drives simultaneous speech audio and lip ar"
+  },
+  {
+   "pid": "arxiv-2312.13600",
+   "key": "t:braintalkerlowresourcebraintospeechsynthesiswithtransferlearningusingwav2vec20",
+   "title": "BrainTalker: Low-Resource Brain-to-Speech Synthesis with Transfer Learning using Wav2Vec 2.0",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2312.13600 | paper_version=2312.13600v1 | title=BrainTalker: Low-Resource Brain-to-Speech Synthesis with"
+  },
+  {
+   "pid": "arxiv-2403.01087",
+   "key": "t:towardsaccurateliptospeechsynthesisinthewild",
+   "title": "Towards Accurate Lip-to-Speech Synthesis in-the-Wild",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2403.01087 | title=Towards Accurate Lip-to-Speech Synthesis in-the-Wild | authors=Sindhu Hegde, Rudrabha"
+  },
+  {
+   "pid": "arxiv-2407.07595",
+   "key": "t:scalinglawinneuraldatanoninvasivespeechdecodingwith175hoursofeegdata",
+   "title": "Scaling Law in Neural Data: Non-Invasive Speech Decoding with 175 Hours of EEG Data",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2407.07595 | doi=10.48550/arxiv.2407.07595 | title=Scaling Law in Neural Data: Non-Invasive Speech Decodi"
+  },
+  {
+   "pid": "arxiv-2407.18541",
+   "key": "t:towardsimprovingnamtospeechsynthesisintelligibilityusingselfsupervisedspeechmode",
+   "title": "Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2407.18541 | paper_version=2407.18541v1 | title=Towards Improving NAM-to-Speech Synthesis Intelligibility"
+  },
+  {
+   "pid": "arxiv-2411.19486",
+   "key": "t:v2sflowvideotospeechgenerationwithspeechdecompositionandrectifiedflow",
+   "title": "V2SFlow: Video-to-Speech Generation with Speech Decomposition and Rectified Flow",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411.19486 | title=V2SFlow: Video-to-Speech Generation with Speech Decomposition and Rectified Flow | aut"
+  },
+  {
+   "pid": "arxiv-2412.18839",
+   "key": "t:advancingnamtospeechconversionwithnovelmethodsandthemultinamdataset",
+   "title": "Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.18839 | paper_version=arXiv:2412.18839v2 [cs.SD] 23 Jan 2025 | title=Advancing NAM-to-Speech Convers"
+  },
+  {
+   "pid": "arxiv-2502.12002",
+   "key": "t:naturall2sendtoendhighqualitymultispeakerliptospeechsynthesiswithdifferentialdig",
+   "title": "NaturalL2S: End-to-End High-quality Multispeaker Lip-to-Speech Synthesis with Differential Digital Signal Processing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.12002 | title=NaturalL2S: End-to-End High-quality Multispeaker Lip-to-Speech Synthesis with Differen"
+  },
+  {
+   "pid": "arxiv-2503.05223",
+   "key": "t:divisedirectvisualinputspeechsynthesispreservingspeakercharacteristicsandintelli",
+   "title": "DiVISe: Direct Visual-Input Speech Synthesis Preserving Speaker Characteristics And Intelligibility",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2503.05223 | title=DiVISe: Direct Visual-Input Speech Synthesis Preserving Speaker Characteristics And In"
+  },
+  {
+   "pid": "arxiv-2505.22024",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2505.22024 | title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Mod"
+  },
+  {
+   "pid": "arxiv-2505.22024-resound",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.22024-resound | title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomp"
+  },
+  {
+   "pid": "arxiv-2507.00498-muteswap",
+   "key": "t:muteswapvisualinformedsilentvideoidentityconversion",
+   "title": "MuteSwap: Visual-informed Silent Video Identity Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2507.00498-muteswap | title=MuteSwap: Visual-informed Silent Video Identity Conversion | authors=Liu Yifa"
+  },
+  {
+   "pid": "arxiv-2509.25670",
+   "key": "t:ltal2slexicaltoneawareliptospeechsynthesisformandarinwithcrosslingualtransferlea",
+   "title": "LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2509.25670 | title=LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Tr"
+  },
+  {
+   "pid": "arxiv-2509.25670-ltal2s",
+   "key": "t:ltal2slexicaltoneawareliptospeechsynthesisformandarinwithcrosslingualtransferlea",
+   "title": "LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.25670-ltal2s | title=LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lin"
+  },
+  {
+   "pid": "arxiv-2510.23969",
+   "key": "t:emg2speechsynthesizingspeechfromelectromyographyusingselfsupervisedspeechmodels",
+   "title": "emg2speech: synthesizing speech from electromyography using self-supervised speech models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.23969 | title=emg2speech: synthesizing speech from electromyography using self-supervised speech mod"
+  },
+  {
+   "pid": "arxiv-2511.04691",
+   "key": "t:apennyforyourthoughtsdecodingspeechfrominexpensivebrainsignals",
+   "title": "A Penny for Your Thoughts: Decoding Speech from Inexpensive Brain Signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511.04691 | paper_version=2511.04691v1 | title=A Penny for Your Thoughts: Decoding Speech from Inexpensi"
+  },
+  {
+   "pid": "arxiv-2511.22229",
+   "key": "t:vspeechlmavisualspeechlanguagemodelforvisualtexttospeechtask",
+   "title": "VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1145/3743093.3771012 | title=VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task | auth"
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01879 | arxiv_id=2602.01879v1 | source_url=https://arxiv.org/pdf/2602.01879v1 | title=Speaking Witho"
+  },
+  {
+   "pid": "arxiv-2602.11477",
+   "key": "t:sldl2shierarchicalsubspacelatentdiffusionforhighfidelityliptospeechsynthesis",
+   "title": "SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2602.11477 | title=SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthe"
+  },
+  {
+   "pid": "arxiv-2602.11477-sldl2s",
+   "key": "t:sldl2shierarchicalsubspacelatentdiffusionforhighfidelityliptospeechsynthesis",
+   "title": "SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.11477-sldl2s | title=SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech"
+  },
+  {
+   "pid": "arxiv-2603.04296",
+   "key": "t:floww2nwhisperedtonormalspeechconversionviaflowmatching",
+   "title": "FlowW2N: Whispered-to-Normal Speech Conversion via Flow-Matching",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Observation.reported_vs_derived=source_reported | paper_version=2603.04296v1 | title=FlowW2N: Whispered-to-Normal Speech"
+  },
+  {
+   "pid": "arxiv-2603.08046",
+   "key": "t:whispearabidirectionalframeworkforscalingwhisperedspeechconversionviapseudoparal",
+   "title": "WhispEar: A Bi-directional Framework for Scaling Whispered Speech Conversion via Pseudo-Parallel Whisper Generation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2603.08046v1 | title=WhispEar: A Bi-directional Framework for Scaling Whispered Speech Conversion via Pseu"
+  },
+  {
+   "pid": "arxiv-2604.15923",
+   "key": "t:hierarchicalcodecdiffusionforvideotospeechgeneration",
+   "title": "Hierarchical Codec Diffusion for Video-to-Speech Generation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2604.15923 | title=Hierarchical Codec Diffusion for Video-to-Speech Generation | authors=Jiaxin Ye, Gaoxi"
+  },
+  {
+   "pid": "arxiv-2605-31173-mindvoice",
+   "key": "t:mindvoicereconstructingintelligiblespeechfromnoninvasiveneuralsignalswithpretrai",
+   "title": "MindVoice: Reconstructing Intelligible Speech from Non-invasive Neural Signals with Pretrained Priors",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MindVoice: Reconstructing Intelligible Speech from Non-invasive Neural Signals with Pretrained Priors | authors=Ba"
+  },
+  {
+   "pid": "arxiv-2609.04455",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2609.04455 | paper_version=2609.04455v2 | title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech S"
+  },
+  {
+   "pid": "arxiv-2609.04455-brain2speech",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | authors=Chandra Shreeram"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "key": "t:ahighperformanceneuroprosthesisforspeechdecodingandavatarcontrol",
+   "title": "A high-performance neuroprosthesis for speech decoding and avatar control",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41586-023-06443-4 | title=A high-performance neuroprosthesis for speech decoding and avatar control |"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ae1ea2",
+   "key": "t:magnetoencephalographymegbasednoninvasivechinesespeechdecoding",
+   "title": "Magnetoencephalography (MEG) Based Non-Invasive Chinese Speech Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-ae1ea2 | title=Magnetoencephalography (MEG) Based Non-Invasive Chinese Speech Decoding |"
+  },
+  {
+   "pid": "doi-10.1101-2024.12.16.628596",
+   "key": "t:naturalspeechresynthesisfromdirectcorticalrecordingsusingapretrainedencoderdecod",
+   "title": "Natural speech re-synthesis from direct cortical recordings using a pre-trained encoder-decoder framework",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Natural speech re-synthesis from direct cortical recordings using a pre-trained encoder-decoder framework | intend"
+  },
+  {
+   "pid": "doi-10.1109-icassp43922.2022.9747300",
+   "key": "t:towardsclosedloopspeechsynthesisfromstereotacticeegaunitselectionapproach",
+   "title": "Towards Closed-Loop Speech Synthesis From Stereotactic EEG: A Unit Selection Approach",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-icassp43922.2022.9747300 | doi=10.1109/icassp43922.2022.9747300 | title=Towards Closed-Loop Speech"
+  },
+  {
+   "pid": "doi-10.1609-aaai.v37i5.25745",
+   "key": "t:towardsvoicereconstructionfromeegduringimaginedspeech",
+   "title": "Towards Voice Reconstruction from EEG during Imagined Speech",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1609/aaai.v37i5.25745 | title=Towards Voice Reconstruction from EEG during Imagined Speech | authors=You"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2019.01267",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2019.01267 | title=Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor"
+  },
+  {
+   "pid": "ib24-neural2speech",
+   "key": "t:neural2speechdecodingspeechandlanguagefromthehumanbrain",
+   "title": "#neural2speech: Decoding Speech and Language from the Human Brain",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ib24-neural2speech | title=#neural2speech: Decoding Speech and Language from the Human Brain | authors=Xabier d"
+  },
+  {
+   "pid": "isca-choi23-liptospeech",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Choi, Park, Chung | venue=Interspeech 2023 | Stud"
+  },
+  {
+   "pid": "isca-choi23_interspeech",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-choi23_interspeech | title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Jeongsoo Choi,"
+  },
+  {
+   "pid": "isca-gusev24_interspeech",
+   "key": "t:improvementspeakersimilarityforzeroshotanytoanyvoiceconversionofwhisperedandregu",
+   "title": "Improvement Speaker Similarity for Zero-Shot Any-to-Any Voice Conversion of Whispered and Regular Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improvement Speaker Similarity for Zero-Shot Any-to-Any Voice Conversion of Whispered and Regular Speech | venue=P"
+  },
+  {
+   "pid": "isca-krnoul06_interspeech",
+   "key": "p:isca-krnoul06_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Proc. Interspeech 2006 (Pittsburgh) pp.585-588; DOI 10.21437/Interspeech.2006-215; UWB Pilsen Krnoul/Zelezny/Mulle"
+  },
+  {
+   "pid": "isca-lee26v_interspeech",
+   "key": "t:enhancingemgtospeechviasilentvoicedrepresentationalignment",
+   "title": "Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lee26v_interspeech | title=Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment | authors=Ji"
+  },
+  {
+   "pid": "isca-montesinos23_interspeech",
+   "key": "t:avinpaintingaudiovisualspeechinpainting",
+   "title": "Av-Inpainting: Audio-Visual Speech Inpainting",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-montesinos23_interspeech | title=Av-Inpainting: Audio-Visual Speech Inpainting | authors=Juan F. Montesino"
+  },
+  {
+   "pid": "isca-pham25_interspeech",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-pham25_interspeech | title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decompo"
+  },
+  {
+   "pid": "isca-scheck23_interspeech",
+   "key": "t:steganspeechtoelectromyographysignalconversionusinggenerativeadversarialnetworks",
+   "title": "STE-GAN: Speech-to-Electromyography Signal Conversion using Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=STE-GAN: Speech-to-Electromyography Signal Conversion using Generative Adversarial Networks | system_name=STE-GAN:"
+  },
+  {
+   "pid": "isca-scheck25_interspeech",
+   "key": "t:diffmvetsdiffusionbasedmultivoiceelectromyographytospeechconversionusingspeakeri",
+   "title": "DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Training Targets",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Tra"
+  },
+  {
+   "pid": "isca-shah24-namssl",
+   "key": "t:towardsimprovingnamtospeechsynthesisintelligibilityusingselfsupervisedspeechmode",
+   "title": "Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models | venue=Interspeech"
+  },
+  {
+   "pid": "isca-shah25_interspeech",
+   "key": "t:namtospeechconversionwithmultitaskenhancedautoregressivemodels",
+   "title": "NAM-to-Speech Conversion with Multitask-Enhanced Autoregressive Models",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=NAM-to-Speech Conversion with Multitask-Enhanced Autoregressive Models | venue=Proc. Interspeech 2025 | intended_u"
+  },
+  {
+   "pid": "isca-toussaint26_interspeech",
+   "key": "t:emergenceofphoneticrepresentationsinemgbasedsilentspeechinterfaces",
+   "title": "Emergence of Phonetic Representations in EMG-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-toussaint26_interspeech | title=Emergence of Phonetic Representations in EMG-based Silent Speech Interface"
+  },
+  {
+   "pid": "isca-wang25w_interspeech",
+   "key": "t:theroleofaudiovisualintegrationinthetimecourseofphoneticencodinginselfsupervised",
+   "title": "The role of audio-visual integration in the time course of phonetic encoding in self-supervised speech models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wang25w_interspeech | title=The role of audio-visual integration in the time course of phonetic encoding i"
+  },
+  {
+   "pid": "isca-wu23k_interspeech",
+   "key": "t:deepspeechsynthesisfrommribasedarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from MRI-Based Articulatory Representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wu23k_interspeech | title=Deep Speech Synthesis from MRI-Based Articulatory Representations | authors=Pete"
+  },
+  {
+   "pid": "isca-wu24k_interspeech",
+   "key": "t:towardsemgtospeechwithanecklaceformfactor",
+   "title": "Towards EMG-to-Speech with a Necklace Form Factor",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards EMG-to-Speech with a Necklace Form Factor | system_name=wireless dry-electrode neckband EMG: 10 gold-plate"
+  },
+  {
+   "pid": "pmc-11424044-ailistener",
+   "key": "t:usingautomaticspeechrecognitiontomeasuretheintelligibilityofspeechsynthesizedfro",
+   "title": "Using Automatic Speech Recognition to Measure the Intelligibility of Speech Synthesized from Brain Signals",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11424044-ailistener | title=Using Automatic Speech Recognition to Measure the Intelligibility of Speech Syn"
+  },
+  {
+   "pid": "pmc-12460843-linguistic-neural-decoding",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12460843-linguistic-neural-decoding | title=Progress, challenges and future of linguistic neural decoding w"
+  },
+  {
+   "pid": "pmc-13537912-larysemg",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-larysemg | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyog"
+  },
+  {
+   "pid": "pmc-13537912-semg-larynx",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semg-larynx | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electrom"
+  },
+  {
+   "pid": "pmc-13537912-semg_laryngectomy",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semg_laryngectomy | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface El"
+  },
+  {
+   "pid": "pmc-13537912-semglar",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semglar | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyogr"
+  },
+  {
+   "pid": "pmc-6882773-b2speech",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices | au"
+  },
+  {
+   "pid": "pmc-6882773-braintospeech",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6882773-braintospeech | title=Generating Natural, Intelligible Speech From Brain Activity in Motor, Premoto"
+  }
+ ],
+ "usual_approach": {
+  "design": "supervision_kind=paired_audio",
+  "n": 11,
+  "tier": "slot-filled",
+  "pids": [
+   "arxiv-2412.18839",
+   "arxiv-2511.22229",
+   "arxiv-2602.01879",
+   "arxiv-2308.15256",
+   "arxiv-2407.18541"
+  ],
+  "population_unique": 22
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-lee26v_interspeech",
+   "role": "sota",
+   "loc": "Table 1; Sec. 5.1",
+   "quote": "the WER metric across different seeds is approximately 1%."
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "role": "target",
+   "loc": "Table I",
+   "quote": "Flatten"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "isca-lee26v_interspeech",
+  "year": 2026,
+  "metric": "silent-EMG WER, Gaddy test split, Whisper-medium, 10-seed mean (mel target; speech-unit target 26.55)",
+  "value": 25.14,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 54,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "supervision_kind=paired_audio",
+   "n": 11,
+   "tier": "slot-filled",
+   "population_unique": 22
+  },
+  "state_of_the_art": {
+   "pid": "isca-lee26v_interspeech",
+   "year": 2026,
+   "metric": "silent-EMG WER, Gaddy test split, Whisper-medium, 10-seed mean (mel target; speech-unit target 26.55)",
+   "value": 25.14,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 2,
+  "read_prior": [],
+  "unread": 68,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only"
+ ]
+}
