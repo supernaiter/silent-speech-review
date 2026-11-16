@@ -81,136 +81,36 @@
     ]
    }
   ],
-  "pattern_counts": [
-   {
-    "design": "cross_modal_distillation",
-    "n": 20,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2602.19316",
-     "arxiv-2411.02256",
-     "cvf-zhang24-es3",
-     "arxiv-2305.15403",
-     "arxiv-2212.02782"
-    ]
-   },
-   {
-    "design": "auxiliary_task",
-    "n": 11,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2603.03312",
-     "arxiv-2607-08236-tvta",
-     "arxiv-2507.06060",
-     "isca-papadimitriou25_interspeech",
-     "arxiv-2305.15403"
-    ]
-   },
-   {
-    "design": "audio_feature_regression",
-    "n": 5,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2311.04766",
-     "isca-choi23_interspeech",
-     "pmc-10326283-lineardecode",
-     "arxiv-2106.01933",
-     "arxiv-2112.04748"
-    ]
-   }
-  ],
-  "metric_pattern": "WER|word error",
-  "better": "lower"
+  "pattern_counts": [],
+  "metric_pattern": "top[- ]?(1|10)|segment|retriev|identification",
+  "better": "higher"
  },
  "sota_candidates": [
   {
-   "metric": "WER standard deviation (%)",
-   "value": 0.3,
-   "unit": "percent",
-   "raw": "0.3",
-   "pid": "arxiv-2606.07259",
-   "year": 2026,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "WER (lower is better; source Table 1)",
-   "value": 0.68,
-   "unit": "percent",
-   "raw": "0.68%",
-   "pid": "arxiv-2607.29112",
-   "year": 2026,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "AVSR WER Huge LRS3",
-   "value": 0.8,
-   "unit": "percent",
-   "raw": "0.8",
-   "pid": "arxiv-2602.19316",
-   "year": 2026,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "GT WER",
-   "value": 2.9,
-   "unit": "percent",
-   "raw": "2.9",
-   "pid": "arxiv-2405.08021",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "t3 was wer",
-   "value": 3.0,
-   "unit": "percent",
-   "raw": "3.0%",
-   "pid": "arxiv-2008.02516",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "latent3 WER",
-   "value": 3.5,
-   "unit": "percent",
-   "raw": "teacher-forced WER, latent model 3",
-   "pid": "doi-10.64898-2026.07.08.737343",
-   "year": 2026,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "WER (NeMo FastConformer)",
-   "value": 3.9,
-   "unit": "percent",
-   "raw": "Normal Speech table cell",
-   "pid": "arxiv-2603.04296",
-   "year": 2026,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "TSA word error rate",
-   "value": 4.2,
-   "unit": "percent",
-   "raw": "4.2",
-   "pid": "arxiv-2411.18266",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "T1 dwbase wer",
-   "value": 4.33,
-   "unit": "percent",
-   "raw": "4.33",
-   "pid": "arxiv-2601.18393",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "ASR WER Europarl",
-   "value": 4.5,
+   "metric": "top-10 segment accuracy Gwilliams MEG",
+   "value": 70.7,
    "unit": "%",
-   "raw": "median WER 4.5% vs 9.5% model reference",
-   "pid": "arxiv-2507.02530",
-   "year": 2025,
+   "raw": "top-10 segment accuracy Gwilliams MEG, +wav2vec model (best dataset; Schoffelen 67.5)",
+   "pid": "arxiv-2208.12266-natmi",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SEMKEY retrieval accuracy",
+   "value": 29.56,
+   "unit": "percent",
+   "raw": "SEMKEY 10-way retrieval accuracy (no TF)",
+   "pid": "arxiv-2603.03312",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Top-1 (%)",
+   "value": 14.17,
+   "unit": "%",
+   "raw": "14.17",
+   "pid": "arxiv-2609.31997",
+   "year": 2026,
    "tier": "ledger only"
   }
  ],
@@ -1445,6 +1345,18 @@
    "role": "sota",
    "loc": "Abstract; Table 2",
    "quote": "yielding WERs of 17.6% (VSR), 0.9% (ASR), and 0.8% (A VSR) on LRS3"
+  },
+  {
+   "pid": "arxiv-2208.12266-natmi",
+   "role": "target",
+   "loc": "Table 2",
+   "quote": "+ Deep Mel 24.7 ±3.2 15.4 ±1.6 64.4 ±0.8 61.2 ±0.6"
+  },
+  {
+   "pid": "arxiv-2407.07595",
+   "role": "sota",
+   "loc": "Table 2",
+   "quote": "wav2vec2.0 48.5 76.0"
   }
  ],
  "state_of_the_art": {
@@ -1473,7 +1385,7 @@
    "unit": "%",
    "timing": "later"
   },
-  "read": 4,
+  "read": 6,
   "read_prior": [
    "arxiv-1911.12747",
    "doi-10.1609-aaai.v34i04.6174",
@@ -1481,9 +1393,16 @@
   ],
   "unread": 119,
   "confirmed_unique": 0,
-  "known_item_recall": null
+  "known_item_recall": 1.0
  },
  "used_by": [
+  "decoding-speech-perception-from-non-invasive-brain-recordings",
   "visual-speech-recognition-for-multiple-languages-in-the-wild"
- ]
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 1,
+  "found": 1,
+  "recall": 1.0,
+  "missed": []
+ }
 }

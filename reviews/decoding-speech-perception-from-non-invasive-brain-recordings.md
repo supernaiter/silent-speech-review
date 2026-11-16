@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/decoding-speech-perception-from-non-invasive-brain-recordings/](decoding-speech-perception-from-non-invasive-brain-recordings/).**
 
-Contrastive deep model identifies heard 3 s speech segments from MEG/EEG across 175 participants; MEG top-1 up to 41% (best participants above 80%) among 1,000+ candidates, EEG much lower.
+Contrastive M/EEG decoding (M06) and subject-layer pooling (M03) were ahead in 2022 and are now standard; tests reuse training participants, and EEG headline and EEG zero-shot claims outrun the data.
 
 [Read the full review](decoding-speech-perception-from-non-invasive-brain-recordings/) · [All reviews](../README.md)
