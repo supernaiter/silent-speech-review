@@ -36,9 +36,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## speech-latent-target
 
-- Table: [`speech-latent-target.csv`](speech-latent-target.csv) (31 slot-filled, 40 pattern match, usual design in 10, 3 read in full)
+- Table: [`speech-latent-target.csv`](speech-latent-target.csv) (31 slot-filled, 40 pattern match, usual design in 10, 4 read in full)
 - Inclusion rule: Include studies that synthesize speech from a non-acoustic signal (articulography, ultrasound, video, EMG, neural recordings) and supervise the signal encoder during training with paired speech, either by direct spectral regression or by matching the latent of a speech encoder or autoencoder that is not used at test time. Boundary: exclude acoustic-input conversion, recognition-only studies and self-generated targets; count versions of one study once; the design of interest is the speech-latent (autoencoder bottleneck or deep feature) target.
-- Used in: [EMA2S: An End-to-End Multimodal Articulatory-to-Speech System](../../reviews/ema2s-an-end-to-end-multimodal-articulatory-to-speech-system/)
+- Used in: [EMA2S: An End-to-End Multimodal Articulatory-to-Speech System](../../reviews/ema2s-an-end-to-end-multimodal-articulatory-to-speech-system/), [Lip2AudSpec: Speech Reconstruction from Silent Lip Movements Video](../../reviews/lip2audspec-speech-reconstruction-from-silent-lip-movements-video/)
 
 ## ssl-speech-unit-target
 
