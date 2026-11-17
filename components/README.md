@@ -5,7 +5,7 @@ Any speech-intention decoder, whatever its sensor, can be described by the same 
 | Component | Name | Topics |
 | --- | --- | --- |
 | M01 | Training-time act | — |
-| M02 | Teacher signal | [auxiliary-representation-prediction](M02/), [speech-latent-target](M02/), [ssl-speech-unit-target](M02/), [whisper-to-normal-training-pairing](M02/) |
+| M02 | Teacher signal | [auxiliary-representation-prediction](M02/), [silent-target-transfer](M02/), [speech-latent-target](M02/), [ssl-speech-unit-target](M02/), [whisper-to-normal-training-pairing](M02/) |
 | M03 | Train / calibrate | [cross-subject-pooled-training](M03/), [length-curriculum](M03/), [self-supervised-pretraining](M03/), [speech-bci-calibration-data](M03/) |
 | M04 | Use-time act | [noninvasive-text-production-action](M04/), [overt-to-silent-transfer](M04/) |
 | M05 | Sensing | [ecog-speech-decoding](M05/), [intracortical-speech-decoding](M05/) |

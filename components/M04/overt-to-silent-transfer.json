@@ -4,7 +4,7 @@
  "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
  "pattern": "(audible|vocali[sz]ed|overt|voiced|aloud|phonated)[^|]{0,60}(->|→| to )[^|]{0,10}(silent|mimed|covert|mouthed)|\\bcross[- ]mode\\b|not trained on (mimed|silent)|train\\w*[^|]{0,30}(audible|vocali[sz]ed|overt|voiced)[^|]{0,80}test\\w*[^|]{0,40}(silent|mimed|covert|mouthed)",
  "scope": "ledger",
- "fulltext_pattern": "(trained|training|train) (only )?(on|with) (the )?(audible|vocali[sz]ed|overt|voiced|aloud|spoken)[^.]{0,150}(tested|applied|evaluated|decod\\w+|test)[^.]{0,80}(silent|mimed|covert|imagined|mouthed)|trained (on|with|from) [^.]{0,40}(overt|audible|vocali[sz]ed) speech[^.]{0,120}(covert|silent|mimed)|(not|never) (been )?trained on (silent|mimed|covert|imagined|mouthed)|(overt|audible|vocali[sz]ed|aloud)[- ]to[- ](covert|silent|mimed)\\b|\\bcross[- ](speaking[- ])?modes?\\b",
+ "fulltext_pattern": null,
  "inclusion_rule": "Include studies that apply a decoder trained only on overt (or attempted overt) speech to silent speech (mouthed, silently articulated, inner or imagined speech) without retraining and report the results. Any signal qualifies (neural, EMG, ultrasound, video, etc.). Boundary: those that also train on silent data (such as methods that transfer audible-side targets) are included if they separately report an audible-training-only baseline condition. Exclude those that use an audible model only for time alignment or initialization of silent data. Exclude transfer between whispered and normal voice in acoustic speech. Exclude transfer from listening (perception) to inner speech. Exclude those that only analyse similarity of neural activity without applying a decoder. Exclude matches in reviews or citations only. Count different versions of the same study as one item.",
  "counts": {
   "scanned_folders": 8995,
@@ -55,8 +55,7 @@
    "title": "Visual-Only Recognition of Normal, Whispered and Silent Speech",
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "-independent visual-only lipreading of 10 digits + 10 phrases, each recorded in normal/whispered/silent mode; CNN+LSTM; cross-mode train/test accuracy grid (3x3 x 2 tasks). | task_family=isolated_word_recognition | intended_use_cases=noisy_environmen",
    "decision": "include",
@@ -71,8 +70,7 @@
    "title": "Digital Voicing of Silent Speech",
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "ts to silent EMG | technical_essence=WaveNet vocoder synthesizes waveform | technical_essence=direct-transfer baseline: vocalized-trained model applied to silent EMG (throat-electrode variants) | extra.Output.output_kind=synthesized audio (transcription WER) | extra.Configuration.",
    "decision": "include",
@@ -91,9 +89,6 @@
    ],
    "snippet": "veGlow vocoding. | intended_use_cases=speech_restoration, private_communication | production_instruction=Read sentences ALOUD while UTI records tongue — voiced corpus used to train silent-interface mapping. | modalities=ultrasound_imaging | sensor_hardware=\"Micro\" ultrasound (Articulate Instruments), midsa",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Learns an ultrasound-to-speech mapping from voiced reading aloud, but the ledger has no record of tests on silent speech (judged from the ledger)"
   },
   {
@@ -117,14 +112,10 @@
    "title": "Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training",
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "intelligible speech from silent (non-vocalized) UTI+lip articulation: iterative DTW pseudo-target generation against a vocalized-trained TaLNet + domain-adversarial encoder to close the silent/vocalized domain gap. | task_family=speech_reconstruction | extra.Task.scope=Mel-spectrogram reconstruction from synchr",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Also trains on silent ultrasound and lip data (pseudo-targets and domain-adversarial training). Treatment of an audible-only baseline cannot be determined from the ledger"
   },
   {
@@ -137,9 +128,6 @@
    ],
    "snippet": ", 'result': 'modest degradation in all models'} | ProcessingStep.hyperparameters={'align': 'DTW in latent space warping vocalized audio latents to silent EMG latents'} | ProcessingStep.hyperparameters={'input': 'top-k beams or ensemble-of-models predictions + beam-search N",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Trains by aligning silent EMG and voiced speech in a latent space. Not an audible-training-only condition"
   },
   {
@@ -178,14 +166,10 @@
    "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
    "year": 2026,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "bjective=causal mechanistic-interpretability analysis of a neural speech decoder across vocalized/mimed/imagined modes: cross-mode activation patching + tri-modal interpolation reveal a shared causal manifold with asymmetry in representational comple",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Mechanistic-interpretation study analysing existing decoders across speaking modes; not a study that newly measures transfer"
   },
   {
@@ -209,14 +193,10 @@
    "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
    "year": 2026,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "of internal representations in a neural speech decoder across vocalized, mimed, and imagined speech. | question=Whether cross-mode decoding performance differences arise from input signal properties or decoder-internal representations, how those repr",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Another version of the same study"
   },
   {
@@ -225,14 +205,10 @@
    "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
    "year": 2026,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Use mechanistic interpretability (cross-mode activation patching, tri-modal interpolation, coarse-to-fine causal tracing, scrubbing) to causally localize how a trai",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Another version of the same study"
   },
   {
@@ -245,9 +221,6 @@
    ],
    "snippet": "der produces waveform output. | technical_essence=Train separate target-space semantic tokenizers for W2N and N2W, with cross-mode objectives and consistency terms. | technical_essence=Resample and normalize audio; align ASR-derived frames using CTC",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Acoustic conversion between whisper and normal voice; not silent speech"
   },
   {
@@ -271,8 +244,7 @@
    "title": "Shared and distinct temporal representations of Chinese words across imagined, silent, and overt speech",
    "year": 2026,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "nt | task_family=isolated_word_recognition | extra.Task.output_kind=word-identity decode of 10 Chinese words per mode + cross-mode generalization + RSA geometry | modalities=scalp_eeg, surface_emg | sensor_hardware=EEG + facial sEMG at 1,000 Hz (open",
    "decision": "include",
@@ -381,9 +353,6 @@
    ],
    "snippet": "study_design=controlled_experiment | Study.research_objective=characterize shared/distinct HGA neural mechanisms across overt, mimed, imagined word production to leverage mimed speech as a verifiable-reference bridge for imagined-speech BCI decoding | Study.unit_of_analysis=663 electrodes x 13 e",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Comparative analysis of high-gamma activity in overt, mouthed and imagined speech. The ledger has no evaluation applying a decoder trained on overt speech to the other modes"
   },
   {
@@ -407,8 +376,7 @@
    "title": "Word classification across speech modes from low-density electrocorticography signals",
    "year": 2026,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "model transfer/augmentation between modes | Study.unit_of_analysis=5-word LDA classification accuracy per speech mode + cross-mode transfer | task_family=isolated_word_recognition | target_population=speech_impairment, other | Cohort.demographics=ten",
    "decision": "include",
@@ -423,8 +391,7 @@
    "title": "The Nested Hierarchy of Overt, Mouthed, and Imagined Speech Activity Evident in Intracranial Recordings",
    "year": 2022,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "s: overt, mouthed (articulate silently), imagined; decode speech vs non-speech intent frames from sEEG in each mode and cross-mode | production_labels=ordinary_voiced_speech, silent_articulation, instructed_imagery | Cohort.demographics=7 native Engl",
    "decision": "include",
@@ -443,9 +410,6 @@
    ],
    "snippet": "ferring a passive-perception model to covert rehearsal yields online decoding above chance (75.3% vs 60%) and improves covert-speech SNR — a practical route to online covert-speech BCIs",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Transfers a listening (perception) model to inner speech. Not overt-speech training"
   },
   {
@@ -454,8 +418,7 @@
    "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
    "year": 2024,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "target=token error rate (TER) averaged over 800 results (10 models x 5 folds x 16 sentences) per participant; in-sample Overt->Overt, Covert->Covert; out-of-sample Overt->Covert; shuffle-model chance check; Holm-Bonferroni correction over six comparisons, n=16 | Study.negative_findings=Transforme",
    "decision": "include",
@@ -519,9 +482,6 @@
    ],
    "snippet": "8.5-12.7min data; step toward neural speech prostheses; hypothesizes similar results for mute users | technical_limits=overt voiced speech only in non-paralyzed subjects (extension to silent/attempted not demonstrated); extremely small 8.5-12.7min per-subject data; speaker-dependent models; grid placement var",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Angrick et al. 2019. The ledger records that extension to silent or attempted speech is not shown"
   },
   {
@@ -534,9 +494,6 @@
    ],
    "snippet": "ld-out trials | Dataset.collection_protocol=50 unique phonetically-balanced Harvard sentences; narrated prompt → recite aloud → mouth silently → imagine aloud, 4 s per phase; only audible (aloud) trials analyzed; failed/silent trials excluded; demographics in",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Records overt, mouthed and imagined speech, but only the overt trials were analysed"
   },
   {
@@ -545,8 +502,7 @@
    "title": "Visual-Only Recognition of Normal, Whispered and Silent Speech",
    "year": 2018,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "label classification head | EvaluationProtocol.experimental_design={'modes': ['normal', 'whisper', 'silent'], 'split': 'cross-mode'} | system_name=visual-only mode-robust lipreader | SystemConfiguration.component_versions={'front': 'camera', 'mid': '",
    "decision": "include",
@@ -610,9 +566,6 @@
    ],
    "snippet": "brain activity in frontal areas | claim=silent lipreading engages/modulates the frontal speech network differently from overt naming, relevant to silent-speech decoding models | participants | female participants | mean age | EPI TR | EPI TE | anatomical TR | anatomical T",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Study of brain activity during silent lipreading (the viewer's side)"
   },
   {
@@ -666,8 +619,7 @@
    "title": "Semantic-Aware Decoding of Covert Inner Speech: A Multimodal EEG–EMG–Audio Framework",
    "year": 2026,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "): overt-val 0.54 / covert-test 0.42 vs 0.25 chance — EMG contributes weakly to cross-subject transfer, documenting the overt→covert gap in superior temporal regions | target_population=general_population | population_description=10 healthy participant",
    "decision": "include",
@@ -697,8 +649,7 @@
    "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "ent most | vocabulary_regime=closed_lexicon | EvaluationProtocol.experimental_design=speaker-independent multi-speaker; trained on voiced, tested on voiced+silent; 13274 train / 1205 test utts, 81 speakers; four feature-conditioning conditions × raw/fMLLR; bigram LM best-weight WER",
    "decision": "include",
@@ -863,8 +814,7 @@
    "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "o, x,y,conf per frame)→conf<0.1 filter→bidirectional linear interp→Kaldi nnet2 DNN-HMM (raw or fMLLR-adapted features); train voiced, test voiced+silent | task_family=sentence_recognition | task_encoding=natural_utterance | intended_use_cases=speech_restoration, assistive",
    "decision": "include",
@@ -883,9 +833,6 @@
    ],
    "snippet": "ingle-mode training fails to generalize across speech modes (Normal-only model: +17.2 dB same-mode but −6.4 to −12.6 dB cross-mode), yet a model trained on ALL four conditions works under every closed-set condition (SI-SDRi 18.65/8.90/8.99/18.45 dB,",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Acoustic data for speaker extraction; the modes are acoustic speech such as normal and whispered"
   },
   {
@@ -909,14 +856,10 @@
    "title": null,
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "6 recordings (3 vocalized + 3 silent) per speaker per system; 4 train/test articulation-mode combinations incl. cross (vocalized<->silent); mean score +/- 95% CI, optimal fusion weight tongue 70%/lip 30% | representation_kind=EigenTongues/EigenLips PCA (5,5",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Separate folder of Florescu et al. 2010 (different key). Version duplicate"
   },
   {
@@ -940,8 +883,7 @@
    "title": "Silent vs Vocalized Articulation for a Portable Ultrasound-Based Silent Speech Interface",
    "year": 2010,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "oral_accounting=within-mode scores vs cross scores; fixed vs portable; 95% CI | Claim.claim_type=generalization | claim=cross-mode (vocalized-train/silent-test and reverse) recognition is significantly degraded; silent-trained models recover much of",
    "decision": "include",
@@ -1016,14 +958,10 @@
    "title": "A Whispered Mandarin Corpus for Speech Technology Applications",
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "s) enables DNN whispered ASR (matched whisper WER 60.18% vs MLE 66.76%; neutral 53.55 vs 61.73) and same-mode VAD beats cross-mode (train-test mode mismatch costs big accuracy) | evidence_relation=supported_within_scope | technical_limits=whispered M",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Another version of the same study. Acoustic whisper"
   },
   {
@@ -1081,9 +1019,6 @@
    ],
    "snippet": "rtifacts=Objective viseme groups correlate highly with tedious English subjective evaluations despite Spanish material; cross-mode estimation shows a stable tradeoff — raising one mode performance lowers the other, max–min gap <7% in all examples | e",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Extraction of visemes; \"cross-mode\" refers to estimation between audio and video"
   },
   {
@@ -1092,14 +1027,10 @@
    "title": "An articulatory and acoustic study of retroflex and bunched American English rhotic sound based on MRI",
    "year": 2007,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "s); sustained /r/ static posture; FEM omits radiation (VTAR compensates, lowers F2); area-function model cannot produce cross-mode zeros >5kHz; articulatory variability across 22-subject continuum understates binary classification",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Acoustic analysis of English /r/; \"cross modes\" are acoustic cross modes"
   },
   {
@@ -1168,8 +1099,7 @@
    "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
    "year": 2024,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "cipant TER over 800 decoded sentences from a 3-token/8-sentence Japanese set; five train/test speech combinations incl. Overt→Covert and Covert→Covert plus shuffle | task_encoding=imagined_utterance | task_family=sentence_recognition | Cohort.demographics=16 patients (8",
    "decision": "include",
@@ -1319,14 +1249,10 @@
    "title": "Systematic review: progress in EEG-based speech imagery brain-computer interface decoding and encoding research",
    "year": 2025,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "ecoders reviewed: SVM, ELM/ELM-R/ELM-L, LDA, RF, LightGBM, kNN + deep CNN/TCN+DWT, RNN, DBN, CapsNet; transfer learning overt->covert | claim=SI-BCI research decomposes into mechanisms, paradigms, encoding, decoding; paradigms evolved vowel->word/Chines",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Another version of the same review"
   },
   {
@@ -1339,9 +1265,6 @@
    ],
    "snippet": "LogReg/KNN consistency checks; feature-importance windows | extra.Configuration.configuration_scope=Fixed session order overt→mimed→imagined (108 Korean words each, 3s word+1s fixation) to prime imagination | EvaluationProtocol.experimental_design=Bal",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Another version of the same study"
   },
   {
@@ -1354,9 +1277,6 @@
    ],
    "snippet": "ap: simultaneous neural+muscular+acoustic signals for Mandarin overt/silent/imagined speech, enabling tone-encoding and cross-mode transfer research | claim=EEG quality validated: EEGNet 10-class overt-mode accuracy 45.73% mean across 30 subjects, we",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Paper releasing a multi-signal dataset of overt, silent and imagined speech; transfer results are not in the ledger"
   },
   {
@@ -1384,9 +1304,6 @@
    ],
    "snippet": "ov+TS+LDA decoders, plus WCBLE covert-VSA scheme; convolution-based score-over-time; cross-condition calibration (train overt → evaluate covert) | EvaluationProtocol.experimental_design=18 randomized blocks (6 targets × 3 VSA conditions); accuracy per condition;",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Visual ERP BCI with overt-gaze and covert-attention conditions. Not speaking modes"
   },
   {
@@ -1530,14 +1447,10 @@
    "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
    "year": 2016,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "ial test contrasting #significant fronto-motor vs temporal electrodes → animate spatio-temporal progression (S1 Video); overt envelope aligned to covert run by identical scroll speed | EvaluationProtocol.experimental_design=Scrolling text (Gettysburg Address / Humpty Dump",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Another version of the same study"
   },
   {
@@ -1610,9 +1523,6 @@
    ],
    "snippet": "nsfer accuracy | FEIS same-trial apparent transfer | Nieto within-session imagined accuracy (best subject) | Gaddy sEMG voiced->silent top-10 retrieval",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Reanalysis testing for leakage in transfer claims on public data"
   },
   {
@@ -1621,14 +1531,10 @@
    "title": "Machines Can Produce What We Speak in the Brain: A Linguistic Framework for Decoding Inner Speech",
    "year": null,
    "via": [
-    "ledger",
-    "fulltext"
+    "ledger"
    ],
    "snippet": "Linguistic Framework for Decoding Inner Speech | Study.research_objective=two-part framework: (1) measurement programme overt->covert stripping articulatory/laryngeal layers to isolate distinctive features (data-A/B/C); (2) inference cascade resolving p",
    "decision": "exclude",
-   "quote": null,
-   "loc": null,
-   "provenance": null,
    "reason": "Proposes a linguistic framework for decoding inner speech; no experiments"
   }
  ],
@@ -1650,6 +1556,271 @@
   "recall_estimate": 0.35
  },
  "used_by": [
+  "digital-voicing-of-silent-speech",
   "speech-synthesis-from-neural-decoding-of-spoken-sentences"
- ]
+ ],
+ "ledger_tally": {
+  "design_slot": "M05",
+  "design_slot_fill": 0.989,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "modalities=microphone",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-embc58623.2025.11253269",
+     "pmc-12686446-mandataset",
+     "pmc-11106343-ecogtransformer",
+     "pmc-5119784-spatio",
+     "isca-melenchon07-vis"
+    ]
+   },
+   {
+    "design": "modalities=scalp_eeg",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "biorxiv-747136-chinesewords",
+     "doi-10.21203-rs.3.rs-9365678-v1",
+     "arxiv-2502-04132-covtr",
+     "pmc-12453656-eegspeech-review",
+     "pmc-12686446-mandataset"
+    ]
+   },
+   {
+    "design": "modalities=optical_camera",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1371-journal.pone.0223782",
+     "pmc-5119784-spatio",
+     "isca-florescu10_interspeech",
+     "isca-melenchon07-vis",
+     "arxiv-1802.06399"
+    ]
+   },
+   {
+    "design": "modalities=ecog",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "doi-10.1088-1741-2552-ae3a1b",
+     "doi-10.1038-s41598-025-18537-2",
+     "doi-10.1038-s42003-024-06518-6",
+     "doi-10.1101-2024.02.05.578911"
+    ]
+   },
+   {
+    "design": "modalities=surface_emg",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "biorxiv-747136-chinesewords",
+     "doi-10.21203-rs.3.rs-9365678-v1",
+     "pmc-12686446-mandataset",
+     "arxiv-2010.02960",
+     "arxiv-2403.05583"
+    ]
+   },
+   {
+    "design": "modalities=other",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01247",
+     "doi-10.1109-embc58623.2025.11253269",
+     "doi-10.1101-2024.03.21.586130",
+     "pmc-11226700-imagineddetect",
+     "isca-zhou07_interspeech"
+    ]
+   },
+   {
+    "design": "modalities=ultrasound_imaging",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-florescu10_interspeech",
+     "arxiv-2206.12947",
+     "arxiv-2304.05574",
+     "doi-10.21437-interspeech.2023-1966",
+     "isca-florescu10"
+    ]
+   },
+   {
+    "design": "modalities=intracortical_microelectrode",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "arxiv-2403.05583"
+    ]
+   },
+   {
+    "design": "modalities=fmri",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1371-journal.pone.0223782"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "WER|accuracy",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "transcription WER 25-word pool",
+   "value": 0.31,
+   "unit": null,
+   "raw": "31%",
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Covert inner-speech 4-class decode 0.42 (>0.25 chance) w/ held-out-subject protocol; overt-val 0.54; EMG weak for cross-subject transfer",
+   "value": 0.42,
+   "unit": "accuracy",
+   "raw": "a mean covert-test accuracy of 0.42",
+   "pid": "doi-10.21203-rs.3.rs-9365678-v1",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "speaker-wise WER LSE slope",
+   "value": 0.81,
+   "unit": "1",
+   "raw": "0.81",
+   "pid": "arxiv-2304.05574",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Whisper v2 Gaddy audio WER",
+   "value": 2.3,
+   "unit": "percent",
+   "raw": "2.3",
+   "pid": "arxiv-2403.05583",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T4 WER ours",
+   "value": 3.6,
+   "unit": "%",
+   "raw": "3.6",
+   "pid": "arxiv-2010.02960",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "FEIS spoken->imagined transfer accuracy",
+   "value": 6.7,
+   "unit": "percent",
+   "raw": "6.7 vs 6.25 chance, Wilcoxon p=0.10",
+   "pid": "zenodo-22441724-leakctrl",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "wer_improvement",
+   "value": 11.59,
+   "unit": "percent",
+   "raw": "improvement of 11.59% WER relative to our baseline system",
+   "pid": "isca-janke10-emgfeedback",
+   "year": 2010,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (English)",
+   "value": 12.36,
+   "unit": "percent",
+   "raw": "12.36",
+   "pid": "arxiv-2603.08046",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "wer_decrease_pct",
+   "value": 15.45,
+   "unit": null,
+   "raw": "fMLLR improvement: up to 15.45% on silent vs 7.55% max on voiced",
+   "pid": "doi-10.21437-interspeech.2023-1966",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "session-indep 21.93% WER",
+   "value": 21.93,
+   "unit": "percent",
+   "raw": "session-independent WER",
+   "pid": "doi-10.5220-0003169702950300",
+   "year": 2011,
+   "tier": "ledger only"
+  }
+ ],
+ "usual_approach": {
+  "design": "decoder trained on overt (vocalized) speech applied to silent or covert speech without retraining, reported as a degradation",
+  "n": 23,
+  "tier": "confirmed",
+  "n_prior": 7,
+  "pids": [
+   "arxiv-1802.06399",
+   "doi-10.1109-taslp-2017-2738568",
+   "doi-10.3389-fneng.2014.00014",
+   "doi-10.5220-0002814100220031",
+   "doi-10.5220-0003169702950300"
+  ],
+  "population_unique": 33,
+  "note": "slot-filled design values (M05 modalities) are microphone 11, scalp EEG 9, optical camera 8, ECoG 8, surface EMG 6 among the candidates"
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1109-taslp-2017-2738568",
+   "role": "prior",
+   "loc": "Sec. 6.3.1; Fig. 6.6",
+   "quote": "using silent EMG data on models trained on audible EMG obtains a high MCD degradation from an average MCD of 5.54 to 6.81 compared to the Aud Train - Aud Test scenario."
+  }
+ ],
+ "tally_by": {
+  "digital-voicing-of-silent-speech": {
+   "slot_filled_unique": 5595,
+   "string_match_unique": 33,
+   "fulltext_only_folders": 62,
+   "usual_approach": {
+    "design": "decoder trained on overt (vocalized) speech applied to silent or covert speech without retraining, reported as a degradation",
+    "n": 23,
+    "tier": "confirmed",
+    "population_unique": 33
+   },
+   "state_of_the_art": {
+    "metric": "transcription WER 25-word pool",
+    "value": 0.31,
+    "unit": null,
+    "raw": "31%",
+    "pid": "doi-10.1038-s41586-019-1119-1",
+    "year": null,
+    "tier": "ledger only",
+    "source": "ledger candidate, not yet confirmed"
+   },
+   "read": 1,
+   "read_prior": [
+    "doi-10.1109-taslp-2017-2738568"
+   ],
+   "unread": 0,
+   "confirmed_unique": 23,
+   "known_item_recall": 1.0
+  }
+ },
+ "known_item_recall_by": {
+  "digital-voicing-of-silent-speech": {
+   "seeds_in_wiki": 2,
+   "found": 2,
+   "recall": 1.0,
+   "missed": []
+  }
+ }
 }

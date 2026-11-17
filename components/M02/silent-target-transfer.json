@@ -1,0 +1,1041 @@
+{
+ "topic": "silent-target-transfer",
+ "slot": "M02",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(silent|mimed|mouthed|unvoiced|silently)[^|]{0,120}(DTW|dynamic time warp|time[- ]warp|align|target transfer|transferred target)|(DTW|dynamic time warp|align\\w*|target transfer)[^|]{0,120}(silent|mimed|mouthed)",
+ "scope": "ledger",
+ "fulltext_pattern": "(target transfer|transfer\\w* (the )?(audio )?targets? from (the )?vocali[sz]ed|align\\w* (the )?silent (EMG|signals?|data|utterances?)[^.]{0,80}(vocali[sz]ed|audible|acoustic)|Sil Train)",
+ "inclusion_rule": "Include studies that train a decoder or synthesizer on silently articulated (mimed, mouthed) non-acoustic signals using acoustic or label targets transferred from a separate vocalized recording of the same utterance by time alignment (DTW, forced alignment or a learned alignment). Any signal qualifies. Boundary: exclude studies that train only on vocalized data and test on silent data (M04 overt-to-silent transfer), alignment used only to score outputs, whisper or NAM acoustic conversion, and imagined speech; count versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 31,
+  "slot_filled_unique": 31,
+  "string_match_folders": 56,
+  "string_match_unique": 52,
+  "fulltext_only_folders": 2
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2609.21436",
+     "doi-10.1038-s41598-025-18537-2",
+     "arxiv-2406.11568",
+     "isca-florescu10_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2601.14777",
+     "arxiv-2602.01879",
+     "issp2011-denby-portable-ssi",
+     "arxiv-2509.04507",
+     "isca-diener20b_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2508.04240",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01879",
+     "arxiv-2406.11568",
+     "isca-kashiwagi23_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=unpaired",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2509.04507"
+    ]
+   },
+   {
+    "design": "supervision_kind=self_supervised",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s24227368"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "audio_target",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2608.17983",
+     "doi-10.1109-taslp-2017-2738568",
+     "arxiv-2010.02960",
+     "arxiv-2509.04507"
+    ]
+   },
+   {
+    "design": "forced_alignment_labels",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2610.00825-atr",
+     "isca-ghosh26c_interspeech",
+     "isca-janke10",
+     "isca-wand09_interspeech"
+    ]
+   },
+   {
+    "design": "emg_dtw",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1109-taslp-2017-2738568"
+    ]
+   }
+  ],
+  "metric_pattern": "WER",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "card WER 50-word",
+   "value": 0.44,
+   "unit": "percent",
+   "raw": "0.44",
+   "pid": "arxiv-2603.12279",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Whisper v2 Gaddy audio WER",
+   "value": 2.3,
+   "unit": "percent",
+   "raw": "2.3",
+   "pid": "arxiv-2403.05583",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 2.85,
+   "unit": "percent",
+   "raw": "2.85",
+   "pid": "arxiv-2602.01879",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GT WER",
+   "value": 2.9,
+   "unit": "percent",
+   "raw": "2.9",
+   "pid": "arxiv-2405.08021",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T4 WER ours",
+   "value": 3.6,
+   "unit": "%",
+   "raw": "3.6",
+   "pid": "arxiv-2010.02960",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER vocalized natural ref",
+   "value": 4.11,
+   "unit": "%",
+   "raw": "4.11",
+   "pid": "arxiv-2304.05574",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "PT-EMG-A best-run WER (K=8)",
+   "value": 9.38,
+   "unit": "percent",
+   "raw": "9.38%",
+   "pid": "doi-10.5220-0003786100910100",
+   "year": 2010,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "11.89",
+   "value": 11.89,
+   "unit": "WER%",
+   "raw": "silent-EMG WER 11.89% (Whisper); prior best 25.74",
+   "pid": "isca-lee26r_interspeech",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "audible-EMG WER 22.82% small / 12.00% large sessions",
+   "value": 12.0,
+   "unit": "%",
+   "raw": "session-dependent audible-EMG WER: large sessions 12.00%, small sessions 22.82% (108-word vocab, tristate HMM)",
+   "pid": "isca-wand14b_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Whisper WER on ground-truth audio, test split",
+   "value": 12.66,
+   "unit": "percent",
+   "raw": "12.66",
+   "pid": "arxiv-2510.23969",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [
+  "doi-10.1109-taslp-2017-2738568",
+  "arxiv-2608.17983"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2010.02960",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "tle=Digital Voicing of Silent Speech | venue=EMNLP 2020; v1 | Study.research_objective=Generate intelligible audio from silent EMG: CCA domain transfer + predicted-audio alignment trains on vocalized+silent EMG; closed-vocab WER 64->4%; open-vocab improves ~20%. | task_family=speech_reconstruct",
+   "decision": "include",
+   "reason": "Target (arXiv version).",
+   "provenance": "text-verified"
+  },
+  {
+   "pid": "arxiv-2304.05574",
+   "key": "t:speechreconstructionfromsilenttongueandliparticulationbypseudotargetgenerationan",
+   "title": "Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "in Adversarial Training | venue=arXiv v1 (ICASSP-style) | Study.research_objective=Reconstruct intelligible speech from silent (non-vocalized) UTI+lip articulation: iterative DTW pseudo-target generation against a vocalized-trained TaLNet + domain-adversarial encoder to close the silent/vocalized",
+   "decision": "include",
+   "reason": "Later (2023). Silent ultrasound+lip articulation; iterative DTW pseudo-targets against a vocalized-trained model.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "arxiv-2403.05583",
+   "key": "t:acrossmodalapproachtosilentspeechwithllmenhancedrecognition",
+   "title": "A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ": shared-latent multimodal ResNet-Transformer trained on Gaddy EMG + audio + LibriSpeech with crossCon/supTcon (+latent DTW); LISA: LLM rescore of ensemble beam outputs; silent EMG WER 28.8->12.2%, vocal EMG 23.3->3.7%; LISA also tops Brain-to-Text 24 leaderboard 9.8->8.9%. | task_family=sentenc",
+   "decision": "include",
+   "reason": "Later (2024). Gaddy corpus recognition with latent DTW between silent and vocalized EMG.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "arxiv-2405.08021",
+   "key": "t:diffetslearningadiffusionprobabilisticmodelforelectromyographytospeechconversion",
+   "title": "Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "me-wise phonemes'], 'loss': 'Lmel + 0.5*Lphone', 'ref': 'encoder structure of [12]'} | ProcessingStep.hyperparameters={'align': \"DTW on cost matrix Lmel' + lambda*Lphone' (silent EMG vs GT)\", 'train_only': True} | ProcessingStep.hyperparameters={'arch': 'score-based diffusion U-Net (ResBlocks+Attn",
+   "decision": "include",
+   "reason": "Later (2024). Diff-ETS on the Gaddy corpus; DTW alignment of silent EMG to voiced targets.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "arxiv-2406.11568",
+   "key": "t:towardsanendtoendframeworkforinvasivebrainsignaldecodingwithlargelanguagemodels",
+   "title": "Towards an End-to-End Framework for Invasive Brain Signal Decoding with Large Language Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nProtocol.experimental_design={'design': 'single-participant offline E2E decoding evaluation', 'conditions': ['vocal', 'silent', 'all'], 'feature_extractors': 3, 'LLM_decoders': 5, 'stages': ['modality alignment', 'LLM finetuning'], 'participant_n': 1} | EvaluationProtocol.test_material_selection=Dataset table reports train/t",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2502.05762",
+   "key": "t:noninvasiveelectromyographicspeechneuroprosthesisageometricperspective",
+   "title": "Non-invasive electromyographic speech neuroprosthesis: a geometric perspective",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "wda, Lee M. Miller | source_url=https://arxiv.org/pdf/2502.05762v3 | abstract=A non-invasive surface-EMG interface maps silently articulated speech directly to phoneme sequences and decoded text without time-aligned audio targets. | question=Can surface EMG from silently articulated speech be decoded directly into phoneme sequences",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2506.12055",
+   "key": "t:towardsunifiedneuraldecodingwithbrainfunctionalnetworkmodeling",
+   "title": "Towards Unified Neural Decoding with Brain Functional Network Modeling",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y patients (clinical implantation, 1-2 wk monitoring) reading 407 Mandarin monosyllabic chars 3-5x each, audible and/or silent modes; audio via directional mic 44.1kHz; PRAAT-aligned phoneme onsets by 3 phonetics experts. | Dataset.counts_by_unit={'participants': 11, 'characters': 407, 'initial_clas",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2507.00498-muteswap",
+   "key": "t:muteswapvisualinformedsilentvideoidentityconversion",
+   "title": "MuteSwap: Visual-informed Silent Video Identity Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dy_design=system_proposal | Study.research_objective=Do voice conversion when no clean audio exists: infer content from silent lip-region video and identity from target face images, aligning the two modalities — the first SFVC method | Study.unit_of_analysis=Per-utterance converted speech on LRS3 (top-200",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2508.04240",
+   "key": "t:chineseeeg2aneegdatasetformultimodalsemanticalignmentandneuraldecodingduringread",
+   "title": "ChineseEEG-2: An EEG Dataset for Multimodal Semantic Alignment and Neural Decoding during Reading and Listening",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "mark EEG dataset for neural decoding with paired brain-language data across speaking/listening/reading for LLM semantic alignment in Mandarin — extends ChineseEEG (silent reading) with Reading-Aloud + Passive-Listening modalities on same corpus | Study.unit_of_analysis=dataset release: ~10",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2509.04507",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "on': 112} | technical_essence=Six-layer Transformer encoder maps 112-D sEMG features to 80-band mel spectrograms; Audio Target Transfer aligns silent EMG to vocalized EMG with DTW refined by CCA and uses corresponding voiced audio as pseudo-target. | ProcessingStep.hyp",
+   "decision": "include",
+   "reason": "Later (2025). Audio target transfer aligning silent EMG to vocalized EMG.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "arxiv-2509.04507-dualstg",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "output | SystemConfiguration.system_lifecycle=implemented_evaluated | TrainingRun.training_objective=mixed training on silent and vocalized data with parallel and non-parallel alignments + session embeddings | InformationUse.access_class=normally_available | EvaluationProtocol.experimental_design=WER",
+   "decision": "include",
+   "reason": "Later (2025). Another version of arxiv-2509.04507.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "arxiv-2510.23969",
+   "key": "t:emg2speechsynthesizingspeechfromelectromyographyusingselfsupervisedspeechmodels",
+   "title": "emg2speech: synthesizing speech from electromyography using self-supervised speech models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "assumptions). | extra.Limitation.limitation=Synthesis targets derived from transcript-based gTTS audio without temporal alignment to EMG; subject audio not used for the ALS participant (silent articulation). | aggregation={'statistic': 'mean', 'over': '12 subjects', 'weighting': 'unweighted'} | aggregation={'st",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2601.14777",
+   "key": "t:funcineforgeaunifieddatasettoolkitandmodelforzeroshotmoviedubbingindiversecinema",
+   "title": "FunCineForge: A Unified Dataset Toolkit and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", LSE-C/D, SPK-TL, SPK-SIM, EMO-SIM, ES-MOS; baselines EmoDubber, DeepDubber-V1, official checkpoints | system_boundary=silent video + script + clue instructions + reference speech -> face-encoder+MLLM alignment -> flow-matching tokens -> HiFiGAN scene-consistent dubbed waveform | SystemConfiguration.system_lifecycle=implemen",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2602.01247-mib2s",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-k patching curves | EvaluationRun.execution_artifacts=Baselines PCC concat: voc 0.7519+/-0.0089, imag 0.7254+/-0.1021, mimed 0.5686+/-0.0459; MCD 2.79/2.88/3.29; DTW-PCC 0.82/0.83/0.79. Sufficiency I<-V: PCC full 0.954, KEEP-Conv 0.666, RAND-Conv 0.564, KEEP-RNN 0.462, RAND-RNN 0.398;",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lds target-speaker embedding. | technical_essence=Pretrained ContentVec maps training speech to SSL content embeddings; silent EMG content encoder is trained with DTW alignment and phoneme classification. | technical_essence=Face-only global pitch estimator plus frame-wise F0 decoder conditi",
+   "decision": "include",
+   "reason": "Later (2025). ContentVec targets transferred to silent EMG by DTW.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "arxiv-2603.02847",
+   "key": "t:silentwearanultralowpowerwearablesystemforemgbasedsilentspeechrecognition",
+   "title": "SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "essions'} | Reference.reference_validity=Class labels are generated from the BioGUI command/rest trigger. Vocalized and silent production onset is not independently aligned with microphone or other external ground truth. | Reference.reference_timing=Continuous EMG windows begin at a trigge",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2603.12279",
+   "key": "t:towardrobustreproducibleandwidelyaccessibleintracranialspeechbraincomputerinterf",
+   "title": "Toward Robust, Reproducible, and Widely Accessible Intracranial Speech Brain-Computer Interfaces: A Comprehensive Narrative Review of Neural Mechanisms, Hardware, Algorithms, Evaluation, Clinical Pathways and Future Directions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ower, articulatory-kinematic intermediates | technical_essence=surveyed decoders: RNN phoneme->text, seq2seq, CTC for unaligned silent attempts, multimodal text+audio+avatar | technical_essence=LM rescoring/integration as dominant error-reduction stage (",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2604.18920",
+   "key": "t:comparisonofsemgencodingaccuracyacrossspeechmodesusingarticulatoryandphonemefeat",
+   "title": "Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tation.transformation_definition=sEMG envelope = Hilbert magnitude at 2 kHz downsampled to 50 Hz; z-scored per channel; silent trials warped to paired aloud envelope via FastDTW (radius 30, reduced 20 if memory constrained; Euclidean cost; silent->aloud). | Representation.transformation_definitio",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2605.17503",
+   "key": "t:ragbasedeegtotexttranslationusingdeeplearningandllms",
+   "title": "RAG-based EEG-to-Text Translation Using Deep Learning and LLMs",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "per subject | tested_population=healthy_volunteers | dataset_description=ZuCo 1.0 (+2.0 refs): single-trial EEG during silent English reading; eye-tracking fixation-aligned sentence segmentation; ~700 pairs/subject, 650/50 split | observed_quantities=neural_activity | sensor_hardware=128-c",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2605.17503-rag",
+   "key": "t:ragbasedeegtotexttranslationusingdeeplearningandllms",
+   "title": "RAG-Based EEG-to-Text Translation Using Deep Learning and LLMs",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d candidate sentence from top-3 retrieved neighbors | Dataset.collection_protocol=ZuCo 1.0/2.0: single-trial EEG during silent English reading; NR/SR/TSR tasks + eye-tracking; artifact-cleaned via Automagic; fixation-aligned sentence segments; ~700 NR+SR pairs/subject | Claim.claim_scope=The RAG pipeline extracts coarse semantic cues from s",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2606.20696",
+   "key": "t:mindaligndecodinginnerspeechfromfmrisignalsviamultimodalembeddingalignmentunderl",
+   "title": "MindAlign: Decoding Inner Speech from fMRI Signals via Multimodal Embedding Alignment under Limited Data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "image features to generate Japanese descriptions during silent image description. | question=Can subject-specific fMRI alignment plus multimodal language decoding generate Japanese sentences participants say they silently composed while describing images, and does the Stage-2 mapping transfer across source/target participants? | task_fam",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2608.17983",
+   "key": "t:dualcotraincrossdatasetultrasoundtonguesegmentationunderextremedatascarcity",
+   "title": "DUALCO-TRAIN: CROSS-DATASET ULTRASOUND TONGUE SEGMENTATION UNDER EXTREME DATA SCARCITY",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2609.21436",
+   "key": "t:aessianaroundearsilentspeechinterfaceforcrossdayonlinereusewithouttestdaycalibra",
+   "title": "AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "indowing={'window': 'Hann', 'window_ms': 200, 'hop_ms': 50, 'prepended_zeros': 200, 'one_sided': True} | Representation.alignment_method=fixed 3 s window aligned to the silent-expression cue; onset trigger recorded by the program | Representation.normalization_fit_scope=fixed parameters (window",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "arxiv-2610.00825-atr",
+   "key": "t:alignthenreasonamultimodallipsyncjudgefordubbing",
+   "title": "Align Then Reason: A Multimodal Lip-Sync Judge for Dubbing",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "exist yet and existing VSR/VLM judges are insensitive to temporal errors | Study.unit_of_analysis=Per candidate line vs silent video clip: monotonic alignment path between frame-level lip representations and phonetic units; downstream metrics mean AUC over discrimination ax",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "cvf-niu23-slts-avsync",
+   "key": "t:ontheaudiovisualsynchronizationforliptospeechsynthesis",
+   "title": "On the Audio-visual Synchronization for Lip-to-Speech Synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "utomatic synchronization mechanism | Study.unit_of_analysis=Utterance-level mel-spectrogram/waveform reconstructed from silent lip video; scored by STOI/ESTOI/PESQ/MCD (+aligned variants) and ASR WER | task_encoding=natural_utterance | task_family=speech_reconstruction | Cohort.demographics=Dat",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "doi-10.1038-s41598-025-18537-2",
+   "key": "t:mimedspeechasanintermediarystatebetweenovertandimaginedspeechproductioninanelect",
+   "title": "Mimed speech as an intermediary state between overt and imagined speech production in an electrocorticography study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "relates with imagined speech | evidence_relation=supported_within_scope | claim=electrode-level HGA correlations: overt-mimed r=.56 (p<.01), mimed-imagined r=.18 (p<.01), overt-imagined n.s. r=.10 — graded alignment through the intermediary | claim=HGA diverges earlier in left hemisphere (~95ms) consistent with lexical/phonologic",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "doi-10.1101-2022.08.04.502829",
+   "key": "t:thenestedhierarchyofovertmouthedandimaginedspeechactivityevidentinintracranialre",
+   "title": "The Nested Hierarchy of Overt, Mouthed, and Imagined Speech Activity Evident in Intracranial Recordings",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "synced stimuli | Dataset.collection_protocol=sEEG + acoustic audio (44.1kHz mic) recorded simultaneously; audio forced-aligned for speech/non-speech frame labels; mouthed/imagined labeled via overt surrogate onset/duration | sensor_hardware=Ad-Tech sEEG depth electrodes, subdermal needle r",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2738568",
+   "key": "t:emgtospeechdirectgenerationofspeechfromfacialelectromyographicsignals",
+   "title": "EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "reason": "Prior (2016 KIT dissertation; the wiki text is the thesis form). Sil Train - Sil Test: silent EMG trained on acoustic targets of the audible recording aligned by electromyographic DTW.",
+   "provenance": "text-verified"
+  },
+  {
+   "pid": "doi-10.1587-transinf-2019edp7211",
+   "key": "p:doi-10.1587-transinf-2019edp7211",
+   "title": null,
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "STOI; method comparisons A-A/S-S/A-S + EMG + image-based; listener discrimination | EvaluationProtocol.statistical_plan=silent-vs-audible discrepancy analysis; nearest-neighbor alignment MMSE; αhe sweeps | output_types=acoustic_features, audio | extra.Limitation.limitation=silent UDS pitch estimation",
+   "decision": "undecided",
+   "reason": "[concurrent] (2020-08). Ultrasonic Doppler A-A / S-S / A-S comparison with nearest-neighbour alignment; target construction for S-S not resolved from the ledger."
+  },
+  {
+   "pid": "doi-10.18653-v1-2020.emnlp-main.445",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "26 MFCC 27ms/10ms; z-scored | technical_essence=BiLSTM EMG->26-MFCC (dropout .5, MSE, Adam lr.001 halve/5ep, best-val); silent-EMG targets transferred from vocalized audio via DTW (euclidean -> CCA-15d -> +predicted-audio term lambda=10, re-align every 5ep after 4th); separate session embeddings per mode; BiLSTM512->128->nv-wavenet 16kHz decoder | vocabulary_regim",
+   "decision": "include",
+   "reason": "Target. DTW target transfer with CCA and predicted-audio realignment.",
+   "provenance": "text-verified"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2009-230",
+   "key": "t:multimodalhmmbasedspeechtospeechconversionsystemforsilentspeechinterfaces",
+   "title": "Multimodal HMM-based speech-to-speech conversion system for silent speech interfaces",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ent speech interfaces | venue=Interspeech 2009, Brighton (ISCA) | task_family=speech_reconstruction | extra.Task.target=silent→audible conversion via HMM recognition+synthesis on aligned corpora w/ phonological constraints; test whether facial movements help recognition & synthesis vs GMM direct mapping",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2023-1966",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "13274 train / 1205 test utts, 81 speakers; four feature-conditioning conditions × raw/fMLLR; bigram LM best-weight WER; DTW trajectory comparison voiced-vs-silent | improvement_pct | wer_pct | wer_decrease_pct | utterances",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "doi-10.21437-odyssey.2026-19",
+   "key": "t:adaptivephonewiseweightedlossforsilentspeechrestorationincontinuousspanish",
+   "title": "Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rove silent speech restoration across EMG and lipreading? | acoustic_mode=no_vocalization | extra.Production.scope_note=silent mouthed speech; audible paired recordings used only as aligned reference via DTW | intrusiveness=skin_contact | observed_quantities=muscle_activity | Acquisition.sensor_geometry=8 bipolar surface EMG",
+   "decision": "include",
+   "reason": "Later (2026). Spanish silent EMG and lipreading; audible paired recordings aligned by DTW as reference targets.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "doi-10.21437-speechprosody.2008-25",
+   "key": "t:predictingf0andvoicingfromnamcapturedwhisperedspeech",
+   "title": "Predicting F0 and voicing from NAM-captured whispered speech",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "(STRAIGHT); spectrum target incl. GV | technical_essence=50in/17hidden/1out FF-NN classifies each whisper frame voiced/unvoiced (labels from aligned speech) | technical_essence=separate GMMs for spectrum (w/ GV), aperiodic (no GV), F0 (voiced segments only, full cov",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "doi-10.3390-s24227368",
+   "key": "t:silentspeecheyewearinterfacesilentspeechrecognitionmethodusingeyewearandanearmou",
+   "title": "Silent Speech Eyewear Interface: Silent Speech Recognition Method Using Eyewear and an Ear-Mounted Microphone with Infrared Distance Sensors",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "mmands recognized at F=0.90 (Evals 1-2) and F=0.83 alternative config; scaling to 21 commands via deep learning (LSTM + DTW/kNN); Eval 5 tested re-attachment/walking robustness — hands-free silent-speech interface | target_population=general_population | population_description=Participants primarily young Asians |",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "doi-10.5220-0003786100910100",
+   "key": "t:towardsasilentspeechinterfaceforportuguesesurfaceelectromyographyandthenasalityc",
+   "title": "Towards a Silent Speech Interface for Portuguese: Surface Electromyography and the nasality challenge",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rd error rate (WER; misclassifications over test observations) | system_name=4-channel sEMG + temporal features + PCA + DTW silent word recognizer | Study.negative_findings=nasal/oral minimal pairs cause 50.8% of total error; accuracy degrades vs pri",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "isca-calabresi07-erps",
+   "key": "t:speechreadingincontextanerpstudy",
+   "title": "Speechreading in context: an ERP study",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lous phrases; N400 ERP as marker of lexical-semantic integration | Study.unit_of_analysis=One trial = written context + silent video cloze -> ERP epoch aligned to articulatory-movement onset -> typical/anomalous x correct/incorrect cell | task_encoding=natural_utterance | task",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "isca-diener20b_interspeech",
+   "key": "t:cslemgarrayanopenaccesscorpusforemgtospeechconversion",
+   "title": "CSL-EMG Array: An Open Access Corpus for EMG-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dataset_resource | Study.research_objective=provide open array-EMG corpus mirroring realistic online EMG-to-speech use (silent evaluation, adaptation blocks, marker alignment) + baseline results | claim=open CSL-EMG Array corpus (9.5h, 8spk, 12 sessions, silent+audible, temporal blocks) en",
+   "decision": "exclude",
+   "reason": "Corpus description; no silent-target training reported in the ledger entry."
+  },
+  {
+   "pid": "isca-florescu10_interspeech",
+   "key": "t:silentvsvocalizedarticulationforaportableultrasoundbasedsilentspeechinterface",
+   "title": "Silent vs Vocalized Articulation for a Portable Ultrasound-Based Silent Speech Interface",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "usion weight 70% tongue US / 30% lip video | ProcessingStep.architecture=isolated-word matching against reference reps (DTW-style scores); vocalized/silent/cross train-test combinations | Dataset.collection_protocol=50 French words covering all phonemes; 4 speakers; vocalize",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "isca-ghosh26c_interspeech",
+   "key": "t:valignvisualforcedalignmentviaphonemetovideooptimalpathtraversal",
+   "title": "V-Align: Visual Forced Alignment via Phoneme to Video Optimal Path Traversal",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "2026 | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=visual forced alignment of transcripts onto silent talking-face video via optimal monotonic path traversal over a frame-phoneme lattice | Study.unit_of_analysis=per-video",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "isca-han26f-tapets",
+   "key": "t:tapetstimealignedphonemeguidingforemgtospeechsynthesis",
+   "title": "TAP-ETS: Time Aligned Phoneme Guiding for EMG-to-Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "erspeech 2026 | doi=ISCA archive record 10.21437/Interspeech.2026 (han26f) | Study.research_objective=inject frame-wise aligned phoneme embeddings into EMG-to-speech generation for silent speech interfaces | Study.study_design=system_proposal | task_family=speech_reconstruction | ProductionCondition.activi",
+   "decision": "include",
+   "reason": "Later (2026). Gaddy-corpus EMG-to-speech with time-aligned phoneme guidance on transferred targets.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "isca-janke10",
+   "key": "p:isca-janke10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "erimental_design=per-session speaker-dependent models; base recognizer trained on audible/whispered EMG provides forced alignment for silent EMG; PSD Welch analysis per phoneme class on channels 2/4; spectral mapping factors per session/channel applied to sile",
+   "decision": "exclude",
+   "reason": "Recognition: an audible-trained recognizer force-aligns silent EMG to the transcript; no targets from the paired vocalized recording (boundary case)."
+  },
+  {
+   "pid": "isca-kashiwagi23_interspeech",
+   "key": "t:improvingthegapinvisualspeechrecognitionbetweennormalandsilentspeechbasedonmetri",
+   "title": "Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "me → Transformer enc-dec viseme classifier (FC 1024/2048/1024) → external LM; losses = NCE+SCE cross-entropy + KL terms aligning normal-vs-silent (LNKL, LSKL, LKL) viseme distributions; CMU dict phoneme→viseme (Lee&Yook) | task_family=sentence_recognition | intende",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "isca-lee26r_interspeech",
+   "key": "t:getsguidingemgtospeechsynthesisviasilentspeechrecognition",
+   "title": "GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "el + 5470 non-parallel voiced utts, single subject | representation_kind=8-ch sEMG → conv+transformer encoder features; DTW warping silent→voiced feature space; mel-spectrogram targets; SSR text semantic guidance | ProcessingStep.architecture={'stages': ['EM",
+   "decision": "include",
+   "reason": "Later (2026). DTW warping of silent to voiced feature space on the Gaddy corpus.",
+   "provenance": "text-verified"
+  },
+  {
+   "pid": "isca-lee26v_interspeech",
+   "key": "t:enhancingemgtospeechviasilentvoicedrepresentationalignment",
+   "title": "Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lee26v_interspeech | title=Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment | authors=Jiwon Lee, Injune Hwang, Jaejun Lee, Eungbeom Kim, Dongyub Han, Kyogu Lee | venue=Interspeech 2026 | revi",
+   "decision": "include",
+   "reason": "Later (2026). Silent-voiced alignment loss computed with DTW between parallel silent and voiced EMG.",
+   "provenance": "text-verified"
+  },
+  {
+   "pid": "isca-toussaint26_interspeech",
+   "key": "t:emergenceofphoneticrepresentationsinemgbasedsilentspeechinterfaces",
+   "title": "Emergence of Phonetic Representations in EMG-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "L pretraining fails | Study.unit_of_analysis=Gaddy&Klein corpus 18.6h single-speaker 8-el sEMG (12h voiced aligned + 6h unvoiced DTW-aligned); 8 model setups; linear probe phone accuracy sil/no-sil; CKA embedding similarity; Wav2Vec2-WER intelligibility | ta",
+   "decision": "include",
+   "reason": "Later (2026). Gaddy corpus with DTW-aligned silent data.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "isca-wand09_interspeech",
+   "key": "p:isca-wand09_interspeech",
+   "title": null,
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "WER | evidence_relation=supported_within_scope | technical_limits=high inter-speaker variance; most speakers >80% WER; silent-model initialization requires parallel audible recordings (alignment or mapping); small 10-sentence test set; 108-word restricted vocabulary | speakersAnalyzed | corpusSpeakers | chann",
+   "decision": "include",
+   "reason": "Prior (2009). Recognition: 'Mapped Labels' maps phoneme boundaries from the paired audible utterance onto the silent utterance (linear length compensation) and trains a silent-EMG recognizer; label targets, not audio targets. Corrected in triage (evaluator finding 14); the earlier exclusion covered only its cross-modal labeling condition."
+  },
+  {
+   "pid": "isca-wand14b_interspeech",
+   "key": "t:theemgukacorpusforelectromyographicspeechprocessing",
+   "title": "The EMG-UKA Corpus for Electromyographic Speech Processing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e, chin, neck, lips, tongue | representation_kind=raw EMG + audio waveforms; hardware sync marker; utterance/word/phone alignments (audio-derived for audible/whispered, EMG-derived for silent) | decoder_route=recognition_to_text | elicitation=instructed_content | tested_population=healthy_volunteers | dataset_",
+   "decision": "exclude",
+   "reason": "Corpus description; no silent-target training reported in the ledger entry."
+  },
+  {
+   "pid": "issp2011-denby-portable-ssi",
+   "key": "t:towardsapracticalsilentspeechinterfacebasedonvocaltractimaging",
+   "title": "Towards a Practical Silent Speech Interface Based on Vocal Tract Imaging",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "word vocabulary, two lighting sessions w/ recalibration) | evidence_relation=supported_within_scope | claim=interactive DTW digit demonstrator achieves 100% recognition after practice, silent or vocalized (processing time a few seconds per utterance) | claim=the portable system (battery powered, carrying case,",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "osf-ncdtp_v1",
+   "key": "t:realtimelipreadingandspeechsynthesisusingctccnnbilstmnetworkswithflaskdeployment",
+   "title": "Real-Time Lip Reading and Speech Synthesis Using CTC-CNN-BiLSTM Networks with Flask Deployment",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al CNN', 'BiLSTM', 'CTC decode', 'WordNinja/TextBlob correction', 'gTTS synthesis', 'Flask web app'], 'mechanism': 'CTC aligns variable-length silent video to text'} | extra.Output.output_kind=CER 8.15% / CA 91.85%; text then gTTS speech | Claim.claim_scope=CTC-CNN-BiL",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "pmc-11137001-chineseeeg",
+   "key": "t:chineseeegachineselinguisticcorporaeegdatasetforsemanticalignmentandneuraldecodi",
+   "title": "ChineseEEG: A Chinese Linguistic Corpora EEG Dataset for Semantic Alignment and Neural Decoding",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=EEG dataset recorded while participants silently read Chinese text for neural decoding and semantic alignment | Dataset.counts_by_unit=10 participants reading 13 hours of Chinese text | tested_population=healthy_volunteers |",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "pmc-11351572-iad-dtw",
+   "key": "t:iterativealignmentdiscoveryofspeechassociatedneuralactivity",
+   "title": "Iterative alignment discovery of speech-associated neural activity",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ra.Limitation.status=acknowledged | extra.Limitation.limitation=Validated on able-bodied overt speech with simulated misalignment — silent/covert attempts rely more on lower frequencies and may differ; assumes a cued trial design; only three patients | 3 | 1",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "pmc-11598394-eyewear-ssi",
+   "key": "t:silentspeecheyewearinterfacesilentspeechrecognitionmethodusingeyewearandanearmou",
+   "title": "Silent Speech Eyewear Interface: Silent Speech Recognition Method Using Eyewear and an Ear-Mounted Sensor",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k) and 10 longer commands, 150 pieces per subject (5 cmd × 10 trials × 3 speech conditions: voiced, silent, exaggerated silent) with intra-individual 10-fold CV; E3 — sensor-point combinations; E4 — 21 commands (210 and 630 samples) with LSTM vs DTW+kNN; E5 — re-attachment and walking robustness with stationary-trained models | EvaluationRun.execution_artifacts=Five",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "pmc-11903136-cub",
+   "key": "t:semanticlanguagedecodingacrossparticipantsandstimulusmodalities",
+   "title": "Semantic language decoding across participants and stimulus modalities",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y.study_design=controlled_experiment | Study.research_objective=cross-participant fMRI semantic decoding via functional-alignment converters (story vs silent-movie) | Study.unit_of_analysis=decoding sigma above chance / identification percentile on 10-min single-trial test sto",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "pmc-12864990-chineseeg2",
+   "key": "t:aneegdatasetformultimodalsemanticalignmentandneuraldecodingduringreadingandliste",
+   "title": "An EEG Dataset for Multimodal Semantic Alignment and Neural Decoding during Reading and Listening",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nese; beta-band 14–30Hz Hilbert amplitude analyses | ProcessingStep.architecture=ROWS/ROWE sentence-triggered embedding alignment; spline-interpolated bad channels; trimmed practice/5s-silent buffers; attention questionnaires | extra.Configuration.configuration_scope=60Hz LCD monitor; mandatory 20s intervals;",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "pmc-3127251-tempo",
+   "key": "t:linkingspeechperceptionandneurophysiologyspeechdecodingguidedbycascadedoscillato",
+   "title": "Linking speech perception and neurophysiology: speech decoding guided by cascaded oscillators locked to the input rhythm",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y paradox: word error >50% when packaging rate exceeds theta range, then intelligibility is substantially restored when silent gaps re-align packets to theta cycles — because decoding time, not information density, is the binding constraint | extra.Output.outp",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "pmc-5134471-iruwb",
+   "key": "t:towardscontactlesssilentspeechrecognitionbasedondetectionofactiveandvisibleartic",
+   "title": "Towards contactless silent speech recognition based on detection of active and visible articulators using IR-UWB radar",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e CLEAN; vowel test: 1 speaker × 5 vowels × 20 = 100 samples, F-measure 0.943; word test: 5 Korean-native males (23–28) silently saying digits one–zero via MD-DTW | task_encoding=attempted_utterance | task_family=isolated_word_recognition | tested_population=healthy_volunteers | Co",
+   "decision": "exclude",
+   "reason": "Alignment unrelated to transferring vocalized targets to silent signals (perception, reading, lip-sync, segmentation, or analysis only)."
+  },
+  {
+   "pid": "pmc-9312762-ssrnet-tonal",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "er target; toneme labels (139 Mandarin tonemes incl. toned vowels+consonants) for auxiliary classification; GT duration alignment from vocal↔silent sEMG | ProcessingStep.architecture=SSRNet seq2seq: stacked FFT blocks (multi-head self-attention + 2-layer 1D conv), le",
+   "decision": "include",
+   "reason": "Later (2022). Mandarin silent sEMG voicing; duration alignment from vocal to silent sEMG for targets.",
+   "provenance": "ledger only"
+  },
+  {
+   "pid": "arxiv-2106.01933",
+   "key": "t:animprovedmodelforvoicingsilentspeech",
+   "title": "An Improved Model for Voicing Silent Speech",
+   "year": 2021,
+   "via": [
+    "seed"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "reason": "Later (2021). Same target-transfer training on the Gaddy corpus (known item).",
+   "provenance": "text-verified"
+  }
+ ],
+ "usual_approach": {
+  "design": "Before the target: decoders trained on vocalized recordings and applied to silent signals (M04); two prior studies train on silent signals with targets transferred from the paired vocalized recording: phoneme labels mapped by linear length scaling for recognition (2009) and DTW-transferred audio targets for synthesis (2016). After the target: DTW target transfer is the default training recipe on the Gaddy corpus.",
+  "n": 15,
+  "tier": "confirmed",
+  "n_prior": 2,
+  "pids": [
+   "doi-10.1109-taslp-2017-2738568",
+   "isca-wand09_interspeech",
+   "arxiv-2106.01933",
+   "arxiv-2405.08021",
+   "isca-lee26v_interspeech",
+   "isca-lee26r_interspeech"
+  ],
+  "population_unique": 52
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1109-taslp-2017-2738568",
+   "role": "prior",
+   "loc": "Sec. 6.3.1; Sec. 8.3.2",
+   "quote": "we can use the acoustic data and align this data to the silent EMG data using DTW."
+  },
+  {
+   "pid": "isca-lee26v_interspeech",
+   "role": "sota",
+   "loc": "Table 1; Sec. 4.2",
+   "quote": "we trained the model with 10 different seeds for 200 epochs each and saved a model every 10 epochs."
+  },
+  {
+   "pid": "isca-lee26r_interspeech",
+   "role": "sota",
+   "loc": "Abstract; Table 1",
+   "quote": "Word Error Rate (WER) of 11.89% on the"
+  },
+  {
+   "pid": "isca-wand09_interspeech",
+   "role": "prior",
+   "loc": "Sec. 4.1",
+   "quote": "Then we mapped the time-alignment from the audible utterance to the silent utterance, compensating for differing lengths by linearly growing or shrinking the phoneme lengths."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 2,
+  "recall": 0.67,
+  "missed": [
+   "arxiv-2106.01933"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "isca-lee26r_interspeech",
+  "year": 2026,
+  "metric": "silent-EMG WER, Gaddy test split, Whisper (DTW-transferred targets)",
+  "value": 11.89,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 52,
+  "fulltext_only_folders": 2,
+  "usual_approach": {
+   "design": "Before the target: decoders trained on vocalized recordings and applied to silent signals (M04); two prior studies train on silent signals with targets transferred from the paired vocalized recording: phoneme labels mapped by linear length scaling for recognition (2009) and DTW-transferred audio targets for synthesis (2016). After the target: DTW target transfer is the default training recipe on the Gaddy corpus.",
+   "n": 15,
+   "tier": "confirmed",
+   "population_unique": 52
+  },
+  "state_of_the_art": {
+   "pid": "isca-lee26r_interspeech",
+   "year": 2026,
+   "metric": "silent-EMG WER, Gaddy test split, Whisper (DTW-transferred targets)",
+   "value": 11.89,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 4,
+  "read_prior": [
+   "doi-10.1109-taslp-2017-2738568",
+   "isca-wand09_interspeech"
+  ],
+  "unread": 1,
+  "confirmed_unique": 15,
+  "known_item_recall": 0.67
+ },
+ "used_by": [
+  "digital-voicing-of-silent-speech"
+ ]
+}
