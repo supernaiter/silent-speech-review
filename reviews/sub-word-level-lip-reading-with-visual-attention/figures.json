@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Voiced speech in broadcast/TED video"
+     ],
+     "field": "Same as use time",
+     "n": 8995,
+     "matched": 3882,
+     "verdict": "standard",
+     "note": "LRS lineage."
+    },
+    "M02": {
+     "choice": [
+      "Word-aligned transcripts; ASR captions (TEDxext)"
+     ],
+     "field": "Paired transcripts",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "ASR labels, as later [@ma2023autoavsr]."
+    },
+    "M03": {
+     "choice": [
+      "Two stages; all n-grams >= 2 words"
+     ],
+     "field": "Length curriculum",
+     "n": 8995,
+     "matched": 1526,
+     "verdict": "standard",
+     "note": "Equals curriculum (30.92 vs 30.91)."
+    },
+    "M04": {
+     "choice": [
+      "Video only (audio unused) of voiced speech"
+     ],
+     "field": "Overt speech video",
+     "n": 8995,
+     "matched": 5595,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Face track, 96x96 crop, 25 fps"
+     ],
+     "field": "Mouth or face crop",
+     "n": 8995,
+     "matched": 7329,
+     "verdict": "standard",
+     "note": "LRS preprocessing."
+    },
+    "M06": {
+     "choice": [
+      "Attention pooling of a 24x24 map (VTP)"
+     ],
+     "field": "ResNet + average pooling (254)",
+     "n": 8995,
+     "matched": 1116,
+     "verdict": "ahead",
+     "note": "Not adopted by later best systems."
+    },
+    "M07": {
+     "choice": [
+      "GPT-2 rescoring of beams"
+     ],
+     "field": "External LM",
+     "n": 8995,
+     "matched": 119,
+     "verdict": "standard",
+     "note": "Weight differs paper vs code."
+    },
+    "M08": {
+     "choice": [
+      "WordPiece, 30,522 tokens"
+     ],
+     "field": "Phonemes/visemes (120); characters in E2E",
+     "n": 8995,
+     "matched": 633,
+     "verdict": "standard",
+     "note": "BPE used before [@liu2020fastlr]."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None (offline)",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None (offline)",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M11": {
+     "choice": [
+      "LRS2/LRS3 test; AVA-ActiveSpeaker"
+     ],
+     "field": "LRS2/LRS3",
+     "n": 8995,
+     "matched": 234,
+     "verdict": "standard",
+     "note": "Speaker overlap not stated."
+    },
+    "M12": {
+     "choice": [
+      "WER on LRS2/LRS3; seeds, repeats and WER normalisation unstated"
+     ],
+     "field": "WER on LRS2/LRS3",
+     "n": 8995,
+     "matched": 6960,
+     "verdict": "missing",
+     "note": "Training hours also unmatched across Table 1."
+    },
+    "M13": {
+     "choice": [
+      "Offline GPU inference"
+     ],
+     "field": "Offline",
+     "n": 8995,
+     "matched": 6075,
+     "verdict": "standard",
+     "note": "No latency reported."
+    }
+   }
+  }
+ ]
+}

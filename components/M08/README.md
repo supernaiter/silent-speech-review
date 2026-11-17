@@ -39,3 +39,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks | 2019 | Title, Abstract |
 | Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices | 2019 | Methods |
 | Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices | 2019 | Methods |
+
+## vsr-output-token-unit
+
+- Table: [`vsr-output-token-unit.csv`](vsr-output-token-unit.csv) (3268 slot-filled, 633 pattern match, usual design in 120, 5 read in full)
+- Inclusion rule: Same population as M06. The design compared is the output unit of open-vocabulary sentence-level lip reading: characters, sub-word tokens (WordPiece, SentencePiece/unigram, BPE), phonemes or visemes, or closed-set word classes. Boundary: word classification on LRW-type isolated words is counted as word classes, not as an open-vocabulary unit; a paper counts under every unit its text names as an output; reviews count as pattern matches only.
+- Used in: [Sub-word Level Lip Reading With Visual Attention](../../reviews/sub-word-level-lip-reading-with-visual-attention/)
