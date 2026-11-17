@@ -22,6 +22,7 @@ Each paper judged component by component against the usual approach and the stat
 - [Digital Voicing of Silent Speech](digital-voicing-of-silent-speech/) (2020). Silent-EMG target transfer (M02) extends a 2016 DTW recipe; the open corpus scored by WER (M12) became the shared test bed. Headline 94% gain is closed-vocabulary, 20 clips, one evaluator.
 - [Speech synthesis from neural decoding of spoken sentences](speech-synthesis-from-neural-decoding-of-spoken-sentences/) (2019). Listener-tested sentence synthesis from ECoG, alongside concurrent work; its articulatory-intermediate gain is not isolated from extra supervision, and intelligibility rests on closed word pools.
 - [Deep Audio-Visual Speech Recognition](deep-audio-visual-speech-recognition/) (2018). LRS2-BBC outlasts the models: the CTC vs seq2seq comparison is confounded, the 22-point gain is not attributable to the new architecture, and test speaker overlap is unreported.
+- [Lip2AudSpec: Speech Reconstruction from Silent Lip Movements Video](lip2audspec-speech-reconstruction-from-silent-lip-movements-video/) (2018). Bottleneck target (M02) and auditory-spectrogram route (M06) are standard; gains rest on one speaker, a re-implemented baseline and a vocabulary-cued test on four seen GRID speakers.
 - [Lip Reading Sentences in the Wild](lip-reading-sentences-in-the-wild/) (2017). Made sentence lipreading measurable with LRS, but its decoder and curriculum gains are confounded with data and augmentation, and the beats-a-lipreader claim is on unequal terms.
 
 ## Itemized summaries
@@ -155,7 +156,6 @@ Earlier format: evaluation conditions, results and limitations per paper.
 - [Visual-Only Recognition of Normal, Whispered and Silent Speech](visual-only-recognition-of-normal-whispered-and-silent-speech/) (2018)
 - [Biosignal-Based Spoken Communication: A Survey](biosignal-based-spoken-communication-a-survey/) (2017)
 - [Improved Speech Reconstruction from Silent Video](improved-speech-reconstruction-from-silent-video/) (2017)
-- [Lip2AudSpec: Speech reconstruction from silent lip movements video](lip2audspec-speech-reconstruction-from-silent-lip-movements-video/) (2017)
 - [Seeing Through Noise: Visually Driven Speaker Separation and Enhancement](seeing-through-noise-visually-driven-speaker-separation-and-enhancement/) (2017)
 - [Updating the silent speech challenge benchmark with deep learning](updating-the-silent-speech-challenge-benchmark-with-deep-learning/) (2017)
 - [Vid2speech: Speech Reconstruction from Silent Video](vid2speech-speech-reconstruction-from-silent-video/) (2017)
