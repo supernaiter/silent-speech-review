@@ -66,6 +66,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition | 2022 | Ledger M06 |
 | Reliability-Based Large-Vocabulary Audio-Visual Speech Recognition | 2022 | §3 |
 
+## causal-closed-loop-speech-synthesis
+
+- Table: [`causal-closed-loop-speech-synthesis.csv`](causal-closed-loop-speech-synthesis.csv) (7345 slot-filled, 87 pattern match, usual design in 24, 3 read in full)
+- Inclusion rule: Studies that synthesize speech acoustics from a non-acoustic signal (neural, EMG, articulography, ultrasound, video) online, in real time, with the audio played back to the user while or right after they speak. Boundary: include formant or vocoder synthesis of vowels, words or sentences, and offline studies only when they simulate causal frame-level inference; exclude offline acausal reconstruction, text decoding read out by TTS, and conversion from acoustic input; count versions once.
+- Used in: [An instantaneous voice-synthesis neuroprosthesis](../../reviews/an-instantaneous-voice-synthesis-neuroprosthesis/)
+
 ## closed-vocabulary-word-classification
 
 - Table: [`closed-vocabulary-word-classification.csv`](closed-vocabulary-word-classification.csv) (7345 slot-filled, 360 pattern match, usual design in 82, 2 read in full)

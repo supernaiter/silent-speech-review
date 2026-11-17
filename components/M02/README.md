@@ -46,6 +46,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that synthesize speech from a non-acoustic speech signal and train the signal encoder to predict self-supervised speech representations (HuBERT units, soft units, ContentVec, wav2vec features) derived from paired or aligned audio, instead of or besides spectral targets. Boundary: exclude recognition-only studies, targets the model generates itself, and acoustic-input conversion; count versions once.
 - Used in: [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
 
+## synthetic-speech-target
+
+- Table: [`synthetic-speech-target.csv`](synthetic-speech-target.csv) (31 slot-filled, 56 pattern match, usual design in 8, 2 read in full)
+- Inclusion rule: Studies that train a decoder of speech acoustics (or speech units) from a non-acoustic signal using target speech that the user did not produce: text-to-speech output, a reference speaker's recording, or a voice-converted or pre-injury voice, because the user cannot produce intelligible audio. Boundary: exclude targets recorded from the same user during the same or a paired vocalized trial (paired audio, DTW target transfer); exclude text-only targets; count versions of one study once.
+- Used in: [An instantaneous voice-synthesis neuroprosthesis](../../reviews/an-instantaneous-voice-synthesis-neuroprosthesis/)
+
 ## whisper-to-normal-training-pairing
 
 - Table: [`whisper-to-normal-training-pairing.csv`](whisper-to-normal-training-pairing.csv) (31 slot-filled, 60 pattern match, usual design in 39, 5 read in full)

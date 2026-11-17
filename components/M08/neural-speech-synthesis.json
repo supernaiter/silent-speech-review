@@ -7517,6 +7517,7 @@
  },
  "used_by": [
   "a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control",
+  "an-instantaneous-voice-synthesis-neuroprosthesis",
   "speech-synthesis-from-neural-decoding-of-spoken-sentences"
  ],
  "ledger_tally": {
@@ -7556,6 +7557,14 @@
     ]
    },
    {
+    "design": "extra.Output.output_kind=resynthesized speech (mgc-lsp)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2008.00889"
+    ]
+   },
+   {
     "design": "output_types=class_label",
     "n": 1,
     "tier": "slot-filled",
@@ -7578,141 +7587,37 @@
     "pids": [
      "doi-10.1038-s44460-025-00010-2"
     ]
-   }
-  ],
-  "pattern_counts": [
+   },
    {
-    "design": "paralysis_synthesis",
-    "n": 27,
-    "tier": "pattern match",
+    "design": "extra.Output.output_kind=syllable class + synthesized audio + reconstructed akt",
+    "n": 1,
+    "tier": "slot-filled",
     "pids": [
-     "pmc-13270037-vpcg-loudness",
-     "arxiv-2604.05751",
-     "arxiv-2609-36736-bcreview",
-     "doi-10.26092-elib.5498",
-     "essex-43322-tates-thesis"
+     "doi-10.1101-2025.05.27.656311"
     ]
    },
    {
-    "design": "avatar",
-    "n": 11,
-    "tier": "pattern match",
+    "design": "extra.Output.output_kind=channel_selection_phase_map",
+    "n": 1,
+    "tier": "slot-filled",
     "pids": [
-     "pmc-12987850-anarthria-devices",
-     "arxiv-2603-12279-icbci",
-     "arxiv-2609-36736-bcreview",
-     "doi-10.1038-s41593-026-02446-2",
-     "doi-10.3389-fnins.2026.1928223"
+     "doi-10.1126-sciadv.abc6348"
     ]
    },
    {
-    "design": "hubert_units",
-    "n": 8,
-    "tier": "pattern match",
+    "design": "extra.Output.output_kind=reconstructed speech waveform via mel + neural phase vocoder",
+    "n": 1,
+    "tier": "slot-filled",
     "pids": [
-     "doi-10.1186-s12911-026-03552-8",
-     "doi-10.26092-elib.5498",
-     "arxiv-2512-22146-eeg2voice",
-     "doi-10.1088-1741-2552-adab21",
-     "pmc-10980022-subjagn"
+     "isca-alradhi25_interspeech"
     ]
    }
   ],
-  "metric_pattern": "(?i)MCD|mel[- ]cepstral",
+  "pattern_counts": [],
+  "metric_pattern": null,
   "better": "lower"
  },
- "sota_candidates": [
-  {
-   "metric": "piecewiseMCDLowEntropy",
-   "value": 0.544,
-   "unit": null,
-   "raw": "coefficient 0.544 on MCD (entropy<0.7)",
-   "pid": "doi-10.1162-imag.a.146",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "MCD (source table omits unit; method defines mel-cepstral distortion)",
-   "value": 1.63,
-   "unit": null,
-   "raw": "1.63",
-   "pid": "arxiv-2602.01247",
-   "year": 2026,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "all-electrodes MCD (dB)",
-   "value": 2.228,
-   "unit": null,
-   "raw": "2.228",
-   "pid": "doi-10.1101-2024.03.11.584533",
-   "year": 2024,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "T2 MCD f1 lstm",
-   "value": 2.82,
-   "unit": "dB",
-   "raw": "2.82",
-   "pid": "arxiv-2008.00889",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "SA synthesized speech MCD (dB)",
-   "value": 3.38,
-   "unit": null,
-   "raw": "3.38",
-   "pid": "doi-10.1101-2025.05.27.656311",
-   "year": 2025,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "best per-speaker FC MCD",
-   "value": 3.63,
-   "unit": "dB",
-   "raw": "3.63",
-   "pid": "doi-10.36244-icj.2024.1.6",
-   "year": 2024,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "mcdP5",
-   "value": 3.777,
-   "unit": null,
-   "raw": "best MCD P5",
-   "pid": "arxiv-2512.04618",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "MCD",
-   "value": 3.81,
-   "unit": "dB",
-   "raw": "3.81",
-   "pid": "arxiv-2510.27247",
-   "year": 2025,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "MCD",
-   "value": 3.9,
-   "unit": "dB",
-   "raw": "3.9",
-   "pid": "arxiv-2508.03166",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "MCD",
-   "value": 3.9,
-   "unit": "dB",
-   "raw": "3.9",
-   "pid": "arxiv-2604.05751",
-   "year": 2026,
-   "tier": "ledger only"
-  }
- ],
+ "sota_candidates": [],
  "usual_approach": {
   "design": "output_types=audio",
   "n": 11,
