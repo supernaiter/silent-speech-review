@@ -4,6 +4,7 @@
 
 Each paper judged component by component against the usual approach and the state of the art.
 
+- [Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction](brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/) (2026). Same three parts and same Table 1 values as MiSTR (2025, same first two authors), not cited. Features (M06) and phase vocoder (M08) standard, unablated; no listener test (M12, behind).
 - [EMG-to-Speech with Fewer Channels](emg-to-speech-with-fewer-channels/) (2026). Halving EMG electrodes costs synthesis the same ~35% relative WER known from recognition; initialization helps, channel dropout does not, and a weak unrepeated baseline undercuts the ranking.
 - [Brain-to-Text Decoding: A Non-invasive Approach via Typing](brain-to-text-decoding-a-non-invasive-approach-via-typing/) (2025). Executed typing as the decoded action (M04) was ahead for MEG/EEG in 2025; keystroke-locked decoding (M06) and an n-gram LM (M07) are standard, and decoding needs known keystroke times.
 - [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/) (2025). Face voices (M08) extend 2020 TTS and 2023 lip-to-speech designs to EMG; the pitch-flattening gain (M02) is within seed noise; silent WER 38.91% has no external baseline.
@@ -31,7 +32,6 @@ Earlier format: evaluation conditions, results and limitations per paper.
 - [AVSRBench: A Multi-Condition AVSR Benchmark](avsrbench-a-multi-condition-avsr-benchmark/) (2026)
 - [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg/) (2026)
 - [Articulatory movements influence electromagnetic wave transmission through the vocal tract](articulatory-movements-influence-electromagnetic-wave-transmission-through-the-vocal-tract/) (2026)
-- [Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction](brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/) (2026)
 - [Brain2Speech-Net: Intelligible, Real-Time Brain-to-Speech Synthesis Without Text Decoding](brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding/) (2026)
 - [CS-ETS: Chaos-Inspired Samba-Based EMG-To-Speech Synthesis with Nonlinear Chaotic Losses](cs-ets-chaos-inspired-samba-based-emg-to-speech-synthesis-with-nonlinear-chaotic-losses/) (2026)
 - [Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features](comparison-of-semg-encoding-accuracy-across-speech-modes-using-articulatory-and-phoneme-features/) (2026)

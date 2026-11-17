@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/](brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/).**
 
-Transformer-based speech reconstruction from intracranial sEEG with prosody feature engineering; reports Pearson correlation 0.91, MCD 3.92 and STOI 0.73.
+Same three parts and same Table 1 values as MiSTR (2025, same first two authors), not cited. Features (M06) and phase vocoder (M08) standard, unablated; no listener test (M12, behind).
 
 [Read the full review](brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/) · [All reviews](../README.md)

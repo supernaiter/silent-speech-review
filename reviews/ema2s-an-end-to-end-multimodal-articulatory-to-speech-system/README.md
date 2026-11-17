@@ -129,7 +129,7 @@ Data behind this review. Full texts of the papers are not included.
 - [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
 - [`components/M02/speech-latent-target.csv`](../../components/M02/speech-latent-target.csv): M02 topic "speech-latent-target", every candidate paper with its decision (31 slot-filled, 40 pattern match, usual design in 10, 3 read in full)
 - [`components/M06/articulography-to-speech-synthesis.csv`](../../components/M06/articulography-to-speech-synthesis.csv): M06 topic "articulography-to-speech-synthesis", every candidate paper with its decision (7345 slot-filled, 69 pattern match, usual design in 40, 3 read in full)
-- [`components/M12/listener-intelligibility-test.csv`](../../components/M12/listener-intelligibility-test.csv): M12 topic "listener-intelligibility-test", every candidate paper with its decision (6960 slot-filled, 37 pattern match, usual design in 15, 4 read in full)
+- [`components/M12/listener-intelligibility-test.csv`](../../components/M12/listener-intelligibility-test.csv): M12 topic "listener-intelligibility-test", every candidate paper with its decision (6960 slot-filled, 37 pattern match, usual design in 15, 5 read in full)
 
 
 ## More reviews in Brain signals (EEG, MEG, intracortical)
