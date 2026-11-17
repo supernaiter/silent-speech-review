@@ -84,6 +84,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | State-of-the-art Speech Recognition using EEG and Towards Decoding of Speech Spectrum From EEG | 2020 | §2 |
 | End-to-end Silent Speech Recognition with Acoustic Sensing |  | §4.4, Fig. 4(c) |
 
+## intracranial-synthesis-neural-features
+
+- Table: [`intracranial-synthesis-neural-features.csv`](intracranial-synthesis-neural-features.csv) (7345 slot-filled, 180 pattern match, usual design in 62, 3 read in full)
+- Inclusion rule: Include studies that reconstruct speech acoustics (spectrograms, vocoder features or waveforms) from intracranial recordings (ECoG, sEEG or depth electrodes, intracortical arrays) made during overt, mouthed, attempted or imagined speech production. Boundary: exclude reconstruction of heard speech, text-only decoding read out by a TTS engine, and reviews or citation-only mentions; count versions of one study once. The ledger pattern also admits some reviews and text-decoding papers, so its count is an upper bound. Design of interest: the neural feature fed to the acoustic decoder (high-gamma envelope, wavelet multiband decomposition, low-frequency band power, phase-amplitude coupling).
+- Used in: [Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction](../../reviews/brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/)
+
 ## noninvasive-decoding-segmentation
 
 - Table: [`noninvasive-decoding-segmentation.csv`](noninvasive-decoding-segmentation.csv) (7345 slot-filled, 1458 pattern match, usual design in 310, 2 read in full)

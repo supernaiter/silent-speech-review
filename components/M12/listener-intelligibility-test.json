@@ -1588,8 +1588,9 @@
    "value": "43.75%",
    "timing": "later"
   },
-  "read": 4,
+  "read": 5,
   "read_prior": [
+   "arxiv-2111.01457",
    "doi-10.1038-s41586-019-1119-1",
    "isca-taguchi18_interspeech"
   ],
@@ -1599,6 +1600,7 @@
  },
  "used_by": [
   "a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control",
+  "brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction",
   "ema2s-an-end-to-end-multimodal-articulatory-to-speech-system",
   "speech-synthesis-from-neural-decoding-of-spoken-sentences"
  ],
@@ -1727,48 +1729,20 @@
     ]
    }
   ],
-  "pattern_counts": [
-   {
-    "design": "crowd_workers",
-    "n": 15,
-    "tier": "pattern match",
-    "pids": [
-     "pmc-12369848-voice-synth-np",
-     "pmc-10256166-tonal-synth",
-     "arxiv-2207.03800",
-     "pmc-9714519-speechsynth",
-     "doi-10.1016-j.csl.2015.02.003"
-    ]
-   },
-   {
-    "design": "closed_set_identification",
-    "n": 13,
-    "tier": "pattern match",
-    "pids": [
-     "doi-10.1038-s41593-026-02456-0",
-     "doi-10.1038-s41598-024-60277-2",
-     "pmc-11053081-onlinesyn",
-     "pmc-11424044-ailistener",
-     "doi-10.1088-1741-2552-ace8be"
-    ]
-   },
-   {
-    "design": "open_transcription",
-    "n": 10,
-    "tier": "pattern match",
-    "pids": [
-     "arxiv-2510.23969",
-     "doi-10.1109-tnsre.2024.3520498",
-     "pmc-12369848-voice-synth-np",
-     "pmc-13537912-semglar",
-     "pmc-9714519-speechsynth"
-    ]
-   }
-  ],
-  "metric_pattern": "(?i)WER|word error",
+  "pattern_counts": [],
+  "metric_pattern": "WER|intelligib|word (accuracy|correct)",
   "better": "lower"
  },
  "sota_candidates": [
+  {
+   "metric": "segmental intelligibility comparison",
+   "value": 0,
+   "unit": "percent",
+   "raw": "HMM+dyn segmental intelligibility > GMM+dyn (perceptual VCV test)",
+   "pid": "doi-10.1016-j.csl.2015.09.008",
+   "year": 2016,
+   "tier": "ledger only"
+  },
   {
    "metric": "sEMG silent-speech recognition WER as low as 3% (limited vocabulary, speaker-dependent, from reviewed study)",
    "value": 0.03,
@@ -1797,12 +1771,12 @@
    "tier": "ledger only"
   },
   {
-   "metric": "word error rate",
-   "value": 0.4375,
+   "metric": "rho 1-PER vs intelligibility",
+   "value": 0.45,
    "unit": null,
-   "raw": "43.75%",
-   "pid": "doi-10.1038-s41586-025-09127-3",
-   "year": null,
+   "raw": ".45",
+   "pid": "arxiv-2506.04495",
+   "year": 2025,
    "tier": "ledger only"
   },
   {
@@ -1824,39 +1798,30 @@
    "tier": "ledger only"
   },
   {
+   "metric": "intelligibility ratings",
+   "value": 2.58,
+   "unit": "mos",
+   "raw": "mean intelligibility score across 10 synthesized sentences",
+   "pid": "isca-toutios13_interspeech",
+   "year": 2013,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "listener-rated 5-point MOS-like score: Whispered input, intelligibility",
+   "value": 2.69,
+   "unit": "scale_point",
+   "raw": "2.69",
+   "pid": "arxiv-2306.06514",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
    "metric": "Makin 2020 lowest WER (cited)",
    "value": 3,
    "unit": "percent",
    "raw": "word error rates as low as 3%",
    "pid": "doi-10.1038-s41583-024-00819-9",
    "year": 2024,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "T4 WER ours",
-   "value": 3.6,
-   "unit": "%",
-   "raw": "3.6",
-   "pid": "arxiv-2010.02960",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "MCD (lower is better)",
-   "value": 7.891,
-   "unit": "dB",
-   "raw": "7.891",
-   "pid": "arxiv-2306.06514",
-   "year": null,
-   "tier": "ledger only"
-  },
-  {
-   "metric": "CNN-CTC + LM word error rate, 20-word vocab",
-   "value": 10.7,
-   "unit": "percent",
-   "raw": "10.7%",
-   "pid": "oa-W2992647453",
-   "year": 2019,
    "tier": "ledger only"
   }
  ],
@@ -1897,6 +1862,12 @@
    "role": "sota",
    "loc": "Sec. 7.1; Table 3",
    "quote": "listeners agreeing on 28 out of 60 pairs"
+  },
+  {
+   "pid": "arxiv-2111.01457",
+   "role": "prior",
+   "loc": "Sec. 2.3; Sec. 3",
+   "quote": "in which 19 healthy volunteers listened to all reconstructed sentences from the test set one by one and had to select"
   }
  ],
  "state_of_the_art": {
@@ -1938,6 +1909,39 @@
     "pmc-4809489-vocal"
    ],
    "note": "Included studies of this topic table first public more than 6 months before the target; versions counted once by key. Appended for the EMA2S review; earlier decisions unchanged."
+  },
+  "arxiv-2604.05751": {
+   "target_first_public": "2026-04",
+   "prior_before": "2025-10",
+   "n_unique": 24,
+   "tier": "confirmed (text-verified include decisions)",
+   "pids": [
+    "arxiv-1701.00495",
+    "arxiv-1710.09798",
+    "arxiv-2005.08209",
+    "arxiv-2010.02960",
+    "arxiv-2106.01933",
+    "arxiv-2111.01457",
+    "arxiv-2207.03800",
+    "arxiv-2209.06337",
+    "doi-10.1016-j.csl.2015.09.008",
+    "doi-10.1016-j.rlfa.2018.07.004",
+    "doi-10.1038-s41586-019-1119-1",
+    "doi-10.1038-s41598-018-37359-z",
+    "doi-10.1038-s41598-024-60277-2",
+    "doi-10.1109-taslp-2017-2757263",
+    "doi-10.1109-taslp.2017.2716178",
+    "doi-10.1371-journal.pcbi.1005119",
+    "doi-10.21437-interspeech.2014-449",
+    "doi-10.21437-interspeech.2015-139",
+    "doi-10.3389-fnins.2019.01267",
+    "isca-taguchi18_interspeech",
+    "isca-uttam19-hushhush",
+    "pmc-10256166-tonal-synth",
+    "pmc-4809489-vocal",
+    "pmc-9312762-semgmandarin"
+   ],
+   "note": "Included studies first public more than 6 months before the target, counted once by key; appended for the brain-to-speech prosody review; earlier decisions unchanged."
   }
  }
 }
