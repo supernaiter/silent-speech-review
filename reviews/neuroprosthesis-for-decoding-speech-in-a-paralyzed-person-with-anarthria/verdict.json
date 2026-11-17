@@ -1,4 +1,15 @@
 {
- "short": "Sentence decoding from a person who cannot speak holds for 50 words and one participant; the decoder is standard, and an LM restricted to the test vocabulary drives the gain.",
- "position": "The paper changed who is decoded (M04, a participant with anarthria and a chronic implant) and moved a closed-vocabulary pipeline from speaking epilepsy patients into that setting (M06, M07); each component is standard for 2021 ECoG work, and the advance is the population, not the decoder. The main claim, sentences decoded from a person who cannot speak, holds for 50 words and one participant at 25.6% median WER. The strongest overreach is the language model: it was trained only on sentences built from the same 50 words as the test set, so the drop from 60.5% to 25.6% WER measures a closed-world prior. The no-recalibration claim rests on a post hoc offline analysis of isolated words, not on real-time sentence use. Against today the decoder is far behind: 99.6% accuracy on 50 words after 30 minutes of data [@card2024] ([later]), where this paper used 22 hours."
+ "short": "Sentence decoding from a person who cannot speak holds for 50 words and one participant; the decoder is standard for 2021, and an LM restricted to the test vocabulary drives the gain.",
+ "position": "The paper changed who is decoded (M04, anarthria; M13, a chronic implant) and moved a closed-vocabulary pipeline from speaking epilepsy patients into that setting (M06, M07); the decoder is standard for 2021 ECoG work, and the advance is the population, rated standard because one participant gives no repetition. The main claim, sentences decoded from a person who cannot speak, holds for 50 words and one participant at 25.6% median WER. The strongest overreach is the language model: trained only on sentences from the test set's 50 words, its drop from 60.5% to 25.6% WER measures a closed-world prior. The no-recalibration claim rests on a post hoc offline analysis of isolated words, not on real-time sentence use. Against today the system is far behind: an intracortical phoneme decoder in a participant with dysarthria reached 99.6% accuracy on 50 words after 30 minutes of recordings [@card2024] ([later]), where this paper collected 22 hours of isolated-word data.",
+ "verification_status": {
+  "open_items": [
+   "M07 audit: usual_approach gives neural_llm_rescoring n=152 (pattern match), but the same audit's pattern_counts give ngram_lm 134 and neural_llm_rescoring 14 of 1,162; the review keeps the published 152 figure pending a re-tally of the M07 topic.",
+   "M07: share of the 152 large-vocabulary rescoring studies that are later than 2021 not tallied by year; the review states only that its cited examples [@card2024] and [@metzger2023] are [later].",
+   "M04/M13: no topic audit (ledger absence count, deciding priors) exists for chronic use in anarthria; verdicts stay standard under the rules because the effect rests on one participant."
+  ],
+  "resolved_in_triage": [
+   "Chance in [@moses2019] (7%) confirmed in its abstract; WER chance sampled from the natural-language model confirmed in the target (Results, Sentence decoding; Fig. 2 legend; Section S12).",
+   "Usability threshold sentence carries citation 34 (Watanabe et al., New era for robust speech recognition) in the PMC version; the NEJM-derived text omits citation markers."
+  ]
+ }
 }
