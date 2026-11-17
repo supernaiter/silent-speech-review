@@ -1,0 +1,4 @@
+{
+ "short": "Character CTC decoding from ECoG; all changes are standard. The 7.0-10.6% WER relies on repeated sentences, as the authors concede, and unseen sentences average 80% WER.",
+ "position": "Brain2Char [@sun2020] changed the output unit (M08, characters), the decoder (M06, CTC with a 4-gram LM) and the training-only targets (M02, MFCC and articulatory regression); all three are standard. The auxiliary MFCC loss appeared in [concurrent] work from the same lab [@makin2020], and characters were never tested against phonemes or words on the same data. The headline 7.0–10.6% WER does not support the claimed new state of the art: the test partition is unstated, the best results rely on repeated sentences (Sec. 4), and the language model is trained on the task corpus (Sec. 2.4). On sentence-disjoint tests the decoder averages 80% WER, against 25.5% for [later] ECoG decoding with a 1,024-word constrained vocabulary [@metzger2023]."
+}

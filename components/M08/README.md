@@ -46,6 +46,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices | 2019 | Methods |
 | Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices | 2019 | Methods |
 
+## neural-text-output-unit
+
+- Table: [`neural-text-output-unit.csv`](neural-text-output-unit.csv) (3268 slot-filled, 145 pattern match, usual design in 63, 5 read in full)
+- Inclusion rule: Neural decoders (ECoG, intracortical, sEEG, EEG, MEG) that output text and report a word, character or phoneme error rate. The design compared is the unit the decoder emits before any lexicon or language model: characters, phonemes, or whole words / sentence classes. Boundary: a paper is counted under every unit its text names; handwriting and spelling BCIs count as characters; count versions once.
+- Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
+
 ## vsr-output-token-unit
 
 - Table: [`vsr-output-token-unit.csv`](vsr-output-token-unit.csv) (3268 slot-filled, 633 pattern match, usual design in 120, 5 read in full)

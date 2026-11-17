@@ -1,0 +1,397 @@
+{
+ "topic": "auxiliary-speech-feature-regression",
+ "slot": "M02",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(auxiliary|multi-?task|regulari[sz]\\w*)[^|]{0,200}(mfcc|acoustic feature|mel|articulat|kinematic)|(mfcc|mel[- ]spectro\\w*|articulat\\w*|kinematic)[^|]{0,120}(auxiliary|multi-?task) (loss|target|objective|task)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Text or speech-unit decoders from a non-acoustic signal (neural, EMG, articulography, ultrasound, video) whose training adds a loss that regresses acoustic or articulatory features of the paired produced speech (MFCC, mel spectrogram, kinematic trajectories) from an intermediate layer, discarded at use time. Boundary: exclude decoders whose output is the acoustic feature (synthesis); exclude targets taken from a pretrained speech encoder (counted under auxiliary-representation-prediction); count versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 31,
+  "slot_filled_unique": 31,
+  "string_match_folders": 16,
+  "string_match_unique": 16,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.08841",
+     "arxiv-2305.19603",
+     "isca-fang14_interspeech",
+     "isca-richmond07_interspeech",
+     "isca-li23l_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-ouni05_interspeech",
+     "isca-sorokin05_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.08841"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-li23l_interspeech"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "auxiliary acoustic loss",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.26092-elib.5498",
+     "doi-10.64898-2026.06.30.735633",
+     "isca-han26f-tapets",
+     "doi-10.64898-2025.11.30.691403",
+     "arxiv-2302.08841"
+    ]
+   },
+   {
+    "design": "auxiliary articulatory loss",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.11477",
+     "doi-10.1038-s41597-025-05036-2",
+     "arxiv-2306.08990",
+     "isca-karaulov19_interspeech"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "t2 gt wer",
+   "value": 0.71,
+   "unit": "percent",
+   "raw": "0.71%",
+   "pid": "arxiv-2502.12002",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Li DCoND-LIFT WER",
+   "value": 5.77,
+   "unit": "percent",
+   "raw": "5.77",
+   "pid": "arxiv-2603.20246",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best reported WER (1200w)",
+   "value": 7.0,
+   "unit": "percent",
+   "raw": "7.0%",
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "year": 2020,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "baseline WER -10dB speech noise",
+   "value": 13.59,
+   "unit": "percent",
+   "raw": "13.59% WER baseline AV-HuBERT @-10dB speech noise",
+   "pid": "arxiv-2604-00982-visg",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "abl wer",
+   "value": 27.49,
+   "unit": "percent",
+   "raw": "WER without L2T+SRA",
+   "pid": "arxiv-2505.22024-resound",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "72.57",
+   "value": 72.57,
+   "unit": "wer%",
+   "raw": "pretrain+LM best",
+   "pid": "arxiv-1911.11610-impeegasr",
+   "year": 2019,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1911.11610-impeegasr",
+   "key": "t:improvingeegbasedcontinuousspeechrecognition",
+   "title": "Improving EEG based Continuous Speech Recognition",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "mprove EEG-feature continuous speech recognition through three techniques — recurrent-layer weights initialized from an auxiliary EEG→(MFCC+articulatory) regression instead of random, an external LM in beam-search decoding, and explicit articulatory-feature prediction from EEG | Study.unit_of_analysis=WER with LM-rescored beam search across training-corpus sizes ("
+  },
+  {
+   "pid": "arxiv-2302.08841",
+   "key": "t:liptospeechsynthesisinthewildwithmultitasklearning",
+   "title": "Lip-to-Speech Synthesis in the Wild with Multi-task Learning",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "gn=controlled_experiment | Study.research_objective=rebuild speech with CORRECT content from lip movements in the wild: multi-task learning adding text (feature-level CTC) + audio (output-level ASR feedback) supervision to acoustic mel reconstruction | Study.unit_of_analysis=STOI/ESTOI/PESQ + WER (pre-trained ASR scoring of synthesized speech) on LRS2/L"
+  },
+  {
+   "pid": "arxiv-2305.19603",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "closes train-test gap | EvaluationProtocol.test_material_selection=LRS2/LRS3 test: STOI/ESTOI/PESQ/WER vs VCA-GAN,SVTS,Multi-Task; ablation: SVTS baseline -> +units -> +multi-input vocoder -> +aug mel -> +AV-HuBERT; MOS 15 raters x20 clips | system_boundary=silent lip video -> multi-target (mel + discrete speech units)"
+  },
+  {
+   "pid": "arxiv-2502.12002",
+   "key": "t:naturall2sendtoendhighqualitymultispeakerliptospeechsynthesiswithdifferentialdig",
+   "title": "NaturalL2S: End-to-End High-quality Multispeaker Lip-to-Speech Synthesis with Differential Digital Signal Processing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t_kind=speech waveform; quality/sync/intelligibility metrics + MOS | extra.Configuration.configuration_scope=vs VCA-GAN/Multi-task/DiffV2S/Lip2SpeechUnit + GT; wo-e2e/wo-DDSP/wo-unit/wo-mel ablations | TrainingRun.training_objective=AdamW β.8/.99 wd.01, loss w 1/20/20/45/45, lr1e-4 exp-decay; random 5920-sig"
+  },
+  {
+   "pid": "arxiv-2505.22024-resound",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "mblyzer), WER (Auto-AVSR), MAE-F0, MAE-RMSE, ESTOI, MCD-DTW-SL, RTF; MOS 5pt/0.5 increments; baselines incl. LipVoicer, Multi-task, Vocoder GT-mel | EvaluationRun.execution_artifacts=LRS3: UTMOS 3.002 SECS .777 WER 20.06 MAERMSE .025 MAEF0 49.52 ESTOI .423 MCD 8.71"
+  },
+  {
+   "pid": "arxiv-2603.20246",
+   "key": "t:decodingthedecodercontextualsequencetosequencemodelingforintracorticalspeechdeco",
+   "title": "Decoding the decoder: Contextual sequence-to-sequence modeling for intracortical speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ralization; 5 seeds per config | representation_kind=neural feature bins -> Transformer latent sequence (80ms cadence); multitask phoneme+word outputs via MFCC+BART aux | technical_essence=contextual Transformer seq2seq encoder (vs RNN-CTC baseline), AdamW + dropout/time/channel"
+  },
+  {
+   "pid": "arxiv-2604-00982-visg",
+   "key": "t:visgavhubertvisemeguidedavhubert",
+   "title": "VisG AV-HuBERT: Viseme-Guided AV-HuBERT",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "T | authors=Papadopoulos, Jain, Harte (Sigmedia, TCD) | venue=arXiv 2604.00982 | Study.research_objective=viseme-guided multi-task fine-tuning of AV-HuBERT: lightweight viseme classifier preserves visual articulatory info vs LLM reliance; LRS3 -10dB speech noise WER 13.59->6.60% (51.4% rel), substitution-error reduction, LRS2 gener"
+  },
+  {
+   "pid": "arxiv-2608.16360",
+   "key": "t:contrastivelearningwithvariationalregularizationformultisessioneegtospeechdecodi",
+   "title": "Contrastive Learning with Variational Regularization for Multi-Session EEG-to-Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "recordings across sessions within one participant as positive pairs for momentum contrastive learning, with variational regularization (VR) on the encoder summary. Evaluates CER, speaker identity, mel-spectrogram correlation, and session probing on the SpREAD dataset; reports component ablations. | Study.study_design=c"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "key": "t:brain2charadeeparchitecturefordecodingtextfrombrainrecordings",
+   "title": "Brain2Char: a deep architecture for decoding text from brain recordings",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-word picture descriptions + 1200-word interview; sentences split non-overlapping train/test | Representation.windowing=auxiliary latent regularization on articulatory kinematic trajectories (AKT 33-dim), MFCC 26-dim acoustics, and session labels for cross-session calibration | technical_essence=3D Inception multiband spatiotem"
+  },
+  {
+   "pid": "isca-dahmani19_interspeech",
+   "key": "t:conditionalvariationalautoencoderfortextdrivenexpressiveaudiovisualspeechsynthes",
+   "title": "Conditional Variational Auto-Encoder for Text-Driven Expressive AudioVisual Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on_labels=ordinary_voiced_speech | representation_kind=latent z (50-dim linear dense) per modality learned by CVAE w/ β-regularization; emotion structure emerges unsupervised (t-SNE shows 7 clusters); marker-position visual features + acoustic features + phone durations | decoder_route=direct_signal_to_audio | technical_essence=conditional VAE factorizes emotion (laten"
+  },
+  {
+   "pid": "isca-fang14_interspeech",
+   "key": "t:reconstructionofmistrackedarticulatorytrajectories",
+   "title": "Reconstruction of mistracked articulatory trajectories",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arch_objective=reconstruct positions of mistracked EMA coils by GMM-regression (MMSE on the joint pdf), and measure how auxiliary inputs — other coils' velocities and synchronous acoustic MFCC — improve reconstruction vs positions alone | Study.unit_of_analysis=per-coil RMSE of whole-utterance-blacked-out recon"
+  },
+  {
+   "pid": "isca-lee25d_interspeech",
+   "key": "t:articulatoryfeaturepredictionfromsurfaceemgduringspeechproduction",
+   "title": "Articulatory Feature Prediction from Surface EMG during Speech Production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "er | technical_essence=EMG encoder = conv blocks + 6-layer Transformer (d768) -> four predictors (EMA, pitch, loudness, auxiliary phoneme); L2 losses, L_total = L_EMA + a_pitch L_pitch + a_loud L_loud + a_phon L_phon; decoded speech via articulatory synthesis model from predicted features | TrainingRun.optimization=AdamW bs32 lr5e-4 wd1e-7, epoch 80 (val convergen"
+  },
+  {
+   "pid": "isca-li23l_interspeech",
+   "key": "t:hybridsilentspeechinterfacethroughfusionofelectroencephalographyandelectromyogra",
+   "title": "Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Hamp, 1kHz) → parallel ESPnet Conformer seq2seq converters (6+6 blocks, 4 heads, 384-d, kernel 7, phoneme vocab 139) w/ multi-task duration+phoneme losses → decision-level fusion → mel → ParallelWaveGAN audio | task_family=speech_reconstruction | task_encoding=attempted_utterance | intended_use_cases=pr"
+  },
+  {
+   "pid": "isca-ouni05_interspeech",
+   "key": "t:canweretrievevocaltractdynamicsthatproducedspeechtowardaspeakerarticulatorystrat",
+   "title": "Can we retrieve vocal tract dynamics that produced speech? Toward a speaker articulatory strategy model",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e exhaustive solution set -> non-linear smoothing (DP variant, per-articulator weights + anchor bonuses) -> variational regularization -> articulatory trajectories | TrainingRun.training_objective=speaker articulatory strategy model = per-speaker phoneme realizations"
+  },
+  {
+   "pid": "isca-richmond07_interspeech",
+   "key": "t:amultitasklearningperspectiveonacousticarticulatoryinversion",
+   "title": "A Multitask Learning Perspective on Acoustic-Articulatory Inversion",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/richmond07-interspeech | title=A Multitask Learning Perspective on Acoustic-Articulatory Inversion | authors=Korin Richmond | venue=Interspeech 2007, pp.2465-2468 | review_state=source_checked | Study.stud"
+  },
+  {
+   "pid": "isca-sorokin05_interspeech",
+   "key": "t:speechinversionandresynthesis",
+   "title": "Speech Inversion and Re-Synthesis",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eech inversion for ALL English sound types (vowels, semi-vowels, nasals, stops, fricatives) with a variational/Tikhonov-regularized approach on an 18-parameter articulatory model, with a codebook initialized from acoustics+fleshpoint solutions — and re-synthesize utterances perceptually c"
+  }
+ ],
+ "usual_approach": {
+  "design": "supervision_kind=paired_audio",
+  "n": 5,
+  "tier": "slot-filled",
+  "pids": [
+   "arxiv-2302.08841",
+   "arxiv-2305.19603",
+   "isca-fang14_interspeech",
+   "isca-richmond07_interspeech",
+   "isca-li23l_interspeech"
+  ],
+  "population_unique": 11
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1038-s41593-020-0608-8",
+   "role": "prior",
+   "loc": "Sec. Decoding pipeline",
+   "quote": "during testing, the MFCC predictions are simply discarded, and decoding is based entirely on the decoder RNN’s output."
+  },
+  {
+   "pid": "doi-10.1038-s41593-020-0608-8",
+   "role": "prior",
+   "loc": "Results, Decoding performance",
+   "quote": "where speech audio is not available, as may well be the case for a candidate for a speech prosthesis, error rates are several times greater—but again within the usable range."
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "role": "sota",
+   "loc": "Results, Text decoding; Fig. 2c",
+   "quote": "a median WER of 25.5% (99% CI [19.3, 34.5]; Fig. 2c)"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "role": "sota",
+   "loc": "Methods, Text decoding (Phone decoding)",
+   "quote": "We determined reference sequences using g2p-en (ref. 51), a grapheme-to-phoneme model that enabled us to recover phone pronunciations for each word in the sentence sets."
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "role": "target",
+   "loc": "Sec. 2.1",
+   "quote": "For the speech data collected, acoustic-to-articulatory inversion is performed to estimate the AKT, and in the meantime, Mel Frequency Cepstral Coefficients (MFCC) are extracted from acoustic speech signals."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 1,
+  "found": 0,
+  "recall": 0.0,
+  "missed": [
+   "doi-10.1038-s41593-020-0608-8"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.1038-s41586-023-06443-4",
+  "year": 2023,
+  "metric": "real-time ECoG text decoding, median WER on 249 unseen sentences, 1,024-word vocabulary, trained from text-derived phone labels with no audio target",
+  "value": "25.5%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 16,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "supervision_kind=paired_audio",
+   "n": 5,
+   "tier": "slot-filled",
+   "population_unique": 11
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "year": 2023,
+   "metric": "real-time ECoG text decoding, median WER on 249 unseen sentences, 1,024-word vocabulary, trained from text-derived phone labels with no audio target",
+   "value": "25.5%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "doi-10.1038-s41593-020-0608-8"
+  ],
+  "unread": 16,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.0
+ },
+ "used_by": [
+  "brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings"
+ ]
+}

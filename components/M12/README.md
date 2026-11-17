@@ -79,6 +79,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that report word error rate of visual-only (lip-reading) recognition on the LRS3 test set, any training regime. Boundary: exclude audio-only and audio-visual WER rows, LRS2/LRW/GRID-only results, and numbers quoted from other papers without new training; count versions of one study once.
 - Used in: [Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction](../../reviews/learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/), [Visual Speech Recognition for Multiple Languages in the Wild](../../reviews/visual-speech-recognition-for-multiple-languages-in-the-wild/)
 
+## neural-text-unseen-sentence-test
+
+- Table: [`neural-text-unseen-sentence-test.csv`](neural-text-unseen-sentence-test.csv) (6960 slot-filled, 145 pattern match, usual design in 21, 4 read in full)
+- Inclusion rule: Same population as neural-text-output-unit. The design compared is whether the reported WER is measured on sentences absent from training (sentence-disjoint) or on repeats of training sentences. Boundary: a paper is counted under each protocol its text names; reviews count as pattern matches only.
+- Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
+
 ## silent-emg-voicing-benchmark
 
 - Table: [`silent-emg-voicing-benchmark.csv`](silent-emg-voicing-benchmark.csv) (6960 slot-filled, 16 pattern match, usual design in 9, 4 read in full)
