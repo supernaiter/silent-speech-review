@@ -4,23 +4,23 @@ Bowen Shi, Wei-Ning Hsu, Kushal Lakhotia, Abdelrahman Mohamed. ICLR 2022. [arXiv
 
 ## Verdict
 
-The paper [[1]](#ref-1) changes two components: the pre-training objective (M03), masked prediction of audio-visual cluster labels refined over five iterations, and audio as training-only supervision (M02), with video alone at test. The M03 gain is large on the paper's own terms: its scratch baseline falls from 92.3% to 32.5% WER at 30 h of labels, and it is far below the 59.8% of cross-modal distillation [[2]](#ref-2), although that margin also mixes 334 h against 1,759 h of unlabelled video. Both components remain standard by our rules, because the effect is shown on one test set with no repeated runs in Table 1. Later work now beats the design at the same budget: 23.7% against 32.5% with the same model size, unlabelled data and 30 h of labels [[3]](#ref-3) [later]. The headline claim of beating the best prior system with 1/1000 of the labels overreaches: 32.5% against 33.6% [[4]](#ref-4) is a 1.1-point gap between different training regimes with no variance reported.
+The paper [[1]](#ref-1) changes two components: the pre-training objective (M03), masked prediction of audio-visual cluster labels refined iteratively, and audio as training-only supervision (M02), with video alone at test. The M03 gain over the paper's own scratch baseline is large (92.3% to 32.5% WER at 30 h of labels, 62.3% to 28.6% at 433 h), but that baseline is weak: a supervised conformer in Table 1 reaches 43.3% at 433 h, so the 33.7-point gain overstates the gain over a tuned system, and the margin over distillation [[2]](#ref-2) mixes data, model and decoder (inference). Both components remain standard: one test set, no repeated runs (Table 1). Later work beats the design at matched budgets: 23.7% against 32.5% at 30 h, and 21.5% against 26.9% at 433 h even after this paper's self-training [[3]](#ref-3) [later]. The 1/1000-of-the-labels headline rests on a 1.1-point gap (32.5% against 33.6% [[4]](#ref-4), no variance); the firmer result is the self-trained 26.9% at 433 h, 6.7 points lower (inference).
 
 ## Against the field, component by component
 
 ### M03 Training: self-supervised pre-training objective
 
-**Usual approach:** Of the 141 LRS3 papers with a recorded training slot, 6 use self-supervised pre-training; text labels (18) and paired audio (17) dominate (slot-filled, Appendix). The earlier unlabelled-video routes were distillation from an audio recogniser [[2]](#ref-2) and regression of audio features [[5]](#ref-5) [concurrent]. This paper makes the targets audio-visual and refines them from its own encoder.
+**Usual approach:** Among the 141 LRS3 papers with M03 recorded, the supervision kind is tagged text_prompt in 18, paired_audio in 17 and self_supervised in 6 (slot-filled, Appendix); in the 75 studies of the pre-training topic with the field recorded, self_supervised leads with 31 (slot-filled, Appendix). The prior unlabelled-video route was distillation from an audio recogniser [[2]](#ref-2); audio-feature regression [[5]](#ref-5) is [concurrent]. This paper makes the targets audio-visual and refines them from its own encoder.
 
-**State of the art:** In 2026, at the same model size, unlabelled data (LRS3 plus English VoxCeleb2) and 30 h of labels, a unified pseudo-labelling model reaches 23.7% against 32.5% here, 27% relative lower (inference) [[3]](#ref-3) [later]; at 433 h it is 21.5% against 28.6%.
+**State of the art:** In 2026, with the same model size and unlabelled data, a pseudo-labelling model reaches 23.7% against 32.5% here at 30 h, 27% relative lower (inference), and 21.5% against 28.6% at 433 h [[3]](#ref-3) [later]. Against the fairer comparator, this paper's self-trained 26.9%, the gap is still 5.4 points, 20% relative (inference).
 
-Distillation used ASR-transcribed VoxCeleb2 (334 h) and reached 59.8% [[2]](#ref-2); the paper's 1,759 h is larger because of different filtering parameters and ASR model (Sec. 4.2), so that margin mixes objective and data size. Audio-feature regression moved LRS2 WER from 39.1% to 38.8% over its supervised baseline [[5]](#ref-5); pre-training here moves LRS3 WER from 62.3% to 28.6% at 433 h, a different dataset, so only each gain over its own baseline compares. The verdict is still standard: one test set, no repeated runs (Table 1), and the cluster-quality evidence (NMI 44.2% against 39.7% for audio-only clusters, Table E.1) is a proxy, not a recognition result.
+Distillation reached 59.8% [[2]](#ref-2) from 334 h of ASR-transcribed VoxCeleb2 with a CNN-CTC model and 157 h of word-level plus 433 h of sentence-level labels (Table 1), against 1,759 h, 30 h and a Transformer-LARGE S2S here. Audio-feature regression gained only 39.1% to 38.8% on LRS2 [[5]](#ref-5), another dataset. Standard: one test set, no repeated runs (Table 1), and the NMI gain over audio-only clusters (44.2% against 39.7%, Table E.1) is a proxy, not a recognition result.
 
 ### M02 Training-only supervision: audio as target, video at test
 
-**Usual approach:** Audio used only in training is common; paired audio is the recorded supervision kind in 258 folders (slot-filled, M03 field; M02 is sparse), usually as features [[5]](#ref-5) or ASR transcripts [[2]](#ref-2). Here audio is masked input and part of the cluster targets.
+**Usual approach:** Audio used only in training is common: paired_audio is the supervision kind in 258 of 941 wiki entries with that M03 field (slot-filled, versions counted separately; M02 is sparse), as features [[5]](#ref-5) or ASR transcripts [[2]](#ref-2). Here audio is masked input and part of the cluster targets.
 
-**State of the art:** Later work (2026) keeps audio in training through a teacher that sees unmasked audio-visual input and pseudo-labels unlabelled data; its visual-only WER is lower than this paper's in every matched size and data group of its Table 2 [[3]](#ref-3) [later].
+**State of the art:** Later work (2026) keeps audio in training via an audio-visual teacher and is lower in all five groups of its Table 2: 36.2/51.8, 26.4/46.1 and 23.7/32.5 at 30 h; 24.8/34.8 and 21.5/28.6 at 433 h [[3]](#ref-3) [later].
 
 The audio-only result (1.3% against 2.3% ASR WER) sets a model without a language model against one with it (Table 4). Standard.
 
@@ -28,9 +28,9 @@ The audio-only result (1.3% against 2.3% ASR WER) sets a model without a languag
 
 **Usual approach:** Unseen-speaker LRS3 test WER is the field benchmark for sentence lip reading [[6]](#ref-6); 258 unique studies mention LRS3 (pattern match, Appendix). The paper follows it.
 
-**State of the art:** 17.6% in 2026 [[3]](#ref-3) [later]; 33.6% in 2019 from 31,000 h of transcribed video [[4]](#ref-4).
+**State of the art:** 17.6% in 2026 (semi-supervised; 656 h labelled, 2,649 h unlabelled) [[3]](#ref-3) [later]; the supervised LP Conformer it lists reaches 12.8% with 100,000 h transcribed [[3]](#ref-3). In 2019: 33.6% from 31,000 h [[4]](#ref-4).
 
-The 1.1-point margin over the prior best is 3.3% relative (inference), with no repeated runs. Standard.
+The 1.1-point margin over 33.6% is 3.3% relative, with no repeated runs (inference). Standard.
 
 ## The 13 components
 
@@ -38,7 +38,7 @@ The 1.1-point margin over the prior best is 3.3% relative (inference), with no r
 |---|---|---|---|---|
 | M01 Training-time action | Voiced TED/YouTube speech | Voiced speech recorded for training (slot-filled 4,015) | – | standard |
 | M02 Training-only supervision | Audio as training-only target and input; Video-only test | Paired audio as training-only supervision (slot-filled 258) | [[3]](#ref-3) unified pseudo-labels | standard |
-| M03 Training and adaptation | Masked prediction of refined audio-visual clusters | Transcribed-video training; self-supervised in 6 of 141 LRS3 papers (slot-filled 6) | [[3]](#ref-3) 23.7% at 30 h | standard |
+| M03 Training and adaptation | Masked prediction of refined audio-visual clusters | LRS3 papers (141): text_prompt most frequent; self-supervised 6 (slot-filled 18) | [[3]](#ref-3) 23.7% at 30 h | standard |
 | M04 Use-time action | Voiced speech video at test | Voiced speech at use time (slot-filled 6,538) | – | standard |
 | M05 Sensors | Mouth ROI 96x96, 25 Hz; filterbank audio | Camera mouth ROI plus microphone (slot-filled 8,898) | – | standard |
 | M06 Processing and decoding | ResNet-18 + Transformer; CTC or S2S | CNN front end + sequence model (slot-filled 8,925) | – | standard |
@@ -47,15 +47,14 @@ The 1.1-point margin over the prior best is 3.3% relative (inference), with no r
 | M09 Confirmation | None (offline) | Mostly absent (slot-filled 82) | – | not applicable |
 | M10 Correction | None (offline) | Mostly absent (slot-filled 82) | – | not applicable |
 | M11 Reference construction | LRS3 open-speaker test | Public benchmark split (slot-filled 239) | – | standard |
-| M12 Evaluation | LRS3 test WER, no repeated runs | LRS3 visual-only WER (pattern match 258) | [[3]](#ref-3) 17.6% | standard |
+| M12 Evaluation | LRS3 test WER, no repeated runs | LRS3 visual-only WER (pattern match 258) | [[3]](#ref-3) 17.6%; 12.8% supervised | standard |
 | M13 Device and cost | 32-64 V100 GPUs | Offline GPU training (slot-filled 6,721) | – | standard |
 
 ## Where the claims outrun the evidence
 
 - "1/1000 of the labeled data" counts only transcribed hours; the 30 h model also uses 1,759 h of unlabelled audio-visual data (Sec. 4.2, Table 1).
-- Sec. C.2 contrasts 18.0% for seen speakers with 30.5% for unseen speakers, but no Table 1 row gives 30.5% (32.5% at 30 h, 28.6% at 433 h), and the seen-speaker groups come from trainval, which is also in the 433 h LRS3 pre-training pool (Sec. 4.2).
-- The LiRA comparison uses the authors' re-implementation of its objective (Table 1 note), not the published system [[5]](#ref-5).
-- The S2S decoder is called LM-free but is trained on LRS3 transcripts, so it carries in-domain text knowledge (Appendix B.4).
+- Sec. C.2 contrasts 18.0% for seen speakers with 30.5% for unseen speakers, but no Table 1 row gives 30.5%, and the seen-speaker groups come from trainval, which is also in the 433 h LRS3 pre-training pool (Sec. 4.2).
+- As the authors state (Table 1 note), the 17.5-point advantage over LiRA (Sec. 4.2) is against their re-implementation of its objective, not the published system [[5]](#ref-5).
 - Self-training alone exceeds 50% WER (Appendix C.3), yet its rounds, filtering and pseudo-label quality are not given.
 
 ## What the field needs next

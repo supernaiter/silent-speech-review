@@ -9,7 +9,7 @@
   "matched_tier": "slot_filled (folders)",
   "verdict": "standard",
   "note": "Inherited from the LRS3 / VoxCeleb2 pipeline.",
-  "sota": "\u2013"
+  "sota": "–"
  },
  "M02": {
   "choice": [
@@ -17,23 +17,23 @@
    "Video-only test"
   ],
   "field": "Paired audio as training-only supervision",
-  "n": 8995,
+  "n": 941,
   "matched": 258,
-  "matched_tier": "slot_filled (folders, M03 field; M02 sparse)",
+  "matched_tier": "slot_filled (wiki entries with M03 supervision_kind recorded, versions counted separately; M02 sparse)",
   "verdict": "standard",
-  "note": "Audio-as-teacher is common",
+  "note": "Audio-as-teacher is common: paired_audio is the second most frequent supervision_kind tag (258 of 941 entries; other 437). Later work is lower in all five Table 2 groups of [@haliassos2026usr2]: 36.2/51.8, 26.4/46.1, 23.7/32.5 at 30 h; 24.8/34.8, 21.5/28.6 at 433 h.",
   "sota": "[@haliassos2026usr2] unified pseudo-labels"
  },
  "M03": {
   "choice": [
    "Masked prediction of refined audio-visual clusters"
   ],
-  "field": "Transcribed-video training; self-supervised in 6 of 141 LRS3 papers",
+  "field": "LRS3 papers (141): text_prompt most frequent; self-supervised 6",
   "n": 141,
-  "matched": 6,
-  "matched_tier": "slot_filled (LRS3 population, unique)",
+  "matched": 18,
+  "matched_tier": "slot_filled (LRS3 population, unique; most frequent supervision_kind tag)",
   "verdict": "standard",
-  "note": "Large single-dataset gain over scratch and over the read priors, but one test set and no repeated runs",
+  "note": "Large gain over a weak scratch baseline (62.3% at 433 h against 43.3% for the supervised conformer in Table 1). Distillation comparator [@afouras2020asr]: CNN-CTC, 157 h word-level + 433 h labelled, 334 h unlabelled, 59.8% (Table 1). One test set and no repeated runs. Self-trained 26.9% at 433 h against 21.5% of the later pseudo-labelling model.",
   "sota": "[@haliassos2026usr2] 23.7% at 30 h"
  },
  "M04": {
@@ -46,7 +46,7 @@
   "matched_tier": "slot_filled (folders)",
   "verdict": "standard",
   "note": "Inherited",
-  "sota": "\u2013"
+  "sota": "–"
  },
  "M05": {
   "choice": [
@@ -58,7 +58,7 @@
   "matched_tier": "slot_filled (folders)",
   "verdict": "standard",
   "note": "Inherited LRS3 preprocessing.",
-  "sota": "\u2013"
+  "sota": "–"
  },
  "M06": {
   "choice": [
@@ -70,7 +70,7 @@
   "matched_tier": "slot_filled (folders)",
   "verdict": "standard",
   "note": "Inherited front end",
-  "sota": "\u2013"
+  "sota": "–"
  },
  "M07": {
   "choice": [
@@ -81,8 +81,8 @@
   "matched": 120,
   "matched_tier": "slot_filled (folders, sparse)",
   "verdict": "standard",
-  "note": "Decoder trained on LRS3 transcripts still learns in-domain text.",
-  "sota": "\u2013"
+  "note": "4-gram LRS3 LM for CTC; no external LM for S2S (Appendix B.4).",
+  "sota": "–"
  },
  "M08": {
   "choice": [
@@ -94,7 +94,7 @@
   "matched_tier": "slot_filled (folders)",
   "verdict": "standard",
   "note": "Inherited.",
-  "sota": "\u2013"
+  "sota": "–"
  },
  "M09": {
   "choice": [
@@ -106,7 +106,7 @@
   "matched_tier": "slot_filled (folders)",
   "verdict": "not_applicable",
   "note": "Offline benchmark.",
-  "sota": "\u2013"
+  "sota": "–"
  },
  "M10": {
   "choice": [
@@ -118,7 +118,7 @@
   "matched_tier": "slot_filled (folders)",
   "verdict": "not_applicable",
   "note": "Offline benchmark.",
-  "sota": "\u2013"
+  "sota": "–"
  },
  "M11": {
   "choice": [
@@ -130,7 +130,7 @@
   "matched_tier": "slot_filled (folders, sparse)",
   "verdict": "standard",
   "note": "Inherited LRS3 split",
-  "sota": "\u2013"
+  "sota": "–"
  },
  "M12": {
   "choice": [
@@ -141,8 +141,8 @@
   "matched": 258,
   "matched_tier": "pattern match (unique)",
   "verdict": "standard",
-  "note": "Usual metric, but the headline SOTA claim compares across label regimes and Sec. C.2 cites an open-speaker value absent from Table 1.",
-  "sota": "[@haliassos2026usr2] 17.6%"
+  "note": "Usual metric. Best semi-supervised: 17.6% (Huge, 656 h labelled, 2,649 h unlabelled); best supervised listed in the same comparison: LP Conformer 12.8% with 100,000 h transcribed. Headline margin 1.1 points at 30 h; self-trained 26.9% at 433 h. Sec. C.2 cites an open-speaker value absent from Table 1.",
+  "sota": "[@haliassos2026usr2] 17.6%; 12.8% supervised"
  },
  "M13": {
   "choice": [
@@ -154,6 +154,6 @@
   "matched_tier": "slot_filled (folders)",
   "verdict": "standard",
   "note": "Inference cost not reported",
-  "sota": "\u2013"
+  "sota": "–"
  }
 }
