@@ -1,53 +1,84 @@
-Evaluator: a language model separate from the writer
+# Evaluation: Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction (review)
 
-Scope: the compact review and its claim table only. No sources were opened, no searches were run. "Insufficient" means the quoted passage does not carry the claim as written.
+Date: 2026-11-17. Independent evaluator, a language model separate from the writer, single pass. Input: the compact review and its claim table. External facts come from the evaluator's own knowledge and are marked as inference.
 
-## Findings table
+## Claim check
 
-| # | Claim (section) | Where checked | Verdict | Note |
+| # | Claim | Where checked | Result | Note |
 |---|---|---|---|---|
-| 1 | Verdict: M03 is masked prediction of audio-visual clusters "refined over five iterations"; M02 is audio training-only, video alone at test | Claim 1 | Insufficient evidence | The quotes support the video-only test (t21) and masking (t20). "Five iterations" is in no quote. |
-| 2 | Verdict: 59.8% [2] vs 92.3% -> 32.5% is a "large" M03 gain | Claims 2, 8 | Correct on numbers, weak as a comparison | Both numbers are quoted. They come from different models, label budgets and unlabelled data (334 h vs 1,759 h). The Verdict states the gain before that confound, which only appears in the M03 section. |
-| 3 | Verdict and M03 SOTA: 23.7% [3] vs 32.5% "with identical model size, unlabelled data and labels"; 27% relative; 433 h 21.5 vs 28.6 | Claims 3, 7 | Numbers correct; condition insufficient | The quote "USR 2.0 23.7" and the arithmetic 8.8/32.5 = 27.1% are fine. Nothing quoted shows the match in model size, unlabelled pool (LRS3 plus English VoxCeleb2) or label hours. |
-| 4 | Verdict: "single runs" and "no variance reported" | Claims 3, 4, 11 | Partly supported | t49 says the results "appear to be" single runs, and the review states it as fact. Appendix C.2 reports "18.0 ± 0.5%" for seen speakers (claim 19, t10), so some variance is reported. The wording should be scoped to Table 1. |
-| 5 | Verdict: 32.5% vs 33.6% [4] is a 1.1-point gap, 3.3% relative, different training regimes | Claims 4, 17 | Correct | 33.6 - 32.5 = 1.1 and 1.1/33.6 = 3.3% both check. The 31K h and "thousand times" quotes support the regime difference. |
-| 6 | Verdict: both components "standard" because "later work beats it at the same budget" | Claim 3 | Judgment issue | A 2026 work (the paper is from 2022) is used as the reason a 2022 contribution is only "standard". The review labels [3] as [later] but still lets it decide the verdict. I cannot check the SKILL.md verdict rules, but a later work cannot be a prior-art basis. |
-| 7 | M03 usual approach: "normally trained on transcribed video"; 6 of 141 LRS3 papers use self-supervised | Claims 5, 25, 26, 30 | Insufficient evidence | The only counts shown are text_prompt 18, paired_audio 17 and self-supervised 6 of 141. They do not show that transcribed video is the norm. The table says "slot-filled 6" while the Appendix says "31 of 75", with no explanation of the different populations. |
-| 8 | M03: distillation used ASR-transcribed VoxCeleb2 (334 h); the paper's 1,759 h is larger "because of a different filter" | Claim 8 | Mismatch | t32 says "different parameters and ASR model used", not a filter. The 334 h figure is quoted. The cause is mis-stated. |
-| 9 | M03: audio-feature regression moved LRS2 WER from 39.1% to 38.8% [5] | Claim 9 | Insufficient evidence | Only 38.8 is quoted. 39.1 is not. The comparison is then set against LRS3 62.3% -> 28.6%, a different dataset and condition. |
-| 10 | M03: "none of the earlier studies among the 123 ... predicts iteratively refined audio-visual clusters" | Claim 10 | Insufficient evidence | The deciding priors are named only as [2] and [5]. There is no quote for the other 121, so this is not an absence claim a reader can audit. |
-| 11 | M03 verdict: NMI 44.2% vs 39.7% is a proxy, not a recognition result | Claim 11 | Correct | t17 supports both values. |
-| 12 | M02 usual approach: "common"; paired audio is the recorded supervision kind in "258 folders" | Claim 12 vs claim 29 | Contradiction / insufficient | 258 is also the count of unique studies mentioning LRS3 in M12. The same number appears for two different quantities, with "folders" vs "unique studies". "Common" rests on two examples [5] and [2]. |
-| 13 | M02 SOTA: [3] "keeps audio as a training-time teacher" and "beats this design at every matched budget in its Table 2" | Claim 13 | Insufficient evidence | Only two table rows are quoted (23.7 and 21.5). "Every matched budget" and "teacher" are not shown. |
-| 14 | M02: audio-only 1.3% vs 2.3% "sets a model without a language model against one with it" | Claim 14 | Insufficient evidence | The quote gives the 40% relative figure and the SOTA statement. The LM asymmetry is not in it. The audio-only result is also not an M02 argument. |
-| 15 | M12: 258 unique studies mention LRS3; [6] cited for the benchmark | Claims 15, 29 | Insufficient evidence | The count has no source quote. [6] is the dataset paper, which cannot show a field-wide usual approach. |
-| 16 | M12 SOTA: 17.6% in 2026 [3]; 33.6% in 2019 [4] | Claim 16 | Correct on numbers | Both are quoted. I know of no better LRS3 VSR value, but I cannot confirm that 17.6% is the best in 2026. |
-| 17 | Outrun list: "1/1000 of the labeled data" counts only transcribed hours; the 30 h model also uses 1,759 h unlabelled | Claim 18 | Correct, partly | The 1000x quote is present. The 1,759 h figure comes from claim 8, not from this row's quotes. |
-| 18 | Outrun list: Sec. C.2 gives 18.0% seen vs 30.5% unseen; no Table 1 row gives 30.5%; seen groups come from trainval, which is also in the pre-training pool | Claim 19 | Numbers correct; last clause insufficient | Quotes t10 and t67 confirm 18.0 and 30.5. That trainval is in the unlabelled pool is not quoted (t40 only says 403 h + 30 h). |
-| 19 | Outrun list: the LiRA comparison uses the authors' own re-implementation (Sec. 4.2) | Claim 20 | Mismatch | The quote (t27) is "17.5% lower absolute WER" and says nothing about a re-implementation. |
-| 20 | Outrun list: self-training alone exceeds 50% WER; rounds and filtering not given | Claim 21 | Correct | t30 and t56 support it. |
-| 21 | Components table numbers: 96x96 ROI, 25 Hz, 32-64 V100, 4-gram LM, counts 4,015 / 6,538 / 8,898 / 8,925 / 3,760 / 120 / 82 / 239 / 6,721 | Table | No quote | None of these appears in the claim table, so they are unchecked. |
-| 22 | Claim table lists "Questions for the authors" and "Appendix: literature search" (claims 23-32), but the compact review has neither section | Claim table | Inconsistency | Claims 25-32 and 23-24 cannot be checked against review text. |
-| 23 | References [1]-[6]: authors, venue, year, arXiv ids | Reference list | Plausible | [1], [2], [4], [5] and [6] are consistent with what I know. [3] (arXiv:2602.19316, ICLR 2026) is after my knowledge and I cannot confirm it. [5] [concurrent] and [3] [later] look right. |
+| 1 | Paper changes M03 (masked AV cluster prediction) and M02 (audio training-only, video at test) | Claim row 1; t20, t21 | correct | Quotes support it. |
+| 2 | Scratch baseline 92.3% to 32.5% at 30 h | Row 2; t6 | correct | Number and condition match. |
+| 3 | 59.8% for cross-modal distillation [2], "334 h against 1,759 h" | Rows 2, 9; p3, t68 | insufficient evidence | 59.8% is quoted, but its label budget, model size and decoder are not given; the confound is wider than unlabelled hours. |
+| 4 | 1,759 h unlabelled (LRS3 433 h + VoxCeleb2-en) | Row 9; t40 | correct | |
+| 5 | No repeated runs in Table 1 | Rows 3, 11; t49 | correct | t49 is a notes entry, not a quote, but the paper reports single numbers. |
+| 6 | Headline "1/1000 of the labels" overreaches: 32.5 vs 33.6 | Rows 5, 17; t1, t2 | correct but incomplete | The paper's abstract also reports 26.9% at 433 h with self-training; the review never mentions it. |
+| 7 | 1.1 points = 3.3% relative; 8.8/32.5 = 27% relative | Rows 8, 17 | correct | Arithmetic checks. |
+| 8 | [3] 23.7% at 30 h, 21.5% at 433 h, same model size and unlabelled data | Rows 4, 8; s2, s3, s6 | correct as quoted | 21.5 is set against 28.6, not against the paper's own pseudo-label result (26.9). |
+| 9 | M03 usual approach: 6 of 141 LRS3 papers self-supervised; text labels 18 and paired audio 17 dominate | Rows 6, 27, 31 | wrong / contradictory | Row 27 gives the usual design as self_supervised (31 of 75); row 31 calls the 18 "text_prompt", not text labels; 18 + 17 + 6 = 41 of 141, so "dominate" is unsupported. Table count 6 belongs to the minority design. |
+| 10 | M02: paired audio in 258 "folders" | Row 12 | wrong / contradictory | M03 section gives paired audio 17 of 141 LRS3 papers; 258 is also the M12 LRS3 pattern-match count. "Folders" is internal jargon. |
+| 11 | Earlier routes: distillation [2] and audio-feature regression [5] [concurrent] | Row 7 | contradiction | A work tagged concurrent is called "earlier". |
+| 12 | LiRA LRS2 39.1 to 38.8 | Row 10; p4, p2 | correct | |
+| 13 | NMI 44.2 vs 39.7 (Table E.1) | Row 11; t17 | correct as noted | Notes entry, not a quote. |
+| 14 | [3] lower in "every matched size and data group" of its Table 2 | Row 13; s2, s3, s7 | insufficient evidence | Three [3] values quoted; the group of 26.4 and the matched values from this paper are not given. |
+| 15 | Audio-only 1.3% (no LM) vs 2.3% (with LM) | Row 14; t11, t71, t72 | correct | |
+| 16 | M12 state of the art 17.6% in 2026 [3] | Row 16; s1 | wrong as stated | Not the best LRS3 VSR result: Chang et al., "Conformers are all you need for visual speech recognition" (LP Conformer; arXiv 2023, ICASSP 2024) report 12.8% WER on LRS3 with about 100k h of transcribed YouTube video (inference, evaluator knowledge). 17.6% lacks its data condition. |
+| 17 | Makino et al. 33.6% from 31,000 h | Row 16; t2 | correct | |
+| 18 | Sec. C.2: 18.0% seen vs 30.5% unseen; no Table 1 row gives 30.5% | Row 19; t67, t10 | correct | Fair question. |
+| 19 | LiRA comparison is a re-implementation | Row 20; t69 | correct | It is the authors' own disclosure; should be presented as such. |
+| 20 | S2S "LM-free" but carries in-domain text knowledge (B.4) | none | no quote | No claim-table row; judgement weak (fix 9). |
+| 21 | Self-training alone > 50% WER | Row 21; t30 | correct | The "not given" part rests on a notes entry (t56). |
+| 22 | M05 96x96 ROI; M07 4-gram LM (CTC); M13 32-64 V100 GPUs | none | no quote | Component-table cells without claim rows. |
+| 23 | Claim rows 23-33 cite "Questions for the authors" and "Appendix" | Rows 23-33 | insufficient evidence | Those sections are absent from the review text, yet the body cites "(slot-filled, Appendix)". |
 
-## Required fixes, by impact
+Central confound: the 92.3% to 32.5% (and 62.3% to 28.6%) gain is measured against the paper's own from-scratch baseline, which is much weaker than published supervised LRS3 systems of the time (e.g. Ma et al., ICASSP 2021, conformer, 43.3% LRS3 VSR; inference, evaluator knowledge). The review says "on the paper's own terms" but does not quantify it. Second confound: [3] is a pseudo-labelling method compared with this paper's result without self-training.
 
-1. Remove the later work [3] as the basis for the "standard" verdicts in the Verdict and in M02/M03, or state plainly that the verdict follows from the evidence available to the authors.
-2. Fix claim 19 (LiRA "re-implementation"): add the exact Sec. 4.2 quote or delete the point.
-3. Correct "different filter" to what t32 says (different parameters and ASR model).
-4. Add quotes for "identical model size, unlabelled data and labels" in [3] Table 2, or weaken the wording. Do the same for "every matched budget" and "teacher".
-5. Add the missing 39.1% quote, and flag that LRS2 and LRS3 are different datasets.
-6. Resolve the duplicate 258 count (M02 paired audio vs M12 LRS3 mentions) and the "folders" vs "unique studies" wording.
-7. Reconcile 6/141 (table) with 31/75 (Appendix), and either support "normally trained on transcribed video" with a count or soften it.
-8. State the "single runs" caveat as Table 1 only, and acknowledge the ± 0.5 in Appendix C.2.
-9. Add a quote or a locator for "five iterations", for the LM asymmetry in the audio-only comparison, and for "trainval is in the pre-training pool".
-10. Name more deciding priors, or drop the "none of the 123" sentence.
-11. Add claim rows for the component table numbers, or move them to the Appendix with sources.
-12. Move the 59.8% vs 32.5% caveat (different data, labels, 334 h vs 1,759 h) into the Verdict next to the "large" gain claim.
+Fairness: [3] is correctly tagged later and not treated as a missed citation. LiRA is tagged concurrent but called "earlier"; the authors did compare with it.
+
+Verdicts: all slots are `standard` or `not applicable`; no `ahead` verdict to audit.
+
+## Required fixes (ordered by impact)
+
+1. **Sentence:** "Later work now beats the design at the same budget: 23.7% against 32.5% with the same model size, unlabelled data and 30 h of labels [3] [later]." and "at 433 h it is 21.5% against 28.6%." (M03 State of the art), together with the Verdict's headline-overreach sentence.
+   **What is wrong:** The review never mentions the paper's own best result, 26.9% WER at 433 h with pre-training plus self-training (Abstract). [3] is a pseudo-labelling method, so its 433 h number should be set against 26.9%, not 28.6%. Omitting 26.9% also makes the "1.1-point gap" critique look more decisive than it is: at 433 h the paper beats the 31K-hour system by 6.7 points.
+   **Fix:** Add "with self-training the paper reaches 26.9% at 433 h (Abstract; Table 1)", compare [3]'s 21.5% with 26.9% (or give both), and in the Verdict restrict the overreach claim to the 30 h headline while noting the 433 h self-training result.
+
+2. **Sentence:** "**State of the art:** 17.6% in 2026 [3] [later]; 33.6% in 2019 from 31,000 h of transcribed video [4]." (M12) and the table cell "[3] 17.6%".
+   **What is wrong:** 17.6% is not the best LRS3 visual-only WER. Chang et al., "Conformers are all you need for visual speech recognition" (arXiv 2023, ICASSP 2024) report 12.8% on LRS3 with large-scale transcribed YouTube data. 17.6% is given without its training-data condition.
+   **Fix:** State 17.6% with its data and label condition from [3], and either name 12.8% (LP Conformer, large non-public transcribed data) as the overall best or restrict the claim explicitly to "with public data only".
+
+3. **Sentence:** "Of the 141 LRS3 papers with a recorded training slot, 6 use self-supervised pre-training; text labels (18) and paired audio (17) dominate (slot-filled, Appendix)." and the table cell "Transcribed-video training; self-supervised in 6 of 141 LRS3 papers (slot-filled 6)".
+   **What is wrong:** The Appendix rows contradict it: row 27 gives the usual M03 design as self_supervised in 31 of 75 studies, and row 31 labels the 18 "text_prompt", not text labels. 18 + 17 + 6 covers only 41 of 141, so "dominate" is unsupported. The table count (6) is the count of the minority design, not of the stated usual approach.
+   **Fix:** Use one population and one label consistently, e.g. "Of 141 LRS3 papers with M03 recorded, 18 are tagged text_prompt, 17 paired_audio and 6 self-supervised; the remaining 100 are ...". Reconcile with the 31-of-75 figure or name the different population. Put the usual-approach count, not 6, in the table.
+
+4. **Sentence:** "paired audio is the recorded supervision kind in 258 folders (slot-filled, M03 field; M02 is sparse)" (M02 Usual approach) and table cell "(slot-filled 258)".
+   **What is wrong:** Contradicts the M03 section (paired audio 17 of 141 LRS3 papers). 258 is also exactly the M12 LRS3 pattern-match count, suggesting a copied number. "Folders" is internal jargon.
+   **Fix:** Re-check the paired_audio tally; state the population and use "studies", e.g. "paired audio is recorded as supervision in N of M studies (slot-filled, M03 field)".
+
+5. **Sentence:** "The M03 gain is large on the paper's own terms: its scratch baseline falls from 92.3% to 32.5% WER at 30 h of labels" (Verdict).
+   **What is wrong:** The strongest confound is baseline strength. The from-scratch baselines (92.3% at 30 h, 62.3% at 433 h) are far weaker than published supervised LRS3 systems of the time (e.g. Ma et al., ICASSP 2021, conformer, 43.3%), so the gain over the own baseline overstates the gain over a tuned supervised system. The review hints at this but does not quantify it.
+   **Fix:** Add: "the 433 h scratch baseline (62.3%) is far weaker than the published supervised result of 43.3% [Ma et al. 2021], so the 33.7-point gain overstates the gain over a tuned supervised system." Add the reference.
+
+6. **Sentence:** "it is far below the 59.8% of cross-modal distillation [2], although that margin also mixes 334 h against 1,759 h of unlabelled video." (Verdict; repeated in the M03 body).
+   **What is wrong:** Only unlabelled hours are named. The comparison also mixes labelled budget, model size (325M LARGE vs a smaller CTC model in [2]) and decoder; none is stated with the 59.8%.
+   **Fix:** Give [2]'s labelled data, model and decoder from its Table 3, e.g. "... mixes unlabelled data (334 h vs 1,759 h), labelled data, model size and decoder."
+
+7. **Sentence:** "its visual-only WER is lower than this paper's in every matched size and data group of its Table 2 [3] [later]." (M02 State of the art).
+   **What is wrong:** The claim table quotes three [3] values (23.7, 21.5, 26.4), does not identify the group of 26.4, and gives no matched values from this paper beyond 32.5 / 28.6; "every" is not shown.
+   **Fix:** List each group with both numbers (e.g. "Large 30 h: 23.7 vs 32.5; Large 433 h: 21.5 vs 28.6, or 26.9 with self-training; Base ...: 26.4 vs X"), or narrow the claim to the groups quoted.
+
+8. **Sentence:** "The earlier unlabelled-video routes were distillation from an audio recogniser [2] and regression of audio features [5] [concurrent]." and "The LiRA comparison uses the authors' re-implementation of its objective (Table 1 note), not the published system [5]."
+   **What is wrong:** A work tagged concurrent is called earlier. The re-implementation point is the authors' own disclosure, presented as a finding of the review.
+   **Fix:** "The prior route was distillation from an audio recogniser [2]; regression of audio features [5] is concurrent." and "As the authors state (Table 1 note), their LiRA row re-implements the objective, not the published system [5]."
+
+9. **Sentence:** "The S2S decoder is called LM-free but is trained on LRS3 transcripts, so it carries in-domain text knowledge (Appendix B.4)."
+   **What is wrong:** No claim-table row supports it, and the point applies to every supervised attention decoder (it learns from its own fine-tuning transcripts); it does not show an overclaim. It also sits uneasily with the review's own use of the no-LM contrast in M02 (1.3% vs 2.3%).
+   **Fix:** Drop the bullet, or reframe with a quote: "The S2S result uses no external LM (B.4: 'No language model is used for S2S decoding'); like any attention decoder, it still learns text statistics from the LRS3 fine-tuning transcripts."
+
+10. **Sentence:** Component-table cells "Mouth ROI 96x96, 25 Hz; filterbank audio" (M05), "4-gram LM (CTC); none (S2S)" (M07), "32-64 V100 GPUs" (M13), and every "(slot-filled, Appendix)" / "(pattern match, Appendix)" pointer.
+    **What is wrong:** These cells have no claim-table rows, and the Appendix and "Questions for the authors" sections that claim rows 23-33 cite are not in the review text, so the counts cannot be checked.
+    **Fix:** Add claim rows with location and quote for the M05, M07 and M13 cells, and include the Appendix (ledger counts, usual-design tallies, read-in-full list) in the published review, or remove the "Appendix" pointers.
 
 ## Scores
 
-Procedure: 6/10. Claim rows exist for the main numbers, but several rows carry quotes that do not match the claim they back.
-Final text: 6/10. The core comparisons are sound and the central confound is handled in the body. Several conditions and counts are unsupported, and the verdict logic leans on later work.
-
-Findings: 15 (rows with Mismatch, Insufficient, Contradiction or Judgment issue: 1, 3, 4, 6, 7, 8, 9, 10, 12, 13, 14, 15, 18, 19, 21; plus 2 and 22 as secondary)
+- Procedure: 6/10. Target numbers and arithmetic are well sourced; ledger counts are internally inconsistent, several table cells lack evidence rows, and the M12 state of the art misses a better result.
+- Final text: 5/10. Clear position and good awareness of the unlabelled-data confound, but omitting the paper's 26.9% result skews both the headline critique and the later-work comparison.

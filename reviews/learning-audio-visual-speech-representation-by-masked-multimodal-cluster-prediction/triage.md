@@ -1,31 +1,22 @@
-# Triage of the fallback evaluation
+# Triage: evaluation of the review of "Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction"
 
-Evaluation: fallback language model over the claim table and positions (ChatGPT pending). Round 1.
+Date: 2026-11-17. Source checked: target `source/text.txt` (arxiv-2201.02184), USR 2.0 `source/text.txt` (arxiv-2602.19316), the two audit tallies, and the wiki ledgers (`papers/*/ledger.json`, field `supervision_kind`).
 
-| # | Verdict | Evidence | Where applied |
-|---|---|---|---|
-| 1 | applied | "Five iterations" is in Sec. 4.1 / B.4 (notes t42); the quote was missing from the claim row only | claims.md row 1 now maps t42 |
-| 2 | applied | The 334 h vs 1,759 h confound (Sec. 4.2 footnote 2, t68) belongs next to the gain claim | Verdict sentence 2 rewritten; the gain is now stated against the paper's own baseline, with the data-size confound beside the 59.8% |
-| 3 | applied | The match is in the source: Table 2 groups rows by "Large, LRS3+Vox2", and low-resource means "the 30-hour trainval partition of LRS3" (arxiv-2602.19316 Sec. 5) | Quotes s6 added to notes and claim rows 4 and 8; "identical" changed to "the same" |
-| 4 | applied | Only Sec. C.2 reports a spread (18.0 ± 0.5%); Table 1 reports no repeated runs | "single runs" changed to "no repeated runs in Table 1"; the C.2 spread is acknowledged in Questions |
-| 5 | rejected | Arithmetic checked, correct | none |
-| 6 | applied (wording) | The rules make M02/M03 standard because the effect is not repeated (seeds, subjects, datasets), not because of later work; later work only sets the state of the art | Verdict separates the two: standard on repetition, then a separate [later] sentence |
-| 7 | applied | The two counts cover different populations (141 LRS3 papers vs 75 papers selected by a self-supervision pattern) | M03 usual approach now gives text labels 18 and paired audio 17 of 141 instead of "normally trained on transcribed video" |
-| 8 | applied | Footnote 2: "different parameters and ASR model used for filtering non-English data" | "different filter" changed to "different filtering parameters and ASR model" |
-| 9 | applied | LiRA Table 2: "LiRA-Supervised [16] Supervised (CL) 39.1" (p4) | Quote added; text states that LRS2 and LRS3 differ so only each gain over its own baseline compares |
-| 10 | applied | The absence rests on candidate titles, and only two of the earlier studies were read | Sentence "None of the earlier studies among the 123 ..." removed; logged in verification_status |
-| 11 | rejected | Correct | none |
-| 12 | rejected | Two different counts that happen to be equal: paired_audio supervision is 258 folders (slot notes, M03 field), and LRS3 mentions are 258 unique studies (M12 audit counts). Each tier is named | none (claim rows now name the two sources) |
-| 13 | applied | arxiv-2602.19316 Sec. 3: the student matches "the teacher's outputs on unmasked audiovisual inputs" (s5); its VSR is lower in every size/data group of Table 2 (51.8 vs 36.2, 46.1 vs 26.4, 32.5 vs 23.7, 34.8 vs 24.8, 28.6 vs 21.5; s2, s3, s7) | M02 state-of-the-art line reworded to the teacher's audio-visual input and "every matched size and data group" |
-| 14 | applied (location) | Table 4 marks the LM for Ma et al. (2021b) at 2.3 (t71); Sec. B.4: "No language model is used for S2S decoding" (t72) | Location narrowed to Table 4; quotes added to claim row 14 |
-| 15 | rejected | The count comes from the M12 audit counts (pattern match, unique studies), not from a quote; [6] is cited for the benchmark's definition, and the count carries the field claim | none |
-| 16 | rejected | Correct; 17.6% is the best LRS3 visual-only value among the M12 audit candidates and is confirmed in its source | none |
-| 17 | rejected | 1,759 h is in t1's condition and Sec. 4.2 | none |
-| 18 | applied | LRS3-only pre-training uses all 433 h (Sec. 4.2, t70), and the 433 h comprises pretrain 403 h plus trainval 30 h (t40) | Location (Sec. 4.2) added; quote t70 added |
-| 19 | applied | Table 1 note and Appendix: "We re-implemented the LiRA (Ma et al., 2021a) training objective in our framework" (t69) | Wording and location corrected; claim row 20 maps t69 |
-| 20 | rejected | Correct | none |
-| 21 | rejected | The table values come from slots.json and notes t39, t42 and t43, which the gate traces | none |
-| 22 | rejected | The compact format drops Questions and Appendix; this is not an error in the review | none |
-| 23 | unverified | arxiv-2602.19316 bibliographic data are taken from its first page (ICLR 2026, arXiv v1 22 Feb 2026); the evaluator could not confirm them independently | verification_status |
+Counts: 10 fixes; 7 correct, 3 partly correct, 0 wrong, 0 unverifiable. 9 applied with text changes; 1 (fix 10) needs no body change, its open part goes to `verification_status`.
 
-Counts: applied 14, rejected 8, unverified 1.
+| # | Fix | Judgment | Evidence location | Action |
+|---|---|---|---|---|
+| 1 | Add the paper's 26.9% (433 h + self-training); compare [3]'s 21.5% with it; restrict the overreach to the 30 h headline | correct | Target Abstract; Table 1 (433 / 1,759 / 26.9); Table C.3. [3] is a pseudo-labelling method (Sec. 3) | Applied: Verdict now gives 21.5% against 26.9% and names 26.9% as the firmer result, 6.7 points below 33.6% (inference); M03 State of the art adds the 26.9% comparator, gap 5.4 points, 20% relative (inference); M12 notes in slots.json |
+| 2 | 17.6% is not the best LRS3 VSR WER; give its data condition; name 12.8% LP Conformer | correct | [3] Abstract and Table 2 (Huge*, LRS2+LRS3 labelled, English VoxCeleb2 + AVSpeech unlabelled); [3] Appendix C.1 table: "USR 2.0 656 2,649 ... 17.6", "LP Conf 100,000 ... 12.8" (ViT3D-CM 17.0 and SynthVSR 16.9 are also below 17.6) | Applied: M12 State of the art states 17.6% as semi-supervised with 656 h labelled / 2,649 h unlabelled and adds LP Conformer 12.8% with 100,000 h transcribed, cited to [3]'s comparison (no new reference); table cell "[3] 17.6%; 12.8% supervised" |
+| 3 | M03 usual approach mixes populations and labels; "dominate" unsupported | correct | M12 audit ledger_tally (LRS3, population 141): text_prompt 18, paired_audio 17, self_supervised 6, phoneme_label 5, other 4, gesture_label 1; M03 audit usual_approach: self_supervised 31 of 75 | Applied: M03 Usual approach names both populations and the tag text_prompt; "dominate" removed; slots.json M03 field/matched changed to the most frequent tag (18) |
+| 4 | M02 "258 folders" contradicts 17 of 141 and is jargon | partly correct | Whole-wiki tally of `supervision_kind` over papers/*/ledger.json: paired_audio 258 of 941 paper folders with the field (other 437, text_prompt 131, phoneme_label 92, gesture_label 76, unpaired 36, self_supervised 34). 258 is a real count, not copied from M12; the 17 is the LRS3 subset | Applied: population stated ("258 of 941 wiki entries with that M03 field, versions counted separately"), "folders" removed; slots.json M02 n = 941 and tier text updated |
+| 5 | Scratch baseline is weak against published supervised systems (43.3%) | correct | Target Table 1: Ma et al. (2021b) Conformer CTC+S2S, 157 h word-level + 433 h, 43.3% (46.9% without word-level); footnote 1: these are results on the current LRS3 version | Applied in Verdict: 43.3% from the paper's own Table 1, 33.7-point gain overstates the gain over a tuned system (inference); cited to Table 1, no new reference added |
+| 6 | The 59.8% distillation margin also mixes labelled data, model and decoder | correct | Target Table 1 row "Afouras et al. (2020) CNN CTC 157 433 334 59.8"; Sec. 4.2 footnote 2 | Applied: M03 evidence paragraph gives [2]'s 334 h unlabelled, 157 h + 433 h labelled and CNN-CTC against 1,759 h, 30 h, Transformer-LARGE S2S; Verdict says the margin mixes data, model and decoder |
+| 7 | "Every matched group" of [3] Table 2 not shown | partly correct | [3] Table 2: Base LRS3 30 h 51.8 vs 36.2; Base+ 30 h 46.1 vs 26.4; Large 30 h 32.5 vs 23.7; Base+ 433 h 34.8 vs 24.8; Large 433 h 28.6 vs 21.5. The claim was true; only the support was missing | Applied: M02 State of the art lists all five pairs |
+| 8 | Concurrent LiRA called "earlier"; re-implementation is the authors' own disclosure | correct | LiRA tagged [concurrent] in References; target Table 1 dagger note and Appendix B.5 ("We re-implemented the LiRA ... training objective in our framework") | Applied: "The prior unlabelled-video route was distillation [2]; audio-feature regression [5] is [concurrent]"; claims bullet now opens "As the authors state (Table 1 note)" |
+| 9 | S2S "LM-free" bullet is not an overclaim | correct | Target Appendix B.4: "No language model is used for S2S decoding"; any attention decoder learns from its fine-tuning transcripts | Applied: bullet removed; slots.json M07 note neutralised to "4-gram LRS3 LM for CTC; no external LM for S2S (Appendix B.4)" |
+| 10 | M05/M07/M13 cells lack claim rows; Appendix and Questions sections "absent" | partly correct | Cells match the source: B.2 (96x96 mouth ROI, 25 Hz frames, 26-dim log filterbank), B.4 (4-gram LM for CTC, none for S2S), B.4 (32 and 64 V100 GPUs). The Appendix and Questions sections are in the full review; the evaluator saw the compact copy, which strips them | No body change; Appendix pointers kept. Missing claim rows recorded in verdict.json `verification_status` |
+
+Other finding while checking: [3]'s Appendix C.1 lists "AV-HuBERT w/ ST" at 433 h as 28.6%, whereas the target's Table 1 and Table C.3 give 26.9% (28.6% is the 30 h self-trained value). The review uses the target's 26.9%; noted in `verification_status`.
+
+Gate: `check_review.py` 0 FAIL, 0 WARN, references 6, body 6,981 characters (published slots/refs as stand-ins; `--json` = the work-directory row file). Ratings unchanged (all slots standard / not applicable); `verdict.short` unchanged; `verdict.position` updated to the new Verdict text. refs.bib unchanged (6 entries, same order as the reference list).
