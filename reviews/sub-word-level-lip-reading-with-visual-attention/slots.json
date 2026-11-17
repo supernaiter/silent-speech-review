@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced speech in broadcast/TED video"
+  ],
+  "field": "Same as use time",
+  "n": 7388,
+  "matched": 3882,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "LRS lineage.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Word-aligned transcripts; ASR captions (TEDxext)"
+  ],
+  "field": "Paired transcripts",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "ASR labels, as later [@ma2023autoavsr].",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Two stages; all n-grams >= 2 words"
+  ],
+  "field": "Length curriculum",
+  "n": 7388,
+  "matched": 1526,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Equals curriculum (30.92 vs 30.91).",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Video only (audio unused) of voiced speech"
+  ],
+  "field": "Overt speech video",
+  "n": 7388,
+  "matched": 5595,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Face track, 96x96 crop, 25 fps"
+  ],
+  "field": "Mouth or face crop",
+  "n": 7388,
+  "matched": 7329,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "LRS preprocessing.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Attention pooling of a 24x24 map (VTP)"
+  ],
+  "field": "ResNet + average pooling (254)",
+  "n": 7388,
+  "matched": 1116,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "ahead",
+  "note": "Not adopted by later best systems.",
+  "sota": "Linear projection, 12.8% LRS3 [@chang2023lpconformer]; ResNet-18, 17.6% [@haliassos2026usr2]"
+ },
+ "M07": {
+  "choice": [
+   "GPT-2 rescoring of beams"
+  ],
+  "field": "External LM",
+  "n": 7388,
+  "matched": 119,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Weight differs paper vs code.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "WordPiece, 30,522 tokens"
+  ],
+  "field": "Phonemes/visemes (120); characters in E2E",
+  "n": 7388,
+  "matched": 633,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "BPE used before [@liu2020fastlr].",
+  "sota": "SentencePiece 1,000 [@haliassos2026usr2]"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "None (offline)",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "None (offline)",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "LRS2/LRS3 test; AVA-ActiveSpeaker"
+  ],
+  "field": "LRS2/LRS3",
+  "n": 7388,
+  "matched": 234,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Speaker overlap not stated.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "WER on LRS2/LRS3; seeds, repeats and WER normalisation unstated"
+  ],
+  "field": "WER on LRS2/LRS3",
+  "n": 7388,
+  "matched": 6960,
+  "matched_tier": "slot_filled",
+  "verdict": "not_reported",
+  "note": "Training hours also unmatched across Table 1.",
+  "sota": "12.8% LRS3 WER [@chang2023lpconformer]"
+ },
+ "M13": {
+  "choice": [
+   "Offline GPU inference"
+  ],
+  "field": "Offline",
+  "n": 7388,
+  "matched": 6075,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "No latency reported.",
+  "sota": "–"
+ }
+}
