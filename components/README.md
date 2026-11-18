@@ -15,5 +15,5 @@ Any speech-intention decoder, whatever its sensor, can be described by the same 
 | M09 | Confirmation | — |
 | M10 | Correction | — |
 | M11 | Eval reference | [in-the-wild-sentence-benchmark](M11/) |
-| M12 | Evaluation | [human-lipreader-baseline](M12/), [listener-intelligibility-test](M12/), [lrs3-visual-only-wer](M12/), [neural-text-unseen-sentence-test](M12/), [silent-emg-voicing-benchmark](M12/), [silent-speech-challenge-benchmark](M12/), [whisper-conversion-evaluation](M12/) |
+| M12 | Evaluation | [human-lipreader-baseline](M12/), [listener-intelligibility-test](M12/), [lrs3-visual-only-wer](M12/), [neural-text-unseen-sentence-test](M12/), [silent-emg-voicing-benchmark](M12/), [silent-speech-challenge-benchmark](M12/), [video-to-speech-output-evaluation](M12/), [whisper-conversion-evaluation](M12/) |
 | M13 | Hardware & limits | [long-term-home-use](M13/) |

@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "No user training action; GRID read sentences"
+     ],
+     "field": "Reading tasks",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M02": {
+     "choice": [
+      "Perceptual loss on a pretrained speech encoder, plus waveform L1 and TV"
+     ],
+     "field": "Direct spectral regression (10)",
+     "n": 8995,
+     "matched": 40,
+     "verdict": "standard",
+     "note": "Without it WER 83.3% against 26.6% (Table 3), one run."
+    },
+    "M03": {
+     "choice": [
+      "Joint WGAN-GP training per split; early stop on validation MCD"
+     ],
+     "field": "Per-corpus training",
+     "n": 8995,
+     "matched": 1608,
+     "verdict": "standard",
+     "note": "Inherited; no seeds or repeated runs."
+    },
+    "M04": {
+     "choice": [
+      "Voiced read speech, video alone at test"
+     ],
+     "field": "Voiced articulation",
+     "n": 8995,
+     "matched": 6538,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Aligned frontal face, bottom half 128x96, 7 frames"
+     ],
+     "field": "Mouth or face crop from video",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "Frontal faces only (Sec. 5)."
+    },
+    "M06": {
+     "choice": [
+      "50 kHz waveform straight from a GAN generator"
+     ],
+     "field": "Neural vocoder (49)",
+     "n": 8995,
+     "matched": 165,
+     "verdict": "standard",
+     "note": "Beats Lip2AudSpec on WER and STOI, loses on PESQ; single run."
+    },
+    "M07": {
+     "choice": [
+      "None"
+     ],
+     "field": "No language model",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M08": {
+     "choice": [
+      "Waveform in the training speakers' voices"
+     ],
+     "field": "Synthesized audio",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": "Wrong-gender and morphing voices on unseen speakers (Sec. 4.2)."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "GRID: 4 speakers pooled 90/5/5; 15/8/10 subject split"
+     ],
+     "field": "Within-corpus splits",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Utterance split, seed and unseen subject IDs not stated."
+    },
+    "M12": {
+     "choice": [
+      "ASR WER, STOI, PESQ, MCD, SyncNet; no listeners"
+     ],
+     "field": "Listener or opinion test (83)",
+     "n": 8995,
+     "matched": 165,
+     "verdict": "behind",
+     "note": "Naturalness claimed without listeners; earlier work used them."
+    },
+    "M13": {
+     "choice": [
+      "4 days on one GPU; 60 ms per 3 s clip on GPU"
+     ],
+     "field": "Laboratory or benchmark only",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "standard",
+     "note": "Offline clip timing only."
+    }
+   }
+  }
+ ]
+}
