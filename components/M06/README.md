@@ -120,6 +120,18 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Neural or articulatory speech decoders that emit phoneme (or character) probabilities with a recurrent or CTC-trained network and convert them to words with an n-gram or neural language model. Included: sEMG, EEG, ECoG and intracortical; online or offline. Excluded: closed-set word classifiers and direct audio synthesis.
 - Used in: [A high-performance neuroprosthesis for speech decoding and avatar control](../../reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/), [A high-performance speech neuroprosthesis](../../reviews/a-high-performance-speech-neuroprosthesis/), [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
 
+## ultrasound-tongue-image-features
+
+- Table: [`ultrasound-tongue-image-features.csv`](ultrasound-tongue-image-features.csv) (7345 slot-filled, 39 pattern match, usual design in 32, 3 read in full)
+- Inclusion rule: Include studies that compress ultrasound tongue images (with or without lip images) into feature vectors for recognition, synthesis or articulatory mapping by DCT, PCA/EigenTongues, autoencoders or learned CNN encoders. Boundary: exclude contour-only tracking without a feature vector used downstream, raw-image end-to-end models with no stated feature stage, and reviews; count versions once.
+- Used in: [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
+
+## ultrasound-tongue-speech-recognition
+
+- Table: [`ultrasound-tongue-speech-recognition.csv`](ultrasound-tongue-speech-recognition.csv) (7345 slot-filled, 38 pattern match, usual design in 15, 5 read in full)
+- Inclusion rule: Include studies that recognize phones, words or sentences as text from ultrasound tongue images, with or without lip video, in silent or vocalized articulation, and report a recognition error or accuracy. Boundary: exclude ultrasound-to-speech synthesis without a recognition score, tongue contour tracking or clinical phonetics, reviews and surveys (counted in the pattern match but not as designs), and recognition from lips only; count versions once.
+- Used in: [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
+
 ## video-to-speech-synthesis
 
 - Table: [`video-to-speech-synthesis.csv`](video-to-speech-synthesis.csv) (7345 slot-filled, 165 pattern match, usual design in 49, 3 read in full)
