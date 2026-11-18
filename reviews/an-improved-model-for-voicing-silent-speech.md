@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/an-improved-model-for-voicing-silent-speech/](an-improved-model-for-voicing-silent-speech/).**
 
-Improves open-vocabulary silent-speech voicing from facial EMG using learned convolutional features, a Transformer and auxiliary phoneme loss, cutting WER from 68.0% to 42.2% (automatic) and 32.3% (human) for one speaker.
+Conv-plus-Transformer EMG encoder (M06) is reused by the 2026 state of the art; the phoneme loss (M02) follows 2018 ultrasound work. Single runs; ablations explain 16.3 of 25.8 points.
 
 [Read the full review](an-improved-model-for-voicing-silent-speech/) · [All reviews](../README.md)
