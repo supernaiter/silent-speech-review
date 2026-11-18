@@ -1,93 +1,129 @@
 # Intelligible Lip-to-Speech Synthesis with Speech Units
 
-Jeongsoo Choi, Minsu Kim, Yong Man Ro  
-Interspeech 2023 · [arXiv](https://arxiv.org/abs/2305.19603)
+Jeongsoo Choi, Minsu Kim, Yong Man Ro. Interspeech 2023 (arXiv preprint May 2023). [DOI](https://doi.org/10.21437/Interspeech.2023-194) · [arXiv:2305.19603](https://arxiv.org/abs/2305.19603)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Intelligible Lip-to-Speech Synthesis with Speech Units* (Jeongsoo Choi et al., Interspeech 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Lip & face video](../../README.md#lip--face-video)
 
-Lip-to-speech synthesis using self-supervised speech units as a pseudo-text target plus a multi-input vocoder; substantially cuts WER without text labels and reports state-of-the-art results on LRS2/LRS3.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Lip video (optional AV-HuBERT visual front-end) |
-| Task | Speech synthesis from lip video |
-| Vocabulary | Open vocabulary (LRS2/LRS3) |
-| Speaker | Speaker-independent |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | Not reported |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Evaluated only on LRS2/LRS3 test sets with a 15-rater MOS study; no robustness to pose, occlusion, or lighting, and no latency or on-device analysis.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | None; voiced TED and BBC speech | Recorded speech corpora | 4,015 of 8,995 | ● Standard (Inherited.) |
+| M02 Teacher signal | 200 HuBERT units predicted beside mel | Units named, mel co-named (36) | 54 of 8,995 | ● Standard (WER 72.5% to 50.7%, one run, LRS3, ResNet-18 encoder.) |
+| M03 Train / calibrate | Per-dataset training | Per-corpus training | 1,608 of 8,995 | ● Standard (Per-corpus training as usual; seeds and checkpoint-selection data not stated.) |
+| M04 Use-time act | Voiced speech, video used alone | Voiced articulation | 6,538 of 8,995 | ● Standard (Inherited.) |
+| M05 Sensing | 88x88 grayscale lip crop | Mouth or face crop from video | 8,898 of 8,995 | ● Standard (AV-HuBERT encoder pretrained on LRS3 and VoxCeleb2.) |
+| M06 Decoding | Vocoder fed mel, units, speaker embedding | Neural vocoder (49) | 165 of 8,995 | ● Standard (WER 50.7% to 50.4%, STOI +0.010, one run.) |
+| M07 Runtime aids | No LM; speaker embedding from unstated speech | No language model | 120 of 8,995 | ✕ Not reported (Source of the test-time speech segment not stated.) |
+| M08 Output | Waveform in the speaker's voice | Synthesized audio | 3,760 of 8,995 | ● Standard (Inherited.) |
+| M09 Confirmation | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | LRS3 unseen-speaker split; LRS2 test | Within-corpus splits | 239 of 8,995 | ● Standard (LRS2 speaker overlap unknown.) |
+| M12 Evaluation | STOI, ESTOI, PESQ, ASR WER; 20-clip MOS | Objective scores plus listeners | 8,381 of 8,995 | ● Standard (No seeds; MOS spread undefined.) |
+| M13 Hardware & limits | Offline | Laboratory recording | 6,721 of 8,995 | ✕ Not reported (No latency or compute.) |
 
-Speech units as a pseudo-text target enable strong content supervision that substantially cuts WER without text labels, and the multi-input vocoder improves speech quality from blurry mel outputs, yielding a state-of-the-art lip-to-speech system on LRS benchmarks.
+</details>
 
-### Review
+## Verdict
 
-This paper presents a significant advancement in lip-to-speech synthesis by combining self-supervised quantized speech units as auxiliary prediction targets with a multi-input vocoder that conditions on both mel-spectrograms and speech units. This architecture allows improved speech content modeling without text labels, a key bottleneck in prior work. Experimental results on LRS3 and LRS2 benchmarks demonstrate clear metric improvements, notably a reduction in word error rate (WER) from 65.8% to 29.8% when using a strong AV-HuBERT visual encoder plus speech units. The vocoder design, augmented during training with blur and noise, further enables intelligible speech synthesis from blurry predicted mel features. Human evaluations confirm gains in naturalness, intelligibility, and clearness relative to prior state of the art. Despite these merits, the work remains benchmark-focused without investigation of real-time operation, mobile compatibility, or robustness to real-world video variations such as occlusion or pose changes. The approach significantly moves the field towards practical lip-to-speech reconstruction by eliminating reliance on text labels, but future work must address deployment and generalization challenges.
+The paper [[1]](#ref-1) adds 200 HuBERT units as a target beside the mel-spectrogram (M02) and feeds them to the vocoder (M06); both are standard. The units carry the gain, LRS3 ASR WER 72.5% to 50.7% in one run; vocoder and mel augmentation move WER by 0.3 and 0.2 points (Table 3) (inference). The headline 29.8% rests on a pretrained AV-HuBERT encoder, a step of 20.4 points (41% relative) against 21.8 points (30%) for the units, with no unit ablation on that encoder (inference). The [concurrent] ReVISE also predicts HuBERT units from an AV-HuBERT-initialised encoder [[2]](#ref-2); the [later] V2SFlow, same first author, is 1.3 points lower under the same ASR model, and its listeners rate the target 2.46 of 5 for naturalness against 4.40 in the paper's own test of the non-AV-HuBERT variant (Sec. 4.3) [[3]](#ref-3). It also needs a speaker embedding from unstated speech (Sec. 2.2), and nothing is repeated over seeds.
 
-### Why it matters
+## Against the field, component by component
 
-A strong contribution to video-based speech reconstruction that eliminates the need for paired text transcriptions by leveraging self-supervised speech units, enabling intelligible speech synthesis with improved content fidelity. The multi-input vocoder innovation also materially enhances waveform quality from predicted features.
+### M02 Training-only supervision: speech units beside the mel target
 
-### Prior state of the art
+**Usual approach:** Of 54 unique studies that synthesize speech from a non-acoustic signal and name self-supervised speech representations (pattern match, Appendix), 53 name units and 36 also name mel targets (co-mention, not confirmed joint targets). The paper's baseline, SVTS [[4]](#ref-4) modified to its framework, regresses mel alone (Table 3).
 
-Lip-to-speech models typically either use blurry acoustic targets alone for supervision or require paired text labels as stronger content guidance.
+**State of the art:** In 2023 the paper's 29.8% was the lowest LRS3 WER without text labels among the systems compared here; the [concurrent] ReVISE gives 33.9% from units alone, its scorer at 5.6% on real audio against 2.5% here [[2]](#ref-2), and DiffV2S 39.2% in V2SFlow's table. In 2024 V2SFlow [later], predicting content and pitch tokens and a speaker embedding, reaches 28.5% with the same ASR model, 4% relative lower [[3]](#ref-3) (inference).
 
-### What changed
+The unit gain is one run with a ResNet-18 encoder. AV-HuBERT is itself pretrained to predict audio-visual clusters, so on it the units may add far less (inference). In silent EMG, means over 10 seeds give 26.55% WER with a soft-unit target against 25.14% with mel, seed spread about 1% [[5]](#ref-5) [later]; if LRS3 spread is similar, the gain is far beyond it (inference). Verdict: standard; ReVISE [concurrent] shares the unit target but not the mel target, and the gain is one run on one dataset.
 
-Uses discrete speech units derived via speech model quantization as pseudo-text supervision to the multi-target L2S model, enabling improved content modeling without text labels; additionally, uses speech units to condition a multi-input vocoder for waveform generation, enhancing intelligibility and speech quality.
+### M06 Processing: unit-conditioned vocoder
 
-### Position in the field
+**Usual approach:** Of 165 unique video-to-speech studies (pattern match, Appendix), 49 name a neural vocoder, 41 a parametric vocoder and 16 Griffin-Lim. The paper adds units and the speaker embedding to a neural vocoder trained on blurred, noised mel (Sec. 3.2.3); ReVISE decodes units alone with a unit HiFi-GAN [[2]](#ref-2).
 
-Core video-to-speech / silent-speech reconstruction work utilizing self-supervised speech units for content modeling.
+**State of the art:** In 2024 V2SFlow [later] replaces mel regression with a rectified-flow decoder: UTMOS 3.624 against 2.657 for the target, 36% higher, at a WER 1.3 points lower [[3]](#ref-3) (inference). The [concurrent] LipVoicer reaches 21.4% LRS3 WER with lip-reader text at inference, under a scorer at 1.0% on real audio, and 86.2% without it [[6]](#ref-6).
 
-### Practical value
+The vocoder takes WER from 50.7% to 50.4% and STOI from 0.542 to 0.552; augmentation then gives 50.2% but STOI 0.543 (Table 3), each under 1% relative WER in single runs (inference), with drops on the other metrics the authors concede (Sec. 4.2). Verdict: standard; naturalness has since moved to generative decoders.
 
-High practical value in constructing lip-to-speech models when paired text labels are unavailable, improving intelligibility significantly on standard benchmarks.
+## The 13 components
 
-### Advanced
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | None; voiced TED and BBC speech | Recorded speech corpora (slot-filled 4,015) | – | standard |
+| M02 Training-only supervision | 200 HuBERT units predicted beside mel | Units named, mel co-named (36) (pattern match 54) | V2SFlow: LRS3 WER 28.5% vs 29.8% [[3]](#ref-3) | standard |
+| M03 Training and adaptation | Per-dataset training | Per-corpus training (slot-filled 1,608) | – | standard |
+| M04 Use-time action | Voiced speech, video used alone | Voiced articulation (slot-filled 6,538) | – | standard |
+| M05 Sensors | 88x88 grayscale lip crop | Mouth or face crop from video (slot-filled 8,898) | – | standard |
+| M06 Processing and decoding | Vocoder fed mel, units, speaker embedding | Neural vocoder (49) (pattern match 165) | UTMOS 3.624 vs 2.657 (V2SFlow) [[3]](#ref-3) | standard |
+| M07 Lexicon and LM | No LM; speaker embedding from unstated speech | No language model (slot-filled 120) | – | not reported |
+| M08 Output | Waveform in the speaker's voice | Synthesized audio (slot-filled 3,760) | – | standard |
+| M09 Confirmation | None | None (slot-filled 82) | – | not applicable |
+| M10 Correction | None | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | LRS3 unseen-speaker split; LRS2 test | Within-corpus splits (slot-filled 239) | – | standard |
+| M12 Evaluation | STOI, ESTOI, PESQ, ASR WER; 20-clip MOS | Objective scores plus listeners (slot-filled 8,381) | – | standard |
+| M13 Device and cost | Offline | Laboratory recording (slot-filled 6,721) | – | not reported |
 
-content_supervision; vocoder_design; reconstruction_intelligibility
+## Where the claims outrun the evidence
 
-### Unresolved
+- "Exceeds text-supervised Multi-Task" (Sec. 4.1): 50.2% against 65.8% on LRS3 and 44.8% against 57.8% on LRS2 (Table 1, Table 2), 24% and 22% relative (inference), each a single run. Retrained and rescored by LipVoicer, the [concurrent] comparator [[7]](#ref-7) gives 57.4% on LRS3 [[6]](#ref-6): its figure moves 8.4 points with who trains and scores it (inference).
+- The modified baseline scores 72.5% against 78.0% for published SVTS (Table 1, Table 3), 5.5 points before any unit (inference).
+- MOS 4.40 for naturalness against 4.98 for real speech (Table 4) rests on 15 raters, 20 clips, an undefined ± and prior-system samples from their authors (Sec. 4.3). V2SFlow's listeners gave the target 2.46 against 4.42 for real speech [[3]](#ref-3), 56% against 88% of ground truth (inference); V2SFlow does not name the variant it rated, so it does not confirm the paper's score.
+- V2SFlow groups the target with audio-embedding systems; its video-derived embedding keeps WER at 28.5% but speaker similarity falls from 0.851 to 0.664 [[3]](#ref-3). If the target behaves like V2SFlow, its WER would survive a video-derived embedding and its speaker similarity would not (inference).
 
-live_inference; occlusion_robustness; unconstrained_capture
+## What the field needs next
 
-### Evaluation details
+- M02: units against mel-only targets with the AV-HuBERT encoder, over several seeds, on LRS2 and LRS3.
+- M12: one public scorer and fixed released clips for every system, with MOS intervals.
+- M07: audio- and video-derived speaker embeddings side by side, naming the speech segment used.
 
-| Item | Details |
-| --- | --- |
-| Task | speech-reconstruction |
-| Input | video |
-| Sensor | Lip video with visual front-end optionally replaced by AV-HuBERT models pretrained on LRS3 and VoxCeleb2 |
-| Body site | lip |
-| Output | speech-audio |
-| Metrics and results | Metrics used include STOI, ESTOI, PESQ, and Word Error Rate (WER) on LRS2 and LRS3 datasets, plus Mean Opinion Score (MOS) for naturalness, intelligibility, and clearness based on human raters. |
-| Evaluation protocol | Quantitative evaluation on standard benchmarks (LRS2, LRS3) using STOI, ESTOI, PESQ, WER metrics and a small-scale human Mean Opinion Score (MOS) study. |
+## Questions for the authors
 
-### Limits
+- Which speech segment gives the speaker embedding at test, and is it ever the test utterance?
+- Was the AV-HuBERT LARGE checkpoint pretrained only, or also fine-tuned for lip reading with text?
+- How many training runs underlie Tables 1-3, and which data selected the checkpoints?
+- In Table 4, is ± a standard deviation or an interval, and did all raters hear all clips?
+- Are LRS3 test speakers in AV-HuBERT pretraining, and do LRS2 test speakers appear in training?
 
-- **Technical:** Limited by dependence on benchmark video quality, vocoder stack complexity, and residual challenge in matching natural speech quality; no tested robustness to pose, occlusion, or spontaneous environment variability.
-- **Evaluation:** Evaluation is limited to test sets from LRS2 and LRS3 datasets, with no cross-dataset or live deployment exploration; human evaluation is limited to 15 participants rating MOS on 20 samples.
-- **Deployment:** No latency analysis, on-device implementation, or in-the-wild robustness to camera position/lighting/occlusion is demonstrated, limiting immediate real-world deployment.
-- **Scope of this review:** Focuses strictly on lip-to-speech synthesis (speech reconstruction) without addressing text entry, command recognition, or speech enhancement. Evaluation confined to standard benchmarks LRS2 and LRS3.
+## Appendix: literature search
 
-### Evidence
+- M02 ssl-speech-unit-target (published topic table, appended). Inclusion rule: studies that synthesize speech from a non-acoustic speech signal and train the encoder to predict self-supervised speech representations (HuBERT units, soft units, ContentVec, wav2vec features) from paired or aligned audio, instead of or besides spectral targets; recognition-only studies, self-generated targets and acoustic-input conversion excluded; versions counted once. Slot-filled 31 unique studies; pattern match 54 unique studies. Usual design: supervision_kind=paired_audio, 11 of the 22 topic studies with that M03 field filled (slot-filled). Design counts (pattern match, full text): self-supervised units 53, mel targets 36, pitch removed or perturbed 4. Read in full: [[5]](#ref-5) [later], [[3]](#ref-3) [later], [[2]](#ref-2) [concurrent], target. Known-item recall 1.0.
+- M06 video-to-speech-synthesis (published topic table, appended). Inclusion rule: studies that synthesize a speech waveform from video of the talking face or lips and state the acoustic representation and how it becomes a waveform; audio-visual enhancement or separation with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS pipelines excluded; versions counted once. Slot-filled 7,345 unique studies; pattern match 165 unique studies (187 folders). Usual design: neural vocoder, 49 (pattern match, full text). Design counts: neural vocoder 49, parametric vocoder 41, Griffin-Lim 16, auditory spectrogram 3. Read in full: [[3]](#ref-3) [later], [[6]](#ref-6) [concurrent], target; earlier GRID entries of the table carried over. Known-item recall 1.0.
 
-- We propose a novel Lip-to-Speech synthesis (L2S) framework that uses quantized self-supervised speech representations, named speech units, as an additional prediction target alongside mel-spectrogram, allowing strong content supervision without text labels, and introduce a multi-input vocoder conditioned on mel-spectrogram and speech units to generate clear waveforms even from noisy mel-spectrograms. (Abstract)
-- The main technical advance is treating quantized speech units as pseudo-text supervision during training and conditioning the multi-input vocoder on both mel-spectrogram and these speech units to improve speech content fidelity and waveform quality without relying on text labels. (2.2. Multi)
-- On LRS3 dataset, the proposed method achieves STOI=0.578, ESTOI=0.393, PESQ=1.31, and WER=29.8%, substantially outperforming Multi-Task baseline WER of 65.8%. On LRS2, it reaches STOI=0.585, ESTOI=0.412, PESQ=1.34, and WER=35.7%, again improving over previous methods, as reported in Tables 1 and 2. (4.1 Quantitative Comparison)
-- Evaluation is performed on LRS2 and LRS3 large-scale sentence-level lip-to-speech datasets with thousands of speakers in natural and wild environments; human MOS evaluation involved 15 participants rating naturalness, intelligibility, and clearness on 20 test samples from LRS3. (3.1 Datasets)
-- The approach depends on quality of benchmark video datasets (LRS2 and LRS3) and the vocoder stack complexity; the synthesized speech audio quality remains far from natural speech and no evaluation on real-world deployment scenarios, occlusion robustness, or user mobility has been conducted. (4 Results)
-- No latency analysis, on-device deployment, or robustness under uncontrolled camera settings has been demonstrated; thus, deployment readiness for real-world applications remains limited despite benchmark performance gains. (5 Conclusions)
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Choi, J., Kim, M., Ro, Y. M. “Intelligible Lip-to-Speech Synthesis with Speech Units.” *Interspeech 2023*, 2023, 4349-4353. doi:[10.21437/Interspeech.2023-194](https://doi.org/10.21437/Interspeech.2023-194). arXiv:[2305.19603](https://arxiv.org/abs/2305.19603). Target. Read as arXiv v1 (31 May 2023) and the Interspeech proceedings version. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/intelligible-lip-to-speech-synthesis-with-speech-units) [wiki: arxiv-2305.19603](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2305.19603/article.md) [wiki: isca-choi23-liptospeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-choi23-liptospeech/article.md) [wiki: isca-choi23_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-choi23_interspeech/article.md)
+2. <a id="ref-2"></a>Hsu, W., Remez, T., Shi, B., Donley, J., Adi, Y. “ReVISE: Self-Supervised Speech Resynthesis with Visual Input for Universal and Generalized Speech Enhancement.” *IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2023. arXiv:[2212.11377](https://arxiv.org/abs/2212.11377). [concurrent] [wiki: arxiv-2212.11377](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2212.11377/article.md)
+3. <a id="ref-3"></a>Choi, J., Kim, J., Li, J., Chung, J. S., Liu, S. “V2SFlow: Video-to-Speech Generation with Speech Decomposition and Rectified Flow.” *arXiv preprint*, 2024. arXiv:[2411.19486](https://arxiv.org/abs/2411.19486). Read as arXiv v2 (30 May 2025). [later] [wiki: arxiv-2411.19486](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2411.19486/article.md)
+4. <a id="ref-4"></a>Mira, R., Haliassos, A., Petridis, S., Schuller, B. W., Pantic, M. “SVTS: Scalable Video-to-Speech Synthesis.” *Interspeech 2022*, 2022. arXiv:[2205.02058](https://arxiv.org/abs/2205.02058). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/svts-scalable-video-to-speech-synthesis) [wiki: arxiv-2205.02058](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2205.02058/article.md)
+5. <a id="ref-5"></a>Lee, J., Hwang, I., Lee, J., Kim, E., Han, D., Lee, K. “Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment.” *Proc. Interspeech 2026*, 2026. doi:[10.21437/Interspeech.2026-2931](https://doi.org/10.21437/Interspeech.2026-2931). [later] [wiki: isca-lee26v_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-lee26v_interspeech/article.md)
+6. <a id="ref-6"></a>Yemini, Y., Shamsian, A., Bracha, L., Gannot, S., Fetaya, E. “LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading.” *International Conference on Learning Representations (ICLR)*, 2024. arXiv:[2306.03258](https://arxiv.org/abs/2306.03258). [concurrent] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/lipvoicer-generating-speech-from-silent-videos-guided-by-lip-reading) [wiki: arxiv-2306.03258](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2306.03258/article.md)
+7. <a id="ref-7"></a>Kim, M., Hong, J., Ro, Y. M. “Lip-to-Speech Synthesis in the Wild with Multi-task Learning.” *2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 2023. arXiv:[2302.08841](https://arxiv.org/abs/2302.08841). [concurrent] [wiki: arxiv-2302.08841](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2302.08841/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M02/ssl-speech-unit-target.csv`](../../components/M02/ssl-speech-unit-target.csv): M02 topic "ssl-speech-unit-target", every candidate paper with its decision (31 slot-filled, 54 pattern match, usual design in 11, 2 read in full)
+- [`components/M06/video-to-speech-synthesis.csv`](../../components/M06/video-to-speech-synthesis.csv): M06 topic "video-to-speech-synthesis", every candidate paper with its decision (7345 slot-filled, 165 pattern match, usual design in 49, 3 read in full)
+
 
 ## More reviews in Lip & face video
 

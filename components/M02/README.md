@@ -62,7 +62,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`ssl-speech-unit-target.csv`](ssl-speech-unit-target.csv) (31 slot-filled, 54 pattern match, usual design in 11, 2 read in full)
 - Inclusion rule: Include studies that synthesize speech from a non-acoustic speech signal and train the signal encoder to predict self-supervised speech representations (HuBERT units, soft units, ContentVec, wav2vec features) derived from paired or aligned audio, instead of or besides spectral targets. Boundary: exclude recognition-only studies, targets the model generates itself, and acoustic-input conversion; count versions once.
-- Used in: [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
+- Used in: [Intelligible Lip-to-Speech Synthesis with Speech Units](../../reviews/intelligible-lip-to-speech-synthesis-with-speech-units/), [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
 
 ## synthetic-speech-target
 
