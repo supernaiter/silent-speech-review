@@ -1,0 +1,626 @@
+{
+ "topic": "auxiliary-phoneme-loss-in-speech-synthesis",
+ "slot": "M02",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(auxiliary|multi-?task)[^|]{0,150}(phone|CTC|HMM state)|(phone|CTC|HMM state)[^|]{0,150}(auxiliary|multi-?task)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Speech synthesis from a non-acoustic signal (EMG, ultrasound, articulography, video, neural) whose training adds a phoneme, phone-state, CTC or text classification loss on a shared encoder that is discarded or used only as guidance at synthesis time. Boundary: recognition-only models, cascaded recognize-then-TTS systems, and regression-only auxiliary targets are excluded; versions counted once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 31,
+  "slot_filled_unique": 31,
+  "string_match_folders": 38,
+  "string_match_unique": 34,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.13835",
+     "arxiv-2302.08841",
+     "arxiv-2204.01726",
+     "isca-li23l_interspeech",
+     "isca-michelsanti20_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-11207165.v1",
+     "arxiv-2506.13835",
+     "doi-10.20944-preprints202505.0540.v1",
+     "arxiv-2302.08841",
+     "isca-michelsanti20_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2506.13835",
+     "isca-li23l_interspeech",
+     "isca-toth18_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.08236",
+     "arxiv-2506.13835",
+     "doi-10.20944-preprints202505.0540.v1"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "Text WER",
+   "value": 2.1,
+   "unit": "percent",
+   "raw": "0.021",
+   "pid": "arxiv-2609.04455",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "E2E audio-only WER",
+   "value": 3.7,
+   "unit": "percent",
+   "raw": "3.7%",
+   "pid": "pmc-9370936-reliability-avsr",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Li DCoND-LIFT WER",
+   "value": 5.77,
+   "unit": "percent",
+   "raw": "5.77",
+   "pid": "arxiv-2603.20246",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 av-early wer",
+   "value": 7.0,
+   "unit": "percent",
+   "raw": "7.0",
+   "pid": "arxiv-1810.00108",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best reported WER (1200w)",
+   "value": 7.0,
+   "unit": "percent",
+   "raw": "7.0%",
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "year": 2020,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "non-overlapped WER",
+   "value": 9.77,
+   "unit": "percent",
+   "raw": "AVSR WER on anechoic non-overlapped speech (ASR 11.04)",
+   "pid": "isca-yu20f_avmcs",
+   "year": 2020,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 14.6,
+   "unit": "percent",
+   "raw": "14.6",
+   "pid": "arxiv-2606.00751",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS3-TED VSR WER",
+   "value": 21.0,
+   "unit": "percent",
+   "raw": "VSR WER on LRS3-TED",
+   "pid": "doi-10.20944-preprints202505.0540.v1",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 22.0,
+   "unit": "percent",
+   "raw": "22.0",
+   "pid": "arxiv-2606.31225",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER",
+   "value": 22.6,
+   "unit": "percent",
+   "raw": "0.226",
+   "pid": "arxiv-2608.18114",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1805.11685",
+   "key": "t:candnnslearntolipreadfullsentences",
+   "title": "Can DNNs Learn to Lipread Full Sentences?",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "); T2 per-viseme acc % + delta | technical_essence=learned 2D/3D CNN front-ends vs handcrafted DCT/AAM/Eigenlips; joint-CTC auxiliary enables larger inputs | technical_essence=decoder family: vanilla LSTM seq2seq, monotonic attention, joint CTC+seq2seq;"
+  },
+  {
+   "pid": "arxiv-1807.08469",
+   "key": "t:zeroshotkeywordspottingforvisualspeechrecognitioninthewild",
+   "title": "Zero-shot keyword spotting for visual speech recognition in-the-wild",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ch recognition in-the-wild | Study.research_objective=Zero-shot visual KWS: spatiotemporal ResNet + G2P encoder-decoder auxiliary learns grapheme->phoneme pronunciations so unseen keywords are scorable on LRS2; detection (EER/FAR/MDR) + ranking (Top-N) + localization. | t"
+  },
+  {
+   "pid": "arxiv-1810.00108",
+   "key": "t:audiovisualspeechrecognitionwithahybridctcattentionarchitecture",
+   "title": "Audio-Visual Speech Recognition With A Hybrid CTC/Attention Architecture",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ation_scope={A,V,AV-early,AV-late} x CER/WER on LRS2 test; SNR/noise-type sweeps | TrainingRun.training_objective=joint CTC+attention multi-task loss; LRS2 pretrain->train schedule | EvaluationProtocol.statistical_plan={'metrics': 'CER,WER %', 'test': 'LRS2 test 1"
+  },
+  {
+   "pid": "arxiv-1911.11610-impeegasr",
+   "key": "t:improvingeegbasedcontinuousspeechrecognition",
+   "title": "Improving EEG based Continuous Speech Recognition",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "U(128)+GRU(64) → TCN 32 filters, kernel 2, one residual stack, casual padding; dense+softmax decoder; adam, 120 epochs, CTC loss; beam-search decoding with external LM. Auxiliary GRU regression (500 epochs, MSE, batch 1) maps EEG-30 → MFCC-13 + 6 articulatory and pre-trains the recurrent layers; K"
+  },
+  {
+   "pid": "arxiv-2004.09347",
+   "key": "t:endtoendwhispertonaturalspeechconversionusingmodifiedtransformernetwork",
+   "title": "End-to-End Whisper to Natural Speech Conversion using Modified Transformer Network",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "esearch_objective=modified transformer whisper->natural conversion: W1/W2 (MFCC-80) + V1/V2 (spectral-24) model family; auxiliary decoder adds phoneme-classification loss (W2/V2); WORLD vocoder re-synthesis; measure ASR WER of converted speech on S1-S3 E2E systems (Li"
+  },
+  {
+   "pid": "arxiv-2005.08571",
+   "key": "t:audiovisualmultichannelrecognitionofoverlappedspeech",
+   "title": "Audio-visual Multi-channel Recognition of Overlapped Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "N: 4 conv(64,64,128,128,k3) + 4xBLSTM-1280 + softmax; 4-gram LM 2.33M words | technical_essence=joint fine-tune sep+rec CTC, best via multi-task CTC + a*Si-SNR (a=.1 TFmask, 1 others) | extra.Output.output_kind=word transcript (target speaker) | extra.Configuratio"
+  },
+  {
+   "pid": "arxiv-2106.01933",
+   "key": "t:animprovedmodelforvoicingsilentspeech",
+   "title": "An Improved Model for Voicing Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cing Silent Speech | venue=ACL/IJCNLP 2021; v2 | Study.research_objective=EMG->speech via conv features + Transformer + phoneme auxiliary loss + WaveNet; open-vocab single-speaker. | task_family=speech_reconstruction | intended_use_cases=speech_restoration,"
+  },
+  {
+   "pid": "arxiv-2106.13686-cmkdcs",
+   "key": "t:crossmodalknowledgedistillationmethodforautomaticcuedspeechrecognition",
+   "title": "Cross-Modal Knowledge Distillation Method for Automatic Cued Speech Recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-conv layers → 5× BiLSTM + BN + FC; student CNN-BiLSTM (2 pretrained CNNs + ANN → 2 BiLSTM + 2 FC); frame-level KD with multi-task auto-weighted α·KL·T² + (1−α)·CE; sequence-level cosine auxiliary + CTC | EvaluationProtocol.experimental_design=80/10/10 train/val/test per CS dataset; Acc = 1−PER; comparisons vs CNN-HMM ta"
+  },
+  {
+   "pid": "arxiv-2204.01726",
+   "key": "t:liptospeechsynthesiswithvisualcontextattentionalgan",
+   "title": "Lip to Speech Synthesis with Visual Context Attentional GAN",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "attention + multi-scale generator + multi-discriminators; contrastive AV-sync loss with temperature; L1 reconstruction; auxiliary CTC lip-reading supervision | supervision_kind=paired_audio | TrainingRun.training_objective=Adam lr 1e-4; recon L1 + GAN +"
+  },
+  {
+   "pid": "arxiv-2302.08841",
+   "key": "t:liptospeechsynthesisinthewildwithmultitasklearning",
+   "title": "Lip-to-Speech Synthesis in the Wild with Multi-task Learning",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "gn=controlled_experiment | Study.research_objective=rebuild speech with CORRECT content from lip movements in the wild: multi-task learning adding text (feature-level CTC) + audio (output-level ASR feedback) supervision to acoustic mel reconstruction | Study.unit_of_analysis=STOI/ESTOI/PES"
+  },
+  {
+   "pid": "arxiv-2501.04204",
+   "key": "t:lipgenvisemeguidedlipvideogenerationforenhancingvisualspeechrecognition",
+   "title": "LipGen: Viseme-Guided Lip Video Generation for Enhancing Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on | Study.research_objective=LipGen: speech-driven diffusion generates viseme-guided synthetic lip video (LRW words -> phonemes via CMU dict -> animated frames on paired face databases); adds viseme-classification auxiliary branch + temporal attention fusion module (TAFM). Evals: LRW ACC SOTA table, pose-augmented LRW test (15-60deg yaw/pitc"
+  },
+  {
+   "pid": "arxiv-2501.04844",
+   "key": "p:arxiv-2501.04844",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=simultaneous waveform+phoneme decoding from listened-speech EEG via auxiliary phoneme predictor | task_family=speech_reconstruction | intrusiveness=external_noncontact | observed_quantities=neural_"
+  },
+  {
+   "pid": "arxiv-2506.13835",
+   "key": "t:asilentspeechdecodingsystemfromeegandemgwithheterogenouselectrodeconfigurations",
+   "title": "A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ".architecture={'word_task': 'CLS-token logits for word classification', 'text_task': 'mora sequence logits trained with CTC for transcribed text', 'frame_task': 'per-frame mora logits', 'auxiliary': 'EEG/EMG latent-to-audio-latent MSE when audio latents are available'} | decoder_route=closed_set_classification | mo"
+  },
+  {
+   "pid": "arxiv-2603-21808-mandarin",
+   "key": "t:cascadefreemandarinvisualspeechrecognitionviasemanticguidedcrossrepresentational",
+   "title": "Cascade-Free Mandarin Visual Speech Recognition via Semantic-Guided Cross-Representation Alignment",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g, L., He, Y., Wu, F., Wang, S. (Shanghai Jiao Tong U) | venue=arXiv 2603.21808 | Study.research_objective=cascade-free multitask Mandarin VSR jointly using phoneme+viseme intermediate representations with semantic-guided local contrastive alignment; avoids cascade error accumulati"
+  },
+  {
+   "pid": "arxiv-2603.20246",
+   "key": "t:decodingthedecodercontextualsequencetosequencemodelingforintracorticalspeechdeco",
+   "title": "Decoding the decoder: Contextual sequence-to-sequence modeling for intracortical speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ralization; 5 seeds per config | representation_kind=neural feature bins -> Transformer latent sequence (80ms cadence); multitask phoneme+word outputs via MFCC+BART aux | technical_essence=contextual Transformer seq2seq encoder (vs RNN-CTC baseline), Adam"
+  },
+  {
+   "pid": "arxiv-2604.02362",
+   "key": "t:cipherconformerbasedinferenceofphonemesfromhighdensityeegrepresentations",
+   "title": "CIPHER: Conformer-based Inference of Phonemes from High-density EEG Representations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ntical Conformer encoders per feature stream (attention pooling + classification heads; SE channel attention); optional CTC head for 11-class CVC frames; ensemble ERP+DDA; multi-task joint training over 6 targets; mixup α=0.1, 150-epoch/patience-30 training | EvaluationProtocol.test_material_selection"
+  },
+  {
+   "pid": "arxiv-2604.02362-cipher",
+   "key": "t:cipherconformerbasedinferenceofphonemesfromhighdensityeegrepresentations",
+   "title": "CIPHER: Conformer-based Inference of Phonemes from High-density EEG Representations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "604.02362 | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Benchmark phoneme decoding from high-density scalp EEG during speech perception with dual-pathway features (ERP vs DDA) + multi-task Conformer, under strict LOSO — honest assessment incl. TMS causality checks | Study.unit_of_analysis=Stimulus-locked EE"
+  },
+  {
+   "pid": "arxiv-2606.00751",
+   "key": "t:headposeawarevisualspeechrecognitionwithfilmmodulation",
+   "title": "Head-Pose-Aware Visual Speech Recognition with FiLM Modulation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ra.Task.scope=Recognize spoken English utterances from video-only visual input, with an estimated head-pose sequence as auxiliary geometric input; predict phonemes, then reconstruct word-level text. | extra.Production.classification_note=The benchmark videos contain ordinary spok"
+  },
+  {
+   "pid": "arxiv-2606.31225",
+   "key": "t:afirstexplorationofneuromorphicotcfmformultispeakervsr",
+   "title": "A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "context. | technical_essence=Speaker-conditioned OT-CFM: TDNN-derived speaker embedding, monotonic token alignment and auxiliary CTC; 16-layer CFM-Former with BERT-space target/Gaussian source and deterministic two-step Euler integration (Δt=0.5) for t"
+  },
+  {
+   "pid": "arxiv-2607.08236",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "est set (Acc); 4,975 samples in total. | TrainingRun.training_objective=Fully supervised word-level classification with auxiliary viseme CTC and consistency regularization between weak-view EMA teacher and strong-view student. Loss: λce Lce + λkl(e) Lkl + λctc Lctc; teacher target is detached. | TrainingRun.optimization={'optimizer': 'Adam', 'epochs': 100, 'batch_size': 32, 'weight_"
+  },
+  {
+   "pid": "arxiv-2607.25626-eegalign",
+   "key": "t:jointtextaudioalignmentforeegtotextdecodinginchinesespeechproductionandperceptio",
+   "title": "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion=Closed-set retrieval over 101 candidates, not open text generation; small subject pool (4 RA + 8 PL); on RA single auxiliary axes hurt vs CTC-only (confounder: axis interaction); ~16 GPU-h per run | extra.Limitation.status=acknowledged | RA Top-1 | ablation | f"
+  },
+  {
+   "pid": "arxiv-2608.18114",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eads, depthwise kernel 17. | ProcessingStep.hyperparameters=28 output classes: blank, 26 lower-case letters, and space; CTC auxiliary head weight 0.7. | ProcessingStep.hyperparameters=Frozen CTC encoder; Qwen3-4B causal LLM; per-subject LoRA and model s"
+  },
+  {
+   "pid": "arxiv-2609.04455",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n. | TrainingRun.training_objective=Joint neural-to-speech synthesis using mean-squared error against VITS CPR targets; auxiliary segment-count cross-entropy and detached CTC regularization are also described. | TrainingRun.optimization={'optimizer': 'Adam', 'batch_size': 32, 'peak_learning_ra"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "key": "t:brain2charadeeparchitecturefordecodingtextfrombrainrecordings",
+   "title": "Brain2Char: a deep architecture for decoding text from brain recordings",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arch (LibriSpeech LM); AKT/MFCC/session regularizers at training only | TrainingRun.training_objective=jointly optimize CTC character loss + auxiliary MSE losses on MFCC acoustics, AKT articulatory features and session calibration; baselines DS_0/DS_1 use pretrained Dee"
+  },
+  {
+   "pid": "doi-10.20944-preprints202505.0540.v1",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio-Visual Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "SR evals | model_family=cnn, transformer | ProcessingStep.architecture=shared conformer encoder + transformer decoder + CTC projection; modality backbones 1D ResNet18 (audio) and 3DCNN+2D ResNet18 (visual); AVSR fuses both representations; hybrid CTC/Attention multi-task loss | supervision_kind=text_prompt, other | TrainingRun.training_objective=joint supervised multi-task training (ASR+V"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-11207165.v1",
+   "key": "t:thefirstcharacterlevelvisualspeechrecognitionforbanglataskprotocolandresults",
+   "title": "The First Character-Level Visual Speech Recognition for Bangla: Task, Protocol and Results",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ture=3D conv + residual image encoder -> Zipformer temporal encoder -> prediction network + joiner (pruned RNN-T loss + auxiliary CTC branch); family follows Huu&Sy 2025 Vietnamese ResNet3D-Zipformer, retrained from scratch | TrainingRun.training_object"
+  },
+  {
+   "pid": "doi-10.3390-electronics14122310",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "12):2310 | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=supervised multi-task framework training one model jointly on ASR, VSR and AVSR via hybrid CTC/Attention loss | Study.unit_of_analysis=audiovisual speech utterances → text; VSR-only, ASR-only and AVSR decoding | ta"
+  },
+  {
+   "pid": "isca-cisar05_avsp",
+   "key": "p:isca-cisar05_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y=sentence_recognition | Dataset.collection_protocol=100 speakers (39M/61F, mean age 22); 200 sentences each: 50 common phoneme-complete + 150 speaker-unique triphone-balanced; ~23 min/speaker, >38 h total; read from auxiliary screen, static head, constant illumination, front view | speaker_split=held_out_subject | modalities=optical_camera, mi"
+  },
+  {
+   "pid": "isca-lee25d_interspeech",
+   "key": "t:articulatoryfeaturepredictionfromsurfaceemgduringspeechproduction",
+   "title": "Articulatory Feature Prediction from Surface EMG during Speech Production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "er | technical_essence=EMG encoder = conv blocks + 6-layer Transformer (d768) -> four predictors (EMA, pitch, loudness, auxiliary phoneme); L2 losses, L_total = L_EMA + a_pitch L_pitch + a_loud L_loud + a_phon L_phon; decoded speech via articulatory synth"
+  },
+  {
+   "pid": "isca-li23l_interspeech",
+   "key": "t:hybridsilentspeechinterfacethroughfusionofelectroencephalographyandelectromyogra",
+   "title": "Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "EEG + 5ch sEMG (actiCHamp, 1kHz) → parallel ESPnet Conformer seq2seq converters (6+6 blocks, 4 heads, 384-d, kernel 7, phoneme vocab 139) w/ multi-task duration+phoneme losses → decision-level fusion → mel → ParallelWaveGAN audio | task_family=speech_reconstruction | tas"
+  },
+  {
+   "pid": "isca-michelsanti20_interspeech",
+   "key": "t:vocoderbasedspeechsynthesisfromsilentvideos",
+   "title": "Vocoder-Based Speech Synthesis from Silent Videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "2voc: video→WORLD-vocoder-features (F0/VUV/AP/SP) synthesis; Conv3D encoder + recursive GRU module + ConvT2D decoders + CTC VSR decoder (multi-task); WORLD synthesis to waveform | task_family=speech_reconstruction | task_encoding=natural_utterance | target_unit=audio"
+  },
+  {
+   "pid": "isca-papadimitriou25_interspeech",
+   "key": "t:amultistreamframeworkutilizing3dhumanreconstructionforcuedspeechrecognition",
+   "title": "A Multi-Stream Framework Utilizing 3D Human Reconstruction for Cued Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n | EvaluationProtocol.experimental_design=appearance ResNet18 + skeletal modulated-GCN streams; temporal conv + BiGRU; CTC + two auxiliary losses; late fusion | representation_kind=appearance (ResNet18) + 3D-pose skeletal graph (PIXIE) features | ProcessingS"
+  },
+  {
+   "pid": "isca-toth18_interspeech",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces | system_name=multi-task US-SSI: tongue US frames → 5-hidden-layer DNN with lower shared + upper task-specific layers (best: 2 shared), jointly trained on phone-state classification targets and MGC-LSP vocoder regression targets (MSE); MTL also used as weight init then task-adapt"
+  },
+  {
+   "pid": "isca-yamamoto98_icslp",
+   "key": "t:speechtolipmovementsynthesisbasedontheemalgorithmusingaudiovisualhmms",
+   "title": "Speech-to-lip movement synthesis based on the EM algorithm using audio-visual HMMs",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "align audio -> single HMM state seq -> per-state averaged visual params (lookup) | technical_essence=EM re-estimation: auxiliary function over all AV-HMM states/models; visual param = occupancy-weighted conditional mean; diagonal-covariance simplification; iterate to convergence"
+  },
+  {
+   "pid": "isca-yu20f_avmcs",
+   "key": "t:audiovisualmultichannelrecognitionofoverlappedspeech",
+   "title": "Audio-Visual Multi-channel Recognition of Overlapped Speech",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n front-ends: TF masking, filter&sum, mask-based MVDR (TCN estimators)', 'joint fine-tune with recognition back-end via CTC or CTC+Si-SNR multi-task interpolation', 'CLDNN CTC recognizer on separated channel']} | EvaluationProtocol.experimental_design=WER on anechoic/"
+  },
+  {
+   "pid": "mdpi-e14122310_multiavsr",
+   "key": "t:multiavsrrobustspeechrecognitionviasupervisedmultitaskaudiovisuallearning",
+   "title": "MultiAVSR: Robust Speech Recognition via Supervised Multi-Task Audio–Visual Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "12):2310 | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=supervised multi-task hybrid CTC/Attention AV learning for robust VSR/ASR/AVSR | Study.unit_of_analysis=WER on LRS3-TED/WildVSR + noise-robustness acros"
+  },
+  {
+   "pid": "pmc-13211074-isbcirev",
+   "key": "t:imaginedspeechbraincomputerinterfaceataskorientedreviewofneuraldecoding",
+   "title": "Imagined Speech Brain-Computer Interface: A Task-Oriented Review of Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "296 screened -> 103 core original studies (+12 dataset, 22 review); organizes work into 4 task levels (semantic/intent, phoneme/syllable, word, sentence/language) and 2 auxiliary dims (output-space property, output pathway); closed-set vs open-vocabulary; methodological-rigor weighting via cross-s"
+  },
+  {
+   "pid": "pmc-9370936-reliability-avsr",
+   "key": "t:reliabilitybasedlargevocabularyaudiovisualspeechrecognition",
+   "title": "Reliability-Based Large-Vocabulary Audio-Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "esign=controlled_experiment | Study.research_objective=decision fusion network using per-stream reliability measures as auxiliary input, in both hybrid (Kaldi HMM-DNN) and E2E (ESPnet TM-CTC) AVSR | task_family=sentence_recognition | intended_use_cases=noisy_environment | production_labels=ordinary_voiced_spe"
+  }
+ ],
+ "usual_approach": {
+  "design": "acoustic targets only; an auxiliary phoneme, phone-state or CTC loss appears in a minority of synthesis studies",
+  "n": 10,
+  "tier": "pattern match",
+  "pids": [
+   "isca-toth18-multitask",
+   "arxiv-2106.01933",
+   "arxiv-2204.01726",
+   "arxiv-2302.08841",
+   "isca-lee25d_interspeech"
+  ],
+  "population_unique": 34,
+  "note": "34 unique studies match an auxiliary phoneme, phone-state or CTC loss in the ledger (recognition and synthesis); 10 of them are synthesis by ledger M06/M08 text; the prior ultrasound study (Toth 2018) is found by the pattern and read in full"
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-toth18-multitask",
+   "role": "prior",
+   "loc": "Sec. 1; Sec. 3.1; Abstract",
+   "quote": "the training targets for the speech recognition task are the HMM states of the acoustic model"
+  },
+  {
+   "pid": "isca-lee26v_interspeech",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "Gaddy's [3] 14.16 ± 0.76 26.75 ± 0.99 6.48 ± 1.70 Ours (Mel) 12.88 ± 0.49 25.14 ± 0.90"
+  },
+  {
+   "pid": "arxiv-2106.01933",
+   "role": "target",
+   "loc": "Sec. 1",
+   "quote": "This auxiliary loss follows prior work on related tasks of generating speech from ultrasound and ECoG sensors"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "isca-lee26v_interspeech",
+  "year": 2026,
+  "metric": "silent-EMG WER, Gaddy test split, Whisper-medium, mean over 10 seeds (training-only silent-voiced alignment loss on top of the target's model)",
+  "value": 25.14,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 34,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "acoustic targets only; an auxiliary phoneme, phone-state or CTC loss appears in a minority of synthesis studies",
+   "n": 10,
+   "tier": "pattern match",
+   "population_unique": 34
+  },
+  "state_of_the_art": {
+   "pid": "isca-lee26v_interspeech",
+   "year": 2026,
+   "metric": "silent-EMG WER, Gaddy test split, Whisper-medium, mean over 10 seeds (training-only silent-voiced alignment loss on top of the target's model)",
+   "value": 25.14,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "isca-toth18-multitask"
+  ],
+  "unread": 38,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "an-improved-model-for-voicing-silent-speech"
+ ]
+}

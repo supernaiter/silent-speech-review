@@ -8,6 +8,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include lip-reading and video-to-speech studies that take only lip or face video at test and use paired audio or a speech model during training to enrich the visual model, by knowledge distillation, regression of audio features, or a learned memory of audio representations recalled from video. Boundary: exclude audio-visual models that need audio at test and talking-head generation; full-text design counts are pattern matches (upper bounds, mentions included); count versions of one study once.
 - Used in: [Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video](../../reviews/multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video/)
 
+## auxiliary-phoneme-loss-in-speech-synthesis
+
+- Table: [`auxiliary-phoneme-loss-in-speech-synthesis.csv`](auxiliary-phoneme-loss-in-speech-synthesis.csv) (31 slot-filled, 34 pattern match, usual design in 10, 3 read in full)
+- Inclusion rule: Speech synthesis from a non-acoustic signal (EMG, ultrasound, articulography, video, neural) whose training adds a phoneme, phone-state, CTC or text classification loss on a shared encoder that is discarded or used only as guidance at synthesis time. Boundary: recognition-only models, cascaded recognize-then-TTS systems, and regression-only auxiliary targets are excluded; versions counted once.
+- Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/)
+
 ## auxiliary-representation-prediction
 
 - Table: [`auxiliary-representation-prediction.csv`](auxiliary-representation-prediction.csv) (31 slot-filled, 104 pattern match, usual design in 8, 6 read in full)
