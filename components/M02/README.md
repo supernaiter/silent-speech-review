@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## audio-knowledge-transfer-to-video
+
+- Table: [`audio-knowledge-transfer-to-video.csv`](audio-knowledge-transfer-to-video.csv) (31 slot-filled, 54 pattern match, usual design in 40, 8 read in full)
+- Inclusion rule: Include lip-reading and video-to-speech studies that take only lip or face video at test and use paired audio or a speech model during training to enrich the visual model, by knowledge distillation, regression of audio features, or a learned memory of audio representations recalled from video. Boundary: exclude audio-visual models that need audio at test and talking-head generation; full-text design counts are pattern matches (upper bounds, mentions included); count versions of one study once.
+- Used in: [Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video](../../reviews/multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video/)
+
 ## auxiliary-representation-prediction
 
 - Table: [`auxiliary-representation-prediction.csv`](auxiliary-representation-prediction.csv) (31 slot-filled, 104 pattern match, usual design in 8, 6 read in full)
