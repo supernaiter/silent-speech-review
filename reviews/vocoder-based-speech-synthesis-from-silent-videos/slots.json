@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "No user training action; GRID read sentences"
+  ],
+  "field": "Reading tasks",
+  "n": 7388,
+  "matched": 4015,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "CTC character head trained jointly with the vocoder-feature decoders"
+  ],
+  "field": "Acoustic targets only; text loss in 10 synthesis studies",
+  "n": 7388,
+  "matched": 34,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Multi-task idea of a 2018 ultrasound system (HMM states); ESTOI +0.007 to +0.013, one run each.",
+  "sota": "LRS2 ASR WER 84.27% without, 60.54% with the feature-level CTC loss [@kim2023lip]"
+ },
+ "M03": {
+  "choice": [
+   "Joint end-to-end training per split; best validation PESQ checkpoint"
+  ],
+  "field": "Per-corpus training",
+  "n": 7388,
+  "matched": 1608,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited; no seeds or repeated runs.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Voiced read speech, video alone at test"
+  ],
+  "field": "Voiced articulation",
+  "n": 7388,
+  "matched": 6538,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Frontal video, aligned face (128x96) or its lower half, 7 frames"
+  ],
+  "field": "Mouth or face crop from video",
+  "n": 7388,
+  "matched": 8898,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Mouth suffices on seen speakers.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "WORLD features: spectral envelope, aperiodicity, F0, voicing"
+  ],
+  "field": "Neural vocoder (49)",
+  "n": 7388,
+  "matched": 165,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "ESTOI 0.455 against 0.329 for the 2019 GAN on seen speakers; unseen: PESQ tie, higher ESTOI.",
+  "sota": "GRID-4 WER 4.07% (WGAN) against 9.29% for this system [@kefalas2023large]"
+ },
+ "M07": {
+  "choice": [
+   "None; best-path CTC decoding"
+  ],
+  "field": "No language model",
+  "n": 7388,
+  "matched": 120,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Waveform in the seen speakers' voices plus character text"
+  ],
+  "field": "Synthesized audio",
+  "n": 7388,
+  "matched": 3760,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Text output is a by-product of the PESQ-selected model.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "GRID: four seen speakers pooled 90/5/5; 15/7/10 unseen-speaker split"
+  ],
+  "field": "Within-corpus splits",
+  "n": 7388,
+  "matched": 239,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Utterance split and seed not stated.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "PESQ, ESTOI; WER of the CTC head, not of the speech"
+  ],
+  "field": "Objective scores, single run",
+  "n": 7388,
+  "matched": 8381,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "No ASR on synthesized speech, no chance level, one run.",
+  "sota": "–"
+ },
+ "M13": {
+  "choice": [
+   "Real time claimed; no latency or hardware"
+  ],
+  "field": "Laboratory or benchmark only",
+  "n": 7388,
+  "matched": 6721,
+  "matched_tier": "slot_filled",
+  "verdict": "not_reported",
+  "note": "Real-time claim unquantified.",
+  "sota": "–"
+ }
+}

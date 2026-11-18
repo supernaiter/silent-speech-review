@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/vocoder-based-speech-synthesis-from-silent-videos/](vocoder-based-speech-synthesis-from-silent-videos/).**
 
-Predicts full vocoder features from silent face video with joint visual speech recognition training on GRID; speaker-dependent model reaches PESQ 1.90 and WER 15.1%, but speaker-independent performance drops sharply.
+WORLD features (M06) beat the 2019 GAN on seen GRID speakers; on unseen ones PESQ ties and ESTOI is higher. The CTC text loss (M02) adds under 0.015 ESTOI; the WER is the text head's.
 
 [Read the full review](vocoder-based-speech-synthesis-from-silent-videos/) · [All reviews](../README.md)
