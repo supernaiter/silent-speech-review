@@ -91,6 +91,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that synthesize audible speech from silently articulated surface EMG on the Gaddy open-vocabulary corpus and score it by ASR or listener transcription. Boundary: exclude recognition-only (text output) studies, other corpora, and voiced-EMG-only results; count versions once.
 - Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/), [Digital Voicing of Silent Speech](../../reviews/digital-voicing-of-silent-speech/), [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
 
+## silent-speech-challenge-benchmark
+
+- Table: [`silent-speech-challenge-benchmark.csv`](silent-speech-challenge-benchmark.csv) (6960 slot-filled, 8 pattern match, usual design in 3, 4 read in full)
+- Inclusion rule: Include studies that report recognition or reconstruction results on the Silent Speech Challenge archive (single speaker, silent TIMIT training, 100 WSJ0 5k test sentences) or that test on the same 100 SSC sentences with a new recording. Boundary: exclude studies that only cite the SSC, surveys that restate its numbers (kept in the pattern match), and studies on other ultrasound corpora; count versions once.
+- Used in: [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
+
 ## whisper-conversion-evaluation
 
 - Table: [`whisper-conversion-evaluation.csv`](whisper-conversion-evaluation.csv) (6960 slot-filled, 60 pattern match, usual design in 26, 4 read in full)

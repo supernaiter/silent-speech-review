@@ -1,0 +1,397 @@
+{
+ "topic": "silent-speech-challenge-benchmark",
+ "slot": "M12",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "silent speech challenge|SSC ?(archive|benchmark|data|2010|WSJ0|sentences)|SSC2010|visual (TIMIT|WSJ0)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include studies that report recognition or reconstruction results on the Silent Speech Challenge archive (single speaker, silent TIMIT training, 100 WSJ0 5k test sentences) or that test on the same 100 SSC sentences with a new recording. Boundary: exclude studies that only cite the SSC, surveys that restate its numbers (kept in the pattern match), and studies on other ultrasound corpora; count versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8381,
+  "slot_filled_unique": 6960,
+  "string_match_folders": 11,
+  "string_match_unique": 8,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M12",
+  "design_slot_fill": 0.932,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "evaluation_mode=offline",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1587-transinf.2021edp7090",
+     "doi-10.1016-j.specom.2018.02.002",
+     "doi-10.63317-2b659u3p6oeh",
+     "isca-kimura20_interspeech"
+    ]
+   },
+   {
+    "design": "metric_value=17.4",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s21041399",
+     "arxiv-1709.06818"
+    ]
+   },
+   {
+    "design": "metric_value=6.45",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1709.06818",
+     "arxiv-1903.00888"
+    ]
+   },
+   {
+    "design": "metric_value=7.72",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1709.06818",
+     "arxiv-1903.00888"
+    ]
+   },
+   {
+    "design": "metric_value=6.4",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s21041399",
+     "doi-10.1016-j.specom.2018.02.002"
+    ]
+   },
+   {
+    "design": "target_unit=word",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.63317-2b659u3p6oeh",
+     "isca-cai11_interspeech"
+    ]
+   },
+   {
+    "design": "metric_value=13.98",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1709.06818"
+    ]
+   },
+   {
+    "design": "metric_value=58.55",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1709.06818"
+    ]
+   },
+   {
+    "design": "metric_value=21.7",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1709.06818"
+    ]
+   },
+   {
+    "design": "metric_value=11.44",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1709.06818"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "dnn_hmm",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.3390-s21041399",
+     "isca-kimura20-sschallenge",
+     "arxiv-1709.06818",
+     "arxiv-1903.00888",
+     "doi-10.63317-2b659u3p6oeh"
+    ]
+   },
+   {
+    "design": "gmm_hmm",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.3390-s21041399",
+     "isca-kimura20-sschallenge",
+     "arxiv-1709.06818",
+     "arxiv-1903.00888",
+     "isca-cai11_interspeech"
+    ]
+   },
+   {
+    "design": "end_to_end",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.3390-s21041399",
+     "isca-kimura20-sschallenge",
+     "arxiv-1903.00888",
+     "arxiv-2106.11769",
+     "doi-10.63317-2b659u3p6oeh"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "Voicing Silent Speech closed-vocabulary WER",
+   "value": 3.6,
+   "unit": "percent",
+   "raw": "WER of 3.6%",
+   "pid": "doi-10.3390-s21041399",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T2 WER len60 dcae",
+   "value": 6.17,
+   "unit": "percent",
+   "raw": "6.17",
+   "pid": "arxiv-1903.00888",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "6.4% WER achieved with deep learning (vs 17.4% 2010 baseline)",
+   "value": 6.4,
+   "unit": "percent",
+   "raw": "WER with deep learning on identical SSC features/decoding",
+   "pid": "doi-10.1016-j.specom.2018.02.002",
+   "year": 2018,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CER 10.1% / WER 20.5% (30d-DCT+SpecAug); no-aug 18.7%; DNN-HMM ref 6.45% w/5k LM",
+   "value": 10.1,
+   "unit": "%",
+   "raw": "CER 10.1% / WER 20.5% (30-d DCT + SpecAug + 65k RNNLM); no-aug CER 18.7%; benchmarks GMM-HMM 17.4% / DNN-HMM 6.45% (5k LM)",
+   "pid": "isca-kimura20_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "37.6 WER",
+   "value": 37.6,
+   "unit": "wer%",
+   "raw": "DCT60 full",
+   "pid": "lrec22-ssr7000",
+   "year": 2022,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1709.06818",
+   "key": "t:updatingthesilentspeechchallengebenchmarkwithdeeplearning",
+   "title": "Updating the silent speech challenge benchmark with deep learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1709.06818 | title=Updating the silent speech challenge benchmark with deep learning | venue=INTERSPEECH 2017; v1 | Study.research_objective=Re-run 2010 SSC benchmark (US+lip,"
+  },
+  {
+   "pid": "arxiv-1903.00888",
+   "key": "t:denoisingconvolutionalautoencoderbasedbmodeultrasoundtongueimagefeatureextractio",
+   "title": "Denoising convolutional autoencoder based B-mode ultrasound tongue image feature extraction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "CAE for UTI feature extraction (silent speech): recon MSE/CW-SSIM vs DCT/deep AE/DAE/CAE on 50k/30k images; WER on 2010 Silent Speech Challenge via DNN-HMM. | task_family=isolated_word_recognition | intended_use_cases=speech_restoration, assistive_text_entry, oth"
+  },
+  {
+   "pid": "arxiv-2106.11769",
+   "key": "t:improvingultrasoundtongueimagereconstructionfromlipimagesusingselfsupervisedlear",
+   "title": "Improving Ultrasound Tongue Image Reconstruction from Lip Images Using Self-supervised Learning and Attention Mechanism",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s=4F/8M, 18-21y (no author) | modalities=ultrasound_imaging, optical_camera | body_sites=tongue, lips | sensor_hardware=SSC2010: UTI + lip video synchronously @60fps | dataset_description=2010 Silent Speech Challenge data: 100,000 sequence pairs s"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2018.02.002",
+   "key": "t:updatingthesilentspeechchallengebenchmarkwithdeeplearning",
+   "title": "Updating the Silent Speech Challenge benchmark with deep learning",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Updating the Silent Speech Challenge benchmark with deep learning | authors=Yan Ji; Licheng Liu; Hongcui Wang; Zhilei Liu; Zhibin Niu; Bruce Denby | venue=S"
+  },
+  {
+   "pid": "doi-10.1587-transinf.2021edp7090",
+   "key": "p:doi-10.1587-transinf.2021edp7090",
+   "title": null,
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ng=attempted_utterance | task_family=intermediate_signal_processing | target_population=general_population | dataset_id=Silent Speech Challenge (SSC) archive (2012 recording) | dataset_description=>700k TIMIT training images (47 lists x 50 sent) + 35k WSJ0 test ("
+  },
+  {
+   "pid": "doi-10.3390-s21041399",
+   "key": "t:biosignalsensorsanddeeplearningbasedspeechrecognitionareview",
+   "title": "Biosignal Sensors and Deep Learning-Based Speech Recognition: A Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ndings=sensor-based recognition limited to small vocabularies; unavoidable latency; SSR below ASR accuracy | DNN-HMM on SSC data WER | published SSC benchmark WER | Voicing Silent Speech closed-vocabulary WER | Voicing Silent Speech open-vocabulary"
+  },
+  {
+   "pid": "doi-10.63317-2b659u3p6oeh",
+   "key": "t:ssr7000asynchronizedcorpusofultrasoundtongueimagingforendtoendsilentspeechrecogn",
+   "title": "SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "50 sessions; equipment removed at breaks, no strict recalibration (higher variance than SSC by design); test = same 100 SSC sentences; WER/CER; data-count, DCT-dims, modality and preprocessing ablations | cer_pct | wer_pct | utterances"
+  },
+  {
+   "pid": "isca-cai11_interspeech",
+   "key": "t:recognitionandrealtimeperformancesofalightweightultrasoundbasedsilentspeechinter",
+   "title": "Recognition and Real Time Performances of a Lightweight Ultrasound Based Silent Speech Interface Employing a Language Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "itation=instructed_content | acoustic_mode=no_vocalization | tested_population=healthy_volunteers | dataset_description=Visual TIMIT train corpus (silent ultrasound+lip video, lists of 50 sentences, multi-day sessions) + Visual WSJ0 5k / Gigaword 20k t"
+  },
+  {
+   "pid": "isca-kimura20-sschallenge",
+   "key": "t:endtoenddeeplearningspeechrecognitionmodelforsilentspeechchallenge",
+   "title": "End-to-End Deep Learning Speech Recognition Model for Silent Speech Challenge",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-End Deep Learning Speech Recognition Model for Silent Speech Challenge | venue=Interspeech 2020 | Study.research_objective=end-to-end deep learning ASR for silent speech challenge | Study.st"
+  },
+  {
+   "pid": "isca-kimura20_interspeech",
+   "key": "t:endtoenddeeplearningspeechrecognitionmodelforsilentspeechchallenge",
+   "title": "End-to-End Deep Learning Speech Recognition Model for Silent Speech Challenge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-End Deep Learning Speech Recognition Model for Silent Speech Challenge | system_name=ESPnet hybrid CTC/attention transformer SSR on SSC: DCT/DAE visual features (60fps tongue+lip) → 12-layer"
+  },
+  {
+   "pid": "lrec22-ssr7000",
+   "key": "t:ssr7000asynchronizedcorpusofultrasoundtongueimagingforendtoendsilentspeechrecogn",
+   "title": "SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d sentences = 2342 phonetically-balanced TIMIT + 5042 additional WSJ0; +100 for validation (50/50); test = the same 100 SSC WSJ0 sentences, disjoint; WSJ sentences capped at 12 s vs SSC's 8 s | representation_kind=Per-utterance synchronized UTI fra"
+  }
+ ],
+ "usual_approach": {
+  "design": "word error rate on the 100 WSJ0 test sentences (1023 words) of the single SSC speaker, decoded with the closed WSJ0 5k NVP bigram",
+  "n": 3,
+  "tier": "pattern match",
+  "pids": [
+   "isca-cai11_interspeech",
+   "doi-10.1016-j.specom.2018.02.002",
+   "arxiv-1903.00888"
+  ],
+  "population_unique": 8,
+  "note": "8 unique pattern-match studies: 5 recognize the SSC test sentences (Cai 2011, the target, Li 2019, Kimura 2020 with a 65k-word RNN LM, SSR7000 2022 on a new recording of the same sentences); 1 survey; 2 image-prediction studies"
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-cai11_interspeech",
+   "role": "prior",
+   "loc": "Table 4",
+   "quote": "WSJ0 5k NVP bigram 84.16 93.44"
+  },
+  {
+   "pid": "arxiv-1903.00888",
+   "role": "sota",
+   "loc": "Abstract; Table 2",
+   "quote": "Rate of 6.17% is obtained with DCAE, compared to the"
+  },
+  {
+   "pid": "isca-kimura20_interspeech",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "a character error rate (CER) of 10.1% and a WER of 20.5%"
+  },
+  {
+   "pid": "lrec22-ssr7000",
+   "role": "sota",
+   "loc": "Sec. 2; Tables 2-5",
+   "quote": "For the test set, we selected the same 100 sentences as SSC from the wsj0 (Garofalo et al., 2007)."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 4,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-1903.00888",
+  "year": 2019,
+  "metric": "SSC test WER, Kaldi DNN-HMM, WSJ 5k bigram, denoising convolutional autoencoder features (length 60)",
+  "value": 6.17,
+  "unit": "%",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "tally": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 8,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "word error rate on the 100 WSJ0 test sentences (1023 words) of the single SSC speaker, decoded with the closed WSJ0 5k NVP bigram",
+   "n": 3,
+   "tier": "pattern match",
+   "population_unique": 8
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-1903.00888",
+   "year": 2019,
+   "metric": "SSC test WER, Kaldi DNN-HMM, WSJ 5k bigram, denoising convolutional autoencoder features (length 60)",
+   "value": 6.17,
+   "unit": "%",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 4,
+  "read_prior": [
+   "isca-cai11_interspeech"
+  ],
+  "unread": 11,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "updating-the-silent-speech-challenge-benchmark-with-deep-learning"
+ ]
+}
