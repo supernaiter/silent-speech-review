@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/intelligible-lip-to-speech-synthesis-with-speech-units/](intelligible-lip-to-speech-synthesis-with-speech-units/).**
 
-Lip-to-speech synthesis using self-supervised speech units as a pseudo-text target plus a multi-input vocoder; substantially cuts WER without text labels and reports state-of-the-art results on LRS2/LRS3.
+Unit target (M02) and unit-conditioned vocoder (M06) are standard; units cut LRS3 WER 21.8 points, AV-HuBERT 20.4 more, the vocoder 0.3; unit gain untested on AV-HuBERT, single runs.
 
 [Read the full review](intelligible-lip-to-speech-synthesis-with-speech-units/) · [All reviews](../README.md)
