@@ -118,7 +118,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`video-to-speech-synthesis.csv`](video-to-speech-synthesis.csv) (7345 slot-filled, 165 pattern match, usual design in 49, 3 read in full)
 - Inclusion rule: Include studies that synthesize a speech waveform from video of the talking face or lips (silent or with audio muted at test) and report the acoustic representation and how it is turned into a waveform. Boundary: exclude audio-visual speech enhancement or separation that takes noisy audio at test, talking-head generation (speech to video), text-only lip reading and video-to-text-to-TTS pipelines; count versions of one study once.
-- Used in: [Lip2AudSpec: Speech Reconstruction from Silent Lip Movements Video](../../reviews/lip2audspec-speech-reconstruction-from-silent-lip-movements-video/)
+- Used in: [Lip2AudSpec: Speech Reconstruction from Silent Lip Movements Video](../../reviews/lip2audspec-speech-reconstruction-from-silent-lip-movements-video/), [Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video](../../reviews/multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video/)
 
 ## visual-frontend-spatial-pooling
 
