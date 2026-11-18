@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/video-driven-speech-reconstruction-using-generative-adversarial-networks/](video-driven-speech-reconstruction-using-generative-adversarial-networks/).**
 
-Uses a GAN to generate speech audio directly from silent frontal face video on GRID; speaker-dependent WER is 26.6%, while unseen speakers degrade to 40.5% WER.
+Direct-waveform GAN (M06) and speech-encoder perceptual loss (M02) are early but standard; the perceptual loss carries the words. Unseen-speaker WER 40.5% (successor 16%); no listener test.
 
 [Read the full review](video-driven-speech-reconstruction-using-generative-adversarial-networks/) · [All reviews](../README.md)

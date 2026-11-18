@@ -2191,6 +2191,18 @@
    "role": "sota",
    "loc": "Table VII",
    "quote": "Vid2Voc [87] 1.26 0.541 0.227 38.15"
+  },
+  {
+   "pid": "isca-michelsanti20-vid2voc",
+   "role": "sota",
+   "loc": "Table 3",
+   "quote": "Approach in [17] 1.71 0.329 - 1.24 0.198 -"
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "role": "sota",
+   "loc": "Table IV",
+   "quote": "End-to-end WGAN (2018) [30] 1.47 0.570 0.329 19.94"
   }
  ],
  "known_item_recall": {
@@ -2234,6 +2246,42 @@
  "used_by": [
   "lip2audspec-speech-reconstruction-from-silent-lip-movements-video",
   "multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video",
+  "video-driven-speech-reconstruction-using-generative-adversarial-networks",
   "vocoder-based-speech-synthesis-from-silent-videos"
- ]
+ ],
+ "added_pattern_counts": {
+  "by": "video-driven-speech-reconstruction-using-generative-adversarial-networks",
+  "scope": "full texts of the 165 unique video-to-speech studies of this table (reference lists removed)",
+  "tier": "pattern match",
+  "counts": [
+   {
+    "design": "wasserstein_gan",
+    "regex": "wasserstein|wgan",
+    "n": 5,
+    "pids": [
+     "isca-vougioukas19_ganv2s",
+     "arxiv-2104.13332",
+     "arxiv-2209.00642",
+     "arxiv-2306.15464-v2apretrain",
+     "arxiv-2307.16584-av2acascade"
+    ],
+    "note": "all hits other than the target are 2021 or later"
+   },
+   {
+    "design": "perceptual_or_deep_feature_loss",
+    "regex": "perceptual loss|deep feature loss|feature matching loss",
+    "n": 7,
+    "pids": [
+     "isca-vougioukas19_ganv2s",
+     "arxiv-2104.13332",
+     "arxiv-2207.03800",
+     "arxiv-2209.00642",
+     "arxiv-2211.10999",
+     "arxiv-2306.15464-v2apretrain",
+     "arxiv-2502.12002"
+    ],
+    "note": "all hits other than the target are 2021 or later"
+   }
+  ]
+ }
 }

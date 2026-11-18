@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "No user training action; GRID read sentences"
+  ],
+  "field": "Reading tasks",
+  "n": 7388,
+  "matched": 4015,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Perceptual loss on a pretrained speech encoder, plus waveform L1 and TV"
+  ],
+  "field": "Direct spectral regression (10)",
+  "n": 7388,
+  "matched": 40,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Without it WER 83.3% against 26.6% (Table 3), one run.",
+  "sota": "LRS3 ASR WER 72.5% to 50.7% with speech-unit targets [@choi2023intelligible]"
+ },
+ "M03": {
+  "choice": [
+   "Joint WGAN-GP training per split; early stop on validation MCD"
+  ],
+  "field": "Per-corpus training",
+  "n": 7388,
+  "matched": 1608,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited; no seeds or repeated runs.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Voiced read speech, video alone at test"
+  ],
+  "field": "Voiced articulation",
+  "n": 7388,
+  "matched": 6538,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Aligned frontal face, bottom half 128x96, 7 frames"
+  ],
+  "field": "Mouth or face crop from video",
+  "n": 7388,
+  "matched": 8898,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Frontal faces only (Sec. 5).",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "50 kHz waveform straight from a GAN generator"
+  ],
+  "field": "Neural vocoder (49)",
+  "n": 7388,
+  "matched": 165,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Beats Lip2AudSpec on WER and STOI, loses on PESQ; single run.",
+  "sota": "GRID-4 WER 4.07% (successor) against 19.94% for this system [@kefalas2023large]"
+ },
+ "M07": {
+  "choice": [
+   "None"
+  ],
+  "field": "No language model",
+  "n": 7388,
+  "matched": 120,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Waveform in the training speakers' voices"
+  ],
+  "field": "Synthesized audio",
+  "n": 7388,
+  "matched": 3760,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Wrong-gender and morphing voices on unseen speakers (Sec. 4.2).",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "GRID: 4 speakers pooled 90/5/5; 15/8/10 subject split"
+  ],
+  "field": "Within-corpus splits",
+  "n": 7388,
+  "matched": 239,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Utterance split, seed and unseen subject IDs not stated.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "ASR WER, STOI, PESQ, MCD, SyncNet; no listeners"
+  ],
+  "field": "Listener or opinion test (83)",
+  "n": 7388,
+  "matched": 165,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "behind",
+  "note": "Naturalness claimed without listeners; earlier work used them.",
+  "sota": "GRID unseen WER 16.05% against 32.76% for this system [@kefalas2023large]"
+ },
+ "M13": {
+  "choice": [
+   "4 days on one GPU; 60 ms per 3 s clip on GPU"
+  ],
+  "field": "Laboratory or benchmark only",
+  "n": 7388,
+  "matched": 6721,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Offline clip timing only.",
+  "sota": "–"
+ }
+}
