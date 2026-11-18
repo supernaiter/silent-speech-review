@@ -12,7 +12,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`auxiliary-phoneme-loss-in-speech-synthesis.csv`](auxiliary-phoneme-loss-in-speech-synthesis.csv) (31 slot-filled, 34 pattern match, usual design in 10, 3 read in full)
 - Inclusion rule: Speech synthesis from a non-acoustic signal (EMG, ultrasound, articulography, video, neural) whose training adds a phoneme, phone-state, CTC or text classification loss on a shared encoder that is discarded or used only as guidance at synthesis time. Boundary: recognition-only models, cascaded recognize-then-TTS systems, and regression-only auxiliary targets are excluded; versions counted once.
-- Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/)
+- Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/), [Vocoder-Based Speech Synthesis from Silent Videos](../../reviews/vocoder-based-speech-synthesis-from-silent-videos/)
 
 ## auxiliary-representation-prediction
 

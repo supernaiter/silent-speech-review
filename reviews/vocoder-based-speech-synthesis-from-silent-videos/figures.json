@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "No user training action; GRID read sentences"
+     ],
+     "field": "Reading tasks",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M02": {
+     "choice": [
+      "CTC character head trained jointly with the vocoder-feature decoders"
+     ],
+     "field": "Acoustic targets only; text loss in 10 synthesis studies",
+     "n": 8995,
+     "matched": 34,
+     "verdict": "standard",
+     "note": "Multi-task idea of a 2018 ultrasound system (HMM states); ESTOI +0.007 to +0.013, one run each."
+    },
+    "M03": {
+     "choice": [
+      "Joint end-to-end training per split; best validation PESQ checkpoint"
+     ],
+     "field": "Per-corpus training",
+     "n": 8995,
+     "matched": 1608,
+     "verdict": "standard",
+     "note": "Inherited; no seeds or repeated runs."
+    },
+    "M04": {
+     "choice": [
+      "Voiced read speech, video alone at test"
+     ],
+     "field": "Voiced articulation",
+     "n": 8995,
+     "matched": 6538,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Frontal video, aligned face (128x96) or its lower half, 7 frames"
+     ],
+     "field": "Mouth or face crop from video",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "Mouth suffices on seen speakers."
+    },
+    "M06": {
+     "choice": [
+      "WORLD features: spectral envelope, aperiodicity, F0, voicing"
+     ],
+     "field": "Neural vocoder (49)",
+     "n": 8995,
+     "matched": 165,
+     "verdict": "standard",
+     "note": "ESTOI 0.455 against 0.329 for the 2019 GAN on seen speakers; unseen: PESQ tie, higher ESTOI."
+    },
+    "M07": {
+     "choice": [
+      "None; best-path CTC decoding"
+     ],
+     "field": "No language model",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M08": {
+     "choice": [
+      "Waveform in the seen speakers' voices plus character text"
+     ],
+     "field": "Synthesized audio",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": "Text output is a by-product of the PESQ-selected model."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "GRID: four seen speakers pooled 90/5/5; 15/7/10 unseen-speaker split"
+     ],
+     "field": "Within-corpus splits",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Utterance split and seed not stated."
+    },
+    "M12": {
+     "choice": [
+      "PESQ, ESTOI; WER of the CTC head, not of the speech"
+     ],
+     "field": "Objective scores, single run",
+     "n": 8995,
+     "matched": 8381,
+     "verdict": "standard",
+     "note": "No ASR on synthesized speech, no chance level, one run."
+    },
+    "M13": {
+     "choice": [
+      "Real time claimed; no latency or hardware"
+     ],
+     "field": "Laboratory or benchmark only",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "missing",
+     "note": "Real-time claim unquantified."
+    }
+   }
+  }
+ ]
+}
