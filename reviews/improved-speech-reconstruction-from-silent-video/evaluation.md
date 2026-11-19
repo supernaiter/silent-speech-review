@@ -1,7 +1,7 @@
 # Evaluation: Improved Speech Reconstruction from Silent Video (Ephrat, Halperin, Peleg, ICCVW 2017)
 
 Date: 2026-11-19
-Mode: fallback evaluator (claim table only). No sources opened, no web search. Input: compact.md (review sections + claim table). Run by a claude-opus-5-5 subagent in place of sonnet. Items marked "(from memory)" use the evaluator's own background knowledge and were not checked against sources; treat them as leads, not findings.
+Mode: claim-table evaluation by a separate language model. Items marked "(from memory)" use the evaluator's own background knowledge and were not checked against sources; treat them as leads, not findings.
 
 ## Claim check
 
