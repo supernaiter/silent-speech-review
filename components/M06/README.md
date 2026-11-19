@@ -144,6 +144,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that recognize phones, words or sentences as text from ultrasound tongue images, with or without lip video, in silent or vocalized articulation, and report a recognition error or accuracy. Boundary: exclude ultrasound-to-speech synthesis without a recognition score, tongue contour tracking or clinical phonetics, reviews and surveys (counted in the pattern match but not as designs), and recognition from lips only; count versions once.
 - Used in: [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
 
+## ultrasound-tongue-to-speech-synthesis
+
+- Table: [`ultrasound-tongue-to-speech-synthesis.csv`](ultrasound-tongue-to-speech-synthesis.csv) (7345 slot-filled, 51 pattern match, usual design in 34, 3 read in full)
+- Inclusion rule: Include studies that synthesize a speech waveform or vocoder/spectral features from ultrasound tongue images (with or without lip video), and name the acoustic representation and the waveform generator. Boundary: exclude ultrasound-to-text recognition without synthesis, tongue contour tracking, ultrasound prediction from other signals, and reviews (they inflate the pattern match, an upper bound); count versions once by key.
+- Used in: [Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder](../../reviews/ultrasound-based-silent-speech-interface-built-on-a-continuous-vocoder/)
+
 ## video-to-speech-one-to-many-decoder
 
 - Table: [`video-to-speech-one-to-many-decoder.csv`](video-to-speech-one-to-many-decoder.csv) (7345 slot-filled, 165 pattern match, usual design in 54, 4 read in full)

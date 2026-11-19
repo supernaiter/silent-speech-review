@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Reading aloud, parallel audio"
+     ],
+     "field": "Overt speech",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "Same recording protocol as the lineage [@grosz2018f0]."
+    },
+    "M02": {
+     "choice": [
+      "Vocoder parameters from parallel audio"
+     ],
+     "field": "Paired audio",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Paired-audio targets, as in [@liu2016articulatory] and [@taguchi2018articulatory]."
+    },
+    "M03": {
+     "choice": [
+      "Speaker-specific CNNs, 180 sentences each"
+     ],
+     "field": "Per-speaker training",
+     "n": 8995,
+     "matched": 1608,
+     "verdict": "standard",
+     "note": "About 15 minutes of recordings in total; CNN hyperparameters taken from an earlier MGC-LSP optimization."
+    },
+    "M04": {
+     "choice": [
+      "Vocalized reading"
+     ],
+     "field": "Vocalized articulation",
+     "n": 8995,
+     "matched": 6538,
+     "verdict": "standard",
+     "note": "No silent articulation is tested, as in its lineage."
+    },
+    "M05": {
+     "choice": [
+      "Midsagittal ultrasound, 81.67 fps, one frame"
+     ],
+     "field": "Ultrasound imaging",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "Single frame by choice; five frames gave higher V/U accuracy in [@grosz2018f0]."
+    },
+    "M06": {
+     "choice": [
+      "CNN regression to continuous-vocoder parameters"
+     ],
+     "field": "Parametric vocoder",
+     "n": 8995,
+     "matched": 34,
+     "verdict": "standard",
+     "note": "Parametric vocoder like the field at the time; the lineage replaced it with mel-spectrogram plus WaveGlow a year later [@csapo2020waveglow] [later]."
+    },
+    "M07": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "na",
+     "note": "Direct synthesis without text decoding."
+    },
+    "M08": {
+     "choice": [
+      "Continuous F0 plus MVF, no voicing flag"
+     ],
+     "field": "V/UV decision plus F0",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Interpolated F0 targets are prior [@liu2016articulatory; @gonzalez2017evaluation; @taguchi2018articulatory]; carrying voicing by MVF instead of the flag is new to articulatory input, but its effect is not shown."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline synthesis study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline synthesis study."
+    },
+    "M11": {
+     "choice": [
+      "Vocoder analysis of recorded speech"
+     ],
+     "field": "Parallel recorded speech",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Baseline and proposed are scored against different reference F0 contours (Sec. 4.2)."
+    },
+    "M12": {
+     "choice": [
+      "Objective RMSE; MUSHRA naturalness only"
+     ],
+     "field": "Listener intelligibility test",
+     "n": 8995,
+     "matched": 11,
+     "verdict": "behind",
+     "note": "No intelligibility test, against 11 prior studies with one (best comparable work: [@taguchi2018articulatory]); the F0 RMSE comparison mixes reference contours; no listening difference is significant."
+    },
+    "M13": {
+     "choice": [
+      "Offline; real-time claimed"
+     ],
+     "field": "Laboratory setup",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "missing",
+     "note": "Real-time feasibility is asserted (Sec. 5) without latency or hardware figures."
+    }
+   }
+  }
+ ]
+}
