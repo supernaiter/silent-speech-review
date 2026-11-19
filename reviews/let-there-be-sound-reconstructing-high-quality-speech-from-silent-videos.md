@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos/](let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos/).**
 
-Reconstructs speech from silent lip video using self-supervised linguistic conditioning, variance predictors and flow-based refinement. On GRID it reports WER 17.07% and MOS close to vocoded speech.
+HuBERT-unit, pitch and energy targets (M02) and flow post-net (M06) are standard, after ReVISE and VCVTS; GRID WER 17.07% vs 17.62%; seen-speaker tests only (M12 behind).
 
 [Read the full review](let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos/) · [All reviews](../README.md)
