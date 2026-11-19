@@ -103,6 +103,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that synthesize a speech waveform from talking-face or lip video (the population of the M06 video-to-speech-synthesis table) and compare how the synthesized speech is evaluated: human listener or opinion tests, ASR word error on the synthesized speech, and tests on speakers unseen in training. Boundary: audio-visual enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS pipelines excluded; a study counts under every protocol its full text names (upper bound, related-work mentions included); versions counted once.
 - Used in: [Video-Driven Speech Reconstruction using Generative Adversarial Networks](../../reviews/video-driven-speech-reconstruction-using-generative-adversarial-networks/)
 
+## video-to-speech-speaker-held-out-test
+
+- Table: [`video-to-speech-speaker-held-out-test.csv`](video-to-speech-speaker-held-out-test.csv) (6960 slot-filled, 165 pattern match, usual design in 78, 5 read in full)
+- Inclusion rule: Include the video-to-speech population of components/M06/video-to-speech-synthesis (speech waveform synthesized from talking-face or lip video, audio muted at test) and count, from the full text with the reference list removed, the evaluation protocols named: a test on speakers held out of training (unseen, speaker-independent, speaker-disjoint, out-of-domain speakers), listener or opinion-score tests, ASR WER on the output, and repeated runs over seeds. Boundary: a study counts under every protocol its text names (upper bound; related-work mentions included); enhancement with noisy audio at test, talking-head generation and video-to-text-to-speech pipelines excluded; versions counted once.
+- Used in: [Let There Be Sound: Reconstructing High Quality Speech from Silent Videos](../../reviews/let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos/)
+
 ## whisper-conversion-evaluation
 
 - Table: [`whisper-conversion-evaluation.csv`](whisper-conversion-evaluation.csv) (6960 slot-filled, 60 pattern match, usual design in 26, 4 read in full)
