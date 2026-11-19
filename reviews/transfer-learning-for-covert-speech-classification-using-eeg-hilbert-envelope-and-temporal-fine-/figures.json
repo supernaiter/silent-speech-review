@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Overt speech (pretraining), covert (fine-tuning)"
+     ],
+     "field": "Overt or attempted speech",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "Overt pretraining for covert decoding is prior practice (Lee et al., EEG)."
+    },
+    "M02": {
+     "choice": [
+      "Cue labels only"
+     ],
+     "field": "Training-only targets",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "na",
+     "note": "Closed-set classification with cue labels."
+    },
+    "M03": {
+     "choice": [
+      "Per subject; recurrent layers frozen, output layer re-trained on 15-30% covert"
+     ],
+     "field": "Per-participant training",
+     "n": 8995,
+     "matched": 1608,
+     "verdict": "standard",
+     "note": "Fine-tuning after plain transfer was named as the next step by Lee et al.; from-scratch data amount not stated."
+    },
+    "M04": {
+     "choice": [
+      "Covert commands, overt-pretrained model"
+     ],
+     "field": "Overt-trained decoder, no retraining",
+     "n": 8995,
+     "matched": 23,
+     "verdict": "missing",
+     "note": "No overt-only condition, which prior studies and [@rekrut2022improving] report; novelty claim contradicted by both [@lee2023spoken] and [@rekrut2022improving]."
+    },
+    "M05": {
+     "choice": [
+      "64-channel scalp EEG, 500 Hz"
+     ],
+     "field": "Scalp EEG",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "Inherited from the dataset of [@rekrut2022improving]."
+    },
+    "M06": {
+     "choice": [
+      "Envelope + fine structure, BiLSTM"
+     ],
+     "field": "Model family other 48, CNN 37 (slot-filled, of 165)",
+     "n": 8995,
+     "matched": 167,
+     "verdict": "standard",
+     "note": "Recurrent model on hand-made features; no feature ablation."
+    },
+    "M07": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "na",
+     "note": "Closed five-class task."
+    },
+    "M08": {
+     "choice": [
+      "One of five commands"
+     ],
+     "field": "Closed-set labels",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": "Typical of imagined-speech EEG."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Cue labels, 15 participants, alternating sessions"
+     ],
+     "field": "Cue-defined labels",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Covert execution is not verified; inherited protocol."
+    },
+    "M12": {
+     "choice": [
+      "Per-subject accuracy; fraction and split behind 79.82% not stated"
+     ],
+     "field": "Subject-specific accuracy",
+     "n": 8995,
+     "matched": 8381,
+     "verdict": "missing",
+     "note": "Printed means differ from row means; no seeds or chance level."
+    },
+    "M13": {
+     "choice": [
+      "Offline laboratory"
+     ],
+     "field": "Laboratory only",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "standard",
+     "note": "No online or cross-day test."
+    }
+   }
+  }
+ ]
+}
