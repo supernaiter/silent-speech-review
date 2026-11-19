@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "No user training action; voiced broadcast speech (LRS2, LRS3, VoxCeleb2)"
+     ],
+     "field": "Recorded speech corpora",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M02": {
+     "choice": [
+      "HuBERT features quantized to 200 k-means units; a memory per unit trained by ASR on 656 h paired audio-text, recalled from video by cross-attention"
+     ],
+     "field": "Knowledge distillation (40)",
+     "n": 8995,
+     "matched": 54,
+     "verdict": "standard",
+     "note": "Memory recall is prior work from the same group; 2.0 points over distillation, one run, memory trained on 656 h of transcripts."
+    },
+    "M03": {
+     "choice": [
+      "AV-HuBERT initialisation (1,759 h unlabelled), fine-tuned; memory built beforehand"
+     ],
+     "field": "Self-supervised pre-training then fine-tuning",
+     "n": 8995,
+     "matched": 1608,
+     "verdict": "standard",
+     "note": "Inherited from AV-HuBERT."
+    },
+    "M04": {
+     "choice": [
+      "Voiced speech, video alone at test"
+     ],
+     "field": "Voiced articulation",
+     "n": 8995,
+     "matched": 6538,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "96x96 lip crop after dlib landmarks"
+     ],
+     "field": "Mouth crop from video",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "AV-HuBERT pipeline."
+    },
+    "M06": {
+     "choice": [
+      "Transformer encoder, two-layer cross-attention bridge (4.7M parameters), Transformer decoder, hybrid CTC/attention"
+     ],
+     "field": "Encoder-decoder with CTC/attention",
+     "n": 8995,
+     "matched": 8925,
+     "verdict": "standard",
+     "note": "Bridge placement is part of M02."
+    },
+    "M07": {
+     "choice": [
+      "External language model for the proposed rows not stated"
+     ],
+     "field": "No language model in reported rows",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "missing",
+     "note": "Comparator rows are stated as LM-free; the proposed rows are not."
+    },
+    "M08": {
+     "choice": [
+      "1,000 unigram sub-word units"
+     ],
+     "field": "Text",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "LRS3 30/433 h and LRS2 28/223 h settings; test partition not named"
+     ],
+     "field": "Benchmark splits",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Inherited from AV-HuBERT."
+    },
+    "M12": {
+     "choice": [
+      "LRS3 and LRS2 WER, single run, no seeds"
+     ],
+     "field": "Visual-only LRS3 WER",
+     "n": 8995,
+     "matched": 258,
+     "verdict": "standard",
+     "note": "State-of-the-art claim does not hold against the cited SynthVSR Large row, which trains on more data; the proposed rows' LM use is unstated."
+    },
+    "M13": {
+     "choice": [
+      "Offline; about 5M added parameters; no latency or compute"
+     ],
+     "field": "Laboratory or benchmark only",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "missing",
+     "note": "Memory construction adds training time (Sec. VII)."
+    }
+   }
+  }
+ ]
+}
