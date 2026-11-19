@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Silent and vocal reading, six speakers"
+     ],
+     "field": "Reading tasks",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "Five silent repetitions per prompt."
+    },
+    "M02": {
+     "choice": [
+      "Aux toneme and vocal-EMG losses"
+     ],
+     "field": "Acoustic targets only",
+     "n": 8995,
+     "matched": 34,
+     "verdict": "standard",
+     "note": "Phonetic aux loss is prior [@toth2018multitask]; tone changes CER by +6.51, one run."
+    },
+    "M03": {
+     "choice": [
+      "Per-speaker; DTW durations"
+     ],
+     "field": "Per-speaker, DTW target transfer",
+     "n": 8995,
+     "matched": 1608,
+     "verdict": "standard",
+     "note": "Alignment cost inherited from [@gaddy2020digital]."
+    },
+    "M04": {
+     "choice": [
+      "Silent articulation at test"
+     ],
+     "field": "Silent or covert test",
+     "n": 8995,
+     "matched": 6538,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "5-channel facial sEMG, TD+STFT"
+     ],
+     "field": "Surface EMG",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M06": {
+     "choice": [
+      "Duration predictor and length regulator"
+     ],
+     "field": "DTW-aligned frame regression (28)",
+     "n": 8995,
+     "matched": 76,
+     "verdict": "standard",
+     "note": "Length regulator never ablated; fails without toneme loss."
+    },
+    "M07": {
+     "choice": [
+      "No language model"
+     ],
+     "field": "No language model",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "na",
+     "note": "Synthesis uses no lexicon."
+    },
+    "M08": {
+     "choice": [
+      "Mel to Parallel WaveGAN"
+     ],
+     "field": "Audio output",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": "Vocoder schedule inconsistent (Table IV vs Sec. IV-A)."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Per-speaker 8:1:1 utterance split"
+     ],
+     "field": "Not countable",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "missing",
+     "note": "Prompt grouping of the five repetitions across splits not reported."
+    },
+    "M12": {
+     "choice": [
+      "MASR CER, 10 listeners"
+     ],
+     "field": "Crowd-worker transcription (15)",
+     "n": 8995,
+     "matched": 79,
+     "verdict": "standard",
+     "note": "No seeds or significance test."
+    },
+    "M13": {
+     "choice": [
+      "Offline"
+     ],
+     "field": "Offline evaluation",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "missing",
+     "note": "Real-time named as future work."
+    }
+   }
+  }
+ ]
+}

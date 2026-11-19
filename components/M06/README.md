@@ -96,6 +96,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Surface-EMG speech decoders (synthesis or recognition) classified by input representation (hand-crafted time-domain features vs learned convolution over minimally filtered EMG) and sequence model (feed-forward, recurrent, Transformer or Conformer). Boundary: EMG used only as an auxiliary channel to audio, gesture or non-speech EMG, and reviews are excluded; versions counted once.
 - Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/)
 
+## emg-to-speech-timing-alignment
+
+- Table: [`emg-to-speech-timing-alignment.csv`](emg-to-speech-timing-alignment.csv) (7345 slot-filled, 76 pattern match, usual design in 28, 4 read in full)
+- Inclusion rule: Surface-EMG-to-speech synthesis studies (audio or acoustic-feature output), classified by how the EMG time axis is mapped to the audio target: frame-synchronous regression on DTW-aligned targets, explicit duration prediction with a length regulator, or attention-based sequence-to-sequence. Boundary: EMG-to-text recognition, EMG used only as an auxiliary channel to audio, and reviews are excluded; versions counted once; pattern-match counts are upper bounds.
+- Used in: [Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language](../../reviews/sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language/)
+
 ## intracranial-synthesis-neural-features
 
 - Table: [`intracranial-synthesis-neural-features.csv`](intracranial-synthesis-neural-features.csv) (7345 slot-filled, 180 pattern match, usual design in 62, 3 read in full)
