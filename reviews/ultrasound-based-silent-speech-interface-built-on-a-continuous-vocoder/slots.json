@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Reading aloud, parallel audio"
+  ],
+  "field": "Overt speech",
+  "n": 7388,
+  "matched": 4015,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Same recording protocol as the lineage [@grosz2018f0].",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Vocoder parameters from parallel audio"
+  ],
+  "field": "Paired audio",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "standard",
+  "note": "Paired-audio targets, as in [@liu2016articulatory] and [@taguchi2018articulatory].",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Speaker-specific CNNs, 180 sentences each"
+  ],
+  "field": "Per-speaker training",
+  "n": 7388,
+  "matched": 1608,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "About 15 minutes of recordings in total; CNN hyperparameters taken from an earlier MGC-LSP optimization.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Vocalized reading"
+  ],
+  "field": "Vocalized articulation",
+  "n": 7388,
+  "matched": 6538,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "No silent articulation is tested, as in its lineage.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Midsagittal ultrasound, 81.67 fps, one frame"
+  ],
+  "field": "Ultrasound imaging",
+  "n": 7388,
+  "matched": 8898,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Single frame by choice; five frames gave higher V/U accuracy in [@grosz2018f0].",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "CNN regression to continuous-vocoder parameters"
+  ],
+  "field": "Parametric vocoder",
+  "n": 7388,
+  "matched": 34,
+  "matched_tier": "pattern match (10 prior)",
+  "verdict": "standard",
+  "note": "Parametric vocoder like the field at the time; the lineage replaced it with mel-spectrogram plus WaveGlow a year later [@csapo2020waveglow] [later].",
+  "sota": "Mel-spectrogram, HiFi-GAN, 2025 [@ibrahimov2025conformer] [later]"
+ },
+ "M07": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 120,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "not_applicable",
+  "note": "Direct synthesis without text decoding.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Continuous F0 plus MVF, no voicing flag"
+  ],
+  "field": "V/UV decision plus F0",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "pattern match (12 prior)",
+  "verdict": "standard",
+  "note": "Interpolated F0 targets are prior [@liu2016articulatory; @gonzalez2017evaluation; @taguchi2018articulatory]; carrying voicing by MVF instead of the flag is new to articulatory input, but its effect is not shown.",
+  "sota": "10.49 Hz F0 RMSE, 2018 [@taguchi2018articulatory]"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (sparse; mostly truly absent)",
+  "verdict": "not_applicable",
+  "note": "Offline synthesis study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (sparse; mostly truly absent)",
+  "verdict": "not_applicable",
+  "note": "Offline synthesis study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Vocoder analysis of recorded speech"
+  ],
+  "field": "Parallel recorded speech",
+  "n": 7388,
+  "matched": 239,
+  "matched_tier": "slot_filled (unknown fill)",
+  "verdict": "standard",
+  "note": "Baseline and proposed are scored against different reference F0 contours (Sec. 4.2).",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Objective RMSE; MUSHRA naturalness only"
+  ],
+  "field": "Listener intelligibility test",
+  "n": 7388,
+  "matched": 11,
+  "matched_tier": "confirmed (11 prior)",
+  "verdict": "behind",
+  "note": "No intelligibility test, against 11 prior studies with one (best comparable work: [@taguchi2018articulatory]); the F0 RMSE comparison mixes reference contours; no listening difference is significant.",
+  "sota": "Listener WER 30.1% from EMA, 2018 [@taguchi2018articulatory]; 43.75% intracortical, 2025 [@wairagkar2025instantaneous] [later]"
+ },
+ "M13": {
+  "choice": [
+   "Offline; real-time claimed"
+  ],
+  "field": "Laboratory setup",
+  "n": 7388,
+  "matched": 6721,
+  "matched_tier": "slot_filled",
+  "verdict": "not_reported",
+  "note": "Real-time feasibility is asserted (Sec. 5) without latency or hardware figures.",
+  "sota": "–"
+ }
+}

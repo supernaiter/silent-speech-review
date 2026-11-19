@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## articulatory-f0-prediction
+
+- Table: [`articulatory-f0-prediction.csv`](articulatory-f0-prediction.csv) (3268 slot-filled, 138 pattern match, usual design in 31, 5 read in full)
+- Inclusion rule: Include studies that generate speech (waveform or vocoder features) from a non-acoustic speech signal (ultrasound, EMA, PMA, EMG, lip or face video, rtMRI, intracranial or scalp neural recordings) and in which F0 or voicing of the output is predicted or evaluated. Boundary: exclude acoustic-input conversion (whisper, electrolarynx or NAM as the only input), talking-head or head-motion synthesis driven by speech, text-to-speech after text decoding, and reviews; the pattern match is an upper bound; versions count once by key.
+- Used in: [Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder](../../reviews/ultrasound-based-silent-speech-interface-built-on-a-continuous-vocoder/)
+
 ## biosignal-to-speech-voice-control
 
 - Table: [`biosignal-to-speech-voice-control.csv`](biosignal-to-speech-voice-control.csv) (3268 slot-filled, 93 pattern match, usual design in 48, 4 read in full)
