@@ -102,6 +102,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Surface-EMG-to-speech synthesis studies (audio or acoustic-feature output), classified by how the EMG time axis is mapped to the audio target: frame-synchronous regression on DTW-aligned targets, explicit duration prediction with a length regulator, or attention-based sequence-to-sequence. Boundary: EMG-to-text recognition, EMG used only as an auxiliary channel to audio, and reviews are excluded; versions counted once; pattern-match counts are upper bounds.
 - Used in: [Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language](../../reviews/sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language/)
 
+## imagined-speech-eeg-word-classification
+
+- Table: [`imagined-speech-eeg-word-classification.csv`](imagined-speech-eeg-word-classification.csv) (7345 slot-filled, 167 pattern match, usual design in 48, 2 read in full)
+- Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG into a closed set of words, syllables or commands and report accuracy. Boundary: overt-only EEG, EEG-plus-EMG fusion where EEG is not reported alone, perception-only decoding and reviews are excluded; intracranial recordings are excluded; versions count once.
+- Used in: [Transfer Learning for Covert Speech Classification Using EEG Hilbert Envelope and Temporal Fine Structure](../../reviews/transfer-learning-for-covert-speech-classification-using-eeg-hilbert-envelope-and-temporal-fine-/)
+
 ## intracranial-synthesis-neural-features
 
 - Table: [`intracranial-synthesis-neural-features.csv`](intracranial-synthesis-neural-features.csv) (7345 slot-filled, 180 pattern match, usual design in 62, 3 read in full)
