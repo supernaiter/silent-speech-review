@@ -101,7 +101,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`video-to-speech-output-evaluation.csv`](video-to-speech-output-evaluation.csv) (6960 slot-filled, 165 pattern match, usual design in 83, 5 read in full)
 - Inclusion rule: Include studies that synthesize a speech waveform from talking-face or lip video (the population of the M06 video-to-speech-synthesis table) and compare how the synthesized speech is evaluated: human listener or opinion tests, ASR word error on the synthesized speech, and tests on speakers unseen in training. Boundary: audio-visual enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS pipelines excluded; a study counts under every protocol its full text names (upper bound, related-work mentions included); versions counted once.
-- Used in: [Video-Driven Speech Reconstruction using Generative Adversarial Networks](../../reviews/video-driven-speech-reconstruction-using-generative-adversarial-networks/)
+- Used in: [Improved Speech Reconstruction from Silent Video](../../reviews/improved-speech-reconstruction-from-silent-video/), [Video-Driven Speech Reconstruction using Generative Adversarial Networks](../../reviews/video-driven-speech-reconstruction-using-generative-adversarial-networks/)
 
 ## video-to-speech-speaker-held-out-test
 

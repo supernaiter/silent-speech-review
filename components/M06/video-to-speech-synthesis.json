@@ -2221,6 +2221,18 @@
    "role": "prior",
    "loc": "Table 4",
    "quote": "LIPVOICER (O URS ) 21.4% 0.92 3.11"
+  },
+  {
+   "pid": "arxiv-1708.01204",
+   "role": "target",
+   "loc": "Sec. 4.2; Sec. 4.3; Table 5",
+   "quote": "Pixels + OF + postnet 0.68 1 .974 3 .349"
+  },
+  {
+   "pid": "arxiv-2005.08209",
+   "role": "sota",
+   "loc": "Table 2",
+   "quote": "Lip2Wav (ours) 0.731 0.535 1.772 14.08%"
   }
  ],
  "known_item_recall": {
@@ -2262,47 +2274,85 @@
   "known_item_recall": 1.0
  },
  "used_by": [
+  "improved-speech-reconstruction-from-silent-video",
   "intelligible-lip-to-speech-synthesis-with-speech-units",
   "lip2audspec-speech-reconstruction-from-silent-lip-movements-video",
   "multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video",
   "video-driven-speech-reconstruction-using-generative-adversarial-networks",
   "vocoder-based-speech-synthesis-from-silent-videos"
  ],
- "added_pattern_counts": {
-  "by": "video-driven-speech-reconstruction-using-generative-adversarial-networks",
-  "scope": "full texts of the 165 unique video-to-speech studies of this table (reference lists removed)",
-  "tier": "pattern match",
-  "counts": [
-   {
-    "design": "wasserstein_gan",
-    "regex": "wasserstein|wgan",
-    "n": 5,
-    "pids": [
-     "isca-vougioukas19_ganv2s",
-     "arxiv-2104.13332",
-     "arxiv-2209.00642",
-     "arxiv-2306.15464-v2apretrain",
-     "arxiv-2307.16584-av2acascade"
-    ],
-    "note": "all hits other than the target are 2021 or later"
-   },
-   {
-    "design": "perceptual_or_deep_feature_loss",
-    "regex": "perceptual loss|deep feature loss|feature matching loss",
-    "n": 7,
-    "pids": [
-     "isca-vougioukas19_ganv2s",
-     "arxiv-2104.13332",
-     "arxiv-2207.03800",
-     "arxiv-2209.00642",
-     "arxiv-2211.10999",
-     "arxiv-2306.15464-v2apretrain",
-     "arxiv-2502.12002"
-    ],
-    "note": "all hits other than the target are 2021 or later"
-   }
-  ]
- },
+ "added_pattern_counts": [
+  {
+   "by": "video-driven-speech-reconstruction-using-generative-adversarial-networks",
+   "scope": "full texts of the 165 unique video-to-speech studies of this table (reference lists removed)",
+   "tier": "pattern match",
+   "counts": [
+    {
+     "design": "wasserstein_gan",
+     "regex": "wasserstein|wgan",
+     "n": 5,
+     "pids": [
+      "isca-vougioukas19_ganv2s",
+      "arxiv-2104.13332",
+      "arxiv-2209.00642",
+      "arxiv-2306.15464-v2apretrain",
+      "arxiv-2307.16584-av2acascade"
+     ],
+     "note": "all hits other than the target are 2021 or later"
+    },
+    {
+     "design": "perceptual_or_deep_feature_loss",
+     "regex": "perceptual loss|deep feature loss|feature matching loss",
+     "n": 7,
+     "pids": [
+      "isca-vougioukas19_ganv2s",
+      "arxiv-2104.13332",
+      "arxiv-2207.03800",
+      "arxiv-2209.00642",
+      "arxiv-2211.10999",
+      "arxiv-2306.15464-v2apretrain",
+      "arxiv-2502.12002"
+     ],
+     "note": "all hits other than the target are 2021 or later"
+    }
+   ]
+  },
+  {
+   "by": "improved-speech-reconstruction-from-silent-video",
+   "scope": "full texts of the 165 unique video-to-speech studies of this table (reference lists removed)",
+   "tier": "pattern match",
+   "counts": [
+    {
+     "design": "mel_to_linear_postnet",
+     "n": 15,
+     "tier": "pattern match",
+     "pids": [
+      "arxiv-2509.25670",
+      "arxiv-2308.15256",
+      "doi-10.1038-s41598-024-55248-6",
+      "pmc-10894270-fagan-lts",
+      "pmc-10894270-liptospeech"
+     ],
+     "regex": "post-?processing network|post-?net|CBHG",
+     "note": "every hit other than the target is dated 2019 or later; hits include related-work mentions"
+    },
+    {
+     "design": "optical_flow",
+     "n": 7,
+     "tier": "pattern match",
+     "pids": [
+      "arxiv-2306.15464-v2apretrain",
+      "arxiv-2307.01233",
+      "arxiv-2307.16584-av2acascade",
+      "arxiv-2207.03800",
+      "icphs2007-hueber-ouisper"
+     ],
+     "regex": "optical[ -]?flow",
+     "note": "hits after 2017 are mostly related-work descriptions of a two-tower raw-frame plus optical-flow encoder"
+    }
+   ]
+  }
+ ],
  "state_of_the_art_lrs3": {
   "pid": "arxiv-2411.19486",
   "year": 2024,

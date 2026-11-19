@@ -1,0 +1,2113 @@
+{
+ "topic": "video-to-speech-visual-input-stream",
+ "slot": "M05",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include the video-to-speech population of components/M06/video-to-speech-synthesis (speech waveform synthesized from talking-face or lip video, audio muted at test) and count, from the full text with the reference list removed, the visual input named: a mouth or lip crop, the full face, an optical-flow stream. Boundary: a study counts under every input its text names (upper bound; related-work mentions included); audio-visual enhancement with noisy audio at test, talking-head generation and video-to-text-to-speech pipelines excluded; versions counted once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8898,
+  "slot_filled_unique": 7329,
+  "string_match_folders": 187,
+  "string_match_unique": 165,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M05",
+  "design_slot_fill": 0.989,
+  "sparse": false,
+  "design_values": [],
+  "pattern_counts": [
+   {
+    "design": "mouth_or_lip_crop",
+    "n": 76,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2508.13576",
+     "arxiv-2601.14777",
+     "arxiv-2602.01908",
+     "arxiv-2602.11477"
+    ]
+   },
+   {
+    "design": "full_face",
+    "n": 15,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.01908",
+     "arxiv-2610.01012",
+     "doi-10.3390-s21041399",
+     "isca-michelsanti20-vid2voc",
+     "isca-toutios10_avsp"
+    ]
+   },
+   {
+    "design": "optical_flow",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2306.15464-v2apretrain",
+     "arxiv-2307.01233",
+     "arxiv-2307.16584-av2acascade",
+     "arxiv-2207.03800",
+     "icphs2007-hueber-ouisper"
+    ]
+   }
+  ],
+  "metric_pattern": "STOI",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "stoi0a",
+   "value": 91.46,
+   "unit": "%",
+   "raw": "STOI% @0dB ambient",
+   "pid": "arxiv-2101.05975",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "STOI speech-speech @0dB lip-emb",
+   "value": 76.0,
+   "unit": "% (from fraction)",
+   "raw": "speech-speech @0dB input SNR, lip embeddings",
+   "pid": "isca-inan19",
+   "year": 2019,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t13 inpa 30 estoi",
+   "value": 60.75,
+   "unit": "estoi",
+   "raw": "60.75",
+   "pid": "arxiv-2212.11377",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "FA-GAN on CN-CVS: STOI .614 / ESTOI .580 / PESQ 1.772 / WER 43.19% / MOS 4.0",
+   "value": 43.19,
+   "unit": "percent",
+   "raw": "FA-GAN 0.614 0.580 1.772 43.19 4.0",
+   "pid": "doi-10.1038-s41598-024-55248-6",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SD PESQ 1.90/ESTOI .455/WER 15.1 (M-VSR); SI ~1.25/.210/WER 69.3 (F-VSR); GAN 1.71/.329",
+   "value": 1.9,
+   "unit": "PESQ",
+   "raw": "SD vid2voc-M-VSR PESQ 1.90/ESTOI 0.455/WER 15.1%; F-VSR 1.88/0.447/14.4%; SI best 1.25/0.210(F); baselines [17] 1.71/0.329 SD, [15] 1.82; WORLD 3.06/0.759",
+   "pid": "isca-michelsanti20_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 prop stoi",
+   "value": 0.94,
+   "unit": "score",
+   "raw": "0.94",
+   "pid": "arxiv-2502.12002",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t10 gt stoinet",
+   "value": 0.93,
+   "unit": null,
+   "raw": "0.93",
+   "pid": "arxiv-2306.03258",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t1 avgen estoi mean",
+   "value": 0.9,
+   "unit": null,
+   "raw": "0.9",
+   "pid": "arxiv-2306.01432",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t1 full stoi",
+   "value": 0.887,
+   "unit": null,
+   "raw": "0.887",
+   "pid": "arxiv-2403.16078",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "stoi80",
+   "value": 0.854,
+   "unit": null,
+   "raw": "80h STOI CMC λ=1",
+   "pid": "arxiv-2103.01463",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1701.00495",
+   "key": "t:vid2speechspeechreconstructionfromsilentvideocvpr2017",
+   "title": "Vid2speech: Speech Reconstruction from Silent Video (CVPR 2017)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1701.00495 | title=Vid2speech: Speech Reconstruction from Silent Video (CVPR 2017) | Study.research_objec"
+  },
+  {
+   "pid": "arxiv-1708.01204",
+   "key": "t:improvedspeechreconstructionfromsilentvideoephratpelegiccv2017",
+   "title": "Improved Speech Reconstruction from Silent Video (Ephrat & Peleg ICCV 2017)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1708.01204 | title=Improved Speech Reconstruction from Silent Video (Ephrat & Peleg ICCV 2017) | Study.re"
+  },
+  {
+   "pid": "arxiv-1710.09798",
+   "key": "t:lip2audspecspeechreconstructionfromsilentlipmovementsvideo",
+   "title": "Lip2AudSpec: Speech reconstruction from silent lip movements video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1710.09798 | title=Lip2AudSpec: Speech reconstruction from silent lip movements video | Study.research_ob"
+  },
+  {
+   "pid": "arxiv-1711.08789",
+   "key": "t:visualspeechenhancement",
+   "title": "Visual Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1711.08789 | title=Visual Speech Enhancement | Study.research_objective=Ephrat/Mosseri/Lang/Halperin/T. W"
+  },
+  {
+   "pid": "arxiv-1804.04121",
+   "key": "p:arxiv-1804.04121",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=isolate a target speaker voice from multi-talker sim"
+  },
+  {
+   "pid": "arxiv-1807.00619",
+   "key": "t:harnessingaiforspeechreconstructionusingmultiviewsilentvideofeed",
+   "title": "Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1807.00619 | title=Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed | Study.res"
+  },
+  {
+   "pid": "arxiv-1808.00046",
+   "key": "t:lipreadingdrivendeeplearningapproachforspeechenhancement",
+   "title": "Lip-Reading Driven Deep Learning Approach for Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1808.00046 | title=Lip-Reading Driven Deep Learning Approach for Speech Enhancement | Study.research_obje"
+  },
+  {
+   "pid": "arxiv-1808.09825",
+   "key": "t:contextualaudiovisualswitchingforspeechenhancementinrealworldenvironments",
+   "title": "Contextual Audio-Visual Switching For Speech Enhancement in Real-World Environments",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1808.09825 | title=Contextual Audio-Visual Switching For Speech Enhancement in Real-World Environments |"
+  },
+  {
+   "pid": "arxiv-1809.04966",
+   "key": "t:realtimelightweightchaoticencryptionfor5giotenabledlipreadingdrivensecurehearing",
+   "title": "Real-Time Lightweight Chaotic Encryption for 5G IoT Enabled Lip-Reading Driven Secure Hearing-Aid",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1809.04966 | title=Real-Time Lightweight Chaotic Encryption for 5G IoT Enabled Lip-Reading Driven Secure"
+  },
+  {
+   "pid": "arxiv-1907.01367",
+   "key": "t:lippersynthesizingthyspeechusingmultiviewlipreading",
+   "title": "Lipper: Synthesizing Thy Speech using Multi-View Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1907.01367 | title=Lipper: Synthesizing Thy Speech using Multi-View Lipreading | Study.research_objective"
+  },
+  {
+   "pid": "arxiv-1907.04975",
+   "key": "p:arxiv-1907.04975",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=speaker-independent AV speech enhancement that stays"
+  },
+  {
+   "pid": "arxiv-1909.11919",
+   "key": "t:astudyofjointeffectondenoisingtechniquesandvisualcuestoimprovespeechintelligibil",
+   "title": "A Study of Joint Effect on Denoising Techniques and Visual Cues to Improve Speech Intelligibility in Cochlear Implant Simulation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1909.11919 | title=A Study of Joint Effect on Denoising Techniques and Visual Cues to Improve Speech Inte"
+  },
+  {
+   "pid": "arxiv-2005.08209",
+   "key": "t:learningindividualspeakingstylesforaccurateliptospeechsynthesis",
+   "title": "Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2005.08209 | title=Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis | Study.resea"
+  },
+  {
+   "pid": "arxiv-2008.07191",
+   "key": "p:arxiv-2008.07191",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=unsupervised AV generative model for single-channel"
+  },
+  {
+   "pid": "arxiv-2101.05975",
+   "key": "p:arxiv-2101.05975",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=MFFCN — multi-layer feature fusion CNN (Xu & Hao) | Study.study_design=controlled_experiment | Study.researc"
+  },
+  {
+   "pid": "arxiv-2103.01463",
+   "key": "p:arxiv-2103.01463",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=CMC-loss AV separation (Makishima/Ihori/Takashima/Tanaka/Orihashi/Masumura — NTT Media Intelligence, ICASSP"
+  },
+  {
+   "pid": "arxiv-2104.13332",
+   "key": "t:endtoendvideotospeechsynthesisusinggenerativeadversarialnetworks",
+   "title": "End-to-End Video-To-Speech Synthesis using Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2104.13332 | title=End-to-End Video-To-Speech Synthesis using Generative Adversarial Networks | Study.res"
+  },
+  {
+   "pid": "arxiv-2104.14467",
+   "key": "t:towardsapracticalliptospeechconversionsystemusingdeepneuralnetworksandmobileappl",
+   "title": "Towards a practical lip-to-speech conversion system using deep neural networks and mobile application frontend",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2104.14467 | doi=10.48550/arxiv.2104.14467 | title=Towards a practical lip-to-speech conversion system us"
+  },
+  {
+   "pid": "arxiv-2105.09652-spkdisent",
+   "key": "t:speakerdisentanglementinvideotospeechconversion",
+   "title": "Speaker disentanglement in video-to-speech conversion",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2105.09652-spkdisent | title=Speaker disentanglement in video-to-speech conversion | authors=Oneata Dan,"
+  },
+  {
+   "pid": "arxiv-2107.12003",
+   "key": "t:facetronamultispeakerfacetospeechmodelbasedoncrossmodallatentrepresentations",
+   "title": "Facetron: A Multi-speaker Face-to-Speech Model based on Cross-modal Latent Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2107.12003 | title=Facetron: A Multi-speaker Face-to-Speech Model based on Cross-modal Latent Representat"
+  },
+  {
+   "pid": "arxiv-2112.04748",
+   "key": "t:lipsound2selfsupervisedpretrainingforliptospeechreconstructionandlipreading",
+   "title": "LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2112.04748 | title=LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Readi"
+  },
+  {
+   "pid": "arxiv-2202.09081-vcvts",
+   "key": "t:vcvtsmultispeakervideotospeechsynthesisviacrossmodalknowledgetransferfromvoiceco",
+   "title": "VCVTS: Multi-Speaker Video-to-Speech Synthesis via Cross-Modal Knowledge Transfer from Voice Conversion",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2202.09081-vcvts | title=VCVTS: Multi-Speaker Video-to-Speech Synthesis via Cross-Modal Knowledge Transfe"
+  },
+  {
+   "pid": "arxiv-2203.17263",
+   "key": "p:arxiv-2203.17263",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=AV Speech Codec (Yang/Markovic/Krenn/Agrawal/Richard — MIT+Meta Reality Labs, CVPR 2022) | Study.study_desig"
+  },
+  {
+   "pid": "arxiv-2204.01265",
+   "key": "t:multimodalityassociativebridgingthroughmemoryspeechsoundrecollectedfromfacevideo",
+   "title": "Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2204.01265 | title=Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face"
+  },
+  {
+   "pid": "arxiv-2204.01726",
+   "key": "t:liptospeechsynthesiswithvisualcontextattentionalgan",
+   "title": "Lip to Speech Synthesis with Visual Context Attentional GAN",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2204.01726 | title=Lip to Speech Synthesis with Visual Context Attentional GAN | authors=Minsu Kim, Joann"
+  },
+  {
+   "pid": "arxiv-2205.02058",
+   "key": "t:svtsscalablevideotospeechsynthesis",
+   "title": "SVTS: Scalable Video-to-Speech Synthesis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2205.02058 | title=SVTS: Scalable Video-to-Speech Synthesis | authors=Rodrigo Mira, Alexandros Haliassos,"
+  },
+  {
+   "pid": "arxiv-2206.02050",
+   "key": "t:learningspeakerspecificliptospeechgeneration",
+   "title": "Learning Speaker-specific Lip-to-Speech Generation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2206.02050 | title=Learning Speaker-specific Lip-to-Speech Generation | Study.research_objective=transfor"
+  },
+  {
+   "pid": "arxiv-2207.03800",
+   "key": "t:fastltsnonautoregressiveendtoendunconstrainedliptospeechsynthesis",
+   "title": "FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2207.03800 | title=FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis | authors"
+  },
+  {
+   "pid": "arxiv-2209.00642",
+   "key": "t:liptospeechsynthesisforarbitraryspeakersinthewild",
+   "title": "Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2209.00642 | title=Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild | authors=Sindhu B Hegde, K"
+  },
+  {
+   "pid": "arxiv-2211.10999",
+   "key": "t:lavocelowsnraudiovisualspeechenhancementusingneuralvocoders",
+   "title": "LA-VocE: Low-SNR Audio-Visual Speech Enhancement Using Neural Vocoders",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2211.10999 | title=LA-VocE: Low-SNR Audio-Visual Speech Enhancement Using Neural Vocoders | authors=Mira"
+  },
+  {
+   "pid": "arxiv-2212.11377",
+   "key": "t:reviseselfsupervisedspeechresynthesiswithvisualinputforuniversalandgeneralizedsp",
+   "title": "ReVISE: Self-Supervised Speech Resynthesis with Visual Input for Universal and Generalized Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2212.11377 | title=ReVISE: Self-Supervised Speech Resynthesis with Visual Input for Universal and General"
+  },
+  {
+   "pid": "arxiv-2302.08841",
+   "key": "t:liptospeechsynthesisinthewildwithmultitasklearning",
+   "title": "Lip-to-Speech Synthesis in the Wild with Multi-task Learning",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2302.08841 | title=Lip-to-Speech Synthesis in the Wild with Multi-task Learning | authors=Minsu Kim, Joan"
+  },
+  {
+   "pid": "arxiv-2303.00502",
+   "key": "t:ontheaudiovisualsynchronizationforliptospeechsynthesis",
+   "title": "On the Audio-visual Synchronization for Lip-to-Speech Synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2303.00502 | title=On the Audio-visual Synchronization for Lip-to-Speech Synthesis | authors=Zhe Niu, Bri"
+  },
+  {
+   "pid": "arxiv-2304.05574",
+   "key": "t:speechreconstructionfromsilenttongueandliparticulationbypseudotargetgenerationan",
+   "title": "Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2304.05574 | title=Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generat"
+  },
+  {
+   "pid": "arxiv-2305.14359",
+   "key": "t:zeroshotpersonalizedliptospeechsynthesiswithfaceimagebasedvoicecontrol",
+   "title": "Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2305.14359 | title=Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control | a"
+  },
+  {
+   "pid": "arxiv-2305.15403",
+   "key": "t:avtranspeechaudiovisualrobustspeechtospeechtranslation",
+   "title": "AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2305.15403 | title=AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation | authors=Huang R, Liu"
+  },
+  {
+   "pid": "arxiv-2305.19603",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2305.19603 | title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Jeongsoo Choi, Minsu"
+  },
+  {
+   "pid": "arxiv-2306.00489",
+   "key": "t:speechinpaintingcontextbasedspeechsynthesisguidedbyvideo",
+   "title": "Speech inpainting: Context-based speech synthesis guided by video",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.00489 | title=Speech inpainting: Context-based speech synthesis guided by video | authors=Montesinos"
+  },
+  {
+   "pid": "arxiv-2306.01432",
+   "key": "t:audiovisualspeechenhancementwithscorebasedgenerativemodels",
+   "title": "Audio-Visual Speech Enhancement with Score-Based Generative Models",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.01432 | title=Audio-Visual Speech Enhancement with Score-Based Generative Models | Study.research_ob"
+  },
+  {
+   "pid": "arxiv-2306.03258",
+   "key": "t:lipvoicergeneratingspeechfromsilentvideosguidedbylipreading",
+   "title": "LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.03258 | title=LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading | Study.research"
+  },
+  {
+   "pid": "arxiv-2306.06652",
+   "key": "t:audiovisualmandarinelectrolaryngealspeechvoiceconversion",
+   "title": "Audio-Visual Mandarin Electrolaryngeal Speech Voice Conversion",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.06652 | doi=10.48550/arxiv.2306.06652 | title=Audio-Visual Mandarin Electrolaryngeal Speech Voice Co"
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "key": "t:largescaleunsupervisedaudiopretrainingforvideotospeechsynthesis",
+   "title": "Large-scale unsupervised audio pre-training for video-to-speech synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.15464-v2apretrain | title=Large-scale unsupervised audio pre-training for video-to-speech synthesis"
+  },
+  {
+   "pid": "arxiv-2307.01233",
+   "key": "t:robustl2sspeakerspecificliptospeechsynthesisexploitingselfsupervisedrepresentati",
+   "title": "RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2307.01233 | title=RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Represe"
+  },
+  {
+   "pid": "arxiv-2307.07748",
+   "key": "t:leveragingselfsupervisedaudiovisualpretrainedmodelstoimprovevocodedspeechintelli",
+   "title": "Leveraging Self-Supervised Audio-Visual Pretrained Models to Improve Vocoded Speech Intelligibility in Cochlear Implant Simulation",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307.07748 | title=Leveraging Self-Supervised Audio-Visual Pretrained Models to Improve Vocoded Speech In"
+  },
+  {
+   "pid": "arxiv-2307.16584-av2acascade",
+   "key": "t:audiovisualvideotospeechsynthesiswithsynthesizedinputaudio",
+   "title": "Audio-visual video-to-speech synthesis with synthesized input audio",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307.16584-av2acascade | title=Audio-visual video-to-speech synthesis with synthesized input audio | auth"
+  },
+  {
+   "pid": "arxiv-2308.07787-diffv2s",
+   "key": "t:diffv2sdiffusionbasedvideotospeechsynthesiswithvisionguidedspeakerembedding",
+   "title": "DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2308.07787-diffv2s | title=DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker"
+  },
+  {
+   "pid": "arxiv-2308.15256",
+   "key": "t:lettherebesoundreconstructinghighqualityspeechfromsilentvideos",
+   "title": "Let There Be Sound: Reconstructing High Quality Speech from Silent Videos",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2308.15256 | title=Let There Be Sound: Reconstructing High Quality Speech from Silent Videos | authors=Ji"
+  },
+  {
+   "pid": "arxiv-2309.08030",
+   "key": "t:av2wavdiffusionbasedresynthesisfromcontinuousselfsupervisedfeaturesforaudiovisua",
+   "title": "AV2Wav: Diffusion-Based Re-synthesis from Continuous Self-supervised Features for Audio-Visual Speech Enhancement",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2309.08030 | title=AV2Wav: Diffusion-Based Re-synthesis from Continuous Self-supervised Features for Audi"
+  },
+  {
+   "pid": "arxiv-2403.01087",
+   "key": "t:towardsaccurateliptospeechsynthesisinthewild",
+   "title": "Towards Accurate Lip-to-Speech Synthesis in-the-Wild",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2403.01087 | title=Towards Accurate Lip-to-Speech Synthesis in-the-Wild | authors=Sindhu Hegde, Rudrabha"
+  },
+  {
+   "pid": "arxiv-2403.16078",
+   "key": "t:targetspeechextractionwithpretrainedavhubertandmaskandrecoverstrategy",
+   "title": "Target Speech Extraction with Pre-trained AV-HuBERT and Mask-And-Recover Strategy",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.16078 | title=Target Speech Extraction with Pre-trained AV-HuBERT and Mask-And-Recover Strategy | St"
+  },
+  {
+   "pid": "arxiv-2411.19486",
+   "key": "t:v2sflowvideotospeechgenerationwithspeechdecompositionandrectifiedflow",
+   "title": "V2SFlow: Video-to-Speech Generation with Speech Decomposition and Rectified Flow",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411.19486 | title=V2SFlow: Video-to-Speech Generation with Speech Decomposition and Rectified Flow | aut"
+  },
+  {
+   "pid": "arxiv-2412.18839",
+   "key": "t:advancingnamtospeechconversionwithnovelmethodsandthemultinamdataset",
+   "title": "Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.18839 | paper_version=arXiv:2412.18839v2 [cs.SD] 23 Jan 2025 | title=Advancing NAM-to-Speech Convers"
+  },
+  {
+   "pid": "arxiv-2502.03128",
+   "key": "t:metisafoundationspeechgenerationmodelwithmaskedgenerativepretraining",
+   "title": "Metis: A Foundation Speech Generation Model with Masked Generative Pre-training",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2502.03128 | title=Metis: A Foundation Speech Generation Model with Masked Generative Pre-training | auth"
+  },
+  {
+   "pid": "arxiv-2502.12002",
+   "key": "t:naturall2sendtoendhighqualitymultispeakerliptospeechsynthesiswithdifferentialdig",
+   "title": "NaturalL2S: End-to-End High-quality Multispeaker Lip-to-Speech Synthesis with Differential Digital Signal Processing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.12002 | title=NaturalL2S: End-to-End High-quality Multispeaker Lip-to-Speech Synthesis with Differen"
+  },
+  {
+   "pid": "arxiv-2503.05223",
+   "key": "t:divisedirectvisualinputspeechsynthesispreservingspeakercharacteristicsandintelli",
+   "title": "DiVISe: Direct Visual-Input Speech Synthesis Preserving Speaker Characteristics And Intelligibility",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2503.05223 | title=DiVISe: Direct Visual-Input Speech Synthesis Preserving Speaker Characteristics And In"
+  },
+  {
+   "pid": "arxiv-2503.14928",
+   "key": "t:shushingletsimagineanauthenticspeechfromthesilentvideo",
+   "title": "Shushing! Let’s Imagine an Authentic Speech from the Silent Video",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2503.14928 | title=Shushing! Let’s Imagine an Authentic Speech from the Silent Video | authors=Jiaxin Ye,"
+  },
+  {
+   "pid": "arxiv-2503.16956",
+   "key": "t:fromfacestovoiceslearninghierarchicalrepresentationsforhighqualityvideotospeech",
+   "title": "From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2503.16956 | title=From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-"
+  },
+  {
+   "pid": "arxiv-2505.11391",
+   "key": "t:lipdiffuserliptospeechgenerationwithconditionaldiffusionmodels",
+   "title": "LipDiffuser: Lip-to-Speech Generation with Conditional Diffusion Models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2505.11391 | title=LipDiffuser: Lip-to-Speech Generation with Conditional Diffusion Models | authors=Juli"
+  },
+  {
+   "pid": "arxiv-2505.22024",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2505.22024 | title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Mod"
+  },
+  {
+   "pid": "arxiv-2505.22024-resound",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.22024-resound | title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomp"
+  },
+  {
+   "pid": "arxiv-2506.04134",
+   "key": "t:unicueunifiedrecognitionandgenerationframeworkforchinesecuedspeechvideotospeechg",
+   "title": "UniCUE: Unified Recognition and Generation Framework for Chinese Cued Speech Video-to-Speech Generation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2506.04134 | title=UniCUE: Unified Recognition and Generation Framework for Chinese Cued Speech Video-to-"
+  },
+  {
+   "pid": "arxiv-2507.00498-muteswap",
+   "key": "t:muteswapvisualinformedsilentvideoidentityconversion",
+   "title": "MuteSwap: Visual-informed Silent Video Identity Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2507.00498-muteswap | title=MuteSwap: Visual-informed Silent Video Identity Conversion | authors=Liu Yifa"
+  },
+  {
+   "pid": "arxiv-2507.21448",
+   "key": "t:realtimeaudiovisualspeechenhancementusingpretrainedvisualrepresentations",
+   "title": "Real-Time Audio-Visual Speech Enhancement Using Pre-trained Visual Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2507.21448 | title=Real-Time Audio-Visual Speech Enhancement Using Pre-trained Visual Representations | S"
+  },
+  {
+   "pid": "arxiv-2508.13576",
+   "key": "t:endtoendaudiovisuallearningforcochlearimplantsoundcodingsimulationsinnoisyenviro",
+   "title": "End-to-End Audio-Visual Learning for Cochlear Implant Sound Coding Simulations in Noisy Environments",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2508.13576 | doi=10.1121/10.0042198 | title=End-to-End Audio-Visual Learning for Cochlear Implant Sound C"
+  },
+  {
+   "pid": "arxiv-2509.04507-dualstg",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach | authors=Nithyashree Sivasubramani"
+  },
+  {
+   "pid": "arxiv-2509.25670",
+   "key": "t:ltal2slexicaltoneawareliptospeechsynthesisformandarinwithcrosslingualtransferlea",
+   "title": "LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2509.25670 | title=LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Tr"
+  },
+  {
+   "pid": "arxiv-2509.25670-ltal2s",
+   "key": "t:ltal2slexicaltoneawareliptospeechsynthesisformandarinwithcrosslingualtransferlea",
+   "title": "LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.25670-ltal2s | title=LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lin"
+  },
+  {
+   "pid": "arxiv-2511.22229",
+   "key": "t:vspeechlmavisualspeechlanguagemodelforvisualtexttospeechtask",
+   "title": "VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1145/3743093.3771012 | title=VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task | auth"
+  },
+  {
+   "pid": "arxiv-2601.14777",
+   "key": "t:funcineforgeaunifieddatasettoolkitandmodelforzeroshotmoviedubbingindiversecinema",
+   "title": "FunCineForge: A Unified Dataset Toolkit and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2601.14777 | title=FunCineForge: A Unified Dataset Toolkit and Model for Zero-Shot Movie Dubbing in Diver"
+  },
+  {
+   "pid": "arxiv-2602.01908",
+   "key": "t:lipsodyliptospeechsynthesiswithenhancedprosodyconsistency",
+   "title": "LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2602.01908 | title=LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency | authors=Jaejun Le"
+  },
+  {
+   "pid": "arxiv-2602.01908-lipsody",
+   "key": "t:lipsodyliptospeechsynthesiswithenhancedprosodyconsistency",
+   "title": "LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01908-lipsody | title=LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency | authors=J"
+  },
+  {
+   "pid": "arxiv-2602.11477",
+   "key": "t:sldl2shierarchicalsubspacelatentdiffusionforhighfidelityliptospeechsynthesis",
+   "title": "SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2602.11477 | title=SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthe"
+  },
+  {
+   "pid": "arxiv-2602.11477-sldl2s",
+   "key": "t:sldl2shierarchicalsubspacelatentdiffusionforhighfidelityliptospeechsynthesis",
+   "title": "SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.11477-sldl2s | title=SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech"
+  },
+  {
+   "pid": "arxiv-2603.14267",
+   "key": "t:diflowdubberdiscreteflowmatchingforautomatedvideodubbingviacrossmodalalignmentan",
+   "title": "DiFlowDubber: Discrete Flow Matching for Automated Video Dubbing via Cross-Modal Alignment and Synchronization",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2603.14267 | title=DiFlowDubber: Discrete Flow Matching for Automated Video Dubbing via Cross-Modal Align"
+  },
+  {
+   "pid": "arxiv-2604.15923",
+   "key": "t:hierarchicalcodecdiffusionforvideotospeechgeneration",
+   "title": "Hierarchical Codec Diffusion for Video-to-Speech Generation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2604.15923 | title=Hierarchical Codec Diffusion for Video-to-Speech Generation | authors=Jiaxin Ye, Gaoxi"
+  },
+  {
+   "pid": "arxiv-2606-09667-xmask",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading | authors=del Blanco, Gimeno-Gome"
+  },
+  {
+   "pid": "arxiv-2610.01012",
+   "key": "t:watchyourspeechtextawarevideotospeechsynthesiswithtextualconditioning",
+   "title": "Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv/2610.01012 | title=Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning | au"
+  },
+  {
+   "pid": "arxiv-2610.01012-wys",
+   "key": "t:watchyourspeechtextawarevideotospeechsynthesiswithtextualconditioning",
+   "title": "Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2610.01012-wys | title=Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning"
+  },
+  {
+   "pid": "arxiv-2610.02752",
+   "key": "p:arxiv-2610.02752",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | task_family=speech_reconstruction | target_unit=audio_signal | vocabulary_reg"
+  },
+  {
+   "pid": "cvf-kim25-facesvoices",
+   "key": "t:fromfacestovoiceslearninghierarchicalrepresentationsforhighqualityvideotospeech",
+   "title": "From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-kim25-facesvoices | title=From Faces to Voices: Learning Hierarchical Representations for High-quality Vide"
+  },
+  {
+   "pid": "cvf-niu23-slts",
+   "key": "t:ontheaudiovisualsynchronizationforliptospeechsynthesis",
+   "title": "On the Audio-visual Synchronization for Lip-to-Speech Synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-niu23-slts | title=On the Audio-visual Synchronization for Lip-to-Speech Synthesis | authors=Zhe Niu, Brian"
+  },
+  {
+   "pid": "cvf-niu23-slts-avsync",
+   "key": "t:ontheaudiovisualsynchronizationforliptospeechsynthesis",
+   "title": "On the Audio-visual Synchronization for Lip-to-Speech Synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-niu23-slts-avsync | title=On the Audio-visual Synchronization for Lip-to-Speech Synthesis | authors=Z. Niu,"
+  },
+  {
+   "pid": "cvf-prajwal20-lip2wav",
+   "key": "t:learningindividualspeakingstylesforaccurateliptospeechsynthesis",
+   "title": "Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-prajwal20-lip2wav | title=Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis | author"
+  },
+  {
+   "pid": "cvf23-choi_diffv2s",
+   "key": "t:diffv2sdiffusionbasedvideotospeechsynthesiswithvisionguidedspeakerembedding",
+   "title": "DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf23-choi_diffv2s | title=DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedd"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2015.09.008",
+   "key": "t:statisticalconversionofsilentarticulationintoaudiblespeechusingfullcovariancehmm",
+   "title": "Statistical Conversion of Silent Articulation into Audible Speech using Full-Covariance HMM",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1016/j.csl.2015.09.008 | title=Statistical Conversion of Silent Articulation into Audible Speech using F"
+  },
+  {
+   "pid": "doi-10.1016-j.iccn.2026.104579",
+   "key": "t:exploringtheacceptabilityofalipreadingappinacuteandcriticalcare",
+   "title": "Exploring the acceptability of a lip-reading app in acute and critical care",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=iccn2026/104579 | title=Exploring the acceptability of a lip-reading app in acute and critical care | authors=C"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.11.005",
+   "key": "t:improvementtoanamcapturedwhispertospeechsystem",
+   "title": "Improvement to a NAM-captured whisper-to-speech system",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.specom.2009.11.005 | doi=10.1016/j.specom.2009.11.005 | title=Improvement to a NAM-captured whisp"
+  },
+  {
+   "pid": "doi-10.1038-s41598-020-72375-y",
+   "key": "t:animatedvirtualcharacterstoexploreaudiovisualspeechincontrolledandnaturalisticen",
+   "title": "Animated virtual characters to explore audio-visual speech in controlled and naturalistic environments",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-020-72375-y | title=Animated virtual characters to explore audio-visual speech in controlled"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-55248-6",
+   "key": "t:integratedvisualtransformerandflashattentionforliptospeechgeneration",
+   "title": "Integrated visual transformer and flash attention for lip-to-speech generation",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-024-55248-6 | title=Integrated visual transformer and flash attention for lip-to-speech gene"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sensing technologies for silent speech interfaces | needs_manual_check=cited metrics are secondhand: values summar"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2716178",
+   "key": "p:doi-10.1109-taslp-2017-2716178",
+   "title": null,
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=IEEE/ACM TASLP 2017 (UEA ePrints author ms) | needs_manual_check=Tables II-VII ESTOI/PESQ grids partially captured"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2716178",
+   "key": "t:generatingintelligibleaudiospeechfromvisualspeech",
+   "title": "Generating Intelligible Audio Speech from Visual Speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Generating Intelligible Audio Speech from Visual Speech | authors=Thomas Le Cornu; Ben Milner | venue=IEEE/ACM Tra"
+  },
+  {
+   "pid": "doi-10.1109-tnnls.2022.3191677",
+   "key": "t:lipsound2selfsupervisedpretrainingforliptospeechreconstructionandlipreading",
+   "title": "LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading | authors=L. Qu; C. Weber"
+  },
+  {
+   "pid": "doi-10.1145-3411764.3445565",
+   "key": "t:liptypeasilentspeechrecognizeraugmentedwithanindependentrepairmodel",
+   "title": "LipType: A Silent Speech Recognizer Augmented with an Independent Repair Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipType: A Silent Speech Recognizer Augmented with an Independent Repair Model | venue=ACM CHI 2021 | intended_use"
+  },
+  {
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "key": "p:doi-10.1609-aaai.v35i16.17693",
+   "title": null,
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=AAAI 2021 (v35i16) | needs_manual_check=Table 2 per-speaker-count grid partially captured (1/9/25/75 spk rows), MU"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2011-239",
+   "key": "t:statisticalmappingbetweenarticulatoryandacousticdataforanultrasoundbasedsilentsp",
+   "title": "Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2011-239 | title=Statistical Mapping between Articulatory and Acoustic Data for an Ult"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2011-316",
+   "key": "t:announcingtheelectromagneticarticulographyday1subsetofthemngu0articulatorycorpus",
+   "title": "Announcing the Electromagnetic Articulography (Day 1) Subset of the mngu0 Articulatory Corpus",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2011-316 | title=Announcing the Electromagnetic Articulography (Day 1) Subset of the m"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2012-225",
+   "key": "t:continuousarticulatorytoacousticmappingusingphonebasedtrajectoryhmmforasilentspe",
+   "title": "Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2012-225 | title=Continuous Articulatory-to-Acoustic Mapping using Phone-based Traject"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2015-139",
+   "key": "t:reconstructingintelligibleaudiospeechfromvisualspeechfeatures",
+   "title": "Reconstructing intelligible audio speech from visual speech features",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Reconstructing intelligible audio speech from visual speech features | authors=Thomas Le Cornu; Ben Milner | Study"
+  },
+  {
+   "pid": "doi-10.3390-s21041399",
+   "key": "t:biosignalsensorsanddeeplearningbasedspeechrecognitionareview",
+   "title": "Biosignal Sensors and Deep Learning-Based Speech Recognition: A Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s21041399 | doi=10.3390/s21041399 | title=Biosignal Sensors and Deep Learning-Based Speech Recognit"
+  },
+  {
+   "pid": "doi-10.3390-s26134175",
+   "key": "t:favdenoisenetanaudiovisualspeechenhancementframeworkbasedonconditionalflowmatchi",
+   "title": "FAV-DenoiseNet: An Audio-Visual Speech Enhancement Framework Based on Conditional Flow Matching and Visual Encoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3390/s26134175 | title=FAV-DenoiseNet: An Audio-Visual Speech Enhancement Framework Based on Conditional Flo"
+  },
+  {
+   "pid": "doi-10.3758-s13423-021-02009-5",
+   "key": "t:theroleoficonicgesturesandmouthmovementsinfacetofacecommunication",
+   "title": "The role of iconic gestures and mouth movements in face-to-face communication",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3758-s13423-021-02009-5 | doi=10.3758/s13423-021-02009-5 | title=The role of iconic gestures and mouth m"
+  },
+  {
+   "pid": "icassp2007-hueber-eigentongue-ssi",
+   "key": "t:eigentonguefeatureextractionforanultrasoundbasedsilentspeechinterface",
+   "title": "Eigentongue Feature Extraction for an Ultrasound-Based Silent Speech Interface",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=conf/icassp2007/hueber-eigentongue-ssi | title=Eigentongue Feature Extraction for an Ultrasound-Based Silent Sp"
+  },
+  {
+   "pid": "icphs2007-hueber-ouisper",
+   "key": "t:ouispercorpusbasedsynthesisdrivenbyarticulatorydata",
+   "title": "Ouisper: Corpus Based Synthesis Driven by Articulatory Data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=icphs2007:hueber_ouisper | title=Ouisper: Corpus Based Synthesis Driven by Articulatory Data | authors=Thomas H"
+  },
+  {
+   "pid": "irjmets-88433-silent2sound",
+   "key": "t:silent2soundvisualtosoundaudiospeechreconstructionusinglipreadingai",
+   "title": "Silent2Sound: Visual-to-Sound Audio Speech Reconstruction Using Lip-Reading AI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent2Sound: Visual-to-Sound Audio Speech Reconstruction Using Lip-Reading AI | authors=Tabassum; Barakey; Rao; F"
+  },
+  {
+   "pid": "isca-almajai06_interspeech",
+   "key": "t:analysisofcorrelationbetweenaudioandvisualspeechfeaturesforcleanaudiofeaturepred",
+   "title": "Analysis of Correlation between Audio and Visual Speech Features for Clean Audio Feature Prediction in Noise",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2006-619 | title=Analysis of Correlation between Audio and Visual Speech Features for"
+  },
+  {
+   "pid": "isca-arb01-hmmviseme",
+   "key": "t:hiddenmarkovmodelsforvisualspeechsynthesiswithlimiteddata",
+   "title": "Hidden Markov models for visual speech synthesis with limited data",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-arb01-hmmviseme | title=Hidden Markov models for visual speech synthesis with limited data | authors=Allan"
+  },
+  {
+   "pid": "isca-barbulescu15_avsp",
+   "key": "t:audiovisualgenerationofsocialattitudesfromneutralstimuli",
+   "title": "Audiovisual generation of social attitudes from neutral stimuli",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audiovisual generation of social attitudes from neutral stimuli | authors=A. Barbulescu; G. Bailly; R. Ronfard; M."
+  },
+  {
+   "pid": "isca-beeson23-articssr",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video | authors=Bees"
+  },
+  {
+   "pid": "isca-berger07_avsp",
+   "key": "t:realisticfaceanimationfromsparsestereomeshes",
+   "title": "Realistic face animation from sparse stereo meshes",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Realistic face animation from sparse stereo meshes | authors=Marie-Odile Berger | venue=Proc. AVSP 2007, Hilvarenb"
+  },
+  {
+   "pid": "isca-biasutto19_labialgru",
+   "key": "t:modelinglabialcoarticulationwithbidirectionalgatedrecurrentnetworksandtransferle",
+   "title": "Modeling Labial Coarticulation with Bidirectional Gated Recurrent Networks and Transfer Learning",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-biasutto19_labialgru | title=Modeling Labial Coarticulation with Bidirectional Gated Recurrent Networks an"
+  },
+  {
+   "pid": "isca-choi23-liptospeech",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Choi, Park, Chung | venue=Interspeech 2023 | Stud"
+  },
+  {
+   "pid": "isca-choi23_interspeech",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-choi23_interspeech | title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Jeongsoo Choi,"
+  },
+  {
+   "pid": "isca-cornu15-v2speech",
+   "key": "t:reconstructingintelligibleaudiospeechfromvisualspeechfeatures",
+   "title": "Reconstructing intelligible audio speech from visual speech features",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Reconstructing intelligible audio speech from visual speech features | authors=Le Cornu, Milner | venue=Interspeec"
+  },
+  {
+   "pid": "isca-cornu15_interspeech",
+   "key": "t:reconstructingintelligibleaudiospeechfromvisualspeechfeatures",
+   "title": "Reconstructing intelligible audio speech from visual speech features",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/cornu15-interspeech | title=Reconstructing intelligible audio speech from visual speech features | authors"
+  },
+  {
+   "pid": "isca-csapo17_interspeech",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface | system_name=DNN ultrasound-to-speech con"
+  },
+  {
+   "pid": "isca-csapo17_ussynth",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-csapo17_ussynth | title=DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface | authors="
+  },
+  {
+   "pid": "isca-ding15_avsp",
+   "key": "t:lipanimationsynthesisaunifiedframeworkforspeakingandlaughingvirtualagent",
+   "title": "Lip animation synthesis: a unified framework for speaking and laughing virtual agent",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip animation synthesis: a unified framework for speaking and laughing virtual agent | authors=Yu Ding; Catherine"
+  },
+  {
+   "pid": "isca-edge08_avsp",
+   "key": "t:parameterisationof3dspeechlipmovements",
+   "title": "Parameterisation of 3D speech lip movements",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Parameterisation of 3D speech lip movements | authors=James D. Edge; Adrian Hilton; Philip Jackson | venue=Proc. A"
+  },
+  {
+   "pid": "isca-elisei05_avsp",
+   "key": "t:capturingdataandrealistic3dmodelsforcuedspeechanalysisandaudiovisualsynthesis",
+   "title": "Capturing data and realistic 3D models for cued speech analysis and audiovisual synthesis",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Capturing data and realistic 3D models for cued speech analysis and audiovisual synthesis | authors=Frédéric Elise"
+  },
+  {
+   "pid": "isca-engwall09_interspeech",
+   "key": "t:arerealtonguemovementseasiertospeechreadthansynthesized",
+   "title": "Are real tongue movements easier to speech read than synthesized?",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/engwall09-interspeech | title=Are real tongue movements easier to speech read than synthesized? | authors="
+  },
+  {
+   "pid": "isca-fagel04_massy",
+   "key": "t:videorealisticsyntheticspeechwithaparametricvisualspeechsynthesizer",
+   "title": "Video-realistic synthetic speech with a parametric visual speech synthesizer",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-fagel04_massy | title=Video-realistic synthetic speech with a parametric visual speech synthesizer | autho"
+  },
+  {
+   "pid": "isca-foucher98_avsp",
+   "key": "p:isca-foucher98_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=speech_reconstruction | extra.Decoder.route=analysis_synthesis_LPC | ProcessingStep.architecture=linear regr"
+  },
+  {
+   "pid": "isca-gagne98_avsp",
+   "key": "t:evaluationofavisualfmsystemtoenhancespeechreading",
+   "title": "Evaluation of a Visual-FM System to Enhance Speechreading",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:gagne98_avsp | title=Evaluation of a Visual-FM System to Enhance Speechreading | authors=Jean-Pierre Gagné"
+  },
+  {
+   "pid": "isca-ghosh26b-lipadapt",
+   "key": "t:lipadaptertexttovideoalignmentisallyouneedforliptospeech",
+   "title": "LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | authors=Souvik Ghosh, C. V. Jawahar (IIIT"
+  },
+  {
+   "pid": "isca-ghosh26b_interspeech",
+   "key": "t:lipadaptertexttovideoalignmentisallyouneedforliptospeech",
+   "title": "LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ghosh26b_interspeech | title=LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | autho"
+  },
+  {
+   "pid": "isca-hofer07_interspeech",
+   "key": "t:automaticheadmotionpredictionfromspeechdata",
+   "title": "Automatic head motion prediction from speech data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Automatic head motion prediction from speech data | authors=Gregor Hofer, Hiroshi Shimodaira | venue=Proc. Intersp"
+  },
+  {
+   "pid": "isca-hofer08_interspeech",
+   "key": "t:speechdrivenlipmotiongenerationwithatrajectoryhmm",
+   "title": "Speech-driven lip motion generation with a trajectory HMM",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech-driven lip motion generation with a trajectory HMM | authors=Gregor Hofer, Junichi Yamagishi, Hiroshi Shimo"
+  },
+  {
+   "pid": "isca-hofer10_interspeech",
+   "key": "t:comparisonofhmmandtmdnmethodsforlipsynchronisation",
+   "title": "Comparison of HMM and TMDN methods for lip synchronisation",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Comparison of HMM and TMDN methods for lip synchronisation | authors=Gregor Hofer, Korin Richmond | venue=Proc. In"
+  },
+  {
+   "pid": "isca-hollenstein13_avsp",
+   "key": "t:visualcontrolofhsmmbasedacousticspeechsynthesis",
+   "title": "Visual control of HSMM-based acoustic speech synthesis",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Visual control of HSMM-based acoustic speech synthesis | authors=J. Hollenstein; M. Pucher; D. Schabus | venue=Pro"
+  },
+  {
+   "pid": "isca-hueber08_segvocoder",
+   "key": "t:towardsasegmentalvocoderdrivenbyultrasoundandopticalimagesofthetongueandlips",
+   "title": "Towards a Segmental Vocoder Driven by Ultrasound and Optical Images of the Tongue and Lips",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-hueber08_segvocoder | title=Towards a Segmental Vocoder Driven by Ultrasound and Optical Images of the Ton"
+  },
+  {
+   "pid": "isca-inan19",
+   "key": "t:evaluatingaudiovisualsourceseparationinthecontextofvideoconferencing",
+   "title": "Evaluating Audiovisual Source Separation in the Context of Video Conferencing",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21437/Interspeech.2019-2671 | paper_version=interspeech-2019 | title=Evaluating Audiovisual Source Separatio"
+  },
+  {
+   "pid": "isca-kawashima10_timstruct",
+   "key": "t:speechestimationinnonstationarynoiseenvironmentsusingtimingstructuresbetweenmout",
+   "title": "Speech Estimation in Non-Stationary Noise Environments Using Timing Structures between Mouth Movements and Sound Signals",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kawashima10_timstruct | title=Speech Estimation in Non-Stationary Noise Environments Using Timing Structur"
+  },
+  {
+   "pid": "isca-kim01_avsp",
+   "key": "t:developmentofalipsyncalgorithmbasedonanaudiovisualcorpus",
+   "title": "Development of a lip-sync algorithm based on an audio-visual corpus",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kim01_avsp | title=Development of a lip-sync algorithm based on an audio-visual corpus | authors=Jinyoung"
+  },
+  {
+   "pid": "isca-krnoul06_interspeech",
+   "key": "p:isca-krnoul06_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Proc. Interspeech 2006 (Pittsburgh) pp.585-588; DOI 10.21437/Interspeech.2006-215; UWB Pilsen Krnoul/Zelezny/Mulle"
+  },
+  {
+   "pid": "isca-krnoul07_avsp",
+   "key": "t:innovationsinczechaudiovisualspeechsynthesisforprecisearticulation",
+   "title": "Innovations in Czech Audio-Visual Speech Synthesis for Precise Articulation",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Innovations in Czech Audio-Visual Speech Synthesis for Precise Articulation | authors=Zdeněk Krňoul, Miloš Železný"
+  },
+  {
+   "pid": "isca-krnoul09b_avsp",
+   "key": "t:uwb3dtalkingheadtextdrivensystemcontrolledbysatforlips2009",
+   "title": "UWB 3D talking head text-driven system controlled by SAT for LIPS 2009",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=UWB 3D talking head text-driven system controlled by SAT for LIPS 2009 | authors=Zdenek Krnoul; Milos Zelezny | ve"
+  },
+  {
+   "pid": "isca-kroos01-facecoder",
+   "key": "t:towardsthefacecoderdynamicfacesynthesisbasedonimagemotionestimationinspeech",
+   "title": "Towards the facecoder: dynamic face synthesis based on image motion estimation in speech",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kroos01-facecoder | title=Towards the facecoder: dynamic face synthesis based on image motion estimation i"
+  },
+  {
+   "pid": "isca-leone11_avsp",
+   "key": "t:luciawebglawebbaseditalianmpeg4talkinghead",
+   "title": "LUCIA-WebGL: a web based Italian MPEG-4 talking head",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LUCIA-WebGL: a web based Italian MPEG-4 talking head | authors=G. Riccardo Leone; Piero Cosi | venue=Proc. AVSP 20"
+  },
+  {
+   "pid": "isca-liang25d-lightl2s",
+   "key": "t:lightl2sultralowcomplexityliptospeechsynthesisformultispeakerscenarios",
+   "title": "LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scenarios",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scenarios | authors=Liang, et-al | venue="
+  },
+  {
+   "pid": "isca-liang25d_interspeech",
+   "key": "t:lightl2sultralowcomplexityliptospeechsynthesisformultispeakerscenarios",
+   "title": "LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scenarios",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-liang25d_interspeech | title=LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scen"
+  },
+  {
+   "pid": "isca-liu09_avsp",
+   "key": "t:animagebasedtalkingheadsystem",
+   "title": "An image-based talking head system",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An image-based talking head system | authors=Kang Liu; Joern Ostermann | venue=Proc. AVSP 2009, Norwich, UK | Stud"
+  },
+  {
+   "pid": "isca-mattheyses10_interspeech",
+   "key": "t:activeappearancemodelsforphotorealisticvisualspeechsynthesis",
+   "title": "Active Appearance Models for Photorealistic Visual Speech Synthesis",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/mattheyses10-interspeech | title=Active Appearance Models for Photorealistic Visual Speech Synthesis | aut"
+  },
+  {
+   "pid": "isca-michelsanti20-vid2voc",
+   "key": "t:vocoderbasedspeechsynthesisfromsilentvideos",
+   "title": "Vocoder-Based Speech Synthesis from Silent Videos",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Vocoder-Based Speech Synthesis from Silent Videos | authors=Michelsanti, Tan, Sigurdsson, Jensen | venue=Interspee"
+  },
+  {
+   "pid": "isca-michelsanti20_interspeech",
+   "key": "t:vocoderbasedspeechsynthesisfromsilentvideos",
+   "title": "Vocoder-Based Speech Synthesis from Silent Videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Vocoder-Based Speech Synthesis from Silent Videos | system_name=vid2voc: video→WORLD-vocoder-features (F0/VUV/AP/S"
+  },
+  {
+   "pid": "isca-milner07-viswien",
+   "key": "t:noisyaudiospeechenhancementusingwienerfiltersderivedfromvisualspeech",
+   "title": "Noisy audio speech enhancement using Wiener filters derived from visual speech",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-milner07-viswien | title=Noisy audio speech enhancement using Wiener filters derived from visual speech |"
+  },
+  {
+   "pid": "isca-ming13_avsp",
+   "key": "t:gmmmappingofcsvisualfeaturesfromspeechspectralfeatures",
+   "title": "GMM mapping of CS visual features from speech spectral features",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=GMM mapping of CS visual features from speech spectral features | authors=Z. Ming; D. Beautemps; G. Feng | venue=P"
+  },
+  {
+   "pid": "isca-montesinos23_interspeech",
+   "key": "t:avinpaintingaudiovisualspeechinpainting",
+   "title": "Av-Inpainting: Audio-Visual Speech Inpainting",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-montesinos23_interspeech | title=Av-Inpainting: Audio-Visual Speech Inpainting | authors=Juan F. Montesino"
+  },
+  {
+   "pid": "isca-morishima01-mmodal",
+   "key": "t:multimodaltranslation",
+   "title": "Multimodal translation",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-morishima01-mmodal | title=Multimodal translation | authors=Shigeo Morishima, Shin Ogata, Satoshi Nakamura"
+  },
+  {
+   "pid": "isca-musti10_interspeech",
+   "key": "t:hmmbasedautomaticvisualspeechsegmentationusingfacialdata",
+   "title": "HMM-based Automatic Visual Speech Segmentation Using Facial Data",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/musti10-interspeech | title=HMM-based Automatic Visual Speech Segmentation Using Facial Data | authors=Utp"
+  },
+  {
+   "pid": "isca-musti11_avsp",
+   "key": "t:introducingvisualtargetcostwithinanacousticvisualunitselectionspeechsynthesizer",
+   "title": "Introducing visual target cost within an acoustic-visual unit-selection speech synthesizer",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Introducing visual target cost within an acoustic-visual unit-selection speech synthesizer | authors=Utpala Musti;"
+  },
+  {
+   "pid": "isca-musti13_avsp",
+   "key": "t:automaticfeatureselectionforavconcatenativesynthesis",
+   "title": "Automatic feature selection for AV concatenative synthesis",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Automatic feature selection for AV concatenative synthesis | authors=U. Musti; V. Colotte; S. Ouni; C. Lavecchia;"
+  },
+  {
+   "pid": "isca-odisio04_resynthesised",
+   "key": "t:audiovisualperceptualevaluationofresynthesisedspeechmovements",
+   "title": "Audiovisual perceptual evaluation of resynthesised speech movements",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-odisio04_resynthesised | title=Audiovisual perceptual evaluation of resynthesised speech movements | autho"
+  },
+  {
+   "pid": "isca-parocosta13_avsp",
+   "key": "t:assessingvisualspeechperceptionofsampledbasedtalkingheads",
+   "title": "Assessing visual speech perception of sampled-based talking heads",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Assessing visual speech perception of sampled-based talking heads | authors=Paula D. Paro Costa; José Mario De Mar"
+  },
+  {
+   "pid": "isca-pham25-resound",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling | venue=Interspeech 20"
+  },
+  {
+   "pid": "isca-pham25_interspeech",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-pham25_interspeech | title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decompo"
+  },
+  {
+   "pid": "isca-qu19-lipsound",
+   "key": "t:lipsoundneuralmelspectrogramreconstructionforlipreading",
+   "title": "LipSound: Neural Mel-spectrogram Reconstruction for Lip Reading",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipSound: Neural Mel-spectrogram Reconstruction for Lip Reading | authors=Qu, Weber, Wermter | venue=Interspeech 2"
+  },
+  {
+   "pid": "isca-rademan15_avsp",
+   "key": "t:improvedvisualspeechsynthesisusingdynamicvisemekmeansclusteringanddecisiontrees",
+   "title": "Improved visual speech synthesis using dynamic viseme k-means clustering and decision trees",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improved visual speech synthesis using dynamic viseme k-means clustering and decision trees | authors=Christiaan F"
+  },
+  {
+   "pid": "isca-richmond09b_interspeech",
+   "key": "t:preliminaryinversionmappingresultswithanewemacorpus",
+   "title": "Preliminary inversion mapping results with a new EMA corpus",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Preliminary inversion mapping results with a new EMA corpus | authors=Korin Richmond | venue=Proc. Interspeech 200"
+  },
+  {
+   "pid": "isca-robert07_interspeech",
+   "key": "t:aphoneticconcatenativeapproachoflabialcoarticulation",
+   "title": "A phonetic concatenative approach of labial coarticulation",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/robert07-interspeech | title=A phonetic concatenative approach of labial coarticulation | authors=Vincent"
+  },
+  {
+   "pid": "isca-sako00_icslp",
+   "key": "t:hmmbasedtexttoaudiovisualspeechsynthesis",
+   "title": "HMM-based text-to-audio-visual speech synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=HMM-based text-to-audio-visual speech synthesis | venue=Proc. ICSLP 2000 (Beijing) | authors=Sako, Tokuda, Masuko,"
+  },
+  {
+   "pid": "isca-schabus12_interspeech",
+   "key": "t:speakeradaptivevisualspeechsynthesisinthehmmframework",
+   "title": "Speaker-adaptive visual speech synthesis in the HMM-framework",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-adaptive visual speech synthesis in the HMM-framework | authors=Dietmar Schabus, Michael Pucher, Gregor Ho"
+  },
+  {
+   "pid": "isca-schabus15_avsp",
+   "key": "t:comparisonofdialectmodelsandphonemappingsinhsmmbasedvisualdialectspeechsynthesis",
+   "title": "Comparison of dialect models and phone mappings in HSMM-based visual dialect speech synthesis",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Comparison of dialect models and phone mappings in HSMM-based visual dialect speech synthesis | authors=D. Schabus"
+  },
+  {
+   "pid": "isca-shaw13_avsp",
+   "key": "t:transformingneutralvisualspeechintoexpressive",
+   "title": "Transforming neutral visual speech into expressive",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Transforming neutral visual speech into expressive | authors=F. Shaw; B.-J. Theobald | venue=Proc. AVSP 2013, Anne"
+  },
+  {
+   "pid": "isca-siciliano03_avsp",
+   "key": "t:lipreadabilityofasynthetictalkingfaceinnormalhearingandhearingimpairedlisteners",
+   "title": "Lipreadability of a Synthetic Talking Face in Normal Hearing and Hearing-Impaired Listeners",
+   "year": 2003,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-siciliano03_avsp | title=Lipreadability of a Synthetic Talking Face in Normal Hearing and Hearing-Impaired"
+  },
+  {
+   "pid": "isca-tamura18_avvc",
+   "key": "t:audiovisualvoiceconversionusingdeepcanonicalcorrelationanalysisfordeepbottleneck",
+   "title": "Audio-visual Voice Conversion Using Deep Canonical Correlation Analysis for Deep Bottleneck Features",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-tamura18_avvc | title=Audio-visual Voice Conversion Using Deep Canonical Correlation Analysis for Deep Bot"
+  },
+  {
+   "pid": "isca-tamura99_eurospeech",
+   "key": "t:texttoaudiovisualspeechsynthesisbasedonparametergenerationfromhmm",
+   "title": "Text-to-audio-visual speech synthesis based on parameter generation from HMM",
+   "year": 1999,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Text-to-audio-visual speech synthesis based on parameter generation from HMM | authors=Masatsune Tamura, Shigekazu"
+  },
+  {
+   "pid": "isca-theobald08_interspeech",
+   "key": "t:aprobabilistictrajectorysynthesissystemforsynthesisingvisualspeech",
+   "title": "A probabilistic trajectory synthesis system for synthesising visual speech",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A probabilistic trajectory synthesis system for synthesising visual speech | authors=Barry-John Theobald, Nicholas"
+  },
+  {
+   "pid": "isca-theobald08b_interspeech",
+   "key": "t:lips2008visualspeechsynthesischallenge",
+   "title": "LIPS2008: Visual speech synthesis challenge",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LIPS2008: Visual speech synthesis challenge | authors=Barry-John Theobald, Sascha Fagel, Gerard Bailly, Frederic E"
+  },
+  {
+   "pid": "isca-theobald08c_interspeech",
+   "key": "t:comparingtextdrivenandspeechdrivenvisualspeechsynthesisers",
+   "title": "Comparing text-driven and speech-driven visual speech synthesisers",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Comparing text-driven and speech-driven visual speech synthesisers | authors=Barry-John Theobald, Gavin Cawley, An"
+  },
+  {
+   "pid": "isca-thomas07-voctext",
+   "key": "t:benefitsoffacialandtextualinformationinunderstandingofvocodedspeech",
+   "title": "Benefits of facial and textual information in understanding of vocoded speech",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-thomas07-voctext | title=Benefits of facial and textual information in understanding of vocoded speech | a"
+  },
+  {
+   "pid": "isca-toutios10_avsp",
+   "key": "t:towardsatrueacousticvisualspeechsynthesis",
+   "title": "Towards a true acoustic-visual speech synthesis",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards a true acoustic-visual speech synthesis | authors=Asterios Toutios; Utpala Musti; Slim Ouni; Vincent Colot"
+  },
+  {
+   "pid": "isca-toutios10_interspeech",
+   "key": "t:setupforacousticvisualspeechsynthesisbyconcatenatingbimodalunits",
+   "title": "Setup for Acoustic-Visual Speech Synthesis by Concatenating Bimodal Units",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/toutios10-interspeech | title=Setup for Acoustic-Visual Speech Synthesis by Concatenating Bimodal Units |"
+  },
+  {
+   "pid": "isca-uttam19-hushhush",
+   "key": "t:hushhushspeakspeechreconstructionusingsilentvideos",
+   "title": "Hush-Hush Speak: Speech Reconstruction Using Silent Videos",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hush-Hush Speak: Speech Reconstruction Using Silent Videos | authors=Uttam, Tripathi, Ganguly | venue=Interspeech"
+  },
+  {
+   "pid": "isca-uttam19_interspeech",
+   "key": "t:hushhushspeakspeechreconstructionusingsilentvideos",
+   "title": "Hush-Hush Speak: Speech Reconstruction Using Silent Videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hush-Hush Speak: Speech Reconstruction Using Silent Videos | system_name=speaker-independent multi-view silent-vid"
+  },
+  {
+   "pid": "isca-vougioukas19_ganv2s",
+   "key": "t:videodrivenspeechreconstructionusinggenerativeadversarialnetworks",
+   "title": "Video-Driven Speech Reconstruction Using Generative Adversarial Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-vougioukas19_ganv2s | title=Video-Driven Speech Reconstruction Using Generative Adversarial Networks | aut"
+  },
+  {
+   "pid": "isca-wang09_avsp",
+   "key": "t:hmmbasedmotiontrajectorygenerationforspeechanimationsynthesis",
+   "title": "HMM-based motion trajectory generation for speech animation synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=HMM-based motion trajectory generation for speech animation synthesis | authors=Lijuan Wang; Wei Han; Xiaojun Qian"
+  },
+  {
+   "pid": "isca-wang10d_interspeech",
+   "key": "t:synthesizingphotorealtalkingheadviatrajectoryguidedsampleselection",
+   "title": "Synthesizing Photo-Real Talking Head via Trajectory-Guided Sample Selection",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/wang10d-interspeech | title=Synthesizing Photo-Real Talking Head via Trajectory-Guided Sample Selection |"
+  },
+  {
+   "pid": "isca-wu06d_interspeech",
+   "key": "p:isca-wu06d_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Proc. Interspeech 2006 (Pittsburgh) pp.1802-1805; DOI 10.21437/Interspeech.2006-498; CUHK+Tsinghua Wu/Zhang/Cai/Me"
+  },
+  {
+   "pid": "isca-wu11_avsp",
+   "key": "t:photorealisticvisualspeechsynthesisbasedonaamfeaturesandanarticulatorydbnmodelwi",
+   "title": "Photo-realistic visual speech synthesis based on AAM features and an articulatory DBN model with constrained asynchrony",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Photo-realistic visual speech synthesis based on AAM features and an articulatory DBN model with constrained async"
+  },
+  {
+   "pid": "osf-ncdtp_v1",
+   "key": "t:realtimelipreadingandspeechsynthesisusingctccnnbilstmnetworkswithflaskdeployment",
+   "title": "Real-Time Lip Reading and Speech Synthesis Using CTC-CNN-BiLSTM Networks with Flask Deployment",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=osf-ncdtp_v1 | title=Real-Time Lip Reading and Speech Synthesis Using CTC-CNN-BiLSTM Networks with Flask Deploy"
+  },
+  {
+   "pid": "pmc-10894270-fagan-lts",
+   "key": "t:integratedvisualtransformerandflashattentionforliptospeechgenerationgan",
+   "title": "Integrated visual transformer and flash attention for lip-to-speech generation GAN",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10894270-fagan-lts | title=Integrated visual transformer and flash attention for lip-to-speech generation G"
+  },
+  {
+   "pid": "pmc-10894270-liptospeech",
+   "key": "t:integratedvisualtransformerandflashattentionforliptospeech",
+   "title": "Integrated visual transformer and flash attention for lip-to-speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Integrated visual transformer and flash attention for lip-to-speech | authors=lip-to-speech group | Study.research"
+  },
+  {
+   "pid": "pmc-11220857-lumina",
+   "key": "t:luminalinguisticunifiedmultimodalindonesiannaturalaudiovisualdataset",
+   "title": "LUMINA: Linguistic unified multimodal Indonesian natural audio-visual dataset",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11220857-lumina | title=LUMINA: Linguistic unified multimodal Indonesian natural audio-visual dataset | aut"
+  },
+  {
+   "pid": "pmc-12860178-sravi-tl",
+   "key": "t:utilityofanovelmobilelipreadingapplicationforpatientsaftertotallaryngectomy",
+   "title": "Utility of a Novel Mobile Lip-Reading Application for Patients After Total Laryngectomy",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12860178-sravi-tl | title=Utility of a Novel Mobile Lip-Reading Application for Patients After Total Laryng"
+  },
+  {
+   "pid": "w-2246823171",
+   "key": "t:silentcommunicationwhisperedspeechtoclearspeechconversion",
+   "title": "Silent Communication: whispered speech-to-clear speech conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=w-2246823171 | title=Silent Communication: whispered speech-to-clear speech conversion | venue=PhD thesis, Univ"
+  },
+  {
+   "pid": "w7217544707-ijisae",
+   "key": "t:audiovisualspeechreconstructionusinghybriddeeplearningwithconditionalrandomfield",
+   "title": "Audio-Visual Speech Reconstruction Using Hybrid Deep Learning with Conditional Random Fields and Intelligent Chasing Optimization",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Speech Reconstruction Using Hybrid Deep Learning with Conditional Random Fields and Intelligent Chasi"
+  }
+ ],
+ "usual_approach": {
+  "design": "mouth_or_lip_crop",
+  "n": 76,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2505.22024",
+   "arxiv-2508.13576",
+   "arxiv-2601.14777",
+   "arxiv-2602.01908",
+   "arxiv-2602.11477"
+  ],
+  "population_unique": 165
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-1708.01204",
+   "role": "target",
+   "loc": "Sec. 5; Table 5",
+   "quote": "Pixels + optical ﬂow 0.665 1 .921 3 .173"
+  },
+  {
+   "pid": "arxiv-1701.00495",
+   "role": "prior",
+   "loc": "Fig. 2 caption",
+   "quote": "Face region error is 40% lower than mouth"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2716178",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "active appearance model (AAM) visual"
+  },
+  {
+   "pid": "arxiv-2005.08209",
+   "role": "sota",
+   "loc": "Sec. 2; Table 2",
+   "quote": "could be a detrimental feature in unconstrained settings due"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2005.08209",
+  "year": 2020,
+  "metric": "ASR WER (Google Speech-to-Text) on GRID, mean of 4 speakers, Lip2Wav's own runs of each method; face crop without optical flow; the same table scores the target at 27.83%",
+  "value": 14.08,
+  "unit": "%",
+  "timing": "later"
+ },
+ "used_by": [
+  "improved-speech-reconstruction-from-silent-video"
+ ],
+ "tally": {
+  "slot_filled_unique": 7329,
+  "string_match_unique": 165,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "mouth_or_lip_crop",
+   "n": 76,
+   "tier": "pattern match",
+   "population_unique": 165
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2005.08209",
+   "year": 2020,
+   "metric": "ASR WER (Google Speech-to-Text) on GRID, mean of 4 speakers, Lip2Wav's own runs of each method; face crop without optical flow; the same table scores the target at 27.83%",
+   "value": 14.08,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-1701.00495",
+   "doi-10.1109-taslp.2017.2716178"
+  ],
+  "unread": 187,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
+}
