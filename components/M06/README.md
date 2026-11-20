@@ -142,7 +142,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`ultrasound-tongue-speech-recognition.csv`](ultrasound-tongue-speech-recognition.csv) (7345 slot-filled, 38 pattern match, usual design in 15, 5 read in full)
 - Inclusion rule: Include studies that recognize phones, words or sentences as text from ultrasound tongue images, with or without lip video, in silent or vocalized articulation, and report a recognition error or accuracy. Boundary: exclude ultrasound-to-speech synthesis without a recognition score, tongue contour tracking or clinical phonetics, reviews and surveys (counted in the pattern match but not as designs), and recognition from lips only; count versions once.
-- Used in: [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
+- Used in: [Silent versus modal multi-speaker speech recognition from ultrasound and video](../../reviews/silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video/), [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
 
 ## ultrasound-tongue-to-speech-synthesis
 

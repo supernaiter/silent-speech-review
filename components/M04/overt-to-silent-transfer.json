@@ -1536,6 +1536,21 @@
    "snippet": "Linguistic Framework for Decoding Inner Speech | Study.research_objective=two-part framework: (1) measurement programme overt->covert stripping articulatory/laryngeal layers to isolate distinctive features (data-A/B/C); (2) inference cascade resolving p",
    "decision": "exclude",
    "reason": "Proposes a linguistic framework for decoding inner speech; no experiments"
+  },
+  {
+   "pid": "arxiv-2103.00333",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus modal multi-speaker speech recognition from ultrasound and video",
+   "year": 2021,
+   "via": [
+    "review"
+   ],
+   "snippet": "",
+   "decision": "include",
+   "quote": "This is unsurprising, as training is done on modal speech data.",
+   "loc": "Sec. 3.3",
+   "provenance": "text-verified",
+   "reason": "modal-only training, matched silent test sets, reported degradation; versions doi-10.21437-interspeech.2021-23, isca-ribeiro21_interspeech, isca-ribeiro21-silentus"
   }
  ],
  "known_item_recall": {
@@ -1557,6 +1572,7 @@
  },
  "used_by": [
   "digital-voicing-of-silent-speech",
+  "silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video",
   "speech-synthesis-from-neural-decoding-of-spoken-sentences",
   "transfer-learning-for-covert-speech-classification-using-eeg-hilbert-envelope-and-temporal-fine-"
  ],
@@ -1798,6 +1814,20 @@
    "loc": "Summary table",
    "quote": "**null**: 29.2 % (p = 0.04) and 25.4 % (p = 0.50) vs 25 % chance",
    "by": "transfer-learning-for-covert-speech-classification-using-eeg-hilbert-envelope-and-temporal-fine-"
+  },
+  {
+   "pid": "isca-florescu10",
+   "role": "prior",
+   "loc": "Table 2; Sec. 5",
+   "quote": "vocalized training data cannot be used directly to train the silent speech recognition system",
+   "by": "silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video"
+  },
+  {
+   "pid": "isca-beeson23_interspeech",
+   "role": "sota",
+   "loc": "Table 2",
+   "quote": "+ Low pass filt 33.64 26.87 62.60 47.15",
+   "by": "silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video"
   }
  ],
  "tally_by": {
@@ -1883,6 +1913,36 @@
     ],
     "note": "Relative to the target's first public date 2025-02 (prior = more than six months earlier); scalp-EEG prior: arxiv-2212.02047 only."
    }
+  },
+  "silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video": {
+   "slot_filled_unique": 5595,
+   "string_match_unique": 33,
+   "fulltext_only_folders": 62,
+   "usual_approach": {
+    "design": "decoder trained on overt (vocalized) speech applied to silent or covert speech without retraining, reported as a degradation",
+    "n": 23,
+    "tier": "confirmed",
+    "population_unique": 33
+   },
+   "state_of_the_art": {
+    "metric": "transcription WER 25-word pool",
+    "value": 0.31,
+    "unit": null,
+    "raw": "31%",
+    "pid": "doi-10.1038-s41586-019-1119-1",
+    "year": null,
+    "tier": "ledger only",
+    "source": "ledger candidate, not yet confirmed"
+   },
+   "read": 5,
+   "read_prior": [
+    "arxiv-2212.02047",
+    "doi-10.1109-taslp-2017-2738568",
+    "isca-florescu10"
+   ],
+   "unread": 0,
+   "confirmed_unique": 24,
+   "known_item_recall": 1.0
   }
  },
  "known_item_recall_by": {
@@ -1897,6 +1957,15 @@
    "found": 3,
    "recall": 1.0,
    "missed": []
+  },
+  "silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video": {
+   "seeds_in_wiki": 3,
+   "found": 2,
+   "recall": 0.67,
+   "missed": [
+    "arxiv-2103.00333"
+   ]
   }
- }
+ },
+ "state_of_the_art": null
 }
