@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## articulatory-recognizer-speaker-adaptation
+
+- Table: [`articulatory-recognizer-speaker-adaptation.csv`](articulatory-recognizer-speaker-adaptation.csv) (1526 slot-filled, 48 pattern match, usual design in 27, 4 read in full)
+- Inclusion rule: Recognizers that decode text from non-acoustic speech signals (articulatory imaging, EMA, EMG, lip video, neural recordings) and apply speaker, session or speaking-mode adaptation of features or model (fMLLR/SAT, Procrustes normalization, unsupervised or test-time adaptation) and report an unadapted comparison. Boundary: acoustic-only ASR, synthesis without recognition, articulatory phonetics without a recognizer, reviews, and supervised retraining on the full target data are excluded; versions counted once.
+- Used in: [Silent versus modal multi-speaker speech recognition from ultrasound and video](../../reviews/silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video/)
+
 ## cross-subject-pooled-training
 
 - Table: [`cross-subject-pooled-training.csv`](cross-subject-pooled-training.csv) (1526 slot-filled, 370 pattern match, usual design in 90, 4 read in full)

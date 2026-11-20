@@ -1,0 +1,922 @@
+{
+ "topic": "articulatory-recognizer-speaker-adaptation",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "fMLLR|feature[- ]space MLLR|speaker[- ]adaptive training|Procrustes|unsupervised (speaker |session |domain )?adaptation|test[- ]time adaptation",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Recognizers that decode text from non-acoustic speech signals (articulatory imaging, EMA, EMG, lip video, neural recordings) and apply speaker, session or speaking-mode adaptation of features or model (fMLLR/SAT, Procrustes normalization, unsupervised or test-time adaptation) and report an unadapted comparison. Boundary: acoustic-only ASR, synthesis without recognition, articulatory phonetics without a recognizer, reviews, and supervised retraining on the full target data are excluded; versions counted once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 57,
+  "string_match_unique": 48,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-taslp.2018.2835719",
+     "isca-aryal15_interspeech",
+     "isca-telaar14_interspeech",
+     "icassp2011-babani-transformed-nam-sat",
+     "isca-beeson23_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2509.24700",
+     "doi-10.21437-interspeech.2021-23",
+     "naist-msc2009-nagai-nam-sat",
+     "isca-beeson23_interspeech",
+     "isca-wang14g_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-telaar14_interspeech",
+     "isca-wang11c_interspeech",
+     "arxiv-2603.18299",
+     "isca-dash19_interspeech",
+     "isca-wand18_interspeech"
+    ]
+   },
+   {
+    "design": "adaptation=machine_finetuning",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2509.24700",
+     "doi-10.21437-interspeech.2021-23",
+     "arxiv-2603.18299"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.18299",
+     "isca-wang15g_interspeech"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=vsr w/ triplet losses (id/enhance/suppress)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2310.05058"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=unreported",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2310.05058"
+    ]
+   },
+   {
+    "design": "adaptation=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2509.24700"
+    ]
+   },
+   {
+    "design": "TrainingRun.selection_data=model selection and hyperparameter tuning use validation per.",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.18299"
+    ]
+   },
+   {
+    "design": "training_production_ids=condition-attempted",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.18299"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "fmllr_sat",
+    "n": 27,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1186-s13636-025-00403-8",
+     "doi-10.1186-s13636-024-00345-7",
+     "doi-10.3390-s21041399",
+     "isca-sari18_avicar",
+     "doi-10.1109-taslp-2017-2758999"
+    ]
+   },
+   {
+    "design": "procrustes",
+    "n": 16,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.17543",
+     "arxiv-2605.23416",
+     "doi-10.3390-s22166056",
+     "pmc-9147953-reldyn-lipread",
+     "doi-10.1109-taslp.2018.2835719"
+    ]
+   },
+   {
+    "design": "unsupervised_adaptation",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-9734147-unsupecog",
+     "arxiv-2310.05058",
+     "arxiv-2507.02800",
+     "arxiv-2603.18299",
+     "isca-dash19_interspeech"
+    ]
+   },
+   {
+    "design": "test_time_adaptation",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2509.24700",
+     "arxiv-2507.02800",
+     "arxiv-2603.18299"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error|phoneme error|PER",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "werAVmpeJ",
+   "value": 0.7,
+   "unit": null,
+   "raw": "MPE J AV WER matched %",
+   "pid": "isca-huang09b_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "avWER_fMLLR",
+   "value": 0.9,
+   "unit": "percent",
+   "raw": "0.9",
+   "pid": "isca-huang05e_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "at2 pt 3min s2",
+   "value": 2.14,
+   "unit": "percent",
+   "raw": "2.14",
+   "pid": "arxiv-2310.05058",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "FJ fixed-Jacobian; POIC fastest inverse-compositional person-dependent; SIC simultaneous shape+texture",
+   "value": 3,
+   "unit": "count",
+   "raw": "AAM fitting families: FJ / POIC / SIC (+compositional)",
+   "pid": "isca-gocke08_avsp",
+   "year": 2008,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T4 WER a dep TaL1",
+   "value": 3.42,
+   "unit": "%",
+   "raw": "3.42",
+   "pid": "arxiv-2011.09804",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Voicing Silent Speech closed-vocabulary WER",
+   "value": 3.6,
+   "unit": "percent",
+   "raw": "WER of 3.6%",
+   "pid": "doi-10.3390-s21041399",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T1 WER TmT+Llama8B (N=1)",
+   "value": 5.68,
+   "unit": "percent",
+   "raw": "5.68",
+   "pid": "arxiv-2507.02800",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "variance explained by PC3",
+   "value": 6.2,
+   "unit": "percent",
+   "raw": "6.2",
+   "pid": "arxiv-2605.23416",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "audio-only WER (GMM-HMM SAT)",
+   "value": 9.1,
+   "unit": "%WER",
+   "raw": "audio-only GMM-HMM best 9.1% WER (SAT)",
+   "pid": "doi-10.1186-s13636-024-00345-7",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "participant count",
+   "value": 10,
+   "unit": "persons",
+   "raw": "Ten monolingual females",
+   "pid": "doi-10.1044-1092-4388-2013-12-0030",
+   "year": 2013,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2011.07557",
+   "key": "t:learnaneffectivelipreadingmodelwithoutpains",
+   "title": "Learn an Effective Lip Reading Model without Pains",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "words/phrases >2000 speakers | modalities=optical_camera | Acquisition.sensor_geometry={'electrodes': 'dlib landmarks + Procrustes affine alignment -> 96x96 resize -> random crop 88x88 grayscale lip ROI; LRW-1000 uses 40 frames w/ word centred', 'coo"
+  },
+  {
+   "pid": "arxiv-2011.09804",
+   "key": "t:talasynchronisedmultispeakercorpusofultrasoundtongueimagingaudioandlipvideos",
+   "title": "TaL: a synchronised multi-speaker corpus of ultrasound tongue imaging, audio, and lip videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "CC13+d/d2 audio; 2D-DCT 12x12=144 coef per UTI/lip frame | technical_essence=Kaldi flat-start mono/tri + LDA/MLLT + SAT-fMLLR + TDNN, bigram LM | technical_essence=3DCNN encoder (512-d) per modality; concat for T+L | technical_essence=2-layer BL"
+  },
+  {
+   "pid": "arxiv-2103.00333",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus modal multi-speaker speech recognition from ultrasound and video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dy.research_objective=Multi-speaker + speaker-dependent UTI/lip-video ASR (Kaldi TDNN on 128-d bottleneck feats, raw vs fMLLR) trained on modal speech, tested on modal/silent/whispered TaL; analysis of duration/articulatory-space differences. |"
+  },
+  {
+   "pid": "arxiv-2310.05058",
+   "key": "t:learningseparablehiddenunitcontributionsforspeakeradaptivelipreading",
+   "title": "Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ive=Speaker-adaptive VSR: separable hidden-unit enhance/suppress weights w/ triplet losses on LRW-ID/GRID/CAS-VSR-S68; +unsupervised adaptation 0-5min; 90.45% acc / 3.59 WER w/ 5min. | task_family=sentence_recognition | extra.Task.scope=Speaker-adaptive VSR Acc/W"
+  },
+  {
+   "pid": "arxiv-2507.02800",
+   "key": "t:timemaskedtransformerswithlightweighttesttimeadaptationforneuralspeechdecoding",
+   "title": "Time-Masked Transformers with Lightweight Test-Time Adaptation for Neural Speech Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2507.02800 | title=Time-Masked Transformers with Lightweight Test-Time Adaptation for Neural Speech Decoding | venue=arXiv 2025; v2 | Study.research_objective=Causal time-masked Transformer for B2T24 s"
+  },
+  {
+   "pid": "arxiv-2509-26301-neurottt",
+   "key": "t:neurotttbridgingthegapfrompretrainingtodownstreamtasksforeegfoundationmodels",
+   "title": "NeuroTTT: bridging the gap from pretraining to downstream tasks for EEG foundation models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "20-III imagined speech; MentalArithmetic stress; BCIC-IV-2a MI | Claim.claim_scope=Domain-specific SSL fine-tuning plus test-time adaptation brings large EEG models to state-of-the-art on imagined-speech, stress and MI tasks under distribution shift | Claim.cl"
+  },
+  {
+   "pid": "arxiv-2509.24700",
+   "key": "t:arobustmultiscaleframeworkwithtesttimeadaptationforseegbasedspeechdecoding",
+   "title": "A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2509.24700v1 | title=A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decoding | authors=Suli Wang, Yang-yang Li, Siqi Cai, Haizhou Li | venue=arXiv preprint (eess.AS)"
+  },
+  {
+   "pid": "arxiv-2603.17543",
+   "key": "t:auroramodelofformanttotongueinversionfordidacticandclinicalapplications",
+   "title": "AURORA Model of Formant-to-Tongue Inversion for Didactic and Clinical Applications",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "knot1 (epiglottic vallecula) and knot11 (tongue tip) in mm on centered coordinates + PC1/PC2 from tangent-space PCA of Procrustes-aligned tongue contours (R shapes package). | Representation.feature_dimensions={'knot_position_dims': 4, 'pc_dims': 2,"
+  },
+  {
+   "pid": "arxiv-2603.18299",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nment and temporal stretch augmentation improve cross-session intracortical speech decoding, with optional pseudo-label test-time adaptation. | Study.unit_of_analysis=Sentence-level attempted-speech trials nested within recording sessions for two participants"
+  },
+  {
+   "pid": "arxiv-2605.23416",
+   "key": "t:articulatorystrategyasasourceofvariationinacousticvoweldynamics",
+   "title": "Articulatory strategy as a source of variation in acoustic vowel dynamics",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lish dictionary; manual correction to mitigate variety mismatch. | Representation.transformation_definition=Generalised Procrustes Analysis (translation/rotation/scaling, normalises tongue size and probe placement/rotation/movement) then tangent-spac"
+  },
+  {
+   "pid": "doi-10.1044-1092-4388-2013-12-0030",
+   "key": "p:doi-10.1044-1092-4388-2013-12-0030",
+   "title": null,
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "bles descriptive vowel/acoustic spaces; consonants cluster by place of articulation; manner not represented | vowel acc Procrustes, 10 talkers | vowel acc SVM RBF | consonant acc Procrustes | consonant acc SVM | Procrustes vs SVM accuracy tests | MDS"
+  },
+  {
+   "pid": "doi-10.1109-slt48900.2021.9383619",
+   "key": "t:talasynchronisedmultispeakercorpusofultrasoundtongueimagingaudioandlipvideos",
+   "title": "TaL: A Synchronised Multi-Speaker Corpus of Ultrasound Tongue Imaging, Audio, and Lip Videos",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tagging (aud/xaud/spo/sil/whi/cal/swa); per-utterance 5 data types | ProcessingStep.architecture=benchmark: bottleneck/fMLLR features + Kaldi nnet3 TDNN + in-domain bigram LM | ProcessingStep.architecture=articulatory-to-acoustic: 3D-CNN encode"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2758999",
+   "key": "t:speakerindependentsilentspeechrecognitionfromfleshpointarticulatorymovementsusin",
+   "title": "Speaker-Independent Silent Speech Recognition from Flesh-Point Articulatory Movements Using an LSTM Neural Network",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "=tongue, lips | Representation.transformation_definition=pellet trajectories -> normalized features | technical_essence=Procrustes+fMLLR+i-vector speaker norm | technical_essence=BLSTM RNN articulatory model | EvaluationProtocol.experimental_design={"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2018.2835719",
+   "key": "t:usingvisualspeechinformationinmaskingmethodsforaudiospeakerseparation",
+   "title": "Using Visual Speech Information in Masking Methods for Audio Speaker Separation",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "bserved_quantities=shape, air_acoustics | modalities=optical_camera | representation_kind=AAM: 34-vertex lip contour -> Procrustes -> PCA shape+appearance -> 30-d vector @100Hz + derivatives, z-scored | Representation.transformation_definition=AAM fi"
+  },
+  {
+   "pid": "doi-10.1186-s13636-024-00345-7",
+   "key": "p:doi-10.1186-s13636-024-00345-7",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t_criteria': ['MMI', 'MPE', 'sMBR']} | TrainingRun.training_objective=GMM-HMM then DNN-HMM frame-level cross-entropy on fMLLR features; sMBR sequence discriminative fine-tuning | TrainingRun.optimization=DNN: sigmoid/pReLU, lr 0.01..0.00001, mom"
+  },
+  {
+   "pid": "doi-10.1186-s13636-025-00403-8",
+   "key": "t:silentspeechrecognitionusingvisualcascadingfusionoftonguelipmovementsbasedonpret",
+   "title": "Silent speech recognition using visual cascading fusion of tongue-lip movements based on pre-trained and fine-tuned model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t vs utterance count; modality ablation Lips/Tongue/Tongue+Lips; tone error rate on Chinese corpus; baselines: TaL TDNN-fMLLR/MLLT vs end-to-end SSR700 | system_name=cascading tongue+lip fusion + Visual-HuBERT pre-train/fine-tune | system_name=l"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2021-23",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus Modal Multi-Speaker Speech Recognition from Ultrasound and Video",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ent vs modal multi-speaker ASR from tongue ultrasound+lip video; quantify speaking-mode mismatch and its mitigation via fMLLR/unsupervised adaptation | Study.unit_of_analysis=WER on matched silent/modal test sets per speaker | task_family=senten"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2023-1966",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oved, bidirectional interp) / outlier-filtered (>3σ) / lowpass 20Hz | technical_essence=mono→triphone→LDA+MLLT→triphone-fMLLR alignments → DNN 4x1024, input 44 dims ±4 frames, 1832 output states, 5.4M params, mb128, lr .01→.001; bigram LM (SRILM"
+  },
+  {
+   "pid": "doi-10.3390-s21041399",
+   "key": "t:biosignalsensorsanddeeplearningbasedspeechrecognitionareview",
+   "title": "Biosignal Sensors and Deep Learning-Based Speech Recognition: A Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eaker recognition success rate | DNN-HMM only phoneme error rate | DNN-HMM + DCCA phoneme error rate | DNN-HMM + DCCA + fMLLR phoneme error rate | 1985 EMG five-vowel word recognition accuracy | Janke 2010 spectral-mapping word recognition accur"
+  },
+  {
+   "pid": "doi-10.3390-s22166056",
+   "key": "p:doi-10.3390-s22166056",
+   "title": null,
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "a + delta-delta) | ProcessingStep.architecture=3-layer BLSTM 128 nodes, 80-dim mel in/out | ProcessingStep.architecture=Procrustes matching on EMA coordinates; z-score normalization baseline | TrainingRun.optimization=Adam; SD lr 3e-4 / SI lr 1e-5 /"
+  },
+  {
+   "pid": "doi-10.5220-0001549601550162",
+   "key": "t:towardsspeakeradaptivespeechrecognitionbasedonsurfaceelectromyography",
+   "title": "Towards Speaker-Adaptive Speech Recognition Based on Surface Electromyography",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "spoken silent speech recognition from surface EMG | extra.Task.output_kind=recognized word sequences | extra.Task.scope=speaker-adaptive training across 13-speaker corpus | body_sites=face, jaw, lips | observed_quantities=muscle_activity | Acquisition.sensor_geomet"
+  },
+  {
+   "pid": "icassp2011-babani-transformed-nam-sat",
+   "key": "t:acousticmodeltrainingfornonaudiblemurmurrecognitionusingtransformednormalspeechd",
+   "title": "Acoustic Model Training for Non-Audible Murmur Recognition Using Transformed Normal Speech Data",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=increase NAM acoustic-model accuracy in CMLLR-based speaker adaptive training by transforming normal-speech features into NAM features to enlarge effective training data | Study.unit_of_analysis=wo"
+  },
+  {
+   "pid": "isca-abdelaziz17_turboavsr",
+   "key": "t:turbodecodersforaudiovisualcontinuousspeechrecognition",
+   "title": "Turbo Decoders for Audio-visual Continuous Speech Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ion (appearance-based visual features) + audio, TCD-TIMIT AV corpus | representation_kind=Kaldi acoustic features + LDA/fMLLR from GMM/HMM bootstrap; appearance-based visual features; per-state likelihoods b_qs(t) | ProcessingStep.architecture={"
+  },
+  {
+   "pid": "isca-abdelaziz17b_interspeech",
+   "key": "t:ntcdtimitanewdatabaseandbaselinefornoiserobustaudiovisualspeechrecognition",
+   "title": "NTCD-TIMIT: A New Database and Baseline for Noise-Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n_kind=acoustic features + appearance visual features: ROI face/mouth detect -> rotation+morphological normalization -> fMLLR 40-dim speaker-adapted; triphone tied-state alignments (1953 output states); 6x1024 sigmoid DNN + bi-phone LM for lip r"
+  },
+  {
+   "pid": "isca-abdelaziz17b_ntcd",
+   "key": "t:ntcdtimitanewdatabaseandbaselinefornoiserobustaudiovisualspeechrecognition",
+   "title": "NTCD-TIMIT: A New Database and Baseline for Noise-robust Audio-visual Speech Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nd=tracked mouth bounding-box -> affine-corrected ROI -> linear-transformed visual features (dim 40); context window 11 fMLLR frames (5 past+cur+5 future) | ProcessingStep.architecture={'stages': ['TCD-TIMIT video -> visual front-end (track+affi"
+  },
+  {
+   "pid": "isca-abraham16_interspeech",
+   "key": "p:isca-abraham16_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s; LDA-MLLT splices 7 frames to 40d) and Switchboard 33hr Eval2000; AF alone vs MFCC vs AF-append(PCA49->40 + 39-MFCC); fMLLR comparison | EvaluationProtocol.experimental_design=5 AF-extractor variants (DNN/CNN/CNN-DNN/BLSTM-framealign/BLSTM-CTC"
+  },
+  {
+   "pid": "isca-aryal15_interspeech",
+   "key": "t:articulatorybasedconversionofforeignaccentswithdeepneuralnetworks",
+   "title": "Articulatory-based conversion of foreign accents with deep neural networks",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sizer trained for the L2 speaker with L1 articulatory gestures mapped into the L2 articulatory space via per-fleshpoint Procrustes transforms, avoiding the third-speaker morph artifacts of acoustic methods | Study.unit_of_analysis=three listening tes"
+  },
+  {
+   "pid": "isca-beeson23_interspeech",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "14 tongue US + 8 lip video, x,y,conf per frame)→conf<0.1 filter→bidirectional linear interp→Kaldi nnet2 DNN-HMM (raw or fMLLR-adapted features); train voiced, test voiced+silent | task_family=sentence_recognition | task_encoding=natural_utteranc"
+  },
+  {
+   "pid": "isca-cao21_interspeech",
+   "key": "p:isca-cao21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "input 4 sensors x 2 dims x 3 (pos+d+dd) = 24-dim, z-score normalized; text = 48-dim one-hot (39 CMU + sil + 8 extras); Procrustes matching on flesh points | extra.Protocol.evaluation_target=SSR frame accuracy; MCD, BAP dist, F0-RMSE, V/UV err; MOS n"
+  },
+  {
+   "pid": "isca-dash19_interspeech",
+   "key": "t:towardsaspeakerindependentspeechbciusingspeakeradaptation",
+   "title": "Towards a Speaker Independent Speech-BCI Using Speaker Adaptation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t denoise ≤high-gamma → normalized RMS → shallow ANN (256 hidden) 5-phrase classifier + supervised knowledge-transfer / unsupervised domain adaptation | task_family=sentence_recognition | task_encoding=task_evoked_inner | intended_use_cases=speech_restoration, assistive"
+  },
+  {
+   "pid": "isca-gocke08_avsp",
+   "key": "t:acomparativestudyof2dand3dliptrackingmethodsforavasr",
+   "title": "A comparative study of 2D and 3D lip tracking methods for AV ASR",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "orpus subset for ASR evaluation | modalities=optical_camera, microphone | Representation.transformation_definition=AAM: Procrustes-aligned PCA shape+texture model, linear update | Representation.transformation_definition=3D lip surface reconstructed"
+  },
+  {
+   "pid": "isca-huang05e_interspeech",
+   "key": "p:isca-huang05e_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-> 30 -> 41 dims | technical_essence=non-linear Gaussianization (inverse-CDF lookup) of visual features + unsupervised fMLLR using baseline SI transcripts; transforms applied to visual stream only | decoder_route=closed_set_classification | voc"
+  },
+  {
+   "pid": "isca-huang09b_combineddt",
+   "key": "t:combineddiscriminativetrainingformultistreamhmmbasedaudiovisualspeechrecognition",
+   "title": "Combined Discriminative Training for Multi-Stream HMM-based Audio-Visual Speech Recognition",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "onRun.execution_artifacts=joint MPE/fMPE: 22% rel vs separate A/V, 50% rel vs ML on clean; 21%/30% on 7dB babble; prior fMLLR V-only 36%->22%->20% | extra.Output.output_kind=word hypotheses + WER per modality and training regime | Claim.claim_sc"
+  },
+  {
+   "pid": "isca-huang09b_interspeech",
+   "key": "p:isca-huang09b_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "overlap; clean SNR 20dB; noisy test = +speech babble to 7dB; fixed 4 MPE/fMPE iterations; stream weights fixed 0.8/0.7; fMLLR via unsupervised AV transcripts | EvaluationProtocol.statistical_plan=WER per stream and AV on matched/mismatched sets;"
+  },
+  {
+   "pid": "isca-kim17g_dcca",
+   "key": "t:multiviewrepresentationlearningviadeepccaforsilentspeechrecognition",
+   "title": "Multiview Representation Learning via Deep CCA for Silent Speech Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "7 speakers x 132 phrases x2 | representation_kind=articulatory 216-dim (9-frame ctx) & acoustic 351-dim MFCC views; CCA/Procrustes/DCCA-learned cross-view representations | ProcessingStep.architecture={'stages': ['EMA articulatory + MFCC acoustic vie"
+  },
+  {
+   "pid": "isca-kim17g_interspeech",
+   "key": "t:multiviewrepresentationlearningviadeepccaforsilentspeechrecognition",
+   "title": "Multiview Representation Learning via Deep CCA for Silent Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-CCA multiview features learned from acoustic+articulatory views (DNN nonlinear maps, best art-0/acs-3 hidden layers) → Procrustes+fMLLR normalized → Kaldi GMM-HMM / DNN-HMM phone decode (bigram/trigram LM) | task_family=sentence_recognition | task_e"
+  },
+  {
+   "pid": "isca-kim17g_ssr",
+   "key": "t:multiviewrepresentationlearningviadeepccaforsilentspeechrecognition",
+   "title": "Multiview Representation Learning via Deep CCA for Silent Speech Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ic+articulatory views | Study.unit_of_analysis=phoneme error rate on LOSO-7-fold silent-speech recognition; Proc.+DCCA(-fMLLR) features vs CCA/DCCA baselines on GMM-HMM + DNN-HMM | task_encoding=natural_utterance | task_family=sentence_recogniti"
+  },
+  {
+   "pid": "isca-li12c_interspeech",
+   "key": "t:crosslinguisticcomparisonofmandarinandenglishemaarticulatorydata",
+   "title": "Cross Linguistic Comparison of Mandarin and English EMA Articulatory Data",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "i-channel EMA datasets (3 lip coils, 1 jaw, 3 tongue, 3 reference coils) from native English and Mandarin speakers feed Procrustes-based speaker normalization to expose cross-linguistic articulatory distinctions and identify Mandarin-accented English"
+  },
+  {
+   "pid": "isca-ribeiro21_interspeech",
+   "key": "p:isca-ribeiro21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tocol.evaluation_target=WER per test set (modal/silent/whispered) per system (multi-speaker & speaker-dependent, raw vs fMLLR, +/-unsupervised adaptation) | EvaluationProtocol.experimental_design=same sentences across modes; multi-speaker vs TaL"
+  },
+  {
+   "pid": "isca-sari18_avicar",
+   "key": "t:speakeradaptiveaudiovisualfusionfortheopenvocabularysectionofavicar",
+   "title": "Speaker Adaptive Audio-Visual Fusion for the Open-Vocabulary Section of AVICAR",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "irst AVSR baseline on open-vocabulary TIMIT sentences of AVICAR, with speaker-adaptive visual features via audio-guided fMLLR | Study.unit_of_analysis=lattice-rescored WER with visual-unit posteriors vs audio-only; frame accuracy viseme vs CVU t"
+  },
+  {
+   "pid": "isca-schabus12_interspeech",
+   "key": "t:speakeradaptivevisualspeechsynthesisinthehmmframework",
+   "title": "Speaker-adaptive visual speech synthesis in the HMM-framework",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "fer | venue=Proc. Interspeech 2012 | doi=10.21437/Interspeech.2012-291 | Study.research_objective=apply acoustic-domain speaker-adaptive training (avg voice + CMLLR adaptation) to visual HSMM synthesis so target speakers need little data | Study.study_design=contro"
+  },
+  {
+   "pid": "isca-suzuki19_interspeech",
+   "key": "t:knowledgedistillationforthroatmicrophonespeechrecognition",
+   "title": "Knowledge Distillation for Throat Microphone Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "40-dim (±5-frame splice) for teacher; TM (7x40) w/ 6 past frames for LSTM feature mapping; 42-unit bottleneck features; fMLLR in GMM alignments; 25ms/10ms frames | decoder_route=recognition_to_text | technical_essence=knowledge distillation tran"
+  },
+  {
+   "pid": "isca-telaar14_interspeech",
+   "key": "t:biokitrealtimedecoderforbiosignalprocessing",
+   "title": "BioKIT - real-time decoder for biosignal processing",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ess=skin_contact | Representation.feature_dimensions=multi-channel signal -> windowing/spectral/linear transforms (LDA, fMLLR); EMG decoded as 8 parallel phonetic-feature streams (place/manner of articulation) with feature bundling; airwriting ="
+  },
+  {
+   "pid": "isca-thangthai17_interspeech",
+   "key": "t:improvingcomputerlipreadingviadnnsequencediscriminativetrainingtechniques",
+   "title": "Improving Computer Lipreading via DNN Sequence Discriminative Training Techniques",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "resentation_kind=lip-ROI scaled 128x256 -> PCA eigenlip basis (85% variance dims retained) -> frame splicing -> 280-dim FMLLR speaker-adapted vectors | decoder_route=recognition_to_text | technical_essence=sequence-level discriminative criteria"
+  },
+  {
+   "pid": "isca-thangthai17_lipdnn",
+   "key": "t:improvingcomputerlipreadingviadnnsequencediscriminativetrainingtechniques",
+   "title": "Improving computer lipreading via DNN sequence discriminative training techniques",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "or_geometry=TCD-TIMIT: frontal Sony PMW-EX3 video, 59 talkers x 98 TIMIT sentences, ~7h AV speech | representation_kind=FMLLR visual features (280-dim baseline); 1798 SD / 1756 SI senone PDFs; 12-viseme classes compared | ProcessingStep.architec"
+  },
+  {
+   "pid": "isca-thangthai17_lipread",
+   "key": "t:improvingcomputerlipreadingviadnnsequencediscriminativetrainingtechniques",
+   "title": "Improving computer lipreading via DNN sequence discriminative training techniques",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on.sensor_geometry=TCD-TIMIT audio-visual corpus: ~6000 words, 59 speakers, 7h recorded AV speech | representation_kind=FMLLR visual feature sequences X=x1..xT -> DNN posteriors over HMM states | ProcessingStep.architecture={'stages': ['visual f"
+  },
+  {
+   "pid": "isca-thangthai18_interspeech",
+   "key": "t:buildinglargevocabularyspeakerindependentlipreadingsystems",
+   "title": "Building Large-Vocabulary Speaker-Independent Lipreading Systems",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| production_labels=ordinary_voiced_speech | representation_kind=lip-ROI greyscale -> DAE 30-dim code or DCT; LDA/MLLT->FMLLR(25) speaker-adaptive transforms; T-SNE shows raw visual features cluster by speaker (F-ratio 3.56), DNN layers disentan"
+  },
+  {
+   "pid": "isca-vachhani18_interspeech",
+   "key": "p:isca-vachhani18_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "trimmed by energy in PRAAT | Representation.transformation_definition=23-dim MFCC + CMVN; LDA (ctx +/-3 frames) -> 40; fMLLR transform before DNN; DNN input 40x9=360, 2 hidden x512, output 96 senones; 15 epochs; GMM-HMM bootstrap: MLE, 100 seno"
+  },
+  {
+   "pid": "isca-wand14_interspeech",
+   "key": "t:towardsreallifeapplicationofemgbasedspeechrecognitionbyusingunsupervisedadaptati",
+   "title": "Towards Real-life Application of EMG-based Speech Recognition by using Unsupervised Adaptation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Real-life Application of EMG-based Speech Recognition by using Unsupervised Adaptation | system_name=EMG-UKA continuous SSR: 6-ch facial sEMG (Varioport, 600Hz; ch5 discarded → 5 used) → time-domain frame f"
+  },
+  {
+   "pid": "isca-wand18_interspeech",
+   "key": "t:domainadversarialtrainingforsessionindependentemgbasedspeechrecognition",
+   "title": "Domain-Adversarial Training for Session Independent EMG-based Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "0% dropout, GRL session-discriminator head) per BDPF tree → HMM decode, trigram BN LM (ppl 24.24), 108-word test vocab; unsupervised adaptation to target session | task_family=sentence_recognition | task_encoding=natural_utterance | intended_use_cases=private_com"
+  },
+  {
+   "pid": "isca-wang11c_interspeech",
+   "key": "t:quantifyingarticulatorydistinctivenessofvowels",
+   "title": "Quantifying Articulatory Distinctiveness of Vowels",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "objective=quantify time-varying articulatory distinctiveness among vowels from tongue+lip EMA motion paths via extended Procrustes shape analysis + MDS vowel space, toward articulatory-imprecision measures for intelligibility deficits | Study.unit_of"
+  },
+  {
+   "pid": "isca-wang14g_interspeech",
+   "key": "t:acrossspeakerarticulatorynormalizationforspeakerindependentsilentspeechrecogniti",
+   "title": "Across-speaker Articulatory Normalization for Speaker-independent Silent Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "D articulatory SSI (4 coils: TongueTip, TongueBody, UpperLip, LowerLip) → per-phrase shape = 40 discretized landmarks → Procrustes matching normalization (centroid alignment, unit scaling, rotation) → LIBSVM RBF phrase classifier; SSI chain EMA→phras"
+  },
+  {
+   "pid": "isca-wang15g-spkindep",
+   "key": "t:speakerindependentsilentspeechrecognitionwithacrossspeakerarticulatorynormalizat",
+   "title": "Speaker-Independent Silent Speech Recognition with Across-Speaker Articulatory Normalization and Speaker Adaptive Training",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-Independent Silent Speech Recognition with Across-Speaker Articulatory Normalization and Speaker Adaptive Training | venue=Interspeech 2015 | Study.research_objective=speaker-independent SSI with articulatory normalization and adaptiv"
+  },
+  {
+   "pid": "isca-wang15g_interspeech",
+   "key": "t:speakerindependentsilentspeechrecognitionwithacrossspeakerarticulatorynormalizat",
+   "title": "Speaker-Independent Silent Speech Recognition with Across-Speaker Articulatory Normalization and Speaker Adaptive Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-Independent Silent Speech Recognition with Across-Speaker Articulatory Normalization and Speaker Adaptive Training | system_name=Speaker-independent SSR: NDI Wave EMA 4 sensors (TT/TB/UL/LL, 2D midsagittal, 100Hz) → 40-landmark articu"
+  },
+  {
+   "pid": "naist-msc2009-nagai-nam-sat",
+   "key": "t:accuracyimprovementofacousticmodelsfornonaudiblemurmurrecognition",
+   "title": "Accuracy Improvement of Acoustic Models for Non-Audible Murmur Recognition",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "erance (large inter-speaker variance, mean well below prior ~90%); improve per-speaker accuracy and reduce variance via Speaker Adaptive Training (SAT) using pre-stored NAM data of other speakers for the adaptation initial model | Study.unit_of_analysis=word accura"
+  },
+  {
+   "pid": "pmc-9147953-reldyn-lipread",
+   "key": "t:learningtherelativedynamicfeaturesforwordlevellipreading",
+   "title": "Learning the Relative Dynamic Features for Word-Level Lipreading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ulation | modalities=optical_camera | sensor_hardware=video clips from TV programs; faces detected with Dlib landmarks, Procrustes-aligned, lip region center-cropped to 88x88 | observed_quantities=shape, position | intrusiveness=external_noncontact |"
+  },
+  {
+   "pid": "pmc-9734147-unsupecog",
+   "key": "t:unsupervisedadaptationofanecogbasedbraincomputerinterfaceusingneuralcorrelatesof",
+   "title": "Unsupervised adaptation of an ECoG based brain–computer interface using neural correlates of task performance",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Unsupervised adaptation of an ECoG based brain–computer interface using neural correlates of task performance | authors=Rouanne V, Costecalde T"
+  }
+ ],
+ "usual_approach": {
+  "design": "feature-space MLLR with speaker adaptive training (fMLLR/SAT) in an HMM-based recognizer",
+  "n": 27,
+  "tier": "pattern match",
+  "pids": [
+   "doi-10.1186-s13636-025-00403-8",
+   "doi-10.1186-s13636-024-00345-7",
+   "doi-10.3390-s21041399",
+   "isca-sari18_avicar",
+   "doi-10.1109-taslp-2017-2758999"
+  ],
+  "population_unique": 48,
+  "note": "full-text pattern counts over the 48 unique candidate studies: fMLLR/SAT 27, Procrustes 16, unsupervised adaptation or self-training 7, test-time adaptation 3 (a study can match several); slot-filled M03 values (supervision_kind) do not describe the adaptation design"
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-wand14_interspeech",
+   "role": "prior",
+   "loc": "Sec. 6",
+   "quote": "the WER drops from 34.9% to 30.2%"
+  },
+  {
+   "pid": "isca-wang15g_interspeech",
+   "role": "prior",
+   "loc": "Sec. 2.4; Sec. 4",
+   "quote": "HMM (56.3% in monophone model and 47.5% in triphone"
+  },
+  {
+   "pid": "isca-beeson23_interspeech",
+   "role": "sota",
+   "loc": "Table 2; Sec. 5",
+   "quote": "7.55%, while for silent speech it is 15.45%"
+  },
+  {
+   "pid": "arxiv-2103.00333",
+   "role": "target",
+   "loc": "Table 1; Sec. 3.3",
+   "quote": "We adapt all parameters of the model on targets from each test set separately."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 4,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "isca-beeson23_interspeech",
+  "year": 2023,
+  "metric": "silent-speech WER, TaL multi-speaker, trained on voiced, fMLLR on DeepLabCut articulator features",
+  "value": 47.15,
+  "unit": "%",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "used_by": [
+  "silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video"
+ ],
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 48,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "feature-space MLLR with speaker adaptive training (fMLLR/SAT) in an HMM-based recognizer",
+   "n": 27,
+   "tier": "pattern match",
+   "population_unique": 48
+  },
+  "state_of_the_art": {
+   "pid": "isca-beeson23_interspeech",
+   "year": 2023,
+   "metric": "silent-speech WER, TaL multi-speaker, trained on voiced, fMLLR on DeepLabCut articulator features",
+   "value": 47.15,
+   "unit": "%",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 4,
+  "read_prior": [
+   "isca-wand14_interspeech",
+   "isca-wang15g_interspeech"
+  ],
+  "unread": 57,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
+}

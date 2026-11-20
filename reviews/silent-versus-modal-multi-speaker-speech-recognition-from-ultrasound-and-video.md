@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video/](silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video/).**
 
-Speech recognition from ultrasound tongue imaging and lip video on TaL80 and TaL1; adaptation lowers multi-speaker silent WER from 77.79 to 69.84 versus 39.34 for modal speech, showing a large silent-mode gap.
+Standard on both changed components: modal-to-silent loss and fMLLR were known; later work narrows the absolute gap but not the fMLLR ratio, and adaptation gains rest on single runs.
 
 [Read the full review](silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video/) · [All reviews](../README.md)

@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Modal read prompts, all 82 speakers"
+  ],
+  "field": "Overt speech",
+  "n": 7388,
+  "matched": 4015,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Silent speech is never used for training.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Audio force-aligned phone labels for a visual bottleneck"
+  ],
+  "field": "Paired audio",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "standard",
+  "note": "49 phone classes from modal audio alignment.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "SAT with fMLLR; unsupervised adaptation on each test set"
+  ],
+  "field": "fMLLR/SAT",
+  "n": 48,
+  "matched": 27,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "Unsupervised adaptation was prior work [@wand2014towards]; here scored on its own adaptation data.",
+  "sota": "15.45-point silent WER drop from fMLLR, 2023 [@beeson2023silent] [later]"
+ },
+ "M04": {
+  "choice": [
+   "Modal-trained decoder tested on silent and modal, prompt-matched"
+  ],
+  "field": "Overt-trained decoder applied to silent speech",
+  "n": 33,
+  "matched": 23,
+  "matched_tier": "confirmed (7 prior)",
+  "verdict": "standard",
+  "note": "Degradation shown for ultrasound in 2010 [@florescu2010silent].",
+  "sota": "47.15% silent, 26.87% modal WER on TaL, 2023 [@beeson2023silent] [later]"
+ },
+ "M05": {
+  "choice": [
+   "Midsagittal ultrasound about 80 fps plus lip video"
+  ],
+  "field": "Ultrasound imaging",
+  "n": 7388,
+  "matched": 8898,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "TaL corpus hardware.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Phone-supervised CNN bottleneck, Kaldi TDNN"
+  ],
+  "field": "GMM-HMM",
+  "n": 38,
+  "matched": 15,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "DNN-HMM line.",
+  "sota": "6.17% WER, single-speaker SSC, 2019 [@li2019denoising]"
+ },
+ "M07": {
+  "choice": [
+   "In-domain bigram LM on a prompt superset"
+  ],
+  "field": "None recorded",
+  "n": 7388,
+  "matched": 120,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "standard",
+  "note": "Test-prompt inclusion not stated.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Word sequence"
+  ],
+  "field": "Text",
+  "n": 7388,
+  "matched": 3760,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Scored by WER.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "not_applicable",
+  "note": "Offline corpus study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "not_applicable",
+  "note": "Offline corpus study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Prompt text, matched across modes"
+  ],
+  "field": "Prompt or transcript text",
+  "n": 7388,
+  "matched": 239,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "standard",
+  "note": "Same sentences read silently and aloud.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "WER on seen speakers; single runs"
+  ],
+  "field": "WER",
+  "n": 7388,
+  "matched": 8381,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "No speaker held out and no seeds or tests; [@wang2015speaker] held speakers out.",
+  "sota": "–"
+ },
+ "M13": {
+  "choice": [
+   "Offline, laboratory probe"
+  ],
+  "field": "Laboratory setup",
+  "n": 7388,
+  "matched": 6721,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "No deployment claim.",
+  "sota": "–"
+ }
+}
