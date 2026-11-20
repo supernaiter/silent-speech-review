@@ -83,7 +83,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`neural-text-unseen-sentence-test.csv`](neural-text-unseen-sentence-test.csv) (6960 slot-filled, 145 pattern match, usual design in 21, 4 read in full)
 - Inclusion rule: Same population as neural-text-output-unit. The design compared is whether the reported WER is measured on sentences absent from training (sentence-disjoint) or on repeats of training sentences. Boundary: a paper is counted under each protocol its text names; reviews count as pattern matches only.
-- Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
+- Used in: [A cross-species neural foundation model for end-to-end speech decoding](../../reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/), [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
 
 ## silent-emg-voicing-benchmark
 
