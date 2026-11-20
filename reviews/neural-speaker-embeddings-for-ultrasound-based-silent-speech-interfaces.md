@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces/](neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces/).**
 
-Trains x-vector speaker embeddings from ultrasound tongue video, achieving under 1% speaker recognition error on unseen speakers, but adding them to multi-speaker ultrasound-to-speech synthesis gives only marginal gains.
+Standard on embedding conditioning (2.4% relative MSE gain on seen speakers); behind on speaker recognition, which never separates speaker from recording session.
 
 [Read the full review](neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces/) · [All reviews](../README.md)

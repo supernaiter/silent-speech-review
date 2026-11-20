@@ -1,0 +1,897 @@
+{
+ "topic": "speaker-embedding-conditioning",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*modalities=[^|]*(ultrasound_imaging|optical_camera|surface_emg|magnetic_tracking|scalp_eeg|ecog|meg|intracortical|permanent_magnet))(?=.*(x-vector|i-vector|d-vector|GE2E|speaker embedding|speaker encoder|speaker code|subject embedding|speaker[- ]conditioned|speaker conditioning|speaker identity embedding))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that decode speech or text from a non-acoustic speech signal (articulatory imaging, EMA/PMA, EMG, lip or face video, neural recordings) with one model shared across speakers that is conditioned on a per-speaker or per-utterance embedding (x-vector, i-vector, d-vector/GE2E, speaker-encoder output, learned subject embedding). Boundary: acoustic-only systems, audio-visual enhancement or separation with noisy audio at test, speaker embeddings used only as an output-similarity metric, and reviews are excluded (they inflate the pattern match, an upper bound); versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 53,
+  "string_match_unique": 42,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01879",
+     "arxiv-2303.00502",
+     "arxiv-2305.14359",
+     "arxiv-2305.19603",
+     "arxiv-2403.01087"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.01518",
+     "arxiv-2403.01087",
+     "isca-kandala19_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=self_supervised",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2205.02058"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=train nnlms on 15m ami+swbd; bayesian layers mc=1; lm for lf-mmi tdnn asr",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2208.13259"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=l1 reconstruction ~900k steps",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.01087"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=batch 16",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.01087"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=adam b1=0.9 b2=0.98 eps=1e-9",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.01087"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=single 2080 ti",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.01087"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=l1 loss between predicted enhanced waveform and clean target waveform",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.01518"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01879"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "audio_reference_embedding",
+    "n": 20,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2509.25670",
+     "arxiv-2602.01908",
+     "arxiv-2602.11477",
+     "arxiv-2604.15923",
+     "doi-10.21437-interspeech.2026-2081"
+    ]
+   },
+   {
+    "design": "unseen_speaker_test",
+    "n": 16,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2509.25670",
+     "arxiv-2602.01908",
+     "arxiv-2411.19486",
+     "arxiv-2305.14359",
+     "arxiv-2305.19603"
+    ]
+   },
+   {
+    "design": "ivector",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.21437-interspeech.2026-2081",
+     "doi-10.14232-phd.11818",
+     "isca-botelho21_interspeech",
+     "isca-kandala19-vivectors",
+     "doi-10.1109-taslp-2017-2758999"
+    ]
+   },
+   {
+    "design": "xvector",
+    "n": 9,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.21437-interspeech.2026-2081",
+     "doi-10.14232-phd.11818",
+     "arxiv-2207.07036",
+     "doi-10.1609-aaai.v35i16.17693",
+     "isca-botelho21_interspeech"
+    ]
+   },
+   {
+    "design": "signal_derived_embedding",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.11477",
+     "arxiv-2411.19486",
+     "arxiv-2503.05223",
+     "arxiv-2602.01879",
+     "isca-liang25d_interspeech"
+    ]
+   },
+   {
+    "design": "learned_subject_embedding",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2303.00502",
+     "isca-afouras19_lipsconcealed"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error|MSE|MCD|error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "wer parity",
+   "value": 0.225,
+   "unit": "wer",
+   "raw": "LipSody WER (parity)",
+   "pid": "arxiv-2602.01908-lipsody",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T3 MSE dev single",
+   "value": 0.256,
+   "unit": "1",
+   "raw": "0.256",
+   "pid": "arxiv-2106.04552",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CNN+LSTM test MSE",
+   "value": 0.269,
+   "unit": "MSE",
+   "raw": "CNN+LSTM test MSE 0.269",
+   "pid": "doi-10.14232-phd.11818",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CER (Character Error Rate)",
+   "value": 0.9,
+   "unit": "percent",
+   "raw": "0.9",
+   "pid": "arxiv-2602.01879",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER TD AV",
+   "value": 1.2,
+   "unit": null,
+   "raw": "1.2",
+   "pid": "arxiv-2207.07036",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "quantitative LRS2 + L2T-WER",
+   "value": 1.61,
+   "unit": "PESQ",
+   "raw": "LRS2 Ours vs Multi-task L2S 1.36 / SVTS 1.34 / VCA-GAN 1.24",
+   "pid": "arxiv-2403.01087",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t6 oracle clean",
+   "value": 1.7,
+   "unit": "wer",
+   "raw": "1.7",
+   "pid": "arxiv-2208.13259",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 DFN(m.vc) p12",
+   "value": 2.2,
+   "unit": "wer",
+   "raw": "2.2",
+   "pid": "arxiv-2104.09482",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T6 MCD ft-tl",
+   "value": 2.72,
+   "unit": "dB",
+   "raw": "2.72",
+   "pid": "arxiv-2011.09804",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "75spk MCD",
+   "value": 3.03,
+   "unit": "dB",
+   "raw": "75-spk TaLNet MCD (Table 2)",
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "year": 2021,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1907.00818",
+   "key": "t:ultrasoundtongueimagingfordiarizationandalignmentofchildspeechtherapysessions",
+   "title": "Ultrasound tongue imaging for diarization and alignment of child speech therapy sessions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1907.00818 | title=Ultrasound tongue imaging for diarization and alignment of child speech therapy sessio"
+  },
+  {
+   "pid": "arxiv-2005.08209",
+   "key": "t:learningindividualspeakingstylesforaccurateliptospeechsynthesis",
+   "title": "Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2005.08209 | title=Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis | Study.resea"
+  },
+  {
+   "pid": "arxiv-2011.09804",
+   "key": "t:talasynchronisedmultispeakercorpusofultrasoundtongueimagingaudioandlipvideos",
+   "title": "TaL: a synchronised multi-speaker corpus of ultrasound tongue imaging, audio, and lip videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2011.09804 | title=TaL: a synchronised multi-speaker corpus of ultrasound tongue imaging, audio, and lip"
+  },
+  {
+   "pid": "arxiv-2104.09482",
+   "key": "t:fusinginformationstreamsinendtoendaudiovisualspeechrecognition",
+   "title": "Fusing information streams in end-to-end audio-visual speech recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2104.09482 | title=Fusing information streams in end-to-end audio-visual speech recognition | Study.resea"
+  },
+  {
+   "pid": "arxiv-2105.09652-spkdisent",
+   "key": "t:speakerdisentanglementinvideotospeechconversion",
+   "title": "Speaker disentanglement in video-to-speech conversion",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2105.09652-spkdisent | title=Speaker disentanglement in video-to-speech conversion | authors=Oneata Dan,"
+  },
+  {
+   "pid": "arxiv-2106.04552",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2106.04552 | title=Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces | venue=Inters"
+  },
+  {
+   "pid": "arxiv-2202.09081-vcvts",
+   "key": "t:vcvtsmultispeakervideotospeechsynthesisviacrossmodalknowledgetransferfromvoiceco",
+   "title": "VCVTS: Multi-Speaker Video-to-Speech Synthesis via Cross-Modal Knowledge Transfer from Voice Conversion",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2202.09081-vcvts | title=VCVTS: Multi-Speaker Video-to-Speech Synthesis via Cross-Modal Knowledge Transfe"
+  },
+  {
+   "pid": "arxiv-2205.02058",
+   "key": "t:svtsscalablevideotospeechsynthesis",
+   "title": "SVTS: Scalable Video-to-Speech Synthesis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2205.02058 | title=SVTS: Scalable Video-to-Speech Synthesis | authors=Rodrigo Mira, Alexandros Haliassos,"
+  },
+  {
+   "pid": "arxiv-2205.07180",
+   "key": "p:arxiv-2205.07180",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=AV-HuBERT speaker embeddings (Shi/Mohamed/Hsu — TTIC+Meta AI) | Study.study_design=controlled_experiment | S"
+  },
+  {
+   "pid": "arxiv-2207.07036",
+   "key": "t:asingleselfsupervisedmodelformanyspeechmodalitiesenableszeroshotmodalitytransfer",
+   "title": "A Single Self-Supervised Model for Many Speech Modalities Enables Zero-Shot Modality Transfer (u-HuBERT)",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2207.07036 | title=A Single Self-Supervised Model for Many Speech Modalities Enables Zero-Shot Modality T"
+  },
+  {
+   "pid": "arxiv-2208.13259",
+   "key": "t:bayesianneuralnetworklanguagemodelingforspeechrecognition",
+   "title": "Bayesian Neural Network Language Modeling for Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2208.13259 | title=Bayesian Neural Network Language Modeling for Speech Recognition | Study.research_obje"
+  },
+  {
+   "pid": "arxiv-2209.00642",
+   "key": "t:liptospeechsynthesisforarbitraryspeakersinthewild",
+   "title": "Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2209.00642 | title=Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild | authors=Sindhu B Hegde, K"
+  },
+  {
+   "pid": "arxiv-2303.00502",
+   "key": "t:ontheaudiovisualsynchronizationforliptospeechsynthesis",
+   "title": "On the Audio-visual Synchronization for Lip-to-Speech Synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2303.00502 | title=On the Audio-visual Synchronization for Lip-to-Speech Synthesis | authors=Zhe Niu, Bri"
+  },
+  {
+   "pid": "arxiv-2305.14359",
+   "key": "t:zeroshotpersonalizedliptospeechsynthesiswithfaceimagebasedvoicecontrol",
+   "title": "Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2305.14359 | title=Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control | a"
+  },
+  {
+   "pid": "arxiv-2305.19603",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2305.19603 | title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Jeongsoo Choi, Minsu"
+  },
+  {
+   "pid": "arxiv-2308.07787-diffv2s",
+   "key": "t:diffv2sdiffusionbasedvideotospeechsynthesiswithvisionguidedspeakerembedding",
+   "title": "DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2308.07787-diffv2s | title=DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker"
+  },
+  {
+   "pid": "arxiv-2403.01087",
+   "key": "t:towardsaccurateliptospeechsynthesisinthewild",
+   "title": "Towards Accurate Lip-to-Speech Synthesis in-the-Wild",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2403.01087 | title=Towards Accurate Lip-to-Speech Synthesis in-the-Wild | authors=Sindhu Hegde, Rudrabha"
+  },
+  {
+   "pid": "arxiv-2411.19486",
+   "key": "t:v2sflowvideotospeechgenerationwithspeechdecompositionandrectifiedflow",
+   "title": "V2SFlow: Video-to-Speech Generation with Speech Decomposition and Rectified Flow",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411.19486 | title=V2SFlow: Video-to-Speech Generation with Speech Decomposition and Rectified Flow | aut"
+  },
+  {
+   "pid": "arxiv-2501.01518",
+   "key": "t:readingtolistenatthecocktailpartymultimodalspeechseparation",
+   "title": "Reading to Listen at the Cocktail Party: Multi-Modal Speech Separation",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.01518 | title=Reading to Listen at the Cocktail Party: Multi-Modal Speech Separation | authors=Akam"
+  },
+  {
+   "pid": "arxiv-2503.05223",
+   "key": "t:divisedirectvisualinputspeechsynthesispreservingspeakercharacteristicsandintelli",
+   "title": "DiVISe: Direct Visual-Input Speech Synthesis Preserving Speaker Characteristics And Intelligibility",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2503.05223 | title=DiVISe: Direct Visual-Input Speech Synthesis Preserving Speaker Characteristics And In"
+  },
+  {
+   "pid": "arxiv-2503.16956",
+   "key": "t:fromfacestovoiceslearninghierarchicalrepresentationsforhighqualityvideotospeech",
+   "title": "From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2503.16956 | title=From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-"
+  },
+  {
+   "pid": "arxiv-2505.13971",
+   "key": "t:themultimodalinformationbasedspeechprocessingmisp2025challengeaudiovisualdiariza",
+   "title": "The Multimodal Information Based Speech Processing (MISP) 2025 Challenge: Audio-Visual Diarization and Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.13971 | title=The Multimodal Information Based Speech Processing (MISP) 2025 Challenge: Audio-Visual"
+  },
+  {
+   "pid": "arxiv-2509.25670",
+   "key": "t:ltal2slexicaltoneawareliptospeechsynthesisformandarinwithcrosslingualtransferlea",
+   "title": "LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2509.25670 | title=LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Tr"
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01879 | arxiv_id=2602.01879v1 | source_url=https://arxiv.org/pdf/2602.01879v1 | title=Speaking Witho"
+  },
+  {
+   "pid": "arxiv-2602.01908",
+   "key": "t:lipsodyliptospeechsynthesiswithenhancedprosodyconsistency",
+   "title": "LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2602.01908 | title=LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency | authors=Jaejun Le"
+  },
+  {
+   "pid": "arxiv-2602.01908-lipsody",
+   "key": "t:lipsodyliptospeechsynthesiswithenhancedprosodyconsistency",
+   "title": "LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01908-lipsody | title=LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency | authors=J"
+  },
+  {
+   "pid": "arxiv-2602.11477",
+   "key": "t:sldl2shierarchicalsubspacelatentdiffusionforhighfidelityliptospeechsynthesis",
+   "title": "SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2602.11477 | title=SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthe"
+  },
+  {
+   "pid": "arxiv-2602.11477-sldl2s",
+   "key": "t:sldl2shierarchicalsubspacelatentdiffusionforhighfidelityliptospeechsynthesis",
+   "title": "SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.11477-sldl2s | title=SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech"
+  },
+  {
+   "pid": "arxiv-2604.15923",
+   "key": "t:hierarchicalcodecdiffusionforvideotospeechgeneration",
+   "title": "Hierarchical Codec Diffusion for Video-to-Speech Generation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2604.15923 | title=Hierarchical Codec Diffusion for Video-to-Speech Generation | authors=Jiaxin Ye, Gaoxi"
+  },
+  {
+   "pid": "cvf-kim25-facesvoices",
+   "key": "t:fromfacestovoiceslearninghierarchicalrepresentationsforhighqualityvideotospeech",
+   "title": "From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-kim25-facesvoices | title=From Faces to Voices: Learning Hierarchical Representations for High-quality Vide"
+  },
+  {
+   "pid": "cvf-niu23-slts",
+   "key": "t:ontheaudiovisualsynchronizationforliptospeechsynthesis",
+   "title": "On the Audio-visual Synchronization for Lip-to-Speech Synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-niu23-slts | title=On the Audio-visual Synchronization for Lip-to-Speech Synthesis | authors=Zhe Niu, Brian"
+  },
+  {
+   "pid": "cvf23-choi_diffv2s",
+   "key": "t:diffv2sdiffusionbasedvideotospeechsynthesiswithvisionguidedspeakerembedding",
+   "title": "DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf23-choi_diffv2s | title=DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedd"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2758999",
+   "key": "t:speakerindependentsilentspeechrecognitionfromfleshpointarticulatorymovementsusin",
+   "title": "Speaker-Independent Silent Speech Recognition from Flesh-Point Articulatory Movements Using an LSTM Neural Network",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-Independent Silent Speech Recognition from Flesh-Point Articulatory Movements Using an LSTM Neural Network"
+  },
+  {
+   "pid": "doi-10.14232-phd.11818",
+   "key": "p:doi-10.14232-phd.11818",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=University of Szeged, Doctoral School of Computer Science | needs_manual_check=thesis aggregates six previously pu"
+  },
+  {
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "key": "p:doi-10.1609-aaai.v35i16.17693",
+   "title": null,
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=AAAI 2021 (v35i16) | needs_manual_check=Table 2 per-speaker-count grid partially captured (1/9/25/75 spk rows), MU"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2021-1466",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces | intended_use_cases=speech_restoration |"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2026-2081",
+   "key": "t:adaptiveavsrintegratingspeakerandenvironmentalembeddingsforrobustaudiovisualspee",
+   "title": "Adaptive AVSR: Integrating Speaker and Environmental Embeddings for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21437-interspeech.2026-2081 | title=Adaptive AVSR: Integrating Speaker and Environmental Embeddings for"
+  },
+  {
+   "pid": "isca-afouras19_lipsconcealed",
+   "key": "t:mylipsareconcealedaudiovisualspeechenhancementthroughobstructions",
+   "title": "My Lips Are Concealed: Audio-Visual Speech Enhancement Through Obstructions",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-afouras19_lipsconcealed | title=My Lips Are Concealed: Audio-Visual Speech Enhancement Through Obstruction"
+  },
+  {
+   "pid": "isca-botelho21_interspeech",
+   "key": "t:visualspeechforobstructivesleepapneadetection",
+   "title": "Visual Speech for Obstructive Sleep Apnea Detection",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-botelho21_interspeech | title=Visual Speech for Obstructive Sleep Apnea Detection | authors=Catarina Botel"
+  },
+  {
+   "pid": "isca-gabbay18_interspeech",
+   "key": "p:isca-gabbay18_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2018 | task_family=intermediate_signal_processing | vocabulary_regime=open_vocabulary | scope_limits=s"
+  },
+  {
+   "pid": "isca-geng25b_interspeech",
+   "key": "t:eegbasedvoiceconversionhearingthevoiceofyourbrain",
+   "title": "EEG-based Voice Conversion: Hearing the Voice of Your Brain",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-based Voice Conversion: Hearing the Voice of Your Brain | venue=Proc. Interspeech 2025 | intended_use_cases=sp"
+  },
+  {
+   "pid": "isca-gogate25_interspeech",
+   "key": "t:towardspersonalisedaudiovisualspeechenhancement",
+   "title": "Towards Personalised Audio Visual Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Personalised Audio Visual Speech Enhancement | venue=Proc. Interspeech 2025 | intended_use_cases=noisy_env"
+  },
+  {
+   "pid": "isca-kandala19-vivectors",
+   "key": "t:speakeradaptationforlipreadingusingvisualidentityvectors",
+   "title": "Speaker Adaptation for Lip-reading Using Visual Identity Vectors",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker Adaptation for Lip-reading Using Visual Identity Vectors | authors=Kandala, Oba, Haeb-Umbach | venue=Inter"
+  },
+  {
+   "pid": "isca-kandala19_interspeech",
+   "key": "t:speakeradaptationforlipreadingusingvisualidentityvectors",
+   "title": "Speaker Adaptation for Lip-reading Using Visual Identity Vectors",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker Adaptation for Lip-reading Using Visual Identity Vectors | system_name=lip-reading speaker adaptation via"
+  },
+  {
+   "pid": "isca-li13d_interspeech",
+   "key": "t:speakerverificationbasedonfusionofacousticandarticulatoryinformation",
+   "title": "Speaker verification based on fusion of acoustic and articulatory information",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/li13d-interspeech | title=Speaker verification based on fusion of acoustic and articulatory information |"
+  },
+  {
+   "pid": "isca-liang25d_interspeech",
+   "key": "t:lightl2sultralowcomplexityliptospeechsynthesisformultispeakerscenarios",
+   "title": "LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scenarios",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-liang25d_interspeech | title=LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scen"
+  },
+  {
+   "pid": "isca-ming13_avsp",
+   "key": "t:gmmmappingofcsvisualfeaturesfromspeechspectralfeatures",
+   "title": "GMM mapping of CS visual features from speech spectral features",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=GMM mapping of CS visual features from speech spectral features | authors=Z. Ming; D. Beautemps; G. Feng | venue=P"
+  },
+  {
+   "pid": "isca-ribeiro19_usdiarize",
+   "key": "t:ultrasoundtongueimagingfordiarizationandalignmentofchildspeechtherapysessions",
+   "title": "Ultrasound Tongue Imaging for Diarization and Alignment of Child Speech Therapy Sessions",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ribeiro19_usdiarize | title=Ultrasound Tongue Imaging for Diarization and Alignment of Child Speech Therap"
+  },
+  {
+   "pid": "isca-scheck25_interspeech",
+   "key": "t:diffmvetsdiffusionbasedmultivoiceelectromyographytospeechconversionusingspeakeri",
+   "title": "DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Training Targets",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Tra"
+  },
+  {
+   "pid": "isca-shandiz21-usspeaker",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces | authors=Shandiz, Toth, Csapo | venue=Int"
+  },
+  {
+   "pid": "isca-shandiz21_interspeech",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-Based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural Speaker Embeddings for Ultrasound-Based Silent Speech Interfaces | system_name=US-tongue x-vector: 3D-frame"
+  },
+  {
+   "pid": "isca-simic26_interspeech",
+   "key": "t:adaptiveavsrintegratingspeakerandenvironmentalembeddingsforrobustaudiovisualspee",
+   "title": "Adaptive AVSR: Integrating Speaker and Environmental Embeddings for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-simic26_interspeech | title=Adaptive AVSR: Integrating Speaker and Environmental Embeddings for Robust Aud"
+  },
+  {
+   "pid": "isca-theobald07_avsp",
+   "key": "t:arealtimespeechdriventalkingheadusingactiveappearancemodels",
+   "title": "A real-time speech-driven talking head using active appearance models",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A real-time speech-driven talking head using active appearance models | authors=Barry-John Theobald; Nicholas Wilk"
+  }
+ ],
+ "usual_approach": {
+  "design": "speaker embedding computed from reference audio (x-vector, speaker encoder or GE2E on speech) and fed to a shared decoder",
+  "n": 20,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2509.25670",
+   "arxiv-2602.01908",
+   "arxiv-2602.11477",
+   "arxiv-2604.15923",
+   "doi-10.21437-interspeech.2026-2081"
+  ],
+  "population_unique": 42,
+  "note": "full-text pattern counts over the 42 unique candidate studies: audio_reference_embedding 20, unseen_speaker_test 16, ivector 12, xvector 9, signal_derived_embedding 8, learned_subject_embedding 2 (a study can match several)"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2106.04552",
+   "role": "target",
+   "loc": "Sec. 1; Sec. 5.3; Table 3",
+   "quote": "they extracted the x-vectors from the acoustic data and not from the ultrasound"
+  },
+  {
+   "pid": "arxiv-2011.09804",
+   "role": "prior",
+   "loc": "Sec. 3.2",
+   "quote": "we additionally use a speaker representation in the form of x-vectors [50], extracted with the Kaldi toolkit"
+  },
+  {
+   "pid": "isca-kandala19_interspeech",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "obtained by factor analysis on visual features"
+  },
+  {
+   "pid": "arxiv-2411.19486",
+   "role": "sota",
+   "loc": "Table I; Table III",
+   "quote": "V2SFlow-V 3.780 28.5 0.664 0.251 8.09"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2411.19486",
+  "year": 2025,
+  "metric": "speaker-embedding cosine similarity (SECS), LRS3 unseen-speaker split, speaker embedding predicted from the silent video (0.587 without it); WER 28.5% vs 28.7% without it",
+  "value": 0.664,
+  "unit": "SECS",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "deciding_priors_note": "Deciding priors: TaL (acoustic x-vector conditioning of an ultrasound-to-speech model, 2020-11) and Kandala et al. (speaker vectors estimated from the visual articulatory signal itself, 2019-09). Kandala et al. records the same design (signal-derived speaker vector as auxiliary decoder input), so no ahead verdict.",
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 42,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "speaker embedding computed from reference audio (x-vector, speaker encoder or GE2E on speech) and fed to a shared decoder",
+   "n": 20,
+   "tier": "pattern match",
+   "population_unique": 42
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2411.19486",
+   "year": 2025,
+   "metric": "speaker-embedding cosine similarity (SECS), LRS3 unseen-speaker split, speaker embedding predicted from the silent video (0.587 without it); WER 28.5% vs 28.7% without it",
+   "value": 0.664,
+   "unit": "SECS",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2011.09804",
+   "isca-kandala19_interspeech"
+  ],
+  "unread": 53,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces"
+ ]
+}

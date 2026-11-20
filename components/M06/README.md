@@ -132,6 +132,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Neural or articulatory speech decoders that emit phoneme (or character) probabilities with a recurrent or CTC-trained network and convert them to words with an n-gram or neural language model. Included: sEMG, EEG, ECoG and intracortical; online or offline. Excluded: closed-set word classifiers and direct audio synthesis.
 - Used in: [A cross-species neural foundation model for end-to-end speech decoding](../../reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/), [A high-performance neuroprosthesis for speech decoding and avatar control](../../reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/), [A high-performance speech neuroprosthesis](../../reviews/a-high-performance-speech-neuroprosthesis/), [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
 
+## speaker-recognition-from-articulation
+
+- Table: [`speaker-recognition-from-articulation.csv`](speaker-recognition-from-articulation.csv) (7345 slot-filled, 58 pattern match, usual design in 34, 5 read in full)
+- Inclusion rule: Studies that identify or verify the speaker (or subject) from a non-acoustic speech signal: lip or face motion video during speech, ultrasound, EMA, EMG, non-audible murmur or throat contact microphones, or EEG during speech tasks. Boundary: static face recognition without speech, acoustic-only speaker recognition, and identification used only as an auxiliary loss or nuisance factor are excluded; audio-visual fusion counts when the non-acoustic stream is scored on its own; versions count once.
+- Used in: [Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces](../../reviews/neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces/)
+
 ## ultrasound-tongue-image-features
 
 - Table: [`ultrasound-tongue-image-features.csv`](ultrasound-tongue-image-features.csv) (7345 slot-filled, 39 pattern match, usual design in 32, 3 read in full)
