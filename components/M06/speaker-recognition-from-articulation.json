@@ -1,0 +1,983 @@
+{
+ "topic": "speaker-recognition-from-articulation",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*modalities=[^|]*(ultrasound_imaging|optical_camera|surface_emg|magnetic_tracking|scalp_eeg|contact_microphone|vibration_sensor|ecog|permanent_magnet))(?=.*((speaker|subject|person|user)s? (identification|verification|recognition|authentication)|biometric))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that identify or verify the speaker (or subject) from a non-acoustic speech signal: lip or face motion video during speech, ultrasound, EMA, EMG, non-audible murmur or throat contact microphones, or EEG during speech tasks. Boundary: static face recognition without speech, acoustic-only speaker recognition, and identification used only as an auxiliary loss or nuisance factor are excluded; audio-visual fusion counts when the non-acoustic stream is scored on its own; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 60,
+  "string_match_unique": 58,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 24,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.01518",
+     "isca-yin24-aflnet",
+     "pmc-11143305-recurrenceplot",
+     "doi-10.3390-s23125575",
+     "isca-ribeiro21-silentus"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 20,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.01518",
+     "arxiv-2207.07036",
+     "arxiv-2010.06363",
+     "isca-chetty09_avsp",
+     "isca-cohn08_avsp"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 19,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-yin24-aflnet",
+     "pmc-11143305-recurrenceplot",
+     "arxiv-2010.06363",
+     "isca-ribeiro21-silentus",
+     "doi-10.1016-j.dib.2018.10.043"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.04495",
+     "arxiv-2010.06363",
+     "doi-10.1016-j.dib.2018.10.043",
+     "isca-wang08_avsp",
+     "isca-garnier06_interspeech"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=select",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-arsikere14_interspeech",
+     "isca-chaloupka10_avsp",
+     "naist-msc2010-hatano-nam-learning",
+     "isca-chetty07_avsp",
+     "arxiv-2004.14326"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=postprocess",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.04495",
+     "isca-davis15_avsp",
+     "isca-dean05_avsp",
+     "isca-wark98_icslp",
+     "arxiv-2205.14295"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=rescore",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s23125575",
+     "isca-li13d_interspeech",
+     "isca-dean08_avsp",
+     "arxiv-2303.01758"
+    ]
+   },
+   {
+    "design": "model_family=svm",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "naist-msc2008-okamoto-nam-verification",
+     "isca-okamoto07_interspeech",
+     "naist-msc2007-kojima-nam-verification",
+     "asa2006-kojima-nam-speaker-verification"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2207.07036",
+     "isca-cohn08_avsp",
+     "arxiv-2303.01758"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=authorize",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-chetty09_avsp",
+     "isca-wang08_avsp",
+     "arxiv-2305.00552"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "verification_eer",
+    "n": 34,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2506.04495",
+     "pmc-11143305-recurrenceplot",
+     "doi-10.3390-s23125575",
+     "arxiv-2207.07036",
+     "arxiv-2010.06363"
+    ]
+   },
+   {
+    "design": "closed_set_identification",
+    "n": 21,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2506.04495",
+     "ib24-liprtve-ext",
+     "isca-yin24-aflnet",
+     "pmc-11143305-recurrenceplot",
+     "doi-10.3390-s23125575"
+    ]
+   },
+   {
+    "design": "cross_session_test",
+    "n": 15,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-11143305-recurrenceplot",
+     "doi-10.3390-s21041399",
+     "isca-ribeiro21-silentus",
+     "isca-davis15_avsp",
+     "isca-li13d_interspeech"
+    ]
+   },
+   {
+    "design": "unseen_speaker_test",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2010.06363",
+     "isca-dean05_avsp",
+     "arxiv-2005.07074",
+     "arxiv-2106.04552",
+     "arxiv-2205.14295"
+    ]
+   }
+  ],
+  "metric_pattern": "EER|equal error|identification|verification|speaker recognition|error rate",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "145ms segment EER",
+   "value": 0.0,
+   "unit": "percentage",
+   "raw": "male EER at 145ms segments",
+   "pid": "naist-msc2007-kojima-nam-verification",
+   "year": 2007,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t3 mir eer",
+   "value": 0.021,
+   "unit": null,
+   "raw": "0.021",
+   "pid": "arxiv-2305.00552",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "male EER",
+   "value": 0.04,
+   "unit": "percentage",
+   "raw": "equal error rate, male speakers, 145-ms NAM segments",
+   "pid": "asa2006-kojima-nam-speaker-verification",
+   "year": 2006,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "eerFemaleGA85",
+   "value": 0.4,
+   "unit": null,
+   "raw": "GA+PLRM female 85ms EER",
+   "pid": "isca-okamoto08_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "female EER 85ms",
+   "value": 0.4,
+   "unit": "percentage",
+   "raw": "female EER at 85ms segments, GA kernel + PLRM",
+   "pid": "naist-msc2008-okamoto-nam-verification",
+   "year": 2008,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 face433",
+   "value": 0.76,
+   "unit": "eer",
+   "raw": "0.76",
+   "pid": "arxiv-2205.14295",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "0.8",
+   "value": 0.8,
+   "unit": "% EER",
+   "raw": "photo-spoof liveness EER; 2.7% video attack",
+   "pid": "isca-aides16_avsync",
+   "year": 2016,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "fusionEER",
+   "value": 1.67,
+   "unit": null,
+   "raw": "headline: score-level AM+TM fusion improves EER from 6.67% to 1.67% in mismatched conditions; minDCF improves correspondingly",
+   "pid": "isca-sahidullah16b_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "hybrid fusion (CFA correlated + RWS late fusion of independent MFCC/eigen-lip) achieves EER <2% on VidTIMIT + UCBN",
+   "value": 2,
+   "unit": "percent",
+   "raw": "EER ceiling with correlated-component hybrid fusion",
+   "pid": "isca-chetty07_avsp",
+   "year": 2007,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "DET curves + EER on public AV speech databases",
+   "value": 2,
+   "unit": "count",
+   "raw": "dependency models: linear CCA vs kernel CCA",
+   "pid": "isca-chetty09_avsp",
+   "year": 2009,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2004.14326",
+   "key": "t:seeingvoicesandhearingvoiceslearningdiscriminativeembeddingsusingcrossmodalselfs",
+   "title": "Seeing voices and hearing voices: learning discriminative embeddings using cross-modal self-supervision",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2004.14326 | title=Seeing voices and hearing voices: learning discriminative embeddings using cross-modal"
+  },
+  {
+   "pid": "arxiv-2005.07074",
+   "key": "p:arxiv-2005.07074",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=target-speaker separation conditioned on a single st"
+  },
+  {
+   "pid": "arxiv-2010.06363",
+   "key": "t:threedimensionallipmotionnetworkfortextindependentspeakerrecognition",
+   "title": "Three-Dimensional Lip Motion Network for Text-Independent Speaker Recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2010.06363 | title=Three-Dimensional Lip Motion Network for Text-Independent Speaker Recognition | author"
+  },
+  {
+   "pid": "arxiv-2106.04552",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2106.04552 | title=Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces | venue=Inters"
+  },
+  {
+   "pid": "arxiv-2205.14295",
+   "key": "t:islipregionofinterestsufficientforlipreading",
+   "title": "Is Lip Region-of-Interest Sufficient for Lipreading?",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2205.14295 | title=Is Lip Region-of-Interest Sufficient for Lipreading? | Study.research_objective=replac"
+  },
+  {
+   "pid": "arxiv-2207.07036",
+   "key": "t:asingleselfsupervisedmodelformanyspeechmodalitiesenableszeroshotmodalitytransfer",
+   "title": "A Single Self-Supervised Model for Many Speech Modalities Enables Zero-Shot Modality Transfer (u-HuBERT)",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2207.07036 | title=A Single Self-Supervised Model for Many Speech Modalities Enables Zero-Shot Modality T"
+  },
+  {
+   "pid": "arxiv-2303.01758",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.01758 | title=SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Net"
+  },
+  {
+   "pid": "arxiv-2305.00552",
+   "key": "t:deeplearningbasedspatiotemporalfacialfeaturevisualspeechrecognition",
+   "title": "Deep Learning-based Spatio Temporal Facial Feature Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2305.00552 | title=Deep Learning-based Spatio Temporal Facial Feature Visual Speech Recognition | Study.r"
+  },
+  {
+   "pid": "arxiv-2403.16071",
+   "key": "t:landmarkguidedcrossspeakerlipreadingwithmutualinformationregularization",
+   "title": "Landmark-Guided Cross-Speaker Lip Reading with Mutual Information Regularization",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.16071 | title=Landmark-Guided Cross-Speaker Lip Reading with Mutual Information Regularization | aut"
+  },
+  {
+   "pid": "arxiv-2501.01518",
+   "key": "t:readingtolistenatthecocktailpartymultimodalspeechseparation",
+   "title": "Reading to Listen at the Cocktail Party: Multi-Modal Speech Separation",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.01518 | title=Reading to Listen at the Cocktail Party: Multi-Modal Speech Separation | authors=Akam"
+  },
+  {
+   "pid": "arxiv-2506.04495",
+   "key": "t:frenchlisteningtestsfortheassessmentofintelligibilityqualityandidentityofbodycon",
+   "title": "French Listening Tests for the Assessment of Intelligibility, Quality, and Identity of Body-Conducted Speech Enhancement",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2506.04495 | title=French Listening Tests for the Assessment of Intelligibility, Quality, and Identity of"
+  },
+  {
+   "pid": "asa2006-kojima-nam-speaker-verification",
+   "key": "t:studyonnonaudiblemurmurspeakerverificationusingmultiplesessiondata",
+   "title": "Study on nonaudible murmur speaker verification using multiple session data",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=asa2006/kojima-nam-speaker-verification | title=Study on nonaudible murmur speaker verification using multiple"
+  },
+  {
+   "pid": "avsp-schwartz01_selflipread",
+   "key": "t:isiteasiertolipreadonesownspeechgesturesthanthoseofsomebodyelseitseemsnot",
+   "title": "Is it easier to lipread one's own speech gestures than those of somebody else? It seems not!",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:schwartz01_avsp | title=Is it easier to lipread one's own speech gestures than those of somebody else? It"
+  },
+  {
+   "pid": "doi-10.1016-j.dib.2018.10.043",
+   "key": "t:correlatedlipmotionandvoiceaudiodata",
+   "title": "Correlated lip motion and voice audio data",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.dib.2018.10.043 | title=Correlated lip motion and voice audio data | authors=Marco Colasito, Jere"
+  },
+  {
+   "pid": "doi-10.2991-jcis.2008.61",
+   "key": "t:hitavdbiianewmultiviewandextremefeaturecasescontainedaudiovisualdatabaseforbiome",
+   "title": "HIT-AVDB-II: A New Multi-view and Extreme Feature Cases Contained Audio-Visual Database for Biometrics",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.2991-jcis.2008.61 | title=HIT-AVDB-II: A New Multi-view and Extreme Feature Cases Contained Audio-Visual"
+  },
+  {
+   "pid": "doi-10.3390-s21041399",
+   "key": "t:biosignalsensorsanddeeplearningbasedspeechrecognitionareview",
+   "title": "Biosignal Sensors and Deep Learning-Based Speech Recognition: A Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s21041399 | doi=10.3390/s21041399 | title=Biosignal Sensors and Deep Learning-Based Speech Recognit"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s23125575 | doi=10.3390/s23125575 | title=Machine-Learning Methods for Speech and Handwriting Detec"
+  },
+  {
+   "pid": "ib24-liprtve-ext",
+   "key": "t:extendingliprtvetowardsalargescaleaudiovisualdatasetforcontinuousspanishinthewil",
+   "title": "Extending LIP-RTVE: Towards A Large-Scale Audio-Visual Dataset for Continuous Spanish in the Wild",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ib24-liprtve-ext | title=Extending LIP-RTVE: Towards A Large-Scale Audio-Visual Dataset for Continuous Spanish"
+  },
+  {
+   "pid": "isca-aides16_avsync",
+   "key": "t:textdependentaudiovisualsynchronydetectionforspoofingdetectioninmobilepersonreco",
+   "title": "Text-Dependent Audiovisual Synchrony Detection for Spoofing Detection in Mobile Person Recognition",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-aides16_avsync | title=Text-Dependent Audiovisual Synchrony Detection for Spoofing Detection in Mobile Per"
+  },
+  {
+   "pid": "isca-arsikere14_interspeech",
+   "key": "t:speakerrecognitionviafusionofsubglottalfeaturesandmfccs",
+   "title": "Speaker recognition via fusion of subglottal features and MFCCs",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/arsikere14-interspeech | title=Speaker recognition via fusion of subglottal features and MFCCs | authors=H"
+  },
+  {
+   "pid": "isca-burlick13_interspeech",
+   "key": "t:ontheimprovementofmultimodalvoiceactivitydetection",
+   "title": "On the improvement of multimodal voice activity detection",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/burlick13-interspeech | title=On the improvement of multimodal voice activity detection | authors=Matt Bur"
+  },
+  {
+   "pid": "isca-chaloupka06_tvseg",
+   "key": "t:visualspeechsegmentationandspeakerrecognitionfortranscriptionoftvnews",
+   "title": "Visual Speech Segmentation and Speaker Recognition for Transcription of TV News",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-chaloupka06_tvseg | title=Visual Speech Segmentation and Speaker Recognition for Transcription of TV News"
+  },
+  {
+   "pid": "isca-chaloupka10_avsp",
+   "key": "t:audiovisualtelevisionbroadcastprogramsprocessingtranscriptionindexingandsearchin",
+   "title": "Audio-visual television broadcast programs processing, transcription, indexing and searching",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-visual television broadcast programs processing, transcription, indexing and searching | authors=Josef Chalo"
+  },
+  {
+   "pid": "isca-chetty05_liveness",
+   "key": "t:livenessdetectionusingcrossmodalcorrelationsinfacevoicepersonauthentication",
+   "title": "Liveness detection using cross-modal correlations in face-voice person authentication",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-chetty05_liveness | title=Liveness detection using cross-modal correlations in face-voice person authentic"
+  },
+  {
+   "pid": "isca-chetty07_avsp",
+   "key": "t:audiovisualspeakeridentityverificationbasedoncrossmodalfusion",
+   "title": "Audiovisual speaker identity verification based on cross modal fusion",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audiovisual speaker identity verification based on cross modal fusion | authors=Girija Chetty; Michael Wagner | ve"
+  },
+  {
+   "pid": "isca-chetty08-avfusion",
+   "key": "t:audiovisualmultilevelfusionforspeechandspeakerrecognition",
+   "title": "Audio-Visual Multilevel Fusion for Speech and Speaker Recognition",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Multilevel Fusion for Speech and Speaker Recognition | authors=Chetty, Wagner | venue=Interspeech 200"
+  },
+  {
+   "pid": "isca-chetty08_avfusion",
+   "key": "t:audiovisualmultilevelfusionforspeechandspeakerrecognition",
+   "title": "Audio-Visual Multilevel Fusion for Speech and Speaker Recognition",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-chetty08_avfusion | title=Audio-Visual Multilevel Fusion for Speech and Speaker Recognition | authors=Giri"
+  },
+  {
+   "pid": "isca-chetty09_avsp",
+   "key": "t:audiovisualmutualdependencymodelsforbiometriclivenesschecks",
+   "title": "Audio-visual mutual dependency models for biometric liveness checks",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-visual mutual dependency models for biometric liveness checks | authors=Girija Chetty; Roland Göcke; Michael"
+  },
+  {
+   "pid": "isca-cohn08_avsp",
+   "key": "t:facialdynamicsrevealspersonidentityandcommunicativeintentregulatespersonpercepti",
+   "title": "Facial dynamics reveals person identity and communicative intent, regulates person perception and social interaction",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Facial dynamics reveals person identity and communicative intent, regulates person perception and social interacti"
+  },
+  {
+   "pid": "isca-davis15_avsp",
+   "key": "t:thestabilityofmouthmovementsformultipletalkersovermultiplesessions",
+   "title": "The stability of mouth movements for multiple talkers over multiple sessions",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The stability of mouth movements for multiple talkers over multiple sessions | authors=C. Davis; J. Kim; V. Aubane"
+  },
+  {
+   "pid": "isca-dean05_avsp",
+   "key": "t:audiovisualspeakeridentificationusingthecuavedatabase",
+   "title": "Audio-visual speaker identification using the CUAVE database",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-visual speaker identification using the CUAVE database | authors=David Dean, Patrick Lucey, Sridha Sridharan"
+  },
+  {
+   "pid": "isca-dean08_avsp",
+   "key": "t:fusedhmmadaptationofsynchronoushmmsforaudiovisualspeakerverification",
+   "title": "Fused HMM adaptation of synchronous HMMs for audio-visual speaker verification",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Fused HMM adaptation of synchronous HMMs for audio-visual speaker verification | authors=David Dean; Sridha Sridha"
+  },
+  {
+   "pid": "isca-dean08_interspeech",
+   "key": "p:isca-dean08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=evaluate CAB visual speech features for speaker veri"
+  },
+  {
+   "pid": "isca-eveno05_liveness",
+   "key": "t:aspeakerindependentlivenesstestforaudiovisualbiometrics",
+   "title": "A Speaker independent “Liveness” Test for Audio-Visual Biometrics",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-eveno05_liveness | title=A Speaker independent “Liveness” Test for Audio-Visual Biometrics | authors=Nicol"
+  },
+  {
+   "pid": "isca-fecher12-facecover",
+   "key": "t:theaudiovisualfacecovercorpusinvestigationsintoaudiovisualspeechandspeakerrecogn",
+   "title": "The \"Audio-Visual Face Cover Corpus\": Investigations into audio-visual speech and speaker recognition",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The \"Audio-Visual Face Cover Corpus\": Investigations into audio-visual speech and speaker recognition | authors=Fe"
+  },
+  {
+   "pid": "isca-fecher12_interspeech",
+   "key": "t:theaudiovisualfacecovercorpusinvestigationsintoaudiovisualspeechandspeakerrecogn",
+   "title": "The 'Audio-Visual Face Cover Corpus': Investigations into audio-visual speech and speaker recognition when the speaker's face is occluded by facewear",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-fecher12_interspeech | title=The 'Audio-Visual Face Cover Corpus': Investigations into audio-visual speech"
+  },
+  {
+   "pid": "isca-garnier06_interspeech",
+   "key": "t:anacousticandarticulatorystudyoflombardspeechglobaleffectsontheutterance",
+   "title": "An Acoustic and Articulatory Study of Lombard Speech: Global Effects on the Utterance",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/garnier06-interspeech | title=An Acoustic and Articulatory Study of Lombard Speech: Global Effects on the"
+  },
+  {
+   "pid": "isca-hu07_avsp",
+   "key": "t:audiovisualpersonidentificationonthexm2vtsdatabase",
+   "title": "Audio-Visual Person Identification on the XM2VTS Database",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Person Identification on the XM2VTS Database | authors=Roland Hu; R. I. Damper | venue=Proc. AVSP 200"
+  },
+  {
+   "pid": "isca-kim09h_visspeaker",
+   "key": "t:speakerdiscriminabilityforvisualspeechmodes",
+   "title": "Speaker discriminability for visual speech modes",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kim09h_visspeaker | title=Speaker discriminability for visual speech modes | authors=Jeesun Kim, Chris Dav"
+  },
+  {
+   "pid": "isca-kojima06_interspeech",
+   "key": "t:speakerverificationwithnonaudiblemurmursegments",
+   "title": "Speaker Verification with Non-Audible Murmur Segments",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/kojima06-interspeech | title=Speaker Verification with Non-Audible Murmur Segments | authors=Mariko Kojima"
+  },
+  {
+   "pid": "isca-li13d_interspeech",
+   "key": "t:speakerverificationbasedonfusionofacousticandarticulatoryinformation",
+   "title": "Speaker verification based on fusion of acoustic and articulatory information",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/li13d-interspeech | title=Speaker verification based on fusion of acoustic and articulatory information |"
+  },
+  {
+   "pid": "isca-luettin96b_icslp",
+   "key": "t:speakeridentificationbylipreading",
+   "title": "Speaker identification by lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker identification by lipreading | venue=Proc. ICSLP 1996 (Philadelphia) | intended_use_cases=device_control,"
+  },
+  {
+   "pid": "isca-marcheret15_interspeech",
+   "key": "t:detectingaudiovisualsynchronyusingdeepneuralnetworks",
+   "title": "Detecting Audio-Visual Synchrony Using Deep Neural Networks",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/marcheret15-interspeech | title=Detecting Audio-Visual Synchrony Using Deep Neural Networks | authors=E. M"
+  },
+  {
+   "pid": "isca-mclaughlin11_bimodalid",
+   "key": "t:robustbimodalpersonidentificationusingfaceandspeechwithlimitedtrainingdataandcor",
+   "title": "Robust Bimodal Person Identification using Face and Speech with Limited Training Data and Corruption of Both Modalities",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-mclaughlin11_bimodalid | title=Robust Bimodal Person Identification using Face and Speech with Limited Tra"
+  },
+  {
+   "pid": "isca-mori98b_icslp",
+   "key": "t:relationshipbetweenlipshapesandacousticalcharacteristicsduringspeech",
+   "title": "Relationship between lip shapes and acoustical characteristics during speech",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Relationship between lip shapes and acoustical characteristics during speech | authors=Keisuke Mori, Yorinobu Sono"
+  },
+  {
+   "pid": "isca-okamoto07_interspeech",
+   "key": "t:studyonspeakerverificationwithnonaudiblemurmursegments",
+   "title": "Study on Speaker Verification with Non-Audible Murmur Segments",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/okamoto07-interspeech | title=Study on Speaker Verification with Non-Audible Murmur Segments | authors=Hid"
+  },
+  {
+   "pid": "isca-okamoto08_interspeech",
+   "key": "p:isca-okamoto08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=speaker verification from NAM segments via GA kernel"
+  },
+  {
+   "pid": "isca-ribeiro21-silentus",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus modal multi-speaker speech recognition from ultrasound and video",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent versus modal multi-speaker speech recognition from ultrasound and video | authors=Ribeiro, Samy, Shabestari"
+  },
+  {
+   "pid": "isca-rosenblum02_icslp",
+   "key": "t:theperceptualbasisforaudiovisualspeechintegration",
+   "title": "The perceptual basis for audiovisual speech integration",
+   "year": 2002,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:rosenblum02_icslp | title=The perceptual basis for audiovisual speech integration | authors=Lawrence D. Ro"
+  },
+  {
+   "pid": "isca-sahidullah16b_interspeech",
+   "key": "t:robustspeakerrecognitionwithcombineduseofacousticandthroatmicrophonespeech",
+   "title": "Robust Speaker Recognition with Combined Use of Acoustic and Throat Microphone Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Robust Speaker Recognition with Combined Use of Acoustic and Throat Microphone Speech | Study.study_design=system_"
+  },
+  {
+   "pid": "isca-wang08_avsp",
+   "key": "t:staticanddynamiclipfeatureanalysisforspeakerverification",
+   "title": "Static and dynamic lip feature analysis for speaker verification",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Static and dynamic lip feature analysis for speaker verification | authors=S.L. Wang; A.W.C. Liew | venue=Proc. AV"
+  },
+  {
+   "pid": "isca-wark98_icslp",
+   "key": "t:improvingspeakeridentificationperformanceinreverberantconditionsusinglipinformat",
+   "title": "Improving speaker identification performance in reverberant conditions using lip information",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improving speaker identification performance in reverberant conditions using lip information | authors=T. Wark, S."
+  },
+  {
+   "pid": "isca-yegnanarayana04_interspeech",
+   "key": "t:throatmicrophonesignalforspeakerrecognition",
+   "title": "Throat Microphone Signal for Speaker Recognition",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:yegnanarayana04_interspeech | title=Throat Microphone Signal for Speaker Recognition | authors=A. Shahina,"
+  },
+  {
+   "pid": "isca-yin24-aflnet",
+   "key": "t:aflnetintegratingaudiofacialandlipmodalitieswithatwostepcrossattentionforrobusts",
+   "title": "AFL-Net: Integrating Audio, Facial, and Lip Modalities with a Two-step Cross-attention for Robust Speaker Recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=AFL-Net: Integrating Audio, Facial, and Lip Modalities with a Two-step Cross-attention for Robust Speaker Recognit"
+  },
+  {
+   "pid": "isca-zhang07d_interspeech",
+   "key": "t:analysisandclassificationofspeechmodewhisperedthroughshouted",
+   "title": "Analysis and Classification of Speech Mode: Whispered through Shouted",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/zhang07d-interspeech | title=Analysis and Classification of Speech Mode: Whispered through Shouted | autho"
+  },
+  {
+   "pid": "naist-msc2007-kojima-nam-verification",
+   "key": "t:speakerverificationusingnonaudiblemurmur",
+   "title": "Speaker Verification using Non-Audible Murmur",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=naist-msc2007/kojima-nam-verification | title=Speaker Verification using Non-Audible Murmur | authors=Mariko Ko"
+  },
+  {
+   "pid": "naist-msc2008-okamoto-nam-verification",
+   "key": "t:accuracyimprovementofpersonalauthenticationusingnonaudiblemurmur",
+   "title": "Accuracy Improvement of Personal Authentication Using Non-audible Murmur",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=naist-msc2008/okamoto-nam-verification | title=Accuracy Improvement of Personal Authentication Using Non-audibl"
+  },
+  {
+   "pid": "naist-msc2010-hatano-nam-learning",
+   "key": "t:technologiesforsupportingnamutteranceacquisition",
+   "title": "Technologies for Supporting NAM Utterance Acquisition",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=naist-msc2010/hatano-nam-learning | title=Technologies for Supporting NAM Utterance Acquisition | authors=Manab"
+  },
+  {
+   "pid": "pmc-11143305-recurrenceplot",
+   "key": "t:recurrenceplotembeddingsasshortsegmentnonlinearfeaturesformultimodalspeakerident",
+   "title": "Recurrence plot embeddings as short segment nonlinear features for multimodal speaker identification using air, bone and throat microphones",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Recurrence plot embeddings as short segment nonlinear features for multimodal speaker identification using air, bo"
+  },
+  {
+   "pid": "rosenblum-2002-visspeech",
+   "key": "t:visualspeechinformationforfacerecognition",
+   "title": "Visual speech information for face recognition",
+   "year": 2002,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Visual speech information for face recognition | authors=Rosenblum, Yakel, Baseer, Panchal, Nodarse, Niehus | venu"
+  }
+ ],
+ "usual_approach": {
+  "design": "speaker verification from the non-acoustic stream scored by equal error rate",
+  "n": 34,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2506.04495",
+   "pmc-11143305-recurrenceplot",
+   "doi-10.3390-s23125575",
+   "arxiv-2207.07036",
+   "arxiv-2010.06363"
+  ],
+  "population_unique": 58,
+  "note": "full-text pattern counts over the 58 unique candidate studies: verification_eer 34, closed_set_identification 21, cross_session_test 15, unseen_speaker_test 6 (the target among them)"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2106.04552",
+   "role": "target",
+   "loc": "Sec. 5.2; Table 2",
+   "quote": "Table 2: Speaker recognition error rates for the held-out 31"
+  },
+  {
+   "pid": "asa2006-kojima-nam-speaker-verification",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "NAM data uttered by 19 male and 10 female speakers in several different sessions"
+  },
+  {
+   "pid": "isca-davis15_avsp",
+   "role": "prior",
+   "loc": "Sec. 1",
+   "quote": "four talkers saying the same ten sentences in six separate sessions (over a period of two weeks)"
+  },
+  {
+   "pid": "isca-diener20_interspeech",
+   "role": "prior",
+   "loc": "Sec. 4.1",
+   "quote": "We trained each system on all but one session and evaluated on the hold-out session to ensure that results are based on speaker characteristics rather than session"
+  },
+  {
+   "pid": "arxiv-2010.06363",
+   "role": "sota",
+   "loc": "Table III",
+   "quote": "3LMNet+RFM+prior 95.22% 99.10%"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 3,
+  "recall": 0.75,
+  "missed": [
+   "isca-diener20_interspeech"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2010.06363",
+  "year": 2021,
+  "metric": "text-independent closed-set speaker recognition accuracy from 3D lip motion, LSD-AV, 68 speakers",
+  "value": 95.22,
+  "unit": "%",
+  "timing": "prior",
+  "confirmed_in_text": true
+ },
+ "deciding_priors_note": "Deciding priors for the behind verdict (test condition): Kojima et al. 2006 (NAM, several sessions), Davis et al. 2015 (mouth motion, six sessions), Diener et al. 2020 (EMG, held-out session; best comparable, not matched by the ledger pattern). Each separates speaker from session; the target's 1-NN test does not.",
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 58,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "speaker verification from the non-acoustic stream scored by equal error rate",
+   "n": 34,
+   "tier": "pattern match",
+   "population_unique": 58
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2010.06363",
+   "year": 2021,
+   "metric": "text-independent closed-set speaker recognition accuracy from 3D lip motion, LSD-AV, 68 speakers",
+   "value": 95.22,
+   "unit": "%",
+   "timing": "prior",
+   "confirmed_in_text": true
+  },
+  "read": 5,
+  "read_prior": [
+   "asa2006-kojima-nam-speaker-verification",
+   "isca-davis15_avsp",
+   "isca-diener20_interspeech"
+  ],
+  "unread": 60,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.75
+ },
+ "used_by": [
+  "neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces"
+ ]
+}

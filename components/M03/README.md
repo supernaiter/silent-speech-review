@@ -53,6 +53,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that pre-train an encoder on unlabelled non-audio-only input (video, audio-visual, biosignal or neural recordings) with a self-supervised or teacher-generated objective (masked prediction, contrastive, feature regression, cross-modal distillation) before supervised fine-tuning for speech or text decoding. Boundary: exclude audio-only self-supervised ASR; exclude studies that only reuse a released pre-trained checkpoint without training a new objective; count versions of one study once.
 - Used in: [Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction](../../reviews/learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/), [Pretraining Large Brain Language Model for Active BCI: Silent Speech](../../reviews/pretraining-large-brain-language-model-for-active-bci-silent-speech/), [Visual Speech Recognition for Multiple Languages in the Wild](../../reviews/visual-speech-recognition-for-multiple-languages-in-the-wild/)
 
+## speaker-embedding-conditioning
+
+- Table: [`speaker-embedding-conditioning.csv`](speaker-embedding-conditioning.csv) (1526 slot-filled, 42 pattern match, usual design in 20, 4 read in full)
+- Inclusion rule: Studies that decode speech or text from a non-acoustic speech signal (articulatory imaging, EMA/PMA, EMG, lip or face video, neural recordings) with one model shared across speakers that is conditioned on a per-speaker or per-utterance embedding (x-vector, i-vector, d-vector/GE2E, speaker-encoder output, learned subject embedding). Boundary: acoustic-only systems, audio-visual enhancement or separation with noisy audio at test, speaker embeddings used only as an output-similarity metric, and reviews are excluded (they inflate the pattern match, an upper bound); versions count once.
+- Used in: [Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces](../../reviews/neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces/)
+
 ## speech-bci-calibration-data
 
 - Table: [`speech-bci-calibration-data.csv`](speech-bci-calibration-data.csv) (1526 slot-filled, 51 pattern match, usual design in 4, 3 read in full)

@@ -1,94 +1,129 @@
 # Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces
 
-Amin Honarmandi Shandiz, László Tóth, Gábor Gosztolya, Alexandra Markó, Tamás Gábor Csapó  
-arXiv 2021 · [arXiv](https://arxiv.org/abs/2106.04552)
+Shandiz, A. H., Tóth, L., Gosztolya, G., Markó, A., Csapó, T. G. · Interspeech 2021 · 2021 · [doi:10.21437/Interspeech.2021-1466](https://doi.org/10.21437/Interspeech.2021-1466) · [arXiv:2106.04552](https://arxiv.org/abs/2106.04552)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces* (Amin Honarmandi Shandiz et al., arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging)
 
-Trains x-vector speaker embeddings from ultrasound tongue video, achieving under 1% speaker recognition error on unseen speakers, but adding them to multi-speaker ultrasound-to-speech synthesis gives only marginal gains.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Micro ultrasound system, mid-sagittal tongue images at 82 fps |
-| Task | Speaker recognition and ultrasound-to-speech synthesis |
-| Vocabulary | Not applicable |
-| Speaker | Both |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | Under 1% speaker recognition error on unseen speakers; single-speaker synthesis MCD 3.12 |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Multi-speaker synthesis gains are marginal and evaluated speaker-dependently on the same 31 speakers; no robustness to session or probe shifts and no live deployment.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Vocalized TaL80 prompts | Overt speech | 3,882 of 8,995 | ● Standard (Inherited from the TaL corpus.) |
+| M02 Teacher signal | Parallel audio mel targets | Paired audio | 31 of 8,995 | ● Standard (Frame-aligned regression.) |
+| M03 Train / calibrate | Ultrasound x-vector input | Audio-derived embedding | 20 of 8,995 | ● Standard (Signal-derived vectors since 2019 [@kandala2019speaker].) |
+| M04 Use-time act | Vocalized reading | Overt speech | 5,595 of 8,995 | ● Standard (No silent test.) |
+| M05 Sensing | Midsagittal ultrasound, 82 fps | Ultrasound imaging | 7,329 of 8,995 | ● Standard (TaL hardware.) |
+| M06 Decoding | 3D-CNN x-vector, 1-NN cosine | EER verification | 34 of 8,995 | ▼ Behind (Behind on protocol: no session-held-out test, unlike [@diener2020silent].) |
+| M07 Runtime aids | None | None | 119 of 8,995 | – Not applicable (Offline spectral estimation.) |
+| M08 Output | 80-dim mel, WaveGlow | Spectral features | 3,268 of 8,995 | ● Standard (Csapo lineage.) |
+| M09 Confirmation | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Parallel speech | Recorded speech | 234 of 8,995 | ● Standard (Reference speech from the same recording.) |
+| M12 Evaluation | MSE on seen speakers; 1-NN error | Error vs reference | 6,960 of 8,995 | ✕ Not reported (MSE and error rates reported; seeds, chance level and test-block score not reported.) |
+| M13 Hardware & limits | Offline laboratory | Offline | 6,075 of 8,995 | – Not applicable (No deployment claim.) |
 
-The ultrasound-based x-vector speaker embedding is highly effective for speaker recognition, achieving under 1% error on unseen speakers, but its integration yields only a marginal improvement in multi-speaker ultrasound-to-speech synthesis accuracy.
+</details>
 
-### Review
+## Verdict
 
-This work presents a well-executed adaptation of the x-vector speaker embedding architecture to ultrasound tongue imaging for silent speech interfaces. The authors trained a 3D-CNN based x-vector network on 50 speakers from the TaL80 corpus and validated its speaker recognition ability on 31 held-out speakers, achieving extremely low error rates down to around 0.7% with a simple 1-NN classifier (Tables 1 and 2). The embedding vectors show appropriate clustering by speaker (Fig. 3), demonstrating strong speaker discriminability. However, when integrated as auxiliary input into a multi-speaker ultrasound-to-speech spectral estimator, the actual quantitative improvement in synthesis quality is marginal. The multi-speaker model's mean squared error in spectral estimation only improves slightly (from 0.669 to 0.653) with the addition of the x-vector embeddings (Table 3), a result consistent with prior reports. The system operates offline on the TaL80 dataset, and does not yet address critical practical issues such as cross-session robustness, probe placement variation, or fully speaker-independent synthesis, limiting immediate deployment readiness. Nonetheless, the paper provides a strong contribution in the area of speaker characterization from ultrasound video and highlights key challenges in extending this to multi-speaker SSI synthesis.
+The paper [[1]](#ref-1) trains an x-vector extractor on ultrasound (M06) and feeds it to a multi-speaker ultrasound-to-spectrum estimator (M03). M03 is standard: speaker vectors estimated from the articulatory signal and given to a shared decoder date from 2019 [[2]](#ref-2). The conditioning gain is 0.014 development and 0.016 test MSE, 2.3% and 2.4% relative (inference), with no repeated runs, on speakers seen in SSI training, as the authors state (Sec. 5.3). M06 is behind on test protocol, against the best comparable work: the 0.70% held-out-speaker error (Table 2) pools segments from one recording session per speaker (inference), so speaker and probe placement are not separated, as [[3]](#ref-3) did by holding out sessions. Nothing shows that the embedding helps a new speaker.
 
-### Why it matters
+## Against the field, component by component
 
-The study firmly establishes that x-vector style embeddings can be trained successfully from ultrasound tongue video and generalize to unseen speakers, but reveals that naïve incorporation into SSI synthesis yields limited gains, indicating the need for more sophisticated integration methods and SSI modeling for speaker-independent multi-speaker operation.
+### M03 Training: speaker-embedding conditioning
 
-### Prior state of the art
+**Usual approach:** a speaker embedding computed from reference audio and fed to a shared decoder, 20 of 42 studies (pattern match; Appendix). On the same corpus, TaL conditioned its 75-speaker ultrasound-to-speech decoder on x-vectors extracted from the audio with Kaldi [[4]](#ref-4). The paper departs from this audio-derived design by computing the x-vector from the ultrasound (Sec. 1), a departure [[2]](#ref-2) already made for lip video.
 
-Ultrasound-based silent speech interfaces (SSI) have traditionally been speaker-dependent due to speaker-specific anatomical differences, and speaker conditioning usually relied on simpler speaker descriptors.
+**State of the art:** in 2025, V2SFlow (video-to-speech, not ultrasound) predicts the speaker embedding from silent video and is scored on unseen LRS3 speakers; in one ablation table, dropping it lowers speaker similarity from 0.664 to 0.587 SECS while WER moves from 28.5% to 28.7% [[5]](#ref-5) [later].
 
-### What changed
+Signal-derived vectors appear in 8 of the 42 studies (pattern match; Appendix). The deciding prior [[2]](#ref-2) estimates i-vectors from lip-video features, feeds them to hidden layers, and reports 15% and 10% relative WER gains on unseen GRID speakers. The target's gain is smaller and rests on one run with the same 31 speakers in training and test (Sec. 5.3): MSE 0.603 to 0.589 (development) and 0.669 to 0.653 (test). The x-vector model starts from the transfer-learned multi-speaker weights (Sec. 5.3), so extra training is not separated from speaker information (inference). MSE is a weak yardstick: in [[5]](#ref-5) [later] speaker conditioning moves speaker similarity, not content, and the target reports neither similarity nor unseen-speaker synthesis. Verdict: standard.
 
-Trains a dedicated ultrasound-based x-vector network for speaker embedding and injects it as an auxiliary input to a multi-speaker ultrasound-to-speech spectral estimation network.
+### M06 Processing: speaker recognition from ultrasound
 
-### Position in the field
+**Usual approach:** speaker verification from the non-acoustic stream scored by equal error rate, 34 of 58 studies, 15 of them with a cross-session test (pattern match; Appendix). The paper instead scores closed-set identification on 50 speakers and 1-NN cosine leave-one-out on 31 held-out speakers (Sec. 5.1, 5.2).
 
-Speaker-representation study adjacent to multi-speaker ultrasound SSI research.
+**State of the art:** in 2020, 95.22% text-independent identification from 3D lip motion on 68 speakers [[6]](#ref-6); NAM verification across sessions reached 0.04% (male) and 1.1% (female) EER in 2006 [[7]](#ref-7), an EER, not comparable with identification error. The target's 0.70% error is below Wang's 4.78% error (inference), but the starting points differ: 31 against 68 speakers, and neighbours from the same recording.
 
-### Practical value
+Three earlier works separate speaker from session: [[7]](#ref-7) (NAM), [[8]](#ref-8) (mouth motion, six sessions) and [[3]](#ref-3), which tests EMG speaker identification on a held-out session: 83% and 84% accuracy against 55% chance. TaL80 has 81 speakers, 16,639 utterances and about 205 per session, so about one session per speaker (inference). TaL did not normalise probe position between sessions [[4]](#ref-4), and the authors note that remounting misaligns the image (Sec. 1): a nearest neighbour within one recording can match probe placement as easily as the speaker. Verdict: behind on test protocol, against the best comparable work [[3]](#ref-3).
 
-Strong speaker embedding for ultrasound data; marginal evidence for improved multi-speaker SSI synthesis so far.
+## The 13 components
 
-### Advanced
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Vocalized TaL80 prompts | Overt speech (slot-filled 3,882) | – | standard |
+| M02 Training-only supervision | Parallel audio mel targets | Paired audio (slot-filled 31) | – | standard |
+| M03 Training and adaptation | Ultrasound x-vector input | Audio-derived embedding (pattern match 20) | SECS 0.587 to 0.664, video-to-speech, 2025 [[5]](#ref-5) [later] | standard |
+| M04 Use-time action | Vocalized reading | Overt speech (slot-filled 5,595) | – | standard |
+| M05 Sensors | Midsagittal ultrasound, 82 fps | Ultrasound imaging (slot-filled 7,329) | – | standard |
+| M06 Processing and decoding | 3D-CNN x-vector, 1-NN cosine | EER verification (pattern match 34) | Session-held-out test: 83-84% vs 55% chance [[3]](#ref-3); 95.22% identification, 68 speakers [[6]](#ref-6) | behind |
+| M07 Lexicon and LM | None | None (slot-filled 119) | – | not applicable |
+| M08 Output | 80-dim mel, WaveGlow | Spectral features (slot-filled 3,268) | – | standard |
+| M09 Confirmation | None | None (slot-filled 82) | – | not applicable |
+| M10 Correction | None | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Parallel speech | Recorded speech (slot-filled 234) | – | standard |
+| M12 Evaluation | MSE on seen speakers; 1-NN error | Error vs reference (slot-filled 6,960) | – | not reported |
+| M13 Device and cost | Offline laboratory | Offline (slot-filled 6,075) | – | not applicable |
 
-speaker representation; multi-speaker modeling
+## Where the claims outrun the evidence
 
-### Unresolved
+- "Generalize nicely to unseen speakers" (Abstract) rests on leave-one-out over pooled development and test segments (Sec. 5.2), and the embedding layer was chosen on that same pool (Sec. 5.2, Table 2): 0.70% is not an untouched test result.
+- "Below 3%" (Abstract) is a development-set figure, 1.96% to 3.16% (Table 1); the 1,145 test blocks of the 50-speaker set (Sec. 4) are never scored. Neither recognition table gives a chance level or repeated runs.
+- The authors call the gain consistent for both development and test, but marginal (Sec. 5.3); one run per configuration cannot show consistency.
+- The single-speaker MSE of about 0.26 is attributed to Fig. 3, a histogram; the values are in Table 3 (Sec. 5.3).
+- Test MSE rises 2.5-fold from the single-speaker TaL1 system to the 31-speaker system (Table 3) (inference), on different test speakers; no multi-speaker system gets an MCD or listening score.
 
-optimal integration of speaker embeddings into SSI synthesis; true speaker-independent multi-speaker synthesis; robustness to session variability and probe misalignment
+## What the field needs next
 
-### Evaluation details
+- M06: ultrasound speaker identification with enrolment and test in different sessions, with chance level and seeds, following [[3]](#ref-3).
+- M03: x-vector conditioning tested on speakers held out from SSI training, against a shuffled-embedding control and acoustic x-vectors [[4]](#ref-4), scored by speaker similarity as well as MSE [[5]](#ref-5) [later].
+- M12: repeated runs and an intelligibility score for single- and multi-speaker systems.
 
-| Item | Details |
-| --- | --- |
-| Task | speech-reconstruction |
-| Input | ultrasound |
-| Sensor | Articulate Instruments’ Micro ultrasound system capturing 64x842 pixel mid-sagittal tongue images at 82 fps, resized to 64x128 for processing. |
-| Body site | tongue |
-| Output | speech-audio |
-| Metrics and results | Speaker recognition error rates (%); Mean squared error (MSE) in spectral estimation; Mel-cepstral distortion (MCD) derived from MSE was 3.12 for single speaker synthesis. |
-| Evaluation protocol | Speaker recognition on held-out speakers and ultrasound-to-spectrum speech synthesis error evaluation in single and multi-speaker settings. |
+## Questions for the authors
 
-### Limits
+- Is a segment's nearest neighbour often from the same file?
+- What is the speaker-recognition error on the 1,145 test blocks?
+- Was the multi-speaker baseline trained as long as the x-vector model that starts from its weights?
 
-- **Technical:** Marginal multi-speaker synthesis gain likely due to suboptimal method of injecting speaker embeddings after convolutional layers; no robustness to session or probe changes tested.
-- **Evaluation:** Multi-speaker synthesis experiments are speaker-dependent with train, dev, and test sets drawn from the same 31-speaker subset; no fully speaker-independent SSI evaluation presented.
-- **Deployment:** No evidence of live deployment or robustness to session and probe shifts; no cross-session or probe-position variability handling demonstrated.
-- **Scope of this review:** Ultrasound speaker representation with limited downstream multi-speaker speech synthesis evaluation on a controlled corpus.
+## Appendix: literature search
 
-### Evidence
+- M03 speaker-embedding-conditioning (new topic table). Inclusion rule: studies that decode speech or text from a non-acoustic speech signal (articulatory imaging, EMA/PMA, EMG, lip or face video, neural recordings) with one model shared across speakers and conditioned on a per-speaker or per-utterance embedding (x-vector, i-vector, d-vector/GE2E, speaker-encoder output, learned subject embedding); acoustic-only systems, audio-visual enhancement or separation with noisy audio at test, embeddings used only as an output metric, and reviews excluded; versions counted once. Slot-filled 1,526 unique studies; pattern match 42 unique studies. Full-text pattern counts: reference-audio embedding 20, unseen-speaker test 16, i-vector 12, x-vector 9, signal-derived embedding 8, learned subject embedding 2. Usual design: reference-audio speaker embedding, 20 (pattern match). State of the art: [[5]](#ref-5) [later]. Read in full: [[4]](#ref-4), [[2]](#ref-2), [[5]](#ref-5) [later], target. Known-item recall 1.0 (3 of 3 seeds).
+- M06 speaker-recognition-from-articulation (new topic table). Inclusion rule: studies that identify or verify the speaker from a non-acoustic speech signal (lip or face motion during speech, ultrasound, EMA, EMG, non-audible murmur or throat microphones, EEG during speech tasks); static face recognition, acoustic-only speaker recognition and identification used only as an auxiliary loss excluded; audio-visual fusion counts when the non-acoustic stream is scored alone; versions counted once. Slot-filled 7,345 unique studies; pattern match 58 unique studies. Full-text pattern counts: EER verification 34, closed-set identification 21, cross-session test 15, unseen-speaker test 6 (target included). Usual design: EER verification, 34 (pattern match). State of the art: [[6]](#ref-6). Read in full: [[7]](#ref-7), [[8]](#ref-8), [[3]](#ref-3), [[6]](#ref-6), target. Known-item recall 0.75 (3 of 4 seeds; [[3]](#ref-3) is outside the ledger pattern and was read as a deciding prior).
 
-- We adjusted the x-vector framework popular in speech processing to operate with ultrasound tongue videos, producing speaker embedding vectors which we tested in multi-speaker ultrasound-to-speech conversion. (Abstract)
-- Speaker recognition error rates on development set for the 50-speaker training subset decreased to 1.96% with 164-frame (2 sec) segments (Table 1). (5. Results)
-- Speaker recognition error rates for the held-out 31 speakers using 1-nearest neighbor leave-one-out testing are as low as 0.70% when embeddings are extracted from FC#2 without nonlinearity (Table 2). (5. Results)
-- The mean squared error (MSE) for the ultrasound-to-spectrum spectral estimation task in the single-speaker setup is about 0.265 on the test set; in a multi-speaker setup without x-vector conditioning it rises to 0.669; adding x-vector conditioning marginally improves MSE to 0.653 (Table 3). (5. Results)
-- The multi-speaker synthesis experiment is speaker-dependent as the training, development, and test sets come from the same 31 speakers, so full speaker-independence is not demonstrated; probe-shift and cross-session variation handling are not studied. (5. Results)
-- The method used to integrate the x-vector speaker embeddings into the SSI spectral estimation network is suboptimal, as simple concatenation is not possible and embeddings were injected only after convolutional layers, limiting gain and requiring further study. (5. Results)
-- No probe-shift, session-variation, or live SSI deployment study is provided, and results remain offline and lab-bound, limiting deployment readiness. (6. Conclusions)
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Shandiz, A. H., Tóth, L., Gosztolya, G., Markó, A., Csapó, T. G. “Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces.” *Proc. Interspeech 2021*, 2021, 1932–1936. doi:[10.21437/Interspeech.2021-1466](https://doi.org/10.21437/Interspeech.2021-1466). arXiv:[2106.04552](https://arxiv.org/abs/2106.04552). Target. Read as arXiv v2; venue and pages confirmed with Crossref. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces) [wiki: arxiv-2106.04552](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2106.04552/article.md) [wiki: doi-10.21437-interspeech.2021-1466](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.21437-interspeech.2021-1466/article.md) [wiki: isca-shandiz21-usspeaker](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-shandiz21-usspeaker/article.md) [wiki: isca-shandiz21_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-shandiz21_interspeech/article.md)
+2. <a id="ref-2"></a>Kandala, P. A., Thanda, A., Margam, D. K., Aralikatti, R. C., Sharma, T., Roy, S., et al. “Speaker Adaptation for Lip-Reading Using Visual Identity Vectors.” *Proc. Interspeech 2019*, 2019, 2758–2762. doi:[10.21437/Interspeech.2019-3237](https://doi.org/10.21437/Interspeech.2019-3237). [wiki: isca-kandala19_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-kandala19_interspeech/article.md) [wiki: isca-kandala19-vivectors](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-kandala19-vivectors/article.md)
+3. <a id="ref-3"></a>Diener, L., Amiriparian, S., Botelho, C., Scheck, K., Küster, D., Trancoso, I., et al. “Towards Silent Paralinguistics: Deriving Speaking Mode and Speaker ID from Electromyographic Signals.” *Proc. Interspeech 2020*, 2020, 3117–3121. doi:[10.21437/Interspeech.2020-2848](https://doi.org/10.21437/Interspeech.2020-2848). [wiki: isca-diener20_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-diener20_interspeech/article.md) [wiki: isca-diener20-emgmode](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-diener20-emgmode/article.md)
+4. <a id="ref-4"></a>Ribeiro, M. S., Sanger, J., Zhang, J., Eshky, A., Wrench, A., Richmond, K., et al. “TaL: A Synchronised Multi-Speaker Corpus of Ultrasound Tongue Imaging, Audio, and Lip Videos.” *Proc. IEEE Spoken Language Technology Workshop (SLT)*, 2021, 1109–1116. doi:[10.1109/SLT48900.2021.9383619](https://doi.org/10.1109/SLT48900.2021.9383619). arXiv:[2011.09804](https://arxiv.org/abs/2011.09804). [wiki: arxiv-2011.09804](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2011.09804/article.md) [wiki: doi-10.1109-slt48900.2021.9383619](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-slt48900.2021.9383619/article.md)
+5. <a id="ref-5"></a>Choi, J., Kim, J., Li, J., Chung, J. S., Liu, S. “V2SFlow: Video-to-Speech Generation with Speech Decomposition and Rectified Flow.” *Proc. IEEE ICASSP 2025*, 2025. doi:[10.1109/ICASSP49660.2025.10889780](https://doi.org/10.1109/ICASSP49660.2025.10889780). arXiv:[2411.19486](https://arxiv.org/abs/2411.19486). [later] [wiki: arxiv-2411.19486](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2411.19486/article.md)
+6. <a id="ref-6"></a>Wang, J., Wu, T., Wang, S., Yu, M., Fang, Q., Zhang, J., et al. “Three-Dimensional Lip Motion Network for Text-Independent Speaker Recognition.” *Proc. 25th International Conference on Pattern Recognition (ICPR 2020, held 2021)*, 2021, 3380–3387. doi:[10.1109/ICPR48806.2021.9413218](https://doi.org/10.1109/ICPR48806.2021.9413218). arXiv:[2010.06363](https://arxiv.org/abs/2010.06363). [wiki: arxiv-2010.06363](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2010.06363/article.md)
+7. <a id="ref-7"></a>Kojima, M., Kawanami, H., Saruwatari, H., Shikano, K., Matsui, T. “Study on nonaudible murmur speaker verification using multiple session data.” *Fourth Joint Meeting of the Acoustical Society of America and the Acoustical Society of Japan*, 2006. <https://naist.repo.nii.ac.jp/record/4474/files/ASAASJ_2006_(7).pdf> [wiki: asa2006-kojima-nam-speaker-verification](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/asa2006-kojima-nam-speaker-verification/article.md)
+8. <a id="ref-8"></a>Davis, C., Kim, J., Aubanel, V., Zelic, G., Mahajan, Y. “The stability of mouth movements for multiple talkers over multiple sessions.” *Proc. FAAVSP 2015*, 2015. <https://www.isca-archive.org/avsp_2015/davis15_avsp.html> [wiki: isca-davis15_avsp](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-davis15_avsp/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M03/speaker-embedding-conditioning.csv`](../../components/M03/speaker-embedding-conditioning.csv): M03 topic "speaker-embedding-conditioning", every candidate paper with its decision (1526 slot-filled, 42 pattern match, usual design in 20, 4 read in full)
+- [`components/M06/speaker-recognition-from-articulation.csv`](../../components/M06/speaker-recognition-from-articulation.csv): M06 topic "speaker-recognition-from-articulation", every candidate paper with its decision (7345 slot-filled, 58 pattern match, usual design in 34, 5 read in full)
+
 
 ## More reviews in Ultrasound & tongue imaging
 
