@@ -113,6 +113,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | --- | --- | --- |
 | Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild | 2022 | Table 3 caption; Supplement A.1.1 |
 
+## wearable-sensor-word-test-split
+
+- Table: [`wearable-sensor-word-test-split.csv`](wearable-sensor-word-test-split.csv) (6960 slot-filled, 143 pattern match, usual design in 65, 3 read in full)
+- Inclusion rule: Word or command classification studies whose ledger names a wearable non-acoustic sensor on the face or neck (strain, piezo or triboelectric sensor, surface EMG, accelerometer); the design compared is how test samples are separated from training samples: speaker-disjoint, session- or day-disjoint, or a random or per-class sample split. Boundary: a paper counts under every split it reports; reviews and acoustic-only studies are excluded when read.
+- Used in: [Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency](../../reviews/ultrasensitive-textile-strain-sensors-redefine-wearable-silent-speech-interfaces-with-high-machine-learning-efficiency/)
+
 ## whisper-conversion-evaluation
 
 - Table: [`whisper-conversion-evaluation.csv`](whisper-conversion-evaluation.csv) (6960 slot-filled, 60 pattern match, usual design in 26, 4 read in full)
