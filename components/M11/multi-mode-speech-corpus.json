@@ -1,0 +1,548 @@
+{
+ "topic": "multi-mode-speech-corpus",
+ "slot": "M11",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(normal|audible|modal|vocali[sz]ed|neutral|voiced|aloud)[^|]{0,60}whisper[^|]{0,60}(silent|mouthed|mimed)|(silent|mouthed|mimed)[^|]{0,60}whisper[^|]{0,60}(normal|audible|modal|vocali[sz]ed|neutral|voiced)|three (speaking|speech) modes",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies or corpora that record the same speech material in normal (audible), whispered and silent (mouthed) modes with any non-acoustic or visual channel (EMG, EMA, ultrasound, lip or face video, neural recordings), and use or release the recordings. Boundary: acoustic-only whisper corpora, two-mode corpora without whisper and reviews are pattern matches only; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 239,
+  "slot_filled_unique": 234,
+  "string_match_folders": 27,
+  "string_match_unique": 24,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M11",
+  "design_slot_fill": 0.027,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "Reference.reference_kind=reconstructed_signal",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.27247"
+    ]
+   },
+   {
+    "design": "Reference.reference_kind=verbatim_transcript",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.27247"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "surface_emg",
+    "n": 14,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-13038976-articsupp",
+     "arxiv-2510.27247",
+     "doi-10.1109-taslp-2017-2738568",
+     "issp2011-hueber-ema-silent",
+     "doi-10.5220-0002814100220031"
+    ]
+   },
+   {
+    "design": "neural",
+    "n": 11,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "arxiv-2602-22597-vmi",
+     "doi-10.1038-s41467-026-71284-4",
+     "pmc-13038976-articsupp",
+     "arxiv-2510.27247"
+    ]
+   },
+   {
+    "design": "lip_or_face_video",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2509-23833-aishell6w",
+     "doi-10.1109-taslp-2017-2738568",
+     "arxiv-1802.06399",
+     "doi-10.1109-access.2020.3026579",
+     "isca-mcloughlin14_interspeech"
+    ]
+   },
+   {
+    "design": "articulography",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1109-taslp-2017-2738568",
+     "issp2011-hueber-ema-silent",
+     "doi-10.1109-access.2020.3026579",
+     "isca-botelho20_interspeech",
+     "isca-diener20_interspeech"
+    ]
+   },
+   {
+    "design": "ultrasound",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1109-taslp-2017-2738568",
+     "arxiv-1802.06399",
+     "doi-10.1109-access.2020.3026579",
+     "isca-botelho20_interspeech"
+    ]
+   }
+  ],
+  "metric_pattern": "accuracy|classification rate|WER|word error",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "WER (%)",
+   "value": 109.6,
+   "unit": "%",
+   "raw": "109.6",
+   "pid": "arxiv-2311.05179",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (English)",
+   "value": 102.934,
+   "unit": "percent",
+   "raw": "102.934",
+   "pid": "arxiv-2603.08046",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy (CHAINS aggregate prose statement; per-system and per-SNR values not separately tabulated)",
+   "value": 100,
+   "unit": "percent",
+   "raw": "100",
+   "pid": "arxiv-2408.14777",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "per-speaker WER by mode (silent up to 92.23%)",
+   "value": 92.23,
+   "unit": "%",
+   "raw": "worst speaker-mode WER: silent 92.23% (spk1); rows: e.g. spk2 audible 22.23/whisper 23.24/silent 32.80",
+   "pid": "isca-wand14b_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "VAD accuracy 91.7–96.5% across 5 noises (Babble worst)",
+   "value": 91.7,
+   "unit": "%",
+   "raw": "worst-case accuracy Babble 91.7% (1.8% false); best Car 96.5% (2.1%); music 94.2/1.1, speech 94.1/1.6, office 94.2/1.7",
+   "pid": "isca-mcloughlin14_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "85.11",
+   "value": 85.11,
+   "unit": "accuracy",
+   "raw": "mean active-vs-rest decoding accuracy %",
+   "pid": "pmc-12362870-falsepos",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Phoneme accuracy (%)",
+   "value": 63.44,
+   "unit": "percent",
+   "raw": "63.44",
+   "pid": "arxiv-2510.27247",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER baseline silent EMG",
+   "value": 61.67,
+   "unit": "%",
+   "raw": "Baseline 61.67%",
+   "pid": "isca-janke10",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "RMSE log F0 (lower is better)",
+   "value": 27.991,
+   "unit": "log F0 (source label; scale details unspecified)",
+   "raw": "27.991",
+   "pid": "arxiv-2306.06514",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "24.12% avg WER audible EMG baseline; silent-mode WER gap per session (avg silent ~47.13% → ~33.39% with spectral mapping)",
+   "value": 24.12,
+   "unit": "%",
+   "raw": "best average WER on audible utterances (reference baseline)",
+   "pid": "isca-wand11_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1802.06399",
+   "key": "t:visualonlyrecognitionofnormalwhisperedandsilentspeech",
+   "title": "Visual-Only Recognition of Normal, Whispered and Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1802.06399 | title=Visual-Only Recognition of Normal, Whispered and Silent Speech | venue=ICASSP 2018; v1 | Study.research_objective=Subject-independent visual-only lipreading of 10 digits + 10"
+  },
+  {
+   "pid": "arxiv-2306.06514",
+   "key": "t:vocoderfreenonparallelconversionofwhisperedspeechwithmaskedcycleconsistentgenera",
+   "title": "Vocoder-Free Non-Parallel Conversion of Whispered Speech With Masked Cycle-Consistent Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "features into voiced raw audio without parallel supervision or a separate vocoder? | scope_limits=This is conversion of audible whispered speech to normally phonated speech; no silent-articulation or SSI decoding is evaluated. | dataset_description=Approximately 450 phonetically compact TIMIT sentences"
+  },
+  {
+   "pid": "arxiv-2311.05179",
+   "key": "t:improvingwhisperedspeechrecognitionperformanceusingpseudowhisperedbaseddataaugme",
+   "title": "IMPROVING WHISPERED SPEECH RECOGNITION PERFORMANCE USING PSEUDO-WHISPERED BASED DATA AUGMENTATION",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_family=sentence_recognition | task_encoding=natural_utterance | extra.Task.scope=Recognize spoken English sentences in normally phonated or whispered speech; this is whispered-speech ASR, not silent speech or imagined-speech decoding. | scope_limits=The paper does not evaluate silent speech, inner speech, non-English"
+  },
+  {
+   "pid": "arxiv-2408.14777",
+   "key": "t:quarteredchirpspectralenvelopeforwhisperedvsnormalspeechclassification",
+   "title": "Quartered Chirp Spectral Envelope for Whispered vs Normal Speech Classification",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e white Gaussian noise, compared with QSE+1DCNN and LFBE+LSTM baselines. | extra.Task.target=Classify each utterance as normal speech or whispered speech; this is not speech recognition or silent-speech decoding. | extra.Task.output_kind=two-class label: normal or whispered | question=Does QCSE, combined with a 1D"
+  },
+  {
+   "pid": "arxiv-2509-23833-aishell6w",
+   "key": "t:aishell6whisperachinesemandarinaudiovisualwhisperspeechdatasetwithspeechrecognit",
+   "title": "AISHELL6-WHISPER: A Chinese Mandarin Audio-Visual Whisper Speech Dataset with Speech Recognition Baselines",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "6-Whisper | task_family=sentence_recognition | elicitation=instructed_content | extra.Production.scope_note=whispered + normal Mandarin speech with lip video (whisper = near-silent articulation) | modalities=optical_camera, microphone | SystemConfiguration.system_lifecycle=implemented_evaluated | Pr"
+  },
+  {
+   "pid": "arxiv-2510.27247",
+   "key": "t:reconstructingunseensentencesfromspeechrelatedbiosignalsforopenvocabularyneuralc",
+   "title": "Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "splayed on screen. | Dataset.collection_protocol=One retained final trial per sentence after any repeat button use; all three speech modes were presented in fixed overt→whispered→imagined order. | observed_quantities=neural_activity | sensor_hardware=Standar"
+  },
+  {
+   "pid": "arxiv-2602-01247-mechint",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "itation=instructed_content | extra.Production.scope_note=mechanistic analysis of trained brain-to-speech decoder across three speech modes | modalities=intracortical_microelectrode, ecog | SystemConfiguration.system_lifecycle=implemented_evaluated | Processi"
+  },
+  {
+   "pid": "arxiv-2602-22597-vmi",
+   "key": "t:relatingtheneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "gined speech dataset | task_family=speech_reconstruction | elicitation=instructed_content | extra.Production.scope_note=three speech modes: vocalized, mimed, imagined | SystemConfiguration.system_lifecycle=implemented_evaluated | model_family=linear_model |"
+  },
+  {
+   "pid": "arxiv-2603.08046",
+   "key": "t:whispearabidirectionalframeworkforscalingwhisperedspeechconversionviapseudoparal",
+   "title": "WhispEar: A Bi-directional Framework for Scaling Whispered Speech Conversion via Pseudo-Parallel Whisper Generation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uage=English, Mandarin Chinese | intended_use_cases=private_communication, speech_restoration | scope_limits=Whisper-to-normal speech conversion; input is audible whispered speech and output is normal speech. The task is not silent or imagined speech. | scope_limits=Normal-to-whisper speech conversion; the output also supplies pseudo-whispered train"
+  },
+  {
+   "pid": "doi-10.1038-s41467-026-71284-4",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| intended_use_cases=speech_restoration | demonstrated_use_cases=speech_restoration, device_control | production_labels=silent_articulation, whisper, ordinary_voiced_speech, attempted_speech | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=four 64-electrode Utah"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "NAM microphone (articulator/glottal effects) | ProductionCondition.activity_origin=attempted_speech | production_labels=silent_articulation, NAM, whisper, ordinary_voiced_speech, attempted_speech | production_instruction=target population: persons with severe speech disorders — laryngectom"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2018.8461596",
+   "key": "t:visualonlyrecognitionofnormalwhisperedandsilentspeech",
+   "title": "Visual-Only Recognition of Normal, Whispered and Silent Speech",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Visual-Only Recognition of Normal, Whispered and Silent Speech | authors=S. Petridis; J. Shen; D. Cetin; M. Pantic | venue=Proc. ICASSP 2018 | Study.research_objective=visual"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2738568",
+   "key": "t:emgtospeechdirectgenerationofspeechfromfacialelectromyographicsignals",
+   "title": "EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ic mapping | technical_essence=source-filter F0+spectrum synthesis | EvaluationProtocol.experimental_design={'modes': ['audible', 'whisper', 'silent'], 'rt': True} | evaluation_mode=live_interactive | system_name=EMG-to-Speech (KIT) | SystemConfiguration.component_ver"
+  },
+  {
+   "pid": "doi-10.5220-0002814100220031",
+   "key": "t:aspectralmappingmethodforemgbasedrecognitionofsilentspeech",
+   "title": "A Spectral Mapping Method for EMG-based Recognition of Silent Speech",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "TD15 feature | Cohort.demographics=7 male + 1 female, ages 24-28 | Dataset.collection_protocol=50 English sentences x3 (audible, whispered, silently mouthed); 10 BASE + 40 SPEC sets per session | claim=spectral mapping improves silent-speech recognition up to 12.3% relative ("
+  },
+  {
+   "pid": "isca-botelho20_interspeech",
+   "key": "p:isca-botelho20_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "els/speakers/session | Cohort.demographics=8 speakers; spk2 32 sessions, spk8 19, others <=3; 3 speaking modes (audible/silent/whispered) but only audible used | dataset_id=EMG-UKA parallel EMG-Acoustic corpus (63 sessions; trial subset free, full via ELRA ELRA-S0390) | Dat"
+  },
+  {
+   "pid": "isca-diener20_interspeech",
+   "key": "t:towardssilentparalinguisticsderivingspeakingmodeandspeakeridfromelectromyographi",
+   "title": "Towards Silent Paralinguistics: Deriving Speaking Mode and Speaker ID from Electromyographic Signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ure_label | tested_population=healthy_volunteers | dataset_description=EMG-UKA parallel EMG-Speech corpus: 8 speakers × audible/whisper/silent; 32 multi-mode sessions (50 utts each mode); trial corpus public, full corpus via ELRA | split_protocol=session_holdout"
+  },
+  {
+   "pid": "isca-janke10",
+   "key": "p:isca-janke10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "losed_lexicon | EvaluationProtocol.experimental_design=per-session speaker-dependent models; base recognizer trained on audible/whispered EMG provides forced alignment for silent EMG; PSD Welch analysis per phoneme class on channels 2/4; spectral mapping factors per session/channel applied to sile"
+  },
+  {
+   "pid": "isca-janke10_interspeech",
+   "key": "t:impactoflackofacousticfeedbackinemgbasedsilentspeechrecognition",
+   "title": "Impact of Lack of Acoustic Feedback in EMG-based Silent Speech Recognition",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oss-modal initialization; 108-word test vocab | Dataset.collection_protocol=per session: 50 English sentences x3 modes (audible, whispered, silently-mouthed); 10 BASE fixed + 40 SPEC; 22 sessions total; BASE=test, SPEC=train | SystemConfiguration.system_lifecycle=implemented_"
+  },
+  {
+   "pid": "isca-li25j_interspeech",
+   "key": "t:eegbasedspeechdecodingbasedonmultimodejointmodeling",
+   "title": "EEG-based Speech Decoding Based on Multi-mode Joint Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ndition.activity_origin=instructed_imagery | Acquisition.signal_quality=scalp EEG 500 Hz, 2.5 s trials per vowel across three speech modes | Dataset.content_inventory=EEG for four vowels in imagined, intended and spoken modes | EvaluationProtocol.experimenta"
+  },
+  {
+   "pid": "isca-mcloughlin14_interspeech",
+   "key": "t:theuseoflowfrequencyultrasoundforvoiceactivitydetection",
+   "title": "The Use of Low-Frequency Ultrasound for Voice Activity Detection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "spectral subtraction self-calibration → frame-wise mouth-state (open/closed/between) → voice-activity decision incl. unvoiced/whisper/mimed speech | task_family=speech_activity_detection | task_encoding=natural_utterance | target_unit=activity_event | intende"
+  },
+  {
+   "pid": "isca-wand11_interspeech",
+   "key": "t:investigationsonspeakingmodediscrepanciesinemgbasedspeechrecognition",
+   "title": "Investigations on Speaking Mode Discrepancies in EMG-based Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| elicitation=instructed_content | tested_population=healthy_volunteers | dataset_description=EMG-UKA corpus: parallel audible/whispered/silent EMG; ~211s audible + ~214s silent per session | split_protocol=sentence_holdout | supervision_kind=gesture_label | Study.study_design=controlled_experime"
+  },
+  {
+   "pid": "isca-wand14b_interspeech",
+   "key": "t:theemgukacorpusforelectromyographicspeechprocessing",
+   "title": "The EMG-UKA Corpus for Electromyographic Speech Processing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "representation_kind=raw EMG + audio waveforms; hardware sync marker; utterance/word/phone alignments (audio-derived for audible/whispered, EMG-derived for silent) | decoder_route=recognition_to_text | elicitation=instructed_content | tested_population=healthy_volunteers | dataset_"
+  },
+  {
+   "pid": "issp2011-hueber-ema-silent",
+   "key": "t:differencesinarticulatorystrategiesbetweensilentwhisperedandnormalspeechapilotst",
+   "title": "Differences in articulatory strategies between silent, whispered and normal speech? A pilot study using electromagnetic articulography",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=issp2011:hueber_ema_silent | title=Differences in articulatory strategies between silent, whispered and normal speech? A pilot study using electromagnetic articulography | authors=Thomas Hueber, Pierre Badin, Christophe Savariaux,"
+  },
+  {
+   "pid": "pmc-12362870-falsepos",
+   "key": "t:dontputwordsinmymouthspeechperceptioncanfalselyactivateabraincomputerinterface",
+   "title": "Don’t put words in my mouth: speech perception can falsely activate a brain-computer interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "epilepsy patients (mean 33.4y, 2F), HD-ECoG grids | intended_use_cases=speech_restoration | production_labels=ordinary_voiced_speech, whisper, silent_articulation | Acquisition.sensor_geometry=HD-ECoG subdural grids, 256-ch Blackrock @2000Hz | Acquisition.signal_qualit"
+  },
+  {
+   "pid": "pmc-13038976-articsupp",
+   "key": "t:variabilityandmethodologicalchoicesinarticulatorysuppressiontasksareview",
+   "title": "Variability and methodological choices in articulatory suppression tasks: a review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ch/verbal strategy | Study.unit_of_analysis=mini-review of AS paradigms: uttered meaningful/meaningless syllables aloud/silent/whispered; stimuli, articulation modalities, rhythms, presentation modes; phonological-loop interference framework | task_encoding=natural_utterance | task_fa"
+  },
+  {
+   "pid": "pmc-13270037-vpcg-loudness",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ss decoder on a speech neuroprosthesis | Study.unit_of_analysis=Two BrainGate2 participants with vPCG arrays attempting mimed/whispered/normal/loud speech: T15 (45yo man, ALS, severely dysarthric) and T16 (54yo woman, pontine stroke, dysarthric) | task_encoding="
+  },
+  {
+   "pid": "pmc-13270037-vpcgloud",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rthria (arrays in 6d, 6v, 55b/PEF border) | intended_use_cases=speech_restoration | production_labels=attempted_speech, silent_articulation, whisper, ordinary_voiced_speech | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=Utah 64-microelectrode arrays in vPCG (T"
+  }
+ ],
+ "usual_approach": {
+  "design": "surface_emg",
+  "n": 14,
+  "tier": "pattern match",
+  "pids": [
+   "pmc-13038976-articsupp",
+   "arxiv-2510.27247",
+   "doi-10.1109-taslp-2017-2738568",
+   "issp2011-hueber-ema-silent",
+   "doi-10.5220-0002814100220031"
+  ],
+  "population_unique": 24
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-wand14b_interspeech",
+   "role": "prior",
+   "loc": "Abstract; Table 4",
+   "quote": "The corpus comprises 63 recorded sessions from 8 speakers, the total amount of data is 7:32 hours"
+  },
+  {
+   "pid": "arxiv-2011.09804",
+   "role": "sota",
+   "loc": "Abstract; Sec. 2",
+   "quote": "The TaL corpus is publicly available under the CC BY-NC 4.0 license"
+  },
+  {
+   "pid": "arxiv-1802.06399",
+   "role": "target",
+   "loc": "Sec. 1; Sec. 2",
+   "quote": "audiovisual database which is publicly available"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 2,
+  "recall": 0.67,
+  "missed": [
+   "arxiv-2011.09804"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2011.09804",
+  "year": 2020,
+  "metric": "public multi-speaker corpus with silent speech and lip video (TaL: ultrasound, lip video, audio)",
+  "value": "82 speakers, 24 h; whispered speech for 1 speaker only",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "used_by": [
+  "visual-only-recognition-of-normal-whispered-and-silent-speech"
+ ],
+ "tally": {
+  "slot_filled_unique": 234,
+  "string_match_unique": 24,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "surface_emg",
+   "n": 14,
+   "tier": "pattern match",
+   "population_unique": 24
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2011.09804",
+   "year": 2020,
+   "metric": "public multi-speaker corpus with silent speech and lip video (TaL: ultrasound, lip video, audio)",
+   "value": "82 speakers, 24 h; whispered speech for 1 speaker only",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 3,
+  "read_prior": [
+   "isca-wand14b_interspeech"
+  ],
+  "unread": 27,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.67
+ }
+}

@@ -14,6 +14,6 @@ Any speech-intention decoder, whatever its sensor, can be described by the same 
 | M08 | Output | [articulatory-f0-prediction](M08/), [biosignal-to-speech-voice-control](M08/), [intracranial-synthesis-waveform-generation](M08/), [neural-speech-synthesis](M08/), [neural-text-output-unit](M08/), [vsr-output-token-unit](M08/) |
 | M09 | Confirmation | — |
 | M10 | Correction | — |
-| M11 | Eval reference | [in-the-wild-sentence-benchmark](M11/) |
+| M11 | Eval reference | [in-the-wild-sentence-benchmark](M11/), [multi-mode-speech-corpus](M11/) |
 | M12 | Evaluation | [human-lipreader-baseline](M12/), [listener-intelligibility-test](M12/), [lrs3-visual-only-wer](M12/), [neural-text-unseen-sentence-test](M12/), [silent-emg-voicing-benchmark](M12/), [silent-speech-challenge-benchmark](M12/), [video-to-speech-output-evaluation](M12/), [video-to-speech-speaker-held-out-test](M12/), [whisper-conversion-evaluation](M12/) |
 | M13 | Hardware & limits | [long-term-home-use](M13/), [online-imagined-speech-eeg](M13/) |
