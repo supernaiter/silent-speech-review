@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Silent mouthing of prompted sentences"
+     ],
+     "field": "Overt or attempted speech",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "Same action at training and use."
+    },
+    "M02": {
+     "choice": [
+      "Word label sequences from the prompts"
+     ],
+     "field": "Paired audio or text labels",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "No audio supervision."
+    },
+    "M03": {
+     "choice": [
+      "From scratch; time-scaling augmentation"
+     ],
+     "field": "Supervised training per task",
+     "n": 8995,
+     "matched": 1608,
+     "verdict": "standard",
+     "note": "Tuning data overlap the held-out users (Sec. 4.3)."
+    },
+    "M04": {
+     "choice": [
+      "Handheld phone, user-chosen distance"
+     ],
+     "field": "Silent articulation at use",
+     "n": 8995,
+     "matched": 6538,
+     "verdict": "standard",
+     "note": "Distance range not reported."
+    },
+    "M05": {
+     "choice": [
+      "I/Q phase with deltas on 8 carriers (17–23 kHz), phone speaker and microphone"
+     ],
+     "field": "Doppler-shift features",
+     "n": 8995,
+     "matched": 16,
+     "verdict": "standard",
+     "note": "Only study with carrier phase; one unrepeated ablation."
+    },
+    "M06": {
+     "choice": [
+      "CNN plus attention encoder-decoder (LSTM)"
+     ],
+     "field": "Hybrid CTC/attention",
+     "n": 8995,
+     "matched": 79,
+     "verdict": "standard",
+     "note": "Attention over CTC repeats [@afouras2018deep]; hybrid not tested."
+    },
+    "M07": {
+     "choice": [
+      "Beam search; beam width and any external language model not stated"
+     ],
+     "field": "Language model or lexicon",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "missing",
+     "note": "Attention decoder said to learn an internal language model (Sec. 4.4)."
+    },
+    "M08": {
+     "choice": [
+      "Word sequence"
+     ],
+     "field": "Text",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": ""
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "Absent",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "Absent",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Private: 54 sentences, 29 words, 10 volunteers"
+     ],
+     "field": "Study-specific corpus",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Not released; labelling procedure not described."
+    },
+    "M12": {
+     "choice": [
+      "WER: random, leave-one-domain-out, leave-one-sentence-out"
+     ],
+     "field": "User held out",
+     "n": 8995,
+     "matched": 7,
+     "verdict": "standard",
+     "note": "One run per test; fold composition not given."
+    },
+    "M13": {
+     "choice": [
+      "Commodity phone, deployment claimed"
+     ],
+     "field": "Laboratory, offline",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "missing",
+     "note": "No latency, compute or power figures."
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,705 @@
+{
+ "topic": "active-acoustic-speech-sensing",
+ "slot": "M05",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "active_acoustic_sensing|inaudible (acoustic|ultrasonic|ofdm|chirp|signal|sound)|acoustic sensing|ultrasonic doppler|doppler (shift|sonar|ultrasound)|echo[- ]profile|ultrasonic (sensing|signal|echo|wave|sensor|transducer|emitter)|\\bsonar\\b(?!\\s+sentence)",
+ "scope": "ledger",
+ "fulltext_pattern": "(inaudible|ultrasonic|near-ultrasound|high-frequency acoustic)[^.]{0,80}(reflect|echo|doppler)[^.]{0,120}(lip|mouth|speech|articulat|face|jaw)",
+ "inclusion_rule": "Studies that emit an acoustic signal (near-ultrasonic or ultrasonic, from a loudspeaker, earphone or transducer) and decode speech, silent speech or mouth state from its reflection or Doppler shift off the lips, face, jaw or vocal tract, captured by a microphone. Boundary: B-mode ultrasound tongue imaging, RF radar, Wi-Fi and laser sensing are excluded when read; reviews and datasets without a decoding result count as pattern matches only; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8898,
+  "slot_filled_unique": 7329,
+  "string_match_folders": 25,
+  "string_match_unique": 22,
+  "fulltext_only_folders": 10
+ },
+ "ledger_tally": {
+  "design_slot": "M05",
+  "design_slot_fill": 0.989,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "modalities=active_acoustic_sensing",
+    "n": 18,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.1038-s44460-025-00010-2",
+     "arxiv-2512.16518",
+     "pmc-11124924-csteng-mask",
+     "doi-10.1587-transinf-2019edp7211"
+    ]
+   },
+   {
+    "design": "observed_quantities=air_acoustics",
+    "n": 12,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-zhang26y-sonispeech",
+     "arxiv-2512.16518",
+     "isca-sasou10_avsp",
+     "doi-10.1145-3594738.3611365"
+    ]
+   },
+   {
+    "design": "modalities=microphone",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-zhang26y-sonispeech",
+     "arxiv-2512.16518",
+     "doi-10.1587-transinf-2019edp7211",
+     "isca-mcloughlin15_interspeech",
+     "isca-sasou10_avsp"
+    ]
+   },
+   {
+    "design": "body_sites=face",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-mcloughlin15_interspeech",
+     "isca-sasou10_avsp",
+     "arxiv-2303.08295"
+    ]
+   },
+   {
+    "design": "body_sites=lips",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-mcloughlin15_interspeech",
+     "arxiv-2011.11315",
+     "arxiv-2303.08295"
+    ]
+   },
+   {
+    "design": "observed_quantities=position",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-zhang26y-sonispeech",
+     "isca-sasou10_avsp",
+     "doi-10.1145-3594738.3611365"
+    ]
+   },
+   {
+    "design": "intrusiveness=external_noncontact",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-zhang26y-sonispeech",
+     "isca-mcloughlin15_interspeech",
+     "isca-svanfeldt05_talkhead"
+    ]
+   },
+   {
+    "design": "modalities=other",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-zhang26y-sonispeech",
+     "arxiv-2401.14978-xrkws",
+     "arxiv-2011.11315"
+    ]
+   },
+   {
+    "design": "modalities=optical_camera",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-zhang26y-sonispeech",
+     "isca-svanfeldt05_talkhead",
+     "arxiv-2303.08295"
+    ]
+   },
+   {
+    "design": "observed_quantities=tissue_vibration",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "isca-zhang26y-sonispeech",
+     "arxiv-2512.16518",
+     "doi-10.1145-3706598.3714174",
+     "doi-10.3390-app12020827"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "doppler",
+    "n": 16,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "arxiv-2512.16518",
+     "arxiv-2401.14978-xrkws",
+     "pmc-8781659-fmcw-radar",
+     "doi-10.1587-transinf-2019edp7211"
+    ]
+   },
+   {
+    "design": "fmcw_echo_profile",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "arxiv-2512.16518",
+     "arxiv-2401.14978-xrkws",
+     "pmc-8781659-fmcw-radar",
+     "isca-mcloughlin15_interspeech"
+    ]
+   },
+   {
+    "design": "commodity_device",
+    "n": 11,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "arxiv-2512.16518",
+     "arxiv-2401.14978-xrkws",
+     "doi-10.3390-s16111812",
+     "pmc-5134471-contactless"
+    ]
+   },
+   {
+    "design": "phase",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2011.11315"
+    ]
+   }
+  ],
+  "metric_pattern": "\\bWER\\b|word error rate",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "digit WER at best multimodal condition (clean, optimal audio weight); Table 1 reports all four SNRs",
+   "value": 0.24,
+   "unit": "percent",
+   "raw": "best multimodal WER clean: 0.24 vs audio-only 0.32; 20dB 2.44 vs 3.44; 10dB 17.5 vs 24.0; 0dB 46.6 vs 61.2 (WER %)",
+   "pid": "isca-zhu07_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER",
+   "value": 2.5,
+   "unit": "percent",
+   "raw": "WER=2.5%",
+   "pid": "arxiv-2603.11877",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER domain-dep",
+   "value": 2.6,
+   "unit": "%",
+   "raw": "2.6",
+   "pid": "arxiv-2011.11315",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 15.8,
+   "unit": "%",
+   "raw": "15.8",
+   "pid": "arxiv-2608.00803",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER gt",
+   "value": 20.61,
+   "unit": "%",
+   "raw": "20.61",
+   "pid": "arxiv-2303.01758",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [
+  "pmc-5134471-contactless",
+  "pmc-8781659-fmcw-radar",
+  "sottovoce",
+  "pmc-5134471-iruwb",
+  "pmc-4466523-emgnasal",
+  "doi-10.3390-s16111812",
+  "arxiv-2303.01758",
+  "isca-freitas14-featselect",
+  "doi-10.1109-access.2025.3612004",
+  "doi-10.1145-3290605.3300376"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2011.11315",
+   "key": "t:endtoendsilentspeechrecognitionwithacousticsensing",
+   "title": "End-to-end Silent Speech Recognition with Acoustic Sensing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2011.11315 | title=End-to-end Silent Speech Recognition with Acoustic Sensing | venue=IEEE IoT Journal; v1 | Study.research_objective=Silent lip-reading via smartphone speaker+mic: CW inaudible aco",
+   "decision": "include",
+   "quote": "we leverage the phase information instead of the coarse-grained Doppler shift to capture lip movements",
+   "loc": "Sec. 4.2",
+   "provenance": "text-verified",
+   "reason": "target"
+  },
+  {
+   "pid": "arxiv-2303.01758",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2303.08295",
+   "key": "t:alargescalemultimodaldatasetofhumanspeechrecognition",
+   "title": "A large-scale multimodal dataset of human speech recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s=assistive_text_entry, other | Cohort.demographics=20 volunteers (Europe/CN/PK/UK, varied accents) | modalities=radar, active_acoustic_sensing, optical_camera, microphone | Acquisition.sensor_geometry={'electrodes': 'UWB X4M03 8.745GHz/23.328Gsps/300Hz/1.5GHz-BW"
+  },
+  {
+   "pid": "arxiv-2401.14978-xrkws",
+   "key": "t:robustdualmodalspeechkeywordspottingforxrheadsets",
+   "title": "Robust Dual-Modal Speech Keyword Spotting for XR Headsets",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "x fewer params | Claim.claim_scope=dual-modal keeps KWS working silently and blocks nearby speakers | Claim.claim_scope=ultrasonic echo captures mouth movements as silent-speech channel on XR headsets | extra.Limitation.limitation=moving ultrasound source"
+  },
+  {
+   "pid": "arxiv-2512.16518",
+   "key": "t:posterrecognizinghiddenintheearprivatekeyforreliablesilentspeechinterfaceusingmu",
+   "title": "Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "arbud (Edifier W380NB), emitting an OFDM acoustic signal; in-ear microphone records ear-canal reflections. | modalities=active_acoustic_sensing | observed_quantities=tissue_vibration, other | Acquisition.temporal_resolution={'OFDM_samples': 2046, 'source_duration"
+  },
+  {
+   "pid": "arxiv-2603.11877",
+   "key": "t:silentspeechinterfacesintheeraoflargelanguagemodelsacomprehensivetaxonomyandsyst",
+   "title": "Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "is presented as a route beyond wired constraints.', 'reported_numeric_note': None} | sensor_hardware=Earable proximity/sonar sensors and IMUs | observed_quantities=position, tissue_vibration | Acquisition.signal_quality={'review_summary': 'Soci"
+  },
+  {
+   "pid": "arxiv-2608.00803",
+   "key": "t:sonispeechalargescaleopenvocabularytrimodaldatasetforwearablesilentspeechinterfa",
+   "title": "SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "poral differentiation removes static reflections; crop to 80 range bins (~27.2 cm). Output is four-channel differential echo profiles at 200 Hz. | representation_kind=Four-channel differential ultrasound Echo Profiles (80 range bins; 200 Hz sequence) |"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "contact | observed_quantities=position, air_acoustics, pressure, other | modalities=optical_camera, ultrasound_imaging, active_acoustic_sensing, strain_sensor, other | intrusiveness=skin_contact | body_sites=face, jaw, ear, lips | observed_quantities=position, mu"
+  },
+  {
+   "pid": "doi-10.1039-d4nr05145a",
+   "key": "t:flexiblewearablemechanoacousticsensorsforbodysoundmonitoringapplications",
+   "title": "Flexible, wearable mechano-acoustic sensors for body sound monitoring applications",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "materials': 'PVDF nanofibers, micro-structured piezoelectric, TENG'} | Study.research_objective=survey wearable mechano-acoustic sensing of body sounds: mechanisms, sensor configurations, materials, and monitoring applications | task_encoding=natural_utter"
+  },
+  {
+   "pid": "doi-10.1109-access.2025.3612004",
+   "key": "t:silentwhisperenablinguserindependentultralowvolumewhisperedspeechrecognition",
+   "title": "SilentWhisper: Enabling User-Independent Ultra-Low Volume Whispered Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1145-3290605.3300376",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1145-3594738.3611365",
+   "key": "t:hpspeechsilentspeechinterfaceforcommodityheadphones",
+   "title": "HPSpeech: Silent Speech Interface for Commodity Headphones",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "remaining 20 sessions split 18 train/2 test in 10-fold CV; LOPO model also evaluated for user-independence | modalities=active_acoustic_sensing | observed_quantities=air_acoustics, position | sensor_hardware=built-in headphone speakers emit 20-24kHz FMCW (<75dB S"
+  },
+  {
+   "pid": "doi-10.1145-3706598.3714174",
+   "key": "t:m2silentenablingmultiusersilentspeechinteractionsviamultidirectionalspeakersinsh",
+   "title": "M2SILENT: Enabling Multi-user Silent Speech Interactions via Multi-directional Speakers in Shared Spaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t_axes=WER-w/WER-c (seen vs unseen users); cross-user model fine-tuned on 10-word subset from unseen users | modalities=active_acoustic_sensing, microphone | observed_quantities=air_acoustics, tissue_vibration | sensor_hardware=metasurface-embedded parametric arr",
+   "decision": "include",
+   "quote": "WER-w remains low, ranging from 4.56% to 8.96% as the number of users increases, while WER-c is higher, between 14.22% and 19.05%.",
+   "loc": "Sec. 5",
+   "provenance": "text-verified",
+   "reason": "near-ultrasonic FMCW from directional speakers, 41-word set (later)"
+  },
+  {
+   "pid": "doi-10.1587-transinf-2019edp7211",
+   "key": "p:doi-10.1587-transinf-2019edp7211",
+   "title": null,
+   "year": 2020,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "subjects (1F+4M, 22-50 yrs) | dataset_description=60 Korean words, each 14 silent + 20 audible repetitions | modalities=active_acoustic_sensing, microphone | Acquisition.sensor_geometry=sensor A on headset wireframe at mouth/cheek; sensor B front of throat; 10-65"
+  },
+  {
+   "pid": "doi-10.3390-app12020827",
+   "key": "t:ultrasonicdopplerbasedsilentspeechinterfaceusingperceptualdistance",
+   "title": "Ultrasonic Doppler Based Silent Speech Interface Using Perceptual Distance",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "title=Ultrasonic Doppler Based Silent Speech Interface Using Perceptual Distance | intended_use_cases=speech_restoration, private_communication,"
+  },
+  {
+   "pid": "doi-10.3390-s16111812",
+   "key": "t:towardscontactlesssilentspeechrecognitionbasedondetectionofactiveandvisibleartic",
+   "title": "Towards Contactless Silent Speech Recognition Based on Detection of Active and Visible Articulators Using IR-UWB Radar",
+   "year": 2016,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-ahmadi13-mouthus",
+   "key": "t:humanmouthstatedetectionusinglowfrequencyultrasound",
+   "title": "Human Mouth State Detection Using Low Frequency Ultrasound",
+   "year": 2013,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "udy.study_design=controlled_experiment | extra.Production.scope_note=silent speech interface sensing study | modalities=active_acoustic_sensing | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=ultrasound mouth-state de"
+  },
+  {
+   "pid": "isca-ahmadi13_interspeech",
+   "key": "t:humanmouthstatedetectionusinglowfrequencyultrasound",
+   "title": "Human Mouth State Detection Using Low Frequency Ultrasound",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ncoding=natural_utterance | intended_use_cases=private_communication, assistive_text_entry, device_control | modalities=active_acoustic_sensing | observed_quantities=air_acoustics, shape | intrusiveness=external_noncontact | body_sites=lips, face, other | represe"
+  },
+  {
+   "pid": "isca-birkholz16_interspeech",
+   "key": "t:towardsminimallyinvasivevelarstatedetectioninnormalandsilentspeech",
+   "title": "Towards Minimally Invasive Velar State Detection in Normal and Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "family=intermediate_signal_processing | intended_use_cases=speech_restoration, assistive_text_entry, other | modalities=active_acoustic_sensing | observed_quantities=air_acoustics, shape | representation_kind=magnitude spectrum of 12–24kHz chirp response; raised-"
+  },
+  {
+   "pid": "isca-freitas14-featselect",
+   "key": "t:enhancingmultimodalsilentspeechinterfaceswithfeatureselection",
+   "title": "Enhancing Multimodal Silent Speech Interfaces with Feature Selection",
+   "year": 2014,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-freitas14_interspeech",
+   "key": "t:enhancingmultimodalsilentspeechinterfaceswithfeatureselection",
+   "title": "Enhancing Multimodal Silent Speech Interfaces with Feature Selection",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "use_cases=speech_restoration, private_communication, noisy_environment | modalities=optical_camera, other, surface_emg, active_acoustic_sensing | observed_quantities=shape, position, muscle_activity, air_acoustics | intrusiveness=external_noncontact | body_sites="
+  },
+  {
+   "pid": "isca-mcloughlin14-usvad",
+   "key": "t:theuseoflowfrequencyultrasoundforvoiceactivitydetection",
+   "title": "The Use of Low-Frequency Ultrasound for Voice Activity Detection",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "periment | task_family=speech_activity_detection | extra.Production.scope_note=silent speech sensing study | modalities=active_acoustic_sensing | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=ultrasound voice activity"
+  },
+  {
+   "pid": "isca-mcloughlin14_interspeech",
+   "key": "t:theuseoflowfrequencyultrasoundforvoiceactivitydetection",
+   "title": "The Use of Low-Frequency Ultrasound for Voice Activity Detection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding=natural_utterance | target_unit=activity_event | intended_use_cases=noisy_environment, device_control | modalities=active_acoustic_sensing | observed_quantities=air_acoustics, position | intrusiveness=external_noncontact | representation_kind=down-converted"
+  },
+  {
+   "pid": "isca-mcloughlin15_interspeech",
+   "key": "t:lowfrequencyultrasonicvoiceactivitydetectionusingconvolutionalneuralnetworks",
+   "title": "Low Frequency Ultrasonic Voice Activity Detection using Convolutional Neural Networks",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cm from face; LFUS linear cosine chirp f1=20kHz f2=24kHz, Fs=96kHz->8kHz, tau=0.1s; babble noise -10..10dB | modalities=active_acoustic_sensing, microphone | intrusiveness=external_noncontact | Representation.feature_dimensions=per-chirp-frame stacked Hamming-win"
+  },
+  {
+   "pid": "isca-sasou10_avsp",
+   "key": "t:acousticheadgesturerecognitionanditsapplications",
+   "title": "Acoustic head gesture recognition and its applications",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ographics=5 subjects x5 reps each gesture | dataset_description=utterance trajectories of 19 gesture types | modalities=active_acoustic_sensing, microphone | observed_quantities=position, air_acoustics | Representation.transformation_definition=bias-removed, Tn-n"
+  },
+  {
+   "pid": "isca-svanfeldt05_talkhead",
+   "key": "t:perceptionexperimentcombiningaparametricloudspeakerandasynthetictalkinghead",
+   "title": "Perception Experiment Combining a Parametric Loudspeaker and a Synthetic Talking Head",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on=general_population | tested_population=healthy_volunteers | intended_use_cases=noisy_environment, other | modalities=active_acoustic_sensing, optical_camera | intrusiveness=external_noncontact | Acquisition.sensor_geometry=parametric-array loudspeaker (40kHz u"
+  },
+  {
+   "pid": "isca-zhang26y-sonispeech",
+   "key": "t:sonispeechalargescaleopenvocabularytrimodaldatasetforwearablesilentspeechinterfa",
+   "title": "SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ir_acoustics, position, shape | intrusiveness=external_noncontact | Representation.transformation_definition=ultrasound echo profiles -> ResNet-34 encoder -> CTC over characters for open-vocabulary silent speech recognition | system_name=SoniSpeech + R",
+   "decision": "include",
+   "quote": "A CTC-based ResNet-34 baseline achieves 26.3% word error rate (WER) on open-vocabulary silent speech recognition",
+   "loc": "Abstract, Table 3",
+   "provenance": "text-verified",
+   "reason": "FMCW echo profiles from eyewear speakers, open vocabulary (later)"
+  },
+  {
+   "pid": "isca-zhu07_interspeech",
+   "key": "t:multimodalspeechrecognitionwithultrasonicsensors",
+   "title": "Multimodal Speech Recognition with Ultrasonic Sensors",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multimodal Speech Recognition with Ultrasonic Sensors | modalities=active_acoustic_sensing, microphone | observed_quantities=air_acoustics, other | body_sites=face, lips, t",
+   "decision": "include",
+   "quote": "a test set containing 250 utterances from a disjoint set of 5 speakers",
+   "loc": "Sec. 5.1, Table 1",
+   "provenance": "text-verified",
+   "reason": "40 kHz ultrasonic Doppler emitter-receiver, continuous digits (prior)"
+  },
+  {
+   "pid": "pmc-11124924-csteng-mask",
+   "key": "t:flexibleselfpoweredlowdecibelvoicerecognitionmask",
+   "title": "Flexible Self-Powered Low-Decibel Voice Recognition Mask",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "istive_text_entry | production_labels=whisper, silent_articulation, other | modalities=vibration_sensor, strain_sensor, active_acoustic_sensing | Acquisition.sensor_geometry=Single-electrode contact-separated TENG affixed to the inner mask surface (or a mouthpiec"
+  },
+  {
+   "pid": "pmc-4466523-emgnasal",
+   "key": "t:detectingnasalvowelsinspeechinterfacesbasedonsurfaceelectromyography",
+   "title": "Detecting Nasal Vowels in Speech Interfaces Based on Surface Electromyography",
+   "year": 2015,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-5134471-contactless",
+   "key": "t:towardscontactlesssilentspeechrecognitionbasedondetectionofac",
+   "title": "Towards Contactless Silent Speech Recognition Based on Detection of Ac",
+   "year": 2016,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-5134471-iruwb",
+   "key": "t:towardscontactlesssilentspeechrecognitionbasedondetectionofactiveandvisibleartic",
+   "title": "Towards contactless silent speech recognition based on detection of active and visible articulators using IR-UWB radar",
+   "year": 2016,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-5484568-electrolarynx",
+   "key": "t:theelectrolarynxvoicerestorationaftertotallaryngectomy",
+   "title": "The electrolarynx: voice restoration after total laryngectomy",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uction | extra.Production.scope_note=primary SSI: electrolarynx voice restoration review | modalities=vibration_sensor, active_acoustic_sensing | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=review synthesis | tested"
+  },
+  {
+   "pid": "pmc-8781659-fmcw-radar",
+   "key": "t:exploringsilentspeechinterfacesbasedonfrequencymodulatedcontinuouswaveradar",
+   "title": "Exploring Silent Speech Interfaces Based on Frequency-Modulated Continuous-Wave Radar",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "sottovoce",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": 2019,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  }
+ ],
+ "usual_approach": {
+  "design": "Doppler-shift features from a continuous-wave ultrasonic or near-ultrasonic carrier",
+  "n": 16,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2603.11877",
+   "arxiv-2512.16518",
+   "arxiv-2401.14978-xrkws",
+   "pmc-8781659-fmcw-radar",
+   "doi-10.1587-transinf-2019edp7211"
+  ],
+  "population_unique": 28,
+  "note": "full-text pattern counts over the topic population: doppler 16, FMCW/echo profile/chirp 12, commodity device 11, carrier phase (I/Q, delta) 1 (the target)"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2011.11315",
+   "role": "target",
+   "loc": "Sec. 2.1, Table 2",
+   "quote": "acoustic sensing systems for simple lip-reading mainly use the Doppler shift of the received signal"
+  },
+  {
+   "pid": "isca-zhu07_interspeech",
+   "role": "prior",
+   "loc": "Table 1; Sec. 5.1",
+   "quote": "a test set containing 250 utterances from a disjoint set of 5 speakers"
+  },
+  {
+   "pid": "isca-zhang26y-sonispeech",
+   "role": "sota",
+   "loc": "Abstract; Table 3",
+   "quote": "A CTC-based ResNet-34 baseline achieves 26.3% word error rate (WER) on open-vocabulary silent speech recognition"
+  }
+ ],
+ "state_of_the_art": {
+  "pid": "isca-zhang26y-sonispeech",
+  "year": 2026,
+  "metric": "open-vocabulary silent-speech WER, acoustic-sensing eyewear (FMCW echo profiles), one speaker, 5,356 word types, voiced+silent training",
+  "value": "26.3",
+  "unit": "% WER",
+  "timing": "later"
+ },
+ "used_by": [
+  "end-to-end-silent-speech-recognition-with-acoustic-sensing"
+ ],
+ "tally": {
+  "slot_filled_unique": 7329,
+  "string_match_unique": 22,
+  "fulltext_only_folders": 10,
+  "usual_approach": {
+   "design": "Doppler-shift features from a continuous-wave ultrasonic or near-ultrasonic carrier",
+   "n": 16,
+   "tier": "pattern match",
+   "population_unique": 28
+  },
+  "state_of_the_art": {
+   "pid": "isca-zhang26y-sonispeech",
+   "year": 2026,
+   "metric": "open-vocabulary silent-speech WER, acoustic-sensing eyewear (FMCW echo profiles), one speaker, 5,356 word types, voiced+silent training",
+   "value": "26.3",
+   "unit": "% WER",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "isca-zhu07_interspeech"
+  ],
+  "unread": 31,
+  "confirmed_unique": 4,
+  "known_item_recall": null
+ }
+}

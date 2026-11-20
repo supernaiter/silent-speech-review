@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Silent mouthing of prompted sentences"
+  ],
+  "field": "Overt or attempted speech",
+  "n": 7388,
+  "matched": 4015,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Same action at training and use.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Word label sequences from the prompts"
+  ],
+  "field": "Paired audio or text labels",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "standard",
+  "note": "No audio supervision.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "From scratch; time-scaling augmentation"
+  ],
+  "field": "Supervised training per task",
+  "n": 7388,
+  "matched": 1608,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Tuning data overlap the held-out users (Sec. 4.3).",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Handheld phone, user-chosen distance"
+  ],
+  "field": "Silent articulation at use",
+  "n": 7388,
+  "matched": 6538,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Distance range not reported.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "I/Q phase with deltas on 8 carriers (17–23 kHz), phone speaker and microphone"
+  ],
+  "field": "Doppler-shift features",
+  "n": 28,
+  "matched": 16,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "Only study with carrier phase; one unrepeated ablation.",
+  "sota": "26.3% WER open vocabulary, FMCW eyewear, 2026 [@zhang2026sonispeech] [later]"
+ },
+ "M06": {
+  "choice": [
+   "CNN plus attention encoder-decoder (LSTM)"
+  ],
+  "field": "Hybrid CTC/attention",
+  "n": 132,
+  "matched": 79,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "Attention over CTC repeats [@afouras2018deep]; hybrid not tested.",
+  "sota": "Joint CTC/attention, 14.6% WER visual-only, LRS2, 2023 [@ma2023autoavsr] [later]"
+ },
+ "M07": {
+  "choice": [
+   "Beam search; beam width and any external language model not stated"
+  ],
+  "field": "Language model or lexicon",
+  "n": 7388,
+  "matched": 120,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "not_reported",
+  "note": "Attention decoder said to learn an internal language model (Sec. 4.4).",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Word sequence"
+  ],
+  "field": "Text",
+  "n": 7388,
+  "matched": 3760,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "Absent",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (sparse; mostly truly absent)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "Absent",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (sparse; mostly truly absent)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Private: 54 sentences, 29 words, 10 volunteers"
+  ],
+  "field": "Study-specific corpus",
+  "n": 7388,
+  "matched": 239,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "standard",
+  "note": "Not released; labelling procedure not described.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "WER: random, leave-one-domain-out, leave-one-sentence-out"
+  ],
+  "field": "User held out",
+  "n": 22,
+  "matched": 7,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "One run per test; fold composition not given.",
+  "sota": "Cross-user WER 14.22–19.05%, 41 words, 2025 [@zhou2025m2silent] [later]"
+ },
+ "M13": {
+  "choice": [
+   "Commodity phone, deployment claimed"
+  ],
+  "field": "Laboratory, offline",
+  "n": 7388,
+  "matched": 6721,
+  "matched_tier": "slot_filled",
+  "verdict": "not_reported",
+  "note": "No latency, compute or power figures.",
+  "sota": "–"
+ }
+}
