@@ -8,6 +8,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Papers that decode speech units, words, sentences or acoustics from electrocorticography in humans, recorded during produced, attempted, mimed or imagined speech. Included: clinical and high-density grids, micro-ECoG, online or offline. Excluded: intracortical microelectrodes and sEEG-only studies; ECoG studies of listening only.
 - Used in: [A high-performance neuroprosthesis for speech decoding and avatar control](../../reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/), [Neuroprosthesis for decoding speech in a paralyzed person with anarthria](../../reviews/neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria/)
 
+## imagined-speech-eeg-consumer-headset
+
+- Table: [`imagined-speech-eeg-consumer-headset.csv`](imagined-speech-eeg-consumer-headset.csv) (7329 slot-filled, 167 pattern match, usual design in 61, 2 read in full)
+- Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same population as the M06 imagined-speech EEG table); the design compared is the acquisition hardware: a consumer-grade, low-channel or wireless headset (Emotiv, OpenBCI, Muse, Unicorn, NeuroSky) against a research-grade wired amplifier named in the text. Boundary: reviews are counted as pattern matches but are not deciding priors; intracranial recordings are excluded; versions count once.
+- Used in: [Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System](../../reviews/toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system/)
+
 ## intracortical-speech-decoding
 
 - Table: [`intracortical-speech-decoding.csv`](intracortical-speech-decoding.csv) (7329 slot-filled, 75 pattern match, usual design in 67, 5 read in full)

@@ -1,0 +1,229 @@
+{
+ "topic": "eeg-user-identification",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)(EEG|electroenceph)[^|]{0,200}\\b(user|subject|person|people|individual)s? (identification|authentication|recognition)\\b|\\b(user|subject|person|individual)s? (identification|authentication|recognition)\\b[^|]{0,200}(EEG|electroenceph)|(EEG|electroenceph)[^|]{0,200}biometric|biometric[^|]{0,200}(EEG|electroenceph)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies in the wiki that identify the user (subject identification, biometric authentication) from scalp EEG; the design compared is identification from speech-imagery trials and how identification is tested (session-held-out vs trials permuted across sessions). Boundary: identification used only as a nuisance factor is excluded; versions count once; the target is counted in the pattern match.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 7,
+  "string_match_unique": 6,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [],
+  "pattern_counts": [
+   {
+    "design": "imagined_speech",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2501-09700-cueless",
+     "arxiv-2511-07936-rtlwireless",
+     "arxiv-2411.11302",
+     "doi-10.3390-s23125575",
+     "arxiv-1809.06697"
+    ]
+   },
+   {
+    "design": "consumer_headset",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2511-07936-rtlwireless",
+     "doi-10.3390-s23125575",
+     "arxiv-1809.06697"
+    ]
+   }
+  ],
+  "metric_pattern": "ident|acc",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "T6 convnet acc",
+   "value": 99.44,
+   "unit": "percent",
+   "raw": "99.44",
+   "pid": "arxiv-2501.09700",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Willett offline accuracy",
+   "value": 99,
+   "unit": "%",
+   "raw": "99",
+   "pid": "doi-10.3390-s23125575",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "wired acc",
+   "value": 62.0,
+   "unit": "percent",
+   "raw": "62.0",
+   "pid": "arxiv-2511.07936",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1809.06697",
+   "key": "t:eegbasedsubjectsidentificationbasedonbiometricsofimaginedspeechusingemd",
+   "title": "EEG-based Subjects Identification based on Biometrics of Imagined Speech using EMD",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1809.06697 | title=EEG-based Subjects Identification based on Biometrics of Imagined Speech using EMD | venue=conference paper (2018) | Study.research_objective=EMD IMF fea"
+  },
+  {
+   "pid": "arxiv-2411.11302",
+   "key": "t:towardspersonalizedbraincomputerinterfaceapplicationbasedonendogenouseegparadigm",
+   "title": "Towards Personalized Brain-Computer Interface Application Based on Endogenous EEG Paradigms",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "(MI 0.56, SI 0.47, VI 0.39) — modest, subject-dependent; most subjects above chance but two subjects dominated | claim=EEG user identification achieves ~0.995 accuracy across all endogenous paradigms, supporting personalized BCI via user-specific features | clai"
+  },
+  {
+   "pid": "arxiv-2501-09700-cueless",
+   "key": "t:cuelesseegbasedimaginedspeechbiometricidentificationdatasetandbenchmarks",
+   "title": "Cueless EEG-based imagined speech biometric identification: dataset and benchmarks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501-09700-cueless | title=Cueless EEG-based imagined speech biometric identification: dataset and benchmarks | authors=Ali Derakhshesh, Zahra Dehghanian, Reza Ebrahimpour, Hamid R. Rabiee |"
+  },
+  {
+   "pid": "arxiv-2501.09700",
+   "key": "t:cuelesseegimaginedspeechforsubjectidentificationdatasetandbenchmarks",
+   "title": "Cueless EEG imagined speech for subject identification: dataset and benchmarks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.09700 | title=Cueless EEG imagined speech for subject identification: dataset and benchmarks | venue=IEEE T-BIOM; v2 (10pp) | Study.research_objective=Cueless imagined-speech EEG biometric"
+  },
+  {
+   "pid": "arxiv-2511-07936-rtlwireless",
+   "key": "t:towardpracticalbciarealtimewirelessimaginedspeecheegdecodingsystem",
+   "title": "Toward practical BCI: a real-time wireless imagined speech EEG decoding system",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "retaining above-chance 4-class decoding (46.67%) despite the fidelity gap (62% wired) | Claim.claim_scope=Inter-subject EEG variability can be exploited as a biometric: 30 s resting EEG identifies the operator and loads a personalized decoder | extra.Limitation.status=acknowledged | ext"
+  },
+  {
+   "pid": "arxiv-2511.07936",
+   "key": "t:towardpracticalbciarealtimewirelessimaginedspeecheegdecodingsystem",
+   "title": "Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ss Imagined Speech EEG Decoding System | venue=IEEE conf; v1 (4pp) | Study.research_objective=Real-time imagined-speech EEG (4 commands) with LSL streaming + user identification: wired BrainAmp 62.00±3.47%, portable wireless 46.67±0.72% vs 25% chance; 3 Korean participants, 800 trials x2s. | task"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "/SVM vs deep CNN/RNN/GRU/LSTM/BLSTM/ResNet; RNN-family dominant for neural time series since ~2020; fusion of signature+EEG for biometric applications | extra.Protocol.evaluation_target=surveyed metrics: classification accuracy (words/phonemes/characters),"
+  }
+ ],
+ "usual_approach": {
+  "design": "subject identification from imagined-speech EEG trials",
+  "n": 6,
+  "tier": "pattern match",
+  "population_unique": 6,
+  "pids": [
+   "arxiv-1809.06697",
+   "arxiv-2411.11302",
+   "arxiv-2501.09700"
+  ],
+  "note": "6 unique studies (pattern match) including the target; consumer headset in 3. Prior: arxiv-1809.06697 (2018), arxiv-2501.09700 (2025-01), arxiv-2411.11302 (2024-11)."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2501.09700",
+   "role": "sota",
+   "loc": "Table VI; Sec. IV",
+   "quote": "Shallow ConvNet pre-processed EEG 99.44 99.45 99.43"
+  },
+  {
+   "pid": "arxiv-2411.11302",
+   "role": "prior",
+   "loc": "Sec. IV.A; Sec. III.C",
+   "quote": "achieving an average classification accuracy of 0.995"
+  },
+  {
+   "pid": "arxiv-1809.06697",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "The accuracy obtained (up to 0.92 using Linear SVM) after 10-folds cross-validation"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2501.09700",
+  "year": 2025,
+  "metric": "subject identification, 11 subjects, cueless imagined speech, 30-electrode cap, session-held-out test (sessions 1-3 train, 5 test)",
+  "value": 99.44,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 6,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "subject identification from imagined-speech EEG trials",
+   "n": 6,
+   "tier": "pattern match",
+   "population_unique": 6
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2501.09700",
+   "year": 2025,
+   "metric": "subject identification, 11 subjects, cueless imagined speech, 30-electrode cap, session-held-out test (sessions 1-3 train, 5 test)",
+   "value": 99.44,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-1809.06697",
+   "arxiv-2411.11302"
+  ],
+  "unread": 7,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system"
+ ]
+}
