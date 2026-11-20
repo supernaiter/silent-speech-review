@@ -20,6 +20,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Papers that decode speech units (phonemes, words, sentences, sound) from intracortical microelectrode recordings in humans. Included: attempted, imagined or overt speech; any array count. Excluded: intracortical decoding of hand/arm movement or handwriting only; ECoG/sEEG.
 - Used in: [A high-performance speech neuroprosthesis](../../reviews/a-high-performance-speech-neuroprosthesis/), [An Accurate and Rapidly Calibrating Speech Neuroprosthesis](../../reviews/an-accurate-and-rapidly-calibrating-speech-neuroprosthesis/)
 
+## skin-strain-sensor-channel-count
+
+- Table: [`skin-strain-sensor-channel-count.csv`](skin-strain-sensor-channel-count.csv) (7329 slot-filled, 27 pattern match, usual design in 18, 3 read in full)
+- Inclusion rule: Speech or silent-speech decoding studies whose ledger names a skin-mounted mechanical sensor (strain sensor or gauge, piezoresistive, piezoelectric or triboelectric film, textile or crack-based sensor, artificial throat); the design compared is the number of sensing channels (one versus several) and the placement (throat or neck versus face). Boundary: contactless radar and palatal pressure plates are excluded when read; reviews counted but not used as state of the art.
+- Used in: [Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency](../../reviews/ultrasensitive-textile-strain-sensors-redefine-wearable-silent-speech-interfaces-with-high-machine-learning-efficiency/)
+
 ## video-to-speech-visual-input-stream
 
 - Table: [`video-to-speech-visual-input-stream.csv`](video-to-speech-visual-input-stream.csv) (7329 slot-filled, 165 pattern match, usual design in 76, 4 read in full)

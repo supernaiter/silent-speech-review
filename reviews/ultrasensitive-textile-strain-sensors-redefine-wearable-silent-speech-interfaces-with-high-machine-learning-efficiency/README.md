@@ -1,104 +1,139 @@
 # Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency
 
-Chenyu Tang, Muzi Xu, Wentian Yi, Zibo Zhang, Edoardo Occhipinti, Chaoqun Dong, Dafydd Ravenscroft, Sung-Min Jung, Shuo Gao, Jong Min Kim, Luigi G. Occhipinti  
-arXiv 2023 · [arXiv](https://arxiv.org/abs/2311.15683)
+Tang, C., Xu, M., Yi, W., Zhang, Z., Occhipinti, E., Dong, C., Ravenscroft, D., Jung, S.-M., Lee, S., Gao, S., Kim, J. M., Occhipinti, L. G. · npj Flexible Electronics 8, 27 · 2024 (arXiv 2023) · [doi:10.1038/s41528-024-00315-1](https://doi.org/10.1038/s41528-024-00315-1) · [arXiv:2311.15683](https://arxiv.org/abs/2311.15683)
 
-**Section:** [Acoustic, whisper & wearable motion sensors](../../README.md#acoustic-whisper--wearable-motion-sensors) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency* (Chenyu Tang et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Other sensors](../../README.md#other-sensors)
 
-Combines an ultrasensitive graphene textile strain sensor in a throat choker with a lightweight 1D residual CNN to classify silent words. Reports 95.25% accuracy on 20 words and 90% few-shot transfer with 30 samples per class.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Graphene-coated textile strain sensor in a throat choker |
-| Task | Silent word classification |
-| Vocabulary | 20 words; 10 confusable words; 5 long words |
-| Speaker | Not stated |
-| Session | Not stated |
-| Online / offline | Not stated |
-| Key result | 95.25% accuracy on 20 words (93% confusable words, 96% long words); 90% few-shot transfer |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Only 3 participants and small closed vocabularies; isolated word classification only, with no continuous speech or sentence decoding; transfer tested on few samples.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Same word task | Same task in training and test | 4,015 of 8,995 | ● Standard (Training and test words come from the same recording task.) |
+| M02 Teacher signal | Word class labels only | Class labels | 31 of 8,995 | ● Standard (No audio or articulatory target.) |
+| M03 Train / calibrate | Pooled, 3 participants; few-shot fine-tuning | Per-user or pooled training | 1,608 of 8,995 | ● Standard (Validation and model-selection data not stated.) |
+| M04 Use-time act | Not stated (mouthed or voiced) | Stated production mode | 6,538 of 8,995 | ✕ Not reported (Participants are listed with speaking levels in dB (Supp. Table 2).) |
+| M05 Sensing | 1 textile strain channel, throat | Multi-channel skin sensor | 18 of 8,995 | ● Standard (Single throat strain channel already in the group's prior work.) |
+| M06 Decoding | 1D CNN, 0.09 GFLOPs, noise augmentation | Unnamed "other" label (largest named: CNN 35) | 82 of 8,995 | ● Standard (No ablation of augmentation; cross-paper FLOPs table only. State of the art is intracortical, a cross-signal ceiling.) |
+| M07 Runtime aids | None | None (closed-set classification) | 120 of 8,995 | – Not applicable (Closed-set classifier; no lexicon prior applies.) |
+| M08 Output | Word class | Word class | 3,760 of 8,995 | ● Standard (Isolated words only.) |
+| M09 Confirmation | None (offline) | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | None (offline) | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Prompted word | Prompted label | 239 of 8,995 | ● Standard (Prompt is the reference.) |
+| M12 Evaluation | 80/20 per word, grouping unstated | Speaker-disjoint test | 65 of 8,995 | ✕ Not reported (Session or speaker separation not stated; three participants pooled.) |
+| M13 Hardware & limits | Textile choker, bench readout | Lab prototype | 6,721 of 8,995 | ● Standard (No on-device latency or power.) |
 
-Strong SSI system combining a novel ultrasensitive throat textile strain sensor with an efficient 1D residual CNN, achieving high word classification accuracy with low computational cost and promising few-shot transfer to new users and words on small vocabularies.
+</details>
 
-### Review
+## Verdict
 
-This paper presents a significant hardware-software co-design for wearable silent speech interfaces by innovating an ultrasensitive graphene-coated textile strain sensor with ordered microcracks integrated into a throat choker, dramatically enhancing sensor sensitivity (gauge factor 317 within 5% strain) and durability (>10,000 cycles). This enhanced signal information density enables a lightweight 1D residual CNN to maintain high decoding accuracy (up to 95.25% on 20 words) while reducing computational load by 90%. The model's robustness is further enhanced by a novel random noise window augmentation method, allowing noise resilience without conventional filtering. The authors validate the system on multiple datasets containing frequent, confusable, and slow/fast-spoken words from 3 participants, achieving strong accuracies and demonstrating promising few-shot transfer learning to new users and unseen words with only 30 samples per class (90% accuracy). These results show a clear advance in balancing wearable comfort, decoding accuracy, and energy efficiency. However, the study's limitations include small user numbers, closed vocabularies, and word-level classification only, leaving questions about continuous speech decoding and generalizability in diverse real-world scenarios. Overall, the paper substantially advances wearable SSIs through sensor-model synergy and outlines a clear trajectory for scaling to practical deployment with larger vocabularies and user bases.
+The paper [[1]](#ref-1) changes the sensor (M05), one graphene-textile strain channel in a throat choker, and the decoder (M06), a small 1D CNN with recorded-noise augmentation; both are standard. The single throat strain channel is the authors' own lineage [[2]](#ref-2), and the claim that sensor sensitivity lets one channel and a small network reach 95.25% is untested: no sensor, channel or augmentation ablation is run on the same words. The evaluation (M12) leaves the split grouping unstated and reports no chance level or repeated runs, so it does not show session- or speaker-independent decoding. The paper never states whether the words were mouthed or voiced (M04), which decides whether this is a silent speech interface.
 
-### Why it matters
+## Against the field, component by component
 
-The work's core contribution is the hardware-software synergy where improving sensor sensitivity and signal quality via ordered graphene microcracks enables a compact, low-complexity neural network to attain high decoding accuracy and robustness, reducing reliance on multi-channel or heavy models and making practical wearable SSI more feasible.
+### M05 Sensors: channel count and placement
 
-### Prior state of the art
+**Usual approach:** several channels, 18 of 27 studies with skin-mounted strain, piezo or triboelectric sensors, against 2 with a single channel (pattern match; Appendix); 26 mention face or lip sites and 20 the throat or neck. The paper uses one channel on the throat.
 
-Most wearable SSI rely on either multi-channel sensor arrays or complex multidimensional modeling to compensate for less sensitive sensors, which increases computational load, reduces comfort, or limits practicality.
+**State of the art:** in 2026 a neck-worn strain choker reaches 85.8% on 26 words with subject-independent folds, and accuracy across graded tightness and vocal effort spans 100% to 29.41% [[3]](#ref-3) [later].
 
-### What changed
+The same group's single graphene gauge on the throat classified 15 words at 54.6%, one subject, one sitting [[2]](#ref-2); what changes is the textile fabrication (gauge factor 317 within 5% strain, Sec. II). The authors place the 420% gain "in silent speech scenarios", but the Fig. 1c comparators are textile strain sensors for motion and health monitoring (References 33-47), not speech sensors. The link from sensitivity to accuracy is asserted, not measured: [[4]](#ref-4) varied channel count, from 49.87% with 2 channels to 87.53% with 8 on 100 words, and showed only waveforms in which a metal gauge gave almost indistinguishable changes. 95.25% on 20 words against 87.53% on 100 says nothing about the sensor (inference). Tightness robustness is read from varying DC offsets of the example waveforms in Fig. 4c; [[3]](#ref-3) [later] measures it across graded tightness. Verdict: standard.
 
-Introduces an ultrasensitive textile strain sensor based on ordered graphene microcracks with 420% gauge factor improvement at ≤5% strain, enabling high information density signals that allow a lightweight residual 1D CNN to achieve high accuracy and reduce computational demands by 90%.
+### M06 Decoder: compact CNN
 
-### Position in the field
+**Usual approach:** no family dominates among 355 closed-vocabulary word classifiers: the ledger's unnamed "other" label covers 82, and the largest named family is CNN with 35 (slot-filled; Appendix), so a 1D CNN is common practice.
 
-Advances wearable throat strain sensing SSIs emphasizing comfort, efficiency, and accuracy through sensor-model integration, contrasting prior multi-channel or computationally heavy SSI systems.
+**State of the art:** in 2024, 99.6% on 50 words on day one from intracortical arrays [[5]](#ref-5) [later]; a cross-signal ceiling, not a wearable comparator.
 
-### Practical value
+The efficiency claim rests on Supplementary Table 1: 0.09 GFLOPs against 1 GFLOPs for a system with 99% on 5 words, a 91% cut (inference) matching the stated 90%. Rows differ in vocabulary, channels and protocol; the only same-data comparison is a figure (Supplementary Fig. 10). No run without noise-window augmentation is reported. Verdict: standard.
 
-Demonstrates a practical low-power wearable SSI system balancing comfort, robustness, efficient inference, and high silent speech decoding accuracy, underscoring a viable path to real-world silent communication.
+### M12 Evaluation: test split
 
-### Advanced
+**Usual approach:** a speaker-disjoint test, a plurality of 65 of 143 wearable-sensor word-classification studies; 58 report random or k-fold splits and 44 a separate session or day, and a study counts under every split it reports (pattern match; Appendix).
 
-modality; system_design; deployment; evaluation
+**State of the art:** in 2026, subject-separated folds and a re-test 2 weeks after re-attachment [[3]](#ref-3) [later].
 
-### Unresolved
+The 80/20 split of 100 samples per word (Sec. II) does not say whether one wearing session falls on both sides; that matches its lineage, one sitting [[2]](#ref-2), and [[4]](#ref-4) used randomly mixed folds. Transfer gives 80% with 15 to 20 samples per class, but the new-user task has 5 words (chance 20%, inference) and an undescribed test set (Fig. 5); [[3]](#ref-3) [later] reaches 80% with LoRA against 76% with fully connected fine-tuning, at 20 samples per class from a new user. Verdict: not reported.
 
-larger vocabulary; sentence-level decoding; broader user populations
+## The 13 components
 
-### Evaluation details
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Same word task | Same task in training and test (slot-filled 4,015) | – | standard |
+| M02 Training-only supervision | Word class labels only | Class labels (slot-filled 31) | – | standard |
+| M03 Training and adaptation | Pooled, 3 participants; few-shot fine-tuning | Per-user or pooled training (slot-filled 1,608) | – | standard |
+| M04 Use-time action | Not stated (mouthed or voiced) | Stated production mode (slot-filled 6,538) | – | not reported |
+| M05 Sensors | 1 textile strain channel, throat | Multi-channel skin sensor (pattern match 18) | [[3]](#ref-3) [later]: 85.8%, 26 words | standard |
+| M06 Processing and decoding | 1D CNN, 0.09 GFLOPs, noise augmentation | Unnamed "other" label (largest named: CNN 35) (slot-filled 82) | [[5]](#ref-5) [later]: 99.6%, 50 words | standard |
+| M07 Lexicon and LM | None | None (closed-set classification) (slot-filled 120) | – | not applicable |
+| M08 Output | Word class | Word class (slot-filled 3,760) | – | standard |
+| M09 Confirmation | None (offline) | None (slot-filled 82) | – | not applicable |
+| M10 Correction | None (offline) | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Prompted word | Prompted label (slot-filled 239) | – | standard |
+| M12 Evaluation | 80/20 per word, grouping unstated | Speaker-disjoint test (pattern match 65) | [[3]](#ref-3) [later]: subject-independent | not reported |
+| M13 Device and cost | Textile choker, bench readout | Lab prototype (slot-filled 6,721) | – | standard |
 
-| Item | Details |
-| --- | --- |
-| Task | silent speech word recognition |
-| Input | throat vibration strain |
-| Sensor | Graphene-coated textile strain sensor with ordered microcracks integrated into a throat choker worn around the neck. |
-| Body site | throat |
-| Output | labels |
-| Vocabulary type | closed-word classification |
-| Vocabulary size | 20 high-frequency words + 10 confusable word pairs + 5 long words at varying speeds |
-| Metrics and results | Textile strain sensor gauge factor 317 within 5% strain; reliable over 10,000 stretch cycles; classification accuracy 95.25% (20 words Dataset 1), 93% (10 confusable words Dataset 2), 96% (5 long words Dataset 3); few-shot transfer accuracy 90% with 30 samples per class. |
-| Evaluation protocol | Hardware sensing with textile strain sensor integrated into choker, 500 Hz sampling; end-to-end word classification on three datasets with multiple noise and wearer conditions plus few-shot transfer evaluation. |
+## Where the claims outrun the evidence
 
-### Limits
+- "100% unresponsive" to sound (Sec. II) rests on one 100 dB demonstration (Fig. 3a).
+- Supplementary Table 2 lists speaking levels of 54, 47 and 42 dB for the three main participants and 46 dB for the transfer participant, yet no section says the words were mouthed; if voiced, a throat sensor also picks up laryngeal vibration (inference).
+- "Real-world application scenarios" (Abstract) rest on offline classification of 5 to 20 isolated words from three participants, with no on-device latency or power (Fig. 4, Supplementary Table 1).
+- R-CAM maps (Fig. 4c) are read as attention to word micromovements without a quantitative test.
+- The authors note accuracy had not saturated with training size (Supplementary Fig. 11).
 
-- **Technical:** Small participant number (3), limited closed vocabulary size (max 20 words), isolated word classification rather than continuous speech or sentence decoding.
-- **Evaluation:** Evaluation limited to isolated word classification on small datasets and three participants; speech speed variation tested only on few long words; transfer learning tested on few samples per class only.
-- **Deployment:** Limited to small participant number (3) and small closed vocabularies; lacks continuous speech or sentence-level decoding; transfer learning evaluated only on small samples and selected new words/users.
-- **Scope of this review:** Limited to silent word recognition from throat strain signals in small vocabularies; does not address continuous speech decoding or sentence-level understanding.
+## What the field needs next
 
-### Evidence
+- M12: session- and speaker-disjoint tests with chance level and repeated runs, as in [[3]](#ref-3) [later].
+- M05: the same words with a lower-sensitivity sensor and added channels, as in [[4]](#ref-4).
+- M04: mouthed and voiced conditions recorded separately, with a microphone.
+- M06: augmentation and filtering ablations, with energy measured on a wearable processor.
 
-- We developed a biocompatible strain sensor integrated into a comfortable textile choker capable of enduring over 10,000 stretching-releasing cycles and featuring ordered microcracks of graphene flakes embedded in textile substrates, resulting in unprecedented sensitivity and high information density signals. (Abstract)
-- The sensor's gauge factor exceeds previous state-of-the-art strain sensors by 420%, enabling detection of subtle throat micromovements and producing information-rich signals that simplify decoding and enable lightweight 1D CNN processing. (Abstract)
-- Evaluations were performed on three English datasets collected from three participants including 20 common high-frequency words; 10 confusable word pairs; and 5 long words spoken at varied speeds with 100 samples each (80 train / 20 test). Few-shot transfer to a new user and 10 unseen words was demonstrated using 30 samples per class achieving 90% accuracy. (II. Results)
-- Classification accuracy is 95.25% on Dataset 1 with 20 words, 93% on Dataset 2 with confusable pairs, 96% on Dataset 3 with long words at varied speech speeds; few-shot transfer learning achieves 90% accuracy with only 30 samples per class. The sensor gauge factor is 317 within 5% strain with stable linear resistance response and durability over 10,000 stretching cycles. (Abstract)
-- The study features only three participants, evaluates closed vocabularies (max 20 words), and focuses on isolated word classification rather than continuous speech or sentence decoding; transfer learning evaluated on limited samples and classes; real-world deployment would require broader vocabularies and natural language tasks. (II. Results)
-- The wearable silent speech interface enables hands-free, real-time, speaker-dependent recognition using a choker-mounted textile strain sensor and an efficient 1D CNN, achieving both comfort and computational efficiency suitable for mobile applications. (Abstract)
+## Questions for the authors
 
-## More reviews in Acoustic, whisper & wearable motion sensors
+- Were the words mouthed, whispered or spoken aloud, and how was this checked?
+- Did test samples share wearing sessions with training samples?
+- Which comparator gives the 90% reduction in computational load?
+- How were the few-shot test sets built, and how large were they?
+- Which reading speeds of Dataset 3 were in training and which in test?
 
-- [EchoSpeech: Continuous Silent Speech Recognition on Minimally-obtrusive Eyewear Powered by Acoustic Sensing](../echospeech-continuous-silent-speech-recognition-on-minimally-obtrusive-eyewear-powered-by-acoustic/) (2023). Glasses-mounted inaudible FMCW sonar recognizes silent speech from facial skin echoes: 4.5% WER on 31 commands and 6.1% on connected digits in 12 users, with walking/noise tests and a 73.3 mW demo.
-- [WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions](../wesper-zero-shot-and-realtime-whisper-to-normal-voice-conversion-for-whisper-based-speech-interactions/) (2023). WESPER trains a whisper-to-normal converter with no paired data (M02, ahead); its unit route (M06) is untested against baselines, and its ASR gain trails a recognizer fine-tuned on labelled whisper.
-- [Unvoiced: Designing an LLM-assisted Unvoiced User Interface using Earables](../unvoiced-designing-an-llm-assisted-unvoiced-user-interface-using-earables/) (2024). Twin-IMU earable captures jaw motion during unvoiced speech; spectrograms are transcribed by Whisper and gaps filled by GPT-4, giving 93-99% task completion and 0.07-0.14 WER across 19 users.
-- [EarCommand: "Hearing" Your Silent Speech Commands In Ear](../earcommand-hearing-your-silent-speech-commands-in-ear/) (2022). Earphone SSI senses ear-canal deformation with inaudible in-ear echoes to recognize silently mouthed commands; abstract reports 10.02% WER on 32 word commands and 12.33% on 25 sentence commands.
-- [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](../poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult/) (2025). HEar-ID jointly recognizes whispered ear-canal letter spelling and user identity from in-ear audio and ultrasonic reflections; Top-1 word accuracy is 67.3% across 11 users (90.25% for eight selected users).
-- [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](../silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/) (2025). Uses six wearable 6-axis IMUs (accelerometer plus gyroscope) on the face and neck with a Conformer-CTC model to recognize silently articulated words and word sequences. Reports 97.17% word-level accuracy in a 4-participant study.
+## Appendix: literature search
+
+- M05 skin-strain-sensor-channel-count (new topic table). Inclusion rule: speech or silent-speech decoding studies whose ledger names a skin-mounted mechanical sensor (strain sensor or gauge, piezoresistive, piezoelectric or triboelectric film, textile or crack-based sensor, artificial throat); the design compared is the number of channels and the placement; contactless radar and palatal plates are excluded when read. Slot-filled 7,329 unique studies; pattern match 27 unique studies. Full-text pattern counts: multi-channel 18, single channel 2; placement: face or lips 26, throat or neck 20. Usual design: multi-channel, 18 (pattern match). State of the art: [[3]](#ref-3) [later]. Read in full for this topic: [[2]](#ref-2), [[4]](#ref-4), [[3]](#ref-3). Known-item recall 0.5.
+- M06 closed-vocabulary-word-classification (published topic table, reused). Inclusion rule: studies that decode words or utterances from non-acoustic signals by classifying each segment into a closed set of at most a few hundred words or utterances; the design compared is the model family. Slot-filled 7,345 unique studies; pattern match 360 unique studies. Model families among 355 classifiers: other 82, CNN 35 (slot-filled). Usual design: other model family, 82 (slot-filled). State of the art: [[5]](#ref-5) [later]. Known-item recall 0.5.
+- M12 wearable-sensor-word-test-split (new topic table). Inclusion rule: word or command classification studies whose ledger names a wearable non-acoustic sensor on the face or neck (strain, piezo or triboelectric sensor, surface EMG, accelerometer); the design compared is how test samples are separated from training: speaker-disjoint, session- or day-disjoint, or a random or per-class split; a paper counts under every split it reports. Slot-filled 6,960 unique studies; pattern match 143 unique studies. Full-text pattern counts: speaker-disjoint 65, random or k-fold split 58, session- or day-disjoint 44. Usual design: speaker-disjoint, 65 (pattern match). State of the art: [[3]](#ref-3) [later]. Read in full for this topic: [[4]](#ref-4), [[2]](#ref-2), [[3]](#ref-3).
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Tang, C., Xu, M., Yi, W., Zhang, Z., Occhipinti, E., Dong, C., et al. “Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency.” *npj Flexible Electronics*, 2024, 8, 27. doi:[10.1038/s41528-024-00315-1](https://doi.org/10.1038/s41528-024-00315-1). arXiv:[2311.15683](https://arxiv.org/abs/2311.15683). Target. Read as arXiv v2; venue from Crossref (published 2024-05-07). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/ultrasensitive-textile-strain-sensors-redefine-wearable-silent-speech-interfaces-with-high-machine-learning-efficiency) [wiki: arxiv-2311.15683](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2311.15683/article.md) [wiki: doi-10.1038-s41528-024-00315-1](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41528-024-00315-1/article.md)
+2. <a id="ref-2"></a>Ravenscroft, D., Prattis, I., Kandukuri, T., Samad, Y. A., Mallia, G., Occhipinti, L. G. “Machine Learning Methods for Automatic Silent Speech Recognition Using a Wearable Graphene Strain Gauge Sensor.” *Sensors*, 2022, 22(1), 299. doi:[10.3390/s22010299](https://doi.org/10.3390/s22010299). Prior; same group. Published online 2021-12-31. [wiki: doi-10.3390-s22010299](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3390-s22010299/article.md) [wiki: pmc-8749657-graphene-throat](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-8749657-graphene-throat/article.md)
+3. <a id="ref-3"></a>Hong, S., Yoo, J., Park, S. “Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speech in Noise.” *Cyborg and Bionic Systems*, 2026, 7, 0536. doi:[10.34133/cbsystems.0536](https://doi.org/10.34133/cbsystems.0536). Later; published online 2026-03-23. [later] [wiki: pmc-13006734-cvos-ssi](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-13006734-cvos-ssi/article.md) [wiki: pmc-13006734-strainssi](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-13006734-strainssi/article.md) [wiki: doi-10.34133-cbsystems.0536](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.34133-cbsystems.0536/article.md)
+4. <a id="ref-4"></a>Kim, T., Shin, Y., Kang, K., Kim, K., Kim, G., Byeon, Y., et al. “Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for silent speech interfaces.” *Nature Communications*, 2022, 13, 5815. doi:[10.1038/s41467-022-33457-9](https://doi.org/10.1038/s41467-022-33457-9). Prior. [wiki: pmc-9530138-straingauges](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9530138-straingauges/article.md) [wiki: pmc-9530138-sinm](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9530138-sinm/article.md) [wiki: pmc-9530138-straintssi](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9530138-straintssi/article.md) [wiki: doi-10.1038-s41467-022-33457-9](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41467-022-33457-9/article.md)
+5. <a id="ref-5"></a>Card, N. S., Wairagkar, M., Iacobacci, C., Hou, X., Singer-Clark, T., Willett, F. R., et al. “An Accurate and Rapidly Calibrating Speech Neuroprosthesis.” *New England Journal of Medicine*, 2024, 391(7), 609–618. doi:[10.1056/NEJMoa2314132](https://doi.org/10.1056/NEJMoa2314132). Later; state of the art of the published M06 closed-vocabulary table. [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/an-accurate-and-rapidly-calibrating-speech-neuroprosthesis) [wiki: pmc-11328962-rapidcal](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-11328962-rapidcal/article.md) [wiki: doi-10.1056-nejmoa2314132](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1056-nejmoa2314132/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M05/skin-strain-sensor-channel-count.csv`](../../components/M05/skin-strain-sensor-channel-count.csv): M05 topic "skin-strain-sensor-channel-count", every candidate paper with its decision (7329 slot-filled, 27 pattern match, usual design in 18, 3 read in full)
+- [`components/M06/closed-vocabulary-word-classification.csv`](../../components/M06/closed-vocabulary-word-classification.csv): M06 topic "closed-vocabulary-word-classification", every candidate paper with its decision (7345 slot-filled, 360 pattern match, usual design in 82, 2 read in full)
+- [`components/M12/wearable-sensor-word-test-split.csv`](../../components/M12/wearable-sensor-word-test-split.csv): M12 topic "wearable-sensor-word-test-split", every candidate paper with its decision (6960 slot-filled, 143 pattern match, usual design in 65, 3 read in full)
+
 
 ---
 
