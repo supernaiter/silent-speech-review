@@ -107,7 +107,11 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`video-to-speech-speaker-held-out-test.csv`](video-to-speech-speaker-held-out-test.csv) (6960 slot-filled, 165 pattern match, usual design in 78, 5 read in full)
 - Inclusion rule: Include the video-to-speech population of components/M06/video-to-speech-synthesis (speech waveform synthesized from talking-face or lip video, audio muted at test) and count, from the full text with the reference list removed, the evaluation protocols named: a test on speakers held out of training (unseen, speaker-independent, speaker-disjoint, out-of-domain speakers), listener or opinion-score tests, ASR WER on the output, and repeated runs over seeds. Boundary: a study counts under every protocol its text names (upper bound; related-work mentions included); enhancement with noisy audio at test, talking-head generation and video-to-text-to-speech pipelines excluded; versions counted once.
-- Used in: [Let There Be Sound: Reconstructing High Quality Speech from Silent Videos](../../reviews/let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos/)
+- Used in: [Let There Be Sound: Reconstructing High Quality Speech from Silent Videos](../../reviews/let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos/), [Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild](../../reviews/lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild | 2022 | Table 3 caption; Supplement A.1.1 |
 
 ## whisper-conversion-evaluation
 
