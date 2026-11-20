@@ -1,0 +1,2872 @@
+{
+ "topic": "online-imagined-speech-eeg",
+ "slot": "M13",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)((imagined|covert|inner) speech|speech imagery)[^|]{0,120}(EEG|electroenceph)|(EEG|electroenceph)[^|]{0,120}((imagined|covert|inner) speech|speech imagery)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that classify imagined, covert or inner speech from scalp EEG (same population as the M06 imagined-speech EEG table); the design compared is whether decoding is run online with feedback (real-time, closed-loop) and its accuracy reported, or offline on recorded trials. Boundary: a mention of real-time use as future work or in related work is a pattern match only, not an online study; reviews excluded as deciding priors; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 6721,
+  "slot_filled_unique": 6075,
+  "string_match_folders": 256,
+  "string_match_unique": 167,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M13",
+  "design_slot_fill": 0.747,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "SystemConfiguration.system_lifecycle=implemented_evaluated",
+    "n": 72,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-22597-vmi",
+     "arxiv-2604.05751",
+     "arxiv-2606-12223-si-mi",
+     "arxiv-2607-03844-cnnsnn",
+     "arxiv-2607-27268-eegfm"
+    ]
+   },
+   {
+    "design": "SystemConfiguration.system_lifecycle=implemented_unevaluated",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "nemar-nm000174-nguyen",
+     "nemar-nm000224-nguyenlong",
+     "nemar-nm000252-nguyenlongw",
+     "nemar-nm000257-nguyenshort",
+     "nemar-nm000261-nguyenvowel"
+    ]
+   },
+   {
+    "design": "SystemConfiguration.system_lifecycle=proposed_only",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s40820-025-02042-2",
+     "doi-10.64898-2025.11.30.691403",
+     "doi-10.1007-s11571-024-10167-0"
+    ]
+   },
+   {
+    "design": "system_name=eegnet",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2411.09243"
+    ]
+   },
+   {
+    "design": "system_name=fbcnet",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2411.09243"
+    ]
+   },
+   {
+    "design": "system_name=shallowconvnet",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2411.09243"
+    ]
+   },
+   {
+    "design": "system_name=connectivity statistical comparison",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2411.09243"
+    ]
+   },
+   {
+    "design": "system_name=offline eeg plv functional-connectivity analysis",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2411.09400"
+    ]
+   },
+   {
+    "design": "system_name=proposed ddpm + conditional autoencoder + kan viseme classifier",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.14790"
+    ]
+   },
+   {
+    "design": "system_boundary=eeg-only, imagined speech, alpha band (8–12 hz); table v representative subject.",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.27247"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "online_or_realtime",
+    "n": 55,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604.05751",
+     "arxiv-2607-03844-cnnsnn",
+     "arxiv-2607.03844-cnnsnn",
+     "arxiv-2608.20186-silentread",
+     "commsbio-11102-covtsig"
+    ]
+   },
+   {
+    "design": "offline",
+    "n": 45,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2607-03844-cnnsnn",
+     "arxiv-2607.03844-cnnsnn",
+     "emsi-15979-lightweight",
+     "pmc-13482365-dirword",
+     "sut-warren26_thesis"
+    ]
+   }
+  ],
+  "metric_pattern": "acc",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "right command accuracy",
+   "value": 100,
+   "unit": "%",
+   "raw": "20/20 = 100%",
+   "pid": "bioeng-10-00649-imagined-eeg",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best accuracy (all-subjects scheme)",
+   "value": 99.67,
+   "unit": "percent",
+   "raw": "99.67",
+   "pid": "doi-10.21203-rs.3.rs-2287259-v1",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "all-ch acc",
+   "value": 99.5,
+   "unit": "percent",
+   "raw": "99.5",
+   "pid": "arxiv-2105.14787",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T6 convnet acc",
+   "value": 99.44,
+   "unit": "percent",
+   "raw": "99.44",
+   "pid": "arxiv-2501.09700",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ELM max accuracy (gamma)",
+   "value": 99,
+   "unit": "percent",
+   "raw": "99%",
+   "pid": "pmc-12453656-eegspeech-review",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Thinking Out Loud accuracies",
+   "value": 98.81,
+   "unit": "percent accuracy",
+   "raw": "Transformer on Thinking Out Loud; LSTM 98.42, BLSTM 98.69",
+   "pid": "doi-10.21203-rs.3.rs-8963357-v1",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "XGBoost classification accuracy",
+   "value": 98.1,
+   "unit": "percent",
+   "raw": "98.10% accuracy, 98.51% weighted precision, 98.43% F1 (15 subjects, 4 commands+neutral)",
+   "pid": "emsi-15979-lightweight",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best reported fine-grained accuracy (transformer, subject-dependent)",
+   "value": 97.0,
+   "unit": "percent",
+   "raw": "~97%",
+   "pid": "arxiv-2609-29820-strictimg",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "KNN one-versus-rest mean accuracy 97±0.001% (F1 0.55, AUC-ROC 0.68)",
+   "value": 97,
+   "unit": "percent",
+   "raw": "mean accuracy of 97 ± 0.001%",
+   "pid": "doi-10.3389-fninf.2023.1306277",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "4-class covert speech accuracy",
+   "value": 96.4,
+   "unit": "percent",
+   "raw": "4-class covert-phoneme TPR (94.5% without articulation window)",
+   "pid": "doi-10.1007-s10916-018-1137-9",
+   "year": 2018,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "applsci-13-11787-lipsync",
+   "key": "t:theperformanceofalipsyncimagerymodelnaebifeng",
+   "title": "The Performance of a Lip-Sync Imagery Model... (Naebi & Feng)",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "her | claim=lip-sync imagery (lip border contour synchronized to imagined sounds) is a language-agnostic substitute for speech imagery; M vs A decodable from scalp EEG | claim=restricted-range filter-bank signal combinations (new signal combination) raise two-class classification accura"
+  },
+  {
+   "pid": "applsci-14177720-crossperc",
+   "key": "t:exploringinnerspeechrecognitionviacrossperceptionapproachineegandfmri",
+   "title": "Exploring Inner Speech Recognition via Cross-Perception Approach in EEG and fMRI",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Exploring Inner Speech Recognition via Cross-Perception Approach in EEG and fMRI | authors=Qin, Zong, Liu (Liverpool; XJTLU; ECNU) | venue=Applied Sciences 14(17):7720 | Study.research_object"
+  },
+  {
+   "pid": "arxiv-1705.07771",
+   "key": "t:simulationexperimentofbcibasedonimaginedspeecheegdecoding",
+   "title": "Simulation Experiment of BCI Based on Imagined Speech EEG Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1705.07771 | title=Simulation Experiment of BCI Based on Imagined Speech EEG Decoding | venue=conference paper (2017) | Study.research_objective=No sentence-level imagined-speech dataset exists ->"
+  },
+  {
+   "pid": "arxiv-1809.06697",
+   "key": "t:eegbasedsubjectsidentificationbasedonbiometricsofimaginedspeechusingemd",
+   "title": "EEG-based Subjects Identification based on Biometrics of Imagined Speech using EMD",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1809.06697 | title=EEG-based Subjects Identification based on Biometrics of Imagined Speech using EMD | venue=conference paper (2018) | Study.research_objective=EMD IMF features (Teager/Instantaneous energy, Hig"
+  },
+  {
+   "pid": "arxiv-1904.04352",
+   "key": "t:hierarchicaldeepfeaturelearningfordecodingimaginedspeechfromeeg",
+   "title": "Hierarchical Deep Feature Learning For Decoding Imagined Speech From EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1904.04352 | title=Hierarchical Deep Feature Learning For Decoding Imagined Speech From EEG | venue=workshop paper (2019, AAAI/AAAI-related workshop) | Study.research_objective=Hierarchical CNN+recurrent+FC + de"
+  },
+  {
+   "pid": "arxiv-2003.09374",
+   "key": "t:anoveldeeplearningarchitecturefordecodingimaginedspeechfromeeg",
+   "title": "A Novel Deep Learning Architecture for Decoding Imagined Speech from EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2003.09374 | title=A Novel Deep Learning Architecture for Decoding Imagined Speech from EEG | venue=conference paper (2020) | Study.research_objective=Spatial-filter channel selection (9 ch) + per-channel featur"
+  },
+  {
+   "pid": "arxiv-2010.05497",
+   "key": "t:thesoundofsilenceineegcognitivevoiceactivitydetection",
+   "title": "The \"Sound of Silence\" in EEG -- Cognitive voice activity detection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e paper (2020) | Study.research_objective=Cognitive voice-activity detection: segment no-activity (NS) regions of heard/imagined speech EEG before unit classification — 2 datasets (EGI128@250Hz 16subj, Muse4ch@1kHz 8subjx3sess, 28 phrases), BL vs DNS vs DNS3"
+  },
+  {
+   "pid": "arxiv-2011.02195",
+   "key": "t:correlationbasedmultiphasalmodelsforimprovedimaginedspeecheegrecognition",
+   "title": "Correlation based Multi-phasal models for improved imagined speech EEG recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2011.02195 | title=Correlation based Multi-phasal models for improved imagined speech EEG recognition | venue=conference paper (2020) | Study.research_objective=CorrNet common-representation learning across KA"
+  },
+  {
+   "pid": "arxiv-2105.14787",
+   "key": "t:voiceofyourbraincognitiverepresentationsofimaginedspeechovertspeechandspeechperc",
+   "title": "Voice of Your Brain: Cognitive Representations of Imagined Speech, Overt Speech, and Speech Perception Based on EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2105.14787 | title=Voice of Your Brain: Cognitive Representations of Imagined Speech, Overt Speech, and Speech Perception Based on EEG | venue=conference paper (Interspeech-style 2021) | Study.research_objective=Speaker identification (9-way) from single"
+  },
+  {
+   "pid": "arxiv-2107-07064-dal",
+   "key": "t:dalfeaturelearningfromovertspeechtodecodeimaginedspeechbasedeegsignalswithconvol",
+   "title": "DAL: Feature Learning from Overt Speech to Decode Imagined Speech-based EEG Signals with Convolutional Autoencoder",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2107-07064-dal | title=DAL: Feature Learning from Overt Speech to Decode Imagined Speech-based EEG Signals with Convolutional Autoencoder | authors=Dae-Hyeok Lee, Sung-Jin Kim, Seong-Whan Lee | venue=arXiv 2107.07064 |"
+  },
+  {
+   "pid": "arxiv-2107.07064",
+   "key": "t:dalfeaturelearningfromovertspeechtodecodeimaginedspeechbasedeegsignalswithconvol",
+   "title": "DAL: Feature Learning from Overt Speech to Decode Imagined Speech-based EEG Signals with Convolutional Autoencoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2107.07064 | title=DAL: Feature Learning from Overt Speech to Decode Imagined Speech-based EEG Signals with Convolutional Autoencoder | venue=conference paper (2021) | Study.research_objective=Deep-autolearner (DAL"
+  },
+  {
+   "pid": "arxiv-2112.09239",
+   "key": "t:eegtransformerselfattentionfromtransformerarchitecturefordecodingeegofimaginedsp",
+   "title": "EEG-Transformer: Self-attention from Transformer Architecture for Decoding EEG of Imagined Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2112.09239 | title=EEG-Transformer: Self-attention from Transformer Architecture for Decoding EEG of Imagined Speech | venue=conference paper (2021) | Study.research_objective=CNN + multi-head self-attention (Transformer) decoder for 13"
+  },
+  {
+   "pid": "arxiv-2204-07362-langspec",
+   "key": "t:decodingneuralcorrelationoflanguagespecificimaginedspeechusingeegsignals",
+   "title": "Decoding Neural Correlation of Language-Specific Imagined Speech using EEG Signals",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2204-07362-langspec | title=Decoding Neural Correlation of Language-Specific Imagined Speech using EEG Signals | authors=Keon-Woo Lee, Dae-Hyeok Lee, Sung-Jin Kim, Seong-Whan Lee | venue=arXiv 2204.07362 | review_state=sou"
+  },
+  {
+   "pid": "arxiv-2204.07362",
+   "key": "t:decodingneuralcorrelationoflanguagespecificimaginedspeechusingeegsignals",
+   "title": "Decoding Neural Correlation of Language-Specific Imagined Speech using EEG Signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2204.07362 | title=Decoding Neural Correlation of Language-Specific Imagined Speech using EEG Signals | venue=conference paper (2022) | Study.research_objective=Spectral/topographic analysis of imagined-speech EEG"
+  },
+  {
+   "pid": "arxiv-2210.06472",
+   "key": "t:innerspeechrecognitionthroughelectroencephalographicsignals",
+   "title": "Inner speech recognition through electroencephalographic signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2210.06472 | title=Inner speech recognition through electroencephalographic signals | venue=conference paper (Gasparini et al.) | Study.research_objective=Inner-speech EEG recognition o"
+  },
+  {
+   "pid": "arxiv-2212.02047",
+   "key": "t:towardsneuraldecodingofimaginedspeechbasedonspokenspeech",
+   "title": "Towards Neural Decoding of Imagined Speech based on Spoken Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ionProtocol.statistical_plan={'metrics': 'accuracy mean across subjects; significance test'} | Claim.claim_scope=Spoken-EEG features carry decodable structure for imagined speech (26.8% vs 30.5% own-data) — transfer is viable but below within-paradigm baseline. | img acc | xfer acc | few acc | vis"
+  },
+  {
+   "pid": "arxiv-2301-07173-neurotalk",
+   "key": "t:neurotalktowardsvoicereconstructionfromeegduringimaginedspeech",
+   "title": "NeuroTalk: Towards Voice Reconstruction from EEG during Imagined Speech",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2301-07173-neurotalk | title=NeuroTalk: Towards Voice Reconstruction from EEG during Imagined Speech | authors=Young-Eun Lee, Seo-Hyun Lee, Sang-Ho Kim, Seong-Whan Lee | venue=arXiv 2301.07173 | review_state=source_check"
+  },
+  {
+   "pid": "arxiv-2301.07173",
+   "key": "t:towardsvoicereconstructionfromeegduringimaginedspeech",
+   "title": "Towards Voice Reconstruction from EEG during Imagined Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2301.07173 | title=Towards Voice Reconstruction from EEG during Imagined Speech | venue=AAAI conference; v1 (9pp) | Study.research_objective=NeuroTalk reconstructs voice (80-band mel, GAN+GRU+CTC los"
+  },
+  {
+   "pid": "arxiv-2306.10854",
+   "key": "t:performanceofdatadriveninnerspeechdecodingwithsametaskeegfmridatafusionandbimoda",
+   "title": "Performance of data-driven inner speech decoding with same-task EEG-fMRI data fusion and bimodal models",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.10854 | title=Performance of data-driven inner speech decoding with same-task EEG-fMRI data fusion and bimodal models | venue=conference paper; v1 (5pp) | Study.research_objective=Same-task EEG-fMRI bi"
+  },
+  {
+   "pid": "arxiv-2307-14389-diffe",
+   "key": "t:diffediffusionbasedlearningfordecodingimaginedspeecheeg",
+   "title": "Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307-14389-diffe | title=Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG | authors=Soowon Kim, Young-Eun Lee, Seo-Hyun Lee, Seong-Whan Lee | venue=arXiv 2307.14389 | review_state=source_checke"
+  },
+  {
+   "pid": "arxiv-2307.14389",
+   "key": "t:diffediffusionbasedlearningfordecodingimaginedspeecheeg",
+   "title": "Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307.14389 | title=Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG | venue=conference paper; v1 (5pp) | Study.research_objective=Diff-E diffusion-based (DDPM+CAE) EEG imagined-speech dec"
+  },
+  {
+   "pid": "arxiv-2312.05814",
+   "key": "t:neuralspeechembeddingsforspeechsynthesisbasedondeepgenerativenetworks",
+   "title": "Neural Speech Embeddings for Speech Synthesis Based on Deep Generative Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ral activity. | task_family=intermediate_signal_processing | extra.Task.target=CSP/log-variance feature embeddings from EEG during spoken and imagined speech, with downstream speech synthesis as a motivated but not quantitatively evaluated goal. | extra.Task.output_kind=neural"
+  },
+  {
+   "pid": "arxiv-2411-09243-unifieddec",
+   "key": "t:towardsunifiedneuraldecodingofperceivedspokenandimaginedspeechfromeegsignals",
+   "title": "Towards Unified Neural Decoding of Perceived, Spoken and Imagined Speech from EEG Signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Unified Neural Decoding of Perceived, Spoken and Imagined Speech from EEG Signals | authors=Jung-Sun Lee, Ha-Na Jo, Seo-Hyun Lee (Korea University) | venue=arXiv 2411.09243 | Study.research_obj"
+  },
+  {
+   "pid": "arxiv-2411-09243-unifpar",
+   "key": "t:towardsunifiedneuraldecodingofperceivedspokenandimaginedspeechfromeegsignals",
+   "title": "Towards unified neural decoding of perceived, spoken and imagined speech from EEG signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411-09243-unifpar | title=Towards unified neural decoding of perceived, spoken and imagined speech from EEG signals | authors=Jung-Sun Lee, Ha-Na Jo, Seo-Hyun Lee | venue=arXiv 2411.09243 | review_state=source_checked | Study.s"
+  },
+  {
+   "pid": "arxiv-2411-09400-plvconn",
+   "key": "t:neurostructurebasedelectroencephalographydecodingandunderstandingofspeechandemot",
+   "title": "Neuro-structure based electroencephalography decoding and understanding of speech and emotion",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "te=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Characterize neural dynamics of imagined speech vs visual imagery via EEG phase-locking-value functional connectivity across frequency bands and cortical regions | Study.unit_of_analysis=Grand-"
+  },
+  {
+   "pid": "arxiv-2411.09243",
+   "key": "t:towardsunifiedneuraldecodingofperceivedspokenandimaginedspeechfromeegsignals",
+   "title": "Towards Unified Neural Decoding of Perceived, Spoken and Imagined Speech from EEG Signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Unified Neural Decoding of Perceived, Spoken and Imagined Speech from EEG Signals | authors=Jung-Sun Lee, Ha-Na Jo, Seo-Hyun Lee | abstract=The paper evaluates non-invasive EEG classification o"
+  },
+  {
+   "pid": "arxiv-2411.09400",
+   "key": "t:imaginedspeechandvisualimageryasintuitiveparadigmsforbraincomputerinterfaces",
+   "title": "Imagined Speech and Visual Imagery as Intuitive Paradigms for Brain-Computer Interfaces",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ": 'FCz', 'ground': 'FPz'} | dataset_id=previous-work imagined-speech / visual-imagery EEG dataset | dataset_description=EEG data from 16 healthy participants in two separate sessions (imagined speech and visual imagery), with prompted classes and rest conditions; source says dataset came from earlier study [7]. | Data"
+  },
+  {
+   "pid": "arxiv-2411.11302",
+   "key": "t:towardspersonalizedbraincomputerinterfaceapplicationbasedonendogenouseegparadigm",
+   "title": "Towards Personalized Brain-Computer Interface Application Based on Endogenous EEG Paradigms",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "agine one of four target classes (apple, star, clover, snowman) using instructed endogenous paradigm (motor imagery MI, speech imagery SI, visual imagery VI); decode user identity and intended class from EEG | production_labels=instructed_imagery | Cohort.demographics=8 subjects (4 male, 4 female; 26.4 +/- 1.7 years); Korea U"
+  },
+  {
+   "pid": "arxiv-2412.17818",
+   "key": "t:eegbasedmentalimagerytaskadaptationviaensembleofweightdecomposedlowrankadapters",
+   "title": "EEG-based Mental Imagery Task Adaptation via Ensemble of Weight-Decomposed Low-Rank Adapters",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=arXiv eess.SP | task_family=command_selection | extra.Task.target=classify imagined short words (in/out/up) from EEG; bidirectional domain adaptation between speech imagery (SI) and motor imagery (MI) datasets via low-rank adapters | production_labels=instructed_imagery | Cohort.demographics"
+  },
+  {
+   "pid": "arxiv-2501-09700-cueless",
+   "key": "t:cuelesseegbasedimaginedspeechbiometricidentificationdatasetandbenchmarks",
+   "title": "Cueless EEG-based imagined speech biometric identification: dataset and benchmarks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501-09700-cueless | title=Cueless EEG-based imagined speech biometric identification: dataset and benchmarks | authors=Ali Derakhshesh, Zahra Dehghanian, Reza Ebrahimpour, Hamid R"
+  },
+  {
+   "pid": "arxiv-2501.09700",
+   "key": "t:cuelesseegimaginedspeechforsubjectidentificationdatasetandbenchmarks",
+   "title": "Cueless EEG imagined speech for subject identification: dataset and benchmarks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.09700 | title=Cueless EEG imagined speech for subject identification: dataset and benchmarks | venue=IEEE T-BIOM; v2 (10pp) | Study.research_objective=Cueless im"
+  },
+  {
+   "pid": "arxiv-2501.14790",
+   "key": "t:towardsdynamicneuralcommunicationandspeechneuroprosthesisbasedonvisemedecoding",
+   "title": "Towards Dynamic Neural Communication and Speech Neuroprosthesis Based on Viseme Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "'sentence_duration_seconds': 3, 'repetitions': 5} | dataset_description=Three participants completed overt, mimed, and imagined speech tasks; EEG and corresponding audio and video were recorded. | sensor_hardware=High-density EEG cap with active Ag/AgCl electrodes"
+  },
+  {
+   "pid": "arxiv-2502-04132-covtr",
+   "key": "t:transferlearningforcovertspeechclassificationusingeeghilbertenvelopeandtemporalf",
+   "title": "Transfer learning for covert speech classification using EEG Hilbert envelope and temporal fine structure",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502-04132-covtr | title=Transfer learning for covert speech classification using EEG Hilbert envelope and temporal fine structure | authors=Saravanakumar Duraisamy, Mateusz Dubiel, Maurice Rekrut, Luis A."
+  },
+  {
+   "pid": "arxiv-2502.04132",
+   "key": "t:transferlearningforcovertspeechclassificationusingeeghilbertenvelopeandtemporalf",
+   "title": "Transfer Learning for Covert Speech Classification Using EEG Hilbert Envelope and Temporal Fine Structure",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.04132 | title=Transfer Learning for Covert Speech Classification Using EEG Hilbert Envelope and Temporal Fine Structure | venue=IEEE TBME letter; v1 (3pp) | Study.research_objective=Overt->cover"
+  },
+  {
+   "pid": "arxiv-2504.03762",
+   "key": "t:decodingcovertspeechfromeegusingafunctionalareasspatiotemporaltransformer",
+   "title": "Decoding Covert Speech from EEG Using a Functional Areas Spatio-Temporal Transformer",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2504.03762 | title=Decoding Covert Speech from EEG Using a Functional Areas Spatio-Temporal Transformer | venue=IEEE T-BME-ish; v1 (14pp) | Study.research_objective=FAST"
+  },
+  {
+   "pid": "arxiv-2510.24733",
+   "key": "t:decodingnoninvasivebrainactivitywithnoveldeeplearningapproaches",
+   "title": "Decoding non-invasive brain activity with novel deep-learning approaches",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ve EEG/MEG decoding: DL methods (WaveNet group-emb) for visual decoding + unique high-trial inner-speech dataset across EEG/Elekta/CTF/OPM (3 participants, 5 words). Silent reading decodes 30-40%; generative + repetitive inner speech ~chance (0.2). | task_family=isolated_word_recognition | intended_use_cases=research_of_inner_speech | language=English"
+  },
+  {
+   "pid": "arxiv-2510.27247",
+   "key": "t:reconstructingunseensentencesfromspeechrelatedbiosignalsforopenvocabularyneuralc",
+   "title": "Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arxiv.org/pdf/2510.27247v1 | abstract=Feasibility study of reconstructing previously unseen sentences from non-invasive EEG, alone or with EMG, across overt, whispered and imagined speech modes; it also analyzes phoneme-decoding properties and neural activity. | question=Can personalized models reconstruct"
+  },
+  {
+   "pid": "arxiv-2511-07936-rtlwireless",
+   "key": "t:towardpracticalbciarealtimewirelessimaginedspeecheegdecodingsystem",
+   "title": "Toward practical BCI: a real-time wireless imagined speech EEG decoding system",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511-07936-rtlwireless | title=Toward practical BCI: a real-time wireless imagined speech EEG decoding system | authors=Ji-Ha Park, Heon-Gyu Kwak, Gi-Hwan Shin, Yoo-In Jeon, Sun-Min Park, Ji-Yeon Hwang, Seong-Whan"
+  },
+  {
+   "pid": "arxiv-2511-07936-wirelessimg",
+   "key": "t:towardpracticalbciarealtimewirelessimaginedspeecheegdecodingsystem",
+   "title": "Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System | authors=Park, Kwak, Shin (Korea University); Jeon, Park, Hwang, Kim (KT R&D) | Study.research_objecti"
+  },
+  {
+   "pid": "arxiv-2511-18294-multidiff",
+   "key": "t:multidiffnetaunifiedmultiobjectivediffusionframeworkforsubjectagnosticeegdecodin",
+   "title": "MultiDiffNet: a unified multi-objective diffusion framework for subject-agnostic EEG decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "seeds; robust trend-level statistics for low-trial EEG | EvaluationRun.execution_artifacts=SSVEP cross-subject 81.08% (EEGNet) → 84.72% (MultiDiffNet); Imagined Speech 19.60/13.51 seen/unseen — hardest task; baselines EEGNet/ShallowFBCSPNet/TIDNet; Wilcoxon/permutation often return p≈1"
+  },
+  {
+   "pid": "arxiv-2511.07918",
+   "key": "t:distinctthetasynchronyacrossspeechmodesperceivedspokenwhisperedandimagined",
+   "title": "Distinct Theta Synchrony across Speech Modes: Perceived, Spoken, Whispered, and Imagined",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dy.research_objective=Compare theta-band neural synchrony/connectivity patterns across perceived, overt, whispered, and imagined speech conditions using EEG connectivity measures. | Study.unit_of_analysis=EEG inter-channel connectivity and region-pair summaries; the paper doe"
+  },
+  {
+   "pid": "arxiv-2511.07936",
+   "key": "t:towardpracticalbciarealtimewirelessimaginedspeecheegdecodingsystem",
+   "title": "Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511.07936 | title=Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System | venue=IEEE conf; v1 (4pp) | Study.research_objective=Real-time imagined-speech EEG (4 commands) with"
+  },
+  {
+   "pid": "arxiv-2511.18294",
+   "key": "t:multidiffnetamultiobjectivediffusionframeworkforgeneralizablebraindecoding",
+   "title": "MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "izable Brain Decoding | venue=NeurIPS2025 ML4PS + arXiv v1 (49pp) | Study.research_objective=DDPM-based multi-objective EEG decoder for cross-subject generalization: SSVEP 84.72->85.25 unseen (+mixup), Imagined Speech 10.61->12.12; subject-wise norm + latent mixup; standardized seen/unseen subject-session-disjoint protocol across SSVEP"
+  },
+  {
+   "pid": "arxiv-2511.18294-multidiff",
+   "key": "t:multidiffnetaunifieddiffusionframeworkforgeneralizablebraindecoding",
+   "title": "MultiDiffNet: A Unified Diffusion Framework for Generalizable Brain Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ep/50)*.2; 3 seeds | EvaluationProtocol.experimental_design=Unified benchmark: SSVEP(35s/26c), P300(43s/2c), MI(9s/4c), Imagined Speech(14s/11c); train/val + seen-subject and unseen-subject test splits; baselines ShallowFBCSPNet/EEGConformer/TIDNet/EEGTCNet/EEGNet; 3-seed trend stats framework for low-trial regime | EvaluationRun.execution_artifacts=Imagined-speech acc"
+  },
+  {
+   "pid": "arxiv-2512-22146-eeg2voice",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512-22146-eeg2voice | title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG | authors=Hanbeot Park, Yunjeong Cho, Hunhee Kim | venue=arXiv 2512.22146 | review_state=source_"
+  },
+  {
+   "pid": "arxiv-2512-22146-eegvoice",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG | authors=Park, Cho, Kim (Pukyong National University) | Study.research_objective=EEG-to-Voice d"
+  },
+  {
+   "pid": "arxiv-2512.09524",
+   "key": "t:neurosketchapracticaldesignrecipeforneuraldecoding",
+   "title": "NeuroSketch: A Practical Design Recipe for Neural Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", speech_restoration | tested_population=healthy_volunteers, other | Dataset.content_inventory=8 datasets: Du-IN speech EEG; Chisco 125ch/3subj/45x150 trials 5s read+3.3s imagined speech 6681 Chinese sentences 39 categories w/ verbal recall; OpenMIIR-P/I music EEG; FacesHouses ECoG 14 epilepsy patients 31"
+  },
+  {
+   "pid": "arxiv-2512.22146",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512.22146 | title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG | venue=arXiv v1 (20pp) | Study.research_objective=Open-loop EEG->Mel-spectrogram Generator + pr"
+  },
+  {
+   "pid": "arxiv-2512.22146-e2voice",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512.22146-e2voice | title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG | authors=Hanbeot Park, Yunjeong Cho, Hunhee Kim | venue=arXiv:2512.22146 | review_state=source_"
+  },
+  {
+   "pid": "arxiv-2602-22597-vmi",
+   "key": "t:relatingtheneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ors=Maghsoudi, Chillale, Shamma (University of Maryland) | Study.research_objective=cross-condition transfer of linear sEEG spectrogram-reconstruction decoders across vocalized/mimed/imagined speech: linear decoder trained on one condition transfers to others (all p<<0.001), shared representations; rank-based stimulu"
+  },
+  {
+   "pid": "arxiv-2602.01247",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "reported in the reviewed paper. | dataset_id=VOCAL MIND / VOCALMIND | dataset_description=Referenced dataset contains sEEG recordings for vocalized, mimed, and imagined speech; external dataset article was not independently inspected. | Dataset.content_inventory={'shared_sentence_targets_across"
+  },
+  {
+   "pid": "arxiv-2602.01247-mib2s",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vation patching, tri-modal interpolation, coarse-to-fine causal tracing, scrubbing) to causally localize how a trained sEEG speech decoder represents vocalized/mimed/imagined speech | Study.unit_of_analysis=One human participant, sEEG; Conv1D->biGRU->mel->vocoder decoder; patching experiments across"
+  },
+  {
+   "pid": "arxiv-2604.05751",
+   "key": "t:braintospeechprosodyfeatureengineeringandtransformerbasedreconstruction",
+   "title": "Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n | target_population=speech_impairment | scope_limits=Reported evaluation is offline reconstruction from overt-speech sEEG data, not imagined speech or a demonstrated patient-operated communication system. | production_labels=ordinary_voiced_speech | production_instru"
+  },
+  {
+   "pid": "arxiv-2606-12223-si-mi",
+   "key": "t:characterizationofspeechimageryinscalpeegandcomparisonwithmotorimagery",
+   "title": "Characterization of Speech Imagery in Scalp EEG and Comparison with Motor Imagery",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Characterization of Speech Imagery in Scalp EEG and Comparison with Motor Imagery | authors=Van Dyck, Yang, Sun, Li, Van Hulle | Study.research_objective=characterize"
+  },
+  {
+   "pid": "arxiv-2606.12223",
+   "key": "t:characterizationofspeechimageryinscalpeegandcomparisonwithmotorimagery",
+   "title": "Characterization of Speech Imagery in Scalp EEG and Comparison with Motor Imagery",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2606.12223 | title=Characterization of Speech Imagery in Scalp EEG and Comparison with Motor Imagery | authors=Bob Van Dyck, Liuyin Yang, Qiang Sun, Ang Li, Marc M. Van Hulle | venue=arX"
+  },
+  {
+   "pid": "arxiv-2607-03844-cnnsnn",
+   "key": "t:eegbasedimaginedspeechdecodingusingahybridcnnsnnarchitecture",
+   "title": "EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture | authors=Shalhoub, Al Mawla, Chaccour, Lopez-Espejo, Fares (Antonine U /"
+  },
+  {
+   "pid": "arxiv-2607-27268-eegfm",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Khanday, Ben Ticha, Belfrouh, Ouellet, Gonzalez-Lopez (Univ. Granada CITIC) | venue=arXiv 2607.27268"
+  },
+  {
+   "pid": "arxiv-2607-27268-eegfmspeech",
+   "key": "t:doeseegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecodin",
+   "title": "Does EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Does EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Khanday, Ben Ticha, Belfrouh, Ouellet, Gonzalez-Lopez (University of Granada et al.) | venue=arXiv 2"
+  },
+  {
+   "pid": "arxiv-2607.03844",
+   "key": "t:eegbasedimaginedspeechdecodingusingahybridcnnsnnarchitecture",
+   "title": "EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2607.03844 | paper_version=2607.03844v1 | title=EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture | authors=Fatima Shalhoub, Mariam Al Mawla, Kabalan Chaccour, Iván López-E"
+  },
+  {
+   "pid": "arxiv-2607.03844-cnnsnn",
+   "key": "t:imaginedspeechdecodingusingahybridcnnsnnarchitecture",
+   "title": "Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "3844 | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Decode 5-class imagined speech from EEG with a hybrid pipeline — CNN temporal feature extraction followed by SNN spike-based temporal classification — the firs"
+  },
+  {
+   "pid": "arxiv-2607.18749-cofett",
+   "key": "t:cofettreexaminingeegtotextfeasibilitywithateacherforcingfreebenchmark",
+   "title": "COFETT: Re-examining EEG-to-Text Feasibility with a Teacher-Forcing-Free Benchmark",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_of_analysis=2 subjects (S1 M26, S2 F25) x 8 days x 4 sessions/day x ~281/252 trials x 3 phases (read / verbatim recall=inner speech / rest); Text1 x4 reps days1-4, Text2 x16 reps days5-8; models: BrainBART, BELT, DeWave, Pegasus, T5, EEGConformer, EEGNet, EEGPT | task_encoding=task_evoked_inner | task_family=sentence_recognition | tested_population=healthy_volunteers |"
+  },
+  {
+   "pid": "arxiv-2607.27268",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2607.27268 | paper_version=2607.27268v2 | title=Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Owais Mujtaba Khanday, Mohamed Baha Ben Ticha, Sanae Belfrouh, Marc Ouellet, Jose A. Gonzalez-Lopez"
+  },
+  {
+   "pid": "arxiv-2607.27268-eegf",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.27268-eegf | title=Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Owais Mujtaba Khanday, Mohamed Baha Ben Ticha, Sanae Belfrouh, Marc Ouellet, Jose A. Gonzalez-Lopez"
+  },
+  {
+   "pid": "arxiv-2608.13072",
+   "key": "t:eegprimeprototypealignedrepresentationlearningwithmultilevelconditioningforeegde",
+   "title": "EEG-PRIME: Prototype-Aligned Representation Learning with Multi-Level Conditioning for EEG Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-PRIME foundation model: instruction-conditioned (SBERT prototype) + dataset-embedding + subject-invariant GRL Q-Former EEG decoding across 18 datasets / 5 paradigms (MI, emotion, ADHD, covert speech, workload); best on 13/16, Wilcoxon d=0.86-2.53 vs all 9 baselines. | task_family=phoneme_or_character_classification |"
+  },
+  {
+   "pid": "arxiv-2608.20186-silentread",
+   "key": "t:decodingsilentreadingfromnoninvasiveeeg",
+   "title": "Decoding silent reading from non-invasive EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | Study.research_objective=Measure how much lexical/semantic information a contrastive decoder extracts from EEG during silent reading as a scalable proxy for inner speech | Study.unit_of_analysis=~240,000 word presentations from one participant (393 runs, ~49h); top-10 retrieval gain vs pe"
+  },
+  {
+   "pid": "arxiv-2609-29820-kumarsi",
+   "key": "t:atransparentbaselineforsubjectindependentimaginedspeecheegdecoding",
+   "title": "A Transparent Baseline for Subject-Independent Imagined Speech EEG Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609-29820-kumarsi | title=A Transparent Baseline for Subject-Independent Imagined Speech EEG Decoding | authors=Frederik Møllskov Trier, Xiaopeng Mao, Sadasivan Puthusserypady | venue=arXiv 2609.29820 | review_st"
+  },
+  {
+   "pid": "arxiv-2609-29820-strictimg",
+   "key": "t:decodingimaginedspeechastrictlysubjectindependentapproachusingeeg",
+   "title": "Decoding Imagined Speech: A Strictly Subject-Independent Approach Using EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined Speech: A Strictly Subject-Independent Approach Using EEG | Study.study_design=controlled_experiment | Study.research_objective=transparent subject-independent baseline for imag"
+  },
+  {
+   "pid": "arxiv-2609.29820",
+   "key": "t:decodingimaginedspeechastrictlysubjectindependentapproachusingeeg",
+   "title": "Decoding Imagined Speech: A Strictly Subject-Independent Approach Using EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.29820 | paper_version=2609.29820v1 | source_url=https://arxiv.org/pdf/2609.29820v1 | title=Decoding Imagined Speech: A Strictly Subject-Independent Approach Using EEG | authors=Frederik Møllskov Trier, Xiaopeng Mao, Sadasivan Puthusserypady | abstract=Subject-independent comparison on"
+  },
+  {
+   "pid": "arxiv-2609.29820-siisr",
+   "key": "t:decodingimaginedspeechastrictlysubjectindependentapproachusingeeg",
+   "title": "Decoding Imagined Speech: A Strictly Subject-Independent Approach Using EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.29820-siisr | title=Decoding Imagined Speech: A Strictly Subject-Independent Approach Using EEG | authors=Frederik Molskov Trier et al. | venue=arXiv:2609.29820 | review_state=source_checked | Study.study_design=con"
+  },
+  {
+   "pid": "arxiv-2609.31992",
+   "key": "t:mechanisticinterpretabilityrevealssharedcausalsubspacesinbraintospeechdecoders",
+   "title": "Mechanistic Interpretability Reveals Shared Causal Subspaces in Brain-to-Speech Decoders",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "learned mainly from vocalized data. | tags=mechanistic interpretability, activation patching, brain-to-speech decoding, covert speech, sEEG | evidence_family=primary_source (arXiv preprint PDF) | review_state=source_checked | review_basis=arXiv 2609.31992v1 P"
+  },
+  {
+   "pid": "bioeng-10-00649-imagined-eeg",
+   "key": "t:imaginedspeechclassificationusingeeganddeeplearning",
+   "title": "Imagined Speech Classification Using EEG and Deep Learning",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined Speech Classification Using EEG and Deep Learning | authors=Abdulghani, Walters, Abed | venue=Bioengineering 2023, 10(6):649 (MDPI, OA) | doi=10.3390/b"
+  },
+  {
+   "pid": "biorxiv-2021.04.19.440473",
+   "key": "t:thinkingoutloudanopenaccesseegbasedbcidatasetforinnerspeechrecognition",
+   "title": "Thinking out loud: an open-access EEG-based BCI dataset for inner speech recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=biorxiv-2021.04.19.440473 | title=Thinking out loud: an open-access EEG-based BCI dataset for inner speech recognition | authors=Nicolas Nieto, Victoria Peterson, Hugo Leonardo Rufiner, Juan Kamienkoski, Ruben Spies | venue=bi"
+  },
+  {
+   "pid": "biorxiv-2022.05.24.492109",
+   "key": "t:bimodalpilotstudyoninnerspeechdecodingrevealsthepotentialofcombiningeegandfmri",
+   "title": "Bimodal pilot study on inner speech decoding reveals the potential of combining EEG and fMRI",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=biorxiv-2022.05.24.492109 | title=Bimodal pilot study on inner speech decoding reveals the potential of combining EEG and fMRI | authors=Foteini Simistira Liwicki, Vibha Gupta, Rajkumar Saini, Kanjar De, Nosheen Abid, Sumit Rakesh, Scott"
+  },
+  {
+   "pid": "cognneurodyn-42787344-seeginternal",
+   "key": "t:astereoencephalographystudyofinternalspeech",
+   "title": "A stereoencephalography study of internal speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dy.study_design=controlled_experiment | task_family=speech_activity_detection | extra.Production.scope_note=primary N: sEEG internal/covert speech decoding | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | Proce"
+  },
+  {
+   "pid": "commsbio-11102-covtsig",
+   "key": "t:spatiotemporalencodingsignaturesofcovertspeechrevealedbysourcelocalizedeegandfmr",
+   "title": "Spatiotemporal encoding signatures of covert speech revealed by source-localized EEG and fMRI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Spatiotemporal encoding signatures of covert speech revealed by source-localized EEG and fMRI | authors=Zhang W, Jiang M, Teo KAC, Bhuvanakantham R, Guo Z, Zhang S, Foo CHV, Leong V, Lu J, Gulyás B, Guan"
+  },
+  {
+   "pid": "doi-10.1007-s10916-018-1137-9",
+   "key": "t:therelativecontributionofhighgammalinguisticprocessingstagesofwordproductionandm",
+   "title": "The Relative Contribution of High-Gamma Linguistic Processing Stages of Word Production, and Motor Imagery of Articulation in Class Separability of Covert Speech Tasks in EEG Data",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "High-Gamma Linguistic Processing Stages of Word Production, and Motor Imagery of Articulation in Class Separability of Covert Speech Tasks in EEG Data | authors=Amir Jahangiri, Francisco Sepulveda | venue=Journal of Medical Systems | review_state=source_checked | S"
+  },
+  {
+   "pid": "doi-10.1007-s11571-019-09558-5",
+   "key": "t:identificationofvowelsinconsonantvowelconsonantwordsfromspeechimagerybasedeegsig",
+   "title": "Identification of vowels in consonant-vowel-consonant words from speech imagery based EEG signals",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1007/s11571-019-09558-5 | title=Identification of vowels in consonant-vowel-consonant words from speech imagery based EEG signals | authors=Sandhya Chengaiyan, Anandha Sree Retnapandian, Kavitha Anandan | venue=Cognitive Neurodynamics | revi"
+  },
+  {
+   "pid": "doi-10.1007-s11571-022-09819-w",
+   "key": "t:thelightgbmbasedclassificationalgorithmforchinesecharactersspeechimagerybcisyste",
+   "title": "The LightGBM-based classification algorithm for Chinese characters speech imagery BCI system",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tudy.study_design=controlled_experiment | Study.research_objective=improve classification accuracy of Chinese-character speech imagery EEG BCI using LightGBM over LDA/ELM/SVM | Study.unit_of_analysis=classification accuracy (%) per character-vs-Rest / multi-"
+  },
+  {
+   "pid": "doi-10.1007-s11571-024-10167-0",
+   "key": "t:advancesinbraincomputerinterfacefordecodingspeechimageryfromeegsignalsasystemati",
+   "title": "Advances in brain-computer interface for decoding speech imagery from EEG signals: a systematic review",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1007/s11571-024-10167-0 | title=Advances in brain-computer interface for decoding speech imagery from EEG signals: a systematic review | authors=Nimra Rahman, Danish Mahmood Khan, Komal Masroor, Mehak Arshad, Amna Rafiq, Syed"
+  },
+  {
+   "pid": "doi-10.1007-s13534-020-00152-x",
+   "key": "t:multiclasscovertspeechclassificationusingextremelearningmachine",
+   "title": "Multiclass covert speech classification using extreme learning machine",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "trials); kernel ELM reaches 49.77% 4-class and 85.57% binary accuracy, outperforming common BCI classifiers; gamma-band EEG identified as informative for covert speech — early report of scalp-EEG gamma for silent-speech word decoding | target_population=general_population | population_d"
+  },
+  {
+   "pid": "doi-10.1007-s40820-025-02042-2",
+   "key": "t:noninvasivebraincomputerinterfacesconvergingfrontiersinneuralsignaldecodingandfl",
+   "title": "Non-Invasive Brain-Computer Interfaces: Converging Frontiers in Neural Signal Decoding and Flexible Bioelectronics Integration",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "agined-speech BCI users across multi-day training paradigms | Dataset.content_inventory=decade-scale literature corpus: EEG decoding (MI/ERP/SSVEP/imagined speech) + flexible/stretchable bioelectronic electrodes | modalities=scalp_eeg, other | intrusiveness=skin_contact | sensor_ha"
+  },
+  {
+   "pid": "doi-10.1016-j.clinph.2025.2110942",
+   "key": "t:emergenttechnologiesinclinicalneurophysiologytostudythecentralnervoussystemifcnh",
+   "title": "Emergent technologies in clinical neurophysiology to study the central nervous system: IFCN handbook chapter",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oughs; notes BCI calibration time shrinking to as little as 30 min | representation_kind=high-resolution intracortical/iEEG representations of attempted and inner speech, syntax, speech production | ProcessingStep.architecture={'decoder_types': ['speech_decoders', 'spelling', 'brain_to_te"
+  },
+  {
+   "pid": "doi-10.1016-j.dib.2025.112258",
+   "key": "t:simultaneouseegandfmridataduringaninnerspeechtask",
+   "title": "Simultaneous EEG and fMRI data during an inner speech task",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.dib.2025.112258 | doi=10.1016/j.dib.2025.112258 | title=Simultaneous EEG and fMRI data during an inner speech task | venue=Data in Brief 2025 | task_family=semantic_or_intent_decoding | extra.Task.target=silently repeat visually"
+  },
+  {
+   "pid": "doi-10.1016-j.neuri.2022.100091",
+   "key": "t:neuraldecodingofimaginedspeechfromeegsignalsusingthefusionofgraphsignalprocessin",
+   "title": "Neural decoding of imagined speech from EEG signals using the fusion of graph signal processing and graph learning techniques",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural decoding of imagined speech from EEG signals using the fusion of graph signal processing and graph learning techniques | intended_use_cases=speech_restorati"
+  },
+  {
+   "pid": "doi-10.1016-j.nicl.2018.05.026",
+   "key": "t:traitrelatedsensorimotordeficitsinpeoplewhostutteraneeginvestigationofrhythmdyna",
+   "title": "Trait related sensorimotor deficits in people who stutter: An EEG investigation of μ rhythm dynamics during spontaneous fluency",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e: Clinical | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=compare EEG μ-rhythm dynamics between people who stutter and fluent controls during overt and covert speech | Study.unit_of_analysis=μ-α and μ-β ERD time course in overt/covert speech, left vs right premotor-localized IC cluste"
+  },
+  {
+   "pid": "doi-10.1016-j.tics.2023.08.014",
+   "key": "t:innerspeechaslanguageprocessandcognitivetool",
+   "title": "Inner speech as language process and cognitive tool",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "review)', 'coordinate_system': 'varies per cited method'} | dataset_description=Narrative corpus of ~130 cited works on inner speech spanning phenomenology (VISQ/DES), neuroimaging (fMRI/EEG/ECoG/EMG decoding), cognitive-function studies (attention, memory, categorization, self-regulation), sports self-talk,"
+  },
+  {
+   "pid": "doi-10.1038-s41467-021-27725-3",
+   "key": "t:imaginedspeechcanbedecodedfromlowandcrossfrequencyintracranialeegfeatures",
+   "title": "Imagined speech can be decoded from low- and cross-frequency intracranial EEG features",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41467-021-27725-3 | doi=10.1038/s41467-021-27725-3 | title=Imagined speech can be decoded from low- and cross-frequency intracranial EEG features | venue=Nature Communications 13 (PMC8748882, CC BY) | paper_version=PMC OA article via NCBI BioC API | task_f"
+  },
+  {
+   "pid": "doi-10.1038-s41597-022-01147-2",
+   "key": "t:thinkingoutloudanopenaccesseegbasedbcidatasetforinnerspeechrecognition",
+   "title": "Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-022-01147-2 | doi=10.1038/s41597-022-01147-2 | title=Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition | venue=Scientific Data 9, 52 (Nieto, Peterson, Aldosay Ravelo et al., UNS/CONICET Argentina) | task_family"
+  },
+  {
+   "pid": "doi-10.1038-s41597-024-04114-1",
+   "key": "p:doi-10.1038-s41597-024-04114-1",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Chisco — Chinese Imagined Speech Corpus (128-ch EEG, >20k imagined sentences) | intended_use_cases=research_of_inner_speech, speech_restoration, assistive_text_entry | obs"
+  },
+  {
+   "pid": "doi-10.1038-s41597-025-05387-w",
+   "key": "t:areeganopenaccessarabicinnerspeecheegdataset",
+   "title": "ArEEG: an Open-Access Arabic Inner Speech EEG Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-025-05387-w | title=ArEEG: an Open-Access Arabic Inner Speech EEG Dataset | authors=Metwalli, Kiroles, Radwan, Mohamed, Barakat, Ahmed, Omar, Selim | venue=Scientific Data | review_"
+  },
+  {
+   "pid": "doi-10.1038-s41597-025-05926-5",
+   "key": "t:aneegbasedimaginedspeechdatabaseforcomparingparadigmdesigns",
+   "title": "An EEG-based Imagined Speech Database for comparing Paradigm Designs",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1038/s41597-025-05926-5 | title=An EEG-based Imagined Speech Database for comparing Paradigm Designs | authors=Edgar Aguilera-Rodríguez, Alma Cuevas-Romero, Santiago Mendoza-Franco"
+  },
+  {
+   "pid": "doi-10.1038-s41598-026-39395-6",
+   "key": "t:eegimaginedspeechneurosignalpreprocessinganddeeplearningclassification",
+   "title": "EEG imagined speech neuro-signal preprocessing and deep learning classification",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41598-026-39395-6 | title=EEG imagined speech neuro-signal preprocessing and deep learning classification | authors=Fatma Elwasify | venue=Scientific Reports | revie"
+  },
+  {
+   "pid": "doi-10.1038-s42003-021-02578-0",
+   "key": "t:realtimesynthesisofimaginedspeechprocessesfromminimallyinvasiverecordingsofneura",
+   "title": "Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ioC API | task_family=speech_reconstruction | extra.Task.target=closed-loop real-time synthesis of audible speech from sEEG for whispered AND imagined speech conditions, using a decoder trained only on audible (articulated) open-loop data | production_labels=ordinary_voiced_sp"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ad3f50",
+   "key": "t:exploringintertrialcoherenceforinnerspeechclassificationineegbasedbraincomputeri",
+   "title": "Exploring inter-trial coherence for inner speech classification in EEG-based brain-computer interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Exploring inter-trial coherence for inner speech classification in EEG-based brain-computer interface | intended_use_cases=speech_restoration, research_of_inner_speech | observed_quantities="
+  },
+  {
+   "pid": "doi-10.1088-1741-2560-7-4-046006",
+   "key": "p:doi-10.1088-1741-2560-7-4-046006",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "(rhythm timing, not phonetic content); small N=7 | extra.Task.target=rhythm decoding as indispensable first step toward EEG communication of imagined speech (analogous cocktail-party source segregation) | system_boundary=128ch EEG -> modified SOBI (multi-trial lags) -> 4 prim"
+  },
+  {
+   "pid": "doi-10.1101-2024.07.18.604038",
+   "key": "t:howdoweimagineaspeechatriplenetworkmodelforsituationallysimulatedinnerspeech",
+   "title": "How do we imagine a speech? A triple network model for situationally simulated inner speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "5s ISI; story order randomized | Dataset.collection_protocol=Kaiser et al. 2022 fMRI dataset of situationally simulated inner speech (10 runs x 19 participants); independent ds003626 Bimodal EEG-fMRI covert-words/numbers dataset used for corroboration | Representation.windowing=seed-based co-activation pattern (C"
+  },
+  {
+   "pid": "doi-10.1101-2024.12.11.627386",
+   "key": "t:classificationofvisualimageryandimaginedspeecheegbasedbraincomputerinterfacesusi",
+   "title": "Classification of Visual Imagery and Imagined Speech EEG based Brain Computer Interfaces using 1D Convolutional Neural Network",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.12.11.627386 | title=Classification of Visual Imagery and Imagined Speech EEG based Brain Computer Interfaces using 1D Convolutional Neural Network | review_state=source_checked | task_family=comma"
+  },
+  {
+   "pid": "doi-10.1101-2025.10.13.682161",
+   "key": "t:towardsdecodinginnerspeechfromeegandmeg",
+   "title": "Towards decoding inner speech from EEG and MEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2025.10.13.682161 | title=Towards decoding inner speech from EEG and MEG | authors=Csaky, van Es, Parker Jones, Woolrich | review_state=source_checked | task_family=isolated_word_recog"
+  },
+  {
+   "pid": "doi-10.1109-access.2021.3116196",
+   "key": "t:decodingimaginedspeechfromeegusingtransferlearning",
+   "title": "Decoding Imagined Speech From EEG Using Transfer Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined Speech From EEG Using Transfer Learning | intended_use_cases=research_of_inner_speech, assistive_text_entry | task_family=semantic_or_i"
+  },
+  {
+   "pid": "doi-10.1109-embc48229.2022.9871721",
+   "key": "t:decodingneuralcorrelationoflanguagespecificimaginedspeechusingeegsignals",
+   "title": "Decoding Neural Correlation of Language-Specific Imagined Speech using EEG Signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Neural Correlation of Language-Specific Imagined Speech using EEG Signals | venue=2022 44th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC"
+  },
+  {
+   "pid": "doi-10.1109-msp.2024.3484629",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y MEG/EEG listeners | Dataset.content_inventory=examples: handwriting-sentences BrainGate, ECoG overt/attempted speech, imagined speech, MEG/EEG story-listening | modalities=intracortical_microelectrode, ecog, scalp_eeg, meg, fmri | body_sites=cortex, scalp | sens"
+  },
+  {
+   "pid": "doi-10.1155-2022-8333084",
+   "key": "t:eegbasedmultiwordimaginedspeechclassificationforpersianwords",
+   "title": "EEG-Based Multiword Imagined Speech Classification for Persian Words",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1155-2022-8333084 | title=EEG-Based Multiword Imagined Speech Classification for Persian Words | authors=Asghari Bejestani, Mohammad Khani, Nafisi, Darakeh | venue=BioMed Research I"
+  },
+  {
+   "pid": "doi-10.12688-openresafrica-16257.3",
+   "key": "t:eegbasedinnerspeechdecodingusingphaselockingandspatialfeatureswithadualbranchdee",
+   "title": "EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.12688-openresafrica-16257.3 | title=EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model | authors=Hussna Elnoor Mohamm"
+  },
+  {
+   "pid": "doi-10.12688-openresafrica.16257.1",
+   "key": "t:eegbasedinnerspeechdecodingusingphaselockingandspatialfeatureswithadualbranchdee",
+   "title": "EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.12688-openresafrica.16257.1 | title=EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model | authors=Elnoor M. Abdalla, H"
+  },
+  {
+   "pid": "doi-10.12688-openresafrica.16257.3",
+   "key": "t:eegbasedinnerspeechdecodingusingphaselockingandspatialfeatureswithadualbranchdee",
+   "title": "EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.12688/openresafrica.16257.3 | title=EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model | authors=Hussna Elnoor M. Abd"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0212620",
+   "key": "t:adaptivemultidegreeoffreedombraincomputerinterfaceusingonlinefeedbacktowardsnove",
+   "title": "Adaptive multi-degree of freedom Brain Computer Interface using online feedback: Towards novel methods and metrics of mutual adaptation between humans and machines for BCI",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ess from subject-independent Laplacian channels (level 1) to complex subject-dependent ones | Dataset.content_inventory=EEG motor+speech imagery trials controlling simulated robot swarm | EvaluationProtocol.experimental_design=multi-level adaptive online feedback;"
+  },
+  {
+   "pid": "doi-10.14569-ijacsa.2024.0150242",
+   "key": "t:areviewonapplicationsofelectroencephalogramincludesimaginedspeech",
+   "title": "A Review on Applications of Electroencephalogram: Includes Imagined Speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.14569-ijacsa.2024.0150242 | doi=10.14569/IJACSA.2024.0150242 | title=A Review on Applications of Electroencephalogram: Includes Imagined Speech | authors=S. Santhakumari, Kamalakannan J (VIT Vellore) | venue=IJACSA 15(2):390-398 | extra.Task.target=survey EEG app"
+  },
+  {
+   "pid": "doi-10.14569-ijacsa.2026.0170136",
+   "key": "t:eegbasedimaginedspeechdecodingareview",
+   "title": "EEG-Based Imagined-Speech Decoding: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-Based Imagined-Speech Decoding: A Review | ReviewProtocol.selection_criteria=non-invasive EEG + explicitly instructed imagined/covert speech + quantitative decoding performance; narrative synthesis, 2-stage screening (title/abstract → full-text) | ReviewProtoc"
+  },
+  {
+   "pid": "doi-10.1523-ENEURO.0297-24.2025",
+   "key": "t:gammaandthetaalphabandoscillationsintheelectroencephalogramdistinguishthecontent",
+   "title": "Gamma and Theta/Alpha-Band Oscillations in the Electroencephalogram Distinguish the Content of Inner Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1523/ENEURO.0297-24.2025 | title=Gamma and Theta/Alpha-Band Oscillations in the Electroencephalogram Distinguish the Content of Inner Speech | authors=Thomas J. Whitford, Kevin M. Spencer, Marianthe Godwin, Yoji Hirano, Lawrence Kin-hei Chung, Wadim Vodovozov,"
+  },
+  {
+   "pid": "doi-10.1523-eneuro.0297-24.2025",
+   "key": "t:gammaandthetaalphabandoscillationsintheelectroencephalogramdistinguishthecontent",
+   "title": "Gamma and Theta/Alpha-Band Oscillations in the Electroencephalogram Distinguish the Content of Inner Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oi-10.1523-eneuro.0297-24.2025 | doi=10.1523/eneuro.0297-24.2025 | title=Gamma and Theta/Alpha-Band Oscillations in the Electroencephalogram Distinguish the Content of Inner Speech | task_family=inner_experience_analysis | extra.Task.target=produce inner syllable /ba/ or /bi/ at a precise cued time"
+  },
+  {
+   "pid": "doi-10.1609-aaai.v37i5.25745",
+   "key": "t:towardsvoicereconstructionfromeegduringimaginedspeech",
+   "title": "Towards Voice Reconstruction from EEG during Imagined Speech",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1609/aaai.v37i5.25745 | title=Towards Voice Reconstruction from EEG during Imagined Speech | authors=Young-Eun Lee, Seo-Hyun Lee, Sang-Ho Kim, Seong-Whan Lee | venue=AAAI 37(5):6033-6041 | review_state=source_c"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-2287259-v1",
+   "key": "t:innerspeechclassificationbasedonelectroencephalographyeegsignalsandsupportvector",
+   "title": "Inner speech classification based on electroencephalography (EEG) signals and support vector machine (SVM)",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-2287259-v1 | doi=10.21203/rs.3.rs-2287259/v1 | title=Inner speech classification based on electroencephalography (EEG) signals and support vector machine (SVM) | venue=Research Square preprint rs-2287259 (Wei, Surjana, Soeffker — Univ. D"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-7306546-v1",
+   "key": "t:astereoencephalographystudyofinternalspeech",
+   "title": "A stereoencephalography study of internal speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tput_kind=three-way speech-condition classification labels (overt/articulated/imagined) | Claim.claim_scope=XGBoost on sEEG spectral features distinguishes overt/articulated/imagined speech at 72+/-9.34% accuracy, with inner speech best recognized | Claim.claim_scope=inner speech shows distinct spectral dynamics: abolished gamma in some participants"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-8963357-v1",
+   "key": "t:innerspeechclassificationusingdeeplearningtechniquesforeegbasedbraincomputerinte",
+   "title": "Inner Speech Classification Using Deep Learning Techniques for EEG-Based Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21203/rs.3.rs-8963357/v1 | title=Inner Speech Classification Using Deep Learning Techniques for EEG-Based Brain-Computer Interfaces | authors=Nayeemulla Khan A, Shahina A, Kesavan M, Krishna BM, Venkat PL | venue=Resear"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9365678-v1",
+   "key": "t:semanticawaredecodingofcovertinnerspeechamultimodaleegemgaudioframework",
+   "title": "Semantic-Aware Decoding of Covert Inner Speech: A Multimodal EEG–EMG–Audio Framework",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-9365678-v1 | title=Semantic-Aware Decoding of Covert Inner Speech: A Multimodal EEG–EMG–Audio Framework | authors=Ahmadi, Santamaría-Vázquez, Mesin | venue=Research Square (preprint) | review_state=sourc"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2024-1289",
+   "key": "p:doi-10.21437-interspeech.2024-1289",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "elicitation=instructed_content | tested_population=healthy_volunteers | dataset_description=DAIS (Delft Articulated and Imagined Speech): 20 subjects, 62ch EEG + articulated audio, 15 prompts, imagined+articulated vowel/words | split_protocol=subject_holdout | Study.study_design"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-g34v7",
+   "key": "t:anovelmachinelearningmodelfornoninvasiveeegbasedinnerspeechtranslationinals",
+   "title": "A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Translation in ALS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "26) | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=open-vocabulary EEG-to-text translation of imagined speech for communication restoration in ALS | Study.unit_of_analysis=per-sentence imagined-speech EEG segment decoded to text;"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-g34v7_v2",
+   "key": "t:anovelmachinelearningmodelfornoninvasiveeegbasedinnerspeechtranslationinals",
+   "title": "A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Translation in ALS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "communication: region-aware convolutional-attention encoders + transformer decoder = generative seq2seq open-vocabulary EEG→text on Chisco imagined-speech dataset (48 optimized 10-5 electrodes, 30% pretrain) — reconstructs continuous inner speech w/ linguistic coherence toward real-time low-cost assistive devices | target_population=speech_impairment, motor_impair"
+  },
+  {
+   "pid": "doi-10.31258-jamt.2.2.74-84",
+   "key": "t:electroencephalogrameegbasedimaginedspeechdecodingandrecognition",
+   "title": "Electroencephalogram (EEG) Based Imagined Speech Decoding and Recognition",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.31258-jamt.2.2.74-84 | doi=10.31258/jamt.2.2.74-84 | title=Electroencephalogram (EEG) Based Imagined Speech Decoding and Recognition | venue=Journal of Applied Management and Technology JAMT 2(2):74-84 (Karaye et al., Ilorin/Ta"
+  },
+  {
+   "pid": "doi-10.31796-ogummf.1871961",
+   "key": "t:decodingbrainsignalsforinnerspeecheegsignalsubbanddecompositionandmachinelearnin",
+   "title": "Decoding Brain Signals for Inner Speech: EEG Signal Sub-Band Decomposition and Machine Learning Approach",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.31796-ogummf.1871961 | title=Decoding Brain Signals for Inner Speech: EEG Signal Sub-Band Decomposition and Machine Learning Approach | authors=Mehmet Fatih Karakas | venue=ESOGU Engineering Ar"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2022.867281",
+   "key": "t:astateoftheartreviewofeegbasedimaginedspeechdecoding",
+   "title": "A State-of-the-Art Review of EEG-Based Imagined Speech Decoding",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnhum.2022.867281 | title=A State-of-the-Art Review of EEG-Based Imagined Speech Decoding | authors=Diego Lopez-Bernal, David Balderas, Pedro Ponce, Arturo Molina | venue=Frontiers in Human Neuroscien"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2022.898300",
+   "key": "t:2020internationalbraincomputerinterfacecompetitionareview",
+   "title": "2020 International brain-computer interface competition: A review",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ct | technical_essence=Review of the 2020 International BCI Competition (98 participants/31 teams): 5 tracks — few-shot EEG learning, micro-sleep detection, IMAGINED SPEECH decoding (best 82.6% classification), cross-session classification, ambulatory EEG+ear-EEG detection; released open tra"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1163578",
+   "key": "t:linguisticrepresentationofvowelsinspeechimageryeeg",
+   "title": "Linguistic representation of vowels in speech imagery EEG",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2023.1163578 | doi=10.3389/fnhum.2023.1163578 | title=Linguistic representation of vowels in speech imagery EEG | venue=Frontiers in Human Neuroscience 17:1163578 (Aichi Prefectural University) | task_family=phoneme_or_character_cl"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1186594",
+   "key": "t:multiclassclassificationofimaginedspeecheegusingnoiseassistedmultivariateempiric",
+   "title": "Multiclass classification of imagined speech EEG using noise-assisted multivariate empirical mode decomposition and multireceptive field convolutional neural network",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2023.1186594 | title=Multiclass classification of imagined speech EEG using noise-assisted multivariate empirical mode decomposition and multireceptive field convolutional neural network |"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2025.1668935",
+   "key": "t:deeplearningforinnerspeechrecognitionapilotcomparativestudyofeegnetandaspectrote",
+   "title": "Deep learning for inner speech recognition: a pilot comparative study of EEGNet and a spectro-temporal Transformer on bimodal EEG-fMRI data",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2025.1668935 | doi=10.3389/fnhum.2025.1668935 | title=Deep learning for inner speech recognition: a pilot comparative study of EEGNet and a spectro-temporal Transformer on bimodal EEG-fMRI data | venue=Frontiers in Human Neuroscience (Attar et al., KAU) | task_family=isolated_word_recognition | extra.T"
+  },
+  {
+   "pid": "doi-10.3389-fninf.2023.1306277",
+   "key": "t:evaluationofanenglishlanguagephonemebasedimaginedspeechbraincomputerinterfacewit",
+   "title": "Evaluation of an English language phoneme-based imagined speech brain computer interface with low-cost electroencephalography",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fninf.2023.1306277 | title=Evaluation of an English language phoneme-based imagined speech brain computer interface with low-cost electroencephalography | authors=John LaRocco, Qudsia Tahmina, Sam Lecian, Jason Moore, Cole Helbig, Surya Gupta | venue=Frontiers in"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2021.642251",
+   "key": "t:decodingcovertspeechfromeegacomprehensivereview",
+   "title": "Decoding Covert Speech From EEG-A Comprehensive Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2021.642251 | doi=10.3389/fnins.2021.642251 | title=Decoding Covert Speech From EEG-A Comprehensive Review | venue=Frontiers in Neuroscience 15 (PMC8116487, CC BY) | paper_version=PMC OA article via NCBI"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2025.1565848",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthesizing intelligible utterances from EEG of imagined speech | system_name=XI model end-to-end imagined-speech synthesizer: 45ch EEG → spectral-subtraction denoising → DTW+Deep-Aut"
+  },
+  {
+   "pid": "doi-10.3389-fnrgo.2025.1578586",
+   "key": "t:howlowcanyougoevaluatingelectrodereductionmethodsforeegbasedspeechimagerybcis",
+   "title": "How low can you go: evaluating electrode reduction methods for EEG-based speech imagery BCIs",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnrgo.2025.1578586 | title=How low can you go: evaluating electrode reduction methods for EEG-based speech imagery BCIs | authors=Rekrut, Ihl, Jungbluth, Krüger | venue=Frontiers in Neuroergonomics | review_state=source_checked | task"
+  },
+  {
+   "pid": "doi-10.3390-app14177720",
+   "key": "t:exploringinnerspeechrecognitionviacrossperceptionapproachineegandfmri",
+   "title": "Exploring Inner Speech Recognition via Cross-Perception Approach in EEG and fMRI",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Exploring Inner Speech Recognition via Cross-Perception Approach in EEG and fMRI | intended_use_cases=assistive_text_entry, research_of_inner_speech | task_family=isolated_word_recognition |"
+  },
+  {
+   "pid": "doi-10.3390-bioengineering10060649",
+   "key": "t:imaginedspeechclassificationusingeeganddeeplearning",
+   "title": "Imagined Speech Classification Using EEG and Deep Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined Speech Classification Using EEG and Deep Learning | venue=Bioengineering 10(6):649 (MDPI) | intended_use_cases=device_control | task_family=command_sel"
+  },
+  {
+   "pid": "doi-10.3390-eng6040075",
+   "key": "t:featuregenerationwithgeneticalgorithmsforimaginedspeecheegsignalclassification",
+   "title": "Feature Generation with Genetic Algorithms for Imagined Speech EEG Signal Classification",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-eng6040075 | doi=10.3390/eng6040075 | title=Feature Generation with Genetic Algorithms for Imagined Speech EEG Signal Classification | venue=Eng 2025, 6, 75 (MDPI) | task_family=isolated_word_recognition | extra.Task.target=binary"
+  },
+  {
+   "pid": "doi-10.3390-life14111501",
+   "key": "t:decodingimaginedspeechfromeegdataahybriddeeplearningapproachtocapturingspatialan",
+   "title": "Decoding Imagined Speech from EEG Data: A Hybrid Deep Learning Approach to Capturing Spatial and Temporal Features",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined Speech from EEG Data: A Hybrid Deep Learning Approach to Capturing Spatial and Temporal Features | system_name=imagined-word EEG decode"
+  },
+  {
+   "pid": "doi-10.3390-neurosci3020017",
+   "key": "t:rethinkingthemethodsandalgorithmsforinnerspeechdecodingandmakingitreproducible",
+   "title": "Rethinking the Methods and Algorithms for Inner Speech Decoding and Making It Reproducible",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_inner_speech | observed_quantities=neural_activity | intrusiveness=skin_contact | technical_essence=iSpeech-CNN (tuned EEGNet-style CNN) + LSTM/RF/RLDA baselines for inner speech decoding on the public Nieto EEG dataset (5 vowels, 6 words): subject-dependent ICA-preprocessed vowels 35.20%, words 2"
+  },
+  {
+   "pid": "doi-10.3390-s20164629",
+   "key": "t:evaluationofhyperparameteroptimizationinmachineanddeeplearningmethodsfordecoding",
+   "title": "Evaluation of Hyperparameter Optimization in Machine and Deep Learning Methods for Decoding Imagined Speech EEG",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "i-10.3390-s20164629 | title=Evaluation of Hyperparameter Optimization in Machine and Deep Learning Methods for Decoding Imagined Speech EEG | authors=Ciaran Cooney, Attila Korik, Raffaella Folli, Damien Coyle | review_state=source_checked | task_family=phonem"
+  },
+  {
+   "pid": "doi-10.3390-s24248168",
+   "key": "t:systematicreviewofeegbasedimaginedspeechclassificationmethods",
+   "title": "Systematic Review of EEG-Based Imagined Speech Classification Methods",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Systematic Review of EEG-Based Imagined Speech Classification Methods | ReviewProtocol.selection_criteria=EEG imagined-speech classification studies: feature extracti"
+  },
+  {
+   "pid": "doi-10.3390-s25216541",
+   "key": "t:stccaspatialtemporalcoupledcrossattentionthroughhierarchicalnetworkforeegbasedsp",
+   "title": "STCCA: Spatial–Temporal Coupled Cross-Attention Through Hierarchical Network for EEG-Based Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g, et al. | review_state=source_checked | Study.study_design=system_proposal | Study.research_objective=decode imagined/inner speech from scalp EEG by coupling spatial and temporal features via cross-attention | Study.unit_of_analysis=single imagined words/syllables"
+  },
+  {
+   "pid": "doi-10.3390-s26134084",
+   "key": "t:comparativeanalysisoftripolarconcentricringandconventionalelectrodesforovertandc",
+   "title": "Comparative Analysis of Tri-Polar Concentric Ring and Conventional Electrodes for Overt and Covert Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ive=first comparative test of tri-polar concentric ring electrodes (TCREs) vs conventional disc electrodes for overt-vs-covert speech classification from scalp EEG; evaluate KNN/FCNN/CNN per participant | Study.unit_of_analysis=per-participant binary overt-vs-covert classification a"
+  },
+  {
+   "pid": "doi-10.54254-2755-2721-42-20230786",
+   "key": "t:ahybridneuralnetworkbasedonthesmallworldnetworkforinnerspeechrecognition",
+   "title": "A hybrid neural network based on the small-world network for inner speech recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "and Natural Science (ICMLA 2023 proceedings, EWA) | task_family=isolated_word_recognition | extra.Task.target=classify imagined speech of 4 direction words (up/down/left/right) from 128ch EEG; OpenNeuro Inner Speech Dataset | production_labels=instructed_imagery | Cohort.demographics=10 healthy volunteers, nat"
+  },
+  {
+   "pid": "doi-10.64898-2025.11.30.691403",
+   "key": "t:representationalignmentandgenerationacomprehensivesurveyoffoundationmodelsfornon",
+   "title": "Representation, Alignment, and Generation: A Comprehensive Survey of Foundation Models for Non-Invasive Brain Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ent_inventory=catalog of datasets by stimulus type: image, video, speech/audio, reading/language, multi-modal; includes EEG Imagined Speech Dataset covering real+imagined speech | modalities=scalp_eeg, meg, fmri, fnirs | body_sites=scalp, cortex | intrusiveness=external_noncontact | sensor_hardwa"
+  },
+  {
+   "pid": "doi-10.7717-peerj-cs.2938",
+   "key": "t:systematicreviewprogressineegbasedspeechimagerybraincomputerinterfacedecodingand",
+   "title": "Systematic review: progress in EEG-based speech imagery brain-computer interface decoding and encoding research",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.7717-peerj-cs.2938 | doi=10.7717/peerj-cs.2938 | title=Systematic review: progress in EEG-based speech imagery brain-computer interface decoding and encoding research | venue=PeerJ Computer Science (received 2024-11-27, accepted 2"
+  },
+  {
+   "pid": "doi-s42003-026-11102-1-covtsig",
+   "key": "t:spatiotemporalencodingsignaturesofcovertspeechrevealedbysourcelocalizedeegandfmr",
+   "title": "Spatiotemporal encoding signatures of covert speech revealed by source-localized EEG and fMRI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Spatiotemporal encoding signatures of covert speech revealed by source-localized EEG and fMRI | authors=Zhang W, Jiang M, Teo KAC | venue=Communications Biology | Study.research_objective=spatiotemporal e"
+  },
+  {
+   "pid": "emsi-15979-lightweight",
+   "key": "t:alightweightrealtimeeegbasedbraincomputerinterfaceforimaginedspeechcontrolledrob",
+   "title": "A Lightweight Real-Time EEG-Based Brain-Computer Interface for Imagined Speech-Controlled Robotics via Machine Learning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Lightweight Real-Time EEG-Based Brain-Computer Interface for Imagined Speech-Controlled Robotics via Machine Learning | authors=Adedotun, Akah, Ali (Nile University of Nigeria) | venue=Emerging Sc"
+  },
+  {
+   "pid": "essex-43678-riemann",
+   "key": "t:unpackingthesuccessofriemanniantangentspacedecodingforspeechimagery",
+   "title": "Unpacking the Success of Riemannian Tangent Space Decoding for Speech Imagery",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "INE 2026 (in press), Essex repository 43678 | Study.research_objective=why Riemannian tangent-space + L1-LR succeeds on speech imagery EEG: >95% feature sparsity; stratified-CV inflates scores (0.89 vs grouped 0.74 on Nguyen; 0.75 vs ~chance-grouped on BCICo"
+  },
+  {
+   "pid": "fhn-41209398-eegnet",
+   "key": "t:deeplearningforinnerspeechrecognitioneegnetvsspectrotemporaltransformeronbimodal",
+   "title": "Deep learning for inner speech recognition: EEGNet vs spectro-temporal Transformer on bimodal EEG-fMRI",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep learning for inner speech recognition: EEGNet vs spectro-temporal Transformer on bimodal EEG-fMRI | authors=Milyani, Attar (King Abdulaziz U) | venue=Frontiers in Human Neuroscience | Study.research_objective=inn"
+  },
+  {
+   "pid": "figshare-30133477-eeg-imagined",
+   "key": "t:aneegimaginedspeechdatasetforbciapplicationswithbinaryandnumericalstimuli",
+   "title": "An EEG Imagined Speech Dataset for BCI Applications with Binary and Numerical Stimuli",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=figshare-30133477-eeg-imagined | title=An EEG Imagined Speech Dataset for BCI Applications with Binary and Numerical Stimuli | authors=Diego Gabriel Hernández Solís, Susana Leija Ch"
+  },
+  {
+   "pid": "hal-3769268-intimag",
+   "key": "t:preliminarystudyforintonationclassificationofimaginedspeechforbraincomputerinter",
+   "title": "Preliminary study for intonation classification of imagined speech for brain-computer interface applications",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| venue=HAL preprint | doi=HAL deposit hal-03769268 | Study.research_objective=decode speech prosody (intonation) from EEG during imagined speech: mentally produced ba/da syllables as affirmation vs question | Study.study_design=controlled_experiment | task_family="
+  },
+  {
+   "pid": "hal-5371232-ismeeg",
+   "key": "t:innerspeechmarkerdetectionwitheegandpossibleextensiontoauditoryverbalhallucinati",
+   "title": "Inner-speech marker detection with EEG and possible extension to auditory-verbal hallucinations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "as, Cabestaing Francois, Jardri Renaud, Yger Pierre | doi=HAL deposit hal-05371232 | Study.research_objective=detect an EEG marker of inner speech: Recall-vs-Rest classification via FBCSP, benchmarked on public inner-speech datasets, with view to auditory-verbal hal"
+  },
+  {
+   "pid": "iber24-seegovc",
+   "key": "t:comparativeanalysisofpowerdynamicsfrominvasiveeegrecordingsduringovertandcoverts",
+   "title": "Comparative Analysis of Power Dynamics from Invasive EEG Recordings During Overt and Covert Speech Production in Epilepsy Patients",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=iber24-seegovc | title=Comparative Analysis of Power Dynamics from Invasive EEG Recordings During Overt and Covert Speech Production in Epilepsy Patients | authors=Sbaih Asma Hasan, Ouellet Marc, Perez-Cordoba Jose L., Raman Sneha, Chica Ana"
+  },
+  {
+   "pid": "ijsce-bisla26_connectivity",
+   "key": "t:eegbasedimaginedspeechanalysisusingfunctionalconnectivity",
+   "title": "EEG-based imagined speech analysis using functional connectivity",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ijsce-bisla26_connectivity | title=EEG-based imagined speech analysis using functional connectivity | authors=Meenakshi Bisla, Radhey Shyam Anand | venue=Int. J. Soft Computing and"
+  },
+  {
+   "pid": "isca-bras24-articeeg",
+   "key": "t:usingarticulatedspeecheegsignalsforimaginedspeechdecoding",
+   "title": "Using articulated speech EEG signals for imagined speech decoding",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Using articulated speech EEG signals for imagined speech decoding | venue=Interspeech 2024 | Study.research_objective=articulated-speech EEG for imagined speech decoding | Stud"
+  },
+  {
+   "pid": "isca-bras24_interspeech",
+   "key": "t:usingarticulatedspeecheegsignalsforimaginedspeechdecoding",
+   "title": "Using articulated speech EEG signals for imagined speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Using articulated speech EEG signals for imagined speech decoding | system_name=two CNN pipelines over scalp EEG: (1) endpoint detector — CNN (BN+25% dropout, ReLU) trained 150"
+  },
+  {
+   "pid": "isca-duraisamy25-coverteeg",
+   "key": "t:functionalconnectivityandhilbertbasedfeaturesforcovertspeecheegvariabilityanalys",
+   "title": "Functional Connectivity and Hilbert-Based Features for Covert Speech EEG Variability Analysis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Functional Connectivity and Hilbert-Based Features for Covert Speech EEG Variability Analysis | authors=Duraisamy, et-al | venue=Interspeech 2025 | Study.research_objective=functional connecti"
+  },
+  {
+   "pid": "isca-duraisamy25_interspeech",
+   "key": "t:functionalconnectivityandhilbertbasedfeaturesforcovertspeecheegvariabilityanalys",
+   "title": "Functional Connectivity and Hilbert-Based Features for Covert Speech EEG Variability Analysis and Classification",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Functional Connectivity and Hilbert-Based Features for Covert Speech EEG Variability Analysis and Classification | venue=Proc. Interspeech 2025 | intended_use_cases=speech_restoration, device_"
+  },
+  {
+   "pid": "isca-duraisamy26_interspeech",
+   "key": "t:subjectinvariantdynamicgraphmodelingforcrosssubjecteegimaginedspeechdecoding",
+   "title": "Subject-Invariant Dynamic Graph Modeling for Cross-Subject EEG Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-duraisamy26_interspeech | title=Subject-Invariant Dynamic Graph Modeling for Cross-Subject EEG Imagined Speech Decoding | authors=Saravanakumar Duraisamy, Luis A. Leiva | venue=Interspeech 2026 | review_state=source_checked | Stud"
+  },
+  {
+   "pid": "isca-geng25b_interspeech",
+   "key": "t:eegbasedvoiceconversionhearingthevoiceofyourbrain",
+   "title": "EEG-based Voice Conversion: Hearing the Voice of Your Brain",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "consistency on unseen speakers (3.45) below speech-driven baseline; timbre quality still below GT | generalization_gap=EEG recorded during overt speech — silent/imagined speech conversion untested; corpus-specific paradigms | EEG-VC seen: Hom 0.9465, Cons-obj 0.8391, Cons-sub 3.68, Nat 4.15; GT"
+  },
+  {
+   "pid": "isca-kim23g-diffe",
+   "key": "t:diffediffusionbasedlearningfordecodingimaginedspeecheeg",
+   "title": "Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG | authors=Kim, Kim, et-al | venue=Interspeech 2023 | Study.research_objective=diffusion decoding imagined-speech EEG |"
+  },
+  {
+   "pid": "isca-kim23g_interspeech",
+   "key": "t:diffediffusionbasedlearningfordecodingimaginedspeecheeg",
+   "title": "Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG | system_name=Diff-E: denoising-diffusion (DDPM) + conditional autoencoder (CAE, latent Dψ) + joint linear classifier o"
+  },
+  {
+   "pid": "isca-lee26b-rtmrieeg",
+   "key": "t:anapproachtosimultaneousacquisitionofrealtimemrivideoeegandsurfaceemgforarticula",
+   "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ture + GA/BCG correction quality, no downstream decoding benchmark | claim=first simultaneous rtMRI(99fps)+16-electrode EEG/sEMG acquisition demonstrated on 1 speaker across phonated/silent/imagined speech with working GA/BCG EEG cleanup | technical_limits=pilot single-subject; no decoding benchmark or dataset release metri"
+  },
+  {
+   "pid": "isca-maghsoudi26_interspeech",
+   "key": "t:relatingtheneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "study_design=controlled_experiment | Study.research_objective=measure whether neural representations of vocalized/mimed/imagined speech are shared by training linear sEEG spectrogram-reconstruction decoders per condition and testing cross-condition transfer | Study.unit_of_analysis=VocalMi"
+  },
+  {
+   "pid": "isca-rastogi25-imagsent",
+   "key": "t:towardssentencelevelimaginedspeechgenerationfromeegsignals",
+   "title": "Towards Sentence Level Imagined Speech Generation from EEG signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Sentence Level Imagined Speech Generation from EEG signals | authors=Rastogi, et-al | venue=Interspeech 2025 | Study.research_objective=sentence-level imagined speech gen"
+  },
+  {
+   "pid": "isca-rastogi25_interspeech",
+   "key": "t:towardssentencelevelimaginedspeechgenerationfromeegsignals",
+   "title": "Towards Sentence Level Imagined Speech Generation from EEG signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Sentence Level Imagined Speech Generation from EEG signals | venue=Proc. Interspeech 2025 | intended_use_cases=speech_restoration | task_family=sentence_recognition | Stu"
+  },
+  {
+   "pid": "kyutech-neuro157-innerspeech",
+   "key": "t:innerspeechrecognitionusingeegsignalswithreservoircomputing",
+   "title": "Inner Speech Recognition Using EEG Signals with Reservoir Computing",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=kyutech:neuro_157 | title=Inner Speech Recognition Using EEG Signals with Reservoir Computing | authors=Arie Rachmad Syulistyo, Yuichiro Tanaka, Hakaru Tamukoh | review_state=sourc"
+  },
+  {
+   "pid": "nemar-251-vocalmind",
+   "key": "t:vocalmindastereotacticeegdatasetforvocalizedmimedandimaginedspeechintonallanguag",
+   "title": "VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech in Tonal Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech in Tonal Language | Study.study_design=dataset_resource | Study.research_objective=sEEG dataset for speech decoding res"
+  },
+  {
+   "pid": "nemar-nm000174-nguyen",
+   "key": "t:imaginedspeecheegdatasetcomparingparadigmdesigns",
+   "title": "Imagined Speech EEG dataset comparing paradigm designs",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined Speech EEG dataset comparing paradigm designs | authors=Aguilera-Rodriguez, E. et al. (9 authors) | venue=NEMAR nm000174 | Study.r"
+  },
+  {
+   "pid": "nemar-nm000224-nguyenlong",
+   "key": "t:imaginedspeecheegdatasetshortandlongwords",
+   "title": "Imagined speech EEG dataset - short and long words",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined speech EEG dataset - short and long words | authors=Nguyen, C.H., Karavas, G.K., Artemiadis, P. | venue=NEMAR nm000224 | Study.res"
+  },
+  {
+   "pid": "nemar-nm000252-nguyenlongw",
+   "key": "t:imaginedspeecheegdatasetlongwordscondition",
+   "title": "Imagined speech EEG dataset - long words condition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined speech EEG dataset - long words condition | authors=Nguyen, C.H., Karavas, G.K., Artemiadis, P. | venue=NEMAR nm000252 | Study.res"
+  },
+  {
+   "pid": "nemar-nm000257-nguyenshort",
+   "key": "t:imaginedspeecheegdatasetshortwordscondition",
+   "title": "Imagined speech EEG dataset - short words condition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined speech EEG dataset - short words condition | authors=Nguyen, C.H., Karavas, G.K., Artemiadis, P. | venue=NEMAR nm000257 | Study.re"
+  },
+  {
+   "pid": "nemar-nm000261-nguyenvowel",
+   "key": "t:imaginedspeecheegdatasetvowelscondition",
+   "title": "Imagined speech EEG dataset - vowels condition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined speech EEG dataset - vowels condition | authors=Nguyen, C.H., Karavas, G.K., Artemiadis, P. | venue=NEMAR nm000261 | Study.researc"
+  },
+  {
+   "pid": "nemar-on005170-chisco",
+   "key": "p:nemar-on005170-chisco",
+   "title": "Chisco",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=dataset_resource | Study.research_objective=Chinese imagined speech EEG dataset (imagine + reading tasks, stimuli text included) for BCI and imagined-language decoding | dataset_id=NEMAR on00"
+  },
+  {
+   "pid": "nemar-on005262-areeg",
+   "key": "t:areegarabicinnerspeecheegdataset",
+   "title": "ArEEG: Arabic Inner Speech EEG dataset",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=nemar-on005262-areeg | title=ArEEG: Arabic Inner Speech EEG dataset | authors=Donia Metwalli, Eslam Ahmed, Antony Emil, Yousef A. Radwan, Mariam Barakat, Anas Ahmed, Amro Omar"
+  },
+  {
+   "pid": "nemar-on006317-chisco2",
+   "key": "p:nemar-on006317-chisco2",
+   "title": "Chisco-2.0",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=dataset_resource | Study.research_objective=EEG dataset of imagined speech (two paradigms para1/para2) supporting imagined-speech decoding research | dataset_id=NEMAR on006317 / OpenNeuro ds0063"
+  },
+  {
+   "pid": "nemar-on006465-cpseed",
+   "key": "t:3mcpseedaneegbaseddatasetforchinesepinyinproductioninovertsilentintendedandimagi",
+   "title": "3M-CPSEED: An EEG-based Dataset for Chinese Pinyin Production in Overt, Silent-intended, and Imagined Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=3M-CPSEED: An EEG-based Dataset for Chinese Pinyin Production in Overt, Silent-intended, and Imagined Speech | Study.study_design=dataset_resource | Study.research_objective=EEG dataset of Chinese Pinyin production across overt"
+  },
+  {
+   "pid": "oa-W2975100131",
+   "key": "t:towardanimaginedspeechbasedbraincomputerinterfaceusingeegsignals",
+   "title": "Toward an Imagined Speech-Based Brain Computer Interface Using EEG Signals",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W2975100131 | doi=oa:W2975100131 | title=Toward an Imagined Speech-Based Brain Computer Interface Using EEG Signals | venue=PhD thesis, University of Sheffield (Speech and Hearing Research Group), White Rose eTheses 24588 | tas"
+  },
+  {
+   "pid": "oa-W3088488915",
+   "key": "t:developmentofahybridbcibasedonimaginedspeechusingeegandfnirsphdthesis",
+   "title": "Development of a Hybrid BCI Based on Imagined Speech Using EEG and fNIRS (PhD thesis)",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W3088488915 | title=Development of a Hybrid BCI Based on Imagined Speech Using EEG and fNIRS (PhD thesis) | venue=University of Toronto PhD thesis (Rezazadeh Sereshkeh, TSpace) | task_family=isolated_wo"
+  },
+  {
+   "pid": "oa-W7172561507",
+   "key": "t:innerspeechrecognitionusingeegsignalswithreservoircomputing",
+   "title": "Inner Speech Recognition Using EEG Signals with Reservoir Computing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W7172561507 | title=Inner Speech Recognition Using EEG Signals with Reservoir Computing | authors=Syulistyo, Tanaka, Tamukoh | venue=IJABC (International Journal of Activity"
+  },
+  {
+   "pid": "openresafrica-16257-3",
+   "key": "t:eegbasedinnerspeechdecodingusingphaselockingandspatialfeatureswithadualbranchdee",
+   "title": "EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=openresafrica-16257-3 | title=EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model | authors=Hussna Elnoor M. Abd"
+  },
+  {
+   "pid": "openresafrica-16257-innerspeech",
+   "key": "t:eegbasedinnerspeechdecodingusingphaselockingandspatialfeatureswithadualbranchdee",
+   "title": "EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model | Study.study_design=controlle"
+  },
+  {
+   "pid": "ora-16257-phaseinner",
+   "key": "t:eegbasedinnerspeechdecodingusingphaselockingandspatialfeatureswithadualbranchdee",
+   "title": "EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model (v3; 2 approved with reservations)",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model (v3; 2 approved with reservati"
+  },
+  {
+   "pid": "ora-8-26-dualbranch",
+   "key": "t:eegbasedinnerspeechdecodingusingphaselockingandspatialfeatureswithadualbranchdee",
+   "title": "EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-Based Inner Speech Decoding Using Phase-Locking and Spatial Features with a Dual-Branch Deep Learning Model | venue=Open Research Africa ("
+  },
+  {
+   "pid": "peerj-40989443-eegimgrev",
+   "key": "t:systematicreviewprogressineegbasedspeechimagerybcidecodingandencodingresearch",
+   "title": "Systematic review: progress in EEG-based speech imagery BCI decoding and encoding research",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Systematic review: progress in EEG-based speech imagery BCI decoding and encoding research | authors=Su, Tian (Qilu U of Technology / Shandong Acad Sci) | venue=PeerJ Computer"
+  },
+  {
+   "pid": "pmc-10237317-vowelimagery",
+   "key": "t:linguisticrepresentationofvowelsinspeechimageryeeg",
+   "title": "Linguistic representation of vowels in speech imagery EEG",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Linguistic representation of vowels in speech imagery EEG | authors=vowel-imagery group | Study.research_objective=vowel speech-imagery CNN 72.6% | Study.study_design=controlled"
+  },
+  {
+   "pid": "pmc-10237317-vowelimg",
+   "key": "t:linguisticrepresentationofvowelsinspeechimageryeeg",
+   "title": "Linguistic representation of vowels in speech imagery EEG",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Linguistic representation of vowels in speech imagery EEG | venue=Frontiers in Human Neuroscience | doi=10.3389/fnhum.2023.1163578 | Study.study_design=controlled_experiment | S"
+  },
+  {
+   "pid": "pmc-10295790-eegwst",
+   "key": "t:imaginedspeechclassificationusingeeganddeeplearning",
+   "title": "Imagined Speech Classification Using EEG and Deep Learning",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10295790-eegwst | title=Imagined Speech Classification Using EEG and Deep Learning | authors=Mokhles M. Abdulghani | venue=Bioengineering | review_state=source_checked | Study.study_de"
+  },
+  {
+   "pid": "pmc-10295790-imagedl",
+   "key": "t:imaginedspeechclassificationusingeeganddeeplearning",
+   "title": "Imagined Speech Classification Using EEG and Deep Learning",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined Speech Classification Using EEG and Deep Learning | authors=imagined-DL group | Study.research_objective=imagined-speech EEG deep-learning 92.5% | Stud"
+  },
+  {
+   "pid": "pmc-10461632-namemd",
+   "key": "t:multiclassclassificationofimaginedspeecheegusingnoiseassistedmultivariateempiric",
+   "title": "Multiclass classification of imagined speech EEG using noise-assisted multivariate empirical mode decomposition and multireceptive field convolutional neural network",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10461632-namemd | title=Multiclass classification of imagined speech EEG using noise-assisted multivariate empirical mode decomposition and multireceptive field convolutional neural network |"
+  },
+  {
+   "pid": "pmc-10461632-noiseassist",
+   "key": "t:multiclassclassificationofimaginedspeecheegusingnoiseassisted",
+   "title": "Multiclass classification of imagined speech EEG using noise-assisted",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multiclass classification of imagined speech EEG using noise-assisted | authors=noise-assisted group | Study.research_objective=noise-assisted multiclass imagined 73.09"
+  },
+  {
+   "pid": "pmc-10773705-phoneme44",
+   "key": "t:evaluationofanenglishlanguagephonemebasedimaginedspeechbraincomputerinterfacewit",
+   "title": "Evaluation of an English language phoneme-based imagined speech brain computer interface with low-cost electroencephalography",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10773705-phoneme44 | title=Evaluation of an English language phoneme-based imagined speech brain computer interface with low-cost electroencephalography | authors=John LaRocco, Qudsia Tahmina, Sam Lecian, Jason Moore, Cole Helbig, Surya Gupta | venue=Front. Neuro"
+  },
+  {
+   "pid": "pmc-10849751-covertcortical",
+   "key": "t:covertcorticalprocessingadiagnosisinsearchofadefinition",
+   "title": "Covert cortical processing: a diagnosis in search of a definition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "iteria debated | EvaluationRun.execution_artifacts=Owen 2006: BOLD loci during tennis/navigation imagery in VS patient; EEG paradigms flag covert command-following in up to 25% of healthy controls; Sokoliuk 2021: covert speech comprehension predicts recovery | extra.Output.output_kind=diagnostic classifications — CMD, covert speech comprehensio"
+  },
+  {
+   "pid": "pmc-11582579-chisco",
+   "key": "t:chiscoaneegbasedbcidatasetfordecodingofimaginedspeech",
+   "title": "Chisco: An EEG-based BCI dataset for decoding of imagined speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Chisco: An EEG-based BCI dataset for decoding of imagined speech | authors=Zhang; Ding; Bao; Zhao; Liang et al. (HIT) | venue=Scientific Data | Study.research_objective=Chinese Imagine"
+  },
+  {
+   "pid": "pmc-11595501-eegdl",
+   "key": "t:decodingimaginedspeechfromeegdataahybriddeeplearning",
+   "title": "Decoding Imagined Speech from EEG Data: A Hybrid Deep Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined Speech from EEG Data: A Hybrid Deep Learning | authors=EEG-DL group | Study.research_objective=hybrid DL imagined-speech EEG 77.8% | St"
+  },
+  {
+   "pid": "pmc-11595501-hybdl-imgspeech",
+   "key": "t:decodingimaginedspeechfromeegdataahybriddeeplearningapproachtocapturingspatialan",
+   "title": "Decoding imagined speech from EEG data: a hybrid deep learning approach to capturing spatial and temporal features",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11595501-hybdl-imgspeech | title=Decoding imagined speech from EEG data: a hybrid deep learning approach to capturing spatial and temporal features | review_state=source_checked | Study."
+  },
+  {
+   "pid": "pmc-11595501-hybriddl",
+   "key": "t:decodingimaginedspeechfromeegdataahybriddeeplearningapproachtocapturingspatialan",
+   "title": "Decoding Imagined Speech from EEG Data: A Hybrid Deep Learning Approach to Capturing Spatial and Temporal Features",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined Speech from EEG Data: A Hybrid Deep Learning Approach to Capturing Spatial and Temporal Features | Study.research_objective=hybrid deep"
+  },
+  {
+   "pid": "pmc-11655741-eeg-imagery-review",
+   "key": "t:advancesinbraincomputerinterfacefordecodingspeechimageryfromeegsignalsasystemati",
+   "title": "Advances in brain-computer interface for decoding speech imagery from EEG signals: a systematic review",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Advances in brain-computer interface for decoding speech imagery from EEG signals: a systematic review | authors=Nimra Rahman | venue=Cognitive Neurodynamics | doi=10.1007/s11571-024-10167-0 |"
+  },
+  {
+   "pid": "pmc-11679664-eegrev",
+   "key": "t:systematicreviewofeegbasedimaginedspeechclassificationmethods",
+   "title": "Systematic Review of EEG-Based Imagined Speech Classification Methods",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Systematic Review of EEG-Based Imagined Speech Classification Methods | venue=Sensors (Basel) | doi=10.3390/s24248168 | Study.research_objective=systematically review"
+  },
+  {
+   "pid": "pmc-11679664-srcls",
+   "key": "t:systematicreviewofeegbasedimaginedspeechclassificationmethods",
+   "title": "Systematic Review of EEG-Based Imagined Speech Classification Methods",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Systematic Review of EEG-Based Imagined Speech Classification Methods | venue=Sensors (MDPI) | Study.research_objective=systematic review of EEG imagined-speech class"
+  },
+  {
+   "pid": "pmc-11802819-stochovf",
+   "key": "t:stochasticityasasolutionforoverfittingnoninvasiveeegimaginedspeech",
+   "title": "Stochasticity as a solution for overfitting: non-invasive EEG imagined speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Stochasticity as a solution for overfitting: non-invasive EEG imagined speech | authors=stochovf group | Study.research_objective=imagined-speech EEG decoding stochasticity overfitting | Study.stud"
+  },
+  {
+   "pid": "pmc-11810546-gammatheta",
+   "key": "t:gammaandthetaalphabandoscillationsintheelectroencephalogramdistinguishthecontent",
+   "title": "Gamma and Theta/Alpha-Band Oscillations in the Electroencephalogram Distinguish the Content of Inner Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Gamma and Theta/Alpha-Band Oscillations in the Electroencephalogram Distinguish the Content of Inner Speech | authors=eNeuro inner-speech EEG group | venue=eNeuro (SfN) | Study.research_objective=129-participant EEG study: gamm"
+  },
+  {
+   "pid": "pmc-11810546-innergamma",
+   "key": "t:gammaandthetaalphabandoscillationsintheelectroencephalogramdistinguishthecontent",
+   "title": "Gamma and Theta/Alpha-Band Oscillations in the Electroencephalogram Distinguish the Content of Inner Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11810546-innergamma | title=Gamma and Theta/Alpha-Band Oscillations in the Electroencephalogram Distinguish the Content of Inner Speech | authors=Thomas J. Whitford, Kevin M. Spencer, Marianthe Godwin, Yoji Hirano, Lawrence Kin-hei Chung, Wadim Vodovozov,"
+  },
+  {
+   "pid": "pmc-12009324-vocalmind",
+   "key": "t:vocalmindastereotacticeegdatasetforvocalizedmimedandimaginedspeech",
+   "title": "VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech | authors=VocalMind group | Study.research_objective=VocalMind sEEG dataset vocalized/mimed/imagined tonal | Study.stud"
+  },
+  {
+   "pid": "pmc-12043648-eeg-utterance-synth",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12043648-eeg-utterance-synth | title=Synthesizing intelligible utterances from EEG of imagined speech | authors=Xiong Wenjing, Ma Lin, Li Haifeng | venue=Frontiers in Neuroscience 19 | review_state=source_checked | Study."
+  },
+  {
+   "pid": "pmc-12043648-eegsynth",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthesizing intelligible utterances from EEG of imagined speech | authors=Xiong; Ma; Li (Harbin Institute of Technology) | venue=Frontiers in Neuroscience | Study.research_objective=E"
+  },
+  {
+   "pid": "pmc-12043648-ets",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthesizing intelligible utterances from EEG of imagined speech | authors=Lee, Kim, et al. | venue=Frontiers in Neuroscience | Study.research_objective=an EEG-to-speech system synthes"
+  },
+  {
+   "pid": "pmc-12043648-synthutt",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthesizing intelligible utterances from EEG of imagined speech | authors=synth-utterance group | Study.research_objective=EEG imagined-speech synthesis 91.23% MOS3.50 | Study.study_d"
+  },
+  {
+   "pid": "pmc-12236229-camnet",
+   "key": "t:studyonspeechimageryelectroencephalographydecodingofchinesewordscamnet",
+   "title": "Study on speech imagery electroencephalography decoding of Chinese words (CAM-Net)",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Study on speech imagery electroencephalography decoding of Chinese words (CAM-Net) | authors=CAM-Net group | Study.research_objective=CAM-Net Chinese-word sp"
+  },
+  {
+   "pid": "pmc-12263900-elecred",
+   "key": "t:howlowcanyougoevaluatingelectrodereductionmethodsforeeg",
+   "title": "How low can you go: evaluating electrode reduction methods for EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "electrode reduction methods for EEG | authors=electrode-reduction group | Study.research_objective=electrode reduction EEG imagined speech 38.2% | Study.study_design=controlled_experiment | task_family=sentence_recognition | SystemConfiguration.system_lifecy"
+  },
+  {
+   "pid": "pmc-12263900-electrode",
+   "key": "t:howlowcanyougoevaluatingelectrodereductionmethodsforeegbasedspeechimagerybcis",
+   "title": "How low can you go: evaluating electrode reduction methods for EEG-based speech imagery BCIs",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12263900-electrode | title=How low can you go: evaluating electrode reduction methods for EEG-based speech imagery BCIs | authors=Maurice Rekrut, Johannes Ihl, Tobias Jungbluth, Antonio Krüger | venue=Frontiers in Neuroergonomics | re"
+  },
+  {
+   "pid": "pmc-12287026-innspeech",
+   "key": "t:neuralsignalsmachinelearningandthefutureofinnerspeechrecognition",
+   "title": "Neural signals, machine learning, and the future of inner speech recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oscience | Study.research_objective=review of inner-speech neural signals + ML decoders: articulatory/phonetic basis of inner speech, EEG/ECoG/MEG decoders; cited ranges 35.2% vowels / 29.2% words EEG; 49-61% 3-class / 33-40% 7-class imagined speech | Study.study_design=controlled_experiment | dataset_id=surveyed inner"
+  },
+  {
+   "pid": "pmc-12397257-areeg",
+   "key": "t:areeganopenaccessarabicinnerspeecheegdataset",
+   "title": "ArEEG: an Open-Access Arabic Inner Speech EEG Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=ArEEG: an Open-Access Arabic Inner Speech EEG Dataset | authors=Metwalli, Kiroles, Radwan, Mohamed | venue=Scientific Data | Study.research_objective=open-access"
+  },
+  {
+   "pid": "pmc-12453656-eegsirev",
+   "key": "t:systematicreviewprogressineegbasedspeechimagerybraincomputerinterfacedecodingand",
+   "title": "Systematic review: progress in EEG-based speech imagery brain-computer interface decoding and encoding research",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Systematic review: progress in EEG-based speech imagery brain-computer interface decoding and encoding research | venue=PeerJ Computer Science | doi=10.7717/peerj-cs.2938 | St"
+  },
+  {
+   "pid": "pmc-12453656-eegspeech-review",
+   "key": "t:systematicreviewprogressineegbasedspeechimagerybraincomputerinterfacedecodingand",
+   "title": "Systematic review: progress in EEG-based speech imagery brain-computer interface decoding and encoding research",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Systematic review: progress in EEG-based speech imagery brain-computer interface decoding and encoding research | authors=Su K, Tian L | venue=PeerJ Computer Science (2025), d"
+  },
+  {
+   "pid": "pmc-12480242-mimedspeech",
+   "key": "t:mimedspeechasanintermediarystatebetweenovertandimaginedspeechproductioninanelect",
+   "title": "Mimed speech as an intermediary state between overt and imagined speech production in an electroencephalography study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Mimed speech as an intermediary state between overt and imagined speech production in an electroencephalography study | authors=Kwon, Lee, Park, Lee | venue=Scientific Reports | Study.research_objective=mimed speech as int"
+  },
+  {
+   "pid": "pmc-12528453-imdb",
+   "key": "t:aneegbasedimaginedspeechdatabaseforcomparingparadigmdesigns",
+   "title": "An EEG-based Imagined Speech Database for comparing Paradigm Designs",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An EEG-based Imagined Speech Database for comparing Paradigm Designs | authors=imagined-DB group | Study.research_objective=imagined-speech EEG data"
+  },
+  {
+   "pid": "pmc-12528453-paradigm",
+   "key": "t:aneegbasedimaginedspeechdatabaseforcomparingparadigmdesigns",
+   "title": "An EEG-based Imagined Speech Database for comparing Paradigm Designs",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12528453-paradigm | title=An EEG-based Imagined Speech Database for comparing Paradigm Designs | authors=Edgar Aguilera-Rodríguez, Alma Cuevas-Romero, Santiago Mendoza-Franco"
+  },
+  {
+   "pid": "pmc-12589180-egx",
+   "key": "t:deeplearningforinnerspeechrecognitionapilotcomparativestudyofeegnetandaspectrote",
+   "title": "Deep learning for inner speech recognition: a pilot comparative study of EEGNet and a spectro-temporal Transformer on bimodal EEG-fMRI data",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12589180-egx | title=Deep learning for inner speech recognition: a pilot comparative study of EEGNet and a spectro-temporal Transformer on bimodal EEG-fMRI data | authors=Ahmad H. Milyani, Eyad Talal Attar | venue=Frontiers in Human Neuroscience 19:1668935 | review_stat"
+  },
+  {
+   "pid": "pmc-12589180-innersp",
+   "key": "t:deeplearningforinnerspeechrecognitionapilotcomparativestudyofeegnetandaspectrote",
+   "title": "Deep learning for inner speech recognition: a pilot comparative study of EEGNet and a spectro-temporal Transformer",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep learning for inner speech recognition: a pilot comparative study of EEGNet and a spectro-temporal Transformer | authors=Milyani, Attar | venue=Frontiers in Human Neuroscience | Study.research"
+  },
+  {
+   "pid": "pmc-12681749-eegfmriis",
+   "key": "t:simultaneouselectroencephalographyeegandfunctionalmagneticresonanceimagingfmrida",
+   "title": "Simultaneous electroencephalography (EEG) and functional magnetic resonance imaging (fMRI) data during an inner speech task",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Simultaneous electroencephalography (EEG) and functional magnetic resonance imaging (fMRI) data during an inner speech task | venue=Data in Brief | doi=10.1016/j.dib.2025.112258 | Study.study_design=dataset_resource | Study.research_objec"
+  },
+  {
+   "pid": "pmc-12808263-3m-cpseed",
+   "key": "t:3mcpseedaneegbaseddatasetforchinesepinyinproductioninovertmouthedandimaginedspee",
+   "title": "3M-CPSEED, An EEG-based Dataset for Chinese Pinyin Production in Overt, Mouthed, and Imagined Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12808263-3m-cpseed | title=3M-CPSEED, An EEG-based Dataset for Chinese Pinyin Production in Overt, Mouthed, and Imagined Speech | authors=Xinyu Ma, Yi Jiang, Ning Jiang | venue=Scientific Data 12 | review_state=source_checked | Study.study_design="
+  },
+  {
+   "pid": "pmc-12808263-3mcpseed",
+   "key": "t:3mcpseedaneegbaseddatasetforchinesepinyinproductioninovertmouthedandimaginedspee",
+   "title": "3M-CPSEED, An EEG-based Dataset for Chinese Pinyin Production in Overt, Mouthed, and Imagined Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=3M-CPSEED, An EEG-based Dataset for Chinese Pinyin Production in Overt, Mouthed, and Imagined Speech | authors=Ma Xinyu, Jiang Yi, Jiang Ning (West China Hospital / Sichuan University) | venue=Scientific Data (Nature) 20"
+  },
+  {
+   "pid": "pmc-13039726-eeg",
+   "key": "t:eegimaginedspeechneurosignalpreprocessinganddeeplearningclassification",
+   "title": "EEG imagined speech neuro-signal preprocessing and deep learning classification",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13039726-eeg | title=EEG imagined speech neuro-signal preprocessing and deep learning classification | authors=Fatma Elwasify, Eman Shaaban, Randa Abdelmoneem |"
+  },
+  {
+   "pid": "pmc-13039726-imdl",
+   "key": "t:eegimaginedspeechneurosignalpreprocessinganddeeplearningclassification",
+   "title": "EEG imagined speech neuro-signal preprocessing and deep learning classification",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG imagined speech neuro-signal preprocessing and deep learning classification | authors=imagined-DL group | Study.research_objective=imag"
+  },
+  {
+   "pid": "pmc-13364026-tripolar",
+   "key": "t:comparativeanalysisoftripolarconcentricringandconventionalelectrodesforovertandc",
+   "title": "Comparative Analysis of Tri-Polar Concentric Ring and Conventional Electrodes for Overt and Covert Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "i-polar concentric ring electrodes (surface-Laplacian sensing) vs conventional disc electrodes for classifying overt vs covert speech EEG | task_family=speech_activity_detection | intended_use_cases=private_communication, device_control | extra.Task.scope=t"
+  },
+  {
+   "pid": "pmc-13482365-dirword",
+   "key": "t:eegbasedbraincomputerinterfacebcidatasetfordirectionalwordrecognition",
+   "title": "EEG-based brain-computer interface (BCI) dataset for directional word recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "10.1038/s41597-026-07809-9 | Study.study_design=dataset_resource | Study.research_objective=provide a standardized open EEG dataset of overt and covert (inner speech) articulation of directional words to address the scarcity of public inner-speech EEG data | task_family=command_select"
+  },
+  {
+   "pid": "pmc-13601420-seeginner",
+   "key": "t:astereoencephalographystudyofinternalspeech",
+   "title": "A stereoencephalography study of internal speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "12 Hz and gamma 50-80 Hz band patterns across temporal/frontal sites | ProcessingStep.architecture={'stages': ['record sEEG during overt/articulated/imagined speech + handwriting', 'compute time- and frequency-domain spectral features in alpha and gamma bands', 'train a classifier to"
+  },
+  {
+   "pid": "pmc-5714499-efference",
+   "key": "t:neurophysiologicalevidenceofefferencecopiestoinnerspeech",
+   "title": "Neurophysiological evidence of efference copies to inner speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l evidence of efference copies to inner speech | authors=efference-copy group | Study.research_objective=efference-copy inner speech EEG | Study.study_design=controlled_experiment | task_family=sentence_recognition | SystemConfiguration.system_lifecycle=im"
+  },
+  {
+   "pid": "pmc-5714499-efferenceinner",
+   "key": "t:neurophysiologicalevidenceofefferencecopiestoinnerspeech",
+   "title": "Neurophysiological evidence of efference copies to inner speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "udy.study_design=controlled_experiment | task_family=inner_experience_analysis | extra.Production.scope_note=primary N: EEG efference copy signals for inner speech | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=imagined phoneme producti"
+  },
+  {
+   "pid": "pmc-6021529-innerspeechreview",
+   "key": "t:decodinginnerspeechusingelectrocorticographyprogressandchallengestowardaspeechpr",
+   "title": "Decoding Inner Speech Using Electrocorticography: Progress and Challenges Toward a Speech Prosthesis",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "her-order speech units — and catalog the challenges blocking a natural speech prosthesis | Study.unit_of_analysis=ECoG/iEEG studies of inner speech up to 2018: grid/strip/depth recordings in epilepsy patients; decoding examples incl. spectrotemporal reconstruction fr"
+  },
+  {
+   "pid": "pmc-6174918-dsbci",
+   "key": "t:neurolinguisticsresearchadvancingdevelopmentofadirectspeechbraincomputerinterfac",
+   "title": "Neurolinguistics Research Advancing Development of a Direct-Speech Brain-Computer Interface",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| task_family=sentence_recognition | extra.Production.scope_note=review of imagined-speech DS-BCI: neural correlates of imagined speech production, recording techniques, feature extraction and decoding paradigms across EEG, MEG, fMRI and intracranial methods | modalities=scalp_eeg, meg, fmri, ecog, intracortical_microelectrode | SystemConfi"
+  },
+  {
+   "pid": "pmc-6974026-vowelcvc",
+   "key": "t:identificationofvowelsinconsonantvowelconsonantwordsfromspeechimagerybasedeegsig",
+   "title": "Identification of vowels in consonant-vowel-consonant words from speech imagery based EEG signals",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Identification of vowels in consonant-vowel-consonant words from speech imagery based EEG signals | authors=Chengaiyan S, Retnapandian AS, Anandan K | venue=Cognitive Neurodynamics | Study.research_objective=i"
+  },
+  {
+   "pid": "pmc-7235109-elm",
+   "key": "t:multiclasscovertspeechclassificationusingextremelearningmachine",
+   "title": "Multiclass covert speech classification using extreme learning machine",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-speech word set | task_family=isolated_word_recognition | elicitation=instructed_content | extra.Production.scope_note=EEG during covert speech word production | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=kernel EL"
+  },
+  {
+   "pid": "pmc-7472624-hpopt",
+   "key": "t:evaluationofhyperparameteroptimizationinmachineanddeeplearningmethodsfordecoding",
+   "title": "Evaluation of hyperparameter optimization in machine and deep learning methods for decoding imagined speech EEG",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d=pmc-7472624-hpopt | title=Evaluation of hyperparameter optimization in machine and deep learning methods for decoding imagined speech EEG | authors=C. Cooney, A. Korik, R. Folli, D. Coyle | review_state=source_checked | Study.study_design=controlled_experim"
+  },
+  {
+   "pid": "pmc-7762104-childinnerspeech",
+   "key": "t:innerversusovertspeechproductiondoesthismakeadifferenceinthedevelopingbrain",
+   "title": "Inner versus Overt Speech Production: Does This Make a Difference in the Developing Brain?",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ers | Claim.claim_scope=inner vs overt speech diverge in children: fNIRS prefrontal-parietal separation in preparation, EEG inhibitory negativity for inner speech at 300-500ms in execution | Claim.claim_scope=6-7y brains are still internalizing overt toward inner speech, so modalit"
+  },
+  {
+   "pid": "pmc-8116487-coverteeg-review",
+   "key": "t:decodingcovertspeechfromeegacomprehensivereview",
+   "title": "Decoding Covert Speech From EEG—A Comprehensive Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Covert Speech From EEG—A Comprehensive Review | authors=Panachakel JT, Ramakrishnan AG | venue=Frontiers in Neuroscience 15:642251 (2021), doi"
+  },
+  {
+   "pid": "pmc-8116487-covertrev",
+   "key": "t:decodingcovertspeechfromeegacomprehensivereview",
+   "title": "Decoding Covert Speech From EEG-A Comprehensive Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Covert Speech From EEG-A Comprehensive Review | authors=Panachakel; Ramakrishnan | venue=Frontiers in Neuroscience | Study.research_objective="
+  },
+  {
+   "pid": "pmc-8460739-realtimesynth",
+   "key": "t:realtimesynthesisofimaginedspeechprocessesfromminimallyinvasiverecordingsofneura",
+   "title": "Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "the latter two with live decoded-audio feedback | Claim.claim_scope=Audible speech can be synthesized in real time from imagined speech using minimally invasive sEEG depth electrodes — a proof-of-concept closed-loop speech neuroprosthesis without surface craniotomy | Claim.claim_scope"
+  },
+  {
+   "pid": "pmc-8748882-cfc",
+   "key": "t:imaginedspeechcanbedecodedfromlowandcrossfrequencyintracranialeegfeatures",
+   "title": "Imagined speech can be decoded from low- and cross-frequency intracranial EEG features",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8748882-cfc | title=Imagined speech can be decoded from low- and cross-frequency intracranial EEG features | authors=Timothée Proix, Jaime Delgado Saa, Andy Christen, Stephanie Martin, Brian N. Pasley, Robert T. Knigh"
+  },
+  {
+   "pid": "pmc-8748882-imaginedecog",
+   "key": "t:imaginedspeechcanbedecodedfromlowandcrossfrequencyintracranialeegfeatures",
+   "title": "Imagined speech can be decoded from low- and cross-frequency intracranial EEG features",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8748882-imaginedecog | title=Imagined speech can be decoded from low- and cross-frequency intracranial EEG features | authors=Timothée Proix, Jaime Delgado Saa, Andy Christen, Stephanie Martin, Brian N. Pasley, Robert T. Knigh"
+  },
+  {
+   "pid": "pmc-8748882-lcf",
+   "key": "t:imaginedspeechcanbedecodedfromlowandcrossfrequencyintracranialeeg",
+   "title": "Imagined speech can be decoded from low- and cross-frequency intracranial EEG",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined speech can be decoded from low- and cross-frequency intracranial EEG | authors=intracranial imagined-speech group | Study.research_objective=imagined-speech decode from low/cross-frequency"
+  },
+  {
+   "pid": "pmc-8791746-persian",
+   "key": "t:eegbasedmultiwordimaginedspeechclassificationforpersianwords",
+   "title": "EEG-Based Multiword Imagined Speech Classification for Persian Words",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-Based Multiword Imagined Speech Classification for Persian Words | authors=Persian imagined-speech group | Study.research_objective=EEG multiword imagi"
+  },
+  {
+   "pid": "pmc-8791746-persianwords",
+   "key": "t:eegbasedmultiwordimaginedspeechclassificationforpersianwords",
+   "title": "EEG-Based Multiword Imagined Speech Classification for Persian Words",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8791746-persianwords | title=EEG-Based Multiword Imagined Speech Classification for Persian Words | authors=M. R. Asghari Bejestani, Gh. R. Mohammad Khani, V. R. Nafisi, F. Darakeh | v"
+  },
+  {
+   "pid": "pmc-8844234-innerspeechds",
+   "key": "t:thinkingoutloudanopenaccesseegbasedbcidatasetforinnerspeechrecognition",
+   "title": "Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition | authors=Nieto N, Peterson V, Rufiner HL | venue=Scientific data | Study.research_objective=thinking out l"
+  },
+  {
+   "pid": "pmc-8844234-thinkoutloud",
+   "key": "t:thinkingoutloudanopenaccesseegbasedbcidatasetforinnerspeechrecognition",
+   "title": "Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8844234-thinkoutloud | title=Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition | authors=N. Nieto, V. Peterson, H. L. Rufiner, J. E. Kamienkowski, R. Spies | review_state=source_checked"
+  },
+  {
+   "pid": "pmc-9086783-eegimgspeech",
+   "key": "t:astateoftheartreviewofeegbasedimaginedspeechdecoding",
+   "title": "A state-of-the-art review of EEG-based imagined speech decoding",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9086783-eegimgspeech | title=A state-of-the-art review of EEG-based imagined speech decoding | authors=D. Lopez-Bernal, D. Balderas, P. Ponce, A. Molina | venue=Front. Hum. Neurosci. | review_state=sourc"
+  },
+  {
+   "pid": "pmc-9086783-sotarev",
+   "key": "t:astateoftheartreviewofeegbasedimaginedspeechdecoding",
+   "title": "A State-of-the-Art Review of EEG-Based Imagined Speech Decoding",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A State-of-the-Art Review of EEG-Based Imagined Speech Decoding | authors=SOTA-review group | Study.research_objective=SOTA review EEG imagined-speech decode | task_family=se"
+  },
+  {
+   "pid": "pmc-pmc12236229",
+   "key": "t:studyonspeechimageryelectroencephalographydecodingofchinesewordsbasedonthecamnet",
+   "title": "Study on speech imagery electroencephalography decoding of Chinese words based on the CAM-Net model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-pmc12236229 | title=Study on speech imagery electroencephalography decoding of Chinese words based on the CAM-Net model | authors=Xiaolong Liu, Banghua Yang | venue=Sheng Wu Yi"
+  },
+  {
+   "pid": "pmc12009324_vocalmind",
+   "key": "t:vocalmindastereotacticeegdatasetforvocalizedmimedandimaginedspeechintonallanguag",
+   "title": "VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech in Tonal Language",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc12009324_vocalmind | title=VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech in Tonal Language | authors=Tianyu He, Mingyi Wei, Ruicong Wang, Renzhi Wang, Shiwei Du, Siqi Cai, Wei Tao, Haizhou Li"
+  },
+  {
+   "pid": "pmc8791746-persian",
+   "key": "t:eegbasedmultiwordimaginedspeechclassificationforpersianwords",
+   "title": "EEG-Based Multiword Imagined Speech Classification for Persian Words",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc8791746-persian | title=EEG-Based Multiword Imagined Speech Classification for Persian Words | authors=M. R. Asghari Bejestani, Gh. R. Mohammad Khani, V. R. Nafisi, F. Darakeh | v"
+  },
+  {
+   "pid": "rs-31374711-coverteegltj",
+   "key": "t:decodingcovertspeechforintuitivecontrolofbraincomputer",
+   "title": "Decoding covert speech for intuitive control of brain-computer",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding covert speech for intuitive control of brain-computer | authors=Tottrup et al | Study.research_objective=covert speech single-trial EEG feasibility | Study.study_design=controlled_experiment | task_family=sentence_recognition | SystemConfiguration.system_"
+  },
+  {
+   "pid": "rs-7306546-seeg-innerspeech",
+   "key": "t:astereoencephalographystudyofinternalspeech",
+   "title": "A stereoencephalography study of internal speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ion accuracy distinguishing the three speech conditions', 'secondary': 'speech vs handwriting discrimination'} | claim=sEEG distinguishes the three speech conditions: imagined speech shows reduced and delayed activation in motor/language areas (frontal suppression, ITG/white-matter silence) vs overt/a"
+  },
+  {
+   "pid": "scirep-66298-elecloc",
+   "key": "t:decodingimaginedspeechroleofelectrodelocalizationandsubjectspecificclassificatio",
+   "title": "Decoding imagined speech: role of electrode localization and subject-specific classification",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "acted) | task_family=phoneme_or_character_classification | elicitation=instructed_content | extra.Production.scope_note=imagined speech EEG decoding; electrode localization role | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyp"
+  },
+  {
+   "pid": "sut-warren26_thesis",
+   "key": "t:imaginedspeechdetectionwitheeganddeeplearningmodels",
+   "title": "Imagined Speech detection with EEG and Deep Learning Models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=sut-warren26_thesis | title=Imagined Speech detection with EEG and Deep Learning Models | authors=Cliff Warren | venue=MEng thesis, Swinburne University of Technology | review_state="
+  },
+  {
+   "pid": "ucl-smc25-1960-phonemes",
+   "key": "t:eegbasedneuralrepresentationanddecodingofimaginedphonemes",
+   "title": "EEG-based Neural Representation and Decoding of Imagined Phonemes",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "doi=10.1109/SMC58881.2025.11342466 | Study.research_objective=Explore feasibility and neural mechanism of non-invasive EEG during speech imagery of 6 English phonemes | task_family=phoneme_or_character_classification | acoustic_mode=no_vocalization | production_in"
+  },
+  {
+   "pid": "zenodo-22441724-leakctrl",
+   "key": "t:doesspokenspeechteachimaginedspeechleakagecontrolledlinearbaselinesonthreepublic",
+   "title": "Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG) | Study.study_design=controlled_experiment | Study.research_objective=test whether a decoder trained on spoken/silentl"
+  },
+  {
+   "pid": "zenodo-22807204-mdrg",
+   "key": "t:graphriemannianmultiviewfusionforsubjectspecificeegimaginedspeechdecodingaheldou",
+   "title": "Graph-Riemannian Multi-View Fusion for Subject-Specific EEG Imagined Speech Decoding: A Held-Out Evaluation on the BCIC2020-IV Official Test Set",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Graph-Riemannian Multi-View Fusion for Subject-Specific EEG Imagined Speech Decoding: A Held-Out Evaluation on the BCIC2020-IV Official Test Set | Study.study_design=controlled_experiment | Study"
+  },
+  {
+   "pid": "zenodo-imgspeech-baselines",
+   "key": "t:doesspokenspeechteachimaginedspeechleakagecontrolledlinearbaselinesonthreepublic",
+   "title": "Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG)",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG) | authors=Luporini (Faculdade Sao Leopoldo Mandic) | venue=Zenodo research artifact v0.1.2 | Study.research_objective="
+  },
+  {
+   "pid": "zenodo-mdrg",
+   "key": "t:mdrggraphriemannianmultiviewfusionforeegimaginedspeechdecodingcompanionintjintel",
+   "title": "MDRG: Graph-Riemannian Multi-View Fusion for EEG Imagined Speech Decoding (companion: Int. J. Intelligent Engineering and Systems 2026)",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MDRG: Graph-Riemannian Multi-View Fusion for EEG Imagined Speech Decoding (companion: Int. J. Intelligent Engineering and Systems 2026) | authors=Duhair, bin Mat Ibrahim, Alsayaydeh, F"
+  }
+ ],
+ "usual_approach": {
+  "design": "offline analysis of recorded trials (no online, real-time or closed-loop term in the full text)",
+  "n": 112,
+  "tier": "pattern match",
+  "population_unique": 167,
+  "pids": [],
+  "note": "55 unique studies (pattern match, upper bound) use an online, real-time or closed-loop term; most hits are mentions or future work."
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.3390-brainsci14030196",
+   "role": "sota",
+   "loc": "Results; Fig. 4",
+   "quote": "The adaptive LDA classifier led to better BCI control performance (55.7 ± 1.39%) relative to the static classifier (52.3 ± 1.04%)."
+  },
+  {
+   "pid": "arxiv-2511.07920",
+   "role": "prior",
+   "loc": "Abstract; Table I",
+   "quote": "In real-time evaluation, the proposed system achieved 65 % top-1 and 70 % top-2 accuracy",
+   "note": "[concurrent], same group; not a deciding prior"
+  },
+  {
+   "pid": "arxiv-2411.11302",
+   "role": "prior",
+   "loc": "Sec. V",
+   "quote": "implementing the proposed framework as a tangible real-time BCI application"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 1,
+  "recall": 0.5,
+  "missed": [
+   "doi-10.3390-brainsci14030196"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.3390-brainsci14030196",
+  "year": 2024,
+  "metric": "online binary syllable-imagery BCI control, 20 participants, two sessions on different days, 64-channel EEG, adaptive vs static LDA (chance 50%)",
+  "value": "55.7% vs 52.3%",
+  "timing": "prior"
+ },
+ "tally": {
+  "slot_filled_unique": 6075,
+  "string_match_unique": 167,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "offline analysis of recorded trials (no online, real-time or closed-loop term in the full text)",
+   "n": 112,
+   "tier": "pattern match",
+   "population_unique": 167
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.3390-brainsci14030196",
+   "year": 2024,
+   "metric": "online binary syllable-imagery BCI control, 20 participants, two sessions on different days, 64-channel EEG, adaptive vs static LDA (chance 50%)",
+   "value": "55.7% vs 52.3%",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-2411.11302",
+   "arxiv-2511.07920"
+  ],
+  "unread": 256,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.5
+ },
+ "used_by": [
+  "toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system"
+ ]
+}
