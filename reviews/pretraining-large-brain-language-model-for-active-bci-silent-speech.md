@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/pretraining-large-brain-language-model-for-active-bci-silent-speech/](pretraining-large-brain-language-model-for-active-bci-silent-speech/).**
 
-Pretrains a brain language model on EEG with future-signal and frequency prediction, then classifies silently articulated words. Within-subject accuracy on held-out recording sessions reaches 39.6% for 24 words (TCNet 32.3%).
+In-domain EEG pretraining adds 4.3 points on 24 mouthed words (35.3% to 39.6%), one session, no seeds; Du-IN showed this earlier. Muscle artefact and new users remain untested.
 
 [Read the full review](pretraining-large-brain-language-model-for-active-bci-silent-speech/) · [All reviews](../README.md)
