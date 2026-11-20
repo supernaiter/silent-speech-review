@@ -142,7 +142,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`ultrasound-tongue-image-features.csv`](ultrasound-tongue-image-features.csv) (7345 slot-filled, 39 pattern match, usual design in 32, 3 read in full)
 - Inclusion rule: Include studies that compress ultrasound tongue images (with or without lip images) into feature vectors for recognition, synthesis or articulatory mapping by DCT, PCA/EigenTongues, autoencoders or learned CNN encoders. Boundary: exclude contour-only tracking without a feature vector used downstream, raw-image end-to-end models with no stated feature stage, and reviews; count versions once.
-- Used in: [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
+- Used in: [Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces](../../reviews/autoencoder-based-articulatory-to-acoustic-mapping-for-ultrasound-silent-speech-interfaces/), [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
 
 ## ultrasound-tongue-speech-recognition
 
