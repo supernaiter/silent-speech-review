@@ -80,14 +80,15 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## ctc-vs-attention
 
-- Table: [`ctc-vs-attention.csv`](ctc-vs-attention.csv) (3 confirmed, 42 candidates read, 128 unread)
+- Table: [`ctc-vs-attention.csv`](ctc-vs-attention.csv) (7345 slot-filled, 114 pattern match, usual design in 79, 42 read in full)
 - Inclusion rule: Include studies that train, on the same input front end (visual, biosignal, or audio-visual), both a decoder trained with CTC and an attention/sequence-to-sequence decoder (seq2seq or Transformer decoder) and compare the results side by side. Boundary: exclude those that use only the CTC-attention combination (hybrid) with no result for either alone. Exclude comparisons that only list numbers from other papers. Audio-only ASR is outside the wiki and out of scope. Count different versions of the same study as one item.
-- Used in: [Deep Audio-Visual Speech Recognition](../../reviews/deep-audio-visual-speech-recognition/)
+- Used in: [Deep Audio-Visual Speech Recognition](../../reviews/deep-audio-visual-speech-recognition/), [End-to-End Silent Speech Recognition with Acoustic Sensing](../../reviews/end-to-end-silent-speech-recognition-with-acoustic-sensing/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |
 | Deep Lip Reading: a comparison of models and an online application |  | §3.3, Table 1 |
 | State-of-the-art Speech Recognition using EEG and Towards Decoding of Speech Spectrum From EEG | 2020 | §2 |
+| End-to-end Silent Speech Recognition with Acoustic Sensing |  | §4.4, Fig. 4(c) |
 | End-to-end Silent Speech Recognition with Acoustic Sensing |  | §4.4, Fig. 4(c) |
 
 ## emg-speech-encoder-input-and-sequence-model

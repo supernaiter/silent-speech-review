@@ -2,6 +2,18 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## acoustic-sensing-test-split
+
+- Table: [`acoustic-sensing-test-split.csv`](acoustic-sensing-test-split.csv) (6960 slot-filled, 22 pattern match, usual design in 7, 3 read in full)
+- Inclusion rule: Same population as active-acoustic-speech-sensing; the design compared is how the reported test set is separated from training: user-held-out (leave-one-user-out or cross-user), session- or day-held-out, or a random sample split. Boundary: a paper counts under every protocol its text names; reviews count as pattern matches only.
+- Used in: [End-to-End Silent Speech Recognition with Acoustic Sensing](../../reviews/end-to-end-silent-speech-recognition-with-acoustic-sensing/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| End-to-end Silent Speech Recognition with Acoustic Sensing |  | Sec. 4.3 |
+| M2SILENT: Enabling Multi-user Silent Speech Interactions via Multi-directional Speakers in Shared Spaces |  | Sec. 5 |
+| Multimodal Speech Recognition with Ultrasonic Sensors |  | Sec. 5.1 |
+
 ## human-lipreader-baseline
 
 - Table: [`human-lipreader-baseline.csv`](human-lipreader-baseline.csv) (7 confirmed, 116 candidates read, 0 unread)
