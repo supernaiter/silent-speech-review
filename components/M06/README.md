@@ -118,7 +118,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`noninvasive-decoding-segmentation.csv`](noninvasive-decoding-segmentation.csv) (7345 slot-filled, 1458 pattern match, usual design in 310, 2 read in full)
 - Inclusion rule: Language or text decoding studies whose ledger names scalp EEG or MEG. The design compared is how the decoder is segmented at test time: windows locked to known events supplied to the decoder (word, stimulus or keystroke onsets) versus continuous decoding that infers segmentation itself (CTC, asynchronous or sliding-window decoding). Boundary: event-locked training with continuous test-time decoding counts as continuous; reviews count as pattern matches only.
-- Used in: [Brain-to-Text Decoding: A Non-invasive Approach via Typing](../../reviews/brain-to-text-decoding-a-non-invasive-approach-via-typing/)
+- Used in: [Brain-to-Text Decoding: A Non-invasive Approach via Typing](../../reviews/brain-to-text-decoding-a-non-invasive-approach-via-typing/), [Continuous Silent Speech Recognition using EEG](../../reviews/continuous-silent-speech-recognition-using-eeg/)
 
 ## noninvasive-speech-decoding-objective
 
