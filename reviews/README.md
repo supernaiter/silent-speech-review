@@ -43,6 +43,7 @@ Each paper judged component by component against the usual approach and the stat
 - [Deep Audio-Visual Speech Recognition](deep-audio-visual-speech-recognition/) (2018). LRS2-BBC outlasts the models: the CTC vs seq2seq comparison is confounded, the 22-point gain is not attributable to the new architecture, and test speaker overlap is unreported.
 - [Lip2AudSpec: Speech Reconstruction from Silent Lip Movements Video](lip2audspec-speech-reconstruction-from-silent-lip-movements-video/) (2018). Bottleneck target (M02) and auditory-spectrogram route (M06) are standard; gains rest on one speaker, a re-implemented baseline and a vocabulary-cued test on four seen GRID speakers.
 - [Updating the Silent Speech Challenge benchmark with deep learning](updating-the-silent-speech-challenge-benchmark-with-deep-learning/) (2018). Kaldi DNN-HMM cuts SSC WER from 17.4% to 6.45% (M06, M12: standard), but with the same bigram its own GMM gives 12.71%, so the DNN halves WER; one speaker, single runs.
+- [Visual-Only Recognition of Normal, Whispered and Silent Speech](visual-only-recognition-of-normal-whispered-and-silent-speech/) (2018). Ahead on data: the first public three-mode lip-video corpus. Standard on transfer: the silent drop was known, and most of it is test-mode difficulty, not the training mode.
 - [Improved Speech Reconstruction from Silent Video](improved-speech-reconstruction-from-silent-video/) (2017). Optical-flow tower (M05) and mel-to-linear post-net (M06) are standard: no flow gain in Table 5; trails Le Cornu on S3; no listener test (M12); Lip2Wav's re-run: 27.83% vs 14.08% WER.
 - [Lip Reading Sentences in the Wild](lip-reading-sentences-in-the-wild/) (2017). Made sentence lipreading measurable with LRS, but its decoder and curriculum gains are confounded with data and augmentation, and the beats-a-lipreader claim is on unequal terms.
 
@@ -155,7 +156,6 @@ Earlier format: evaluation conditions, results and limitations per paper.
 - [AlterEgo: A Personalized Wearable Silent Speech Interface](alterego-a-personalized-wearable-silent-speech-interface/) (2018)
 - [Development of sEMG sensors and algorithms for silent speech recognition](development-of-semg-sensors-and-algorithms-for-silent-speech-recognition/) (2018)
 - [Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed](harnessing-ai-for-speech-reconstruction-using-multi-view-silent-video-feed/) (2018)
-- [Visual-Only Recognition of Normal, Whispered and Silent Speech](visual-only-recognition-of-normal-whispered-and-silent-speech/) (2018)
 - [Biosignal-Based Spoken Communication: A Survey](biosignal-based-spoken-communication-a-survey/) (2017)
 - [Seeing Through Noise: Visually Driven Speaker Separation and Enhancement](seeing-through-noise-visually-driven-speaker-separation-and-enhancement/) (2017)
 - [Vid2speech: Speech Reconstruction from Silent Video](vid2speech-speech-reconstruction-from-silent-video/) (2017)

@@ -15,3 +15,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 | LRS3-TED: a large-scale dataset for visual speech recognition | 2018 | §2 |
 | Personalized Lip Reading: Adapting to Your Unique Lip Movements with Vision and Language |  | §1 |
 | ViCocktail: Automated Multi-Modal Data Collection for Vietnamese Audio-Visual Speech Recognition | 2025 | §2 |
+
+## multi-mode-speech-corpus
+
+- Table: [`multi-mode-speech-corpus.csv`](multi-mode-speech-corpus.csv) (234 slot-filled, 24 pattern match, usual design in 14, 3 read in full)
+- Inclusion rule: Studies or corpora that record the same speech material in normal (audible), whispered and silent (mouthed) modes with any non-acoustic or visual channel (EMG, EMA, ultrasound, lip or face video, neural recordings), and use or release the recordings. Boundary: acoustic-only whisper corpora, two-mode corpora without whisper and reviews are pattern matches only; versions of one study count once.
+- Used in: [Visual-Only Recognition of Normal, Whispered and Silent Speech](../../reviews/visual-only-recognition-of-normal-whispered-and-silent-speech/)
