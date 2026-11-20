@@ -6,7 +6,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`articulatory-f0-prediction.csv`](articulatory-f0-prediction.csv) (3268 slot-filled, 138 pattern match, usual design in 31, 5 read in full)
 - Inclusion rule: Include studies that generate speech (waveform or vocoder features) from a non-acoustic speech signal (ultrasound, EMA, PMA, EMG, lip or face video, rtMRI, intracranial or scalp neural recordings) and in which F0 or voicing of the output is predicted or evaluated. Boundary: exclude acoustic-input conversion (whisper, electrolarynx or NAM as the only input), talking-head or head-motion synthesis driven by speech, text-to-speech after text decoding, and reviews; the pattern match is an upper bound; versions count once by key.
-- Used in: [Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder](../../reviews/ultrasound-based-silent-speech-interface-built-on-a-continuous-vocoder/)
+- Used in: [Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces](../../reviews/autoencoder-based-articulatory-to-acoustic-mapping-for-ultrasound-silent-speech-interfaces/), [Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder](../../reviews/ultrasound-based-silent-speech-interface-built-on-a-continuous-vocoder/)
 
 ## biosignal-to-speech-voice-control
 
