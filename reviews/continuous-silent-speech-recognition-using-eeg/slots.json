@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Silent reading, 30 TIMIT prompts"
+  ],
+  "field": "Overt or task-evoked",
+  "n": 7388,
+  "matched": 3882,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Training data come from the same silent-reading task as the test.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Sentence text labels only"
+  ],
+  "field": "Text labels",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot_filled (sparse; not a field-practice count)",
+  "verdict": "standard",
+  "note": "No audio or articulatory target.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Pooled over four subjects"
+  ],
+  "field": "Per-subject model",
+  "n": 379,
+  "matched": 90,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "Cross-subject WER 92.55% with the fourth subject held out.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Silent reading of displayed sentence"
+  ],
+  "field": "Perception (listening or reading)",
+  "n": 1477,
+  "matched": 784,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "Reading and inner speech are not separated.",
+  "sota": "39% WER, typed, MEG, 2026 [@zhang2026b2q2] [later]"
+ },
+ "M05": {
+  "choice": [
+   "31-channel wet EEG, KPCA to 20"
+  ],
+  "field": "Scalp EEG",
+  "n": 7388,
+  "matched": 1544,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "The authors' earlier feature pipeline.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "GRU-TCN character CTC, continuous"
+  ],
+  "field": "Event-locked windows",
+  "n": 1460,
+  "matched": 310,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "CTC on EEG predates it in the authors' own work.",
+  "sota": "CER 0.25, MEG, 2026 [@zhang2026b2q2] [later]"
+ },
+ "M07": {
+  "choice": [
+   "4-gram LM, corpus not given"
+  ],
+  "field": "Neural LM",
+  "n": 1458,
+  "matched": 169,
+  "matched_tier": "pattern match",
+  "verdict": "not_reported",
+  "note": "Corpus decides how closed the task is.",
+  "sota": "WER 0.39 with LLM, 2026 [@zhang2026b2q2] [later]"
+ },
+ "M08": {
+  "choice": [
+   "Characters, then words"
+  ],
+  "field": "Phonemes",
+  "n": 145,
+  "matched": 63,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "Characters in 49 studies (pattern match).",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Prompt text as reference"
+  ],
+  "field": "Prompted text",
+  "n": 7388,
+  "matched": 234,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Normalization for WER not stated.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Random split; test sentences repeated in training"
+  ],
+  "field": "Sentence-disjoint test",
+  "n": 145,
+  "matched": 21,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "Repeat protocol was usual before 2020; no chance baseline.",
+  "sota": "2.5% WER, 125,000 words, intracortical, 2024 [@card2024] [later]; 23.8% on unseen sentences, 2023 [@willett2023] [later]"
+ },
+ "M13": {
+  "choice": [
+   "Offline lab study"
+  ],
+  "field": "Offline lab study",
+  "n": 7388,
+  "matched": 6075,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "No device or online test.",
+  "sota": "–"
+ }
+}
