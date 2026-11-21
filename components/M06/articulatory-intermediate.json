@@ -711,6 +711,21 @@
    "loc": null,
    "provenance": null,
    "reason": "Separate folder of the target paper (same author manuscript XML, SHA-256 match). Counted as one item as a version duplicate"
+  },
+  {
+   "pid": "arxiv-2412.13387",
+   "key": "t:deepspeechsynthesisfrommultimodalarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from Multimodal Articulatory Representations",
+   "year": "2024",
+   "via": [
+    "read"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "quote": "synthesis with intermediates maps inputs to intermediate features, which are then mapped to acoustics",
+   "loc": "Sec. 2.1",
+   "provenance": "text-verified",
+   "reason": "[concurrent] (2024-12). EMG-to-speech through a self-supervised speech-unit intermediate; audio-estimated EMA is a parallel pre-training modality, not an intermediate decoded from EMG. Added by articulatory-feature-prediction-from-surface-emg-during-speech-production."
   }
  ],
  "known_item_recall": {
@@ -728,9 +743,252 @@
   "confirmed_text_verified": 4,
   "recall_sample_read": 30,
   "recall_sample_included": 1,
-  "recall_estimate": 0.74
+  "recall_estimate": 0.74,
+  "usual_approach": {
+   "design": "ECoG input decoded to audio-inferred articulatory trajectories, then to acoustic features",
+   "n": 2,
+   "tier": "confirmed",
+   "population_unique": 4
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "year": 2019,
+   "metric": "median MCD of speech synthesized through an audio-inferred articulatory intermediate, five ECoG participants; direct decoder 0.54 dB worse on P1",
+   "value": "5.14-6.58",
+   "unit": "dB MCD",
+   "timing": "prior"
+  },
+  "read_prior": [
+   "arxiv-2412.13387",
+   "doi-10.1038-s41586-019-1119-1"
+  ],
+  "fulltext_only_folders": 32,
+  "known_item_recall": 1.0
  },
  "used_by": [
+  "articulatory-feature-prediction-from-surface-emg-during-speech-production",
   "speech-synthesis-from-neural-decoding-of-spoken-sentences"
- ]
+ ],
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "model_family=other",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-9714519-speechsynth",
+     "isca-sudhakar14_interspeech",
+     "isca-richmond13_interspeech",
+     "isca-saha19_interspeech"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-richmond13_interspeech",
+     "arxiv-1611.06986",
+     "doi-10.1038-s41586-019-1119-1"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-9714519-speechsynth",
+     "isca-richmond13_interspeech",
+     "arxiv-2603.12279"
+    ]
+   },
+   {
+    "design": "model_family=linear_model",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-bukmaier14_interspeech",
+     "isca-sudhakar14_interspeech",
+     "isca-richmond13_interspeech"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2305.03582",
+     "isca-richmond13_interspeech"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2505.13814",
+     "isca-saha19_interspeech"
+    ]
+   },
+   {
+    "design": "decoder_route=direct_signal_to_audio",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2505.13814",
+     "doi-10.1038-s41586-019-1119-1"
+    ]
+   },
+   {
+    "design": "decoder_route=recognition_to_text",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1611.06986"
+    ]
+   },
+   {
+    "design": "representation_kind=acoustic_features",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1611.06986"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2305.03582"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "MCD|WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "transcription WER 25-word pool",
+   "value": 0.31,
+   "unit": null,
+   "raw": "31%",
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "card WER 50-word",
+   "value": 0.44,
+   "unit": "percent",
+   "raw": "0.44",
+   "pid": "arxiv-2603.12279",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "mcdP5",
+   "value": 3.777,
+   "unit": null,
+   "raw": "best MCD P5",
+   "pid": "arxiv-2512.04618",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER 50-word vocab",
+   "value": 9.1,
+   "unit": "percent",
+   "raw": "9.1",
+   "pid": "arxiv-2609.36736",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "wer",
+   "value": 11.7,
+   "unit": null,
+   "raw": "clean WER % full dataset FBank+Pitch",
+   "pid": "arxiv-1611.06986",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word error rate on decoded speech (%)",
+   "value": 15.5,
+   "unit": "percent",
+   "raw": "15.5%",
+   "pid": "arxiv-2505.13814",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "constrained-vocab online WER",
+   "value": 22,
+   "unit": "percent",
+   "raw": "30% first session, 22% second session",
+   "pid": "pmc-13335209-ibcilong",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "uECoG density lower bound el/cm2",
+   "value": 34,
+   "unit": "electrode_per_cm2",
+   "raw": "34",
+   "pid": "doi-10.1038-s41467-023-42555-1",
+   "year": 2023,
+   "tier": "ledger only"
+  }
+ ],
+ "usual_approach": {
+  "design": "ECoG input decoded to audio-inferred articulatory trajectories, then to acoustic features",
+  "n": 2,
+  "tier": "confirmed",
+  "pids": [
+   "doi-10.1038-s41586-019-1119-1",
+   "doi-10.3389-fnhum.2023.1124065"
+  ],
+  "population_unique": 4,
+  "note": "confirmed includes (text-verified, unique studies): ECoG 2 (Anumanchipalli 2019; Le Godais 2023), imagined-speech EEG to phonological categories 1 (Saha 2019), surface EMG 1 (the target). No earlier surface-EMG study among the 12 ledger matches and 32 full-text-only folders."
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "role": "sota",
+   "loc": "Results; Fig. 2c",
+   "quote": "the median MCD scores of decoding speech ranged from 5.14 dB to 6.58 dB"
+  },
+  {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "role": "prior",
+   "loc": "Results; Fig. 3a",
+   "quote": "Without the articulatory intermediate step, the direct ECoG to acoustic decoding MCD was offset by 0.54 dB"
+  },
+  {
+   "pid": "arxiv-2412.13387",
+   "role": "prior",
+   "loc": "Sec. 2.1",
+   "quote": "synthesis with intermediates maps inputs to intermediate features, which are then mapped to acoustics"
+  },
+  {
+   "pid": "arxiv-2505.13814",
+   "role": "target",
+   "loc": "Abstract",
+   "quote": "this is the first method to decode speech waveforms from surface EMG via articulatory features"
+  }
+ ],
+ "state_of_the_art": {
+  "pid": "doi-10.1038-s41586-019-1119-1",
+  "year": 2019,
+  "metric": "median MCD of speech synthesized through an audio-inferred articulatory intermediate, five ECoG participants; direct decoder 0.54 dB worse on P1",
+  "value": "5.14-6.58",
+  "unit": "dB MCD",
+  "timing": "prior"
+ },
+ "deciding_priors_note": "Anumanchipalli 2019 is the deciding prior: same two-stage design with audio-inferred kinematics, plus a direct-decoder control the target lacks. Wu 2024 [concurrent] uses audio-estimated EMA with EMG but not as an intermediate."
 }

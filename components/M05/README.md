@@ -21,6 +21,19 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Papers that decode speech units, words, sentences or acoustics from electrocorticography in humans, recorded during produced, attempted, mimed or imagined speech. Included: clinical and high-density grids, micro-ECoG, online or offline. Excluded: intracortical microelectrodes and sEEG-only studies; ECoG studies of listening only.
 - Used in: [A high-performance neuroprosthesis for speech decoding and avatar control](../../reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/), [Neuroprosthesis for decoding speech in a paralyzed person with anarthria](../../reviews/neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria/)
 
+## emg-speech-electrode-subset
+
+- Table: [`emg-speech-electrode-subset.csv`](emg-speech-electrode-subset.csv) (7329 slot-filled, 42 pattern match, usual design in 10, 4 read in full)
+- Inclusion rule: Surface-EMG speech studies (recognition or synthesis) that evaluate a reduced subset of their electrodes or rank electrodes, classified by how the subset is chosen: exhaustive or greedy search over trained models, single-channel ranking, random subsets, or model attribution / association analysis. Boundary: studies that only report a fixed array, sensor-hardware papers without a subset comparison, non-speech EMG and EEG-only studies are excluded when read; versions count once.
+- Used in: [Articulatory Feature Prediction from Surface EMG during Speech Production](../../reviews/articulatory-feature-prediction-from-surface-emg-during-speech-production/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| Articulatory Feature Prediction from Surface EMG during Speech Production | 2025 | Sec. 4.4; Table 3 |
+| EMG-to-Speech with Fewer Channels |  | Sec. 5.2; Table 1 |
+| Towards optimizing electrode configurations for silent speech recognition based on high-density surface electromyography | 2021 | Abstract |
+| Mutual Information Analysis for Feature and Sensor Subset Selection in Surface Electromyography Based Speech Recognition | 2010 | Abstract |
+
 ## imagined-speech-eeg-consumer-headset
 
 - Table: [`imagined-speech-eeg-consumer-headset.csv`](imagined-speech-eeg-consumer-headset.csv) (7329 slot-filled, 167 pattern match, usual design in 61, 2 read in full)

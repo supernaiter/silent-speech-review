@@ -1,0 +1,880 @@
+{
+ "topic": "emg-speech-electrode-subset",
+ "slot": "M05",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?is)\\A(?=.*(surface[_ -]?emg|\\bsemg\\b|electromyogra))(?=.*(speech|phonem|word|silent))(?=.*(subset|channel[_ -]selection|electrode[_ -]selection|fewer (electrodes|channels)|reduc\\w* (the )?(number of )?(electrodes|channels)|(electrode|channel)[_ -](ablation|reduction|count)|single[- ](electrode|channel)|emg_channels_reduced|leave[- ]one[- ](channel|electrode) out))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Surface-EMG speech studies (recognition or synthesis) that evaluate a reduced subset of their electrodes or rank electrodes, classified by how the subset is chosen: exhaustive or greedy search over trained models, single-channel ranking, random subsets, or model attribution / association analysis. Boundary: studies that only report a fixed array, sensor-hardware papers without a subset comparison, non-speech EMG and EEG-only studies are excluded when read; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8898,
+  "slot_filled_unique": 7329,
+  "string_match_folders": 49,
+  "string_match_unique": 42,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M05",
+  "design_slot_fill": 0.989,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "modalities=surface_emg",
+    "n": 40,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21288",
+     "doi-10.1038-s41597-026-07809-9",
+     "doi-10.1088-1741-2552-aeb073",
+     "pmc-12909796-mu",
+     "pmc-13537912-larysemg"
+    ]
+   },
+   {
+    "design": "intrusiveness=skin_contact",
+    "n": 29,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21288",
+     "doi-10.1038-s41597-026-07809-9",
+     "doi-10.1088-1741-2552-aeb073",
+     "pmc-13537912-semg-larynx",
+     "arxiv-2505.13814"
+    ]
+   },
+   {
+    "design": "body_sites=face",
+    "n": 22,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21288",
+     "arxiv-2505.13814",
+     "arxiv-2506.11862",
+     "arxiv-2511.10935",
+     "doi-10.3390-s25030781"
+    ]
+   },
+   {
+    "design": "body_sites=neck",
+    "n": 22,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21288",
+     "doi-10.1038-s41597-026-07809-9",
+     "arxiv-2505.13814",
+     "arxiv-2506.11862",
+     "arxiv-2511.10935"
+    ]
+   },
+   {
+    "design": "observed_quantities=muscle_activity",
+    "n": 18,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21288",
+     "doi-10.1038-s41597-026-07809-9",
+     "arxiv-2505.13814",
+     "arxiv-2506.11862",
+     "doi-10.48550-arxiv.2407.21345"
+    ]
+   },
+   {
+    "design": "modalities=microphone",
+    "n": 17,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.06530",
+     "arxiv-2505.13814",
+     "doi-10.3390-s25030781",
+     "pmc-13537912-semglar",
+     "doi-10.3389-fnins.2022.941594"
+    ]
+   },
+   {
+    "design": "sampling_rate_hz=1000",
+    "n": 10,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.06530",
+     "arxiv-2511.10935",
+     "arxiv-2412.13387",
+     "doi-10.11159-icbes22.141",
+     "doi-10.1016-j.bspc.2015.02.009"
+    ]
+   },
+   {
+    "design": "channel_count=8",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21288",
+     "doi-10.1044-2021_jslhr-20-00257",
+     "arxiv-2405.08021",
+     "arxiv-2509.04507",
+     "arxiv-2602.06460"
+    ]
+   },
+   {
+    "design": "modalities=other",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "rs-10442598-accssi",
+     "pmc-13537912-semglar",
+     "arxiv-2412.13387",
+     "pmc-4466523-emgnasal",
+     "isca-telaar14_interspeech"
+    ]
+   },
+   {
+    "design": "body_sites=jaw",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s41597-026-07809-9",
+     "doi-10.3390-s25196168",
+     "isca-deng14b_interspeech",
+     "isca-diener15_interspeech",
+     "isca-wand16_interspeech"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "model_attribution",
+    "n": 21,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1038-s41597-026-07809-9",
+     "doi-10.1088-1741-2552-aeb073",
+     "pmc-12909796-mu",
+     "rs-10442598-accssi",
+     "arxiv-2511.10935"
+    ]
+   },
+   {
+    "design": "exhaustive_or_greedy_search",
+    "n": 10,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-13537912-larysemg",
+     "rs-10442598-accssi",
+     "doi-10.3390-s25030781",
+     "doi-10.3390-s25196168",
+     "doi-10.1088-1741-2552-abca14"
+    ]
+   },
+   {
+    "design": "single_channel_ranking",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1088-1741-2552-aeb073",
+     "doi-10.3390-s25030781",
+     "doi-10.1109-taslp.2017.2740000",
+     "arxiv-2602.06460",
+     "doi-10.1038-s41378-019-0127-5"
+    ]
+   },
+   {
+    "design": "random_subsets",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.13814",
+     "pmc-8913675-sfcw-radar",
+     "isca-botelho20_interspeech"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error|accuracy",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "SGMM WER subject1 mean 1.4% (S/C/T/D)",
+   "value": 1.4,
+   "unit": "%",
+   "raw": "best subject (S1) mean WER across 4 subtasks with SGMM on triphone+HLDA+MLLT (2.0/0.0/0.9/2.7% on S/C/T/D); SGMM −18.5% rel vs triphone, triphone −31.5% rel vs ",
+   "pid": "isca-deng14b_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GT WER",
+   "value": 2.9,
+   "unit": "percent",
+   "raw": "2.9",
+   "pid": "arxiv-2405.08021",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "power-wheelchair users needing steering assistance (range upper bound)",
+   "value": 9.0,
+   "unit": "percent",
+   "raw": "5–9%",
+   "pid": "doi-10.1016-j.bspc.2015.02.009",
+   "year": 2015,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "top-4 participants reach 9.5% WER",
+   "value": 9.5,
+   "unit": "percent",
+   "raw": "average WER top-4 participants",
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "year": 2017,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "audible-EMG WER 22.82% small / 12.00% large sessions",
+   "value": 12.0,
+   "unit": "%",
+   "raw": "session-dependent audible-EMG WER: large sessions 12.00%, small sessions 22.82% (108-word vocab, tristate HMM)",
+   "pid": "isca-wand14b_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GlobalPhone decoder parity",
+   "value": 12.5,
+   "unit": "% WER",
+   "raw": "BioKIT on Bulgarian GlobalPhone small LM vs Kaldi 12.84",
+   "pid": "isca-telaar14_interspeech",
+   "year": 2014,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word error rate on decoded speech (%)",
+   "value": 15.5,
+   "unit": "percent",
+   "raw": "15.5%",
+   "pid": "arxiv-2505.13814",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "target-session WER 15.6% vs 18.8% baseline (17.0% rel); frontend acc 21.9% vs 16.4%",
+   "value": 15.6,
+   "unit": "%",
+   "raw": "target-session WER 15.6% (from 18.8% baseline, 17% relative; GMM 30.6%); frontend acc 16.4→21.9%",
+   "pid": "isca-wand18_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word error rate at ~16h mixed training (%)",
+   "value": 18.03,
+   "unit": "percent",
+   "raw": "18.03%",
+   "pid": "arxiv-2506.11862",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "EMG WER tri-modal+DFL (best)",
+   "value": 18.091,
+   "unit": "percent",
+   "raw": "18.091",
+   "pid": "arxiv-2412.13387",
+   "year": 2024,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2405.08021",
+   "key": "t:diffetslearningadiffusionprobabilisticmodelforelectromyographytospeechconversion",
+   "title": "Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2405.08021 | title=Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conv"
+  },
+  {
+   "pid": "arxiv-2412.13387",
+   "key": "t:deepspeechsynthesisfrommultimodalarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from Multimodal Articulatory Representations",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.13387 | doi=10.48550/arxiv.2412.13387 | title=Deep Speech Synthesis from Multimodal Articulatory Rep"
+  },
+  {
+   "pid": "arxiv-2501.06530",
+   "key": "t:multimodalspeechenhancementwithlimitedelectromyographychannels",
+   "title": "Multi-modal Speech Enhancement with Limited Electromyography Channels",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.06530 | doi=10.48550/arxiv.2501.06530 | title=Multi-modal Speech Enhancement with Limited Electromyo"
+  },
+  {
+   "pid": "arxiv-2505.13814",
+   "key": "t:articulatoryfeaturepredictionfromsurfaceemgduringspeechproduction",
+   "title": "Articulatory Feature Prediction from Surface EMG during Speech Production",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2505.13814v2 | title=Articulatory Feature Prediction from Surface EMG during Speech Production | authors=",
+   "decision": "include",
+   "provenance": "text-verified",
+   "reason": "Target. Electrode-to-feature association analysis selects electrodes 2, 3, 4, 6.",
+   "quote": "electrodes 2, 3, 4, and 6",
+   "loc": "Sec. 4.4; Table 3"
+  },
+  {
+   "pid": "arxiv-2506.11862",
+   "key": "t:confidencebasedselftrainingforemgtospeechleveragingsyntheticemgforrobustmodeling",
+   "title": "Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2506.11862v2 | title=Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robus"
+  },
+  {
+   "pid": "arxiv-2509.04507",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.04507 | arxiv_id=2509.04507v1 | source_url=https://arxiv.org/pdf/2509.04507v1 | title=From Silent Si"
+  },
+  {
+   "pid": "arxiv-2511.10935",
+   "key": "t:catnetacrossattentiontonenetworkforcrosssubjecteegemgfusiontonedecoding",
+   "title": "CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2511.10935 | paper_version=2511.10935v1 | title=CAT-Net: A Cross-Attention Tone Network for Cross-Subject"
+  },
+  {
+   "pid": "arxiv-2602.06460",
+   "key": "t:emgtospeechwithfewerchannels",
+   "title": "EMG-to-Speech with Fewer Channels",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.06460 | paper_version=arXiv 2602.06460v1; 5 pages | title=EMG-to-Speech with Fewer Channels | author",
+   "decision": "include",
+   "provenance": "text-verified",
+   "reason": "[later] (2026). Backward elimination and all 70 four-channel subsets on the Gaddy corpus; ranks the target subset 5th.",
+   "quote": "the articulatory-motivated subset from [12] (1, 2, 3, 5) ranked 5th",
+   "loc": "Sec. 5.2; Table 1"
+  },
+  {
+   "pid": "arxiv-2609.21288",
+   "key": "t:multisubjectpretrainingenablesshortcalibrationpersonalizationforclosedcorpussurf",
+   "title": "Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.21288 | paper_version=arXiv:2609.21288v1 [cs.LG], 18 Sep 2026, 20-page PDF | title=Multi-Subject Pre"
+  },
+  {
+   "pid": "doi-10.1016-j.bspc.2015.02.009",
+   "key": "t:currentstateofdigitalsignalprocessinginmyoelectricinterfacesandrelatedapplicatio",
+   "title": "Current state of digital signal processing in myoelectric interfaces and related applications",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.bspc.2015.02.009 | doi=10.1016/j.bspc.2015.02.009 | title=Current state of digital signal process"
+  },
+  {
+   "pid": "doi-10.1038-s41378-019-0127-5",
+   "key": "t:anepidermalsemgtattoolikepatchasanewhumanmachineinterfaceforpatientswithlossofvo",
+   "title": "An epidermal sEMG tattoo-like patch as a new human–machine interface for patients with loss of voice",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An epidermal sEMG tattoo-like patch as a new human–machine interface for patients with loss of voice | intended_us"
+  },
+  {
+   "pid": "doi-10.1038-s41597-026-07809-9",
+   "key": "t:eegbasedbraincomputerinterfacebcidatasetfordirectionalwordrecognition",
+   "title": "EEG-based brain-computer interface (BCI) dataset for directional word recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-026-07809-9 | title=EEG-based brain-computer interface (BCI) dataset for directional word re"
+  },
+  {
+   "pid": "doi-10.1044-2021_jslhr-20-00257",
+   "key": "p:doi-10.1044-2021_jslhr-20-00257",
+   "title": null,
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=J Speech Lang Hear Res 64(6) (2021) | needs_manual_check=per-speaker WRR/PSD table cells (Table 4), Table 5 per-sp"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abca14",
+   "key": "t:towardsoptimizingelectrodeconfigurationsforsilentspeechrecognitionbasedonhighden",
+   "title": "Towards optimizing electrode configurations for silent speech recognition based on high-density surface electromyography",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-abca14 | doi=10.1088/1741-2552/abca14 | title=Towards optimizing electrode configurations",
+   "decision": "include",
+   "provenance": "text-verified",
+   "reason": "Prior (2021). Sequential forward selection over 120 HD-sEMG electrodes for silent digit recognition.",
+   "quote": "Using only ten optimal electrodes could achieve a classification accuracy of 86% for English and 94% for Chinese",
+   "loc": "Abstract"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-aeb073",
+   "key": "t:involuntaryfacialmuscleactivityduringimaginedvocalisationcontaminateseegandenabl",
+   "title": "Involuntary facial muscle activity during imagined vocalisation contaminates EEG and enables emotion decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-aeb073 | title=Involuntary facial muscle activity during imagined vocalisation contaminat"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2006.1660093",
+   "key": "p:doi-10.1109-icassp.2006.1660093",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | task_family=phoneme_or_character_classification | modalities=surface_emg, mic"
+  },
+  {
+   "pid": "doi-10.1109-jbhi.2020.3034158",
+   "key": "t:multimodaldatafusionofelectromyographyandacousticsignalsforthaisyllablerecogniti",
+   "title": "Multimodal Data Fusion of Electromyography and Acoustic Signals for Thai Syllable Recognition",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-jbhi.2020.3034158 | doi=10.1109/jbhi.2020.3034158 | title=Multimodal Data Fusion of Electromyograph"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "key": "t:silentspeechrecognitionasanalternativecommunicationdeviceforpersonswithlaryngect",
+   "title": "Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy | authors=Geoffrey"
+  },
+  {
+   "pid": "doi-10.1109-tim.2025.3583386",
+   "key": "p:doi-10.1109-tim.2025.3583386",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Headphone-integrated multichannel textile-EMG wireless SSI (graphene/PEDOT:PSS electrodes + ESP32-S3 + 1D SE"
+  },
+  {
+   "pid": "doi-10.11159-icbes22.141",
+   "key": "t:myospeechasystemforrecognizingwordutterancesofthespeechimpaired",
+   "title": "Myo-Speech: A System for Recognizing Word Utterances of the Speech Impaired",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.11159-icbes22.141 | doi=10.11159/icbes22.141 | title=Myo-Speech: A System for Recognizing Word Utterance"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2022.941594",
+   "key": "t:towardsevaluatingpitchrelatedphonationfunctioninspeechcommunicationusinghighdens",
+   "title": "Towards Evaluating Pitch-Related Phonation Function in Speech Communication Using High-Density Surface Electromyography",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2022.941594 | doi=10.3389/fnins.2022.941594 | title=Towards Evaluating Pitch-Related Phonatio"
+  },
+  {
+   "pid": "doi-10.3390-s25030781",
+   "key": "t:electrodesetupforelectromyographybasedsilentspeechinterfacesapilotstudy",
+   "title": "Electrode Setup for Electromyography-Based Silent Speech Interfaces: A Pilot Study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s25030781 | doi=10.3390/s25030781 | title=Electrode Setup for Electromyography-Based Silent Speech"
+  },
+  {
+   "pid": "doi-10.3390-s25196168",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s25196168 | doi=10.3390/s25196168 | title=Sentence-Level Silent Speech Recognition Using a Wearable"
+  },
+  {
+   "pid": "doi-10.48550-arxiv.2407.21345",
+   "key": "t:towardsemgtospeechwithanecklaceformfactor",
+   "title": "Towards EMG-to-Speech with a Necklace Form Factor",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards EMG-to-Speech with a Necklace Form Factor | authors=P. Wu; R. Kaveh; R. Nautiyal; C. Zhang; A. Guo; A. Kac"
+  },
+  {
+   "pid": "dtic-ada410037",
+   "key": "t:hiddenmarkovmodelclassificationofmyoelectricsignalsinspeech",
+   "title": "Hidden Markov Model Classification of Myoelectric Signals in Speech",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=dtic:ada410037 | title=Hidden Markov Model Classification of Myoelectric Signals in Speech | authors=A. D. C. C"
+  },
+  {
+   "pid": "isca-botelho20_interspeech",
+   "key": "p:isca-botelho20_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2020 | task_family=intermediate_signal_processing | vocabulary_regime=open_vocabulary | scope_limits=s"
+  },
+  {
+   "pid": "isca-deng14b_interspeech",
+   "key": "t:towardsapracticalsilentspeechrecognitionsystem",
+   "title": "Towards a Practical Silent Speech Recognition System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards a Practical Silent Speech Recognition System | system_name=BAE sEMG silent speech interface: 8 sEMG channe"
+  },
+  {
+   "pid": "isca-diener15_interspeech",
+   "key": "t:codebookclusteringforunitselectionbasedemgtospeechconversion",
+   "title": "Codebook Clustering for Unit Selection based EMG-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Codebook Clustering for Unit Selection based EMG-to-Speech Conversion | system_name=Unit-selection EMG-to-speech w"
+  },
+  {
+   "pid": "isca-hussein07_interspeech",
+   "key": "t:hybridelectroglottographandspeechsignalbasedalgorithmforpitchmarking",
+   "title": "Hybrid Electroglottograph and Speech Signal based Algorithm for Pitch Marking",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/hussein07-interspeech | title=Hybrid Electroglottograph and Speech Signal based Algorithm for Pitch Markin"
+  },
+  {
+   "pid": "isca-lee25d_interspeech",
+   "key": "t:articulatoryfeaturepredictionfromsurfaceemgduringspeechproduction",
+   "title": "Articulatory Feature Prediction from Surface EMG during Speech Production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Articulatory Feature Prediction from Surface EMG during Speech Production | venue=Proc. Interspeech 2025 | intende"
+  },
+  {
+   "pid": "isca-meltzner08_interspeech",
+   "key": "p:isca-meltzner08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=isolated-word speech recognition from neck/face sEMG"
+  },
+  {
+   "pid": "isca-meltzner08_semg",
+   "key": "t:speechrecognitionforvocalizedandsubvocalmodesofproductionusingsurfaceemgsignalsf",
+   "title": "Speech Recognition for Vocalized and Subvocal Modes of Production using Surface EMG Signals from the Neck and Face",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-meltzner08_semg | title=Speech Recognition for Vocalized and Subvocal Modes of Production using Surface EM"
+  },
+  {
+   "pid": "isca-meltzner08_semgsubvoc",
+   "key": "t:speechrecognitionforvocalizedandsubvocalmodesofproductionusingsurfaceemgsignalsf",
+   "title": "Speech Recognition for Vocalized and Subvocal Modes of Production using Surface EMG Signals from the Neck and Face",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-meltzner08_semgsubvoc | title=Speech Recognition for Vocalized and Subvocal Modes of Production using Surf"
+  },
+  {
+   "pid": "isca-sridhar10",
+   "key": "p:isca-sridhar10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=BBN Byblos HMM sEMG speech recognition with MI-based feature/sensor selection | sensor_hardware=11 sEMG sens"
+  },
+  {
+   "pid": "isca-sridhar10_interspeech",
+   "key": "t:mutualinformationanalysisforfeatureandsensorsubsetselectioninsurfaceelectromyogr",
+   "title": "Mutual Information Analysis for Feature and Sensor Subset Selection in Surface Electromyography Based Speech Recognition",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:sridhar10_interspeech | title=Mutual Information Analysis for Feature and Sensor Subset Selection in Surfa",
+   "decision": "include",
+   "provenance": "text-verified",
+   "reason": "Prior (2010). Mutual-information sensor ranking chosen a priori; best 5 of 11 sensors matches the full set.",
+   "quote": "We achieve a mean recognition accuracy of 80.6% with the best 5 sensor subset chosen by the MI analysis in comparison with 79.6% obtained from using the complete set of 11 sensors.",
+   "loc": "Abstract"
+  },
+  {
+   "pid": "isca-telaar14_interspeech",
+   "key": "t:biokitrealtimedecoderforbiosignalprocessing",
+   "title": "BioKIT - real-time decoder for biosignal processing",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/telaar14-interspeech | title=BioKIT - real-time decoder for biosignal processing | authors=Dominic Telaar,"
+  },
+  {
+   "pid": "isca-wand14b_interspeech",
+   "key": "t:theemgukacorpusforelectromyographicspeechprocessing",
+   "title": "The EMG-UKA Corpus for Electromyographic Speech Processing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The EMG-UKA Corpus for Electromyographic Speech Processing | system_name=EMG-UKA corpus acquisition: 6-channel fac"
+  },
+  {
+   "pid": "isca-wand16_interspeech",
+   "key": "t:deepneuralnetworkfrontendforcontinuousemgbasedspeechrecognition",
+   "title": "Deep Neural Network Frontend for Continuous EMG-based Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep Neural Network Frontend for Continuous EMG-based Speech Recognition | system_name=DNN-frontend session-depend"
+  },
+  {
+   "pid": "isca-wand18_interspeech",
+   "key": "t:domainadversarialtrainingforsessionindependentemgbasedspeechrecognition",
+   "title": "Domain-Adversarial Training for Session Independent EMG-based Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Domain-Adversarial Training for Session Independent EMG-based Speech Recognition | system_name=session-independent"
+  },
+  {
+   "pid": "pmc-11821129-emgelectrode",
+   "key": "t:electrodesetupforelectromyographybasedsilentspeechinterfacesapilotstudy",
+   "title": "Electrode Setup for Electromyography-Based Silent Speech Interfaces: A Pilot Study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11821129-emgelectrode | title=Electrode Setup for Electromyography-Based Silent Speech Interfaces: A Pilot"
+  },
+  {
+   "pid": "pmc-11821129-emgsetup",
+   "key": "t:electrodesetupforelectromyographybasedsilentspeechinterfacesapilotstudy",
+   "title": "Electrode Setup for Electromyography-Based Silent Speech Interfaces: A Pilot Study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Electrode Setup for Electromyography-Based Silent Speech Interfaces: A Pilot Study | doi=10.3390/s25030781 | Study"
+  },
+  {
+   "pid": "pmc-12526642-emgeeg-snn",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12526642-emgeeg-snn | title=Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System"
+  },
+  {
+   "pid": "pmc-12909796-mu",
+   "key": "t:murhythmmotorauditorydelayinimaginedspeechmirrorsovertspeechtiming",
+   "title": "Mu rhythm motor–auditory delay in imagined speech mirrors overt speech timing",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12909796-mu | title=Mu rhythm motor–auditory delay in imagined speech mirrors overt speech timing | authors"
+  },
+  {
+   "pid": "pmc-13537912-larysemg",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-larysemg | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyog"
+  },
+  {
+   "pid": "pmc-13537912-semg-larynx",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semg-larynx | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electrom"
+  },
+  {
+   "pid": "pmc-13537912-semglar",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semglar | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyogr"
+  },
+  {
+   "pid": "pmc-4466523-emgnasal",
+   "key": "t:detectingnasalvowelsinspeechinterfacesbasedonsurfaceelectromyography",
+   "title": "Detecting Nasal Vowels in Speech Interfaces Based on Surface Electromyography",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4466523-emgnasal | title=Detecting Nasal Vowels in Speech Interfaces Based on Surface Electromyography | au"
+  },
+  {
+   "pid": "pmc-8913675-sfcw-radar",
+   "key": "t:silentspeechcommandwordrecognitionusingsteppedfrequencycontinuouswaveradar",
+   "title": "Silent speech command word recognition using stepped frequency continuous wave radar",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8913675-sfcw-radar | title=Silent speech command word recognition using stepped frequency continuous wave r"
+  },
+  {
+   "pid": "rs-10442598-accssi",
+   "key": "t:efficientsensorconfigurationforaccelerometerbasedsilentspeechinterfaces",
+   "title": "Efficient Sensor Configuration for Accelerometer-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Efficient Sensor Configuration for Accelerometer-based Silent Speech Interfaces | venue=Research Square preprint |"
+  }
+ ],
+ "usual_approach": {
+  "design": "subset chosen by exhaustive or greedy search over trained models (sequential forward or backward selection, leave-one-channel-out)",
+  "n": 10,
+  "tier": "pattern match",
+  "pids": [
+   "pmc-13537912-larysemg",
+   "rs-10442598-accssi",
+   "doi-10.3390-s25030781",
+   "doi-10.3390-s25196168",
+   "doi-10.1088-1741-2552-abca14"
+  ],
+  "population_unique": 42,
+  "note": "full-text pattern counts over 42 unique surface-EMG speech studies that report electrode subsets or rankings (a study can match several): model attribution or association wording 21 (an upper bound: it matches any mention of attention weights, saliency or feature importance, not only subset selection), exhaustive or greedy search 10, single-channel ranking 5, random subsets 3. Read in full: Sridhar 2010 (mutual-information ranking chosen a priori), Zhu 2021 (sequential forward selection over 120 electrodes), Hwang 2026 [later] (backward elimination plus all 70 four-channel subsets)."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2602.06460",
+   "role": "sota",
+   "loc": "Sec. 5.2; Table 1",
+   "quote": "the articulatory-motivated subset from [12] (1, 2, 3, 5) ranked 5th"
+  },
+  {
+   "pid": "isca-sridhar10_interspeech",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "We achieve a mean recognition accuracy of 80.6% with the best 5 sensor subset chosen by the MI analysis in comparison with 79.6% obtained from using the complete set of 11 sensors."
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abca14",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "Using only ten optimal electrodes could achieve a classification accuracy of 86% for English and 94% for Chinese"
+  },
+  {
+   "pid": "arxiv-2505.13814",
+   "role": "target",
+   "loc": "Sec. 4.4; Table 3",
+   "quote": "electrodes 2, 3, 4, and 6"
+  }
+ ],
+ "state_of_the_art": {
+  "pid": "arxiv-2602.06460",
+  "year": 2026,
+  "metric": "best WER among all 70 four-channel subsets of the Gaddy array (mel-spectrogram model, HiFi-GAN, Whisper-medium); the target subset ranks 5th",
+  "value": 47.2,
+  "unit": "%",
+  "timing": "later"
+ },
+ "deciding_priors_note": "Principled subset selection without exhaustive search predates the target (Sridhar 2010, mutual information chosen a priori and checked against recognition). The target does not compare its subset with searched or random subsets of equal size; Hwang 2026 [later] did.",
+ "tally": {
+  "slot_filled_unique": 7329,
+  "string_match_unique": 42,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "subset chosen by exhaustive or greedy search over trained models (sequential forward or backward selection, leave-one-channel-out)",
+   "n": 10,
+   "tier": "pattern match",
+   "population_unique": 42
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2602.06460",
+   "year": 2026,
+   "metric": "best WER among all 70 four-channel subsets of the Gaddy array (mel-spectrogram model, HiFi-GAN, Whisper-medium); the target subset ranks 5th",
+   "value": 47.2,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 4,
+  "read_prior": [
+   "doi-10.1088-1741-2552-abca14",
+   "isca-sridhar10_interspeech"
+  ],
+  "unread": 45,
+  "confirmed_unique": 4,
+  "known_item_recall": null
+ },
+ "used_by": [
+  "articulatory-feature-prediction-from-surface-emg-during-speech-production"
+ ]
+}
