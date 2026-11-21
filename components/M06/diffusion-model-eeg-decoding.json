@@ -1,0 +1,383 @@
+{
+ "topic": "diffusion-model-eeg-decoding",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)(EEG|electroenceph|scalp_eeg)[^|]{0,300}(DDPM|denoising diffusion|diffusion)|(DDPM|denoising diffusion|diffusion)[^|]{0,300}(EEG|electroenceph|scalp_eeg)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "EEG decoding studies (classification, text or speech decoding) that train a denoising diffusion model as part of the decoder, either jointly with a classifier, as a feature learner, or to generate training samples. Boundary: diffusion used only to synthesize EEG with no decoding result, reviews, and 'diffusion' in a non-generative sense (drift-diffusion, diffusion MRI) are excluded; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 17,
+  "string_match_unique": 13,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "representation_kind=cae latent z (dim 256) from adapool of forward-diffused signal features",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2307-14389-diffe"
+    ]
+   },
+   {
+    "design": "representation_kind=high-gamma 2s eeg epochs",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2307.14389"
+    ]
+   },
+   {
+    "design": "representation_kind=multichannel eeg time series",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.14790"
+    ]
+   },
+   {
+    "design": "representation_kind=2s eeg windows",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2511.07920"
+    ]
+   },
+   {
+    "design": "representation_kind=denoised latent",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2511.07920"
+    ]
+   },
+   {
+    "design": "representation_kind=ddpm latent z (subject-wise normalized) + denoised xhat; label-aligned clusters",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2511.18294"
+    ]
+   },
+   {
+    "design": "representation_kind=rvq multi-layer discrete eeg tokens summed across m codebooks",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2511.21746"
+    ]
+   },
+   {
+    "design": "representation_kind=neural_features",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1371-journal.pbio.3002239"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "generated_sample_augmentation",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2607.18345-dpmaad",
+     "arxiv-2511-18294-multidiff",
+     "arxiv-2511.18294-multidiff",
+     "arxiv-2407.07595",
+     "doi-10.1109-msp.2024.3484629"
+    ]
+   },
+   {
+    "design": "conditional_autoencoder",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2411.09302",
+     "arxiv-2307-14389-diffe",
+     "arxiv-2501.14790"
+    ]
+   },
+   {
+    "design": "supervised_contrastive",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2511-18294-multidiff",
+     "arxiv-2511.18294-multidiff",
+     "arxiv-2511.18294"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)accura",
+  "better": "higher"
+ },
+ "sota_candidates": [],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2307-14389-diffe",
+   "key": "t:diffediffusionbasedlearningfordecodingimaginedspeecheeg",
+   "title": "Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307-14389-diffe | title=Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG | authors=Soowon Kim, Young-Eun Lee, Seo-Hyun Lee, Seong-Whan Lee | venue=arXiv 2307.14389 | review_state=source_checke"
+  },
+  {
+   "pid": "arxiv-2307.14389",
+   "key": "t:diffediffusionbasedlearningfordecodingimaginedspeecheeg",
+   "title": "Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307.14389 | title=Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG | venue=conference paper; v1 (5pp) | Study.research_objective=Diff-E diffusion-based (DDPM+CAE) EEG imagined-speech dec"
+  },
+  {
+   "pid": "arxiv-2407.07595",
+   "key": "t:scalinglawinneuraldatanoninvasivespeechdecodingwith175hoursofeegdata",
+   "title": "Scaling Law in Neural Data: Non-Invasive Speech Decoding with 175 Hours of EEG Data",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=sentence_recognition | extra.Task.target=open-vocabulary speech decoding: CLIP contrastive alignment of 5s EEG segments (HTNet+Conformer encoder) with frozen audio embeddings (wav2vec2.0/Whisper/Encodec) -> zero-shot segment classification + diffusion-vocoder reconstruction; scaling question: accuracy vs total EEG hours | production_labels=ordinary_voiced_speech | Coho"
+  },
+  {
+   "pid": "arxiv-2411.09302",
+   "key": "t:eegbasedspeechdecodinganovelapproachusingmultikernelensemblediffusionmodels",
+   "title": "EEG-Based Speech Decoding: A Novel Approach Using Multi-Kernel Ensemble Diffusion Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2411.09302 | title=EEG-Based Speech Decoding: A Novel Approach Using Multi-Kernel Ensemble Diffusion Models | authors=Soowon Kim, Ha-Na Jo, Eunyeong Ko | venue=arXiv 2411.09302 | review_state=source_checked | Study.study"
+  },
+  {
+   "pid": "arxiv-2501.14790",
+   "key": "t:towardsdynamicneuralcommunicationandspeechneuroprosthesisbasedonvisemedecoding",
+   "title": "Towards Dynamic Neural Communication and Speech Neuroprosthesis Based on Viseme Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "h intentions as visemes and reconstruct dynamic lip-motion sequences? | Study.research_objective=Develop and evaluate a diffusion-based framework for decoding visemes from EEG and reconstructing continuous talking-face/lip movement output. | Study.study_design=controlled_experiment | task_famil"
+  },
+  {
+   "pid": "arxiv-2511-18294-multidiff",
+   "key": "t:multidiffnetaunifiedmultiobjectivediffusionframeworkforsubjectagnosticeegdecodin",
+   "title": "MultiDiffNet: a unified multi-objective diffusion framework for subject-agnostic EEG decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511-18294-multidiff | title=MultiDiffNet: a unified multi-objective diffusion framework for subject-agnostic EEG decoding | authors=Mengchun Zhang, Kateryna Shapovalenko, Yucheng Shao, Eddie Guo, Parusha Pradhan | venue=arXiv 2511.1"
+  },
+  {
+   "pid": "arxiv-2511.07920",
+   "key": "t:lightweightdiffusionbasedframeworkforonlineimaginedspeechdecodinginaphasia",
+   "title": "Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ain / >40% val; ~5min calibration | representation_kind=2s EEG windows, denoised latent | technical_essence=lightweight diffusion denoising + decoder for EEG->class | technical_essence=online closed-loop classification streaming feedback | extra.Output.output_kind=4-class inte"
+  },
+  {
+   "pid": "arxiv-2511.18294",
+   "key": "t:multidiffnetamultiobjectivediffusionframeworkforgeneralizablebraindecoding",
+   "title": "MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "usion Framework for Generalizable Brain Decoding | venue=NeurIPS2025 ML4PS + arXiv v1 (49pp) | Study.research_objective=DDPM-based multi-objective EEG decoder for cross-subject generalization: SSVEP 84.72->85.25 unseen (+mixup), Imagined Speech 10.61->12.12; subject-wis"
+  },
+  {
+   "pid": "arxiv-2511.18294-multidiff",
+   "key": "t:multidiffnetaunifieddiffusionframeworkforgeneralizablebraindecoding",
+   "title": "MultiDiffNet: A Unified Diffusion Framework for Generalizable Brain Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "iew_state=source_checked | Study.study_design=system_proposal | Study.research_objective=Cross-subject/session-disjoint EEG decoding via a shared multi-objective diffusion latent space (no generative augmentation); includes imagined-speech decoding as the hardest benchmark task | Study.unit"
+  },
+  {
+   "pid": "arxiv-2511.21746",
+   "key": "t:deltalanguagediffusionbasedeegtotextarchitecture",
+   "title": "DELTA: Language Diffusion-based EEG-to-Text Architecture",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511.21746 | title=DELTA: Language Diffusion-based EEG-to-Text Architecture | authors=MinGyu Jeon, HyoBin Kim | venue=arXiv 2511.21746 | review_state=source_checked | Study.s"
+  },
+  {
+   "pid": "arxiv-2607.18345-dpmaad",
+   "key": "t:addressinglimiteddatainauditoryattentiondecodingwithdiffusiongenerativemodels",
+   "title": "Addressing Limited Data in Auditory Attention Decoding with Diffusion Generative Models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "v preprint 2607.18345 | review_state=source_checked | Study.study_design=system_proposal | Study.research_objective=Use diffusion probabilistic models to generate synthetic speech-evoked EEG and test whether augmentation relieves scarce real data for short-window (<=1 s) locus-of-attention decoding in hearing"
+  },
+  {
+   "pid": "doi-10.1109-msp.2024.3484629",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ization | model_family=transformer, cnn, rnn, other | ProcessingStep.architecture=generative-AI decoders incl. LLMs and diffusion models; pretrained speech representations for MEG/EEG decoding | EvaluationProtocol.test_material_selection=real-time closed-loop display of decoded word sequences; anarthri"
+  },
+  {
+   "pid": "doi-10.1371-journal.pbio.3002239",
+   "key": "p:doi-10.1371-journal.pbio.3002239",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t_description=49 epilepsy patients (22F); 6742 sites (66.1% subdural, 33.9% depth), ~138±54/participant; resting-state iEEG; diffusion-map embedding across frequency bands at 3 spatial scales; auditory core (HGPM) + belt/parabelt ROIs cluster together in"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-10426644-v1",
+   "key": "t:reconstructingthebrainslanguagenetworkfromnoninvasiveeegenablesinterpretablespee",
+   "title": "Reconstructing the brain’s language network from non-invasive EEG enables interpretable speech decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eometric neural-field constraints (cortical eigenmodes) + soft language-network prior, decoded to text by meta-learning diffusion decoder with few-shot adaptation; error-informed LoRA correction; CER 29.1/29.0 + BLEU 0.709/0.710 on ChineseEEG (LP/GD), 11% rel error reduction, semantic fields localize to ventral language pathway | target_population=general_popu"
+  },
+  {
+   "pid": "isca-kim23g-diffe",
+   "key": "t:diffediffusionbasedlearningfordecodingimaginedspeecheeg",
+   "title": "Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG | authors=Kim, Kim, et-al | venue=Interspeech 2023 | Study.research_objective=diffusion decoding imagined-speech EEG |"
+  },
+  {
+   "pid": "isca-kim23g_interspeech",
+   "key": "t:diffediffusionbasedlearningfordecodingimaginedspeecheeg",
+   "title": "Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Diff-E: Diffusion-based Learning for Decoding Imagined Speech EEG | system_name=Diff-E: denoising-diffusion (DDPM) + conditional autoencoder (CAE, latent Dψ) + joint linear classifier o"
+  },
+  {
+   "pid": "pmc-12333864-bci20",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ch embeddings, diffusion-model latents | ProcessingStep.architecture={'stages': ['acquire neural signals (ECoG/fMRI/MEG/EEG)', 'map to pretrained deep representations (LLM/wave2vec/diffusion)', 'decode to content: text, continuous language, speech, image, music', 'optionally synthesize audio/images via genera"
+  }
+ ],
+ "usual_approach": {
+  "design": "DDPM trained jointly with a conditional autoencoder whose pooled latent feeds a classifier (Diff-E lineage)",
+  "n": 3,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2411.09302",
+   "arxiv-2307-14389-diffe",
+   "arxiv-2501.14790"
+  ],
+  "population_unique": 13,
+  "note": "full-text pattern counts over 13 unique studies (ledger pattern match, 17 folders): generated-sample augmentation 6 folders, conditional autoencoder 3, supervised contrastive 3 (all three are versions of the target); no design holds a majority: generated-sample augmentation leads in folders only because two are target versions, so the conditional-autoencoder line (3 studies, one group) is the most frequent design outside the target"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2307.14389",
+   "role": "prior",
+   "loc": "Sec. 1-3, Tables 1-2",
+   "quote": "we present a novel approach to decode EEG signals using DDPMs and a Conditional Autoencoder (CAE)."
+  },
+  {
+   "pid": "arxiv-2307.14389",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "Diff-E 60.63 ± 8.03 90.39 ± 3.48"
+  },
+  {
+   "pid": "arxiv-2411.09302",
+   "role": "prior",
+   "loc": "Sec. II.D, Tables I-II",
+   "quote": "w/o DDPMs 68.12± 5.78 90.45 ± 3.22"
+  },
+  {
+   "pid": "arxiv-2511.18294",
+   "role": "target",
+   "loc": "Sec. 2; Tables 13, 17",
+   "quote": "Diff-E [17] extended diffusion to imagined-speech decoding via joint reconstruction and classification"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2307.14389",
+  "year": 2023,
+  "metric": "13-class imagined-speech EEG accuracy, 22 subjects, within-subject 20% held-out test, one seed",
+  "value": 60.63,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "deciding_priors_note": "Diff-E (2023-07) and the multi-kernel DDPM ensemble (2024-11) both train a DDPM with a conditional autoencoder and a latent classifier and both report that removing the DDPM lowers within-subject accuracy; neither tests held-out subjects. The 2025-11 lightweight diffusion decoder for aphasia is [concurrent].",
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 13,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "DDPM trained jointly with a conditional autoencoder whose pooled latent feeds a classifier (Diff-E lineage)",
+   "n": 3,
+   "tier": "pattern match",
+   "population_unique": 13
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2307.14389",
+   "year": 2023,
+   "metric": "13-class imagined-speech EEG accuracy, 22 subjects, within-subject 20% held-out test, one seed",
+   "value": 60.63,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-2307.14389",
+   "arxiv-2411.09302"
+  ],
+  "unread": 17,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding"
+ ]
+}

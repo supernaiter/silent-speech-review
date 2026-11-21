@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | M2SILENT: Enabling Multi-user Silent Speech Interactions via Multi-directional Speakers in Shared Spaces |  | Sec. 5 |
 | Multimodal Speech Recognition with Ultrasonic Sensors |  | Sec. 5.1 |
 
+## eeg-held-out-subject-test
+
+- Table: [`eeg-held-out-subject-test.csv`](eeg-held-out-subject-test.csv) (6960 slot-filled, 153 pattern match, usual design in 46, 2 read in full)
+- Inclusion rule: EEG decoding studies that report accuracy on subjects whose data were not used to train the decoder (leave-one-subject-out, a fixed set of held-out subjects, or subject-independent cross-validation). Boundary: within-subject cross-validation only, fine-tuning on the test subject's labeled trials before scoring (counted, but recorded as calibrated transfer), and reviews are excluded; versions of one study count once.
+- Used in: [MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding](../../reviews/multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding/)
+
 ## human-lipreader-baseline
 
 - Table: [`human-lipreader-baseline.csv`](human-lipreader-baseline.csv) (7 confirmed, 116 candidates read, 0 unread)
