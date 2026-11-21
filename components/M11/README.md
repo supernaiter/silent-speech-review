@@ -21,3 +21,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`multi-mode-speech-corpus.csv`](multi-mode-speech-corpus.csv) (234 slot-filled, 24 pattern match, usual design in 14, 3 read in full)
 - Inclusion rule: Studies or corpora that record the same speech material in normal (audible), whispered and silent (mouthed) modes with any non-acoustic or visual channel (EMG, EMA, ultrasound, lip or face video, neural recordings), and use or release the recordings. Boundary: acoustic-only whisper corpora, two-mode corpora without whisper and reviews are pattern matches only; versions of one study count once.
 - Used in: [Visual-Only Recognition of Normal, Whispered and Silent Speech](../../reviews/visual-only-recognition-of-normal-whispered-and-silent-speech/)
+
+## paired-imagery-perception-neural-recordings
+
+- Table: [`paired-imagery-perception-neural-recordings.csv`](paired-imagery-perception-neural-recordings.csv) (234 slot-filled, 112 pattern match, usual design in 83, 3 read in full)
+- Inclusion rule: Neural recordings (any modality) in which the same participants both perceive and imagine the same speech or music stimuli in matched trials, so that imagined and perceived responses can be paired. Boundary: imagery-only or perception-only recordings are excluded; overt-versus-covert production without a perception condition is excluded; a recording reused across papers counts once per paper (unique studies).
+- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/)

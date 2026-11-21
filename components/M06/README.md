@@ -127,6 +127,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Speech or language decoding studies from scalp EEG or MEG (perceived, imagined, attempted or overt). The design compared is the training objective of the decoder: contrastive alignment to a speech or text embedding with ranking of candidates, regression of an acoustic or feature target, or classification into fixed classes. Boundary: EEG/MEG used only as an auxiliary channel to another sensor still counts; reviews are excluded; versions count once.
 - Used in: [Decoding speech perception from non-invasive brain recordings](../../reviews/decoding-speech-perception-from-non-invasive-brain-recordings/)
 
+## perception-imagery-cross-condition-model
+
+- Table: [`perception-imagery-cross-condition-model.csv`](perception-imagery-cross-condition-model.csv) (7345 slot-filled, 112 pattern match, usual design in 8, 5 read in full)
+- Inclusion rule: Neural decoding or encoding studies (EEG, MEG, ECoG, sEEG, intracortical, fMRI, fNIRS) that use responses recorded during perception (listening, or overt production) to model, decode or transform responses recorded during imagery or covert speech of the same material: training on one condition and testing on the other, joint training on both, or mapping imagined responses into perceived-response space. Boundary: studies that only compare imagery and perception descriptively (activation maps, connectivity) with no cross-condition model are excluded; reviews and datasets without a model are excluded; versions of one study count once.
+- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/)
+
 ## phoneme-rnn-ctc-lm-decoding
 
 - Table: [`phoneme-rnn-ctc-lm-decoding.csv`](phoneme-rnn-ctc-lm-decoding.csv) (7345 slot-filled, 97 pattern match, usual design in 61, 5 read in full)
