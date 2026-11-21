@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## adversarial-loss-non-acoustic-to-speech
+
+- Table: [`adversarial-loss-non-acoustic-to-speech.csv`](adversarial-loss-non-acoustic-to-speech.csv) (31 slot-filled, 400 pattern match, usual design in 129, 3 read in full)
+- Inclusion rule: Include studies that generate speech (waveform, spectrogram or vocoder features) from a non-acoustic speech signal (ultrasound, EMA, PMA, EMG, lip or face video, radar, intracranial recordings) and train the mapping network itself with an adversarial (discriminator or critic) loss, alone or added to a regression loss. Boundary: exclude a GAN vocoder (HiFi-GAN, MelGAN, Parallel WaveGAN) trained only on audio and used off the shelf, domain-adversarial or gradient-reversal training against speaker or session, acoustic-input conversion (whisper, NAM) and reviews; the pattern match is an upper bound; versions count once by key.
+- Used in: [Improving Neural Silent Speech Interface Models by Adversarial Training](../../reviews/improving-neural-silent-speech-interface-models-by-adversarial-training/)
+
 ## audio-knowledge-transfer-to-video
 
 - Table: [`audio-knowledge-transfer-to-video.csv`](audio-knowledge-transfer-to-video.csv) (31 slot-filled, 54 pattern match, usual design in 40, 8 read in full)
