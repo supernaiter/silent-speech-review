@@ -91,6 +91,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | End-to-end Silent Speech Recognition with Acoustic Sensing |  | §4.4, Fig. 4(c) |
 | End-to-end Silent Speech Recognition with Acoustic Sensing |  | §4.4, Fig. 4(c) |
 
+## diffusion-model-eeg-decoding
+
+- Table: [`diffusion-model-eeg-decoding.csv`](diffusion-model-eeg-decoding.csv) (7345 slot-filled, 13 pattern match, usual design in 3, 3 read in full)
+- Inclusion rule: EEG decoding studies (classification, text or speech decoding) that train a denoising diffusion model as part of the decoder, either jointly with a classifier, as a feature learner, or to generate training samples. Boundary: diffusion used only to synthesize EEG with no decoding result, reviews, and 'diffusion' in a non-generative sense (drift-diffusion, diffusion MRI) are excluded; versions of one study count once.
+- Used in: [MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding](../../reviews/multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding/)
+
 ## emg-speech-encoder-input-and-sequence-model
 
 - Table: [`emg-speech-encoder-input-and-sequence-model.csv`](emg-speech-encoder-input-and-sequence-model.csv) (7345 slot-filled, 83 pattern match, usual design in 18, 3 read in full)
