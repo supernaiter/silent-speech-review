@@ -161,7 +161,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`perception-imagery-cross-condition-model.csv`](perception-imagery-cross-condition-model.csv) (7345 slot-filled, 112 pattern match, usual design in 8, 5 read in full)
 - Inclusion rule: Neural decoding or encoding studies (EEG, MEG, ECoG, sEEG, intracortical, fMRI, fNIRS) that use responses recorded during perception (listening, or overt production) to model, decode or transform responses recorded during imagery or covert speech of the same material: training on one condition and testing on the other, joint training on both, or mapping imagined responses into perceived-response space. Boundary: studies that only compare imagery and perception descriptively (activation maps, connectivity) with no cross-condition model are excluded; reviews and datasets without a model are excluded; versions of one study count once.
-- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/)
+- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/), [Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping](../../reviews/zero-shot-imagined-speech-decoding-via-imagined-to-listened-meg-mapping/)
 
 ## phoneme-rnn-ctc-lm-decoding
 
