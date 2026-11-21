@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Gaddy EMG-to-mel Transformer transducer, session embeddings"
+  ],
+  "field": "Gaddy lineage",
+  "n": 7388,
+  "matched": 3882,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited; Fig. 2 and Sec. 2.3 disagree on a convolutional front end.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Audio target transfer: DTW/CCA-aligned vocalized audio"
+  ],
+  "field": "Paired audio supervision",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot_filled (sparse; omission)",
+  "verdict": "standard",
+  "note": "Inherited from [@gaddy2020digital].",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Gaddy corpus; no selection data for checkpoints or the 0.7 threshold"
+  ],
+  "field": "Corpus training",
+  "n": 7388,
+  "matched": 1526,
+  "matched_tier": "slot_filled",
+  "verdict": "not_reported",
+  "note": "No selection data for checkpoints or the 0.7 threshold.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Silent articulation of read sentences"
+  ],
+  "field": "Silent or attempted speech",
+  "n": 7388,
+  "matched": 5595,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "8-channel facial sEMG"
+  ],
+  "field": "Surface EMG",
+  "n": 7388,
+  "matched": 7329,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "1000 Hz (Sec. 2.2) vs 16 kHz (Sec. 3) unexplained.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Transformer ASR on synthesized audio, replacing DeepSpeech"
+  ],
+  "field": "Whisper (9) or DeepSpeech (7) scoring",
+  "n": 7388,
+  "matched": 16,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Scorer swap; same audio, different recognizer.",
+  "sota": "11.89% WER, Whisper-medium [@lee2026gets]"
+ },
+ "M07": {
+  "choice": [
+   "GPT-2 rewrite of the single ASR transcript, threshold 0.7"
+  ],
+  "field": "n-gram LM (78); LLM rescoring or correction (50)",
+  "n": 7388,
+  "matched": 382,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "behind",
+  "note": "Earlier work passes several hypotheses to the LLM.",
+  "sota": "12.2% WER, silent EMG, LLM over 10-model ensemble [@benster2024]"
+ },
+ "M08": {
+  "choice": [
+   "Text via synthesized speech"
+  ],
+  "field": "Text output",
+  "n": 7388,
+  "matched": 3268,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Synthesized audio itself not evaluated.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "Automatic LLM edit, no user correction"
+  ],
+  "field": "Mostly absent",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Gaddy corpus transcripts"
+  ],
+  "field": "Read-prompt transcripts",
+  "n": 7388,
+  "matched": 234,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited corpus references.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "WER on about 100 test utterances, one run; split, seeds and intervals not stated"
+  ],
+  "field": "Whisper-scored WER (9)",
+  "n": 7388,
+  "matched": 16,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "not_reported",
+  "note": "Test split not identified; exact n, seeds and uncertainty not stated.",
+  "sota": "11.89% WER [@lee2026gets]"
+ },
+ "M13": {
+  "choice": [
+   "Offline GPU, 0.78 s per utterance; timing endpoints not stated"
+  ],
+  "field": "Offline lab system",
+  "n": 7388,
+  "matched": 6075,
+  "matched_tier": "slot_filled",
+  "verdict": "not_reported",
+  "note": "Timing endpoints undefined.",
+  "sota": "–"
+ }
+}
