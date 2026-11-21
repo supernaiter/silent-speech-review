@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Gaddy EMG-to-mel Transformer transducer, session embeddings"
+     ],
+     "field": "Gaddy lineage",
+     "n": 8995,
+     "matched": 3882,
+     "verdict": "standard",
+     "note": "Inherited; Fig. 2 and Sec. 2.3 disagree on a convolutional front end."
+    },
+    "M02": {
+     "choice": [
+      "Audio target transfer: DTW/CCA-aligned vocalized audio"
+     ],
+     "field": "Paired audio supervision",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Inherited from [@gaddy2020digital]."
+    },
+    "M03": {
+     "choice": [
+      "Gaddy corpus; no selection data for checkpoints or the 0.7 threshold"
+     ],
+     "field": "Corpus training",
+     "n": 8995,
+     "matched": 1526,
+     "verdict": "missing",
+     "note": "No selection data for checkpoints or the 0.7 threshold."
+    },
+    "M04": {
+     "choice": [
+      "Silent articulation of read sentences"
+     ],
+     "field": "Silent or attempted speech",
+     "n": 8995,
+     "matched": 5595,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "8-channel facial sEMG"
+     ],
+     "field": "Surface EMG",
+     "n": 8995,
+     "matched": 7329,
+     "verdict": "standard",
+     "note": "1000 Hz (Sec. 2.2) vs 16 kHz (Sec. 3) unexplained."
+    },
+    "M06": {
+     "choice": [
+      "Transformer ASR on synthesized audio, replacing DeepSpeech"
+     ],
+     "field": "Whisper (9) or DeepSpeech (7) scoring",
+     "n": 8995,
+     "matched": 16,
+     "verdict": "standard",
+     "note": "Scorer swap; same audio, different recognizer."
+    },
+    "M07": {
+     "choice": [
+      "GPT-2 rewrite of the single ASR transcript, threshold 0.7"
+     ],
+     "field": "n-gram LM (78); LLM rescoring or correction (50)",
+     "n": 8995,
+     "matched": 382,
+     "verdict": "behind",
+     "note": "Earlier work passes several hypotheses to the LLM."
+    },
+    "M08": {
+     "choice": [
+      "Text via synthesized speech"
+     ],
+     "field": "Text output",
+     "n": 8995,
+     "matched": 3268,
+     "verdict": "standard",
+     "note": "Synthesized audio itself not evaluated."
+    },
+    "M09": {
+     "choice": [
+      "None (offline)"
+     ],
+     "field": "Mostly absent",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "Automatic LLM edit, no user correction"
+     ],
+     "field": "Mostly absent",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Gaddy corpus transcripts"
+     ],
+     "field": "Read-prompt transcripts",
+     "n": 8995,
+     "matched": 234,
+     "verdict": "standard",
+     "note": "Inherited corpus references."
+    },
+    "M12": {
+     "choice": [
+      "WER on about 100 test utterances, one run; split, seeds and intervals not stated"
+     ],
+     "field": "Whisper-scored WER (9)",
+     "n": 8995,
+     "matched": 16,
+     "verdict": "missing",
+     "note": "Test split not identified; exact n, seeds and uncertainty not stated."
+    },
+    "M13": {
+     "choice": [
+      "Offline GPU, 0.78 s per utterance; timing endpoints not stated"
+     ],
+     "field": "Offline lab system",
+     "n": 8995,
+     "matched": 6075,
+     "verdict": "missing",
+     "note": "Timing endpoints undefined."
+    }
+   }
+  }
+ ]
+}
