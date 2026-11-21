@@ -4,9 +4,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 ## articulatory-intermediate
 
-- Table: [`articulatory-intermediate.csv`](articulatory-intermediate.csv) (4 confirmed, 44 candidates read, 0 unread)
+- Table: [`articulatory-intermediate.csv`](articulatory-intermediate.csv) (7345 slot-filled, 12 pattern match, usual design in 2, 44 read in full)
 - Inclusion rule: Include studies with a decoding pathway that first decodes an explicit articulatory representation (measured or estimated movement trajectories of the articulators, articulatory features or phonological categories) from non-acoustic signals (neural activity, EMG, video, ultrasound, etc.) and then converts it in a next stage to acoustic features, speech waveforms or symbol sequences. Boundary: exclude those whose input itself is an articulatory measurement (EMA, PMA, ultrasound) and that do not decode an articulatory representation as an intermediate. Exclude those that estimate articulation from acoustics and then return to speech (acoustic input). Exclude those that use articulation only as an auxiliary loss or regularization without placing it in the middle of the pathway. Exclude those that only decode an articulatory representation with no next stage. Exclude mentions in reviews or citations only. Count different versions of the same study as one item.
-- Used in: [Speech synthesis from neural decoding of spoken sentences](../../reviews/speech-synthesis-from-neural-decoding-of-spoken-sentences/)
+- Used in: [Articulatory Feature Prediction from Surface EMG during Speech Production](../../reviews/articulatory-feature-prediction-from-surface-emg-during-speech-production/), [Speech synthesis from neural decoding of spoken sentences](../../reviews/speech-synthesis-from-neural-decoding-of-spoken-sentences/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |
@@ -96,6 +96,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`emg-speech-encoder-input-and-sequence-model.csv`](emg-speech-encoder-input-and-sequence-model.csv) (7345 slot-filled, 83 pattern match, usual design in 18, 3 read in full)
 - Inclusion rule: Surface-EMG speech decoders (synthesis or recognition) classified by input representation (hand-crafted time-domain features vs learned convolution over minimally filtered EMG) and sequence model (feed-forward, recurrent, Transformer or Conformer). Boundary: EMG used only as an auxiliary channel to audio, gesture or non-speech EMG, and reviews are excluded; versions counted once.
 - Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/)
+
+## emg-to-speech-intermediate-target
+
+- Table: [`emg-to-speech-intermediate-target.csv`](emg-to-speech-intermediate-target.csv) (7345 slot-filled, 54 pattern match, usual design in 37, 4 read in full)
+- Inclusion rule: Surface-EMG speech synthesis or voicing studies (EMG to audible speech), classified by the intermediate target the EMG model predicts before the waveform: spectral acoustic features (mel, MFCC, vocoder parameters), self-supervised speech units, articulatory features (EMA-type trajectories), or text/phonemes. Boundary: EMG recognition to text only, EMG as an auxiliary channel to audio, non-speech EMG and reviews are excluded when read; a study can use several targets; versions count once.
+- Used in: [Articulatory Feature Prediction from Surface EMG during Speech Production](../../reviews/articulatory-feature-prediction-from-surface-emg-during-speech-production/)
 
 ## emg-to-speech-timing-alignment
 
