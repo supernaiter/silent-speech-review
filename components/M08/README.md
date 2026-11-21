@@ -66,6 +66,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Neural decoders (ECoG, intracortical, sEEG, EEG, MEG) that output text and report a word, character or phoneme error rate. The design compared is the unit the decoder emits before any lexicon or language model: characters, phonemes, or whole words / sentence classes. Boundary: a paper is counted under every unit its text names; handwriting and spelling BCIs count as characters; count versions once.
 - Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
 
+## paralinguistic-output-from-production-signals
+
+- Table: [`paralinguistic-output-from-production-signals.csv`](paralinguistic-output-from-production-signals.csv) (3268 slot-filled, 99 pattern match, usual design in 12, 4 read in full)
+- Inclusion rule: Include studies that infer a paralinguistic property of the speaker or utterance (affect or emotion, speaker identity, speaking mode, prosody, intonation or pitch) from a non-acoustic speech-production signal recorded while speaking (EMG, EMA, ultrasound, real-time MRI, electropalatography, strain sensors, ECoG or intracortical recordings). Boundary: acoustic-only and face-video audiovisual emotion recognition are excluded; facial EMG or EEG emotion recognition without speech production is excluded; F0 or prosody counts only when reported as an output; surveys are pattern matches only; versions of one study count once.
+- Used in: [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](../../reviews/affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg/)
+
 ## vsr-output-token-unit
 
 - Table: [`vsr-output-token-unit.csv`](vsr-output-token-unit.csv) (3268 slot-filled, 633 pattern match, usual design in 120, 5 read in full)
