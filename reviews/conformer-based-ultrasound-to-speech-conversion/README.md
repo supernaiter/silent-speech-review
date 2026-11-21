@@ -1,110 +1,129 @@
 # Conformer-based Ultrasound-to-Speech Conversion
 
-Ibrahim Ibrahimov, Zainkó Csaba, Gábor Gosztolya  
-arXiv 2025 · [arXiv](https://arxiv.org/abs/2506.03831)
+Ibrahimov, I., Zainkó, C., Gosztolya, G. · Interspeech 2025 · 2025 · [doi:10.21437/Interspeech.2025-2147](https://doi.org/10.21437/Interspeech.2025-2147) · [arXiv:2506.03831](https://arxiv.org/abs/2506.03831)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Conformer-based Ultrasound-to-Speech Conversion* (Ibrahim Ibrahimov et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging)
 
-Compares Conformer-based models to a CNN for ultrasound tongue-to-speech conversion on four speakers; Conformer plus bi-LSTM gives a modest naturalness gain without improving objective spectral metrics.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Ultrasound tongue imaging (Micro system, 81.5 fps) |
-| Task | Speech synthesis from ultrasound |
-| Vocabulary | Read sentences; size not stated |
-| Speaker | Speaker-dependent |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | MUSHRA naturalness 32 vs 28 (CNN), p=0.037, held-out sentences |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Four speakers with ten test sentences each, low absolute naturalness, no intelligibility test, and no real-time or truly silent operation.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Speaker-specific, MSE loss, early stopping | Supervised regression | 3,882 of 8,995 | ● Standard (No seeds or repeated runs.) |
+| M02 Teacher signal | Paired audio, 80-band mel targets | Paired audio | 31 of 8,995 | ● Standard (Audible speech supplies the targets.) |
+| M03 Train / calibrate | Per-speaker models, no adaptation | Per-speaker training | 1,526 of 8,995 | ● Standard (No unseen speaker.) |
+| M04 Use-time act | Audible read speech (TaL80) | Overt speech | 5,595 of 8,995 | ● Standard (Silent articulation not tested.) |
+| M05 Sensing | Ultrasound, 81.5 fps, 64x128 scanlines | Ultrasound (TaL) | 7,329 of 8,995 | ● Standard (Four TaL80 speakers.) |
+| M06 Decoding | Conformer over beam lines of one frame (+ bi-LSTM) | Frame-wise DNN or CNN regression; multi-frame 3D CNN since 2020 | 37 of 8,995 | ▼ Behind (Single-frame; Base MCD higher for all 4 speakers, significantly for 3.) |
+| M07 Runtime aids | None | None | 119 of 8,995 | – Not applicable (Direct synthesis.) |
+| M08 Output | Mel + pre-trained HiFi-GAN (VCTK), not fine-tuned | Neural or parametric vocoder | 3,268 of 8,995 | ● Standard (Vocoder not adapted to the speakers.) |
+| M09 Confirmation | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Shared sentences 005-014 held out | Held-out sentences | 234 of 8,995 | ● Standard (Same speakers in train and test.) |
+| M12 Evaluation | MSE, MCD, MUSHRA naturalness | MCD, often with MUSHRA | 21 of 8,995 | ● Standard (No intelligibility measure; MUSHRA in 14.) |
+| M13 Hardware & limits | Real-time potential claimed | Device and cost reporting | 6,075 of 8,995 | ✕ Not reported (No latency or throughput.) |
 
-A four-speaker ultrasound-to-speech comparison finds a modest naturalness gain from Conformer plus bi-LSTM, without objective-fidelity gains; reduced training time is not proof of real-time or truly silent operation.
+</details>
 
-### Review
+## Verdict
 
-This is a useful but narrowly scoped ultrasound-to-speech architecture comparison. Four TaL80 speakers receive separate models that map tongue ultrasound frames to 80-dimensional mel features, then synthesize audio with a pretrained HiFi-GAN vocoder. The strongest positive result is perceptual: 27 listeners rated 20 selected utterances, and Figure 3 reports rounded mean naturalness of 32/100 for Conformer with bi-LSTM versus 28 for both the CNN and Conformer Base, with natural speech at 96. The bi-LSTM versus CNN comparison is reported significant at p=0.037. This is not an intelligibility score or evidence of near-natural speech. Neither proposed model significantly improves the objective measures: Base worsens MSE for one speaker and MCD for three; bi-LSTM worsens MCD for one. Training takes about 30% and 80% of baseline time for Base and bi-LSTM respectively, but inference speed is not measured. The conclusion's claim that both models use fewer parameters is contradicted by the reported 2.66M, 5.35M and 4.09M counts for Base, bi-LSTM and CNN. The source treats ultrasound beam lines within a frame as sequence steps, so its architecture should not be described as proven long-range temporal speech modeling. The value for SSI is an alternative acoustic-feature predictor and a warning against selecting models by spectral error alone. Truly silent articulation, unseen-user transfer, intelligibility and practical online communication remain unvalidated; the suggested explanation involving silent intervals is a hypothesis rather than an established cause.
+The paper [[1]](#ref-1) changes one component, the ultrasound-to-mel network (M06), replacing a single-frame 2D-CNN with a Conformer, alone or with bi-LSTM. The Conformer is new to ultrasound-to-speech (0 prior studies among 51, Appendix), but both variants attend over the 64 beam lines of one frame, while 8 prior studies fed several frames to 3D-CNN or ConvLSTM mappers; on another single-speaker corpus this lowered test MSE from 0.366 to 0.315 against a 2D CNN [[2]](#ref-2). M06 is behind on the paper's own evidence: the only baseline is the single-frame design, and neither Conformer beats it on MSE or MCD. As context only, a later re-implementation on one TaL1 speaker, a different setup from the four TaL80 speakers here, scores 99.26% WER where a 3D front end with a Transformer reaches 15.93% [[3]](#ref-3) [later]. Evaluation (M12) is the usual MCD with MUSHRA; the one positive result, naturalness 32 against 28, says nothing about intelligibility. The abstract understates significant degradations that the results report, and "fewer parameters" is false for the preferred model.
 
-### Why it matters
+## Against the field, component by component
 
-A source-grounded comparison showing that a model preferred by listeners can have no better, and sometimes worse, spectral metrics. Its practical research value is in acoustic-feature model selection, not demonstrated deployable silent communication.
+### M06 Processing: ultrasound-to-mel network
 
-### Prior state of the art
+**Usual approach:** frame-wise regression from ultrasound frames to vocoder or mel features by a fully connected DNN (37 of 51 studies) or a CNN (31) (pattern match; Appendix); since 2020 stronger systems feed several frames to a 3D CNN or ConvLSTM (8 prior studies), as in [[2]](#ref-2). Here the baseline is single-frame and the Conformer's sequence is one frame's beam lines (Sec. 3.3), which the bi-LSTM variant keeps (Sec. 3.4).
 
-The paper builds on established ultrasound-to-acoustic mapping using fully connected, convolutional and recurrent networks. Its direct comparator is the open 2D-CNN ultrasound-to-mel implementation of Csapo et al.; SottoVoce is related prior work, not an experimentally matched comparator here.
+**State of the art:** in 2026, 15.93% WER (ASR on synthesized speech) on one TaL1 speaker with a 3D front end and a multi-layer Transformer [[3]](#ref-3) [later]; there a re-implemented Conformer-U2S gives 99.26%, and 2D-CNN+BiLSTM 60.29% against 36.46% for 3D-CNN+BiLSTM. At publication the comparable reference was a multi-frame mapper such as the 2020 3D CNN; the paper cites CNN+LSTM work (Sec. 1) but tests none.
 
-### What changed
+Against the 2D-CNN, Conformer Base has higher MCD for all four speakers, significantly for 01fi, 03mn and 04me (p = 0.001 each; 03mn: 4.133 against 3.641 dB, 13.5% relative (inference)), and higher MSE for 03mn (p = 0.026); the bi-LSTM variant also has higher MCD for all four, significantly for 04me (p = 0.002) (Tables 1-2). In [[2]](#ref-2), with vocoder targets on one speaker, several frames instead of one lowered test MSE from 0.366 to 0.315, 13.9% relative (inference), and the later study finds the same in WER: inter-frame context matters, and neither Conformer has it. The nearest prior "transformer" design is a spatial transformer network, an affine input warp, not attention [[4]](#ref-4). The later study re-implemented the model, reporting no public code although the paper gives a Zenodo link (Sec. 5); its 99.26% is one failed reproduction in another setup. Verdict: behind (best comparable work: multi-frame mappers since 2020).
 
-Replaces the acoustic-feature predictor with a frame-level Conformer or Conformer plus two bi-LSTM layers while retaining an ultrasound-to-80-dimensional-mel-to-vocoder pipeline. It exposes a mismatch between perceptual naturalness and objective spectral measures.
+### M12 Evaluation: spectral distance and naturalness only
 
-### Position in the field
+**Usual approach:** MCD (21 of 51 studies), often with MUSHRA naturalness (14) (pattern match; Appendix); listener transcription in 5, ASR on the output in 3. The paper follows it and measures no intelligibility.
 
-An incremental acoustic-feature modeling study within ultrasound-based SSI, complementary to end-to-end interaction work such as SottoVoce rather than a replacement demonstrated under the same task conditions.
+**State of the art:** in 2026, ASR WER on synthesized speech, 15.93% for one TaL1 speaker and 31.64% with all 81 TaL80 speakers pooled [[3]](#ref-3) [later], arguing spectral distortion is a weak indicator of lexical accuracy. Listener transcription tests were in use by 2016 [[5]](#ref-5).
 
-### Practical value
+Listeners prefer the bi-LSTM variant (p = 0.037) although its MCD is higher for all four speakers, significantly for 04me; Sec. 5 concedes the discrepancy. The 4-point gain, 14% relative (inference), sits at 28-32 where natural speech scores 96. MCD does not carry across papers even within this group: on the same four speakers [[6]](#ref-6) reported a baseline mean of 2.148 dB with a custom implementation, against 3.009-3.641 dB here. Verdict: standard; the yardstick now is intelligibility, on which the paper is silent.
 
-Offers two candidate predictors with different training-cost, model-size and perceptual tradeoffs. The reported low absolute naturalness and unmeasured intelligibility limit claims about usable speech communication.
+## The 13 components
 
-### Advanced
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Speaker-specific, MSE loss, early stopping | Supervised regression (slot-filled 3,882) | – | standard |
+| M02 Training-only supervision | Paired audio, 80-band mel targets | Paired audio (slot-filled 31) | – | standard |
+| M03 Training and adaptation | Per-speaker models, no adaptation | Per-speaker training (slot-filled 1,526) | – | standard |
+| M04 Use-time action | Audible read speech (TaL80) | Overt speech (slot-filled 5,595) | – | standard |
+| M05 Sensors | Ultrasound, 81.5 fps, 64x128 scanlines | Ultrasound (TaL) (slot-filled 7,329) | – | standard |
+| M06 Processing and decoding | Conformer over beam lines of one frame (+ bi-LSTM) | Frame-wise DNN or CNN regression; multi-frame 3D CNN since 2020 (pattern match 37) | 15.93% WER, 3D CNN + Transformer, 2026 [[3]](#ref-3) [later] | behind |
+| M07 Lexicon and LM | None | None (slot-filled 119) | – | not applicable |
+| M08 Output | Mel + pre-trained HiFi-GAN (VCTK), not fine-tuned | Neural or parametric vocoder (slot-filled 3,268) | – | standard |
+| M09 Confirmation | None | None (slot-filled 82) | – | not applicable |
+| M10 Correction | None | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Shared sentences 005-014 held out | Held-out sentences (slot-filled 234) | – | standard |
+| M12 Evaluation | MSE, MCD, MUSHRA naturalness | MCD, often with MUSHRA (pattern match 21) | 31.64% WER on TaL80, 2026 [[3]](#ref-3) [later] | standard |
+| M13 Device and cost | Real-time potential claimed | Device and cost reporting (slot-filled 6,075) | – | not reported |
 
-Perceived naturalness for Conformer with bi-LSTM; reported training-time reduction for both variants; parameter reduction for Conformer Base only.
+## Where the claims outrun the evidence
 
-### Unresolved
+- The abstract reports no significant objective improvement; Tables 1-2 and Sec. 4.2-4.3 show significant degradations (Base: MSE 03mn, MCD 01fi, 03mn, 04me; bi-LSTM: MCD 04me). "Matched the performance of the baseline" (Abstract) holds for MUSHRA only.
+- "Fewer parameters" (Sec. 5): the bi-LSTM model has 5.35M against 4.09M (Sec. 3.2, 3.4).
+- "Better real-time potential" (Sec. 5) rests on training time; no inference latency is reported.
+- MCD and MUSHRA p-values (Sec. 4.3, 4.4) lack the test, unit and correction across speakers, models and metrics.
+- Audible speech of four seen speakers only (Sec. 2): nothing on silent articulation or new users.
 
-Speech intelligibility, truly silent articulation, unseen speakers and words, repeated-session robustness, inference latency, energy consumption, and clinical communication.
+## What the field needs next
 
-### Narrowed or regressed
+- M06: the Conformer over consecutive frames in time, against a 3D-CNN baseline [[2]](#ref-2).
+- M12: intelligibility by listener transcription or ASR next to MCD, as in [[3]](#ref-3) [later].
+- M01: repeated seeds per speaker to separate a 4-point MUSHRA gap from run variance.
+- M13: inference latency per frame on stated hardware.
 
-Conformer Base has significantly worse MSE for speaker 03mn and worse MCD for 01fi, 03mn and 04me. The bi-LSTM variant has worse MCD for 04me and more parameters than the CNN baseline.
+## Questions for the authors
 
-### Evaluation details
+- How many runs and seeds stand behind each table entry?
+- Which test, unit and correction give the MCD and MUSHRA p-values?
+- How are the mel targets normalized?
+- Which sentences form each speaker's training and development sets?
 
-| Item | Details |
-| --- | --- |
-| Task | speech-reconstruction |
-| Input | ultrasound tongue imaging; paired audio supplies acoustic supervision and evaluation references, not a reported inference input |
-| Sensor | Articulate Instruments Micro ultrasound system, 81.5 fps; scanline frames resized by bicubic interpolation from 64x842 to 64x128 and normalized to [-1,1]. Training server includes an NVIDIA TITAN Xp with 12 GB VRAM and 32 GB host RAM. |
-| Body site | tongue |
-| Output | speech-audio synthesized from predicted 80-dimensional mel spectrograms |
-| Vocabulary type | Continuous speech-audio reconstruction from read-sentence recordings, not a word-classification benchmark; open-vocabulary generalization is not established. |
-| Vocabulary size | Unknown; no lexicon size is reported. Ten test sentences per speaker are not ten word classes. |
-| Metrics and results | Figure 3 rounded average naturalness: natural 96, lower anchor 4, CNN 28, Base 28, bi-LSTM 32 (0-100 scale). Reported p-values: bi-LSTM vs CNN 0.037, Base vs CNN 0.698, bi-LSTM vs Base 0.015. Table 1 MSE for speakers 01fi/02fe/03mn/04me: CNN 0.464/0.623/0.395/0.484; Base 0.511/0.618/0.462/0.524; bi-LSTM 0.482/0.581/0.378/0.449. Base's 03mn worsening has p=0.026; no bi-LSTM MSE difference is significant. Table 2 MCD in dB: CNN 3.221/3.009/3.641/3.172; Base 3.517/3.121/4.133/3.465; bi-LSTM 3.253/3.037/3.704/3.258. Base worsens significantly for 01fi/03mn/04me (each p=0.001); bi-LSTM worsens for 04me (p=0.002). Parameters CNN/Base/bi-LSTM: 4.09M/2.66M/5.35M; proposed-model training times approximately 30%/80% of CNN per speaker, not inference times. |
-| Evaluation protocol | Speaker-dependent held-out-sentence regression and speech synthesis: sentence-level MSE and MCD, plus a MUSHRA-style 0-100 naturalness listening test with natural references and a noise-added lower anchor. |
+## Appendix: literature search
 
-### Limits
+- M06 ultrasound-to-speech-network-architecture (new topic table). Inclusion rule: studies that map ultrasound tongue images (with or without lip video) to acoustic features or a waveform with a trained network and name the mapping architecture; recognition without synthesis, contour tracking, ultrasound prediction from other signals and reviews excluded; spatial transformer networks counted as CNNs; versions counted once. Slot-filled 7,345 unique studies; pattern match 51 unique studies. Full-text pattern counts: fully connected DNN 37, CNN 31, recurrent 25, 3D CNN 19, transformer 9 (prior hits are spatial transformer networks [[4]](#ref-4) or future-work mentions), conformer 3 (the target and two later works; 0 prior). Prior studies with a multi-frame mapper (3D CNN or ConvLSTM): 8. Usual design: frame-wise DNN (37) or CNN (31) regression (pattern match). State of the art: [[3]](#ref-3) [later], 15.93% WER. Read in full: [[2]](#ref-2), [[3]](#ref-3) [later], target. Known-item recall 1.0 (3 of 3 seeds).
+- M12 ultrasound-to-speech-output-evaluation (new topic table). Inclusion rule: studies that synthesize speech or acoustic features from ultrasound tongue images and evaluate the output, classified by measure (MCD, MUSHRA or MOS, listener transcription, ASR on the output); recognition-only studies, contour tracking and reviews excluded; versions counted once. Slot-filled 6,960 unique studies; pattern match 51 unique studies. Full-text pattern counts: MCD 21, MUSHRA 14, listener intelligibility 5, MOS 4, ASR on output 3. Usual design: MCD, 21, often with MUSHRA, 14 (pattern match). State of the art: [[3]](#ref-3) [later], 31.64% WER on TaL80. Read in full: [[5]](#ref-5), [[6]](#ref-6), [[3]](#ref-3) [later], target.
 
-- **Technical:** Frame-level modeling treats the 64 ultrasound beam lines as sequence positions; this is not evidence of long-range inter-frame temporal learning. Spectral errors and listening judgments diverge. The Figure 4 silent-interval explanation is based on one selected utterance and remains hypothetical. Bi-LSTM is larger than the CNN despite the conclusion's contrary generalization.
-- **Evaluation:** Four speakers with ten test utterances each; listening uses five randomly selected utterances per speaker and 27 non-native English listeners. No repeated-training uncertainty, intelligibility transcription, formal equivalence test or held-out-speaker experiment is reported. Subjective-test statistical handling and multiplicity correction are insufficiently specified for independent validation from the paper alone.
-- **Deployment:** Offline speaker-specific corpus experiments using ultrasound equipment and a TITAN Xp server. No end-to-end online interaction, mobile inference, energy measurement, walking test or patient evaluation is reported.
-- **Scope of this review:** Four known speakers, paired corpus recordings and held-out read sentences. No separately documented truly silent test condition, patient cohort, unseen-user evaluation, unknown-word analysis, spontaneous dialogue or environmental robustness experiment.
+## References
 
-### Evidence
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
 
-- The authors propose Base and bi-LSTM Conformer predictors for ultrasound-to-mel mapping and claim perceptual and training-time advantages over a 2D-CNN baseline, rather than a new sensor. (p.1 Abstract and Introduction; p.2 Figure 1; pp.2-3 Sections 3.2-3.5)
-- The dataset comprises four selected TaL80 speakers, two female and two male, with 204/141/193/190 recordings. Ten shared read sentences per speaker are test data; the remaining recordings are split 9:1 for train/development. Models are speaker-specific. (p.2 Section 2 Dataset and Section 3.2 Baseline; p.3 Section 4.1)
-- Micro ultrasound scanlines at 81.5 fps are synchronized with audio, resized from 64x842 to 64x128 and normalized to [-1,1]. The synthesis path predicts 80 mel dimensions and uses pretrained HiFi-GAN VCTK_V1. (p.2 Section 2 and Figure 1; p.3 Section 3.5)
-- The Base network uses linear layers around a Conformer block, with the bi-LSTM variant adding two recurrent layers. Section 3.3 explicitly treats beam lines as sequence steps while retaining frame-level learning, so long-range temporal speech learning is not established by this description. (p.2 Figure 2 and Section 3.3; p.3 Sections 3.3-3.4)
-- Training is limited to 20 epochs, batch size 128 and development-MSE early stopping with patience 3. Base uses encoder dimension 256, 32 heads, kernel 31 and feedforward expansion 3, with AdamW and cosine-decay restarts. (p.2 Section 3.1; p.3 Section 3.3)
-- Sections 3.2-3.4 report CNN/Base/bi-LSTM parameter counts of 4.09M/2.66M/5.35M and Base/bi-LSTM training times of approximately 30%/80% of baseline per speaker. These are training-time comparisons, not inference measurements. (p.2 Section 3.2; p.3 Sections 3.3-3.4)
-- Table 1 lists MSE for 01fi/02fe/03mn/04me: CNN 0.464/0.623/0.395/0.484; Base 0.511/0.618/0.462/0.524; bi-LSTM 0.482/0.581/0.378/0.449. Base is significantly worse for 03mn (p=0.026); none of the proposed-model MSE improvements is significant. (p.3 Table 1 and Section 4.2)
-- Table 2 MCD in dB for 01fi/02fe/03mn/04me is CNN 3.221/3.009/3.641/3.172; Base 3.517/3.121/4.133/3.465; bi-LSTM 3.253/3.037/3.704/3.258. Lower is better. Base significantly worsens three speakers (each p=0.001); bi-LSTM significantly worsens 04me (p=0.002). (p.3 Table 2 and Section 4.3)
-- The naturalness test uses five randomly selected utterances per speaker, 20 total, rated by 27 non-native English listeners (14 female, 13 male, ages 20-55). Order is randomized and the scale is 0-100; the lower anchor is original speech with white noise at a stated 0.0005 level. (p.4 Section 4.4)
-- Visually checked Figure 3 labels rounded average naturalness as natural 96, anchor 4, CNN 28, Base 28 and bi-LSTM 32. The 03mn panel instead gives CNN 33, Base 31 and bi-LSTM 32, so the bi-LSTM advantage is not universal across speakers. Error bars are described as 95% confidence intervals. (p.4 Figure 3 and caption)
-- The reported pooled listening comparisons give p=0.037 for bi-LSTM versus CNN, p=0.698 for Base versus CNN and p=0.015 for bi-LSTM versus Base. These are naturalness comparisons, not word-recognition or intelligibility results. (p.4 Section 4.4)
-- Section 5 says both proposed models have fewer parameters, contradicting the 5.35M bi-LSTM versus 4.09M CNN counts in Sections 3.2 and 3.4. Only Base's 2.66M count supports a reduction; do not propagate the conclusion's generalization. (p.4 Section 5, second paragraph; p.2 Section 3.2; p.3 Sections 3.3-3.4)
-- Figure 4 compares one 01fi test utterance (014_xaud). The authors suggest inaccurate silent intervals may explain disagreement between objective and subjective results, but explicitly leave this for future analysis. The figure is not a controlled causal test. (p.4 Figure 4, caption and Section 5)
-- The paper evaluates synchronized ultrasound/audio corpus recordings and held-out read sentences, without a separately described truly silent articulation test, unseen-speaker experiment, lexical-overlap analysis or intelligibility transcription. Held-out sentences alone do not establish those capabilities. (p.2 Section 2; p.3 Sections 4.1-4.3; p.4 Section 4.4)
-- Section 5 suggests potential for real-time use based on computational advantages, but the reported measurements concern training duration. No inference latency, mobile energy, walking test or online communication outcome is presented. (p.2 Section 3.1; p.3 Sections 3.3-3.4; p.4 Section 5)
-- A nonsignificant p-value for Base versus CNN is not a formal equivalence test. The small four-speaker/20-listening-utterance evaluation and lack of reported repeated-training uncertainty constrain generalization; subjective comparison units and multiple-comparison correction require clarification. (p.3 Section 4.2; p.4 Section 4.4)
-- The authors point to https://doi.org/10.5281/zenodo.15544868 for full code and synthesized samples. This review records the source's availability statement, not an independent audit of artifact completeness or successful reproduction. (p.4 Section 5, final paragraph)
+1. <a id="ref-1"></a>Ibrahimov, I., Zainkó, C., Gosztolya, G. “Conformer-based Ultrasound-to-Speech Conversion.” *Proc. Interspeech 2025*, 2025, 5578–5582. doi:[10.21437/Interspeech.2025-2147](https://doi.org/10.21437/Interspeech.2025-2147). arXiv:[2506.03831](https://arxiv.org/abs/2506.03831). Target. Read as arXiv v1. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/conformer-based-ultrasound-to-speech-conversion) [wiki: arxiv-2506.03831](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2506.03831/article.md) [wiki: isca-ibrahimov25-usconformer](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-ibrahimov25-usconformer/article.md) [wiki: isca-ibrahimov25_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-ibrahimov25_interspeech/article.md)
+2. <a id="ref-2"></a>Tóth, L., Shandiz, A. H. “3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces.” *Artificial Intelligence and Soft Computing (ICAISC 2020), Lecture Notes in Computer Science 12415*, 2020, 159–169. doi:[10.1007/978-3-030-61401-0_16](https://doi.org/10.1007/978-3-030-61401-0_16). arXiv:[2104.11532](https://arxiv.org/abs/2104.11532). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces) [wiki: arxiv-2104.11532](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2104.11532/article.md)
+3. <a id="ref-3"></a>Sonkar, Y., Kilaru, Y., Yelimeli, S., Shah, N., Gandhi, V. “Tongue2Speech: Real-Time Speech Synthesis from Tongue Ultrasound Videos via Spatiotemporal Transformers.” *Proc. Interspeech 2026*, 2026, 6856–6860. doi:[10.21437/Interspeech.2026-3023](https://doi.org/10.21437/Interspeech.2026-3023). [later] [wiki: isca-sonkar26_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-sonkar26_interspeech/article.md)
+4. <a id="ref-4"></a>Tóth, L., Shandiz, A. H., Gosztolya, G., Csapó, T. G. “Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks.” *Proc. Interspeech 2023*, 2023. doi:[10.21437/Interspeech.2023-1607](https://doi.org/10.21437/Interspeech.2023-1607). arXiv:[2305.19130](https://arxiv.org/abs/2305.19130). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks) [wiki: arxiv-2305.19130](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2305.19130/article.md) [wiki: isca-toth23_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-toth23_interspeech/article.md)
+5. <a id="ref-5"></a>Hueber, T., Bailly, G. “Statistical Conversion of Silent Articulation into Audible Speech using Full-Covariance HMM.” *Computer Speech & Language*, 2016, 36, 274–293. doi:[10.1016/j.csl.2015.09.008](https://doi.org/10.1016/j.csl.2015.09.008). [wiki: doi-10.1016-j.csl.2015.09.008](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1016-j.csl.2015.09.008/article.md)
+6. <a id="ref-6"></a>Ibrahimov, I., Gosztolya, G., Csapó, T. G. “Data Augmentation Methods on Ultrasound Tongue Images for Articulation-to-Speech Synthesis.” *Proc. 12th ISCA Speech Synthesis Workshop (SSW 2023)*, 2023, 230–235. doi:[10.21437/SSW.2023-36](https://doi.org/10.21437/SSW.2023-36). [wiki: doi-10.21437-ssw-2023-36](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.21437-ssw-2023-36/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M06/ultrasound-to-speech-network-architecture.csv`](../../components/M06/ultrasound-to-speech-network-architecture.csv): M06 topic "ultrasound-to-speech-network-architecture", every candidate paper with its decision (7345 slot-filled, 51 pattern match, usual design in 37, 4 read in full)
+- [`components/M12/ultrasound-to-speech-output-evaluation.csv`](../../components/M12/ultrasound-to-speech-output-evaluation.csv): M12 topic "ultrasound-to-speech-output-evaluation", every candidate paper with its decision (6960 slot-filled, 51 pattern match, usual design in 21, 3 read in full)
+
 
 ## More reviews in Ultrasound & tongue imaging
 

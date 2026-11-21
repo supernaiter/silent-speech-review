@@ -115,6 +115,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that report recognition or reconstruction results on the Silent Speech Challenge archive (single speaker, silent TIMIT training, 100 WSJ0 5k test sentences) or that test on the same 100 SSC sentences with a new recording. Boundary: exclude studies that only cite the SSC, surveys that restate its numbers (kept in the pattern match), and studies on other ultrasound corpora; count versions once.
 - Used in: [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
 
+## ultrasound-to-speech-output-evaluation
+
+- Table: [`ultrasound-to-speech-output-evaluation.csv`](ultrasound-to-speech-output-evaluation.csv) (6960 slot-filled, 51 pattern match, usual design in 21, 3 read in full)
+- Inclusion rule: Include studies that synthesize speech or acoustic features from ultrasound tongue images (with or without lip video) and evaluate the output; classify the output measures used (MCD or other spectral distance, MUSHRA or MOS ratings, listener transcription or identification, ASR on the synthesized speech). Boundary: exclude recognition-only studies, contour tracking and reviews (they inflate the pattern match, an upper bound); count versions once by key.
+- Used in: [Conformer-based Ultrasound-to-Speech Conversion](../../reviews/conformer-based-ultrasound-to-speech-conversion/)
+
 ## video-to-speech-output-evaluation
 
 - Table: [`video-to-speech-output-evaluation.csv`](video-to-speech-output-evaluation.csv) (6960 slot-filled, 165 pattern match, usual design in 83, 5 read in full)
