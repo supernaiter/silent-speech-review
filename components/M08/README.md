@@ -22,7 +22,11 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`intracranial-synthesis-waveform-generation.csv`](intracranial-synthesis-waveform-generation.csv) (3268 slot-filled, 180 pattern match, usual design in 51, 2 read in full)
 - Inclusion rule: Include studies that reconstruct speech acoustics (spectrograms, vocoder features or waveforms) from intracranial recordings (ECoG, sEEG or depth electrodes, intracortical arrays) made during overt, mouthed, attempted or imagined speech production. Boundary: exclude reconstruction of heard speech, text-only decoding read out by a TTS engine, and reviews or citation-only mentions; count versions of one study once. The ledger pattern also admits some reviews and text-decoding papers, so its count is an upper bound. Design of interest: how predicted acoustic features become a waveform (neural vocoder such as WaveNet, WaveGlow or HiFi-GAN; Griffin-Lim or other iterative phase reconstruction; parametric vocoder; unit selection).
-- Used in: [Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction](../../reviews/brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/)
+- Used in: [Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction](../../reviews/brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/), [Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding](../../reviews/brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | 2026 | Sec. 4 |
 
 ## neural-speech-synthesis
 
