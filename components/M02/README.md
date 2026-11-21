@@ -30,6 +30,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Text or speech-unit decoders from a non-acoustic signal (neural, EMG, articulography, ultrasound, video) whose training adds a loss that regresses acoustic or articulatory features of the paired produced speech (MFCC, mel spectrogram, kinematic trajectories) from an intermediate layer, discarded at use time. Boundary: exclude decoders whose output is the acoustic feature (synthesis); exclude targets taken from a pretrained speech encoder (counted under auxiliary-representation-prediction); count versions once.
 - Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
 
+## silent-articulation-text-label-supervision
+
+- Table: [`silent-articulation-text-label-supervision.csv`](silent-articulation-text-label-supervision.csv) (31 slot-filled, 195 pattern match, usual design in 46, 3 read in full)
+- Inclusion rule: Decoders that map silently articulated (mouthed, subvocal) non-acoustic signals to phoneme, word or sentence sequences, classified by the training-only target: text or phoneme labels of the silent utterance alone (HMM or CTC), or targets transferred from a parallel vocalized recording by time alignment (DTW). Any signal qualifies. Boundary: isolated-word closed-set classifiers, train-on-vocalized/test-on-silent studies without silent training data, imagined speech, and synthesis-only studies are outside the design comparison; pattern-match counts are upper bounds; versions count once.
+- Used in: [Non-invasive electromyographic speech neuroprosthesis: a geometric perspective](../../reviews/non-invasive-electromyographic-speech-neuroprosthesis-a-geometric-perspective/)
+
 ## silent-target-transfer
 
 - Table: [`silent-target-transfer.csv`](silent-target-transfer.csv) (31 slot-filled, 52 pattern match, usual design in 15, 4 read in full)

@@ -1,0 +1,2622 @@
+{
+ "topic": "silent-articulation-text-label-supervision",
+ "slot": "M02",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)\\A(?=.*(silent_articulation|mouthed|subvocal|silently articulat))(?=.*(sentence_recognition|continuous|open[- ]vocabulary|phonem))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Decoders that map silently articulated (mouthed, subvocal) non-acoustic signals to phoneme, word or sentence sequences, classified by the training-only target: text or phoneme labels of the silent utterance alone (HMM or CTC), or targets transferred from a parallel vocalized recording by time alignment (DTW). Any signal qualifies. Boundary: isolated-word closed-set classifiers, train-on-vocalized/test-on-silent studies without silent training data, imagined speech, and synthesis-only studies are outside the design comparison; pattern-match counts are upper bounds; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 31,
+  "slot_filled_unique": 31,
+  "string_match_folders": 231,
+  "string_match_unique": 195,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2609.21436",
+     "pmc-13270037-pcgmodes",
+     "arxiv-2506.13835",
+     "pmc-12526642-emg-eeg-ssi"
+    ]
+   },
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.13835",
+     "arxiv-2602.01879",
+     "sottovoce",
+     "arxiv-2509.04507",
+     "arxiv-2602.06460"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.64898-2026.02.19.26346583",
+     "arxiv-2506.13835",
+     "arxiv-2602.01879",
+     "arxiv-2602.06460",
+     "arxiv-2606.09667"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "doi-10.3389-fnins.2026.1816455",
+     "arxiv-2506.13835",
+     "arxiv-2608.27048"
+    ]
+   },
+   {
+    "design": "supervision_kind=unpaired",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-9524625-salt",
+     "arxiv-2509.04507"
+    ]
+   },
+   {
+    "design": "supervision_kind=self_supervised",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s41467-026-74035-7"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "hmm_phone",
+    "n": 46,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604.16441-iphoneme",
+     "arxiv-2606.07435-lipgap",
+     "arxiv-2609.36736",
+     "pmc-13375540-ltbci",
+     "pmc-13527132-urdulr"
+    ]
+   },
+   {
+    "design": "ctc_text",
+    "n": 44,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2510.23969",
+     "arxiv-2604.16441-iphoneme",
+     "arxiv-2606.07435-lipgap",
+     "arxiv-2609.21288"
+    ]
+   },
+   {
+    "design": "dtw_audio_target",
+    "n": 34,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.01247",
+     "arxiv-2604.18920",
+     "doi-10.21437-odyssey.2026-19",
+     "isca-lee26v_interspeech",
+     "isca-toussaint26_interspeech"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "sEMG silent-speech recognition WER as low as 3% (limited vocabulary, speaker-dependent, from reviewed study)",
+   "value": 0.03,
+   "unit": null,
+   "raw": "WERs as low as 3%",
+   "pid": "doi-10.1109-access.2020.3026579",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "0.0597",
+   "value": 0.0597,
+   "unit": "WER",
+   "raw": "unseen-speaker WER 0.0597/CER 0.0227",
+   "pid": "isca-wen26d_interspeech",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "edge computation power",
+   "value": 0.639,
+   "unit": "mW",
+   "raw": "0.639",
+   "pid": "arxiv-2603.02847",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "model vs human WER",
+   "value": 0.65,
+   "unit": "wer",
+   "raw": "Auto-AVSR-Large MaFI WER vs human 0.83",
+   "pid": "arxiv-2606.07435-lipgap",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table2 ref77 GRID CER/WER",
+   "value": 1.3,
+   "unit": "%",
+   "raw": "1.3",
+   "pid": "arxiv-2110.07879",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "1.5%->69% WER under cocktail noise",
+   "value": 1.5,
+   "unit": "% WER",
+   "raw": "prior SOTA on clean LRS2; rises to 69% with background speech",
+   "pid": "isca-nguyen25b_interspeech",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LKL WER decrease vs baseline",
+   "value": 1.85,
+   "unit": "%",
+   "raw": "1.85",
+   "pid": "arxiv-2305.14203",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Whisper v2 Gaddy audio WER",
+   "value": 2.3,
+   "unit": "percent",
+   "raw": "2.3",
+   "pid": "arxiv-2403.05583",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 2.85,
+   "unit": "percent",
+   "raw": "2.85",
+   "pid": "arxiv-2602.01879",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Intracortical and ECoG recordings decode covert/overt speech units at usable accuracy, validating implanted neural substrates for AAC speech decoding",
+   "value": 3,
+   "unit": "% WER",
+   "raw": "ECoG word-sequence decoding 3% WER, ~250-word vocabulary, single participant",
+   "pid": "doi-10.1007-s13311-022-01190-2",
+   "year": 2022,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2008.07660",
+   "key": "t:revisitingtheapplicationoffeatureselectionmethodstospeechimagerybcidatasets",
+   "title": "Revisiting the Application of Feature Selection Methods to Speech Imagery BCI Datasets",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2008.07660 | doi=arXiv:2008.07660 | title=Revisiting the Application of Feature Selection Methods to Spee"
+  },
+  {
+   "pid": "arxiv-2104.14467",
+   "key": "t:towardsapracticalliptospeechconversionsystemusingdeepneuralnetworksandmobileappl",
+   "title": "Towards a practical lip-to-speech conversion system using deep neural networks and mobile application frontend",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2104.14467 | doi=10.48550/arxiv.2104.14467 | title=Towards a practical lip-to-speech conversion system us"
+  },
+  {
+   "pid": "arxiv-2106.13686-cmkdcs",
+   "key": "t:crossmodalknowledgedistillationmethodforautomaticcuedspeechrecognition",
+   "title": "Cross-Modal Knowledge Distillation Method for Automatic Cued Speech Recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2106.13686-cmkdcs | title=Cross-Modal Knowledge Distillation Method for Automatic Cued Speech Recognition"
+  },
+  {
+   "pid": "arxiv-2110.07879",
+   "key": "t:advancesandchallengesindeeplipreading",
+   "title": "Advances and Challenges in Deep Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2110.07879 | title=Advances and Challenges in Deep Lip Reading | venue=survey (arXiv v1) | Study.research"
+  },
+  {
+   "pid": "arxiv-2202.09081-vcvts",
+   "key": "t:vcvtsmultispeakervideotospeechsynthesisviacrossmodalknowledgetransferfromvoiceco",
+   "title": "VCVTS: Multi-Speaker Video-to-Speech Synthesis via Cross-Modal Knowledge Transfer from Voice Conversion",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2202.09081-vcvts | title=VCVTS: Multi-Speaker Video-to-Speech Synthesis via Cross-Modal Knowledge Transfe"
+  },
+  {
+   "pid": "arxiv-2212.01083-cmlcsr",
+   "key": "t:crossmodalmutuallearningforcuedspeechrecognition",
+   "title": "Cross-Modal Mutual Learning for Cued Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2212.01083-cmlcsr | title=Cross-Modal Mutual Learning for Cued Speech Recognition | authors=L. Liu, L. Li"
+  },
+  {
+   "pid": "arxiv-2305.14203",
+   "key": "t:improvingthegapinvisualspeechrecognitionbetweennormalandsilentspeechbasedonmetri",
+   "title": "Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2305.14203 | title=Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based"
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "key": "t:largescaleunsupervisedaudiopretrainingforvideotospeechsynthesis",
+   "title": "Large-scale unsupervised audio pre-training for video-to-speech synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.15464-v2apretrain | title=Large-scale unsupervised audio pre-training for video-to-speech synthesis"
+  },
+  {
+   "pid": "arxiv-2403.05583",
+   "key": "t:acrossmodalapproachtosilentspeechwithllmenhancedrecognition",
+   "title": "A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.05583 | title=A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition | authors=Tyler"
+  },
+  {
+   "pid": "arxiv-2411.02591",
+   "key": "t:geometryoforofacialneuromuscularsignalsspeecharticulationdecodingusingsurfaceele",
+   "title": "Geometry of orofacial neuromuscular signals: speech articulation decoding using surface electromyography",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411.02591 | doi=10.48550/arxiv.2411.02591 | title=Geometry of orofacial neuromuscular signals: speech ar"
+  },
+  {
+   "pid": "arxiv-2411.18266",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411.18266 | title=Wearable intelligent throat enables natural speech in stroke patients with dysarthria"
+  },
+  {
+   "pid": "arxiv-2501.06530",
+   "key": "t:multimodalspeechenhancementwithlimitedelectromyographychannels",
+   "title": "Multi-modal Speech Enhancement with Limited Electromyography Channels",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.06530 | doi=10.48550/arxiv.2501.06530 | title=Multi-modal Speech Enhancement with Limited Electromyo"
+  },
+  {
+   "pid": "arxiv-2502.05762",
+   "key": "t:noninvasiveelectromyographicspeechneuroprosthesisageometricperspective",
+   "title": "Non-invasive electromyographic speech neuroprosthesis: a geometric perspective",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.05762 | paper_version=2502.05762v3 | title=Non-invasive electromyographic speech neuroprosthesis: a"
+  },
+  {
+   "pid": "arxiv-2502.17829",
+   "key": "t:silentspeechsentencerecognitionwithsixaxisaccelerometersusingconformerandctcalgo",
+   "title": "Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.17829 | title=Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CT"
+  },
+  {
+   "pid": "arxiv-2506.13835",
+   "key": "t:asilentspeechdecodingsystemfromeegandemgwithheterogenouselectrodeconfigurations",
+   "title": "A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2506.13835 | paper_version=2506.13835v1 | title=A Silent Speech Decoding System from EEG and EMG with Het"
+  },
+  {
+   "pid": "arxiv-2509.04507",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.04507 | arxiv_id=2509.04507v1 | source_url=https://arxiv.org/pdf/2509.04507v1 | title=From Silent Si"
+  },
+  {
+   "pid": "arxiv-2509.25670-ltal2s",
+   "key": "t:ltal2slexicaltoneawareliptospeechsynthesisformandarinwithcrosslingualtransferlea",
+   "title": "LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.25670-ltal2s | title=LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lin"
+  },
+  {
+   "pid": "arxiv-2510.23969",
+   "key": "t:emg2speechsynthesizingspeechfromelectromyographyusingselfsupervisedspeechmodels",
+   "title": "emg2speech: synthesizing speech from electromyography using self-supervised speech models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.23969 | title=emg2speech: synthesizing speech from electromyography using self-supervised speech mod"
+  },
+  {
+   "pid": "arxiv-2601.18177",
+   "key": "t:lipsiricontactlessopensentencesilentspeechwithwifibackscatter",
+   "title": "Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2601.18177 | paper_version=2601.18177v1 | title=Lip-Siri: Contactless Open-Sentence Silent Speech with Wi"
+  },
+  {
+   "pid": "arxiv-2602.01247",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01247 | paper_version=2602.01247v1 | title=Mechanistic Interpretability of Brain-to-Speech Models Ac"
+  },
+  {
+   "pid": "arxiv-2602.01247-mib2s",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01247-mib2s | title=Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes | aut"
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01879 | arxiv_id=2602.01879v1 | source_url=https://arxiv.org/pdf/2602.01879v1 | title=Speaking Witho"
+  },
+  {
+   "pid": "arxiv-2602.06460",
+   "key": "t:emgtospeechwithfewerchannels",
+   "title": "EMG-to-Speech with Fewer Channels",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.06460 | paper_version=arXiv 2602.06460v1; 5 pages | title=EMG-to-Speech with Fewer Channels | author"
+  },
+  {
+   "pid": "arxiv-2603.02847",
+   "key": "t:silentwearanultralowpowerwearablesystemforemgbasedsilentspeechrecognition",
+   "title": "SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.02847 | arxiv_id=2603.02847v2 | source_url=https://arxiv.org/pdf/2603.02847v2 | title=SilentWear: an"
+  },
+  {
+   "pid": "arxiv-2604.16441-iphoneme",
+   "key": "t:iphonemebraintotextcommunicationforalsusingconformerxldecoding",
+   "title": "iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.16441-iphoneme | title=iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding | au"
+  },
+  {
+   "pid": "arxiv-2604.18920",
+   "key": "t:comparisonofsemgencodingaccuracyacrossspeechmodesusingarticulatoryandphonemefeat",
+   "title": "Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.18920 | title=Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phonem"
+  },
+  {
+   "pid": "arxiv-2606.07435-lipgap",
+   "key": "t:thelipreadinggapdovsrmodelsperceivevisualspeechlikehumanlipreaders",
+   "title": "The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2606.07435-lipgap | title=The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?"
+  },
+  {
+   "pid": "arxiv-2606.09667",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2606.09667 | paper_version=2606.09667v1 | source_url=https://arxiv.org/pdf/2606.09667v1 | title=Cross-Mod"
+  },
+  {
+   "pid": "arxiv-2608.27048",
+   "key": "t:softactiveemginterfaceformachinelearningenabledsilentspeechrecognition",
+   "title": "Soft Active EMG Interface for Machine Learning-Enabled Silent Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.27048 | paper_version=2608.27048v1 | source_url=https://arxiv.org/pdf/2608.27048v1 | title=Soft Acti"
+  },
+  {
+   "pid": "arxiv-2609.21288",
+   "key": "t:multisubjectpretrainingenablesshortcalibrationpersonalizationforclosedcorpussurf",
+   "title": "Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.21288 | paper_version=arXiv:2609.21288v1 [cs.LG], 18 Sep 2026, 20-page PDF | title=Multi-Subject Pre"
+  },
+  {
+   "pid": "arxiv-2609.21436",
+   "key": "t:aessianaroundearsilentspeechinterfaceforcrossdayonlinereusewithouttestdaycalibra",
+   "title": "AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.21436 | paper_version=arXiv 2609.21436v1 (preprint PDF, 26 pages, retrieved 2026-09-29) | title=AESS"
+  },
+  {
+   "pid": "arxiv-2609.28988",
+   "key": "t:personalizedkoreanlipreadingasvisualspeechrecognitiontransfercensusandadaptation",
+   "title": "Personalized Korean Lipreading as Visual Speech Recognition: Transfer, Census and Adaptation on OLKAVS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.28988 | paper_version=arXiv 2609.28988v1; five-page PDF dated 24 Sep 2026 | title=Personalized Korea"
+  },
+  {
+   "pid": "arxiv-2609.36687-myocodec",
+   "key": "t:myocodecastreamingneuralcodecforelectromyography",
+   "title": "MYOCODEC: A Streaming Neural Codec for Electromyography",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MYOCODEC: A Streaming Neural Codec for Electromyography | authors=Jihwan Lee, Kleanthis Avramidis, Junhyeok Lee, T"
+  },
+  {
+   "pid": "arxiv-2609.36736",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.36736 | doi=10.48550/arxiv.2609.36736 | title=From Neurons to Conversation: Speech Brain-Computer In"
+  },
+  {
+   "pid": "cvf-hong23-avrelscore",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-hong23-avrelscore | title=Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Mo"
+  },
+  {
+   "pid": "cvf-kim23-lowresource-lipread",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-kim23-lowresource-lipread | title=Lip Reading for Low-resource Languages by Learning and Combining General"
+  },
+  {
+   "pid": "cvf-prajwal22-subword-vtp",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-prajwal22-subword-vtp | title=Sub-word Level Lip Reading With Visual Attention | authors=K. R. Prajwal, T."
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-ren21-master-kd | title=Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading"
+  },
+  {
+   "pid": "cvf23-choi_diffv2s",
+   "key": "t:diffv2sdiffusionbasedvideotospeechsynthesiswithvisionguidedspeakerembedding",
+   "title": "DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf23-choi_diffv2s | title=DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedd"
+  },
+  {
+   "pid": "cvf23-djilali_lip2vec",
+   "key": "t:lip2vecefficientandrobustvisualspeechrecognitionvialatenttolatentvisualtoaudiore",
+   "title": "Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visual to Audio Representation Mapping",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf23-djilali_lip2vec | title=Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visu"
+  },
+  {
+   "pid": "doi-10.1002-brb3.2869",
+   "key": "t:lipreadinganaturalisticnarrativeinafemalepopulationneuralcharacteristicssharedwi",
+   "title": "Lipreading a naturalistic narrative in a female population: Neural characteristics shared with listening and reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1002-brb3.2869 | doi=10.1002/brb3.2869 | title=Lipreading a naturalistic narrative in a female populatio"
+  },
+  {
+   "pid": "doi-10.1002-hbm.24852",
+   "key": "t:dorsalmovementandventralformregionsarefunctionallyconnectedduringvisualspeechper",
+   "title": "Dorsal-movement and ventral-form regions are functionally connected during visual-speech perception",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1002-hbm.24852 | title=Dorsal-movement and ventral-form regions are functionally connected during visual"
+  },
+  {
+   "pid": "doi-10.1007-s11571-023-09945-z",
+   "key": "t:dynamiccausalmodelinganalysisrevealsthemodulationofmotorcortexandintegrationinsu",
+   "title": "Dynamic causal modeling analysis reveals the modulation of motor cortex and integration in superior temporal gyrus during multisensory speech perception",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1007-s11571-023-09945-z | title=Dynamic causal modeling analysis reveals the modulation of motor cortex"
+  },
+  {
+   "pid": "doi-10.1007-s13311-022-01190-2",
+   "key": "t:braincomputerinterfaceapplicationstospeechdecodingandsynthesistoaugmentcommunica",
+   "title": "Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1007-s13311-022-01190-2 | title=Brain-Computer Interface: Applications to Speech Decoding and Synthesis"
+  },
+  {
+   "pid": "doi-10.1016-j.bspc.2015.02.009",
+   "key": "t:currentstateofdigitalsignalprocessinginmyoelectricinterfacesandrelatedapplicatio",
+   "title": "Current state of digital signal processing in myoelectric interfaces and related applications",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.bspc.2015.02.009 | doi=10.1016/j.bspc.2015.02.009 | title=Current state of digital signal process"
+  },
+  {
+   "pid": "doi-10.1016-j.celrep.2025.116241",
+   "key": "t:movingbeyondthemotorcortexabrainwideevaluationoftargetlocationsforintracranialsp",
+   "title": "Moving beyond the motor cortex: A brain-wide evaluation of target locations for intracranial speech neuroprostheses",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.celrep.2025.116241 | doi=10.1016/j.celrep.2025.116241 | title=Moving beyond the motor cortex: A b"
+  },
+  {
+   "pid": "doi-10.1016-j.jvoice.2024.10.024",
+   "key": "p:doi-10.1016-j.jvoice.2024.10.024",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "extra.Task.target=Perceptual evaluation of sEMG-driven prosody for SSI: listeners rate naturalness of synthesized senten"
+  },
+  {
+   "pid": "doi-10.1016-j.neuropsychologia.2021.108012",
+   "key": "t:earlyauditorycorticalprocessingpredictsauditoryspeechinnoiseidentificationandlip",
+   "title": "Early auditory cortical processing predicts auditory speech in noise identification and lipreading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.neuropsychologia.2021.108012 | title=Early auditory cortical processing predicts auditory speech"
+  },
+  {
+   "pid": "doi-10.1016-j.nicl.2018.09.019",
+   "key": "t:recognizingvisualspeechreducedresponsesinvisualmovementregionsbutnototherspeechr",
+   "title": "Recognizing visual speech: Reduced responses in visual-movement regions, but not other speech regions in autism",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.nicl.2018.09.019 | title=Recognizing visual speech: Reduced responses in visual-movement regions,"
+  },
+  {
+   "pid": "doi-10.1016-j.ridd.2015.10.004",
+   "key": "t:therelativecontributionsofspeechreadingandvocabularytodeafandhearingchildrensrea",
+   "title": "The relative contributions of speechreading and vocabulary to deaf and hearing children's reading ability",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.ridd.2015.10.004 | title=The relative contributions of speechreading and vocabulary to deaf and h"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2010.09.003",
+   "key": "t:theregoestheneighborhoodlipreadingandthestructureofthementallexicon",
+   "title": "There Goes the Neighborhood: Lipreading and the Structure of the Mental Lexicon",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.specom.2010.09.003 | title=There Goes the Neighborhood: Lipreading and the Structure of the Menta"
+  },
+  {
+   "pid": "doi-10.1038-s41467-022-32231-1",
+   "key": "t:pushingthelimitsofremoterfsensingbyreadinglipsunderthefacemask",
+   "title": "Pushing the limits of remote RF sensing by reading lips under the face mask",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41467-022-32231-1 | title=Pushing the limits of remote RF sensing by reading lips under the face m"
+  },
+  {
+   "pid": "doi-10.1038-s41467-026-71284-4",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41467-026-71284-4 | title=Encoding of speech modes and loudness in ventral precentral gyrus | auth"
+  },
+  {
+   "pid": "doi-10.1038-s41467-026-74035-7",
+   "key": "t:aninsensorcommunicationelectronictextileforimperceptibleandultrarobustsilentspee",
+   "title": "An in-sensor communication electronic textile for imperceptible and ultrarobust silent speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41467-026-74035-7 | title=An in-sensor communication electronic textile for imperceptible and ultr"
+  },
+  {
+   "pid": "doi-10.1038-s41593-023-01304-9",
+   "key": "t:semanticreconstructionofcontinuouslanguagefromnoninvasivebrainrecordings",
+   "title": "Semantic reconstruction of continuous language from non-invasive brain recordings",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41593-023-01304-9 | title=Semantic reconstruction of continuous language from non-invasive brain r"
+  },
+  {
+   "pid": "doi-10.1038-s41598-025-25657-2",
+   "key": "t:facemasksreducefacetrustworthinessperceivedbydeafindividuals",
+   "title": "Facemasks reduce face trustworthiness perceived by deaf individuals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-025-25657-2 | title=Facemasks reduce face trustworthiness perceived by deaf individuals | au"
+  },
+  {
+   "pid": "doi-10.1038-s42003-025-07466-5",
+   "key": "t:neuralrepresentationofsensorimotorfeaturesinlanguagemotorareasduringauditoryandv",
+   "title": "Neural representation of sensorimotor features in language-motor areas during auditory and visual perception",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42003-025-07466-5 | title=Neural representation of sensorimotor features in language-motor areas d"
+  },
+  {
+   "pid": "doi-10.1044-1092-4388-2009-08-0137",
+   "key": "t:lipreadingprocessingspeedandworkingmemoryinyoungerandolderadults",
+   "title": "Lipreading, Processing Speed, and Working Memory in Younger and Older Adults",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1044-1092-4388-2009-08-0137 | title=Lipreading, Processing Speed, and Working Memory in Younger and Olde"
+  },
+  {
+   "pid": "doi-10.1044-1092-4388-2012-12-0039",
+   "key": "t:speechreadingdevelopmentindeafandhearingchildrenintroducinganewtestofchildspeech",
+   "title": "Speechreading Development in Deaf and Hearing Children: Introducing a New Test of Child Speechreading",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1044-1092-4388-2012-12-0039 | title=Speechreading Development in Deaf and Hearing Children: Introducing"
+  },
+  {
+   "pid": "doi-10.1044-2015_jslhr-h-14-0360",
+   "key": "t:effectsofcontexttypeonlipreadingandlisteningperformanceandimplicationsforsentenc",
+   "title": "Effects of Context Type on Lipreading and Listening Performance and Implications for Sentence Processing",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1044-2015_jslhr-h-14-0360 | title=Effects of Context Type on Lipreading and Listening Performance and Im"
+  },
+  {
+   "pid": "doi-10.1044-2021_aja-21-00034",
+   "key": "t:duringlipreadingtrainingwithsentencestimulifeedbackcontrolslearningandgeneraliza",
+   "title": "During Lipreading Training With Sentence Stimuli, Feedback Controls Learning and Generalization to Audiovisual Speech in Noise",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1044-2021_aja-21-00034 | title=During Lipreading Training With Sentence Stimuli, Feedback Controls Learn"
+  },
+  {
+   "pid": "doi-10.1044-2021_aja-21-00112",
+   "key": "t:lipreadingareviewofitscontinuingimportanceforspeechrecognitionwithanacquiredhear",
+   "title": "Lipreading: A Review of Its Continuing Importance for Speech Recognition With an Acquired Hearing Loss and Possibilities for Effective Training",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1044-2021_aja-21-00112 | title=Lipreading: A Review of Its Continuing Importance for Speech Recognition"
+  },
+  {
+   "pid": "doi-10.1044-2021_jslhr-20-00257",
+   "key": "p:doi-10.1044-2021_jslhr-20-00257",
+   "title": null,
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=J Speech Lang Hear Res 64(6) (2021) | needs_manual_check=per-speaker WRR/PSD table cells (Table 4), Table 5 per-sp"
+  },
+  {
+   "pid": "doi-10.1097-aud.0000000000001091",
+   "key": "t:teachingchildrenwithhearinglosstorecognizespeechgainsmadewithcomputerbasedaudito",
+   "title": "Teaching Children with Hearing Loss to Recognize Speech: Gains Made with Computer-Based Auditory and/or Speechreading Training",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1097-aud.0000000000001091 | title=Teaching Children with Hearing Loss to Recognize Speech: Gains Made wi"
+  },
+  {
+   "pid": "doi-10.1101-2022.08.04.502829",
+   "key": "t:thenestedhierarchyofovertmouthedandimaginedspeechactivityevidentinintracranialre",
+   "title": "The Nested Hierarchy of Overt, Mouthed, and Imagined Speech Activity Evident in Intracranial Recordings",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2022.08.04.502829 | doi=10.1101/2022.08.04.502829 | title=The Nested Hierarchy of Overt, Mouthed, a"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.21.608927",
+   "key": "t:speechsynthesisfromelectrocorticogramduringimaginedspeechusingatransformerbasedd",
+   "title": "Speech Synthesis from Electrocorticogram During Imagined Speech Using a Transformer-Based Decoder and Pretrained Vocoder",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.08.21.608927 | doi=10.1101/2024.08.21.608927 | title=Speech Synthesis from Electrocorticogram"
+  },
+  {
+   "pid": "doi-10.1101-2024.10.04.616375",
+   "key": "t:representationofverbalthoughtinmotorcortexandimplicationsforspeechneuroprosthese",
+   "title": "Representation of verbal thought in motor cortex and implications for speech neuroprostheses",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.10.04.616375 | doi=10.1101/2024.10.04.616375 | title=Representation of verbal thought in motor"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases"
+  },
+  {
+   "pid": "doi-10.1109-access.2024.3356597",
+   "key": "p:doi-10.1109-access.2024.3356597",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=healthy_volunteers | task_family=isolated_word_recognition"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2738568",
+   "key": "t:emgtospeechdirectgenerationofspeechfromfacialelectromyographicsignals",
+   "title": "EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals | authors=M. Janke; L. Diener | v"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "key": "t:silentspeechrecognitionasanalternativecommunicationdeviceforpersonswithlaryngect",
+   "title": "Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy | authors=Geoffrey"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2023.3266299",
+   "key": "p:doi-10.1109-tnsre.2023.3266299",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=healthy_volunteers | task_family=sentence_recognition | int"
+  },
+  {
+   "pid": "doi-10.1111-desc.13124",
+   "key": "t:speechreadinginhearingchildrencanbeimprovedbytraining",
+   "title": "Speechreading in hearing children can be improved by training",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1111-desc.13124 | doi=10.1111/desc.13124 | title=Speechreading in hearing children can be improved by tr"
+  },
+  {
+   "pid": "doi-10.1111-lang.12281",
+   "key": "t:responseerrorsinfemalesandmalessentencelipreadingnecessitatestructurallydifferen",
+   "title": "Response Errors in Females' and Males' Sentence Lipreading Necessitate Structurally Different Models for Predicting Lipreading Accuracy",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1111-lang.12281 | title=Response Errors in Females' and Males' Sentence Lipreading Necessitate Structura"
+  },
+  {
+   "pid": "doi-10.1126-sciadv.ado9576",
+   "key": "t:adataefficientandeasytouseliplanguageinterfacebasedonwearablemotioncaptureandspe",
+   "title": "A data-efficient and easy-to-use lip language interface based on wearable motion capture and speech movement reconstruction",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1126-sciadv.ado9576 | title=A data-efficient and easy-to-use lip language interface based on wearable mo"
+  },
+  {
+   "pid": "doi-10.1162-imag.a.53",
+   "key": "t:seeingspeechneuralmechanismsofcuedspeechperceptioninprelinguallydeafandhearingus",
+   "title": "Seeing speech: Neural mechanisms of cued speech perception in prelingually deaf and hearing users",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1162-imag.a.53 | title=Seeing speech: Neural mechanisms of cued speech perception in prelingually deaf a"
+  },
+  {
+   "pid": "doi-10.1177-00238309241258162",
+   "key": "t:audiovisualperceptionoflexicalstressbeatgesturesandarticulatorycues",
+   "title": "Audiovisual Perception of Lexical Stress: Beat Gestures and Articulatory Cues",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1177-00238309241258162 | title=Audiovisual Perception of Lexical Stress: Beat Gestures and Articulatory"
+  },
+  {
+   "pid": "doi-10.1186-s12984-025-01689-7",
+   "key": "t:dontputwordsinmymouthspeechperceptioncanfalselyactivateabraincomputerinterface",
+   "title": "Don't put words in my mouth: speech perception can falsely activate a brain-computer interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1186-s12984-025-01689-7 | title=Don't put words in my mouth: speech perception can falsely activate a br"
+  },
+  {
+   "pid": "doi-10.1186-s13636-025-00403-8",
+   "key": "t:silentspeechrecognitionusingvisualcascadingfusionoftonguelipmovementsbasedonpret",
+   "title": "Silent speech recognition using visual cascading fusion of tongue-lip movements based on pre-trained and fine-tuned model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1186-s13636-025-00403-8 | doi=10.1186/s13636-025-00403-8 | title=Silent speech recognition using visual"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0166872",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1371-journal.pone.0166872 | title=Spatio-Temporal Progression of Cortical Activity Related to Continuous"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0304150",
+   "key": "t:visualscanningpatternsofatalkingfacewhenevaluatingphoneticinformationinanativean",
+   "title": "Visual scanning patterns of a talking face when evaluating phonetic information in a native and non-native language",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1371-journal.pone.0304150 | title=Visual scanning patterns of a talking face when evaluating phonetic in"
+  },
+  {
+   "pid": "doi-10.14483-udistrital.jour.tecnura.2013.3.a12",
+   "key": "t:desarrollodeinterfacesparaladeteccindelhablasubvocal",
+   "title": "Desarrollo de interfaces para la detección del habla sub-vocal",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.14483-udistrital.jour.tecnura.2013.3.a12 | doi=10.14483/udistrital.jour.tecnura.2013.3.a12 | title=Desar"
+  },
+  {
+   "pid": "doi-10.1523-eneuro.0431-24.2025",
+   "key": "t:prestimulusperiodicandaperiodicneuralactivityshapesmcgurkperception",
+   "title": "Prestimulus Periodic and Aperiodic Neural Activity Shapes McGurk Perception",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1523-eneuro.0431-24.2025 | title=Prestimulus Periodic and Aperiodic Neural Activity Shapes McGurk Percep"
+  },
+  {
+   "pid": "doi-10.1523-jneurosci.0767-24.2024",
+   "key": "t:thecontributionofmotionsensitivebrainareastovisualspeechrecognition",
+   "title": "The Contribution of Motion-Sensitive Brain Areas to Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1523-jneurosci.0767-24.2024 | title=The Contribution of Motion-Sensitive Brain Areas to Visual Speech Re"
+  },
+  {
+   "pid": "doi-10.1523-jneurosci.1950-09.2010",
+   "key": "t:lipreadingandcovertspeechproductionsimilarlymodulatehumanauditorycortexresponses",
+   "title": "Lipreading and Covert Speech Production Similarly Modulate Human Auditory-Cortex Responses to Pure Tones",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1523-jneurosci.1950-09.2010 | title=Lipreading and Covert Speech Production Similarly Modulate Human Aud"
+  },
+  {
+   "pid": "doi-10.1587-transinf.e93.d.1909",
+   "key": "t:evaluationofextremelysmallsoundsourcesignalsusedinspeakingaidsystemwithstatistic",
+   "title": "Evaluation of extremely small sound source signals used in speaking-aid system with statistical voice conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1587-transinf.e93.d.1909 | doi=10.1587/transinf.e93.d.1909 | title=Evaluation of extremely small sound s"
+  },
+  {
+   "pid": "doi-10.1590-2317-1782-e20250046pt",
+   "key": "t:lipreadinginspeechlanguagehearingforensicanalysisperspectivesandchallenges",
+   "title": "Lipreading in speech-language-hearing forensic analysis: perspectives and challenges",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1590-2317-1782-e20250046pt | title=Lipreading in speech-language-hearing forensic analysis: perspectives"
+  },
+  {
+   "pid": "doi-10.18653-v1-2021.acl-short.23",
+   "key": "t:animprovedmodelforvoicingsilentspeech",
+   "title": "An Improved Model for Voicing Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Improved Model for Voicing Silent Speech | intended_use_cases=speech_restoration, private_communication, noisy_"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-3927907-v1",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-3927907-v1 | title=Feasibility of decoding covert speech in ECoG with a Transformer traine"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-7777281-v1",
+   "key": "t:softactiveemginterfaceformachinelearningenabledsilentspeechrecognition",
+   "title": "Soft Active EMG Interface for Machine Learning-Enabled Silent Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-7777281-v1 | doi=10.21203/rs.3.rs-7777281/v1 | title=Soft Active EMG Interface for Machine"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2023-1966",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video | intended_use"
+  },
+  {
+   "pid": "doi-10.21437-odyssey.2026-19",
+   "key": "t:adaptivephonewiseweightedlossforsilentspeechrestorationincontinuousspanish",
+   "title": "Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish | needs_manual_check=per-spe"
+  },
+  {
+   "pid": "doi-10.3115-v1-w14-1906",
+   "key": "t:preliminarytestofarealtimeinteractivesilentspeechinterfacebasedonelectromagnetic",
+   "title": "Preliminary Test of a Real-Time, Interactive Silent Speech Interface Based on Electromagnetic Articulograph",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Preliminary Test of a Real-Time, Interactive Silent Speech Interface Based on Electromagnetic Articulograph | inte"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-d4jtu",
+   "key": "t:assessingvisualspeechcommunicationabilitiescrosssituationalconsistencyinlipreada",
+   "title": "Assessing Visual Speech Communication Abilities: Cross-situational Consistency in Lipreadability",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.31234-osf.io-d4jtu | title=Assessing Visual Speech Communication Abilities: Cross-situational Consistenc"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-ev6da_v1",
+   "key": "t:trackingeyegazeduringcuedspeechperception",
+   "title": "Tracking eye gaze during cued speech perception",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.31234-osf.io-ev6da_v1 | title=Tracking eye gaze during cued speech perception | authors=Sarré, Cohen | v"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-fyxqa_v1",
+   "key": "t:auditoryandvisualspeechevokedactivationofthesuperiortemporalgyruscontralateralto",
+   "title": "Auditory- and visual-speech evoked activation of the superior temporal gyrus contralateral to the cochlear implant predicts speech understanding outcomes",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.31234-osf.io-fyxqa_v1 | title=Auditory- and visual-speech evoked activation of the superior temporal gyr"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2016.00679",
+   "key": "t:visualcorticalentrainmenttomotionandcategoricalspeechfeaturesduringsilentlipread",
+   "title": "Visual Cortical Entrainment to Motion and Categorical Speech Features during Silent Lipreading",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2016.00679 | title=Visual Cortical Entrainment to Motion and Categorical Speech Features duri"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2022.874199",
+   "key": "t:slowfiringsingleunitsareessentialforoptimaldecodingofsilentspeech",
+   "title": "Slow Firing Single Units Are Essential for Optimal Decoding of Silent Speech",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2022.874199 | title=Slow Firing Single Units Are Essential for Optimal Decoding of Silent Spe"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2025.1560558",
+   "key": "t:neuralspeechtrackinginavirtualacousticenvironmentaudiovisualbenefitforunscripted",
+   "title": "Neural speech tracking in a virtual acoustic environment: audio-visual benefit for unscripted continuous speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2025.1560558 | title=Neural speech tracking in a virtual acoustic environment: audio-visual b"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2026.1838064",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfromnoninvasivebrainsigna",
+   "title": "The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.3389/fnhum.2026.1838064 | title=The current status of foundation models in decoding inner speech from no"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2026.1816455",
+   "key": "t:distributedcorticosubcorticalnetworksenablerobustspeechstatedetectionfromsparsei",
+   "title": "Distributed cortico-subcortical networks enable robust speech state detection from sparse intracranial recordings",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.3389/fnins.2026.1816455 | title=Distributed cortico-subcortical networks enable robust speech state dete"
+  },
+  {
+   "pid": "doi-10.3389-fpsyg.2014.00416",
+   "key": "t:howisthemcgurkeffectmodulatedbycuedspeechindeafandhearingadults",
+   "title": "How is the McGurk effect modulated by Cued Speech in deaf and hearing adults?",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fpsyg.2014.00416 | title=How is the McGurk effect modulated by Cued Speech in deaf and hearing adul"
+  },
+  {
+   "pid": "doi-10.3389-fpsyg.2026.1856832",
+   "key": "t:innerspeechrelatedbrainareasmappedusinganovelrhymingtask",
+   "title": "Inner speech-related brain areas mapped using a novel rhyming task",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.3389/fpsyg.2026.1856832 | title=Inner speech-related brain areas mapped using a novel rhyming task | aut"
+  },
+  {
+   "pid": "doi-10.3390-e22121367",
+   "key": "t:visualspeechrecognitionwithlightweightpsychologicallymotivatedgaborfeatures",
+   "title": "Visual Speech Recognition with Lightweight Psychologically Motivated Gabor Features",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-e22121367 | title=Visual Speech Recognition with Lightweight Psychologically Motivated Gabor Featur"
+  },
+  {
+   "pid": "doi-10.3390-s16111812",
+   "key": "t:towardscontactlesssilentspeechrecognitionbasedondetectionofactiveandvisibleartic",
+   "title": "Towards Contactless Silent Speech Recognition Based on Detection of Active and Visible Articulators Using IR-UWB Radar",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s16111812 | doi=10.3390/s16111812 | title=Towards Contactless Silent Speech Recognition Based on De"
+  },
+  {
+   "pid": "doi-10.3390-s21041399",
+   "key": "t:biosignalsensorsanddeeplearningbasedspeechrecognitionareview",
+   "title": "Biosignal Sensors and Deep Learning-Based Speech Recognition: A Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s21041399 | doi=10.3390/s21041399 | title=Biosignal Sensors and Deep Learning-Based Speech Recognit"
+  },
+  {
+   "pid": "doi-10.3390-s23041971",
+   "key": "t:futurespeechinterfaceswithsensorsandmachineintelligence",
+   "title": "Future Speech Interfaces with Sensors and Machine Intelligence",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s23041971 | title=Future Speech Interfaces with Sensors and Machine Intelligence | authors=Gros, Mi"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s23125575 | doi=10.3390/s23125575 | title=Machine-Learning Methods for Speech and Handwriting Detec"
+  },
+  {
+   "pid": "doi-10.3390-s24134125",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s24134125 | doi=10.3390/s24134125 | title=Wireless Mouth Motion Recognition System Based on EEG-EMG"
+  },
+  {
+   "pid": "doi-10.3390-s25196168",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s25196168 | doi=10.3390/s25196168 | title=Sentence-Level Silent Speech Recognition Using a Wearable"
+  },
+  {
+   "pid": "doi-10.3390-s26103212",
+   "key": "t:imaginedspeechbraincomputerinterfaceataskorientedreviewofneuraldecoding",
+   "title": "Imagined Speech Brain–Computer Interface: A Task-Oriented Review of Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s26103212 | title=Imagined Speech Brain–Computer Interface: A Task-Oriented Review of Neural Decodi"
+  },
+  {
+   "pid": "doi-10.3766-jaaa.21.3.4",
+   "key": "t:investigatingspeechreadinganddeafness",
+   "title": "Investigating Speechreading and Deafness",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3766-jaaa.21.3.4 | title=Investigating Speechreading and Deafness | venue=Journal of the American Academ"
+  },
+  {
+   "pid": "doi-10.5220-0002814100220031",
+   "key": "t:aspectralmappingmethodforemgbasedrecognitionofsilentspeech",
+   "title": "A Spectral Mapping Method for EMG-based Recognition of Silent Speech",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Spectral Mapping Method for EMG-based Recognition of Silent Speech | authors=Matthias Janke; Michael Wand; Tanja"
+  },
+  {
+   "pid": "doi-10.5220-0004252400890096",
+   "key": "p:doi-10.5220-0004252400890096",
+   "title": null,
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=BIOSIGNALS 2013, pp. 89-96 | needs_manual_check=per-session WER table cells, electrode placement figures, individu"
+  },
+  {
+   "pid": "doi-10.5772-60467",
+   "key": "t:silentspeechrecognitionbysurfaceelectromyography",
+   "title": "Silent Speech Recognition by Surface Electromyography",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.5772-60467 | doi=10.5772/60467 | title=Silent Speech Recognition by Surface Electromyography | authors=A"
+  },
+  {
+   "pid": "doi-10.63317-2b659u3p6oeh",
+   "key": "t:ssr7000asynchronizedcorpusofultrasoundtongueimagingforendtoendsilentspeechrecogn",
+   "title": "SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition | intended_us"
+  },
+  {
+   "pid": "doi-10.64898-2026.02.19.26346583",
+   "key": "t:restoringbraintotextcommunicationinapersonwithdysarthriafrompontinestrokeusingan",
+   "title": "Restoring brain-to-text communication in a person with dysarthria from pontine stroke using an intracortical brain-computer interface",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.64898/2026.02.19.26346583 | title=Restoring brain-to-text communication in a person with dysarthria from"
+  },
+  {
+   "pid": "doi-10.7302-4628",
+   "key": "t:themodulatoryeffectsofvisualspeechonauditoryspeechperception",
+   "title": "The Modulatory Effects of Visual Speech on Auditory Speech Perception",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.7302/4628 | title=The Modulatory Effects of Visual Speech on Auditory Speech Perception | authors=Karthi"
+  },
+  {
+   "pid": "doi-10.7507-1001-5515.202107018",
+   "key": "t:keytechnologyofbraincomputerinteractionbasedonspeechimagery",
+   "title": "[Key technology of brain-computer interaction based on speech imagery] ",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.7507-1001-5515.202107018 | doi=10.7507/1001-5515.202107018 | title=[Key technology of brain-computer int"
+  },
+  {
+   "pid": "iccv25-yuan-notonlyvision",
+   "key": "t:notonlyvisionevolvevisualspeechrecognitionviaperipheralinformation",
+   "title": "Not Only Vision: Evolve Visual Speech Recognition via Peripheral Information",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=iccv25-yuan-notonlyvision | title=Not Only Vision: Evolve Visual Speech Recognition via Peripheral Information"
+  },
+  {
+   "pid": "ijfmr-62938-lip-reading-ai",
+   "key": "t:aiforsilentspeechrecognitionlipreadingai",
+   "title": "AI for Silent Speech Recognition ( Lip Reading AI )",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ijfmr-62938-lip-reading-ai | title=AI for Silent Speech Recognition ( Lip Reading AI ) | authors=Dhvaneeth P Ba"
+  },
+  {
+   "pid": "isca-afouras18b_deeplipread",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: A Comparison of Models and an Online Application",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-afouras18b_deeplipread | title=Deep Lip Reading: A Comparison of Models and an Online Application | author"
+  },
+  {
+   "pid": "isca-auerjr07-speechread",
+   "key": "t:furthermodelingoftheeffectsoflexicaluniquenessinspeechreadingexaminingindividual",
+   "title": "Further modeling of the effects of lexical uniqueness in speechreading: examining individual differences in segmental perception and testing predictions for sentence level performance",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-auerjr07-speechread | title=Further modeling of the effects of lexical uniqueness in speechreading: examin"
+  },
+  {
+   "pid": "isca-calabresi07-erps",
+   "key": "t:speechreadingincontextanerpstudy",
+   "title": "Speechreading in context: an ERP study",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-calabresi07-erps | title=Speechreading in context: an ERP study | authors=Marco Calabresi, Sharon M. Thoma"
+  },
+  {
+   "pid": "isca-calabresi07-n400ctx",
+   "key": "t:speechreadingincontextanerpstudy",
+   "title": "Speechreading in context: an ERP study",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-calabresi07-n400ctx | title=Speechreading in context: an ERP study | authors=Marco Calabresi, Sharon M. Th"
+  },
+  {
+   "pid": "isca-choi23_interspeech",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-choi23_interspeech | title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Jeongsoo Choi,"
+  },
+  {
+   "pid": "isca-ghosh26c_interspeech",
+   "key": "t:valignvisualforcedalignmentviaphonemetovideooptimalpathtraversal",
+   "title": "V-Align: Visual Forced Alignment via Phoneme to Video Optimal Path Traversal",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ghosh26c_interspeech | title=V-Align: Visual Forced Alignment via Phoneme to Video Optimal Path Traversal"
+  },
+  {
+   "pid": "isca-gonzalez17_pmassl",
+   "key": "t:evaluationofasilentspeechinterfacebasedonmagneticsensinganddeeplearningforaphone",
+   "title": "Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learning for a Phonetically Rich Vocabulary",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-gonzalez17_pmassl | title=Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learn"
+  },
+  {
+   "pid": "isca-hazan07-vistrain",
+   "key": "t:theimpactofvisualtrainingontheperceptionandproductionofanonnativephoneticcontras",
+   "title": "The impact of visual training on the perception and production of a non-native phonetic contrast",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-hazan07-vistrain | title=The impact of visual training on the perception and production of a non-native ph"
+  },
+  {
+   "pid": "isca-hueber09_cdms",
+   "key": "t:visuophoneticdecodingusingmultistreamandcontextdependentmodelsforanultrasoundbas",
+   "title": "Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultrasound-based Silent Speech Interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-hueber09_cdms | title=Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultra"
+  },
+  {
+   "pid": "isca-hueber09_mshmm",
+   "key": "t:visuophoneticdecodingusingmultistreamandcontextdependentmodelsforanultrasoundbas",
+   "title": "Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultrasound-based Silent Speech Interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-hueber09_mshmm | title=Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultr"
+  },
+  {
+   "pid": "isca-inoue25b_interspeech",
+   "key": "t:asilentspeechdecodingsystemfromeegandemgwithheterogenouselectrodeconfigurations",
+   "title": "A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-inoue25b_interspeech | title=A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode"
+  },
+  {
+   "pid": "isca-jain26_interspeech",
+   "key": "t:thelipreadinggapdovsrmodelsperceivevisualspeechlikehumanlipreaders",
+   "title": "The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-jain26_interspeech | title=The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?"
+  },
+  {
+   "pid": "isca-janke10",
+   "key": "p:isca-janke10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=KIT EMG silent speech recognizer (3-state bundled-phonetic-feature HMM, TD15+LDA front-end, phoneme-class sp"
+  },
+  {
+   "pid": "isca-janke10_interspeech",
+   "key": "t:impactoflackofacousticfeedbackinemgbasedsilentspeechrecognition",
+   "title": "Impact of Lack of Acoustic Feedback in EMG-based Silent Speech Recognition",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:janke10_interspeech | title=Impact of Lack of Acoustic Feedback in EMG-based Silent Speech Recognition | a"
+  },
+  {
+   "pid": "isca-lee26v_interspeech",
+   "key": "t:enhancingemgtospeechviasilentvoicedrepresentationalignment",
+   "title": "Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lee26v_interspeech | title=Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment | authors=Ji"
+  },
+  {
+   "pid": "isca-manabe03_eurospeech",
+   "key": "t:speechrecognitionusingemgmimespeechrecognition",
+   "title": "Speech Recognition Using EMG; Mime Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Recognition Using EMG; Mime Speech Recognition | venue=Proc. Eurospeech 2003 | intended_use_cases=assistive"
+  },
+  {
+   "pid": "isca-meltzner13_interspeech",
+   "key": "t:themutesilentspeechrecognitionsystem",
+   "title": "The MUTE Silent Speech Recognition System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The MUTE Silent Speech Recognition System | system_name=MUTE (Mouthed-speech Understanding and Transcription Engin"
+  },
+  {
+   "pid": "isca-nguyen25b_interspeech",
+   "key": "t:cocktailpartyaudiovisualspeechrecognition",
+   "title": "Cocktail-Party Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-nguyen25b_interspeech | title=Cocktail-Party Audio-Visual Speech Recognition | authors=Thai-Binh Nguyen, N"
+  },
+  {
+   "pid": "isca-ojala08_placeartic",
+   "key": "t:investigatingperceptionofplacesofarticulationinsignandspeech",
+   "title": "Investigating perception of places of articulation in sign and speech",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ojala08_placeartic | title=Investigating perception of places of articulation in sign and speech | authors"
+  },
+  {
+   "pid": "isca-pham25_interspeech",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-pham25_interspeech | title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decompo"
+  },
+  {
+   "pid": "isca-scheck25_interspeech",
+   "key": "t:diffmvetsdiffusionbasedmultivoiceelectromyographytospeechconversionusingspeakeri",
+   "title": "DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Training Targets",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Tra"
+  },
+  {
+   "pid": "isca-thangthai18_lipread",
+   "key": "t:buildinglargevocabularyspeakerindependentlipreadingsystems",
+   "title": "Building Large-vocabulary Speaker-independent Lipreading Systems",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-thangthai18_lipread | title=Building Large-vocabulary Speaker-independent Lipreading Systems | authors=Kwa"
+  },
+  {
+   "pid": "isca-toussaint26_interspeech",
+   "key": "t:emergenceofphoneticrepresentationsinemgbasedsilentspeechinterfaces",
+   "title": "Emergence of Phonetic Representations in EMG-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-toussaint26_interspeech | title=Emergence of Phonetic Representations in EMG-based Silent Speech Interface"
+  },
+  {
+   "pid": "isca-vroomen07-24h",
+   "key": "t:lipreadaftereffectsinauditoryspeechperceptionmeasuringaftereffectsafteratwentyfo",
+   "title": "Lipread aftereffects in auditory speech perception: measuring aftereffects after a twenty-four hours delay",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-vroomen07-24h | title=Lipread aftereffects in auditory speech perception: measuring aftereffects after a t"
+  },
+  {
+   "pid": "isca-walliczek06_interspeech",
+   "key": "t:subwordunitbasednonaudiblespeechrecognitionusingsurfaceelectromyography",
+   "title": "Sub-Word Unit based Non-Audible Speech Recognition using Surface Electromyography",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-walliczek06_interspeech | title=Sub-Word Unit based Non-Audible Speech Recognition using Surface Electromy"
+  },
+  {
+   "pid": "isca-wen26d_interspeech",
+   "key": "t:towardsrobustultrasoundbasedsilentspeechrecognitionlearningphysicsawareandcontex",
+   "title": "Towards Robust Ultrasound-based Silent Speech Recognition: Learning Physics-Aware and Context-Rich Representations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wen26d_interspeech | title=Towards Robust Ultrasound-based Silent Speech Recognition: Learning Physics-Awa"
+  },
+  {
+   "pid": "isca-yamamoto19_avsp",
+   "key": "t:thedevelopmentofeyegazepatternsduringaudiovisualperceptionofaffectiveandphonetic",
+   "title": "The development of eye gaze patterns during audiovisual perception of affective and phonetic information",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-yamamoto19_avsp | title=The development of eye gaze patterns during audiovisual perception of affective an"
+  },
+  {
+   "pid": "na-207793-remote-lipreading-training",
+   "key": "t:effectivenessofremotelipreadingtraininginadults",
+   "title": "Effectiveness of remote lipreading training in adults",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=na-207793-remote-lipreading-training | title=Effectiveness of remote lipreading training in adults | authors=Ma"
+  },
+  {
+   "pid": "oa-W2992647453",
+   "key": "t:acontinuoussilentspeechrecognitionsystemforalteregoasilentspeechinterface",
+   "title": "A Continuous Silent Speech Recognition System for AlterEgo, a Silent Speech Interface",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W2992647453 | title=A Continuous Silent Speech Recognition System for AlterEgo, a Silent Speech Interface |"
+  },
+  {
+   "pid": "osf-ncdtp_v1",
+   "key": "t:realtimelipreadingandspeechsynthesisusingctccnnbilstmnetworkswithflaskdeployment",
+   "title": "Real-Time Lip Reading and Speech Synthesis Using CTC-CNN-BiLSTM Networks with Flask Deployment",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=osf-ncdtp_v1 | title=Real-Time Lip Reading and Speech Synthesis Using CTC-CNN-BiLSTM Networks with Flask Deploy"
+  },
+  {
+   "pid": "pmc-10980250-avnet-lipread",
+   "key": "t:usingnetworksciencetoexamineaudiovisualspeechperceptionwithamultilayergraph",
+   "title": "Using network science to examine audio-visual speech perception with a multi-layer graph",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10980250-avnet-lipread | title=Using network science to examine audio-visual speech perception with a multi"
+  },
+  {
+   "pid": "pmc-11132507-facescan",
+   "key": "t:visualscanningpatternsofatalkingfacewhenevaluatingphoneticinformationinanativean",
+   "title": "Visual scanning patterns of a talking face when evaluating phonetic information in a native and non-native language",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11132507-facescan | title=Visual scanning patterns of a talking face when evaluating phonetic information i"
+  },
+  {
+   "pid": "pmc-11204283-lip-mocap",
+   "key": "t:adataefficientandeasytouseliplanguageinterfacebasedonwearablemotioncaptureandspe",
+   "title": "A data-efficient and easy-to-use lip language interface based on wearable motion capture and speech movement reconstruction",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11204283-lip-mocap | title=A data-efficient and easy-to-use lip language interface based on wearable motion"
+  },
+  {
+   "pid": "pmc-11204283-liplang-wearable",
+   "key": "t:adataefficientandeasytouseliplanguageinterfacebasedonwearablemotioncaptureandspe",
+   "title": "A data-efficient and easy-to-use lip language interface based on wearable motion capture and speech movement reconstruction",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A data-efficient and easy-to-use lip language interface based on wearable motion capture and speech movement recon"
+  },
+  {
+   "pid": "pmc-11244127-eeg-emg-mouth",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11244127-eeg-emg-mouth | title=Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe"
+  },
+  {
+   "pid": "pmc-11289175-mouthnorms",
+   "key": "t:mouthandfacialinformativenessnormsfor2276englishwords",
+   "title": "Mouth and facial informativeness norms for 2276 English words",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Mouth and facial informativeness norms for 2276 English words | venue=Behavior Research Methods | doi=10.3758/s134"
+  },
+  {
+   "pid": "pmc-11614889-rfid-smart-mask",
+   "key": "t:artificialintelligenceenabledsmartmaskforspeechrecognitionforfuturehearingdevice",
+   "title": "Artificial intelligence enabled smart mask for speech recognition for future hearing devices",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11614889-rfid-smart-mask | title=Artificial intelligence enabled smart mask for speech recognition for futu"
+  },
+  {
+   "pid": "pmc-11783984-phonological-store",
+   "key": "t:thephonologicalstoreofworkingmemoryacritiqueandanalternativeperceptualmotorappro",
+   "title": "The phonological store of working memory: A critique and an alternative, perceptual-motor, approach to verbal short-term memory",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11783984-phonological-store | title=The phonological store of working memory: A critique and an alternative"
+  },
+  {
+   "pid": "pmc-12006354-polish-lipreading-fmri",
+   "key": "t:neuralmechanismsoflipreadinginthepolishspeakingpopulationeffectsoflinguisticcomp",
+   "title": "Neural mechanisms of lipreading in the Polish-speaking population: effects of linguistic complexity and sex differences",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12006354-polish-lipreading-fmri | title=Neural mechanisms of lipreading in the Polish-speaking population:"
+  },
+  {
+   "pid": "pmc-12026362-invasive-bci-communication",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain–Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12026362-invasive-bci-communication | title=Invasive Brain–Computer Interface for Communication: A Scoping"
+  },
+  {
+   "pid": "pmc-12031478-emg-pzt-siltext",
+   "key": "t:awearablesilenttextinputsystemusingemgandpiezoelectricsensors",
+   "title": "A Wearable Silent Text Input System Using EMG and Piezoelectric Sensors",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12031478-emg-pzt-siltext | title=A Wearable Silent Text Input System Using EMG and Piezoelectric Sensors |"
+  },
+  {
+   "pid": "pmc-12196818-lipfinger",
+   "key": "t:unsupervisedclusteringandensemblelearningforclassifyingliparticulationinfingersp",
+   "title": "Unsupervised Clustering and Ensemble Learning for Classifying Lip Articulation in Fingerspelling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12196818-lipfinger | title=Unsupervised Clustering and Ensemble Learning for Classifying Lip Articulation i"
+  },
+  {
+   "pid": "pmc-12199548-phonrep",
+   "key": "t:phonologicalrepresentationsofauditoryandvisualspeechintheoccipitotemporalcortexa",
+   "title": "Phonological Representations of Auditory and Visual Speech in the Occipito-temporal Cortex and Beyond",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12199548-phonrep | title=Phonological Representations of Auditory and Visual Speech in the Occipito-tempora"
+  },
+  {
+   "pid": "pmc-12286133-lipreading-review",
+   "key": "t:lipreadingadvancesandunresolvedquestionsinakeycommunicationskill",
+   "title": "Lip-Reading: Advances and Unresolved Questions in a Key Communication Skill",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip-Reading: Advances and Unresolved Questions in a Key Communication Skill | authors=Battista M, Collesei F, Orza"
+  },
+  {
+   "pid": "pmc-12319768-cuedsp",
+   "key": "t:seeingspeechneuralmechanismsofcuedspeechperceptioninprelinguallydeafandhearingus",
+   "title": "Seeing speech: Neural mechanisms of cued speech perception in prelingually deaf and hearing users",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Seeing speech: Neural mechanisms of cued speech perception in prelingually deaf and hearing users | venue=Imaging"
+  },
+  {
+   "pid": "pmc-12412612-hsrm",
+   "key": "t:awearableaidrivenmaskwithhumiditysensingrespiratorymicrophonefornonvocalcommunic",
+   "title": "A Wearable AI-Driven Mask with Humidity-Sensing Respiratory Microphone for Non-Vocal Communication",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12412612-hsrm | title=A Wearable AI-Driven Mask with Humidity-Sensing Respiratory Microphone for Non-Vocal"
+  },
+  {
+   "pid": "pmc-12526642-emg-eeg-ssi",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and L"
+  },
+  {
+   "pid": "pmc-12526642-emgeeg-snn",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12526642-emgeeg-snn | title=Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System"
+  },
+  {
+   "pid": "pmc-12588286-mandarin-ecog",
+   "key": "t:realtimedecodingoffullspectrumchineseusingbraincomputerinterface",
+   "title": "Real-time decoding of full-spectrum Chinese using brain-computer interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12588286-mandarin-ecog | title=Real-time decoding of full-spectrum Chinese using brain-computer interface |"
+  },
+  {
+   "pid": "pmc-12610093-stcca",
+   "key": "t:stccaspatialtemporalcoupledcrossattentionthroughhierarchicalnetworkforeegbasedsp",
+   "title": "STCCA: Spatial–Temporal Coupled Cross-Attention Through Hierarchical Network for EEG-Based Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12610093-stcca | title=STCCA: Spatial–Temporal Coupled Cross-Attention Through Hierarchical Network for EEG"
+  },
+  {
+   "pid": "pmc-12686446-mandataset",
+   "key": "t:anopendatasetofmultidimensionalsignalsbasedondifferentspeechpatternsinpragmaticm",
+   "title": "An open dataset of multidimensional signals based on different speech patterns in pragmatic Mandarin",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An open dataset of multidimensional signals based on different speech patterns in pragmatic Mandarin | venue=Scien"
+  },
+  {
+   "pid": "pmc-12686446-mdataset",
+   "key": "t:anopendatasetofmultidimensionalsignalsbasedondifferentspeechpatternsinpragmaticm",
+   "title": "An open dataset of multidimensional signals based on different speech patterns in pragmatic Mandarin",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12686446-mdataset | title=An open dataset of multidimensional signals based on different speech patterns in"
+  },
+  {
+   "pid": "pmc-12686446-mdspeech",
+   "key": "t:anopendatasetofmultidimensionalsignalsbasedondifferentspeechpatternsinpragmaticm",
+   "title": "An open dataset of multidimensional signals based on different speech patterns in pragmatic Mandarin",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An open dataset of multidimensional signals based on different speech patterns in pragmatic Mandarin | authors=Zha"
+  },
+  {
+   "pid": "pmc-12704605-forensic-lip",
+   "key": "t:lipreadinginspeechlanguagehearingforensicanalysisperspectivesandchallenges",
+   "title": "Lipreading in speech-language-hearing forensic analysis: perspectives and challenges",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lipreading in speech-language-hearing forensic analysis: perspectives and challenges | authors=Vieira RC, Souza LT"
+  },
+  {
+   "pid": "pmc-12808263-3m-cpseed",
+   "key": "t:3mcpseedaneegbaseddatasetforchinesepinyinproductioninovertmouthedandimaginedspee",
+   "title": "3M-CPSEED, An EEG-based Dataset for Chinese Pinyin Production in Overt, Mouthed, and Imagined Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12808263-3m-cpseed | title=3M-CPSEED, An EEG-based Dataset for Chinese Pinyin Production in Overt, Mouthed,"
+  },
+  {
+   "pid": "pmc-12808263-3mcpseed",
+   "key": "t:3mcpseedaneegbaseddatasetforchinesepinyinproductioninovertmouthedandimaginedspee",
+   "title": "3M-CPSEED, An EEG-based Dataset for Chinese Pinyin Production in Overt, Mouthed, and Imagined Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=3M-CPSEED, An EEG-based Dataset for Chinese Pinyin Production in Overt, Mouthed, and Imagined Speech | authors=Ma"
+  },
+  {
+   "pid": "pmc-12816716-intelligent-throat",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12816716-intelligent-throat | title=Wearable intelligent throat enables natural speech in stroke patients w"
+  },
+  {
+   "pid": "pmc-12860178-lrapp",
+   "key": "t:utilityofanovelmobilelipreadingapplicationforpatientsaftertotallaryngectomy",
+   "title": "Utility of a Novel Mobile Lip-Reading Application for Patients After Total Laryngectomy",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Utility of a Novel Mobile Lip-Reading Application for Patients After Total Laryngectomy | venue=Otolaryngology-Hea"
+  },
+  {
+   "pid": "pmc-12860178-sravi",
+   "key": "t:utilityofanovelmobilelipreadingapplicationforpatientsaftertotallaryngectomy",
+   "title": "Utility of a Novel Mobile Lip-Reading Application for Patients After Total Laryngectomy",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12860178-sravi | title=Utility of a Novel Mobile Lip-Reading Application for Patients After Total Laryngect"
+  },
+  {
+   "pid": "pmc-12956258-absling",
+   "key": "t:arepresentationofabstractlinguisticcategoriesinthevisualsystemunderliessuccessfu",
+   "title": "A representation of abstract linguistic categories in the visual system underlies successful lipreading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A representation of abstract linguistic categories in the visual system underlies successful lipreading | doi=10.1"
+  },
+  {
+   "pid": "pmc-12956258-lipreadviseme",
+   "key": "t:arepresentationofabstractlinguisticcategoriesinthevisualsystemunderliessuccessfu",
+   "title": "A representation of abstract linguistic categories in the visual system underlies successful lipreading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12956258-lipreadviseme | title=A representation of abstract linguistic categories in the visual system unde"
+  },
+  {
+   "pid": "pmc-13006734-cvos-ssi",
+   "key": "t:softmultiaxialstrainmappinginterfacewithaidrivendecodingforsilentspeechinnoise",
+   "title": "Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speech in Noise",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13006734-cvos-ssi | title=Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speec"
+  },
+  {
+   "pid": "pmc-13260914-cued-speech-gaze",
+   "key": "t:gazedynamicsofcuedspeechperception",
+   "title": "Gaze dynamics of cued speech perception",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13260914-cued-speech-gaze | title=Gaze dynamics of cued speech perception | authors=A. Sarré, L. Cohen | ve"
+  },
+  {
+   "pid": "pmc-13270037-pcgmodes",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Encoding of speech modes and loudness in ventral precentral gyrus | venue=Nature Communications | doi=10.1038/s414"
+  },
+  {
+   "pid": "pmc-13270037-vpcg-loudness",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13270037-vpcg-loudness | title=Encoding of speech modes and loudness in ventral precentral gyrus | authors="
+  },
+  {
+   "pid": "pmc-13270037-vpcgloud",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13270037-vpcgloud | title=Encoding of speech modes and loudness in ventral precentral gyrus | authors=Aparn"
+  },
+  {
+   "pid": "pmc-13375540-ltbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain–computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13375540-ltbci | title=Long-term independent use of an intracortical brain–computer interface for speech an"
+  },
+  {
+   "pid": "pmc-13375540-ltc-speechbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain-computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term independent use of an intracortical brain-computer interface for speech and cursor control | authors=Car"
+  },
+  {
+   "pid": "pmc-13383455-b2s",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13383455-b2s | title=Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review"
+  },
+  {
+   "pid": "pmc-13396449-etextile",
+   "key": "t:aninsensorcommunicationelectronictextileforimperceptibleandultrarobustsilentspee",
+   "title": "An in-sensor communication electronic textile for imperceptible and ultrarobust silent speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13396449-etextile | title=An in-sensor communication electronic textile for imperceptible and ultrarobust s"
+  },
+  {
+   "pid": "pmc-13527132-urdulr",
+   "key": "t:lipreadingsystemsforurdualphabetsindiverseenvironments",
+   "title": "Lip reading systems for Urdu alphabets in diverse environments",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13527132-urdulr | title=Lip reading systems for Urdu alphabets in diverse environments | authors=Urdu lipre"
+  },
+  {
+   "pid": "pmc-13537912-laryngsemg",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study | authors=UC D"
+  },
+  {
+   "pid": "pmc-13537912-larysemg",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-larysemg | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyog"
+  },
+  {
+   "pid": "pmc-13537912-semg_laryngectomy",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semg_laryngectomy | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface El"
+  },
+  {
+   "pid": "pmc-13578806-covertsyll",
+   "key": "t:temporallystructuredmotorandauditoryrepresentationsincovertsyllableproduction",
+   "title": "Temporally structured motor and auditory representations in covert syllable production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13578806-covertsyll | title=Temporally structured motor and auditory representations in covert syllable pro"
+  },
+  {
+   "pid": "pmc-13597393-rhyme",
+   "key": "t:innerspeechrelatedbrainareasmappedusinganovelrhymingtask",
+   "title": "Inner speech-related brain areas mapped using a novel rhyming task",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13597393-rhyme | title=Inner speech-related brain areas mapped using a novel rhyming task | authors=Lucila"
+  },
+  {
+   "pid": "pmc-13597393-rhymeis",
+   "key": "t:innerspeechrelatedbrainareasmappedusinganovelrhymingtask",
+   "title": "Inner speech-related brain areas mapped using a novel rhyming task",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Inner speech-related brain areas mapped using a novel rhyming task | venue=Frontiers in Psychology | doi=10.3389/f"
+  },
+  {
+   "pid": "pmc-3400256-kidentrain",
+   "key": "t:neuralentrainmenttorhythmicallypresentedauditoryvisualandaudiovisualspeechinchil",
+   "title": "Neural entrainment to rhythmically presented auditory, visual, and audio-visual speech in children",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3400256-kidentrain | title=Neural entrainment to rhythmically presented auditory, visual, and audio-visual"
+  },
+  {
+   "pid": "pmc-3837007-fmrispeechread",
+   "key": "t:effectivecerebralconnectivityduringsilentspeechreadingrevealedbyfunctionalmagnet",
+   "title": "Effective cerebral connectivity during silent speech reading revealed by functional magnetic resonance imaging",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3837007-fmrispeechread | title=Effective cerebral connectivity during silent speech reading revealed by fun"
+  },
+  {
+   "pid": "pmc-4000028-bilatsm",
+   "key": "t:sensorymotortransformationsforspeechoccurbilaterally",
+   "title": "Sensory-motor transformations for speech occur bilaterally",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4000028-bilatsm | title=Sensory-motor transformations for speech occur bilaterally | authors=G. B. Cogan, T"
+  },
+  {
+   "pid": "pmc-4248808-vispathways",
+   "key": "t:neuralpathwaysforvisualspeechperception",
+   "title": "Neural pathways for visual speech perception",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4248808-vispathways | title=Neural pathways for visual speech perception | authors=Lynne E. Bernstein, Eina"
+  },
+  {
+   "pid": "pmc-4499841-visemediscrim",
+   "key": "t:visualspeechdiscriminationandidentificationofnaturalandsyntheticconsonantstimuli",
+   "title": "Visual speech discrimination and identification of natural and synthetic consonant stimuli",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4499841-visemediscrim | title=Visual speech discrimination and identification of natural and synthetic cons"
+  },
+  {
+   "pid": "pmc-4538954-innerspeech",
+   "key": "t:innerspeechdevelopmentcognitivefunctionsphenomenologyandneurobiology",
+   "title": "Inner speech: development, cognitive functions, phenomenology, and neurobiology",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4538954-innerspeech | title=Inner speech: development, cognitive functions, phenomenology, and neurobiology"
+  },
+  {
+   "pid": "pmc-4920223-tocs",
+   "key": "t:speechreadingdevelopmentindeafandhearingchildrenintroducinganewtestofchildspeech",
+   "title": "Speechreading development in deaf and hearing children: introducing a new Test of Child Speechreading (ToCS)",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speechreading development in deaf and hearing children: introducing a new Test of Child Speechreading (ToCS) | ven"
+  },
+  {
+   "pid": "pmc-5119784-spatio",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5119784-spatio | title=Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Cov"
+  },
+  {
+   "pid": "pmc-5134471-iruwb",
+   "key": "t:towardscontactlesssilentspeechrecognitionbasedondetectionofactiveandvisibleartic",
+   "title": "Towards contactless silent speech recognition based on detection of active and visible articulators using IR-UWB radar",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5134471-iruwb | title=Towards contactless silent speech recognition based on detection of active and visibl"
+  },
+  {
+   "pid": "pmc-5225113-visentr",
+   "key": "t:visualcorticalentrainmenttomotionandcategoricalspeechfeaturesduringsilentlipread",
+   "title": "Visual Cortical Entrainment to Motion and Categorical Speech Features during Silent Lipreading",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5225113-visentr | title=Visual Cortical Entrainment to Motion and Categorical Speech Features during Silent"
+  },
+  {
+   "pid": "pmc-5318380-avtraining",
+   "key": "t:neuromodulatoryeffectsofauditorytrainingandhearingaiduseonaudiovisualspeechperce",
+   "title": "Neuromodulatory Effects of Auditory Training and Hearing Aid Use on Audiovisual Speech Perception in Elderly Individuals",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5318380-avtraining | title=Neuromodulatory Effects of Auditory Training and Hearing Aid Use on Audiovisual"
+  },
+  {
+   "pid": "pmc-5350153-vspitg",
+   "key": "t:activationandfunctionalconnectivityoftheleftinferiortemporalgyrusduringvisualspe",
+   "title": "Activation and Functional Connectivity of the Left Inferior Temporal Gyrus during Visual Speech Priming in Healthy Listeners and Listeners with Schizophrenia",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5350153-vspitg | title=Activation and Functional Connectivity of the Left Inferior Temporal Gyrus during Vi"
+  },
+  {
+   "pid": "pmc-6021529-innerspeechreview",
+   "key": "t:decodinginnerspeechusingelectrocorticographyprogressandchallengestowardaspeechpr",
+   "title": "Decoding Inner Speech Using Electrocorticography: Progress and Challenges Toward a Speech Prosthesis",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6021529-innerspeechreview | title=Decoding Inner Speech Using Electrocorticography: Progress and Challenges"
+  },
+  {
+   "pid": "pmc-6775133-smcartic",
+   "key": "t:classificationofarticulatormovementsandmovementdirectionfromsensorimotorcortexac",
+   "title": "Classification of Articulator Movements and Movement Direction from Sensorimotor Cortex Activity",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6775133-smcartic | title=Classification of Articulator Movements and Movement Direction from Sensorimotor C"
+  },
+  {
+   "pid": "pmc-6839416-csrtrain",
+   "key": "t:computerizedspeechreadingtrainingfordeafchildrenarandomizedcontrolledtrial",
+   "title": "Computerized Speechreading Training for Deaf Children: A Randomized Controlled Trial",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Computerized Speechreading Training for Deaf Children: A Randomized Controlled Trial | venue=Journal of Speech, La"
+  },
+  {
+   "pid": "pmc-7201334-articulators",
+   "key": "t:engagingthearticulatorsenhancesperceptionofconcordantvisiblespeechmovements",
+   "title": "Engaging the Articulators Enhances Perception of Concordant Visible Speech Movements",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Engaging the Articulators Enhances Perception of Concordant Visible Speech Movements | venue=Journal of Speech, La"
+  },
+  {
+   "pid": "pmc-7612880-srtraining",
+   "key": "t:speechreadinginhearingchildrencanbeimprovedbytraining",
+   "title": "Speechreading in hearing children can be improved by training",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speechreading in hearing children can be improved by training | venue=Developmental Science | doi=10.1111/desc.131"
+  },
+  {
+   "pid": "pmc-8747278-mcnnlip",
+   "key": "t:lipreadingarchitecturebasedonmultipleconvolutionalneuralnetworksforsentencelevel",
+   "title": "Lipreading Architecture Based on Multiple Convolutional Neural Networks for Sentence-Level Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lipreading Architecture Based on Multiple Convolutional Neural Networks for Sentence-Level Visual Speech Recogniti"
+  },
+  {
+   "pid": "pmc-8781659-fmcw-radar",
+   "key": "t:exploringsilentspeechinterfacesbasedonfrequencymodulatedcontinuouswaveradar",
+   "title": "Exploring Silent Speech Interfaces Based on Frequency-Modulated Continuous-Wave Radar",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8781659-fmcw-radar | title=Exploring Silent Speech Interfaces Based on Frequency-Modulated Continuous-Wave"
+  },
+  {
+   "pid": "pmc-8844234-thinkoutloud",
+   "key": "t:thinkingoutloudanopenaccesseegbasedbcidatasetforinnerspeechrecognition",
+   "title": "Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8844234-thinkoutloud | title=Thinking out loud, an open-access EEG-based BCI dataset for inner speech recog"
+  },
+  {
+   "pid": "pmc-9312762-ssrnet-tonal",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9312762-ssrnet-tonal | title=Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Languag"
+  },
+  {
+   "pid": "pmc-9478652-picnn-semg",
+   "key": "t:anovelsilentspeechrecognitionapproachbasedonparallelinceptionconvolutionalneural",
+   "title": "A novel silent speech recognition approach based on parallel inception convolutional neural network and Mel frequency spectral coefficient",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9478652-picnn-semg | title=A novel silent speech recognition approach based on parallel inception convoluti"
+  },
+  {
+   "pid": "pmc-9524625-salt",
+   "key": "t:influenceoflinguisticpropertiesandhearingimpairmentonvisualspeechperceptionskill",
+   "title": "Influence of linguistic properties and hearing impairment on visual speech perception skills in the German language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Influence of linguistic properties and hearing impairment on visual speech perception skills in the German languag"
+  },
+  {
+   "pid": "pmc-9530138-sinm",
+   "key": "t:ultrathincrystallinesiliconbasedstraingaugeswithdeeplearningalgorithmsforsilents",
+   "title": "Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for silent speech interfaces",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9530138-sinm | title=Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for si"
+  },
+  {
+   "pid": "pmc-9674306-chinesesr",
+   "key": "t:thedevelopmentofspeechreadingskillsinchinesestudentswithhearingimpairment",
+   "title": "The development of speechreading skills in Chinese students with hearing impairment",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The development of speechreading skills in Chinese students with hearing impairment | venue=Frontiers in Psycholog"
+  },
+  {
+   "pid": "pmc-9844948-vsricu",
+   "key": "t:twostagevisualspeechrecognitionforintensivecarepatients",
+   "title": "Two-stage visual speech recognition for intensive care patients",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9844948-vsricu | title=Two-stage visual speech recognition for intensive care patients | authors=H. Laux, A"
+  },
+  {
+   "pid": "pmc-PMC10634547",
+   "key": "t:inhibitorytmsovervisualareav5mtdisruptsvisualspeechrecognition",
+   "title": "Inhibitory TMS over Visual Area V5/MT Disrupts Visual Speech Recognition",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-PMC10634547 | doi=10.1523/JNEUROSCI.0975-23.2023 | title=Inhibitory TMS over Visual Area V5/MT Disrupts Vis"
+  },
+  {
+   "pid": "pmc-PMC6786888",
+   "key": "t:acousticnoiseandvisiondifferentiallywarptheauditorycategorizationofspeech",
+   "title": "Acoustic noise and vision differentially warp the auditory categorization of speech",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-PMC6786888 | doi=10.1121/1.5114822 | title=Acoustic noise and vision differentially warp the auditory categ"
+  },
+  {
+   "pid": "pmc-pmc11387126",
+   "key": "t:auditorycortexencodeslipreadinginformationthroughspatiallydistributedactivity",
+   "title": "Auditory cortex encodes lipreading information through spatially distributed activity",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-pmc11387126 | title=Auditory cortex encodes lipreading information through spatially distributed activity |"
+  },
+  {
+   "pid": "pmc13270037-vpcgloud",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13270037-vpcgloud | title=Encoding of speech modes and loudness in ventral precentral gyrus | authors=Aparna"
+  },
+  {
+   "pid": "pnas-2026-covert-syllable-meg",
+   "key": "t:temporallystructuredmotorandauditoryrepresentationsincovertsyllableproduction",
+   "title": "Temporally structured motor and auditory representations in covert syllable production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pnas-2026-covert-syllable-meg | title=Temporally structured motor and auditory representations in covert syllab"
+  },
+  {
+   "pid": "sottovoce",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks | authors=Naoki Kimura"
+  },
+  {
+   "pid": "w-2256880750",
+   "key": "t:acousticcompensationmethodforacceptingdifferentrecordingdevicesinbodyconductedvo",
+   "title": "Acoustic compensation method for accepting different recording devices in body-conducted voice conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=w-2256880750 | title=Acoustic compensation method for accepting different recording devices in body-conducted v"
+  }
+ ],
+ "usual_approach": {
+  "design": "phoneme or word labels with HMM decoding (46) or CTC (44); DTW-transferred vocalized targets (34)",
+  "n": 46,
+  "tier": "pattern match",
+  "pids": [
+   "doi-10.1088-1741-2552-aac965",
+   "isca-meltzner13_interspeech",
+   "arxiv-2403.05583",
+   "arxiv-2010.02960"
+  ],
+  "population_unique": 195,
+  "note": "full-text pattern counts over 195 unique studies (a study can match several): hmm_phone 46, ctc_text 44, dtw_audio_target 34; slot-filled M03 supervision_kind among 39 recorded: text_prompt 8, paired_audio 6, phoneme_label 5"
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1088-1741-2552-aac965",
+   "role": "prior",
+   "loc": "Methods, Protocol; Table 2",
+   "quote": "average WER across all four data sets was 8.9%, with one subject reaching as low as 1.4%."
+  },
+  {
+   "pid": "arxiv-2403.05583",
+   "role": "sota",
+   "loc": "Abstract; Sec. 4.3",
+   "quote": "28.8% to 12.2% in the Gaddy (2020) benchmark"
+  },
+  {
+   "pid": "arxiv-2502.05762",
+   "role": "target",
+   "loc": "Sec. 2.1",
+   "quote": "phonemic transcriptions"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 1,
+  "recall": 0.33,
+  "missed": [
+   "arxiv-2010.02960",
+   "doi-10.1088-1741-2552-aac965"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2403.05583",
+  "year": 2024,
+  "metric": "silent-EMG open-vocabulary WER, Gaddy (2020) test set, one speaker; training uses DTW-aligned parallel vocalized EMG and audio",
+  "value": 12.2,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "used_by": [
+  "non-invasive-electromyographic-speech-neuroprosthesis-a-geometric-perspective"
+ ],
+ "tally": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 195,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "phoneme or word labels with HMM decoding (46) or CTC (44); DTW-transferred vocalized targets (34)",
+   "n": 46,
+   "tier": "pattern match",
+   "population_unique": 195
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2403.05583",
+   "year": 2024,
+   "metric": "silent-EMG open-vocabulary WER, Gaddy (2020) test set, one speaker; training uses DTW-aligned parallel vocalized EMG and audio",
+   "value": 12.2,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "doi-10.1088-1741-2552-aac965"
+  ],
+  "unread": 231,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.33
+ }
+}
