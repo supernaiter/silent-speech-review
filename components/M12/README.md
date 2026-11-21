@@ -97,6 +97,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Same population as neural-text-output-unit. The design compared is whether the reported WER is measured on sentences absent from training (sentence-disjoint) or on repeats of training sentences. Boundary: a paper is counted under each protocol its text names; reviews count as pattern matches only.
 - Used in: [A cross-species neural foundation model for end-to-end speech decoding](../../reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/), [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/), [Continuous Silent Speech Recognition using EEG](../../reviews/continuous-silent-speech-recognition-using-eeg/)
 
+## null-model-construction-neural-decoding
+
+- Table: [`null-model-construction-neural-decoding.csv`](null-model-construction-neural-decoding.csv) (6960 slot-filled, 132 pattern match, usual design in 45, 2 read in full)
+- Inclusion rule: Neural decoding or neural-response prediction studies that test significance against an empirical null built by shuffling or permuting the data (labels, trials, time, channels) rather than only against a theoretical chance level. Boundary: studies that report only theoretical chance are excluded; a null that is mentioned but not described still counts; versions of one study count once.
+- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/)
+
 ## silent-emg-voicing-benchmark
 
 - Table: [`silent-emg-voicing-benchmark.csv`](silent-emg-voicing-benchmark.csv) (6960 slot-filled, 16 pattern match, usual design in 9, 4 read in full)
