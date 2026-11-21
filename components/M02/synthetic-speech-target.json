@@ -848,6 +848,21 @@
     "ledger"
    ],
    "snippet": "d-precentral linguistic-unit representations | ProcessingStep.architecture=RNN phoneme decoder → 5-gram WFST LM (Kaldi, trained on OpenWebText2 via WeNet) → on-screen words → participant-voice TTS; closed-loop feedback + imagery training to augment tuning | extra.Configuration.configuration_scope=Instructed-delay i"
+  },
+  {
+   "pid": "arxiv-2609.04455",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n2Speech-Net, a single-stage neural-to-speech synthesis framework with a differentiable phoneme bottleneck and deep-HMM alignment into a pretrained TTS latent space; the authors report intelligible speech at below-real-time RTF in their comparison. | system_name=Brain2Sp",
+   "decision": "include",
+   "reason": "Target (2026-09). VITS pseudo-speech synthesized from prompted text is the acoustic target because the participant cannot speak intelligibly.",
+   "quote": "We therefore synthesize pseudo-speech targets from the prompted text with a pre-trained VITS model",
+   "loc": "Sec. 3",
+   "provenance": "text-verified"
   }
  ],
  "usual_approach": {
@@ -881,6 +896,18 @@
    "role": "prior",
    "loc": "Methods",
    "quote": "we added the blank token needed for CTC decoding as a target during training"
+  },
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "we generated synthetic target speech waveforms from the text cued on-screen"
+  },
+  {
+   "pid": "arxiv-2609.04455",
+   "role": "target",
+   "loc": "Sec. 3",
+   "quote": "We therefore synthesize pseudo-speech targets from the prompted text with a pre-trained VITS model"
   }
  ],
  "known_item_recall": {
@@ -925,6 +952,7 @@
   "known_item_recall": 0.0
  },
  "used_by": [
-  "an-instantaneous-voice-synthesis-neuroprosthesis"
+  "an-instantaneous-voice-synthesis-neuroprosthesis",
+  "brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding"
  ]
 }
