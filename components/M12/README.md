@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | M2SILENT: Enabling Multi-user Silent Speech Interactions via Multi-directional Speakers in Shared Spaces |  | Sec. 5 |
 | Multimodal Speech Recognition with Ultrasonic Sensors |  | Sec. 5.1 |
 
+## dvs-lip-benchmark
+
+- Table: [`dvs-lip-benchmark.csv`](dvs-lip-benchmark.csv) (6960 slot-filled, 6 pattern match, usual design in 6, 4 read in full)
+- Inclusion rule: Studies that report a recognition result on the DVS-Lip event-camera lip-reading dataset (100 isolated words, 40 speakers, speaker-disjoint 30/10 train/test split). Boundary: other event datasets (EventLRW, LIPSFUS, private recordings) are excluded unless DVS-Lip is also reported; versions of one study count once.
+- Used in: [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](../../reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/)
+
 ## eeg-held-out-subject-test
 
 - Table: [`eeg-held-out-subject-test.csv`](eeg-held-out-subject-test.csv) (6960 slot-filled, 153 pattern match, usual design in 46, 2 read in full)

@@ -40,6 +40,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Towards optimizing electrode configurations for silent speech recognition based on high-density surface electromyography | 2021 | Abstract |
 | Mutual Information Analysis for Feature and Sensor Subset Selection in Surface Electromyography Based Speech Recognition | 2010 | Abstract |
 
+## event-camera-lip-reading
+
+- Table: [`event-camera-lip-reading.csv`](event-camera-lip-reading.csv) (7329 slot-filled, 11 pattern match, usual design in 7, 4 read in full)
+- Inclusion rule: Lip reading or visual/audio-visual speech recognition whose visual input is an event stream, recorded by an event camera (DVS/DAVIS/Prophesee) or converted from RGB video. Boundary: event cameras used for non-speech face tasks (action units, gait) are excluded; event datasets without a recognition result count only if they report one; versions of one study count once.
+- Used in: [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](../../reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/)
+
 ## imagined-speech-eeg-consumer-headset
 
 - Table: [`imagined-speech-eeg-consumer-headset.csv`](imagined-speech-eeg-consumer-headset.csv) (7329 slot-filled, 167 pattern match, usual design in 61, 2 read in full)
