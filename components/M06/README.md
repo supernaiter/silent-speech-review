@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## articulator-video-spatiotemporal-front-end
+
+- Table: [`articulator-video-spatiotemporal-front-end.csv`](articulator-video-spatiotemporal-front-end.csv) (7345 slot-filled, 1342 pattern match, usual design in 380, 5 read in full)
+- Inclusion rule: Include studies that decode text, speech or acoustic features from video of the articulators (lip or face camera, ultrasound tongue imaging) with a trained network, and classify how temporal context enters the image front end: 3D (spatiotemporal) convolution over a frame stack, factorized (2+1)D convolution, a frame-wise 2D CNN followed by a recurrent layer, a temporal convolution network, or ConvLSTM. Boundary: hand-crafted features without a learned front end, audio-only models, contour tracking without speech output and reviews still count as pattern matches (an upper bound); a study can match several designs; versions count once by key.
+- Used in: [3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces](../../reviews/3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces/)
+
 ## articulatory-intermediate
 
 - Table: [`articulatory-intermediate.csv`](articulatory-intermediate.csv) (7345 slot-filled, 12 pattern match, usual design in 2, 44 read in full)
@@ -179,7 +185,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`ultrasound-to-speech-network-architecture.csv`](ultrasound-to-speech-network-architecture.csv) (7345 slot-filled, 51 pattern match, usual design in 37, 4 read in full)
 - Inclusion rule: Include studies that map ultrasound tongue images (with or without lip video) to acoustic features or a waveform with a trained network, and name the mapping architecture. Boundary: exclude ultrasound-to-text recognition without synthesis, contour tracking, ultrasound prediction from other signals and reviews (they inflate the pattern match, an upper bound); spatial transformer networks count as CNNs, not as attention models; count versions once by key.
-- Used in: [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](../../reviews/adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks/), [Conformer-based Ultrasound-to-Speech Conversion](../../reviews/conformer-based-ultrasound-to-speech-conversion/)
+- Used in: [3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces](../../reviews/3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces/), [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](../../reviews/adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks/), [Conformer-based Ultrasound-to-Speech Conversion](../../reviews/conformer-based-ultrasound-to-speech-conversion/)
 
 ## ultrasound-tongue-image-features
 
