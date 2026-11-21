@@ -1,109 +1,139 @@
 # Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication
 
-Deok-Seon Kim, Seo-Hyun Lee, Kang Yin, Seong-Whan Lee  
-arXiv 2025 · [arXiv](https://arxiv.org/abs/2510.27247)
+Deok-Seon Kim, Seo-Hyun Lee, Kang Yin, Seong-Whan Lee. arXiv preprint, 2025. [arXiv:2510.27247](https://arxiv.org/abs/2510.27247)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication* (Deok-Seon Kim et al., arXiv 2025) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Surface EMG](../../README.md#surface-emg)
 
-Reconstructs held-out English sentences from EEG and face/neck EMG with personalized models; overt EEG+EMG phoneme accuracy is 48.58% (EEG alone 36.83%) versus an 11% baseline.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | 128-channel actiCAP EEG plus 10 face/neck EMG channels |
-| Task | Held-out sentence reconstruction (audio and phonemes) |
-| Vocabulary | 474 cued English sentences; 39 phonemes plus silence |
-| Speaker | Speaker-dependent |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | Overt phoneme accuracy 48.58% EEG+EMG, 36.83% EEG, held-out sentences, baseline 11% |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Strongest evidence is overt/whispered, imagined results are from a representative subject, CER only for examples, and silent targets use overt audio.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Read English sentences cued as text | Cued reading | 4,015 of 8,995 | ● Standard (Inherited.) |
+| M02 Teacher signal | Overt audio via phoneme-weighted DTW | DTW target transfer (15) | 52 of 8,995 | ● Standard (Recipe of [@gaddy2021improved].) |
+| M03 Train / calibrate | Per-subject models, AdamW, early stopping | Per-subject training | 1,608 of 8,995 | ● Standard (Inherited; no seeds.) |
+| M04 Use-time act | Overt, whispered, imagined; fixed order | Overt or attempted speech | 6,538 of 8,995 | ● Standard (Order not counterbalanced.) |
+| M05 Sensing | 128-ch EEG + 10-ch face/neck EMG | EMG as artifact source (11) vs fusion (10) | 30 of 8,995 | ● Standard (Prior fusion uncited; no EMG-only arm.) |
+| M06 Decoding | Conv + BiGRU to MFCC and phonemes | Neural sequence model | 7,345 of 8,995 | ● Standard (Inherited from EMG voicing.) |
+| M07 Runtime aids | None in decoder; DeepSpeech to score | No language model | 120 of 8,995 | ● Standard (Inherited.) |
+| M08 Output | MFCC voiced by HiFi-GAN; phonemes | Synthesized audio | 3,760 of 8,995 | ● Standard (Inherited.) |
+| M09 Confirmation | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | None | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Own 474 sentences, 444/30 per subject | Within-corpus splits | 239 of 8,995 | ● Standard (One patient, 145/10.) |
+| M12 Evaluation | Phoneme accuracy, DTW-aligned MCD; 2-sentence CER | Sentence-disjoint test (21) | 145 of 8,995 | ▼ Behind (No cohort WER or CER; behind best comparable work.) |
+| M13 Hardware & limits | Laboratory gel EEG and EMG, offline | Laboratory, offline | 6,721 of 8,995 | ● Standard (Inherited.) |
 
-Held-out sentence reconstruction is demonstrated in personalized EEG/EMG experiments, but the strongest aggregate evidence is overt/whispered phoneme decoding—not unrestricted imagined-speech communication.
+</details>
 
-### Review
+## Verdict
 
-The useful contribution is a subject-specific test of whether learned phoneme and acoustic mappings can reconstruct sentence texts absent from training. Fifteen healthy participants provide 474 English sentences per mode, split into 444 training and 30 test sentences, and inference is explicitly described as receiving neither target text nor recorded audio. Across participants, EEG+EMG increases phoneme accuracy from 36.83% to 48.58% for overt speech and from 30.54% to 40.97% for whispered speech. These are phoneme scores, not sentence recognition rates; whispered acoustic RMSE remains 0.58 and MCD is 4.73 versus 4.71 for EEG alone. The two low-CER examples are selected sentences from one subject, not a corpus-wide intelligibility result. For imagined speech, Table V reports 31.35% phoneme accuracy for both delta and high-gamma EEG from a representative subject, not a 15-person mean. The additional patient experiment uses attempted overt speech in one person, with EEG-only/combined phoneme accuracy of 42.85%/45.63%, and cannot establish silent clinical communication. Personalized models, overt-audio supervision, fixed speech-mode order, limited artifact controls and unavailable supplementary detail keep this an offline proof of concept. Held-out sentence texts are a meaningful step beyond closed sentence classes, but novel words, spontaneous inner speech, real-time use and general clinical benefit remain unverified.
+The paper [[1]](#ref-1) changes two components: it adds 10 face and neck EMG channels to 128-channel EEG (M05), and it trains whispered and imagined inputs on the overt recording of the same sentence through phoneme-weighted DTW (M02). Both are standard: EEG and sEMG fusion for silent-speech synthesis, with single-modality ablations, appeared in 2023 [[2]](#ref-2) and is not among the paper's 53 references, and the training recipe is the EMG voicing recipe [[3]](#ref-3) that NeuroTalk had moved to imagined EEG [[4]](#ref-4). The sentence-disjoint test (M12) follows field practice, but the evaluation is behind the best comparable work: the open-vocabulary claim rests on phoneme accuracy and DTW-aligned MFCC distances, with no cohort word or character error rate. The strongest confound is muscle: overt EEG is kept at 0.5–200 Hz with no regression of the simultaneously recorded EMG [[5]](#ref-5), and there is no EMG-only arm, so what EEG adds to EMG is not measured.
 
-### Why it matters
+## Against the field, component by component
 
-A concrete held-out-sentence and modality-comparison protocol that separates phoneme prediction from acoustic reconstruction; its value is experimental evidence about biosignal reconstruction, not ready-to-use silent conversation.
+### M05 Sensors: EEG with surface EMG
 
-### Prior state of the art
+**Usual approach:** Of 30 unique studies whose ledger lists both scalp EEG and surface EMG (pattern match, Appendix), 11 treat EMG as an artifact source and 10 fuse the two. The paper concatenates channels (§III-C).
 
-The paper situates itself against non-invasive EEG studies dominated by predefined word/sentence categories, while acknowledging earlier unseen-word reconstruction and held-out-sentence EEG-to-text work.
+**State of the art:** Decision-level fusion of 57 EEG and 5 sEMG channels gave 7.22% CER over eight speakers in 2023, against 38.85% for EEG only and 10.52% for sEMG only (Table 3) [[2]](#ref-2); its test items are held-out repeats of training sentences, so its numbers do not transfer to unseen sentences.
 
-### What changed
+In that prior, EMG carries most of the information: adding EEG to sEMG lowers CER from 10.52% to 7.22%, 3.30 points or 31% relative (inference); its own "31.63% reduction" is the drop from EEG only. Here the only comparison is EEG versus EEG+EMG (Fig. 3; §IV-A): overt phoneme accuracy rises from 36.83% to 48.58% and whispered from 30.54% to 40.97%, with whispered RMSE unchanged (0.58) and whispered MCD 4.73 with EMG vs 4.71 without. Without an EMG-only arm these gains cannot be credited to fusion rather than to EMG. Verdict: standard.
 
-Extends the reconstruction question to disjoint sentence texts with phoneme/acoustic prediction and compares available biosignal modalities, rather than demonstrating unrestricted thought decoding or a new general-purpose language interface.
+### M02 Training-only supervision: overt audio transferred to whispered and imagined inputs
 
-### Position in the field
+**Usual approach:** 15 confirmed studies (of 52 unique, pattern match, Appendix) train silent signals on targets transferred from a vocalized recording; DTW transfer is the default on the open EMG corpus. The paper uses a phoneme-weighted DTW cost plus CTC (§III-B).
 
-Non-invasive, speaker-dependent biosignal-to-speech reconstruction with held-out sentence texts; a relevant SSI research step with much narrower validation than unrestricted neural conversation.
+**State of the art:** On silent EMG, a [later] 2026 synthesizer with DTW-transferred targets reaches 11.89% WER scored by Whisper-medium (21.32% by DeepSpeech) [[6]](#ref-6), guided by a 2024 text recognizer at 12.2% WER with language-model rescoring [[7]](#ref-7); for EEG, NeuroTalk (2023) trained imagined EEG on DTW-aligned spoken audio with CTC, on 12 words [[4]](#ref-4).
 
-### Practical value
+The phoneme term in the DTW cost and the forced-aligner labels come from [[3]](#ref-3), which the paper cites. The step from words to 474 sentences is the increment, but imagined speech has no all-participant result (Table V is one subject). Verdict: standard.
 
-Offers a protocol for comparing acoustic and phoneme objectives and the added value of EMG where muscle activity is available. Benefit for routine assistive communication remains unknown.
+### M12 Evaluation: unseen sentences without a text error rate
 
-### Advanced
+**Usual approach:** Of 145 unique neural text-decoding studies (pattern match, Appendix), 21 name a sentence-disjoint test and 10 repeated training sentences; the 444/30 split (§II-A) follows the majority.
 
-Subject-specific held-out sentence reconstruction beyond repeated sentence classes; explicit EEG versus EEG+EMG comparison for overt and whispered speech; exploratory attempted-overt evaluation in one person with ataxic dysarthria.
+**State of the art:** Intracortical decoding reached 2.5% WER over all evaluation sentences with a 125,000-word vocabulary in one participant (2024) [[8]](#ref-8), after 23.8% on never-duplicated held-out sentences (2023) [[9]](#ref-9). The nearest non-invasive yardstick, open-vocabulary silent-EMG voicing scored with the same DeepSpeech recognizer, reported 42.2% WER over its whole test set (2021) [[3]](#ref-3).
 
-### Unresolved
+The paper gives phoneme accuracy against an 11% majority-class baseline, DTW-aligned RMSE and MCD, and CER for two sentences of one subject (0.18–0.50, Table II). DTW-aligned distances reward a plausible spectral envelope even when content is wrong (inference). Verdict: behind the best comparable work, which reports an error rate over every test sentence [[3]](#ref-3), [[9]](#ref-9), [[8]](#ref-8), [[2]](#ref-2).
 
-Unseen users and sessions; truly novel lexical words; spontaneous imagined communication; neural specificity versus muscle/cue contamination; whole-test intelligibility; online latency and usability; wider clinical benefit.
+## The 13 components
 
-### Narrowed or regressed
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Read English sentences cued as text | Cued reading (slot-filled 4,015) | – | standard |
+| M02 Training-only supervision | Overt audio via phoneme-weighted DTW | DTW target transfer (15) (pattern match 52) | 11.89% WER (Whisper-medium) [[6]](#ref-6) | standard |
+| M03 Training and adaptation | Per-subject models, AdamW, early stopping | Per-subject training (slot-filled 1,608) | – | standard |
+| M04 Use-time action | Overt, whispered, imagined; fixed order | Overt or attempted speech (slot-filled 6,538) | – | standard |
+| M05 Sensors | 128-ch EEG + 10-ch face/neck EMG | EMG as artifact source (11) vs fusion (10) (pattern match 30) | 7.22% CER, EEG+sEMG, repeats [[2]](#ref-2) | standard |
+| M06 Processing and decoding | Conv + BiGRU to MFCC and phonemes | Neural sequence model (slot-filled 7,345) | – | standard |
+| M07 Lexicon and LM | None in decoder; DeepSpeech to score | No language model (slot-filled 120) | – | standard |
+| M08 Output | MFCC voiced by HiFi-GAN; phonemes | Synthesized audio (slot-filled 3,760) | – | standard |
+| M09 Confirmation | None | None (slot-filled 82) | – | not applicable |
+| M10 Correction | None | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Own 474 sentences, 444/30 per subject | Within-corpus splits (slot-filled 239) | – | standard |
+| M12 Evaluation | Phoneme accuracy, DTW-aligned MCD; 2-sentence CER | Sentence-disjoint test (21) (pattern match 145) | 2.5% WER, 125k words, intracortical [[8]](#ref-8) | behind |
+| M13 Device and cost | Laboratory gel EEG and EMG, offline | Laboratory, offline (slot-filled 6,721) | – | standard |
 
-Adding ten face/neck EMG channels increases sensing burden relative to EEG alone. Whispered EEG+EMG has MCD 4.73 versus 4.71 for EEG alone and the same rounded RMSE 0.58, so not every reconstruction metric improves.
+## Where the claims outrun the evidence
 
-### Evaluation details
+- "Open-vocabulary" means 30 held-out sentences from one 474-sentence set (§II-A); word overlap with training is not reported.
+- EEG-only overt decoding at up to 200 Hz without EMG regression (§II-B) can be partly myogenic; [[5]](#ref-5) subtracts EMG-predicted components first. Table V's high-gamma rows share the confound.
+- "Multimodal integration improves decoding even in patients" (§IV-B) rests on one patient and 10 test sentences.
+- The authors concede that the fixed mode order may leak echoic traces into imagined trials (§V-E); no seeds or repeated runs are given (§III-C).
 
-| Item | Details |
-| --- | --- |
-| Task | Reconstruct cued, held-out English sentences from overt/whispered/imagined biosignals, with primary aggregate comparison in overt and whispered conditions. |
-| Input | High-density scalp EEG, alone or channel-concatenated with face/neck surface EMG; overt audio and sentence text supply training targets, not inference inputs. |
-| Sensor | Brain Vision/Recorder at 1000 Hz; Standard 128-channel actiCAP with FCz reference; ten EMG channels on face/neck; synchronized 44100-Hz microphone. Network input is described as 127 EEG plus ten EMG channels; the channel-count reconciliation is not explicit in the main text. |
-| Body site | Scalp for EEG; face and neck for EMG. |
-| Output | Predicted acoustic features and 40-class phoneme sequences; HiFi-GAN synthesized audio followed by DeepSpeech text for evaluation. |
-| Vocabulary type | Cued English sentences with nonoverlapping training/test sentence texts; open sentence-sequence output within a fixed phoneme inventory, not verified unrestricted lexical generalization. |
-| Vocabulary size | 39 phoneme classes plus silence; 474 English sentence stimuli for healthy participants and 155 attempted-overt patient stimuli. Number of distinct lexical words is unknown. |
-| Metrics and results | Healthy-participant mean phoneme accuracy: overt EEG 36.83%, EEG+EMG 48.58%; whispered EEG 30.54%, EEG+EMG 40.97%. In that order, RMSE 0.50/0.46 and 0.58/0.58; MCD 4.18/3.81 and 4.71/4.73; F1 0.34/0.47 and 0.16/0.24. Authors use an 11% most-frequent-silence baseline. Table II selected-example CER: overt 0.18 and 0.36, whispered 0.50 and 0.40, all EEG+EMG. Table V representative-subject imagined delta/high-gamma phoneme accuracy: both 31.35%, with RMSE 0.65/0.71 and MCD 5.33/5.72. Single-patient attempted-overt EEG/EEG+EMG phoneme accuracy: 42.85%/45.63%. |
-| Evaluation protocol | Offline, personalized held-out sentence reconstruction with EEG-only and EEG+EMG comparisons; exploratory single-patient attempted-overt reconstruction and representative-subject frequency/source analyses. |
+## What the field needs next
 
-### Limits
+- M05: an EMG-only arm, and EEG with EMG-predicted components regressed out.
+- M12: CER and WER over every test sentence of every participant, with word-overlap statistics.
+- M02: an all-participant imagined-speech result, with mode order counterbalanced.
 
-- **Technical:** Whispered/imagined training targets use corresponding overt audio, not contemporaneous silent acoustic ground truth. Filtering and common-average referencing alone do not establish neural specificity or exclusion of muscle artifacts; fixed overt→whispered→imagined order may carry echoic traces, acknowledged by authors. The input/feature/checkpoint details and phoneme scoring require clarification. Source localization is descriptive, not causal evidence for a speech mechanism.
-- **Evaluation:** Main aggregate metrics are 15 subject means over 30 test sentences. The text reports paired Wilcoxon p<0.0001 for specified modality improvements, but confidence intervals, exact p values, multiple-comparison handling and error-bar definition are not specified in the main text. CER is shown only for two examples from one subject, not an overall test rate. Fig. 7 and Table V concern a representative subject; supplementary material is referenced but absent from the reviewed 11-page PDF.
-- **Deployment:** High-density cap plus optional face/neck electrodes, individual training and trial segmentation. Button-controlled cued acquisition; no autonomous start/stop, mobile use, walking, longitudinal deployment or measured end-to-end latency reported.
-- **Scope of this review:** Reviewed all 11 pages of arXiv v1, including main-text figures/tables and references; key pipeline, aggregate and frequency tables visually checked. Referenced supplementary tables/figures are not contained in this PDF and were not verified. No independent experimental reproduction or verification of external code/data availability.
+## Questions for the authors
 
-### Evidence
+- What data drove early stopping?
+- How many test-sentence words also occur in training sentences?
+- What are the cohort CER and WER after DeepSpeech, and which checkpoint and decoder settings were used?
 
-- Fifteen healthy adults perform 474 English sentences in fixed overt, whispered and imagined order; 444 training and 30 test sentences do not overlap. Only the final repeated attempt is retained. (p.2, II.A Data Acquisition; Fig.1)
-- Acquisition uses a 128-channel actiCAP, ten face/neck EMG channels at 1000 Hz and synchronized 44100-Hz audio; the network description later specifies 127 EEG input channels. (p.2, II.A; p.4, III.C)
-- The decoder is personalized per subject. Corresponding overt recordings supply whispered/imagined acoustic targets, while inference explicitly receives neither recorded audio nor target sentence text. (p.3, III.A Framework and Fig.2)
-- Three ConvBlocks and a Bi-GRU predict acoustic features and phonemes; HiFi-GAN generates audio and DeepSpeech produces text. Silent-mode training combines phoneme-informed DTW with CTC rather than demonstrating a new sensor or deployment platform. (pp.3–4, III.A–C; Fig.2; equations 1–6)
-- Across 15 participants, overt phoneme accuracy increases from EEG 36.83% to EEG+EMG 48.58%, and whispered accuracy from 30.54% to 40.97%. These are phoneme metrics, not sentence accuracy. (p.5, IV.A and Fig.3(a))
-- Overt EEG/combined RMSE is 0.50/0.46, MCD 4.18/3.81 and F1 0.34/0.47. Whispered values are RMSE 0.58/0.58, MCD 4.71/4.73 and F1 0.16/0.24; combined sensing does not improve every whispered metric. (p.5, IV.A and Fig.3(b–d))
-- Each subject contributes an average over 30 test sentences; authors report paired Wilcoxon p<0.0001 for all overt metrics and whispered phoneme accuracy/F1. The 11% baseline is the most frequent silence class, not a shuffled temporal null model. (p.5, IV.A and Fig.3 caption)
-- CER 0.18/0.36 for overt and 0.50/0.40 for whispered speech are two EEG+EMG examples from one representative subject, not overall test-set character error rates or human-listener intelligibility. (p.5, Table II; p.7, IV.A continuation)
-- One 66-year-old man with ataxic dysarthria provides 155 attempted-overt sentences split 145/10. EEG/combined phoneme accuracy is 42.85%/45.63%; this is not a patient imagined-speech test or evidence of broad clinical benefit. (p.7, IV.B Sentence Reconstruction in a Speech-impaired Patient)
-- Table V is explicitly from a representative subject: imagined delta and high-gamma EEG both reach 31.35% phoneme accuracy. Delta/high-gamma RMSE is 0.65/0.71 and MCD 5.33/5.72; these are not 15-person aggregate imagined-speech scores. (pp.8–9, IV.E; p.9, Table V caption and rows)
-- Fig.7 relates sentence length and phoneme accuracy in a representative subject (PCC −0.459 overt, −0.623 whispered). These correlations do not establish causation; W-score panel labels/caption and text require implementation reconciliation. (pp.7–8, IV.D; p.8, Fig.7 and Table IV)
-- sLORETA maps at 1, 1.25 and 1.5 seconds describe estimated activity from a representative subject. They do not establish that reconstructed content is causally driven by the highlighted cortical areas. (p.5, III.F; pp.8–9, IV.E and Fig.8)
-- Authors acknowledge that the fixed overt-to-whispered-to-imagined order may introduce echoic traces. Main preprocessing describes filters and common-average referencing, not a control proving independence from residual muscle activity. (pp.2–3, II.B; p.10, V.E continuation)
-- Disjoint sentence texts support unseen-sentence evaluation, but the main text does not report lexical word overlap, cross-user/session tests, whole-test CER or online latency; broad unrestricted neural communication remains unverified. (pp.2–4, II.A and III.A–D; pp.9–10, V.A and V.E)
-- Training uses AdamW, learning rate 1e-3, weight decay 1e-5, cosine scheduling, at most 200 epochs, early stopping, GRU dropout 0.1 and length-2048 batching. Validation allocation is not specified in the main training description. (p.4, III.C Training Details)
-- The conclusion links reconstructed audio and a toy dataset from one subject. Supplementary figures/tables referenced throughout are absent from this 11-page PDF; completeness of external data/code and those supplements was not verified in this review. (p.10, VI Conclusion; pp.2,5,7–8 supplementary references)
+## Appendix: literature search
+
+- M05 eeg-emg-fusion-speech-decoding (new topic). Inclusion rule: speech-decoding studies that record scalp or around-ear EEG with surface EMG of the speech muscles and decode from either or both; EMG recorded only as an artifact reference is counted as artifact control, not fusion; limb-movement fusion, reviews and decoding-free datasets excluded; versions counted once. Slot-filled 7,329 unique studies; pattern match 30 unique studies (M05 modalities). Design counts (pattern match, full text): EMG artifact or contamination 11, EEG and EMG fusion 10. Read in full: [[2]](#ref-2), [[5]](#ref-5), target. Known-item recall 0.67.
+- M02 silent-target-transfer (published topic table, appended). Inclusion rule: studies that train a decoder or synthesizer on silently articulated non-acoustic signals with acoustic or label targets transferred from a separate vocalized recording of the same utterance by time alignment; train-vocalized-test-silent, alignment only for scoring, acoustic whisper conversion and imagined speech excluded. Slot-filled 31 unique studies; pattern match 52 unique studies. Usual design: DTW target transfer, 15 (confirmed). Read in full for this review: [[3]](#ref-3), [[4]](#ref-4), [[6]](#ref-6), [[7]](#ref-7). Known-item recall 0.67.
+- M12 neural-text-unseen-sentence-test (published topic table, appended). Inclusion rule: neural text-decoding studies (ECoG, intracortical, sEEG, EEG or MEG) reporting WER or CER, compared by whether the test sentences are absent from training. Slot-filled 6,960 unique studies; pattern match 145 unique studies. Usual design: sentence-disjoint test, 21 (pattern match); repeated training sentences 10. Read in full for this review: [[9]](#ref-9), [[8]](#ref-8); also cited: [[3]](#ref-3), [[2]](#ref-2). Known-item recall 0.8.
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Kim, D., Lee, S., Yin, K., Lee, S. “Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication.” *arXiv preprint*, 2025. arXiv:[2510.27247](https://arxiv.org/abs/2510.27247). Target. Read as arXiv v1 (31 Oct 2025). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun) [wiki: arxiv-2510.27247](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2510.27247/article.md)
+2. <a id="ref-2"></a>Li, H., Wang, M., Gao, H., Zhao, S., Li, G., Wang, Y. “Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography.” *Interspeech 2023*, 2023, 1184-1188. doi:[10.21437/Interspeech.2023-805](https://doi.org/10.21437/Interspeech.2023-805). [wiki: isca-li23l-eegemgssi](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-li23l-eegemgssi/article.md) [wiki: isca-li23l_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-li23l_interspeech/article.md)
+3. <a id="ref-3"></a>Gaddy, D., Klein, D. “An Improved Model for Voicing Silent Speech.” *Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics (ACL)*, 2021, 175-181. doi:[10.18653/v1/2021.acl-short.23](https://doi.org/10.18653/v1/2021.acl-short.23). arXiv:[2106.01933](https://arxiv.org/abs/2106.01933). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/an-improved-model-for-voicing-silent-speech) [wiki: arxiv-2106.01933](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2106.01933/article.md) [wiki: doi-10.18653-v1-2021.acl-short.23](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.18653-v1-2021.acl-short.23/article.md)
+4. <a id="ref-4"></a>Lee, Y., Lee, S., Kim, S., Lee, S. “Towards Voice Reconstruction from EEG during Imagined Speech.” *Proceedings of the AAAI Conference on Artificial Intelligence*, 2023, 37(5). doi:[10.1609/aaai.v37i5.25745](https://doi.org/10.1609/aaai.v37i5.25745). arXiv:[2301.07173](https://arxiv.org/abs/2301.07173). [wiki: arxiv-2301.07173](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2301.07173/article.md) [wiki: doi-10.1609-aaai.v37i5.25745](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1609-aaai.v37i5.25745/article.md)
+5. <a id="ref-5"></a>Sato, M., Kabe, Y., Nobe, S., Yoshida, A., Inoue, M., Shimizu, M., et al. “Delineating neural contributions to electroencephalogram-based speech decoding.” *bioRxiv preprint*, 2024. doi:[10.1101/2024.05.09.591996](https://doi.org/10.1101/2024.05.09.591996). [wiki: doi-10.1101-2024.05.09.591996](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1101-2024.05.09.591996/article.md)
+6. <a id="ref-6"></a>Lee, J., Lee, J., Lee, K. “GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition.” *Interspeech 2026*, 2026. doi:[10.21437/Interspeech.2026-1938](https://doi.org/10.21437/Interspeech.2026-1938). [later] [wiki: isca-lee26r_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-lee26r_interspeech/article.md)
+7. <a id="ref-7"></a>Benster, T., Wilson, G., Elisha, R., Willett, F. R., Druckmann, S. “A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition.” *arXiv preprint*, 2024. arXiv:[2403.05583](https://arxiv.org/abs/2403.05583). [wiki: arxiv-2403.05583](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2403.05583/article.md)
+8. <a id="ref-8"></a>Card, N. S., Wairagkar, M., Iacobacci, C., Hou, X., Singer-Clark, T., Willett, F. R., et al. “An accurate and rapidly calibrating speech neuroprosthesis.” *New England Journal of Medicine*, 2024, 391(7), 609-618. doi:[10.1056/NEJMoa2314132](https://doi.org/10.1056/NEJMoa2314132). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/an-accurate-and-rapidly-calibrating-speech-neuroprosthesis) [wiki: doi-10.1056-nejmoa2314132](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1056-nejmoa2314132/article.md) [wiki: doi-10.1056-NEJMoa2314132](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1056-NEJMoa2314132/article.md) [wiki: pmc-11328962-rapidcal](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-11328962-rapidcal/article.md)
+9. <a id="ref-9"></a>Willett, F. R., Kunz, E. M., Fan, C., Avansino, D. T., Wilson, G. H., Choi, E. Y., et al. “A high-performance speech neuroprosthesis.” *Nature*, 2023, 620, 1031-1036. doi:[10.1038/s41586-023-06377-x](https://doi.org/10.1038/s41586-023-06377-x). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/a-high-performance-speech-neuroprosthesis) [wiki: doi-10.1038-s41586-023-06377-x](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41586-023-06377-x/article.md) [wiki: pmc-10468393-neuroprosthesis](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10468393-neuroprosthesis/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M02/silent-target-transfer.csv`](../../components/M02/silent-target-transfer.csv): M02 topic "silent-target-transfer", every candidate paper with its decision (31 slot-filled, 52 pattern match, usual design in 15, 4 read in full)
+- [`components/M05/eeg-emg-fusion-speech-decoding.csv`](../../components/M05/eeg-emg-fusion-speech-decoding.csv): M05 topic "eeg-emg-fusion-speech-decoding", every candidate paper with its decision (0 confirmed, 0 candidates read, 0 unread)
+- [`components/M12/neural-text-unseen-sentence-test.csv`](../../components/M12/neural-text-unseen-sentence-test.csv): M12 topic "neural-text-unseen-sentence-test", every candidate paper with its decision (6960 slot-filled, 145 pattern match, usual design in 21, 4 read in full)
+
 
 ## More reviews in Surface EMG
 
