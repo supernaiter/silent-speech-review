@@ -1,0 +1,1414 @@
+{
+ "topic": "articulatory-speech-model-speaker-session-adaptation",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*modalities=[^|]*(ultrasound_imaging|surface_emg|magnetic_tracking|optical_camera|radar|strain_sensor|electropalatography|intramuscular_emg))(?=.*((speaker|session|cross[- ]day|inter[- ]?session|subject|user)[- ]?(adapt|transfer|calibrat|normali[sz]|align|dependent padding)|remount|misalign|probe (re)?position|spatial transformer|fine[- ]tun\\w* (to|on|for) (a |the )?(new|target|unseen) (speaker|session|user)))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Models that map a non-acoustic speech signal (ultrasound, EMA or PMA, EMG, lip video, other wearable sensors) to speech, text or articulatory output and adapt a trained model to a new speaker or recording session with target data, reporting an unadapted or full-retraining comparison; classified by what is adapted (whole network, a layer subset, an input-space transform, or an input prompt/padding/embedding). Boundary: acoustic-only systems, speaker-independent training without an adaptation step, neural-recording calibration, tongue-contour tracking and reviews are excluded; versions counted once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 104,
+  "string_match_unique": 93,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 13,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2207.03800",
+     "doi-10.1016-j.specom.2017.08.002",
+     "doi-10.1109-taslp.2017.2651398",
+     "doi-10.1109-taslp.2015.2464702",
+     "isca-hueber13g_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2508.07233",
+     "doi-10.1038-s41597-025-06193-0",
+     "doi-10.1016-j.specom.2017.08.002",
+     "doi-10.1109-taslp.2017.2651398",
+     "isca-rong14_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.01518",
+     "dtic-ada410037",
+     "isca-beeson23_interspeech",
+     "isca-kandala19_interspeech",
+     "isca-tao14_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-demange11_interspeech",
+     "isca-youssef11_interspeech",
+     "isca-bocquelet15_interspeech",
+     "isca-wang15g_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=unpaired",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-rong14_interspeech",
+     "isca-aron07_interspeech",
+     "isca-gurbuz05_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-9365678-v1",
+     "isca-robert07_interspeech"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=adapt to unseen target speaker using unlabeled target data only",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1708.01565"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=cd-unit posterior (phn or vis) -> hybrid dnn-hmm or gmm+sat-hmm",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1805.02924"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=adamw lr0.001 bs112(grid)/220(lrw-id); adapt only padding lr0.01; 5-fold mean",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2208.04498"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=titan rtx",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.08102"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "input_space_transform",
+    "n": 17,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.3311-wins2023-012",
+     "arxiv-2207.03800",
+     "doi-10.12700-aph.17.7.2020.7.6",
+     "isca-sari18-avicar"
+    ]
+   },
+   {
+    "design": "prompt_padding_embedding",
+    "n": 10,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2508.07233",
+     "doi-10.12700-aph.17.7.2020.7.6",
+     "isca-kandala19-vivectors",
+     "arxiv-2208.04498",
+     "arxiv-2302.06774"
+    ]
+   },
+   {
+    "design": "layer_subset_update",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.3390-app13116521",
+     "mdpi-app13116521_sa",
+     "ecva-kim22-udp",
+     "arxiv-2310.05058",
+     "arxiv-2502.05758"
+    ]
+   },
+   {
+    "design": "domain_adversarial",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.12700-aph.17.7.2020.7.6",
+     "isca-wand17_dalip",
+     "arxiv-1708.01565",
+     "doi-10.1109-access.2020.3026579"
+    ]
+   },
+   {
+    "design": "full_network_finetune",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2208.04498",
+     "arxiv-2305.19130",
+     "arxiv-2409.00986"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error|accuracy|MSE|error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "sEMG silent-speech recognition WER as low as 3% (limited vocabulary, speaker-dependent, from reviewed study)",
+   "value": 0.03,
+   "unit": null,
+   "raw": "WERs as low as 3%",
+   "pid": "doi-10.1109-access.2020.3026579",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "field representation error <0.06% for N>3; rank m=5 slightly worse for N>7",
+   "value": 0.06,
+   "unit": null,
+   "raw": "%",
+   "pid": "isca-kaburagi01_eurospeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER",
+   "value": 0.2696,
+   "unit": null,
+   "raw": "WER=0.2696",
+   "pid": "arxiv-2603.11877",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "3D baseline s048 STN MSE",
+   "value": 0.275,
+   "unit": "1",
+   "raw": "0.275",
+   "pid": "arxiv-2305.19130",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Covert inner-speech 4-class decode 0.42 (>0.25 chance) w/ held-out-subject protocol; overt-val 0.54; EMG weak for cross-subject transfer",
+   "value": 0.42,
+   "unit": "accuracy",
+   "raw": "a mean covert-test accuracy of 0.42",
+   "pid": "doi-10.21203-rs.3.rs-9365678-v1",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "familiar-talker lipreading advantage",
+   "value": 0.455,
+   "unit": "mean accuracy",
+   "raw": "familiar-talker lipreading M=.455 SE=.017 vs unfamiliar .429 SE=.014, F(1,31)=4.508 p<.05 eta_p2=.127",
+   "pid": "pmc3810281",
+   "year": 2014,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GBM-2-X CC, MSE",
+   "value": 0.7275,
+   "unit": null,
+   "raw": "0.7275(.0606)",
+   "pid": "isca-illa18_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "rmseMm",
+   "value": 0.948,
+   "unit": null,
+   "raw": "surveyed headline RMSEs (mm): DBLSTM-based inversion 0.948 vs DBLSTM 0.963/DNN; hierarchical DNN 2.588/RNN 2.411; GVP-HMM DMDN 0.10 best in-table; GMM 1.9->1.75",
+   "pid": "arxiv-2504.13308",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "MAP+MLLR AV WER, DIGITS",
+   "value": 0.99,
+   "unit": "percent_wer",
+   "raw": "0.99%",
+   "pid": "isca-potamianos01_avsp",
+   "year": 2001,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "reference EMA error",
+   "value": 1.3,
+   "unit": "mm",
+   "raw": "reference-speaker inversion muRMS",
+   "pid": "isca-hueber13b_interspeech",
+   "year": 2013,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1708.01565",
+   "key": "t:improvingspeakerindependentlipreadingwithdomainadversarialtrainingwandschmidhube",
+   "title": "Improving Speaker-Independent Lipreading with Domain-Adversarial Training (Wand & Schmidhuber)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1708.01565 | title=Improving Speaker-Independent Lipreading with Domain-Adversarial Training (Wand & Schm"
+  },
+  {
+   "pid": "arxiv-1802.06399",
+   "key": "t:visualonlyrecognitionofnormalwhisperedandsilentspeech",
+   "title": "Visual-Only Recognition of Normal, Whispered and Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1802.06399 | title=Visual-Only Recognition of Normal, Whispered and Silent Speech | venue=ICASSP 2018; v1"
+  },
+  {
+   "pid": "arxiv-1805.02924",
+   "key": "t:comparingphonemesandvisemeswithdnnbasedlipreading",
+   "title": "Comparing phonemes and visemes with DNN-based lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1805.02924 | title=Comparing phonemes and visemes with DNN-based lipreading | Study.research_objective=Th"
+  },
+  {
+   "pid": "arxiv-2008.02470",
+   "key": "t:quantificationoftransducermisalignmentinultrasoundtongueimaging",
+   "title": "Quantification of Transducer Misalignment in Ultrasound Tongue Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2008.02470 | title=Quantification of Transducer Misalignment in Ultrasound Tongue Imaging | venue=SLSP 20"
+  },
+  {
+   "pid": "arxiv-2107.02003",
+   "key": "t:speechsynthesisfromtextandultrasoundtongueimagebasedarticulatoryinput",
+   "title": "Speech Synthesis from Text and Ultrasound Tongue Image-based Articulatory Input",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2107.02003 | title=Speech Synthesis from Text and Ultrasound Tongue Image-based Articulatory Input | venu"
+  },
+  {
+   "pid": "arxiv-2207.03800",
+   "key": "t:fastltsnonautoregressiveendtoendunconstrainedliptospeechsynthesis",
+   "title": "FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2207.03800 | title=FastLTS: Non-Autoregressive End-to-End Unconstrained Lip-to-Speech Synthesis | authors"
+  },
+  {
+   "pid": "arxiv-2208.04498",
+   "key": "t:speakeradaptivelipreadingwithuserdependentpadding",
+   "title": "Speaker-adaptive Lip Reading with User-dependent Padding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2208.04498 | title=Speaker-adaptive Lip Reading with User-dependent Padding | Study.research_objective=us"
+  },
+  {
+   "pid": "arxiv-2302-05907-liplearner",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipLearner: Customizable Silent Speech Interactions on Mobile Devices | authors=Su; Fang; Rekimoto (University of"
+  },
+  {
+   "pid": "arxiv-2302.06774",
+   "key": "t:speakerindependentacoustictoarticulatoryspeechinversion",
+   "title": "Speaker-Independent Acoustic-to-Articulatory Speech Inversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-Independent Acoustic-to-Articulatory Speech Inversion | intended_use_cases=research_of_inner_speech, other"
+  },
+  {
+   "pid": "arxiv-2302.08102",
+   "key": "t:prompttuningofdeepneuralnetworksforspeakeradaptivevisualspeechrecognition",
+   "title": "Prompt Tuning of Deep Neural Networks for Speaker-adaptive Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2302.08102 | title=Prompt Tuning of Deep Neural Networks for Speaker-adaptive Visual Speech Recognition |"
+  },
+  {
+   "pid": "arxiv-2305.19130",
+   "key": "t:adaptationoftongueultrasoundbasedsilentspeechinterfacesusingspatialtransformerne",
+   "title": "Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2305.19130 | title=Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transform"
+  },
+  {
+   "pid": "arxiv-2306.00489",
+   "key": "t:speechinpaintingcontextbasedspeechsynthesisguidedbyvideo",
+   "title": "Speech inpainting: Context-based speech synthesis guided by video",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.00489 | title=Speech inpainting: Context-based speech synthesis guided by video | authors=Montesinos"
+  },
+  {
+   "pid": "arxiv-2310.05058",
+   "key": "t:learningseparablehiddenunitcontributionsforspeakeradaptivelipreading",
+   "title": "Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2310.05058 | title=Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading | Study."
+  },
+  {
+   "pid": "arxiv-2311.12480",
+   "key": "t:speakeradaptedendtoendvisualspeechrecognitionforcontinuousspanish",
+   "title": "Speaker-Adapted End-to-End Visual Speech Recognition for Continuous Spanish",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2311.12480 | title=Speaker-Adapted End-to-End Visual Speech Recognition for Continuous Spanish | Study.re"
+  },
+  {
+   "pid": "arxiv-2311.15683",
+   "key": "t:ultrasensitivetextilestrainsensorsredefinewearablesilentspeechinterfaceswithhigh",
+   "title": "Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2311.15683 | title=Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with"
+  },
+  {
+   "pid": "arxiv-2408.05641",
+   "key": "t:towardsaquantitativeanalysisofcoarticulationwithaphonemetoarticulatorymodel",
+   "title": "Towards a Quantitative Analysis of Coarticulation with a Phoneme-to-Articulatory Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards a Quantitative Analysis of Coarticulation with a Phoneme-to-Articulatory Model | intended_use_cases=resear"
+  },
+  {
+   "pid": "arxiv-2409.00986",
+   "key": "t:personalizedlipreadingadaptingtoyouruniquelipmovementswithvisionandlanguage",
+   "title": "Personalized Lip Reading: Adapting to Your Unique Lip Movements with Vision and Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2409.00986 | title=Personalized Lip Reading: Adapting to Your Unique Lip Movements with Vision and Langua"
+  },
+  {
+   "pid": "arxiv-2501.01518",
+   "key": "t:readingtolistenatthecocktailpartymultimodalspeechseparation",
+   "title": "Reading to Listen at the Cocktail Party: Multi-Modal Speech Separation",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.01518 | title=Reading to Listen at the Cocktail Party: Multi-Modal Speech Separation | authors=Akam"
+  },
+  {
+   "pid": "arxiv-2502.05758",
+   "key": "t:targetspeakerlipreadingbyaudiovisualselfdistillationpretrainingandspeakeradaptat",
+   "title": "Target Speaker Lipreading by Audio-Visual Self-Distillation Pretraining and Speaker Adaptation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.05758 | title=Target Speaker Lipreading by Audio-Visual Self-Distillation Pretraining and Speaker Ad"
+  },
+  {
+   "pid": "arxiv-2504.13308",
+   "key": "t:acoustictoarticulatoryinversionofspeechdatadrivenapproacheschallengesapplication",
+   "title": "Acoustic to Articulatory Inversion of Speech; Data Driven Approaches, Challenges, Applications, and Future Scope",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Acoustic to Articulatory Inversion of Speech; Data Driven Approaches, Challenges, Applications, and Future Scope |"
+  },
+  {
+   "pid": "arxiv-2505.14336",
+   "key": "t:scalingandenhancingllmbasedavsrasparsemixtureofprojectorsapproach",
+   "title": "Scaling and Enhancing LLM-based AVSR: A Sparse Mixture of Projectors Approach",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.14336 | title=Scaling and Enhancing LLM-based AVSR: A Sparse Mixture of Projectors Approach | Study."
+  },
+  {
+   "pid": "arxiv-2508.07233",
+   "key": "t:landmarkguidedvisualfeatureextractorforvisualspeechrecognitionwithlimitedresourc",
+   "title": "Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2508.07233 | paper_version=2508.07233v1 | title=Landmark Guided Visual Feature Extractor for Visual Speec"
+  },
+  {
+   "pid": "arxiv-2603.01415",
+   "key": "t:theustcnercslipsystemsforthechime9mcorecchallenge",
+   "title": "The USTC-NERCSLIP Systems for the CHiME-9 MCoRec Challenge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.01415 | title=The USTC-NERCSLIP Systems for the CHiME-9 MCoRec Challenge | venue=CHiME-9 challenge s"
+  },
+  {
+   "pid": "arxiv-2603.11877",
+   "key": "t:silentspeechinterfacesintheeraoflargelanguagemodelsacomprehensivetaxonomyandsyst",
+   "title": "Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.11877 | arxiv_id=2603.11877v1 | source_url=https://arxiv.org/pdf/2603.11877v1 | title=Silent Speech"
+  },
+  {
+   "pid": "bmvc23-separable-vsr",
+   "key": "t:learningseparablehiddenunitcontributionsforspeakeradaptivelipreading",
+   "title": "Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading | authors=Luo S, Yang S, Shan S, Che"
+  },
+  {
+   "pid": "conf-issp2008-hueber-acquisition",
+   "key": "t:acquisitionofultrasoundvideoandacousticspeechdataforasilentspeechinterfaceapplic",
+   "title": "Acquisition of Ultrasound, Video and Acoustic Speech Data for a Silent-Speech Interface Application",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=conf:issp2008/hueber_acquisition | title=Acquisition of Ultrasound, Video and Acoustic Speech Data for a Silent"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2017.08.002",
+   "key": "t:automaticanimationofanarticulatorytonguemodelfromultrasoundimagesofthevocaltract",
+   "title": "Automatic animation of an articulatory tongue model from ultrasound images of the vocal tract",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1016/j.specom.2017.08.002 | title=Automatic animation of an articulatory tongue model from ultrasound im"
+  },
+  {
+   "pid": "doi-10.1038-s41597-025-06193-0",
+   "key": "t:akazakhlanguagedatasetoflipmovementsforcommandrecognition",
+   "title": "A Kazakh language Dataset of Lip Movements for Command Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.1038/s41597-025-06193-0 | title=A Kazakh language Dataset of Lip Movements for Command Recognition | aut"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases"
+  },
+  {
+   "pid": "doi-10.1109-ojemb.2024.3374966",
+   "key": "p:doi-10.1109-ojemb.2024.3374966",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=IEEE Open Journal of Engineering in Medicine and Biology | needs_manual_check=accepted author version processed; f"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2015.2464702",
+   "key": "t:speakeradaptiveacousticarticulatoryinversionusingcascadedgaussianmixtureregressi",
+   "title": "Speaker-Adaptive Acoustic-Articulatory Inversion using Cascaded Gaussian Mixture Regression",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1109/TASLP.2015.2464702 | title=Speaker-Adaptive Acoustic-Articulatory Inversion using Cascaded Gaussian"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2651398",
+   "key": "t:acousticarticulatorymappingforspeakeradaptationthejointgaussianmixtureregression",
+   "title": "Acoustic-Articulatory Mapping for Speaker Adaptation: The Joint Gaussian Mixture Regression (J-GMR)",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1109/TASLP.2017.2651398 | title=Acoustic-Articulatory Mapping for Speaker Adaptation: The Joint Gaussian"
+  },
+  {
+   "pid": "doi-10.12700-aph.17.7.2020.7.6",
+   "key": "t:applyingdnnadaptationtoreducethesessiondependencyofultrasoundbasedsilentspeechin",
+   "title": "Applying DNN Adaptation to Reduce the Session Dependency of Ultrasound-Based Silent Speech Interfaces",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.12700-aph.17.7.2020.7.6 | doi=10.12700/aph.17.7.2020.7.6 | title=Applying DNN Adaptation to Reduce the S"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-10789510-v1",
+   "key": "t:noncontactopticaldecodingofmultiplecorticallanguageandauditoryresponsestatesinwe",
+   "title": "Non-contact optical decoding of multiple cortical language and auditory response states in Wernicke's area",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21203/rs.3.rs-10789510/v1 | title=Non-contact optical decoding of multiple cortical language and auditory re"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9365678-v1",
+   "key": "t:semanticawaredecodingofcovertinnerspeechamultimodaleegemgaudioframework",
+   "title": "Semantic-Aware Decoding of Covert Inner Speech: A Multimodal EEG–EMG–Audio Framework",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-9365678-v1 | title=Semantic-Aware Decoding of Covert Inner Speech: A Multimodal EEG–EMG–Au"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2007-25",
+   "key": "t:acquisitionandsynchronizationofmultimodalarticulatorydata",
+   "title": "Acquisition and synchronization of multimodal articulatory data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2007-25 | title=Acquisition and synchronization of multimodal articulatory data | auth"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2015-521",
+   "key": "t:tonguetrackinginultrasoundimagesusingeigentonguedecompositionandartificialneural",
+   "title": "Tongue Tracking in Ultrasound Images using EigenTongue Decomposition and Artificial Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Tongue Tracking in Ultrasound Images using EigenTongue Decomposition and Artificial Neural Networks | Study.study_"
+  },
+  {
+   "pid": "doi-10.3311-wins2023-012",
+   "key": "p:doi-10.3311-wins2023-012",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=WINS 2023 workshop (Infocommunications Journal proceedings) | needs_manual_check=alignment quality assessed only v"
+  },
+  {
+   "pid": "doi-10.3390-app13116521",
+   "key": "p:doi-10.3390-app13116521",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Applied Sciences 13(11):6521 | needs_manual_check=Table 2/3 per-cell values extracted from figure-region text; CI"
+  },
+  {
+   "pid": "doi-10.5281-zenodo.42298",
+   "key": "t:multiposeaudiovisualspeechrecognition",
+   "title": "Multipose Audio-Visual Speech Recognition",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.5281-zenodo.42298 | title=Multipose Audio-Visual Speech Recognition | authors=Virginia Estellers, Jean-P"
+  },
+  {
+   "pid": "dtic-ada410037",
+   "key": "t:hiddenmarkovmodelclassificationofmyoelectricsignalsinspeech",
+   "title": "Hidden Markov Model Classification of Myoelectric Signals in Speech",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=dtic:ada410037 | title=Hidden Markov Model Classification of Myoelectric Signals in Speech | authors=A. D. C. C"
+  },
+  {
+   "pid": "ecva-kim22-udp",
+   "key": "t:speakeradaptivelipreadingwithuserdependentpadding",
+   "title": "Speaker-adaptive Lip Reading with User-dependent Padding",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-adaptive Lip Reading with User-dependent Padding | authors=Kim, Kim, Ro | Study.research_objective=Speaker"
+  },
+  {
+   "pid": "ib22-vsr-sat",
+   "key": "t:speakeradaptedendtoendvisualspeechrecognitionforcontinuousspanish",
+   "title": "Speaker-Adapted End-to-End Visual Speech Recognition for Continuous Spanish",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ib22-vsr-sat | title=Speaker-Adapted End-to-End Visual Speech Recognition for Continuous Spanish | authors=Davi"
+  },
+  {
+   "pid": "isca-abdelaziz17b_interspeech",
+   "key": "t:ntcdtimitanewdatabaseandbaselinefornoiserobustaudiovisualspeechrecognition",
+   "title": "NTCD-TIMIT: A New Database and Baseline for Noise-Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=NTCD-TIMIT: A New Database and Baseline for Noise-Robust Audio-Visual Speech Recognition | task_family=sentence_re"
+  },
+  {
+   "pid": "isca-abraham21_interspeech",
+   "key": "p:isca-abraham21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2021 | task_family=intermediate_signal_processing | vocabulary_regime=closed_lexicon | scope_limits=se"
+  },
+  {
+   "pid": "isca-ananthakrishnan09_interspeech",
+   "key": "t:insearchofnonuniquenessintheacoustictoarticulatorymapping",
+   "title": "In search of Non-uniqueness in the Acoustic-to-Articulatory Mapping",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/ananthakrishnan09-interspeech | title=In search of Non-uniqueness in the Acoustic-to-Articulatory Mapping"
+  },
+  {
+   "pid": "isca-aron07_interspeech",
+   "key": "t:acquisitionandsynchronizationofmultimodalarticulatorydata",
+   "title": "Acquisition and synchronization of multimodal articulatory data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/aron07-interspeech | title=Acquisition and synchronization of multimodal articulatory data | authors=Micha"
+  },
+  {
+   "pid": "isca-barbier15b_interspeech",
+   "key": "t:speechplanningin4yearoldchildrenversusadultsacousticandarticulatoryanalyses",
+   "title": "Speech planning in 4-year-old children versus adults: Acoustic and articulatory analyses",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech planning in 4-year-old children versus adults: Acoustic and articulatory analyses | language=canadian_frenc"
+  },
+  {
+   "pid": "isca-bawab09_interspeech",
+   "key": "p:isca-bawab09_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=system_proposal | Study.research_objective=derive speaker-adapted vocal-tract shapes purely from EMA"
+  },
+  {
+   "pid": "isca-beeson23_interspeech",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video | system_name="
+  },
+  {
+   "pid": "isca-blanco26-phonewise",
+   "key": "t:adaptivephonewiseweightedlossforsilentspeechrestorationincontinuousspanish",
+   "title": "Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish | authors=del Blanco, Gimeno"
+  },
+  {
+   "pid": "isca-bocquelet15_interspeech",
+   "key": "t:realtimecontrolofadnnbasedarticulatorysynthesizerforsilentspeechconversionapilot",
+   "title": "Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a pilot study",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a pilot study | system_nam"
+  },
+  {
+   "pid": "isca-chaloupka06_tvseg",
+   "key": "t:visualspeechsegmentationandspeakerrecognitionfortranscriptionoftvnews",
+   "title": "Visual Speech Segmentation and Speaker Recognition for Transcription of TV News",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-chaloupka06_tvseg | title=Visual Speech Segmentation and Speaker Recognition for Transcription of TV News"
+  },
+  {
+   "pid": "isca-csapo20d-usmisalign",
+   "key": "t:quanticationoftransducermisalignmentinultrasoundtongueimaging",
+   "title": "Quantiﬁcation of Transducer Misalignment in Ultrasound Tongue Imaging",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Quantiﬁcation of Transducer Misalignment in Ultrasound Tongue Imaging | authors=Csapo, Xu, Nagy | venue=Interspeec"
+  },
+  {
+   "pid": "isca-dean08_avsp",
+   "key": "t:fusedhmmadaptationofsynchronoushmmsforaudiovisualspeakerverification",
+   "title": "Fused HMM adaptation of synchronous HMMs for audio-visual speaker verification",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Fused HMM adaptation of synchronous HMMs for audio-visual speaker verification | authors=David Dean; Sridha Sridha"
+  },
+  {
+   "pid": "isca-demange11_interspeech",
+   "key": "t:continuousepisodicmemorybasedspeechrecognitionusingarticulatorydynamics",
+   "title": "Continuous episodic memory based speech recognition using articulatory dynamics",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/demange11-interspeech | title=Continuous episodic memory based speech recognition using articulatory dynam"
+  },
+  {
+   "pid": "isca-gurbuz05_interspeech",
+   "key": "t:realtimeouterlipcontourtrackingforhciapplications",
+   "title": "Real-time Outer Lip Contour Tracking for HCI Applications",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/gurbuz05-interspeech | title=Real-time Outer Lip Contour Tracking for HCI Applications | authors=Sabri Gur"
+  },
+  {
+   "pid": "isca-hueber13b_interspeech",
+   "key": "t:speakeradaptationofanacousticarticulatoryinversionmodelusingcascadedgaussianmixt",
+   "title": "Speaker Adaptation of an Acoustic-Articulatory Inversion Model using Cascaded Gaussian Mixture Regressions",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/hueber13b-interspeech | title=Speaker Adaptation of an Acoustic-Articulatory Inversion Model using Cascade"
+  },
+  {
+   "pid": "isca-hueber13g_interspeech",
+   "key": "t:speakeradaptationofanacousticarticulatoryinversionmodelusingcascadedgaussianmixt",
+   "title": "Speaker Adaptation of an Acoustic-Articulatory Inversion Model using Cascaded Gaussian Mixture Regressions",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:hueber13g_interspeech | title=Speaker Adaptation of an Acoustic-Articulatory Inversion Model using Cascade"
+  },
+  {
+   "pid": "isca-illa18_interspeech",
+   "key": "p:isca-illa18_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2018 | task_family=intermediate_signal_processing | vocabulary_regime=open_vocabulary | scope_limits=r"
+  },
+  {
+   "pid": "isca-ishi12_interspeech",
+   "key": "t:evaluationofaformantbasedspeechdrivenlipmotiongeneration",
+   "title": "Evaluation of a formant-based speech-driven lip motion generation",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ishi12_interspeech | title=Evaluation of a formant-based speech-driven lip motion generation | authors=Car"
+  },
+  {
+   "pid": "isca-kaburagi01_eurospeech",
+   "key": "t:electromagneticarticulographemabasedonanonparametricrepresentationofthemagneticf",
+   "title": "Electromagnetic articulograph (EMA) based on a non-parametric representation of the magnetic field",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Electromagnetic articulograph (EMA) based on a non-parametric representation of the magnetic field | venue=Eurospe"
+  },
+  {
+   "pid": "isca-kandala19-vivectors",
+   "key": "t:speakeradaptationforlipreadingusingvisualidentityvectors",
+   "title": "Speaker Adaptation for Lip-reading Using Visual Identity Vectors",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker Adaptation for Lip-reading Using Visual Identity Vectors | authors=Kandala, Oba, Haeb-Umbach | venue=Inter"
+  },
+  {
+   "pid": "isca-kandala19_interspeech",
+   "key": "t:speakeradaptationforlipreadingusingvisualidentityvectors",
+   "title": "Speaker Adaptation for Lip-reading Using Visual Identity Vectors",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker Adaptation for Lip-reading Using Visual Identity Vectors | system_name=lip-reading speaker adaptation via"
+  },
+  {
+   "pid": "isca-kumar09_avsync",
+   "key": "t:robustaudiovisualspeechsynchronydetectionbygeneralizedbimodallinearprediction",
+   "title": "Robust Audio-Visual Speech Synchrony Detection by Generalized Bimodal Linear Prediction",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kumar09_avsync | title=Robust Audio-Visual Speech Synchrony Detection by Generalized Bimodal Linear Predic"
+  },
+  {
+   "pid": "isca-kumar09_interspeech",
+   "key": "p:isca-kumar09_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=detect audio-visual synchrony robustly (incl. small"
+  },
+  {
+   "pid": "isca-lucey05_avsp",
+   "key": "t:problemsassociatedwithcurrentareabasedvisualspeechfeatureextractiontechniques",
+   "title": "Problems associated with current area-based visual speech feature extraction techniques",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Problems associated with current area-based visual speech feature extraction techniques | authors=Patrick Lucey, D"
+  },
+  {
+   "pid": "isca-maguer17_tongue",
+   "key": "t:anhmmdnncomparisonforsynchronizedtexttospeechandtonguemotionsynthesis",
+   "title": "An HMM/DNN Comparison for Synchronized Text-to-speech and Tongue Motion Synthesis",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-maguer17_tongue | title=An HMM/DNN Comparison for Synchronized Text-to-speech and Tongue Motion Synthesis"
+  },
+  {
+   "pid": "isca-meier97_avsp",
+   "key": "t:preprocessingofvisualspeechunderrealworldconditions",
+   "title": "PREPROCESSING OF VISUAL SPEECH UNDER REAL WORLD CONDITIONS",
+   "year": 1997,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=PREPROCESSING OF VISUAL SPEECH UNDER REAL WORLD CONDITIONS | authors=Uwe Meier, Rainer Stiefelhagen, Jie Yang | ve"
+  },
+  {
+   "pid": "isca-morishima01-mmodal",
+   "key": "t:multimodaltranslation",
+   "title": "Multimodal translation",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-morishima01-mmodal | title=Multimodal translation | authors=Shigeo Morishima, Shin Ogata, Satoshi Nakamura"
+  },
+  {
+   "pid": "isca-ozgur08_avsp",
+   "key": "t:lipsegmentationusingadaptivecolorspacetraining",
+   "title": "Lip segmentation using adaptive color space training",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip segmentation using adaptive color space training | authors=Erol Ozgur; Berkay Yilmaz; Harun Karabalkan; Hakan"
+  },
+  {
+   "pid": "isca-potamianos01-impaired",
+   "key": "t:automaticspeechreadingofimpairedspeech",
+   "title": "Automatic speechreading of impaired speech",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-potamianos01-impaired | title=Automatic speechreading of impaired speech | authors=Gerasimos Potamianos, C"
+  },
+  {
+   "pid": "isca-potamianos01_avsp",
+   "key": "t:automaticspeechreadingofimpairedspeech",
+   "title": "AUTOMATIC SPEECHREADING OF IMPAIRED SPEECH",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=AUTOMATIC SPEECHREADING OF IMPAIRED SPEECH | authors=Gerasimos Potamianos, Chalapathy Neti | venue=Proc. AVSP 2001"
+  },
+  {
+   "pid": "isca-promon13_interspeech",
+   "key": "t:traininganarticulatorysynthesizerwithcontinuousacousticdata",
+   "title": "Training an articulatory synthesizer with continuous acoustic data",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/promon13-interspeech | title=Training an articulatory synthesizer with continuous acoustic data | authors="
+  },
+  {
+   "pid": "isca-qin10b_interspeech",
+   "key": "t:adaptationofatongueshapemodelbylocalfeaturetransformations",
+   "title": "Adaptation of a tongue shape model by local feature transformations",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/qin10b-interspeech | title=Adaptation of a tongue shape model by local feature transformations | authors=C"
+  },
+  {
+   "pid": "isca-robert07_interspeech",
+   "key": "t:aphoneticconcatenativeapproachoflabialcoarticulation",
+   "title": "A phonetic concatenative approach of labial coarticulation",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/robert07-interspeech | title=A phonetic concatenative approach of labial coarticulation | authors=Vincent"
+  },
+  {
+   "pid": "isca-rong14_interspeech",
+   "key": "t:parameterizationofarticulatorypatterninspeakerswithals",
+   "title": "Parameterization of articulatory pattern in speakers with ALS",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/rong14-interspeech | title=Parameterization of articulatory pattern in speakers with ALS | authors=Panying"
+  },
+  {
+   "pid": "isca-sari18-avicar",
+   "key": "t:speakeradaptiveaudiovisualfusionfortheopenvocabularysectionofavicar",
+   "title": "Speaker Adaptive Audio-Visual Fusion for the Open-Vocabulary Section of AVICAR",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker Adaptive Audio-Visual Fusion for the Open-Vocabulary Section of AVICAR | authors=Sari, Takeda | venue=Inte"
+  },
+  {
+   "pid": "isca-sari18_avicar",
+   "key": "t:speakeradaptiveaudiovisualfusionfortheopenvocabularysectionofavicar",
+   "title": "Speaker Adaptive Audio-Visual Fusion for the Open-Vocabulary Section of AVICAR",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-sari18_avicar | title=Speaker Adaptive Audio-Visual Fusion for the Open-Vocabulary Section of AVICAR | aut"
+  },
+  {
+   "pid": "isca-schabus12_interspeech",
+   "key": "t:speakeradaptivevisualspeechsynthesisinthehmmframework",
+   "title": "Speaker-adaptive visual speech synthesis in the HMM-framework",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-adaptive visual speech synthesis in the HMM-framework | authors=Dietmar Schabus, Michael Pucher, Gregor Ho"
+  },
+  {
+   "pid": "isca-schabus13_avsp",
+   "key": "t:objectiveandsubjectivefeatureevaluationforspeakeradaptivevisualspeechsynthesis",
+   "title": "Objective and subjective feature evaluation for speaker-adaptive visual speech synthesis",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Objective and subjective feature evaluation for speaker-adaptive visual speech synthesis | authors=Dietmar Schabus"
+  },
+  {
+   "pid": "isca-schotz13_interspeech",
+   "key": "t:functionaldataanalysisoftonguearticulationinpalatalvowelsgothenburgandmalmohussw",
+   "title": "Functional Data Analysis of Tongue Articulation in Palatal Vowels: Gothenburg and Malmohus Swedish /i:, y:, 0:/",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/schotz13-interspeech | title=Functional Data Analysis of Tongue Articulation in Palatal Vowels: Gothenburg"
+  },
+  {
+   "pid": "isca-sivaraman17_interspeech",
+   "key": "p:isca-sivaraman17_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2017 | task_family=intermediate_signal_processing | vocabulary_regime=open_vocabulary | scope_limits=s"
+  },
+  {
+   "pid": "isca-steiner13_avsp",
+   "key": "t:speechanimationusingemaasmotioncapturedata",
+   "title": "Speech animation using EMA as motion capture data",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech animation using EMA as motion capture data | authors=Ingmar Steiner; Korin Richmond; Slim Ouni | venue=Proc"
+  },
+  {
+   "pid": "isca-tao14_interspeech",
+   "key": "t:lipreadingapproachforisolateddigitsrecognitionunderwhisperandneutralspeech",
+   "title": "Lipreading Approach for Isolated Digits Recognition under Whisper and Neutral Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lipreading Approach for Isolated Digits Recognition under Whisper and Neutral Speech | system_name=Visual-only lip"
+  },
+  {
+   "pid": "isca-thangthai17_interspeech",
+   "key": "t:improvingcomputerlipreadingviadnnsequencediscriminativetrainingtechniques",
+   "title": "Improving Computer Lipreading via DNN Sequence Discriminative Training Techniques",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improving Computer Lipreading via DNN Sequence Discriminative Training Techniques | task_family=sentence_recogniti"
+  },
+  {
+   "pid": "isca-thangthai18_interspeech",
+   "key": "t:buildinglargevocabularyspeakerindependentlipreadingsystems",
+   "title": "Building Large-Vocabulary Speaker-Independent Lipreading Systems",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Building Large-Vocabulary Speaker-Independent Lipreading Systems | task_family=sentence_recognition | Study.study_"
+  },
+  {
+   "pid": "isca-toth23-usadapt",
+   "key": "t:adaptationoftongueultrasoundbasedsilentspeechinterfacesusingspatialtransformerne",
+   "title": "Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks | authors=Toth,"
+  },
+  {
+   "pid": "isca-toth23_interspeech",
+   "key": "t:adaptationoftongueultrasoundbasedsilentspeechinterfacesusingspatialtransformerne",
+   "title": "Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks | system_name=UT"
+  },
+  {
+   "pid": "isca-wand17_dalip",
+   "key": "t:improvingspeakerindependentlipreadingwithdomainadversarialtraining",
+   "title": "Improving Speaker-Independent Lipreading with Domain-Adversarial Training",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wand17_dalip | title=Improving Speaker-Independent Lipreading with Domain-Adversarial Training | authors=M"
+  },
+  {
+   "pid": "isca-wang15g-spkindep",
+   "key": "t:speakerindependentsilentspeechrecognitionwithacrossspeakerarticulatorynormalizat",
+   "title": "Speaker-Independent Silent Speech Recognition with Across-Speaker Articulatory Normalization and Speaker Adaptive Training",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-Independent Silent Speech Recognition with Across-Speaker Articulatory Normalization and Speaker Adaptive"
+  },
+  {
+   "pid": "isca-wang15g_interspeech",
+   "key": "t:speakerindependentsilentspeechrecognitionwithacrossspeakerarticulatorynormalizat",
+   "title": "Speaker-Independent Silent Speech Recognition with Across-Speaker Articulatory Normalization and Speaker Adaptive Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-Independent Silent Speech Recognition with Across-Speaker Articulatory Normalization and Speaker Adaptive"
+  },
+  {
+   "pid": "isca-youssef11_interspeech",
+   "key": "t:towardamultispeakervisualarticulatoryfeedbacksystem",
+   "title": "Toward a multi-speaker visual articulatory feedback system",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/youssef11-interspeech | title=Toward a multi-speaker visual articulatory feedback system | authors=Atef Be"
+  },
+  {
+   "pid": "issp2011-ben-youssef-speaker-indep-feedback",
+   "key": "t:towardaspeakerindependentvisualarticulatoryfeedbacksystem",
+   "title": "Toward a speaker-independent visual articulatory feedback system",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=conf/issp2011/ben-youssef-speaker-independent-articulatory-feedback | title=Toward a speaker-independent visual"
+  },
+  {
+   "pid": "l2w2010-badin-visual-articulatory-feedback",
+   "key": "t:visualarticulatoryfeedbackforphoneticcorrectioninsecondlanguagelearning",
+   "title": "Visual articulatory feedback for phonetic correction in second language learning",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=conf/l2w2010/badin-visual-articulatory-feedback | title=Visual articulatory feedback for phonetic correction in"
+  },
+  {
+   "pid": "mdpi-app13116521_sa",
+   "key": "t:comparingspeakeradaptationmethodsforvisualspeechrecognitionforcontinuousspanish",
+   "title": "Comparing Speaker Adaptation Methods for Visual Speech Recognition for Continuous Spanish",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=mdpi-app13116521_sa | title=Comparing Speaker Adaptation Methods for Visual Speech Recognition for Continuous S"
+  },
+  {
+   "pid": "oa-W3099202502",
+   "key": "t:audiovisualspeechrecognitionjsalt2000summerworkshopfinalreport",
+   "title": "Audio-visual speech recognition (JSALT 2000 summer workshop final report)",
+   "year": 2000,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W3099202502 | title=Audio-visual speech recognition (JSALT 2000 summer workshop final report) | venue=IDIAP"
+  },
+  {
+   "pid": "pmc-11204283-lip-mocap",
+   "key": "t:adataefficientandeasytouseliplanguageinterfacebasedonwearablemotioncaptureandspe",
+   "title": "A data-efficient and easy-to-use lip language interface based on wearable motion capture and speech movement reconstruction",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11204283-lip-mocap | title=A data-efficient and easy-to-use lip language interface based on wearable motion"
+  },
+  {
+   "pid": "pmc-11598394-eyewear-ssi",
+   "key": "t:silentspeecheyewearinterfacesilentspeechrecognitionmethodusingeyewearandanearmou",
+   "title": "Silent Speech Eyewear Interface: Silent Speech Recognition Method Using Eyewear and an Ear-Mounted Sensor",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11598394-eyewear-ssi | title=Silent Speech Eyewear Interface: Silent Speech Recognition Method Using Eyewea"
+  },
+  {
+   "pid": "pmc-12245923-pron2img-eeg",
+   "key": "t:frompronouncedtoimaginedimprovingspeechdecodingwithmulticonditioneegdata",
+   "title": "From pronounced to imagined: improving speech decoding with multi-condition EEG data",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12245923-pron2img-eeg | title=From pronounced to imagined: improving speech decoding with multi-condition E"
+  },
+  {
+   "pid": "pmc-12297453-fnirs-ci",
+   "key": "t:anfnirsdatasetformultimodalspeechcomprehensioninnormalhearingindividualsandcochl",
+   "title": "An fNIRS dataset for Multimodal Speech Comprehension in Normal Hearing Individuals and Cochlear Implant Users",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12297453-fnirs-ci | title=An fNIRS dataset for Multimodal Speech Comprehension in Normal Hearing Individual"
+  },
+  {
+   "pid": "pmc-13006734-cvos-ssi",
+   "key": "t:softmultiaxialstrainmappinginterfacewithaidrivendecodingforsilentspeechinnoise",
+   "title": "Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speech in Noise",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13006734-cvos-ssi | title=Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speec"
+  },
+  {
+   "pid": "pmc-pmc10835303",
+   "key": "t:astandardisedtesttoevaluateaudiovisualspeechintelligibilityinfrench",
+   "title": "A standardised test to evaluate audio-visual speech intelligibility in French",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-pmc10835303 | title=A standardised test to evaluate audio-visual speech intelligibility in French | authors"
+  },
+  {
+   "pid": "pmc3810281",
+   "key": "t:experiencewithatalkercantransferacrossmodalitiestofacilitatelipreading",
+   "title": "Experience with a Talker Can Transfer Across Modalities to Facilitate Lipreading",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3758/s13414-013-0534-x | title=Experience with a Talker Can Transfer Across Modalities to Facilitate Lipread"
+  }
+ ],
+ "usual_approach": {
+  "design": "feature- or model-space linear transforms (fMLLR, MLLR, Procrustes) in recognizers, or weight updates on target data (whole network or a layer subset) and speaker inputs (i-vector, padding, prompts) in neural models; no learned image-space transform before the target",
+  "n": 17,
+  "tier": "pattern match",
+  "pids": [
+   "isca-sari18-avicar",
+   "isca-hueber13b_interspeech",
+   "isca-beeson23_interspeech",
+   "doi-10.12700-aph.17.7.2020.7.6",
+   "ecva-kim22-udp"
+  ],
+  "population_unique": 93,
+  "note": "full-text pattern counts over the 93 unique candidate studies (reference lists removed; a study can match several): input-space or feature-space transform 17, speaker prompt/padding/embedding 10, layer-subset update 5, domain-adversarial 5, whole-network fine-tuning wording 3. A spatial-transformer or learned image-affine hit outside the target's own three versions occurs only in a [later] survey (arxiv-2603.11877) that cites the target and in a lip-to-speech Transformer naming (arxiv-2207.03800, not an adaptation module); affine hits elsewhere are fixed face alignment (arxiv-2502.05758) or MLLR/fMLLR on model or feature space (isca-hueber13b_interspeech, isca-beeson23_interspeech). Ultrasound session adaptation before the target: doi-10.12700-aph.17.7.2020.7.6 (lower-layer weight update). Slot-filled M03 values (supervision_kind) do not describe the adaptation design."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2305.19130",
+   "role": "target",
+   "loc": "Sec. 5; Table 2",
+   "quote": "we extend our deep networks with a spatial transformer network (STN) module"
+  },
+  {
+   "pid": "doi-10.12700-aph.17.7.2020.7.6",
+   "role": "prior",
+   "loc": "Abstract; Sec. 4.1.1; Table 3",
+   "quote": "adapting just the lower, feature extractor layers of the neural network proved to be sufficient"
+  },
+  {
+   "pid": "isca-csapo20d-usmisalign",
+   "role": "prior",
+   "loc": "Sec. 3.3",
+   "quote": "until now there have been no methods yet for auto-rotating within longer ultrasound recording sessions"
+  },
+  {
+   "pid": "ecva-kim22-udp",
+   "role": "prior",
+   "loc": "Sec. 4.3; Table 2",
+   "quote": "adapting on 5 minutes video achieves 5.67% WER"
+  },
+  {
+   "pid": "arxiv-2409.00986",
+   "role": "sota",
+   "loc": "Table 3; Table 4",
+   "quote": "The proposed method achieves a marginally higher WER of 40.9%"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2409.00986",
+  "year": 2024,
+  "metric": "speaker-adaptive lip-reading WER, VoxLRS-SA, 20 target speakers, 0.74M trainable adaptation parameters (47.3 unadapted, 39.6 full encoder fine-tuning)",
+  "value": 40.9,
+  "unit": "%",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 93,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "feature- or model-space linear transforms (fMLLR, MLLR, Procrustes) in recognizers, or weight updates on target data (whole network or a layer subset) and speaker inputs (i-vector, padding, prompts) in neural models; no learned image-space transform before the target",
+   "n": 17,
+   "tier": "pattern match",
+   "population_unique": 93
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2409.00986",
+   "year": 2024,
+   "metric": "speaker-adaptive lip-reading WER, VoxLRS-SA, 20 target speakers, 0.74M trainable adaptation parameters (47.3 unadapted, 39.6 full encoder fine-tuning)",
+   "value": 40.9,
+   "unit": "%",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 5,
+  "read_prior": [
+   "doi-10.12700-aph.17.7.2020.7.6",
+   "ecva-kim22-udp",
+   "isca-csapo20d-usmisalign"
+  ],
+  "unread": 104,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks"
+ ]
+}

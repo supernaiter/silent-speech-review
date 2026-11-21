@@ -141,7 +141,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`ultrasound-to-speech-output-evaluation.csv`](ultrasound-to-speech-output-evaluation.csv) (6960 slot-filled, 51 pattern match, usual design in 21, 3 read in full)
 - Inclusion rule: Include studies that synthesize speech or acoustic features from ultrasound tongue images (with or without lip video) and evaluate the output; classify the output measures used (MCD or other spectral distance, MUSHRA or MOS ratings, listener transcription or identification, ASR on the synthesized speech). Boundary: exclude recognition-only studies, contour tracking and reviews (they inflate the pattern match, an upper bound); count versions once by key.
-- Used in: [Conformer-based Ultrasound-to-Speech Conversion](../../reviews/conformer-based-ultrasound-to-speech-conversion/)
+- Used in: [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](../../reviews/adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks/), [Conformer-based Ultrasound-to-Speech Conversion](../../reviews/conformer-based-ultrasound-to-speech-conversion/)
 
 ## video-to-speech-output-evaluation
 

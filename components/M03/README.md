@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Recognizers that decode text from non-acoustic speech signals (articulatory imaging, EMA, EMG, lip video, neural recordings) and apply speaker, session or speaking-mode adaptation of features or model (fMLLR/SAT, Procrustes normalization, unsupervised or test-time adaptation) and report an unadapted comparison. Boundary: acoustic-only ASR, synthesis without recognition, articulatory phonetics without a recognizer, reviews, and supervised retraining on the full target data are excluded; versions counted once.
 - Used in: [Silent versus modal multi-speaker speech recognition from ultrasound and video](../../reviews/silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video/)
 
+## articulatory-speech-model-speaker-session-adaptation
+
+- Table: [`articulatory-speech-model-speaker-session-adaptation.csv`](articulatory-speech-model-speaker-session-adaptation.csv) (1526 slot-filled, 93 pattern match, usual design in 17, 5 read in full)
+- Inclusion rule: Models that map a non-acoustic speech signal (ultrasound, EMA or PMA, EMG, lip video, other wearable sensors) to speech, text or articulatory output and adapt a trained model to a new speaker or recording session with target data, reporting an unadapted or full-retraining comparison; classified by what is adapted (whole network, a layer subset, an input-space transform, or an input prompt/padding/embedding). Boundary: acoustic-only systems, speaker-independent training without an adaptation step, neural-recording calibration, tongue-contour tracking and reviews are excluded; versions counted once.
+- Used in: [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](../../reviews/adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks/)
+
 ## cross-subject-pooled-training
 
 - Table: [`cross-subject-pooled-training.csv`](cross-subject-pooled-training.csv) (1526 slot-filled, 370 pattern match, usual design in 90, 4 read in full)
