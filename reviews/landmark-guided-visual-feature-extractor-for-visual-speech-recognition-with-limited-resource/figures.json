@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "LRW / LRW-ID; one-third per-identity subset"
+     ],
+     "field": "Corpus training",
+     "n": 8995,
+     "matched": 3882,
+     "verdict": "standard",
+     "note": "Inherited corpus; sampling seed and subset not reported."
+    },
+    "M02": {
+     "choice": [
+      "None"
+     ],
+     "field": "No auxiliary target",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "na",
+     "note": "No audio or text-derived auxiliary target."
+    },
+    "M03": {
+     "choice": [
+      "Cross-entropy, label smoothing 0.1; no adaptation"
+     ],
+     "field": "Supervised training",
+     "n": 8995,
+     "matched": 1526,
+     "verdict": "standard",
+     "note": "DC-TCN training recipe of [@ma2022training] without mixup."
+    },
+    "M04": {
+     "choice": [
+      "Voiced broadcast speech"
+     ],
+     "field": "Overt speech video",
+     "n": 8995,
+     "matched": 5595,
+     "verdict": "standard",
+     "note": "No silent articulation."
+    },
+    "M05": {
+     "choice": [
+      "RGB mouth crops; 20 derived lip landmarks"
+     ],
+     "field": "Single RGB camera",
+     "n": 8995,
+     "matched": 7329,
+     "verdict": "standard",
+     "note": "Landmarks are a derived stream, not a new sensor; 96 x 96 mouth crops with 88 x 88 random or centre crop, as in the standard pipeline."
+    },
+    "M06": {
+     "choice": [
+      "Pixel ResNet-18 plus three-graph landmark GCN, staged fusion"
+     ],
+     "field": "Pixel-only CNN front-end",
+     "n": 8995,
+     "matched": 368,
+     "verdict": "standard",
+     "note": "Graph-plus-pixel fusion of 20 lip points already in [@liu2020lipgraph]; landmark stream in 64 studies (pattern match)."
+    },
+    "M07": {
+     "choice": [
+      "None (closed set)"
+     ],
+     "field": "No language model",
+     "n": 8995,
+     "matched": 119,
+     "verdict": "na",
+     "note": "500-word closed set."
+    },
+    "M08": {
+     "choice": [
+      "One of 500 words"
+     ],
+     "field": "Word label",
+     "n": 8995,
+     "matched": 3268,
+     "verdict": "standard",
+     "note": "Isolated-word output."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "Offline",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "Offline",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M11": {
+     "choice": [
+      "LRW labels; LRW-ID 20 held-out speakers"
+     ],
+     "field": "Benchmark labels",
+     "n": 8995,
+     "matched": 234,
+     "verdict": "standard",
+     "note": "Validation and test share the 20 held-out speakers, as the authors state (Sec. 4.1) following earlier LRW-ID settings."
+    },
+    "M12": {
+     "choice": [
+      "Acc / mAcc, one run; word boundary in code only"
+     ],
+     "field": "ResNet-18, LRW top-1",
+     "n": 8995,
+     "matched": 90,
+     "verdict": "missing",
+     "note": "No seeds, perturbation magnitudes or word-boundary condition stated."
+    },
+    "M13": {
+     "choice": [
+      "62.48M parameters, 11.09G FLOPs"
+     ],
+     "field": "Offline compute report",
+     "n": 8995,
+     "matched": 6075,
+     "verdict": "standard",
+     "note": "Parameters up from 52.55M; no latency or device test; authors concede edge-deployment cost."
+    }
+   }
+  }
+ ]
+}
