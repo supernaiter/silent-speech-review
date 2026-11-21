@@ -103,6 +103,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that report word error rate of visual-only (lip-reading) recognition on the LRS3 test set, any training regime. Boundary: exclude audio-only and audio-visual WER rows, LRS2/LRW/GRID-only results, and numbers quoted from other papers without new training; count versions of one study once.
 - Used in: [AKVSR: Audio Knowledge Empowered Visual Speech Recognition by Compressing Audio Knowledge of a Pretrained Model](../../reviews/akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model/), [Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction](../../reviews/learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/), [Visual Speech Recognition for Multiple Languages in the Wild](../../reviews/visual-speech-recognition-for-multiple-languages-in-the-wild/)
 
+## lrw-word-accuracy
+
+- Table: [`lrw-word-accuracy.csv`](lrw-word-accuracy.csv) (6960 slot-filled, 155 pattern match, usual design in 90, 2 read in full)
+- Inclusion rule: Visual-only word-level lip reading evaluated on the English LRW benchmark (500 words, BBC clips) with top-1 accuracy on its test set. Boundary: LRW-1000 / CAS-VSR-W1k and other-language LRW variants are excluded; audio-visual results count only when a visual-only figure is also reported; results that feed word-boundary indicators to the model are kept but labelled; versions of one study count once.
+- Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/)
+
 ## neural-text-unseen-sentence-test
 
 - Table: [`neural-text-unseen-sentence-test.csv`](neural-text-unseen-sentence-test.csv) (6960 slot-filled, 145 pattern match, usual design in 21, 4 read in full)

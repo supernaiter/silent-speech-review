@@ -139,6 +139,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that reconstruct speech acoustics (spectrograms, vocoder features or waveforms) from intracranial recordings (ECoG, sEEG or depth electrodes, intracortical arrays) made during overt, mouthed, attempted or imagined speech production. Boundary: exclude reconstruction of heard speech, text-only decoding read out by a TTS engine, and reviews or citation-only mentions; count versions of one study once. The ledger pattern also admits some reviews and text-decoding papers, so its count is an upper bound. Design of interest: the neural feature fed to the acoustic decoder (high-gamma envelope, wavelet multiband decomposition, low-frequency band power, phase-amplitude coupling).
 - Used in: [Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction](../../reviews/brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/)
 
+## lip-landmark-geometric-stream
+
+- Table: [`lip-landmark-geometric-stream.csv`](lip-landmark-geometric-stream.csv) (7345 slot-filled, 1116 pattern match, usual design in 368, 5 read in full)
+- Inclusion rule: Visual or audio-visual speech recognition studies (lip reading, VSR, AVSR; word or sentence level) whose ledger names lip reading, VSR, AVSR or an LRS/LRW benchmark. The design compared is whether facial or lip landmarks (coordinates, distances, contours, shape-model parameters) enter the recognizer as a feature stream next to or instead of pixels, and how that stream is encoded (graph convolution over landmarks versus other encoders). Boundary: landmarks used only to detect, align or crop the mouth do not count; a study counts under every design its full text names (upper bound, related-work mentions included); reviews count as pattern matches only; versions of one study count once.
+- Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/)
+
 ## noninvasive-decoding-segmentation
 
 - Table: [`noninvasive-decoding-segmentation.csv`](noninvasive-decoding-segmentation.csv) (7345 slot-filled, 1458 pattern match, usual design in 310, 2 read in full)

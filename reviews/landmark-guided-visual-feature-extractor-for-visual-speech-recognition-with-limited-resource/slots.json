@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "LRW / LRW-ID; one-third per-identity subset"
+  ],
+  "field": "Corpus training",
+  "n": 7388,
+  "matched": 3882,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited corpus; sampling seed and subset not reported.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "None"
+  ],
+  "field": "No auxiliary target",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot_filled (sparse; omission)",
+  "verdict": "not_applicable",
+  "note": "No audio or text-derived auxiliary target.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Cross-entropy, label smoothing 0.1; no adaptation"
+  ],
+  "field": "Supervised training",
+  "n": 7388,
+  "matched": 1526,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "DC-TCN training recipe of [@ma2022training] without mixup.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Voiced broadcast speech"
+  ],
+  "field": "Overt speech video",
+  "n": 7388,
+  "matched": 5595,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "No silent articulation.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "RGB mouth crops; 20 derived lip landmarks"
+  ],
+  "field": "Single RGB camera",
+  "n": 7388,
+  "matched": 7329,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Landmarks are a derived stream, not a new sensor; 96 x 96 mouth crops with 88 x 88 random or centre crop, as in the standard pipeline.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Pixel ResNet-18 plus three-graph landmark GCN, staged fusion"
+  ],
+  "field": "Pixel-only CNN front-end",
+  "n": 1116,
+  "matched": 368,
+  "matched_tier": "pattern match",
+  "verdict": "standard",
+  "note": "Graph-plus-pixel fusion of 20 lip points already in [@liu2020lipgraph]; landmark stream in 64 studies (pattern match).",
+  "sota": "[@hoang2026nestlipgnn] 92.3% [later]"
+ },
+ "M07": {
+  "choice": [
+   "None (closed set)"
+  ],
+  "field": "No language model",
+  "n": 7388,
+  "matched": 119,
+  "matched_tier": "slot_filled (sparse; omission)",
+  "verdict": "not_applicable",
+  "note": "500-word closed set.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "One of 500 words"
+  ],
+  "field": "Word label",
+  "n": 7388,
+  "matched": 3268,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Isolated-word output.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "Offline",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (mostly truly absent)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "Offline",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (mostly truly absent)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "LRW labels; LRW-ID 20 held-out speakers"
+  ],
+  "field": "Benchmark labels",
+  "n": 7388,
+  "matched": 234,
+  "matched_tier": "slot_filled (unknown fill)",
+  "verdict": "standard",
+  "note": "Validation and test share the 20 held-out speakers, as the authors state (Sec. 4.1) following earlier LRW-ID settings.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Acc / mAcc, one run; word boundary in code only"
+  ],
+  "field": "ResNet-18, LRW top-1",
+  "n": 155,
+  "matched": 90,
+  "matched_tier": "pattern match",
+  "verdict": "not_reported",
+  "note": "No seeds, perturbation magnitudes or word-boundary condition stated.",
+  "sota": "[@ahn2024syncvsr] 93.2% / 95.0% (boundary)"
+ },
+ "M13": {
+  "choice": [
+   "62.48M parameters, 11.09G FLOPs"
+  ],
+  "field": "Offline compute report",
+  "n": 7388,
+  "matched": 6075,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Parameters up from 52.55M; no latency or device test; authors concede edge-deployment cost.",
+  "sota": "–"
+ }
+}
