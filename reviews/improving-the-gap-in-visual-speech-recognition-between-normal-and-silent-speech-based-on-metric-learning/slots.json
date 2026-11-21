@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "A V Digits and OuluVS2 phrase recordings"
+  ],
+  "field": "Corpus training",
+  "n": 7388,
+  "matched": 3882,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Recorded read phrases; no in-use training action.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Text to CMU phonemes to 13 visemes"
+  ],
+  "field": "Text-derived labels",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot_filled (sparse; omission)",
+  "verdict": "standard",
+  "note": "Viseme targets from text only; no audio target.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Joint normal and silent training with inter- and within-mode KL on viseme posteriors"
+  ],
+  "field": "Paired-audio supervision",
+  "n": 138,
+  "matched": 31,
+  "matched_tier": "slot-filled",
+  "verdict": "standard",
+  "note": "Divergence route is the earliest of 5 (pattern match) but Table 1 reports no run count, so the ahead rule is not met; target transfer 27, domain-adversarial 12 (pattern match).",
+  "sota": "[@lee2026sva] 25.14% silent WER, 10 seeds [later]"
+ },
+ "M04": {
+  "choice": [
+   "Normal-only row tested on silent speech"
+  ],
+  "field": "Overt-trained decoder applied to silent speech",
+  "n": 33,
+  "matched": 23,
+  "matched_tier": "confirmed",
+  "verdict": "standard",
+  "note": "WER 11.58% to 22.55% (nearly doubles); degradation already in [@petridis2018visual].",
+  "sota": "[@petridis2018visual] 61.2% vs 64.4% silent phrase accuracy"
+ },
+ "M05": {
+  "choice": [
+   "Single frontal camera, Dlib lip crop, grayscale 112 x 112"
+  ],
+  "field": "Single RGB camera",
+  "n": 7388,
+  "matched": 7329,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Pixel normalization not stated.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Frozen pretrained 3D-conv ResNet-18, transformer viseme classifier"
+  ],
+  "field": "Visual front-end plus sequence model",
+  "n": 7388,
+  "matched": 7345,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Front-end weights from a large normal-speech model, kept fixed.",
+  "sota": "–"
+ },
+ "M07": {
+  "choice": [
+   "Attention GRU viseme-to-word model, 10-phrase set"
+  ],
+  "field": "Closed-set language model",
+  "n": 7388,
+  "matched": 119,
+  "matched_tier": "slot_filled (sparse; omission)",
+  "verdict": "standard",
+  "note": "Trained on normal-speech viseme predictions only; search not stated.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Phrase text from 10 phrases"
+  ],
+  "field": "Word sequence",
+  "n": 7388,
+  "matched": 3268,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Closed vocabulary; unknown words left to future work.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "Offline",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (mostly truly absent)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "Offline",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled (mostly truly absent)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "A V Digits 20/8/11-speaker phrase split"
+  ],
+  "field": "Benchmark labels",
+  "n": 7388,
+  "matched": 234,
+  "matched_tier": "slot_filled (unknown fill)",
+  "verdict": "standard",
+  "note": "Counts match the corpus split of [@petridis2018visual]; speaker disjointness not stated.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "VER and WER; no run count or spread for Table 1"
+  ],
+  "field": "Error rate on a held-out set",
+  "n": 7388,
+  "matched": 6960,
+  "matched_tier": "slot_filled",
+  "verdict": "not_reported",
+  "note": "No seeds, intervals or named selection split for Table 1; Fig. 3 averages 5 subset runs, VER only.",
+  "sota": "–"
+ },
+ "M13": {
+  "choice": [
+   "Offline GPU training"
+  ],
+  "field": "Offline compute",
+  "n": 7388,
+  "matched": 6075,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "No latency or device measurement.",
+  "sota": "–"
+ }
+}

@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "A V Digits and OuluVS2 phrase recordings"
+     ],
+     "field": "Corpus training",
+     "n": 8995,
+     "matched": 3882,
+     "verdict": "standard",
+     "note": "Recorded read phrases; no in-use training action."
+    },
+    "M02": {
+     "choice": [
+      "Text to CMU phonemes to 13 visemes"
+     ],
+     "field": "Text-derived labels",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Viseme targets from text only; no audio target."
+    },
+    "M03": {
+     "choice": [
+      "Joint normal and silent training with inter- and within-mode KL on viseme posteriors"
+     ],
+     "field": "Paired-audio supervision",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Divergence route is the earliest of 5 (pattern match) but Table 1 reports no run count, so the ahead rule is not met; target transfer 27, domain-adversarial 12 (pattern match)."
+    },
+    "M04": {
+     "choice": [
+      "Normal-only row tested on silent speech"
+     ],
+     "field": "Overt-trained decoder applied to silent speech",
+     "n": 8995,
+     "matched": 23,
+     "verdict": "standard",
+     "note": "WER 11.58% to 22.55% (nearly doubles); degradation already in [@petridis2018visual]."
+    },
+    "M05": {
+     "choice": [
+      "Single frontal camera, Dlib lip crop, grayscale 112 x 112"
+     ],
+     "field": "Single RGB camera",
+     "n": 8995,
+     "matched": 7329,
+     "verdict": "standard",
+     "note": "Pixel normalization not stated."
+    },
+    "M06": {
+     "choice": [
+      "Frozen pretrained 3D-conv ResNet-18, transformer viseme classifier"
+     ],
+     "field": "Visual front-end plus sequence model",
+     "n": 8995,
+     "matched": 7345,
+     "verdict": "standard",
+     "note": "Front-end weights from a large normal-speech model, kept fixed."
+    },
+    "M07": {
+     "choice": [
+      "Attention GRU viseme-to-word model, 10-phrase set"
+     ],
+     "field": "Closed-set language model",
+     "n": 8995,
+     "matched": 119,
+     "verdict": "standard",
+     "note": "Trained on normal-speech viseme predictions only; search not stated."
+    },
+    "M08": {
+     "choice": [
+      "Phrase text from 10 phrases"
+     ],
+     "field": "Word sequence",
+     "n": 8995,
+     "matched": 3268,
+     "verdict": "standard",
+     "note": "Closed vocabulary; unknown words left to future work."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "Offline",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "Offline",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M11": {
+     "choice": [
+      "A V Digits 20/8/11-speaker phrase split"
+     ],
+     "field": "Benchmark labels",
+     "n": 8995,
+     "matched": 234,
+     "verdict": "standard",
+     "note": "Counts match the corpus split of [@petridis2018visual]; speaker disjointness not stated."
+    },
+    "M12": {
+     "choice": [
+      "VER and WER; no run count or spread for Table 1"
+     ],
+     "field": "Error rate on a held-out set",
+     "n": 8995,
+     "matched": 6960,
+     "verdict": "missing",
+     "note": "No seeds, intervals or named selection split for Table 1; Fig. 3 averages 5 subset runs, VER only."
+    },
+    "M13": {
+     "choice": [
+      "Offline GPU training"
+     ],
+     "field": "Offline compute",
+     "n": 8995,
+     "matched": 6075,
+     "verdict": "standard",
+     "note": "No latency or device measurement."
+    }
+   }
+  }
+ ]
+}
