@@ -4,6 +4,7 @@
 
 Each paper judged component by component against the usual approach and the state of the art.
 
+- [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/) (2026). Event input and a two-step OT-CFM decoder are standard; the DVS-Lip evaluation is behind: WER on an isolated-word set with no split details or seeds, and baselines that do not match their sources.
 - [A cross-species neural foundation model for end-to-end speech decoding](a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/) (2026). Cascaded decoding with the pretrained encoder is a strong standard result; the end-to-end audio-LLM path beats the prior end-to-end entry but trails RNN cascades, and the cross-species gain is small.
 - [Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction](brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction/) (2026). Same three parts and same Table 1 values as MiSTR (2025, same first two authors), not cited. Features (M06) and phase vocoder (M08) standard, unablated; no listener test (M12, behind).
 - [Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding](brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding/) (2026). Text-free synthesis is shown, but its real time is throughput, not causal synthesis, unseen-sentence WER is 2.3 times the cascade, and intelligibility rests on ratings and ASR.
@@ -64,7 +65,6 @@ Each paper judged component by component against the usual approach and the stat
 Earlier format: evaluation conditions, results and limitations per paper.
 
 - [A 1000-hour EEG-EMG-audio dataset of Japanese speech production](a-1000-hour-eeg-emg-audio-dataset-of-japanese-speech-production/) (2026)
-- [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/) (2026)
 - [AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration](aessi-an-around-ear-silent-speech-interface-for-cross-day-online-reuse-without-test-day-calibrat/) (2026)
 - [AVSRBench: A Multi-Condition AVSR Benchmark](avsrbench-a-multi-condition-avsr-benchmark/) (2026)
 - [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg/) (2026)

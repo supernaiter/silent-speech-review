@@ -1,0 +1,487 @@
+{
+ "topic": "event-camera-lip-reading",
+ "slot": "M05",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*(dvs-lip|event[- ]based lip|neuromorphic lip|event camera|event stream|dynamic vision sensor|DAVIS346|Prophesee))(?=.*(lip|speech))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Lip reading or visual/audio-visual speech recognition whose visual input is an event stream, recorded by an event camera (DVS/DAVIS/Prophesee) or converted from RGB video. Boundary: event cameras used for non-speech face tasks (action units, gait) are excluded; event datasets without a recognition result count only if they report one; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8898,
+  "slot_filled_unique": 7329,
+  "string_match_folders": 15,
+  "string_match_unique": 11,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M05",
+  "design_slot_fill": 0.989,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "modalities=optical_camera",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2606-31225-otcfm",
+     "arxiv-2607-08236-tvta",
+     "cea-4613773-sgrulip",
+     "hal-4183135-neurolip",
+     "cvf-tan22-dvs-lip-mstp"
+    ]
+   },
+   {
+    "design": "modalities=other",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.15718-neurolip",
+     "arxiv-2607.08236-tvta",
+     "arxiv-2404.11979",
+     "arxiv-2408.16564",
+     "arxiv-2409.10213"
+    ]
+   },
+   {
+    "design": "observed_quantities=other",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.08236",
+     "cea-4613773-sgrulip",
+     "hal-4183135-neurolip",
+     "arxiv-1912.02671"
+    ]
+   },
+   {
+    "design": "intrusiveness=external_noncontact",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.08236",
+     "cea-4613773-sgrulip",
+     "hal-4183135-neurolip",
+     "arxiv-1912.02671"
+    ]
+   },
+   {
+    "design": "body_sites=lips",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.08236",
+     "arxiv-2404.11979",
+     "arxiv-2408.16564"
+    ]
+   },
+   {
+    "design": "modalities=microphone",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1912.02671",
+     "arxiv-2408.16564"
+    ]
+   },
+   {
+    "design": "body_sites=face",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2409.10213",
+     "arxiv-2410.21958"
+    ]
+   },
+   {
+    "design": "observed_quantities=position",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "cea-4613773-sgrulip",
+     "hal-4183135-neurolip"
+    ]
+   },
+   {
+    "design": "observed_quantities=air_acoustics",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1912.02671"
+    ]
+   },
+   {
+    "design": "sensor_hardware=davis-346 event camera; event-based lip-reading dataset",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.08236"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "DVS-Lip benchmark",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2606-31225-otcfm",
+     "arxiv-2607-08236-tvta",
+     "cea-4613773-sgrulip",
+     "hal-4183135-neurolip",
+     "cvf-tan22-dvs-lip-mstp"
+    ]
+   },
+   {
+    "design": "spiking neural network",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604.15718-neurolip",
+     "arxiv-2606-31225-otcfm",
+     "arxiv-2607.08236-tvta",
+     "cea-4613773-sgrulip",
+     "hal-4183135-neurolip"
+    ]
+   },
+   {
+    "design": "video-to-event conversion",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2606-31225-otcfm",
+     "arxiv-2408.16564"
+    ]
+   },
+   {
+    "design": "DAVIS346 recording",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "cvf-tan22-dvs-lip-mstp"
+    ]
+   }
+  ],
+  "metric_pattern": "acc",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "t1 ours e-acc1",
+   "value": 97.4,
+   "unit": "percent",
+   "raw": "97.4",
+   "pid": "arxiv-2408.16564",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 mtga acc",
+   "value": 95.42,
+   "unit": "percent",
+   "raw": "95.42",
+   "pid": "arxiv-2404.11979",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SpkVA (Speaker Verification Accuracy); decision protocol not reported",
+   "value": 93.8,
+   "unit": "%",
+   "raw": "93.8",
+   "pid": "arxiv-2606.31225",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Acc2 (%)",
+   "value": 87.79,
+   "unit": "percent",
+   "raw": "87.79",
+   "pid": "arxiv-2607.08236",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SNN SpikGRU2+ accuracy",
+   "value": 75.3,
+   "unit": "percent",
+   "raw": "75.3%",
+   "pid": "cea-4613773-sgrulip",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Acc 72.10",
+   "value": 72.1,
+   "unit": "acc_pct",
+   "raw": "MSTP overall accuracy on DVS-Lip test",
+   "pid": "cvf22-tan_eventlip",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "MSTP baseline accuracy",
+   "value": 72.1,
+   "unit": "% (from fraction)",
+   "raw": "0.721",
+   "pid": "hal-4183135-neurolip",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 transf acc",
+   "value": 69.27,
+   "unit": "percent",
+   "raw": "69.27",
+   "pid": "arxiv-2410.21958",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1912.02671",
+   "key": "p:arxiv-1912.02671",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=low-latency online audio-visual target speaker enhan"
+  },
+  {
+   "pid": "arxiv-2404.11979",
+   "key": "t:mtgamultiviewtemporalgranularityalignedaggregationforeventbasedlipreading",
+   "title": "MTGA: Multi-View Temporal Granularity Aligned Aggregation for Event-Based Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2404.11979 | title=MTGA: Multi-View Temporal Granularity Aligned Aggregation for Event-Based Lip-Reading"
+  },
+  {
+   "pid": "arxiv-2408.16564",
+   "key": "t:humaninspiredcomputingforrobustandefficientaudiovisualspeechrecognition",
+   "title": "Human-Inspired Computing for Robust and Efficient Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2408.16564 | title=Human-Inspired Computing for Robust and Efficient Audio-Visual Speech Recognition | St"
+  },
+  {
+   "pid": "arxiv-2409.10213",
+   "key": "t:neuromorphicfacialanalysiswithcrossmodalsupervision",
+   "title": "Neuromorphic Facial Analysis with Cross-Modal Supervision",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2409.10213 | title=Neuromorphic Facial Analysis with Cross-Modal Supervision | Study.research_objective=F"
+  },
+  {
+   "pid": "arxiv-2410.21958",
+   "key": "t:spatiotemporaltransformersforactionunitclassificationwitheventcameras",
+   "title": "Spatio-temporal Transformers for Action Unit Classification with Event Cameras",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2410.21958 | title=Spatio-temporal Transformers for Action Unit Classification with Event Cameras | Study"
+  },
+  {
+   "pid": "arxiv-2604.15718-neurolip",
+   "key": "t:neurolipaneventdrivenspatiotemporallearningframeworkforcrossscenelipmotionbasedv",
+   "title": "NeuroLip: An Event-driven Spatiotemporal Learning Framework for Cross-Scene Lip-Motion-based Visual Speaker Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.15718-neurolip | title=NeuroLip: An Event-driven Spatiotemporal Learning Framework for Cross-Scene L"
+  },
+  {
+   "pid": "arxiv-2606-31225-otcfm",
+   "key": "t:afirstexplorationofneuromorphicotcfmformultispeakervsr",
+   "title": "A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR | authors=Chen, Fang, Liu, Xu, Chen, Li, Cai, Che"
+  },
+  {
+   "pid": "arxiv-2606.31225",
+   "key": "t:afirstexplorationofneuromorphicotcfmformultispeakervsr",
+   "title": "A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2606.31225v2 | source_url=https://arxiv.org/pdf/2606.31225v2 | title=A First Exploration of Neuromorphic O"
+  },
+  {
+   "pid": "arxiv-2607-08236-tvta",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading | authors=Zheng, Ren, Wu (Ha"
+  },
+  {
+   "pid": "arxiv-2607.08236",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2607.08236 | paper_version=arXiv:2607.08236v1 | title=TVTA: Trajectory-Aware Viseme-Guided Temporal Aggre"
+  },
+  {
+   "pid": "arxiv-2607.08236-tvta",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.08236-tvta | title=TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Rea"
+  },
+  {
+   "pid": "cea-4613773-sgrulip",
+   "key": "t:neuromorphiclipreadingwithsignedspikinggatedrecurrentunits",
+   "title": "Neuromorphic Lip-reading with signed spiking gated recurrent units",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neuromorphic Lip-reading with signed spiking gated recurrent units | authors=Dampfhoffer Manon, Mesquida Thomas |"
+  },
+  {
+   "pid": "cvf-tan22-dvs-lip-mstp",
+   "key": "t:multigrainedspatiotemporalfeaturesperceivednetworkforeventbasedlipreading",
+   "title": "Multi-grained Spatio-Temporal Features Perceived Network for Event-based Lip-Reading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-tan22-dvs-lip-mstp | title=Multi-grained Spatio-Temporal Features Perceived Network for Event-based Lip-Rea"
+  },
+  {
+   "pid": "cvf22-tan_eventlip",
+   "key": "t:multigrainedspatiotemporalfeaturesperceivednetworkforeventbasedlipreading",
+   "title": "Multi-Grained Spatio-Temporal Features Perceived Network for Event-Based Lip-Reading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf22-tan_eventlip | title=Multi-Grained Spatio-Temporal Features Perceived Network for Event-Based Lip-Reading"
+  },
+  {
+   "pid": "hal-4183135-neurolip",
+   "key": "t:endtoendneuromorphiclipreading",
+   "title": "End-to-end Neuromorphic Lip Reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-end Neuromorphic Lip Reading | authors=Bulzomi Hugo, Schweiker Marcel, Gruel Amelie, Martinet Jean | venue="
+  }
+ ],
+ "usual_approach": {
+  "design": "DVS-Lip benchmark",
+  "n": 7,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2606-31225-otcfm",
+   "arxiv-2607-08236-tvta",
+   "cea-4613773-sgrulip",
+   "hal-4183135-neurolip",
+   "cvf-tan22-dvs-lip-mstp"
+  ],
+  "population_unique": 11
+ },
+ "read_fulltext": [
+  {
+   "pid": "cvf-tan22-dvs-lip-mstp",
+   "role": "prior",
+   "loc": "Sec. 3.1",
+   "quote": "the vocabulary of the DVS-Lip dataset contains a total of 100 words"
+  },
+  {
+   "pid": "cvf-tan22-dvs-lip-mstp",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "MSTP event (30, 210) ResNet-18 62.17 82.07 72.10"
+  },
+  {
+   "pid": "cea-4613773-sgrulip",
+   "role": "prior",
+   "loc": "Sec. 4, Table 1",
+   "quote": "but leads to a slight increase in accuracy (75.3%)"
+  },
+  {
+   "pid": "arxiv-2404.11979",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "MTGA (event frame,voxel graph) 63.90 86.38 75.08"
+  },
+  {
+   "pid": "arxiv-2607.08236",
+   "role": "sota",
+   "loc": "Sec. 4.3, Table 1",
+   "quote": "Table 1 shows that the proposed method achieves an overall accuracy of 77.49% with the student model"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 4,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2607.08236",
+  "year": 2026,
+  "metric": "word accuracy, DVS-Lip test set (TVTA student model)",
+  "value": 77.49,
+  "unit": "%",
+  "timing": "concurrent"
+ },
+ "tally": {
+  "slot_filled_unique": 7329,
+  "string_match_unique": 11,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "DVS-Lip benchmark",
+   "n": 7,
+   "tier": "pattern match",
+   "population_unique": 11
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2607.08236",
+   "year": 2026,
+   "metric": "word accuracy, DVS-Lip test set (TVTA student model)",
+   "value": 77.49,
+   "unit": "%",
+   "timing": "concurrent"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2404.11979",
+   "cea-4613773-sgrulip",
+   "cvf-tan22-dvs-lip-mstp"
+  ],
+  "unread": 15,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr"
+ ]
+}

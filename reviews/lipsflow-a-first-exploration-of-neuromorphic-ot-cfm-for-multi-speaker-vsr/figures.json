@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Freeze then fine-tune, augmentation"
+     ],
+     "field": "Corpus training",
+     "n": 8995,
+     "matched": 3882,
+     "verdict": "standard",
+     "note": "Inherited; one run, no seeds (Sec. 5.1)."
+    },
+    "M02": {
+     "choice": [
+      "Transcripts; audio only for AVA labels"
+     ],
+     "field": "Paired supervision",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "No acoustic input at test."
+    },
+    "M03": {
+     "choice": [
+      "Pooled speakers; no selection rule"
+     ],
+     "field": "Corpus training",
+     "n": 8995,
+     "matched": 1526,
+     "verdict": "missing",
+     "note": "Selection data not stated."
+    },
+    "M04": {
+     "choice": [
+      "Voiced speech on video"
+     ],
+     "field": "Overt speech",
+     "n": 8995,
+     "matched": 5595,
+     "verdict": "standard",
+     "note": "Scenes cut into single-speaker clips by tracking (Abstract)."
+    },
+    "M05": {
+     "choice": [
+      "DVS-Lip events; RGB-converted events (AVA)"
+     ],
+     "field": "DVS-Lip camera events (7)",
+     "n": 8995,
+     "matched": 11,
+     "verdict": "standard",
+     "note": "AVA robustness rests on converted, not sensed, events."
+    },
+    "M06": {
+     "choice": [
+      "OT-CFM, 2 ODE steps"
+     ],
+     "field": "Hybrid CTC/attention (131)",
+     "n": 8995,
+     "matched": 740,
+     "verdict": "standard",
+     "note": "Gain over the diffusion variant is 0.2 WER points, one run, no seeds."
+    },
+    "M07": {
+     "choice": [
+      "BERT tying, Sentence-BERT loss"
+     ],
+     "field": "LM in decoding",
+     "n": 8995,
+     "matched": 119,
+     "verdict": "standard",
+     "note": "Homophene claim not measured."
+    },
+    "M08": {
+     "choice": [
+      "Text"
+     ],
+     "field": "Text output",
+     "n": 8995,
+     "matched": 3268,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "Mostly absent",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "Mostly absent",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline benchmark study."
+    },
+    "M11": {
+     "choice": [
+      "Corpus labels; vocabulary not stated"
+     ],
+     "field": "Corpus labels",
+     "n": 8995,
+     "matched": 234,
+     "verdict": "missing",
+     "note": "AVA subset construction not given."
+    },
+    "M12": {
+     "choice": [
+      "WER/VER; no split details or seeds"
+     ],
+     "field": "Word accuracy (5 of 6)",
+     "n": 8995,
+     "matched": 6,
+     "verdict": "behind",
+     "note": "Yardstick: the practice of earlier DVS-Lip studies (word accuracy)."
+    },
+    "M13": {
+     "choice": [
+      "GPU timing; device not stated"
+     ],
+     "field": "Offline lab system",
+     "n": 8995,
+     "matched": 6075,
+     "verdict": "missing",
+     "note": "Latency claims lack a timing protocol."
+    }
+   }
+  }
+ ]
+}
