@@ -949,6 +949,31 @@
    "decision": "include",
    "reason": "Later (2021). Same target-transfer training on the Gaddy corpus (known item).",
    "provenance": "text-verified"
+  },
+  {
+   "pid": "isca-wand09_interspeech",
+   "key": "p:isca-wand09_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "WER | evidence_relation=supported_within_scope | technical_limits=high inter-speaker variance; most speakers >80% WER; silent-model initialization requires parallel audible recordings (alignment or mapping); small 10-sentence test set; 108-word restricted vocabulary | speakersAnalyzed | corpusSpeakers | chann",
+   "decision": "include",
+   "reason": "Prior (2009). Recognition: 'Mapped Labels' maps phoneme boundaries from the paired audible utterance onto the silent utterance (linear length compensation) and trains a silent-EMG recognizer; label targets, not audio targets. Corrected in triage (evaluator finding 14); the earlier exclusion covered only its cross-modal labeling condition."
+  },
+  {
+   "pid": "arxiv-2510.27247",
+   "key": "t:reconstructingunseensentencesfromspeechrelatedbiosignalsforopenvocabularyneuralc",
+   "title": "Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication",
+   "year": 2025,
+   "via": [
+    "manual"
+   ],
+   "decision": "include",
+   "reason": "Whispered (mouthed) EEG/EMG trained on MFCC targets from the overt recording of the same sentence aligned by phoneme-weighted DTW; the imagined mode is outside this rule.",
+   "loc": "Sec. III-A; Sec. III-B",
+   "quote": "overt speech samples recorded using the same sentences were employed as target audio [29], [35]."
   }
  ],
  "usual_approach": {
@@ -990,6 +1015,24 @@
    "role": "prior",
    "loc": "Sec. 4.1",
    "quote": "Then we mapped the time-alignment from the audible utterance to the silent utterance, compensating for differing lengths by linearly growing or shrinking the phoneme lengths."
+  },
+  {
+   "pid": "arxiv-2106.01933",
+   "role": "prior",
+   "loc": "Sec. 2.4",
+   "quote": "For training, we modify the alignment and loss cost"
+  },
+  {
+   "pid": "arxiv-2301.07173",
+   "role": "prior",
+   "loc": "Method, Reconstruction loss",
+   "quote": "DTW was applied to match the alignment of EEG during spoken/imagined speech and the target spoken voice."
+  },
+  {
+   "pid": "arxiv-2403.05583",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "reduces the state-of-the-art word error rate (WER) from 28.8% to 12.2% in the Gaddy (2020) benchmark dataset for silent speech on an open vocabulary"
   }
  ],
  "known_item_recall": {
@@ -1036,6 +1079,17 @@
   "known_item_recall": 0.67
  },
  "used_by": [
-  "digital-voicing-of-silent-speech"
- ]
+  "digital-voicing-of-silent-speech",
+  "reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun"
+ ],
+ "known_item_recall_by": {
+  "reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun": {
+   "seeds_in_wiki": 2,
+   "found": 1,
+   "recall": 0.5,
+   "missed": [
+    "doi-10.1609-aaai.v37i5.25745"
+   ]
+  }
+ }
 }

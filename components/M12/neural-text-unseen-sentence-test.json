@@ -2344,6 +2344,20 @@
     "ledger"
    ],
    "snippet": "in (reviewed system) | intended_use_cases=speech_restoration | production_labels=attempted_speech, instructed_imagery | modalities=intracortical_microelectrode | Dataset.content_inventory=cued attempted-speech sentences (reviewed system; details in primary report) | Dataset.collection_protocol=neural recording during attempted speech; AI decoding to text | Dataset.counts_by_unit={'rate_wpm': 62} | Dataset.sampling_bias=single-system report; details deferred to source | EvaluationProtocol.experimental_design=decoding rate (wpm) and accuracy reported vs ~150 wpm conversational baseline | representation_kind=single-neuron spiking activity from hundreds of micro-electrodes | ProcessingStep.architecture={'stages': ['microelectrode recording', 'neural pattern features', 'AI decoder (continuous refinement)', 'text output'], 'mechanism': 'attempted-speech neural decoding'} | extra.Output.output_kind=decoded text at 62 wpm | Claim.claim_scope=thought-to-text at 62 wpm achieved by implanted microelectrode + AI decoding — approachin"
+  },
+  {
+   "pid": "arxiv-2510.27247",
+   "key": "t:reconstructingunseensentencesfromspeechrelatedbiosignalsforopenvocabularyneuralc",
+   "title": "Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "all three speech modes were presented in fixed overt→whispered→imagined order. | observed_quantities=neural_activity | sensor_hardware=Standard 128-channel actiCAP EEG referenced to FCz | intrusiveness=skin_contact | observed_quantities=muscle_activity | sensor_hardware=10-channel face and neck EMG | observed_quantities=air_acoustics | sensor_hardware=Synchronized microphone audio | intrusiveness=external_noncontact | production_labels=ordinary_voiced_speech | production_labels=instructed_imagery | production_labels=attempted_speech | technical_essence=EEG band-pass 0.5–200 Hz; EMG high-pass above 2 Hz; 60-Hz notch and harmonics; separate common-average reference; epochs aligned to task duration and baseline-corrected using the preceding 200 ms. | technical_essence=Montreal forced aligner synchronizes text-derived 40-class phoneme sequences and overt-speech audio/MFCC targets. | decoder_route=direct_signal_to_audio | technical_essence=Per-subject three ConvBlocks (weight standardization, group normalization, PReLU) followed by a bidirectional GRU. Predicts 80-dimensional MFCC frames and 40-class phoneme sequences; combined input is reported as 127 EEG plus 10 EMG channels. | technical_essence=Pre-trained HiFi-GAN converts predicted MFCC features to audio. | technical_essence=Pre-trained DeepSpeech ASR converts synthesized audio to text for CER examples/evaluation. | output_types=audio, acoustic_features | Reference.reference_kind=reconstructed_signal | Reference.reference_kind=verbatim_transcript | DataPartition.partition_membership={'partition': 'training', 'sentences': 444, 'selection_rule': '444 of the 474 unique sentences per mode; no overlap with the 30 test sentences'} | split_protocol=sentence_holdout | DataPartition.partition_membership={'partition': 'test', 'sentences': 30, 'selection_rule': '30 unique sentences absent from training'} | DataPartition.partition_membership={'partition': 'patient training', 'sentences': 145, 'selection_rule': '145 of 155 collected attempted-overt sentences'} | DataPartition.partition_membership={'partition': 'patient unseen test', 'sentences': 10, 'selection_rule': '10 sentences held out from the patient training set'} | TrainingRun.training_objective=Lovert = α·Laudio + Lphoneme + LCTC; α is set to 0.5 in the overt-loss discussion. | TrainingRun.training_objective=Patient data were used to train a personalized model for attempted overt speech; patient-specific loss/optimizer settings are not separately reported. | TrainingRun.optimization={'optimizer': 'AdamW', 'weight_decay': 1e-05, 'initial_learning_rate': 0.001, 'learning_rate_schedule': 'cosine annealing', 'early_stopping': True, 'maximum_epochs': 200, 'Bi-GRU_dropout': 0.1, 'batch_sequence_length': 2048} | TrainingRun.update_schedule={'maximum_epochs': 200, 'early_stopping': True, 'initial_learning_rate': 0.001, 'schedule': 'cosine annealing'} | system_boundary=Overt speech; EEG-only input | system_boundary=Overt speech; concatenated EEG+EMG input | system_boundary=Whispered speech; EEG-only input | system_boundary=Whispered speech; concatenated EEG+EMG input | system_boundary=Patient attempted overt speech; EEG-only input | system_boundary=Patient attempted overt speech; concatenated EEG+EMG input | system_boundary=Representative-subject whispered EEG configuration in Table IV | EvaluationProtocol.test_material_selection={'training_sentences': 444, 'unseen_test_sentences': 30, 'test_sentences_absent_from_training': True, 'sentence_prompt_displayed_to_participant': True, 'validation_or_checkpoint_selection_split': 'not specified in main paper', 'test_set_reuse_for_model_selection': 'not reported'} | EvaluationProtocol.metric_denominator={'phoneme_accuracy': 'reported as phoneme accuracy; exact token-level computation/denominator not detailed in the main text', 'F1': 'reported for predicted phoneme sequences; averaging convention not specified in main text', 'RMSE': 'MFCC prediction error after DTW alignment', 'MCD': 'MFCC distortion; exact unit not specified', 'CER': 'ASR text character error rate'} | EvaluationProtocol.statistical_plan={'test': 'Wilcoxon signed-rank test', 'reported_significance': 'p < 0.0001', 'sample_size': '15 healthy participants; each participant point averages 30 test sentences', 'reported_scope': 'all four metrics significant for overt EEG+EMG improvement; whispered significance reported only for phoneme accuracy and F1'} | correction_accounting=The article evaluates held-out reconstruction and ASR outputs; it does not report an end-user confirmation, correction/edit, cancellation, or interactive completion procedure. | evaluator_chain=Predicted MFCC → pre-trained HiFi-GAN synthesized audio → pre-trained DeepSpeech text for CER; the separate phoneme head is scored against aligned phoneme sequences. | EvaluationProtocol.test_material_selection={'",
+   "decision": "include",
+   "reason": "Sentence-disjoint split, 444/30 sentences per subject and mode; reports phoneme accuracy and DTW-aligned MFCC distances, CER only for two example sentences.",
+   "loc": "Sec. II-A; Table II",
+   "quote": "The sentences used in our test set were unseen sentences that were not present in the training dataset."
   }
  ],
  "usual_approach": {
@@ -2414,6 +2428,24 @@
    "role": "prior",
    "loc": "Sec. 4",
    "quote": "Over a period of more than one year (403 days), our participant used the iBCI system monthly and wrote on average 58.3 sentences per usage session."
+  },
+  {
+   "pid": "arxiv-2106.01933",
+   "role": "prior",
+   "loc": "Sec. 1; Table 1",
+   "quote": "from 68.0% to 42.2%, as measured by automatic transcription."
+  },
+  {
+   "pid": "isca-li23l-eegemgssi",
+   "role": "prior",
+   "loc": "Sec. 2.1",
+   "quote": "One repeat time of the sentence is selected as the testing or validation set, while the rest are performed as the training set."
+  },
+  {
+   "pid": "doi-10.1056-nejmoa2314132",
+   "role": "sota",
+   "loc": "Results",
+   "quote": "Average Copy Task decoding performance in the final 5 evaluation sessions had a word error rate of 2.5%"
   }
  ],
  "known_item_recall": {
@@ -2478,7 +2510,8 @@
  "used_by": [
   "a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding",
   "brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings",
-  "continuous-silent-speech-recognition-using-eeg"
+  "continuous-silent-speech-recognition-using-eeg",
+  "reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun"
  ],
  "known_item_recall_crossspecies": {
   "seeds_in_wiki": 21,
@@ -2491,5 +2524,15 @@
    "pmc-12360486-innercell",
    "pmc-7982996-lowpowerspike"
   ]
+ },
+ "known_item_recall_by": {
+  "reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun": {
+   "seeds_in_wiki": 2,
+   "found": 1,
+   "recall": 0.5,
+   "missed": [
+    "arxiv-2010.02960"
+   ]
+  }
  }
 }

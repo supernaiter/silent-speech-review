@@ -21,6 +21,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Papers that decode speech units, words, sentences or acoustics from electrocorticography in humans, recorded during produced, attempted, mimed or imagined speech. Included: clinical and high-density grids, micro-ECoG, online or offline. Excluded: intracortical microelectrodes and sEEG-only studies; ECoG studies of listening only.
 - Used in: [A high-performance neuroprosthesis for speech decoding and avatar control](../../reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/), [Neuroprosthesis for decoding speech in a paralyzed person with anarthria](../../reviews/neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria/)
 
+## eeg-emg-fusion-speech-decoding
+
+- Table: [`eeg-emg-fusion-speech-decoding.csv`](eeg-emg-fusion-speech-decoding.csv) (0 confirmed, 0 candidates read, 0 unread)
+- Inclusion rule: Include speech-decoding studies (recognition, classification or synthesis of overt, whispered, silent or imagined speech) that record scalp or around-ear EEG together with surface EMG of the speech muscles and report decoding from EEG, EMG or their combination. Boundary: studies that record EMG only to remove or measure artifacts in EEG count as pattern matches but are recorded as artifact-control designs, not fusion; non-speech EEG-EMG fusion (limb movement), reviews and datasets without decoding are excluded; versions of one study count once.
+- Used in: [Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication](../../reviews/reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun/)
+
 ## emg-speech-electrode-subset
 
 - Table: [`emg-speech-electrode-subset.csv`](emg-speech-electrode-subset.csv) (7329 slot-filled, 42 pattern match, usual design in 10, 4 read in full)

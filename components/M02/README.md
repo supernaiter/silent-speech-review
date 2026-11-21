@@ -34,7 +34,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`silent-target-transfer.csv`](silent-target-transfer.csv) (31 slot-filled, 52 pattern match, usual design in 15, 4 read in full)
 - Inclusion rule: Include studies that train a decoder or synthesizer on silently articulated (mimed, mouthed) non-acoustic signals using acoustic or label targets transferred from a separate vocalized recording of the same utterance by time alignment (DTW, forced alignment or a learned alignment). Any signal qualifies. Boundary: exclude studies that train only on vocalized data and test on silent data (M04 overt-to-silent transfer), alignment used only to score outputs, whisper or NAM acoustic conversion, and imagined speech; count versions once.
-- Used in: [Digital Voicing of Silent Speech](../../reviews/digital-voicing-of-silent-speech/)
+- Used in: [Digital Voicing of Silent Speech](../../reviews/digital-voicing-of-silent-speech/), [Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication](../../reviews/reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |
@@ -55,6 +55,8 @@ Topics searched for this component across the whole field, and the confirmed pap
 | isca-wand09_interspeech | 2009 |  |
 | Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language | 2022 |  |
 | An Improved Model for Voicing Silent Speech | 2021 |  |
+| isca-wand09_interspeech |  |  |
+| Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication | 2025 | Sec. III-A; Sec. III-B |
 
 ## speech-latent-target
 

@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun/](reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun/).**
 
-Reconstructs held-out English sentences from EEG and face/neck EMG with personalized models; overt EEG+EMG phoneme accuracy is 48.58% (EEG alone 36.83%) versus an 11% baseline.
+EEG+EMG fusion (M05) and overt-audio DTW targets (M02) are standard; the unseen-sentence claim lacks a cohort WER (M12), and no EMG-only arm or EMG regression is reported.
 
 [Read the full review](reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun/) · [All reviews](../README.md)
