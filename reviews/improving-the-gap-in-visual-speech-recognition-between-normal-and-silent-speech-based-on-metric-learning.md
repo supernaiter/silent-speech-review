@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning/](improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning/).**
 
-Viseme-level metric learning that aligns normal and silent speech representations to improve silent visual speech recognition, reaching baseline parity with much less silent data on AV Digits.
+Joint normal-silent training does most of the gap closing; the viseme KL terms add 0.93 WER points with no run count reported, so the metric-learning gain is not established.
 
 [Read the full review](improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning/) · [All reviews](../README.md)

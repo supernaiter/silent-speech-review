@@ -59,6 +59,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Research on Robust Audio-Visual Speech Recognition Algorithms | 2023 | Ledger M03 |
 | E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience | 2026 | Ledger M06 |
 
+## overt-silent-joint-training
+
+- Table: [`overt-silent-joint-training.csv`](overt-silent-joint-training.csv) (1526 slot-filled, 354 pattern match, usual design in 31, 5 read in full)
+- Inclusion rule: Studies with any signal (video, ultrasound, EMG, neural, other) whose ledger mentions both overt (normal, vocalized, voiced, audible, modal) and silent (mouthed, silently articulated, unvoiced) speech production. The design compared is how overt recordings enter the training of a silent-speech decoder: pooled training without a cross-mode term, fine-tuning from an overt model, time-aligned target transfer (DTW / CCA from vocalized to silent), domain-adversarial invariance, or an explicit distance or divergence between paired overt and silent representations or outputs (metric learning, KL, contrastive, triplet). Boundary: overt-only training applied to silent test data belongs to M04 overt-to-silent-transfer; whisper-to-normal acoustic conversion and perception-versus-production comparisons are excluded; a study counts under every design its full text names (upper bound, related-work mentions included); reviews count as pattern matches only; versions of one study count once.
+- Used in: [Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning](../../reviews/improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning/)
+
 ## self-supervised-pretraining
 
 - Table: [`self-supervised-pretraining.csv`](self-supervised-pretraining.csv) (1526 slot-filled, 123 pattern match, usual design in 31, 3 read in full)
