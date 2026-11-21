@@ -1,0 +1,508 @@
+{
+ "topic": "adversarial-speaker-removal-from-signal-encoder",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*modalities=[^|]*(ultrasound_imaging|optical_camera|surface_emg|magnetic_tracking|scalp_eeg|ecog|meg|intracortical|permanent_magnet))(?=.*(gradient reversal|reverse[d]? gradient|domain[- ]adversarial|adversarial (speaker|subject|identity|domain)|(speaker|subject|identity)[- ](adversarial|invariant|disentangl)|disentangl\\w* (speaker|subject|identity)))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that decode speech or text from a non-acoustic speech signal (lip or face video, articulatory imaging, EMG, EEG/ECoG/intracortical) and train the signal encoder against a speaker, subject or session classifier (gradient reversal, entropy-maximising or confusion loss, mutual-information penalty, or a VAE split of identity and content) to remove identity from the content representation. Boundary: GAN discriminators on the generated audio, plain multi-speaker training, and speaker classifiers used only for evaluation are excluded; versions count once; the pattern match is an upper bound.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 20,
+  "string_match_unique": 18,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2305.14359",
+     "isca-wand18_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-noda14_interspeech",
+     "doi-10.1007-s10489-014-0629-7"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=adapt to unseen target speaker using unlabeled target data only",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1708.01565"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=adamw lr0.001 bs112(grid)/220(lrw-id); adapt only padding lr0.01; 5-fold mean",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2208.04498"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective={'stage1': 'joint vsr + speaker-id multi-task until id module converges'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.16071"
+    ]
+   },
+   {
+    "design": "training_sample_count=276000",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s10489-014-0629-7"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=denoising reconstruction (audio ae); phoneme-label logistic regression (cnn)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s10489-014-0629-7"
+    ]
+   },
+   {
+    "design": "adaptation=user_specific_training",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-noda14_interspeech"
+    ]
+   },
+   {
+    "design": "training_vocabulary_size=216",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-noda14_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-wand18_interspeech"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "gradient_reversal",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.18299-align",
+     "arxiv-2511.10935-catnet",
+     "arxiv-2105.09652-spkdisent",
+     "arxiv-2304.05574",
+     "arxiv-2505.13784"
+    ]
+   },
+   {
+    "design": "content_identity_disentanglement",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2511.10935-catnet",
+     "arxiv-2305.14359",
+     "arxiv-2105.09652-spkdisent",
+     "arxiv-1807.07860",
+     "arxiv-2506.07572"
+    ]
+   },
+   {
+    "design": "speaker_or_subject_adversary",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2208.04498",
+     "arxiv-2506.07572"
+    ]
+   },
+   {
+    "design": "mutual_information_penalty",
+    "n": 0,
+    "tier": "pattern match",
+    "pids": []
+   }
+  ],
+  "metric_pattern": "WER|word error|EER|accuracy",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "speaker-wise WER LSE slope",
+   "value": 0.81,
+   "unit": "1",
+   "raw": "0.81",
+   "pid": "arxiv-2304.05574",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ours overlapped WER",
+   "value": 1.83,
+   "unit": "percent",
+   "raw": "1.83",
+   "pid": "arxiv-2403.16071",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 5m s2",
+   "value": 3.45,
+   "unit": "wer",
+   "raw": "3.45",
+   "pid": "arxiv-2208.04498",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "target-session WER 15.6% vs 18.8% baseline (17.0% rel); frontend acc 21.9% vs 16.4%",
+   "value": 15.6,
+   "unit": "%",
+   "raw": "target-session WER 15.6% (from 18.8% baseline, 17% relative; GMM 30.6%); frontend acc 16.4→21.9%",
+   "pid": "isca-wand18_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "21.8 WER",
+   "value": 21.8,
+   "unit": "wer",
+   "raw": "baseline B",
+   "pid": "arxiv-2105.09652-spkdisent",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER 65%",
+   "value": 65,
+   "unit": "percent",
+   "raw": "WER absolute improvement last session",
+   "pid": "arxiv-2603.18299-align",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "cross-subject audible accuracy",
+   "value": 83.27,
+   "unit": "percent",
+   "raw": "83.27%",
+   "pid": "arxiv-2511.10935-catnet",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LipNet 95.2% GRID accuracy as prior context",
+   "value": 95.2,
+   "unit": "percent",
+   "raw": "LipNet reference accuracy on GRID (context)",
+   "pid": "doi-10.1109-tcsvt.2023.3282224",
+   "year": 2023,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1708.01565",
+   "key": "t:improvingspeakerindependentlipreadingwithdomainadversarialtrainingwandschmidhube",
+   "title": "Improving Speaker-Independent Lipreading with Domain-Adversarial Training (Wand & Schmidhuber)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1708.01565 | title=Improving Speaker-Independent Lipreading with Domain-Adversarial Training (Wand & Schm"
+  },
+  {
+   "pid": "arxiv-1807.07860",
+   "key": "p:arxiv-1807.07860",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=arXiv 1807.07860v2 AAAI 2019; Zhou, Liu, Liu, Luo, Wang; Chinese University of Hong Kong; SenseTime + RGC HK ITS/1"
+  },
+  {
+   "pid": "arxiv-2105.09652-spkdisent",
+   "key": "t:speakerdisentanglementinvideotospeechconversion",
+   "title": "Speaker disentanglement in video-to-speech conversion",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2105.09652-spkdisent | title=Speaker disentanglement in video-to-speech conversion | authors=Oneata Dan,"
+  },
+  {
+   "pid": "arxiv-2208.04498",
+   "key": "t:speakeradaptivelipreadingwithuserdependentpadding",
+   "title": "Speaker-adaptive Lip Reading with User-dependent Padding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2208.04498 | title=Speaker-adaptive Lip Reading with User-dependent Padding | Study.research_objective=us"
+  },
+  {
+   "pid": "arxiv-2304.05574",
+   "key": "t:speechreconstructionfromsilenttongueandliparticulationbypseudotargetgenerationan",
+   "title": "Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2304.05574 | title=Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generat"
+  },
+  {
+   "pid": "arxiv-2305.14359",
+   "key": "t:zeroshotpersonalizedliptospeechsynthesiswithfaceimagebasedvoicecontrol",
+   "title": "Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2305.14359 | title=Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control | a"
+  },
+  {
+   "pid": "arxiv-2403.16071",
+   "key": "t:landmarkguidedcrossspeakerlipreadingwithmutualinformationregularization",
+   "title": "Landmark-Guided Cross-Speaker Lip Reading with Mutual Information Regularization",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.16071 | title=Landmark-Guided Cross-Speaker Lip Reading with Mutual Information Regularization | aut"
+  },
+  {
+   "pid": "arxiv-2505.13784",
+   "key": "t:transferlearningfromvisualspeechrecognitiontomouthingrecognitioningermansignlang",
+   "title": "Transfer Learning from Visual Speech Recognition to Mouthing Recognition in German Sign Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.13784 | title=Transfer Learning from Visual Speech Recognition to Mouthing Recognition in German Sig"
+  },
+  {
+   "pid": "arxiv-2506.07572",
+   "key": "t:learningspeakerinvariantvisualfeaturesforlipreading",
+   "title": "Learning Speaker-Invariant Visual Features for Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2506.07572 | title=Learning Speaker-Invariant Visual Features for Lipreading | Study.research_objective=S"
+  },
+  {
+   "pid": "arxiv-2511.10935-catnet",
+   "key": "t:catnetacrossattentiontonenetworkforcrosssubjecteegemgfusiontonedecoding",
+   "title": "CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding | venue=arXiv preprint | St"
+  },
+  {
+   "pid": "arxiv-2603.18299-align",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.18299-align | title=ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis | authors=Z"
+  },
+  {
+   "pid": "doi-10.1007-s10489-014-0629-7",
+   "key": "p:doi-10.1007-s10489-014-0629-7",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | task_family=isolated_word_recognition | vocabulary_regime=open_vocabulary | v"
+  },
+  {
+   "pid": "doi-10.1109-tasl.2008.2011515",
+   "key": "t:adaptivemultimodalfusionbyuncertaintycompensationwithapplicationtoaudiovisualspe",
+   "title": "Adaptive Multimodal Fusion by Uncertainty Compensation With Application to Audiovisual Speech Recognition",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-tasl.2008.2011515 | title=Adaptive Multimodal Fusion by Uncertainty Compensation With Application t"
+  },
+  {
+   "pid": "doi-10.1109-tcsvt.2023.3282224",
+   "key": "t:lipformerlearningtolipreadunseenspeakersbasedonvisuallandmarktransformers",
+   "title": "LipFormer: Learning to Lipread Unseen Speakers based on Visual-Landmark Transformers",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipFormer: Learning to Lipread Unseen Speakers based on Visual-Landmark Transformers | authors=Feng Xue; Yu Li; De"
+  },
+  {
+   "pid": "isca-illa19_interspeech",
+   "key": "p:isca-illa19_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2019 | task_family=intermediate_signal_processing | vocabulary_regime=open_vocabulary | scope_limits=s"
+  },
+  {
+   "pid": "isca-noda14_interspeech",
+   "key": "t:lipreadingusingconvolutionalneuralnetwork",
+   "title": "Lipreading using Convolutional Neural Network",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-noda14_interspeech | title=Lipreading using Convolutional Neural Network | authors=Kuniaki Noda, Yuki Yama"
+  },
+  {
+   "pid": "isca-wand17-domainadv",
+   "key": "t:improvingspeakerindependentlipreadingwithdomainadversarialtraining",
+   "title": "Improving Speaker-Independent Lipreading with Domain-Adversarial Training",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improving Speaker-Independent Lipreading with Domain-Adversarial Training | authors=Wand, Schultz | venue=Interspe"
+  },
+  {
+   "pid": "isca-wand17_dalip",
+   "key": "t:improvingspeakerindependentlipreadingwithdomainadversarialtraining",
+   "title": "Improving Speaker-Independent Lipreading with Domain-Adversarial Training",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wand17_dalip | title=Improving Speaker-Independent Lipreading with Domain-Adversarial Training | authors=M"
+  },
+  {
+   "pid": "isca-wand17_lipread",
+   "key": "t:improvingspeakerindependentlipreadingwithdomainadversarialtraining",
+   "title": "Improving Speaker-Independent Lipreading with Domain-Adversarial Training",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wand17_lipread | title=Improving Speaker-Independent Lipreading with Domain-Adversarial Training | authors"
+  },
+  {
+   "pid": "isca-wand18_interspeech",
+   "key": "t:domainadversarialtrainingforsessionindependentemgbasedspeechrecognition",
+   "title": "Domain-Adversarial Training for Session Independent EMG-based Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Domain-Adversarial Training for Session Independent EMG-based Speech Recognition | system_name=session-independent"
+  }
+ ],
+ "usual_approach": {
+  "design": "gradient-reversal speaker or subject classifier on the signal encoder",
+  "n": 6,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2603.18299-align",
+   "arxiv-2511.10935-catnet",
+   "arxiv-2105.09652-spkdisent",
+   "arxiv-2304.05574",
+   "arxiv-2505.13784"
+  ],
+  "population_unique": 18,
+  "note": "full-text pattern counts over the 18 unique candidate studies: gradient_reversal 6, content_identity_disentanglement 5, speaker_or_subject_adversary 2, mutual_information_penalty 0 (a study can match several; the target is one of the 6); earliest read: Wand and Schmidhuber 2017 (GRID lipreading, inverted-gradient speaker classifier)"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-1708.01565",
+   "role": "prior",
+   "loc": "Sec. 4; Fig. 2",
+   "quote": "causes the joint part of the network to learn to confuse speakers instead of separating them"
+  },
+  {
+   "pid": "arxiv-2305.14359",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "Proposed Speech 0.741 0.619 1.914 6.944 3.057 0.598 0.407 1.477 26.57 2.830 3.172"
+  },
+  {
+   "pid": "arxiv-2105.09652-spkdisent",
+   "role": "target",
+   "loc": "Sec. III",
+   "quote": "The second approach to disentanglement uses the idea of gradient reversal"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 1,
+  "found": 1,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2305.14359",
+  "year": 2023,
+  "metric": "speaker EER on 13 unseen GRID speakers against their own natural speech, VAE identity/content split, speech-reference embedding (36.72 with a face embedding, 43.13 without the VAE)",
+  "value": 26.57,
+  "unit": "% EER",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "deciding_priors_note": "Target first public 2021-05. Deciding prior: Wand and Schmidhuber (arXiv 2017-08), an inverted-gradient speaker classifier on a GRID lip-video encoder for speaker-independent lipreading; the target applies the same device to synthesis and does not cite it. No ahead verdict.",
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 18,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "gradient-reversal speaker or subject classifier on the signal encoder",
+   "n": 6,
+   "tier": "pattern match",
+   "population_unique": 18
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2305.14359",
+   "year": 2023,
+   "metric": "speaker EER on 13 unseen GRID speakers against their own natural speech, VAE identity/content split, speech-reference embedding (36.72 with a face embedding, 43.13 without the VAE)",
+   "value": 26.57,
+   "unit": "% EER",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-1708.01565"
+  ],
+  "unread": 20,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "speaker-disentanglement-in-video-to-speech-conversion"
+ ]
+}

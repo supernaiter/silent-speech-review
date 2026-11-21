@@ -12,7 +12,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`biosignal-to-speech-voice-control.csv`](biosignal-to-speech-voice-control.csv) (3268 slot-filled, 93 pattern match, usual design in 48, 4 read in full)
 - Inclusion rule: Include studies that synthesize speech audio from a non-acoustic speech signal (surface EMG, mouth or face video, ultrasound, articulography, neural recordings) and set the output voice through a speaker representation, whether taken from reference audio, a speaker label or a face image. Boundary: exclude single-voice systems that only reproduce the recorded speaker, text-to-speech after text decoding, and conversion from acoustic input (whisper, NAM); count versions of one study once.
-- Used in: [Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild](../../reviews/lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild/), [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
+- Used in: [Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild](../../reviews/lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild/), [Speaker disentanglement in video-to-speech conversion](../../reviews/speaker-disentanglement-in-video-to-speech-conversion/), [Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only](../../reviews/speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |
