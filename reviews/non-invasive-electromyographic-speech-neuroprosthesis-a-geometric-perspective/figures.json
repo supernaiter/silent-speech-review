@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Silent articulation only"
+     ],
+     "field": "Prompted articulation",
+     "n": 8995,
+     "matched": 3882,
+     "verdict": "standard",
+     "note": "Silent-only training data, as in [@meltzner2018]."
+    },
+    "M02": {
+     "choice": [
+      "Phoneme labels, CTC; no vocalized pairing"
+     ],
+     "field": "Labels with HMM (46) or CTC (44)",
+     "n": 8995,
+     "matched": 195,
+     "verdict": "standard",
+     "note": "Subvocal-only label training predates it."
+    },
+    "M03": {
+     "choice": [
+      "Per-subject; fixed eigenbasis"
+     ],
+     "field": "Per-subject training",
+     "n": 8995,
+     "matched": 1526,
+     "verdict": "standard",
+     "note": "Released code fits the basis on training plus validation sentences."
+    },
+    "M04": {
+     "choice": [
+      "Silent articulation, offline"
+     ],
+     "field": "Silent articulation",
+     "n": 8995,
+     "matched": 5595,
+     "verdict": "standard",
+     "note": "Bidirectional model; no streaming."
+    },
+    "M05": {
+     "choice": [
+      "31 face and neck sites, 5 kHz"
+     ],
+     "field": "Multi-site surface EMG",
+     "n": 8995,
+     "matched": 7329,
+     "verdict": "standard",
+     "note": "No channel-count analysis."
+    },
+    "M06": {
+     "choice": [
+      "SPD covariance, GRU, CTC"
+     ],
+     "field": "Time-domain features, FF or recurrent (18)",
+     "n": 8995,
+     "matched": 83,
+     "verdict": "standard",
+     "note": "Same group's [concurrent] SPD work; one near-chance baseline."
+    },
+    "M07": {
+     "choice": [
+      "Lexicon, 4-gram LM, beam 50"
+     ],
+     "field": "n-gram LM with lexicon",
+     "n": 8995,
+     "matched": 119,
+     "verdict": "standard",
+     "note": "LM-test sentence overlap not stated."
+    },
+    "M08": {
+     "choice": [
+      "Phonemes, then words"
+     ],
+     "field": "Text",
+     "n": 8995,
+     "matched": 3268,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "Mostly absent",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "Mostly absent",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "One participant, about 8 h"
+     ],
+     "field": "Prompted text labels",
+     "n": 8995,
+     "matched": 234,
+     "verdict": "standard",
+     "note": "Released corpus; split by corpus order."
+    },
+    "M12": {
+     "choice": [
+      "1,970 held-out sentences; no seeds reported"
+     ],
+     "field": "Held-out test WER",
+     "n": 8995,
+     "matched": 6960,
+     "verdict": "missing",
+     "note": "No seeds or repeated runs; no public benchmark run."
+    },
+    "M13": {
+     "choice": [
+      "Gel electrodes, lab amplifier"
+     ],
+     "field": "Laboratory device",
+     "n": 8995,
+     "matched": 6075,
+     "verdict": "missing",
+     "note": "Authors defer stability and streaming (Sec. 7)."
+    }
+   }
+  }
+ ]
+}
