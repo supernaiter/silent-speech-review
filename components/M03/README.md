@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## adversarial-speaker-removal-from-signal-encoder
+
+- Table: [`adversarial-speaker-removal-from-signal-encoder.csv`](adversarial-speaker-removal-from-signal-encoder.csv) (1526 slot-filled, 18 pattern match, usual design in 6, 3 read in full)
+- Inclusion rule: Studies that decode speech or text from a non-acoustic speech signal (lip or face video, articulatory imaging, EMG, EEG/ECoG/intracortical) and train the signal encoder against a speaker, subject or session classifier (gradient reversal, entropy-maximising or confusion loss, mutual-information penalty, or a VAE split of identity and content) to remove identity from the content representation. Boundary: GAN discriminators on the generated audio, plain multi-speaker training, and speaker classifiers used only for evaluation are excluded; versions count once; the pattern match is an upper bound.
+- Used in: [Speaker disentanglement in video-to-speech conversion](../../reviews/speaker-disentanglement-in-video-to-speech-conversion/)
+
 ## articulatory-recognizer-speaker-adaptation
 
 - Table: [`articulatory-recognizer-speaker-adaptation.csv`](articulatory-recognizer-speaker-adaptation.csv) (1526 slot-filled, 48 pattern match, usual design in 27, 4 read in full)
@@ -57,7 +63,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`speaker-embedding-conditioning.csv`](speaker-embedding-conditioning.csv) (1526 slot-filled, 42 pattern match, usual design in 20, 4 read in full)
 - Inclusion rule: Studies that decode speech or text from a non-acoustic speech signal (articulatory imaging, EMA/PMA, EMG, lip or face video, neural recordings) with one model shared across speakers that is conditioned on a per-speaker or per-utterance embedding (x-vector, i-vector, d-vector/GE2E, speaker-encoder output, learned subject embedding). Boundary: acoustic-only systems, audio-visual enhancement or separation with noisy audio at test, speaker embeddings used only as an output-similarity metric, and reviews are excluded (they inflate the pattern match, an upper bound); versions count once.
-- Used in: [Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces](../../reviews/neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces/)
+- Used in: [Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces](../../reviews/neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces/), [Speaker disentanglement in video-to-speech conversion](../../reviews/speaker-disentanglement-in-video-to-speech-conversion/)
 
 ## speech-bci-calibration-data
 
