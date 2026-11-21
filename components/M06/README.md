@@ -103,6 +103,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Surface-EMG-to-speech synthesis studies (audio or acoustic-feature output), classified by how the EMG time axis is mapped to the audio target: frame-synchronous regression on DTW-aligned targets, explicit duration prediction with a length regulator, or attention-based sequence-to-sequence. Boundary: EMG-to-text recognition, EMG used only as an auxiliary channel to audio, and reviews are excluded; versions counted once; pattern-match counts are upper bounds.
 - Used in: [Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language](../../reviews/sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language/)
 
+## heterogeneous-electrode-configuration-input
+
+- Table: [`heterogeneous-electrode-configuration-input.csv`](heterogeneous-electrode-configuration-input.csv) (7345 slot-filled, 98 pattern match, usual design in 25, 2 read in full)
+- Inclusion rule: Speech or language decoders from neural or muscle signals (EEG, MEG, ECoG, sEEG, EMG) that train one model on recordings whose channel count or electrode layout differs across participants, devices or datasets, by mapping channels into a shared space (sensor-position spatial attention or coordinate embeddings, per-subject or per-layout input layers, graph models over electrodes, channel tokens, or a common channel subset). Boundary: a model trained and tested on one fixed montage is excluded even when pooled over subjects; channel-subset selection within one array is excluded; auditory-attention and non-speech EEG models are excluded when read; versions of one study count once.
+- Used in: [A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations](../../reviews/a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations/)
+
 ## imagined-speech-eeg-word-classification
 
 - Table: [`imagined-speech-eeg-word-classification.csv`](imagined-speech-eeg-word-classification.csv) (7345 slot-filled, 167 pattern match, usual design in 48, 2 read in full)

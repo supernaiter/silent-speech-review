@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations/](a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations/).**
 
-Jointly trains on EEG and EMG data with heterogeneous electrode configurations for silent Japanese 64-word classification, reaching 95.3% for eight healthy subjects and 54.5% for one patient (chance 1.6%).
+Pooled EEG/EMG pretraining lifts 64-word accuracy, but each test subject's training sessions, the patient's included, are in pretraining; the coordinate kernel is neither new nor best.
 
 [Read the full review](a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations/) · [All reviews](../README.md)
