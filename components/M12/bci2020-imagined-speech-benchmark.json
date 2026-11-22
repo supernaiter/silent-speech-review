@@ -1,0 +1,426 @@
+{
+ "topic": "bci2020-imagined-speech-benchmark",
+ "slot": "M12",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)2020 international (brain.computer interface|BCI) competition|BCI competition 2020|BCI ?2020|BCIC ?2020|2020 BCI competition|BCI competition (III|#?3)[^|]{0,60}imagined|track ?#?3[^|]{0,80}imagined|imagined[^|]{0,80}track ?#?3",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that report classification results on the 2020 International BCI Competition Track 3 imagined-speech data (15 subjects, five words or phrases, 64-channel EEG), including the organisers' review, classified by the test data scored: the competition's released test trials, the public validation subset used as test, cross-validation, or held-out subjects. Boundary: papers that only cite the dataset, and multi-dataset benchmarks where Track 3 results are not reported separately, are pattern matches only; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8381,
+  "slot_filled_unique": 6960,
+  "string_match_folders": 22,
+  "string_match_unique": 16,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M12",
+  "design_slot_fill": 0.932,
+  "sparse": false,
+  "design_values": [],
+  "pattern_counts": [
+   {
+    "design": "subject_independent",
+    "n": 10,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2607-27268-eegfm",
+     "arxiv-2607-27268-eegfmspeech",
+     "doi-10.21203-rs.3.rs-9694892-v1",
+     "isca-belfrouh26-xcalib",
+     "arxiv-2509-26301-neurottt"
+    ]
+   },
+   {
+    "design": "cross_validation",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.21203-rs.3.rs-9694892-v1",
+     "arxiv-2012.03632",
+     "doi-10.1016-j.imu.2024.101491",
+     "isca-duraisamy25_interspeech"
+    ]
+   },
+   {
+    "design": "official_test_set",
+    "n": 0,
+    "tier": "pattern match",
+    "pids": []
+   },
+   {
+    "design": "validation_as_test",
+    "n": 0,
+    "tier": "pattern match",
+    "pids": []
+   }
+  ],
+  "metric_pattern": "(?i)accuracy",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "Best imagined-speech decoding classification accuracy in competition: 82.6%",
+   "value": 82.6,
+   "unit": "percent_accuracy",
+   "raw": "a classification accuracy of 82.6% represented the best performance",
+   "pid": "doi-10.3389-fnhum.2022.898300",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "classification accuracy",
+   "value": 80.13,
+   "unit": "percent",
+   "raw": "80.13% on BCI Competition III vs literature up to 70.19%",
+   "pid": "arxiv-2607-03844-cnnsnn",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "5-class imagined-word accuracy: kNN 71.2%, 10-fold 71.8% (19ch backward-wrap) vs prior 59.5/48.1",
+   "value": 71.8,
+   "unit": "percent",
+   "raw": "10-fold mean 71.8% (19 backward-wrap channels, temporal feats; max 77/min 69.5); 64ch 71.5; kNN 71.2; proposed overall 72-73% vs 59.5/48.1 prior",
+   "pid": "doi-10.1016-j.imu.2024.101491",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best within-category pairwise accuracy 62.7% (BCI 2020); only Nguyen 2018 + BCI 2020 >60% mean",
+   "value": 62.7,
+   "unit": "percent",
+   "raw": "strongest best-model accuracy reaching 62.7% on the BCI 2020 dataset",
+   "pid": "doi-10.21203-rs.3.rs-9694892-v1",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Acc (accuracy, %)",
+   "value": 61.3,
+   "unit": "percent",
+   "raw": "61.3 [56.5, 66.1]",
+   "pid": "arxiv-2607.27268",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best calibrated accuracy 60-shot",
+   "value": 53.71,
+   "unit": "%",
+   "raw": "best config (3D-CNN, 64ch, FT-Head) 5-class accuracy at 60-shot ~25min calibration",
+   "pid": "isca-belfrouh26-xcalib",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LoRA-pretrained-encoder accuracy",
+   "value": 31.3,
+   "unit": "percent",
+   "raw": "0.313 ± 0.066",
+   "pid": "zenodo-22807204-mdrg",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2012.03632",
+   "key": "t:speechimageryclassificationusinglengthwisetrainingbasedondeeplearning",
+   "title": "Speech Imagery Classification using Length-Wise Training based on Deep Learning",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nition | extra.Task.target=classify imagined pronunciation of 5 English words (Hello, Help me, Stop, Thank you, Yes) in BCI Competition 2020 track 3 speech-imagery dataset; length-wise training: first classify word length (long: hello/help me/thank you vs shor"
+  },
+  {
+   "pid": "arxiv-2509-26301-neurottt",
+   "key": "t:neurotttbridgingthegapfrompretrainingtodownstreamtasksforeegfoundationmodels",
+   "title": "NeuroTTT: bridging the gap from pretraining to downstream tasks for EEG foundation models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "unit_of_analysis=Balanced Accuracy, Cohen’s Kappa (monitoring score), Weighted F1 per backbone × adaptation strategy on BCIC2020-III 5-class imagined speech, MentalArithmetic stress, BCIC-IV-2a motor imagery | task_encoding=imagined_utterance | tas"
+  },
+  {
+   "pid": "arxiv-2509.26301",
+   "key": "t:neurotttbridgingpretrainingdownstreamtaskmisalignmentineegfoundationmodelsviates",
+   "title": "NeuroTTT: Bridging Pretraining-Downstream Task Misalignment in EEG Foundation Models via Test-Time Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oss-subject. | task_family=phoneme_or_character_classification | intended_use_cases=research_of_inner_speech | language=BCIC2020-III imagined speech 5-class; also MA + IV-2a benchmarks | acoustic_mode=no_vocalization | Cohort.demographics=benchmark"
+  },
+  {
+   "pid": "arxiv-2607-03844-cnnsnn",
+   "key": "t:eegbasedimaginedspeechdecodingusingahybridcnnsnnarchitecture",
+   "title": "EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "2607.03844 | Study.research_objective=hybrid CNN-SNN architecture for imagined-speech EEG decoding: 80.13% accuracy on 2020 BCI Competition III benchmark vs prior up to 70.19% under comparable settings | Study.study_design=system_proposal | dataset_id=2020 BC"
+  },
+  {
+   "pid": "arxiv-2607-27268-eegfm",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "selines (EEGNet, ShallowFBCSPNet, EEGConformer) for speech decoding on UGR-MINDVOICE (overt/covert Iberian Spanish) and BCI Competition 2020 Track 3 (imagined speech); unified preprocessing + fine-tuning, LOSO over 14 subjects; large-scale pretraining yields n"
+  },
+  {
+   "pid": "arxiv-2607-27268-eegfmspeech",
+   "key": "t:doeseegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecodin",
+   "title": "Does EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "chmark of EEG foundation models (LaBraM, EEGMamba) vs EEGNet on overt+imagined speech decoding across UGR-MINDVOICE and BCIC2020-T3: speech-mode (chance 33.3%) EEGNet 61.3% > LaBraM 57.3%; subject-dependent + LOSO protocols | Study.study_design=con"
+  },
+  {
+   "pid": "arxiv-2607.03844",
+   "key": "t:eegbasedimaginedspeechdecodingusingahybridcnnsnnarchitecture",
+   "title": "EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "SNN classifier for five-class imagined-speech classification from EEG; it reports 80.13% accuracy and 80.14% F1 on the 2020 BCI Competition III dataset. | question=Can a hybrid CNN-SNN pipeline classify five imagined-speech word/phrase categories from EEG and"
+  },
+  {
+   "pid": "arxiv-2607.03844-cnnsnn",
+   "key": "t:imaginedspeechdecodingusingahybridcnnsnnarchitecture",
+   "title": "Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pike-based temporal classification — the first SNN application to EEG imagined-speech decoding | Study.unit_of_analysis=BCIC2020-III: 15 healthy participants, 64ch/256Hz, 5 imagined words/phrases, 80 trials/class, 4,500 train/750 test; CNN-SNN vs p"
+  },
+  {
+   "pid": "arxiv-2607.27268",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "with convolutional baselines on overt and covert Iberian Spanish speech in UGR-MINDVOICE and imagined English speech in BCIC2020-T3. It reports no consistent transfer advantage for the pretrained models over compact CNN baselines. | question=Do gen"
+  },
+  {
+   "pid": "arxiv-2607.27268-eegf",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cessing+LOSO? | Study.unit_of_analysis=UGR-MINDVOICE LOSO (14 subj, 3/6/30-class: speech mode/semantic category/word) + BCIC2020-T3 (15 subj, 5-class imagined, within-subject + LOSO); Bal.Acc/kappa/W-F1, Wilcoxon vs chance | task_encoding=imagined_"
+  },
+  {
+   "pid": "doi-10.1016-j.bspc.2026.109475",
+   "key": "t:progressivetransferlearningunifiesmulticorpuseegforrobustandscalableimaginedspee",
+   "title": "Progressive transfer learning Unifies Multi-Corpus EEG for robust and scalable Imagined-Speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ser calibration still needed; single harmonised front-end; English commands only; validation not official test labels | BCIC2020-IV subject-wise transfer mean 91.37% (median 93.7) vs 57.33 baseline; source train-fit 99.83/95.77/99.73"
+  },
+  {
+   "pid": "doi-10.1016-j.imu.2024.101491",
+   "key": "t:ensemblebasedfeatureengineeringmechanismtodecodeimaginedspeechfrombrainsignals",
+   "title": "Ensemble-based feature engineering mechanism to decode imagined speech from brain signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_trial | vocabulary_regime=closed_lexicon | evidence_relation=supported_within_scope | technical_limits=dataset reuse (iBCIC2020) only; SVM collapses to chance; 19-ch subset not confined to Broca/Wernicke areas; no statistical significance testing"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9694892-v1",
+   "key": "t:thelimitsofimaginedspeechdecodingfromeegacrossdatasetcomparisonandcriticalevalua",
+   "title": "The limits of imagined-speech decoding from EEG: A cross-dataset comparison and critical evaluation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "er uniform subject-specific nested CV + pairwise balanced accuracy; within-category decoding at/near chance (best 62.7% BCI 2020); cross-category gains attributable to task-structure confounds (imagery duration) not linguistic content; no consisten"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2022.898300",
+   "key": "t:2020internationalbraincomputerinterfacecompetitionareview",
+   "title": "2020 International brain-computer interface competition: A review",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2022.898300 | title=2020 International brain-computer interface competition: A review | authors=Jeong et al. | venue=Frontiers in Human Neuroscience | review_state=source_checked | task_family=ph"
+  },
+  {
+   "pid": "isca-belfrouh26-xcalib",
+   "key": "t:rapidcalibrationforcrosssubjectimaginedspeechdecodingtowardrestoringcommunicatio",
+   "title": "Rapid Calibration for Cross-Subject Imagined Speech Decoding Toward Restoring Communication",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "gnition | intended_use_cases=speech_restoration, research_of_inner_speech | population_description=15 healthy subjects; BCI Competition 2020 Track 3 imagined speech dataset | dataset_id=BCI Competition 2020 Track 3 (imagined speech) | dataset_description=5 ima"
+  },
+  {
+   "pid": "isca-belfrouh26_odyssey",
+   "key": "t:rapidcalibrationforcrosssubjectimaginedspeechdecodingtowardrestoringcommunicatio",
+   "title": "Rapid Calibration for Cross-Subject Imagined Speech Decoding Toward Restoring Communication",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "opulation=speech_impairment | intended_use_cases=speech_restoration | tested_population=healthy_volunteers | dataset_id=BCI Competition 2020 Track 3 (imagined word classification, 15 subjects, 5 classes) | Dataset.content_inventory={'subjects': 15, 'classes':"
+  },
+  {
+   "pid": "isca-duraisamy25_interspeech",
+   "key": "t:functionalconnectivityandhilbertbasedfeaturesforcovertspeecheegvariabilityanalys",
+   "title": "Functional Connectivity and Hilbert-Based Features for Covert Speech EEG Variability Analysis and Classification",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ubjects; D2: 15 healthy right-handed (11M/4F, mean 26.8y) interacting with robot in controlled environment | dataset_id=BCI Competition 2020 + Overt/Covert datasets | dataset_description=D1: 5 imagined words (hello/help me/stop/thank you/yes), 80 trials/class="
+  },
+  {
+   "pid": "pmc-11595501-hybriddl",
+   "key": "t:decodingimaginedspeechfromeegdataahybriddeeplearningapproachtocapturingspatialan",
+   "title": "Decoding Imagined Speech from EEG Data: A Hybrid Deep Learning Approach to Capturing Spatial and Temporal Features",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "objective=hybrid deep learning for imagined-English-word EEG decode: topographic brain maps -> 3D-CNN + BiLSTM hybrids; BCI2020 15 participants 64 electrodes @256Hz; 77.8% avg accuracy | Study.study_design=controlled_experiment | dataset_id=BCI202"
+  },
+  {
+   "pid": "pmc-9354666-bci2020",
+   "key": "t:2020internationalbraincomputerinterfacecompetitionareview",
+   "title": "2020 International brain–computer interface competition: A review",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=2020 International brain–computer interface competition: A review | authors=Jeong JH, Cho JH, Lee YE | venue=Frontiers in human neuroscience | Study.research_objective=2020 in"
+  },
+  {
+   "pid": "pmc-9354666-bcicomp",
+   "key": "t:2020internationalbraincomputerinterfacecompetitionareview",
+   "title": "2020 International brain-computer interface competition: A review",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=2020 International brain-computer interface competition: A review | authors=BCI-competition group | Study.research_objective=BCI competition review 71-75.6% | task_family=sent"
+  },
+  {
+   "pid": "zenodo-22807204-mdrg",
+   "key": "t:graphriemannianmultiviewfusionforsubjectspecificeegimaginedspeechdecodingaheldou",
+   "title": "Graph-Riemannian Multi-View Fusion for Subject-Specific EEG Imagined Speech Decoding: A Held-Out Evaluation on the BCIC2020-IV Official Test Set",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "itle=Graph-Riemannian Multi-View Fusion for Subject-Specific EEG Imagined Speech Decoding: A Held-Out Evaluation on the BCIC2020-IV Official Test Set | Study.study_design=controlled_experiment | Study.research_objective=subject-specific imagined-sp"
+  },
+  {
+   "pid": "zenodo-mdrg",
+   "key": "t:mdrggraphriemannianmultiviewfusionforeegimaginedspeechdecodingcompanionintjintel",
+   "title": "MDRG: Graph-Riemannian Multi-View Fusion for EEG Imagined Speech Decoding (companion: Int. J. Intelligent Engineering and Systems 2026)",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "5281/zenodo.22807204 (artifact + full results README) | Study.research_objective=subject-specific decoder for 5-command BCIC2020-IV Track-3 imagined speech: compact temporal-spatial CNN fused at decision level with 1656-dim multi-view descriptor (r"
+  }
+ ],
+ "usual_approach": {
+  "design": "subject_independent",
+  "n": 10,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2607-27268-eegfm",
+   "arxiv-2607-27268-eegfmspeech",
+   "doi-10.21203-rs.3.rs-9694892-v1",
+   "isca-belfrouh26-xcalib",
+   "arxiv-2509-26301-neurottt"
+  ],
+  "population_unique": 16,
+  "note": "full-text pattern counts over 16 unique studies (upper bound): subject-independent or cross-subject term 10, k-fold cross-validation 4; no study matched the official-test or validation-as-test patterns, although arxiv-2012.03632 (read) states that it used the validation subset as its test set"
+ },
+ "read_fulltext": [
+  {
+   "pid": "pmc-9354666-bcicomp",
+   "role": "sota",
+   "loc": "Sec. 2.3.4-2.3.5; Fig. 8A",
+   "quote": "a classification accuracy of 82.6% represented the best performance"
+  },
+  {
+   "pid": "arxiv-2012.03632",
+   "role": "prior",
+   "loc": "Sec. III; Table II",
+   "quote": "used validation dataset as a test dataset. We applied 5-fold"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 1,
+  "recall": 0.33,
+  "missed": [
+   "arxiv-2307-14389-diffe",
+   "doi-10.1109-tnsre.2021.3096874"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "pmc-9354666-bcicomp",
+  "year": 2022,
+  "metric": "best five-class accuracy in the 2020 International BCI Competition Track 3, scored on the released test trials (10 per class), 15 subjects; second place 75.5%",
+  "value": 82.6,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "tally": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 16,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "subject_independent",
+   "n": 10,
+   "tier": "pattern match",
+   "population_unique": 16
+  },
+  "state_of_the_art": {
+   "pid": "pmc-9354666-bcicomp",
+   "year": 2022,
+   "metric": "best five-class accuracy in the 2020 International BCI Competition Track 3, scored on the released test trials (10 per class), 15 subjects; second place 75.5%",
+   "value": 82.6,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 2,
+  "read_prior": [
+   "arxiv-2012.03632"
+  ],
+  "unread": 22,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.33
+ },
+ "used_by": [
+  "eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture"
+ ]
+}

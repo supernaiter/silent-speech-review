@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | M2SILENT: Enabling Multi-user Silent Speech Interactions via Multi-directional Speakers in Shared Spaces |  | Sec. 5 |
 | Multimodal Speech Recognition with Ultrasonic Sensors |  | Sec. 5.1 |
 
+## bci2020-imagined-speech-benchmark
+
+- Table: [`bci2020-imagined-speech-benchmark.csv`](bci2020-imagined-speech-benchmark.csv) (6960 slot-filled, 16 pattern match, usual design in 10, 2 read in full)
+- Inclusion rule: Studies that report classification results on the 2020 International BCI Competition Track 3 imagined-speech data (15 subjects, five words or phrases, 64-channel EEG), including the organisers' review, classified by the test data scored: the competition's released test trials, the public validation subset used as test, cross-validation, or held-out subjects. Boundary: papers that only cite the dataset, and multi-dataset benchmarks where Track 3 results are not reported separately, are pattern matches only; versions count once.
+- Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/)
+
 ## dvs-lip-benchmark
 
 - Table: [`dvs-lip-benchmark.csv`](dvs-lip-benchmark.csv) (6960 slot-filled, 6 pattern match, usual design in 6, 4 read in full)
