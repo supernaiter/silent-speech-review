@@ -27,6 +27,19 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include speech-decoding studies (recognition, classification or synthesis of overt, whispered, silent or imagined speech) that record scalp or around-ear EEG together with surface EMG of the speech muscles and report decoding from EEG, EMG or their combination. Boundary: studies that record EMG only to remove or measure artifacts in EEG count as pattern matches but are recorded as artifact-control designs, not fusion; non-speech EEG-EMG fusion (limb movement), reviews and datasets without decoding are excluded; versions of one study count once.
 - Used in: [Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication](../../reviews/reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun/)
 
+## emg-lip-video-fusion
+
+- Table: [`emg-lip-video-fusion.csv`](emg-lip-video-fusion.csv) (7329 slot-filled, 20 pattern match, usual design in 2, 3 read in full)
+- Inclusion rule: Include studies whose decoder (recognition, classification or speech synthesis) takes surface EMG of the speech muscles together with lip or face video as joint inputs and reports a fused result. Boundary: studies that record both but decode each separately, use a face image only for voice identity, use video only as a prediction target, or only acquire data are excluded; reviews are excluded; full-text-only matches are read as snippets and count only if the snippet shows a fused decoder; versions count once.
+- Used in: [Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading](../../reviews/cross-modal-masking-for-robust-silent-speech-synthesis-using-semg-and-lipreading/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| AVE Speech: A Comprehensive Multi-Modal Dataset for Speech Recognition Integrating Audio, Visual, and Electromyographic Signals | 2025 |  |
+| Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading | 2026 |  |
+| Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading |  |  |
+| Enhancing Multimodal Silent Speech Interfaces with Feature Selection |  |  |
+
 ## emg-speech-electrode-subset
 
 - Table: [`emg-speech-electrode-subset.csv`](emg-speech-electrode-subset.csv) (7329 slot-filled, 42 pattern match, usual design in 10, 4 read in full)

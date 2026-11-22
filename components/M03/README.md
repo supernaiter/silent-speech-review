@@ -75,7 +75,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`modality-dropout-training.csv`](modality-dropout-training.csv) (1526 slot-filled, 21 pattern match, usual design in 38, 2 read in full)
 - Inclusion rule: Include studies that train a multimodal speech model (audio-visual or other paired modalities) while randomly withholding one input modality for whole training examples or sequences (modality dropout), so the model also works from either modality alone. Boundary: frame-level masking inside one modality, ordinary feature dropout, and papers that only cite modality dropout without using it are excluded; counts are pattern match over ledger text and full text (reference lists removed), grouped into unique studies by title.
-- Used in: [Audio-visual video-to-speech synthesis with synthesized input audio](../../reviews/audio-visual-video-to-speech-synthesis-with-synthesized-input-audio/)
+- Used in: [Audio-visual video-to-speech synthesis with synthesized input audio](../../reviews/audio-visual-video-to-speech-synthesis-with-synthesized-input-audio/), [Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading](../../reviews/cross-modal-masking-for-robust-silent-speech-synthesis-using-semg-and-lipreading/)
 
 ## neural-foundation-model-speech-transfer
 
