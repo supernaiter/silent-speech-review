@@ -1,103 +1,128 @@
 # Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features
 
-Chenqian Le, Ruisi Li, Beatrice Fumagalli, Yasamin Esmaeili, Xupeng Chen, Amirhossein Khalilian-Gourtani, Tianyu He, Adeen Flinker, Yao Wang  
-arXiv 2026 · [arXiv](https://arxiv.org/abs/2604.18920)
+Le, Li, Fumagalli, Esmaeili, Chen, Khalilian-Gourtani, He, Flinker, Wang. arXiv preprint, 2026. [arXiv:2604.18920](https://arxiv.org/abs/2604.18920)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features* (Chenqian Le et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Surface EMG](../../README.md#surface-emg)
 
-Forward encoding of sEMG envelopes from articulatory (SPARC) versus phoneme features across speech modes; articulatory features predict muscle activity better on most channels in 24 participants.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | 8-channel lower-face/neck surface EMG |
-| Task | Forward encoding of sEMG from speech features |
-| Vocabulary | 50 sentence prompts per participant |
-| Speaker | Speaker-dependent |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | Gaddy replication voiced r 0.455 (SPARC) vs 0.443 (phoneme); main results plotted, not tabulated |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Within-subject only; articulatory features inferred from paired voiced audio; DTW may inflate correlations; no actual decoding or synthesis gains tested.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Read TIMIT sentences | Read speech | 3,882 of 8,995 | ● Standard (Prompted sentences.) |
+| M02 Teacher signal | Aloud-audio features; silent EMG DTW-warped | DTW target transfer (15 confirmed) | 52 of 8,995 | ● Standard (Warp not in the null.) |
+| M03 Train / calibrate | Per-subject elastic-net mTRF | Per-subject model | 1,526 of 8,995 | ● Standard (Hyperparameters fixed across subjects.) |
+| M04 Use-time act | Aloud, mimed, subvocal | Silent or attempted speech | 5,595 of 8,995 | ● Standard (Subvocal: occluded tract, no phonation.) |
+| M05 Sensing | 8 face and neck channels | Fixed face and neck array | 7,329 of 8,995 | ● Standard (Links shown before [@lee2025].) |
+| M06 Decoding | mTRF: SPARC vs phoneme one-hot | Acoustic predictors (124 of 137) | 137 of 8,995 | ● Standard (Same comparison on ECoG [@chartier2018].) |
+| M07 Runtime aids | None | None in encoding | 119 of 8,995 | – Not applicable (Encoding study.) |
+| M08 Output | Predicted EMG envelopes | Text or speech output | 3,268 of 8,995 | – Not applicable (No decoder.) |
+| M09 Confirmation | None | Confirmation step | 82 of 8,995 | – Not applicable (Offline.) |
+| M10 Correction | None | Correction loop | 82 of 8,995 | – Not applicable (Offline.) |
+| M11 Eval reference | Audio-inverted SPARC; MFA labels | Measured or text references | 234 of 8,995 | ● Standard (No measured kinematics.) |
+| M12 Evaluation | Within-subject CV, span-shuffle null | Held-out correlation or error | 6,960 of 8,995 | ✕ Not reported (Test split not stated: folds, seeds, sessions.) |
+| M13 Hardware & limits | Offline analysis | Offline evaluation | 6,075 of 8,995 | – Not applicable (No device claim tested.) |
 
-Articulatory features better predict aligned muscle envelopes across speech modes; this supports representation choice, while actual EMG-to-speech decoding gains remain untested.
+</details>
 
-### Review
+## Verdict
 
-This study offers useful evidence about which intermediate representations align with facial and neck muscle activity. In 24 speech-typical participants, a regularized linear model predicts sEMG envelopes from either audio-derived SPARC articulatory features or phoneme labels. SPARC performs better on most channels across aloud, mimed and subvocal production. This is forward encoding: the inputs are speech-derived features and the output is a muscle envelope. It is not evidence that EMG has been decoded into words or synthesized speech, a distinction the authors make explicitly. Silent trials are time-warped to paired aloud EMG, and both feature sets are extracted from the aloud audio. Applying the same warping path to both predictors makes their relative comparison more credible, but absolute correlations remain conditional on this reference-assisted alignment. They do not establish independent silent operation or equivalent natural timing across modes. The separate one-person Gaddy comparison shows modest correlation gains, from 0.443 to 0.455 for voiced speech and from 0.346 to 0.364 for mimed speech; these values must not be assigned to the main 24-person cohort. Shared predictive variance dominates, with additional unique SPARC contribution, so the findings do not imply that phonemic information is absent from EMG. Squared correlation and normalized absolute regression weights also require caution: neither establishes calibrated predictive variance explained or causal muscle specificity. The work supports testing articulatory targets in future decoders, while cross-user transfer, actual recognition improvements, and an unaligned real-time silent interface remain open.
+The paper [[1]](#ref-1) changes the predictor space of a forward sEMG encoding model (M06, articulatory SPARC features against phoneme one-hots) and how silent EMG gets its features (M02, from paired aloud audio after DTW warping); both are standard. Chartier et al. made the same comparison on ECoG with the same outcome [[2]](#ref-2), so the contribution is the signal and the three speech modes, not the method. The only tabulated effect is small: on single-subject Gaddy data SPARC gains 0.012 in mean r voiced and 0.018 mimed, 2.7% and 5.2% relative (inference), and the 24-participant results are plotted only. Mode contrasts are confounded by 12 silent against 14 aloud features (§II-B) and by a warp to the aloud trial; the authors concede only that the warp can inflate absolute correlations (§III-B). No decoder is trained, so the claim that articulatory targets are better SSI intermediates is untested. Evaluation is within subject, with folds, seeds and sessions unstated (M12).
 
-### Why it matters
+## Against the field, component by component
 
-A comparatively broad within-subject physiological analysis that motivates articulatory intermediate targets without pretending to have demonstrated an end-to-end silent speech decoder.
+### M06 Processing: articulatory versus phoneme predictors of sEMG
 
-### Prior state of the art
+**Usual approach:** Of 137 encoding-model studies in the ledger (pattern match, unique studies; Appendix), acoustic predictors such as the speech envelope or spectrogram match 124 (upper bound), phoneme or phonetic features 41 and articulatory features 23; by the same Appendix tally the target is the only surface-EMG study among them.
 
-The paper contrasts phoneme labels with continuous articulatory targets for sEMG modeling. SPARC estimates vocal-tract kinematics from audio, while mTRF methods characterize time-lagged relationships between stimulus features and measured responses.
+**State of the art:** Chartier et al. (2018) fitted articulatory, phoneme and acoustic (formant) encoding models to ECoG of 5 participants; the articulatory model won on sentences from separate recording sessions (p<1e-20) [[2]](#ref-2). The target reaches the same ordering for sEMG with a weaker test.
 
-### What changed
+Chartier et al. also inferred kinematics from the produced audio [[2]](#ref-2), so both results inherit an inversion model. In the decoding direction, Lee et al. predicted audio-inverted articulatory features from the 8-electrode Gaddy layout with correlation of about 0.9 for most features, on vocalized speech of one speaker [[3]](#ref-3). Two confounds limit "articulatory beats phoneme". A 12- or 14-dimensional smooth trajectory (silent or aloud) and a 40-dimensional one-hot step train differ in continuity, and a linear filter on a 50 Hz envelope favours the smoother predictor whatever its articulatory content (inference). In the variance partitioning the component both feature sets share dominates across electrodes (§III-A, Fig. 3), so the articulatory-only share is the smaller part. Verdict: standard.
 
-Tests continuous, audio-inferred articulatory coordinates against phoneme one-hot features as forward predictors of muscle envelopes, including low-amplitude subvocal production and shared/unique predictive components.
+### M02 Training-only supervision: aloud-derived features for silent EMG
 
-### Position in the field
+**Usual approach:** Of 15 confirmed studies that train on silent signals with targets transferred from a paired vocalized recording (Appendix), two precede the target: one maps phoneme labels by linear length scaling, and one aligns the audible session data to silent EMG by DTW [[4]](#ref-4); later, DTW transfer became the default recipe on the Gaddy corpus. The paper does the same with Fast-DTW on z-scored EMG envelopes (radius 30).
 
-Non-invasive articulatory SSI representation research, using forward muscle-signal encoding rather than a complete speech decoder.
+**State of the art:** A decoder trained with DTW-transferred targets (2026) [concurrent] reaches 11.89% WER on silent Gaddy EMG [[5]](#ref-5); the target reports no decoding result.
 
-### Practical value
+The warped silent envelope is scored against features timed by the aloud audio, so a good warp raises silent correlations by construction. The authors' defence, one shared path per trial (§III-B), covers the within-mode SPARC-phoneme difference, not the claims that aloud and mimed encoding are comparably high or subvocal above chance: the null shuffles phoneme spans inside each warped utterance (§II-C) and leaves the warp in place (inference). Verdict: standard.
 
-Helps choose candidate intermediate training targets and formulate electrode-placement hypotheses for subsequent sEMG decoding experiments.
+## The 13 components
 
-### Advanced
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Read TIMIT sentences | Read speech (slot-filled 3,882) | – | standard |
+| M02 Training-only supervision | Aloud-audio features; silent EMG DTW-warped | DTW target transfer (15 confirmed) (pattern match 52) | 11.89% WER, silent EMG [concurrent] [[5]](#ref-5) | standard |
+| M03 Training and adaptation | Per-subject elastic-net mTRF | Per-subject model (slot-filled 1,526) | – | standard |
+| M04 Use-time action | Aloud, mimed, subvocal | Silent or attempted speech (slot-filled 5,595) | – | standard |
+| M05 Sensors | 8 face and neck channels | Fixed face and neck array (slot-filled 7,329) | – | standard |
+| M06 Processing and decoding | mTRF: SPARC vs phoneme one-hot | Acoustic predictors (124 of 137) (pattern match 137) | Articulatory beats phoneme on session-held-out ECoG [[2]](#ref-2) | standard |
+| M07 Lexicon and LM | None | None in encoding (slot-filled 119) | – | not applicable |
+| M08 Output | Predicted EMG envelopes | Text or speech output (slot-filled 3,268) | – | not applicable |
+| M09 Confirmation | None | Confirmation step (slot-filled 82) | – | not applicable |
+| M10 Correction | None | Correction loop (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Audio-inverted SPARC; MFA labels | Measured or text references (slot-filled 234) | – | standard |
+| M12 Evaluation | Within-subject CV, span-shuffle null | Held-out correlation or error (slot-filled 6,960) | – | not reported |
+| M13 Device and cost | Offline analysis | Offline evaluation (slot-filled 6,075) | – | not applicable |
 
-Evidence for intermediate representation choice, comparison of muscle-signal predictability across speech modes, and descriptive electrode-to-articulator relationships.
+## Where the claims outrun the evidence
 
-### Unresolved
+- **Effect size.** "Nearly all electrodes" (Abstract) rests on main-cohort bars without values (Fig. 2); the tabulated Gaddy gains the authors call modest (§III-A).
+- **Gaddy uncertainty.** The ± on single-subject Gaddy means is undefined, and 7 of 8 electrodes of one speaker (§III-A) carry no population claim.
+- **Anatomy.** Weight maps are read as anatomically consistent while the formal test is deferred (§III-B); Lee et al. linked these electrodes to articulators earlier [[3]](#ref-3).
+- **Downstream use.** Better SSI intermediates (§IV) is an encoding inference.
 
-Whether the encoding advantage improves inverse speech decoding, unaligned silent inference, unseen-user and cross-mode transfer, and prospective electrode selection.
+## What the field needs next
 
-### Narrowed or regressed
+- M06: the same mTRF comparison against a smoothed phoneme or phonological-feature control.
+- M02: a null that warps silent EMG to the aloud trial of another sentence.
+- M12: session-held-out encoding tests, as in [[2]](#ref-2), and speaker-held-out tests.
+- M06: an sEMG decoder trained to SPARC and to phonemes on mimed and subvocal speech, scored on text.
 
-No matched decoding or deployment regression established; paired voiced-reference alignment is an analysis requirement rather than a demonstrated deployable advantage.
+## Questions for the authors
 
-### Evaluation details
+- How many outer folds, of what size, and were repetitions of a sentence kept in one fold?
+- Were repetitions recorded in one session, and did any test sentence come from an unseen session?
+- Which seeds govern folds and permutations?
+- Are z-scoring statistics per utterance, session or subject, from training folds only?
+- What does ± denote for the Gaddy means, and which split was used?
 
-| Item | Details |
-| --- | --- |
-| Task | Forward encoding of sEMG from speech representations |
-| Input | Surface electromyography with paired aloud audio used to derive predictors and timing references |
-| Sensor | Eight surface EMG channels on lower face and neck; band-pass 10-450 Hz and 60 Hz harmonic notches, Hilbert envelopes at 2 kHz downsampled to 50 Hz. Aloud audio is processed at 16 kHz. |
-| Body site | face; jaw; lip; throat |
-| Output | Predicted sEMG envelopes and representation/electrode analyses; no decoded text or speech audio. |
-| Vocabulary type | Prompted sentence encoding; no evaluated recognition vocabulary |
-| Vocabulary size | 50 distinct sentence prompts per participant; phoneme representation has 39 ARPAbet phonemes plus silence, not a 40-word vocabulary. |
-| Metrics and results | Primary 24-participant results report Pearson r by channel/mode in Figure 2, averaged across folds using Fisher z and summarized with SEM across subjects; precise per-channel means are not tabulated. SPARC outperforms phoneme features on most channels, and subvocal prediction is above the permutation threshold. Separate single-participant Gaddy results: voiced r 0.443 ± 0.017 (phoneme) versus 0.455 ± 0.021 (SPARC); mimed 0.346 ± 0.029 versus 0.364 ± 0.032, with gains on 7/8 electrodes in each mode. No WER, decoding accuracy or synthesis-quality result is reported. |
-| Evaluation protocol | Within-subject sentence-level cross-validation of forward feature-to-EMG envelope regression, nested regularization selection, Pearson correlation, permutation nulls, paired FDR-controlled comparisons, variance partitioning and normalized weight maps. |
+## Appendix: literature search
 
-### Limits
+- **M06 speech-feature-encoding-model** (new topic). Inclusion rule: forward encoding models from time-varying speech features to a recorded biosignal (EEG, MEG, ECoG, EMG, fMRI), evaluated on held-out data and classified by predictor space (acoustic, phonetic, articulatory); pure decoding, source-localisation forward models and acoustic-only inversion excluded; versions once. Ledger: 7,345 slot-filled; 137 pattern match (unique studies). Usual design: acoustic predictors 124 (pattern match, upper bound); phoneme or phonetic 41; articulatory 23; one surface-EMG study, the target. Read in full: [[2]](#ref-2) (prior; state of the art), [[3]](#ref-3) (prior). Known-item recall 0.5 (2 seeds; [[2]](#ref-2) found by citation).
+- **M02 silent-target-transfer** (published table, reused unchanged). Inclusion rule: training on silently articulated non-acoustic signals with targets transferred from a separate vocalized recording of the same utterance by time alignment; vocalized-only training, scoring-only alignment, whisper or NAM conversion and imagined speech excluded; versions once. Ledger: 31 slot-filled; 52 pattern match (unique studies); 15 confirmed. The target is listed and excluded, as it trains no decoder. Read in full: [[4]](#ref-4) (prior), [[5]](#ref-5) (state of the art). Known-item recall 0.67.
 
-- **Technical:** SPARC kinematics are inferred from voiced audio rather than measured during silent production. Aloud uses 14 features including pitch/loudness, silent modes use 12. DTW may inflate absolute correlations. Squared Pearson correlation is not automatically calibrated predictive R-squared; correlated predictors and normalized absolute weights limit causal anatomical interpretation.
-- **Evaluation:** All models are evaluated within subjects using sentence-level folds, not held-out users or cross-mode transfer. Silent evaluation depends on paired voiced reference and response-derived DTW alignment. Fold count and exact repeat grouping are not detailed. Primary numeric results are plotted rather than tabulated. The Gaddy replication has one participant and incompletely specified uncertainty aggregation.
-- **Deployment:** Offline forward encoding uses features derived from paired aloud audio and silently produced EMG warped to the paired aloud envelope. No autonomous silent decoder, latency measurement, wearable implementation, walking test, or patient communication study is provided.
-- **Scope of this review:** Speech-typical participants and prompted sentences. Subvocal means attempted speech with an occluded vocal tract and no phonation; it should not be treated as unconstrained imagined speech. No clinical communication or end-to-end silent recognition study.
+## References
 
-### Evidence
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
 
-- Twenty-four speech-typical participants each produced 50 TIMIT sentences three times per mode. Aloud, mimed and subvocal modes are defined separately; subvocal involves an occluded vocal tract with no phonation. Eight facial/neck EMG channels were recorded. (Section II-A; Figure 1; PDF p. 2)
-- The analysis compares forward prediction of EMG envelopes from SPARC and phoneme features; it explicitly does not demonstrate end-to-end decoding gains. (Introduction and Conclusion; PDF pp. 1 and 4)
-- Features for every mode are extracted from paired aloud audio: 14 SPARC features for aloud, 12 kinematic features for silent modes, and 40 phoneme/silence one-hot indices at 50 Hz. (Section II-B; PDF p. 2)
-- Silent envelopes are warped to paired aloud EMG with FastDTW. Both predictors use the same trial-specific path. Authors acknowledge possible inflation of absolute correlations; reviewer assessment: results remain conditional on paired-reference alignment. (Section II-A and Section III-B; PDF pp. 2 and 4)
-- Evaluation is within subjects using sentence-level outer folds and training-only inner regularization selection; lags span -300 to +300 ms. Pearson correlations are averaged with Fisher z, and comparisons use FDR-controlled Wilcoxon tests. (Section II-C; PDF pp. 2-3)
-- Figure 2 reports higher SPARC prediction correlation than phoneme features on most channels across modes; subvocal performance remains above the permutation threshold, and upper-lip channel 6 is strongest. Exact primary per-channel means are not tabulated. (Section III-A and Figure 2; PDF p. 3)
-- On the separate single-participant Gaddy dataset, voiced correlation increases from 0.443 ± 0.017 to 0.455 ± 0.021, and mimed correlation from 0.346 ± 0.029 to 0.364 ± 0.032. SPARC improves on 7 of 8 electrodes in each mode. (Section III-A; PDF p. 3)
-- Variance partitioning uses squared correlations from articulatory, phoneme and combined models. Shared contribution dominates, and unique articulatory contribution exceeds unique phoneme contribution; this does not imply absence of shared phonemic information. (Figure 3; Equations 3-5 and accompanying text; PDF pp. 3-4)
-- Weight maps sum absolute coefficients over lags, average across participants and normalize within each channel. Anatomical relationships are descriptive; a formal quantitative consistency test is deferred. (Section III-B and Figure 4; PDF p. 4)
-- Downstream decoding evaluation is future work. All reported comparisons are within-subject, and above-chance forward envelope prediction does not establish word recognition or new-user communication performance. (Section II-C and Conclusion; PDF pp. 3-4)
+1. <a id="ref-1"></a>Le, C., Li, R., Fumagalli, B., Esmaeili, Y., Chen, X., Khalilian-Gourtani, A., et al. “Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features.” *arXiv preprint*, 2026. arXiv:[2604.18920](https://arxiv.org/abs/2604.18920). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/comparison-of-semg-encoding-accuracy-across-speech-modes-using-articulatory-and-phoneme-features) [wiki: arxiv-2604.18920](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2604.18920/article.md)
+2. <a id="ref-2"></a>Chartier, J., Anumanchipalli, G. K., Johnson, K., Chang, E. F. “Encoding of Articulatory Kinematic Trajectories in Human Speech Sensorimotor Cortex.” *Neuron*, 2018, 98(5), 1042–1054. doi:[10.1016/j.neuron.2018.04.031](https://doi.org/10.1016/j.neuron.2018.04.031). [wiki: pmc-5992088-articulkin](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-5992088-articulkin/article.md)
+3. <a id="ref-3"></a>Lee, J., Huang, K., Avramidis, K., Pistrosch, S., Gonzalez-Machorro, M., Lee, Y., et al. “Articulatory Feature Prediction from Surface EMG during Speech Production.” *Proc. Interspeech 2025*, 2025, 320–324. doi:[10.21437/Interspeech.2025-565](https://doi.org/10.21437/Interspeech.2025-565). arXiv:[2505.13814](https://arxiv.org/abs/2505.13814). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/articulatory-feature-prediction-from-surface-emg-during-speech-production) [wiki: isca-lee25d-semgartic](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-lee25d-semgartic/article.md) [wiki: arxiv-2505.13814](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2505.13814/article.md) [wiki: isca-lee25d_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-lee25d_interspeech/article.md)
+4. <a id="ref-4"></a>Janke, M. “EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals.” *Dissertation, Karlsruhe Institute of Technology (KIT)*, 2016. <https://publikationen.bibliothek.kit.edu/1000054490> Related journal article: Janke and Diener, IEEE/ACM TASLP 25(12), 2017, doi:10.1109/TASLP.2017.2738568. [wiki: doi-10.1109-taslp-2017-2738568](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-taslp-2017-2738568/article.md)
+5. <a id="ref-5"></a>Lee, J., Lee, J., Lee, K. “GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition.” *Proc. Interspeech 2026*, 2026. doi:[10.21437/Interspeech.2026-1938](https://doi.org/10.21437/Interspeech.2026-1938). [concurrent] [wiki: isca-lee26r_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-lee26r_interspeech/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M02/silent-target-transfer.csv`](../../components/M02/silent-target-transfer.csv): M02 topic "silent-target-transfer", every candidate paper with its decision (31 slot-filled, 52 pattern match, usual design in 15, 4 read in full)
+- [`components/M06/speech-feature-encoding-model.csv`](../../components/M06/speech-feature-encoding-model.csv): M06 topic "speech-feature-encoding-model", every candidate paper with its decision (7345 slot-filled, 137 pattern match, usual design in 124, 3 read in full)
+
 
 ## More reviews in Surface EMG
 
