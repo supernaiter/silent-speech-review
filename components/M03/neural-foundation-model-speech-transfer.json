@@ -1,0 +1,790 @@
+{
+ "topic": "neural-foundation-model-speech-transfer",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)(foundation model|LaBraM|EEGMamba|CBraMod|EEGPT|\\bBIOT\\b|BENDR|NeuroLM|large brain (language )?model|brain foundation|pre-?train(ed|ing)? (on|with|across) [^|]{0,60}(EEG|MEG|sEEG|iEEG|ECoG|neural|brain) (data|recordings|corpora|hours))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Speech or language decoders from EEG, MEG or intracranial recordings that initialize from a checkpoint pretrained on large neural corpora (a neural foundation model) and fine-tune it for word, phrase, sentence or speech-feature decoding. Boundary: speech-audio or video foundation models are excluded; reviews and dataset papers that only mention foundation models still count as pattern matches (upper bound); versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 47,
+  "string_match_unique": 40,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.25626",
+     "arxiv-2608.22420",
+     "arxiv-2502.03128",
+     "arxiv-2510.08059"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607-27268-eegfm",
+     "doi-10.1162-imag.a.1301",
+     "arxiv-2502.03128",
+     "arxiv-2512.09524"
+    ]
+   },
+   {
+    "design": "supervision_kind=self_supervised",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.03231",
+     "arxiv-2502.03128",
+     "arxiv-2405.11459"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.03231",
+     "arxiv-2510.08059",
+     "arxiv-2512.09524"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware='framework': 'pytorch'}",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2504.21214",
+     "arxiv-2506.12055"
+    ]
+   },
+   {
+    "design": "TrainingRun.optimization='schedule': 'cosine annealing'",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2504.21214",
+     "arxiv-2506.12055"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=8 tesla a100",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05766"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware={'gpu': 'nvidia h100'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2504.21214"
+    ]
+   },
+   {
+    "design": "TrainingRun.optimization={'optimizer': 'lamb'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2504.21214"
+    ]
+   },
+   {
+    "design": "TrainingRun.optimization='batch': 1024",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2504.21214"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "general_neural_checkpoint",
+    "n": 28,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2601.21148",
+     "arxiv-2602.20932",
+     "arxiv-2607-27268-eegfm",
+     "arxiv-2607-27268-eegfmspeech",
+     "arxiv-2607.18749"
+    ]
+   },
+   {
+    "design": "speech_specific_pretraining",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2607.25626-eegalign",
+     "arxiv-2609.03231",
+     "arxiv-2502.03128",
+     "arxiv-2405.11459",
+     "arxiv-2504.21214"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)acc|top|bacc|balanced",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "Rankacc",
+   "value": 97.1,
+   "unit": "percent",
+   "raw": "97.1 ± 1.3 percent",
+   "pid": "arxiv-2608.22420",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BAcc@10",
+   "value": 83.6,
+   "unit": "%",
+   "raw": "83.60%",
+   "pid": "arxiv-2609.03231",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "RA Top-1",
+   "value": 82.37,
+   "unit": "percent",
+   "raw": "RA Top-1 accuracy",
+   "pid": "arxiv-2607.25626-eegalign",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T2 oth leaf bacc",
+   "value": 71.36,
+   "unit": "percent",
+   "raw": "71.36",
+   "pid": "arxiv-2509.24302",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T1 top10 acc bo lib 100%data",
+   "value": 63.0,
+   "unit": "percent",
+   "raw": "63.0",
+   "pid": "arxiv-2602.02494",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "top1 accuracy",
+   "value": 62.7,
+   "unit": "percent",
+   "raw": "61-word top-1 accuracy",
+   "pid": "arxiv-2405.11459",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "speech-mode acc EEGNet",
+   "value": 61.3,
+   "unit": "percent",
+   "raw": "EEGNet 61.3% (chance 33.3) vs LaBraM 57.3, EEGMamba 56.6",
+   "pid": "arxiv-2607-27268-eegfm",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "speech-mode balanced acc",
+   "value": 61.3,
+   "unit": "percent",
+   "raw": "EEGNet 61.3% vs LaBraM 57.3% (chance 33.3%)",
+   "pid": "arxiv-2607-27268-eegfmspeech",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "lblm-fstp semantic-level avg acc (Table2)",
+   "value": 47.0,
+   "unit": "percent",
+   "raw": "47.0",
+   "pid": "arxiv-2504.21214",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BrainStack SOTA accuracy",
+   "value": 41.87,
+   "unit": "percent",
+   "raw": "BrainStack avg word-level accuracy (24-way)",
+   "pid": "arxiv-2601.21148",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2405.11459",
+   "key": "t:duindiscreteunitsguidedmaskmodelingfordecodingspeechfromintracranialneuralsignal",
+   "title": "Du-IN: Discrete units-guided mask modeling for decoding speech from Intracranial Neural signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t spectrograms per channel | ProcessingStep.architecture=Du-IN Encoder (1D depthwise conv channel fusion + transformer, LaBraM-style qk-norm) + two-stage: VQ-VAE yields discrete codex, then codex-guided masked-MAE pretraining on region tokens; Du"
+  },
+  {
+   "pid": "arxiv-2501-09700-cueless",
+   "key": "t:cuelesseegbasedimaginedspeechbiometricidentificationdatasetandbenchmarks",
+   "title": "Cueless EEG-based imagined speech biometric identification: dataset and benchmarks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ep.architecture=Benchmark ladder: handcrafted→SVM/XGBoost→EEG CNNs (EEGNet, Shallow ConvNet, EEG Conformer)→time-series foundation model (MOMENT, transformer self-attention) | EvaluationProtocol.experimental_design=Session-based hold-out (sessions 1–3 trai"
+  },
+  {
+   "pid": "arxiv-2501.06326",
+   "key": "t:oncreatingabraintotextdecoder",
+   "title": "On Creating A Brain-To-Text Decoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| venue=arXiv 2025 (workshop); v2 | Study.research_objective=Development-stage EEG-to-text pipeline on ZuCo: pretrained Bendr/EEG-Conformer encoders + CTC + LLM decoder. Results near-zero (BLEU<=0.13); teacher-forcing runs discarded; negative CT"
+  },
+  {
+   "pid": "arxiv-2502.03128",
+   "key": "t:metisafoundationspeechgenerationmodelwithmaskedgenerativepretraining",
+   "title": "Metis: A Foundation Speech Generation Model with Masked Generative Pre-training",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ew_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=unified speech-generation foundation model: masked generative pretraining on 300K unlabeled hours (no condition), then condition-specific fine-tuning incl. lip-to"
+  },
+  {
+   "pid": "arxiv-2502.05766",
+   "key": "t:audiovisualrepresentationlearningviaknowledgedistillationfromspeechfoundationmod",
+   "title": "Audio-Visual Representation Learning via Knowledge Distillation from Speech Foundation Models",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.05766 | title=Audio-Visual Representation Learning via Knowledge Distillation from Speech Foundation Models | Study.research_objective=DistillAV: AV representation learning via cross-modal KD from SFMs (WavLM-Large, iFLYTEK-sp"
+  },
+  {
+   "pid": "arxiv-2504.03762",
+   "key": "t:decodingcovertspeechfromeegusingafunctionalareasspatiotemporaltransformer",
+   "title": "Decoding Covert Speech from EEG Using a Functional Areas Spatio-Temporal Transformer",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ea spatio-temporal fusion + subject-independent pretraining improves covert-speech EEG decoding beyond baselines. | pre biot acc | pre biot f1 | pre biot kappa | pre biot auc | pre vit acc | pre vit f1 | pre vit kappa | pre vit auc | pre dcn ac"
+  },
+  {
+   "pid": "arxiv-2504.21214",
+   "key": "t:pretraininglargebrainlanguagemodelforactivebcisilentspeech",
+   "title": "Pretraining Large Brain Language Model for Active BCI: Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2504.21214 | title=Pretraining Large Brain Language Model for Active BCI: Silent Speech | authors=Jinzhao Zhou, Zehong Cao, Yiqun Duan, Connor Barkley, Daniel Leong, Xiaowei Jia"
+  },
+  {
+   "pid": "arxiv-2505.20480",
+   "key": "t:brainstratifycoarsetofinedisentanglementofintracranialneuraldynamics",
+   "title": "BrainStratify: Coarse-to-Fine Disentanglement of Intracranial Neural Dynamics",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Treebank sEEG; collected epidural ECoG word/syllable | EvaluationProtocol.experimental_design=top-1 accuracy (1-SER) vs LaBraM/CBraMod/PopT/EEG-CFMR/Du-IN/H2DiLR baselines; channel-selection ablation vs SC/MC/CCM/DUET/PopT | representation_kind=f"
+  },
+  {
+   "pid": "arxiv-2506.12055",
+   "key": "t:towardsunifiedneuraldecodingwithbrainfunctionalnetworkmodeling",
+   "title": "Towards Unified Neural Decoding with Brain Functional Network Modeling",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nt training) | system_name=MIBRAIN multi-sub (multi-subject aggregated) | system_name=Brant (baseline, pre-trained iEEG foundation model) | system_name=BrainBERT (baseline) | system_name=chance level (1/23 initials) | TrainingRun.optimization={'stage': 'wh"
+  },
+  {
+   "pid": "arxiv-2508.02974",
+   "key": "t:realtimespeechenhancementinnoiseforthroatmicrophoneusingneuralaudiocodecasfounda",
+   "title": "Real-time speech enhancement in noise for throat microphone using neural audio codec as foundation model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "per_id=arxiv-2508.02974 | title=Real-time speech enhancement in noise for throat microphone using neural audio codec as foundation model | venue=arXiv:2508.02974 (Hauret/Joubaud/Bavu; CNAM LMSSC + ISL Saint-Louis; demo track) | task_family=speech_reconstru"
+  },
+  {
+   "pid": "arxiv-2509-26301-neurottt",
+   "key": "t:neurotttbridgingthegapfrompretrainingtodownstreamtasksforeegfoundationmodels",
+   "title": "NeuroTTT: bridging the gap from pretraining to downstream tasks for EEG foundation models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509-26301-neurottt | title=NeuroTTT: bridging the gap from pretraining to downstream tasks for EEG foundation models | authors=Suli Wang, Yangshen Deng, Zhenghua Bao, Xinyu Zhan, Yiqun Duan | venue=arXiv 2509.26301 | review_state=sourc"
+  },
+  {
+   "pid": "arxiv-2509.24302",
+   "key": "t:leaflanguageeegalignedfoundationmodelforbraincomputerinterfaces",
+   "title": "LEAF: Language-EEG Aligned Foundation Model for Brain-Computer Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.24302 | title=LEAF: Language-EEG Aligned Foundation Model for Brain-Computer Interfaces | venue=under review; v2 (14pp) | Study.research_objective=LEAF language-EEG aligned FM t"
+  },
+  {
+   "pid": "arxiv-2509.26301",
+   "key": "t:neurotttbridgingpretrainingdownstreamtaskmisalignmentineegfoundationmodelsviates",
+   "title": "NeuroTTT: Bridging Pretraining-Downstream Task Misalignment in EEG Foundation Models via Test-Time Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.26301 | title=NeuroTTT: Bridging Pretraining-Downstream Task Misalignment in EEG Foundation Models via Test-Time Training | venue=ICLR 2026 submission? v2 (17pp) | Study.research_objective=NeuroTTT: domain-specific SS"
+  },
+  {
+   "pid": "arxiv-2510-22961-sfmavsr",
+   "key": "t:adaptingspeechfoundationmodelsforunifiedmultimodalspeechrecognitionwithlargelang",
+   "title": "Adapting Speech Foundation Models for Unified Multimodal Speech Recognition with Large Language Models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Adapting Speech Foundation Models for Unified Multimodal Speech Recognition with Large Language Models | authors=Zhang, Wan, Li, Gao, Zhao, Ling (Ling:"
+  },
+  {
+   "pid": "arxiv-2510.08059",
+   "key": "t:mitigatingsubjectdependencyineegdecodingwithsubjectspecificlowrankadapters",
+   "title": "Mitigating Subject Dependency in EEG Decoding with Subject-Specific Low-Rank Adapters",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "esign=controlled_experiment | Study.research_objective=mitigate subject-specific distribution shifts for brain-decoding foundation models via SuLoRA: drop-in layer decomposing weight into shared invariant + per-subject low-rank correction | Study.unit_of_a"
+  },
+  {
+   "pid": "arxiv-2510.22961",
+   "key": "t:adaptingspeechfoundationmodelsforunifiedmultimodalspeechrecognitionwithlargelang",
+   "title": "Adapting Speech Foundation Models for Unified Multimodal Speech Recognition with Large Language Models",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.22961 | title=Adapting Speech Foundation Models for Unified Multimodal Speech Recognition with Large Language Models | Study.research_objective=UASR-LLM: adapt frozen"
+  },
+  {
+   "pid": "arxiv-2511.21740",
+   "key": "t:acrossspeciesneuralfoundationmodelforendtoendspeechdecoding",
+   "title": "A cross-species neural foundation model for end-to-end speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511.21740 | title=A cross-species neural foundation model for end-to-end speech decoding | venue=arXiv 2025; v5; ICLR 2026 conference paper | Study.research_objective=BIT: cross"
+  },
+  {
+   "pid": "arxiv-2512.09524",
+   "key": "t:neurosketchapracticaldesignrecipeforneuraldecoding",
+   "title": "NeuroSketch: A Practical Design Recipe for Neural Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ime masking augmentation | EvaluationProtocol.test_material_selection=per-task accuracy vs 10 baselines (EEG-Conformer, CBraMod, CAFormer, ConvFormer, ModernTCN, MedFormer, DeepConvNet, EEGNet, SPaRCNet, seegnificant); unseen-subject + reduced-dat"
+  },
+  {
+   "pid": "arxiv-2601.21148",
+   "key": "t:brainstackneuromoewithfunctionallyguidedexpertroutingforeegbasedlanguagedecoding",
+   "title": "BrainStack: Neuro-MoE with Functionally Guided Expert Routing for EEG-Based Language Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ionProtocol.experimental_design=Within-subject word classification on SS-EEG vs EEGNet/TCNet/EEGConformer/STTransformer/LaBraM; cross-subject + Thinking Out Loud in appendix; Homo/RoI5 ablations | EvaluationRun.execution_artifacts=BrainStack 1.06"
+  },
+  {
+   "pid": "arxiv-2602.02494",
+   "key": "t:megxldataefficientbraintotextvialongcontextpretraining",
+   "title": "MEG-XL: Data-Efficient Brain-to-Text via Long-Context Pre-Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "bjective=MEG-XL: long-context masked pretraining across hundreds of subjects -> data-efficient word decoding; beats all brain foundation models with limited subject data (13% regime) and stays competitive with deep single-subject recordings. | task_family="
+  },
+  {
+   "pid": "arxiv-2602.20219",
+   "key": "t:anapproachtocombiningvideoandspeechwithlargelanguagemodelsinhumanrobotinteractio",
+   "title": "An Approach to Combining Video and Speech with Large Language Models in Human-Robot Interaction",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ories | output_types=device_action, class_label, text | system_name=multimodal HRI framework (unnamed; Dobot Magician + foundation models) | SystemConfiguration.component_versions=MIT ast-finetuned-speech-commands-v2 (~85M), Whisper small, LLaMA 3.1 7B (GP"
+  },
+  {
+   "pid": "arxiv-2602.20932",
+   "key": "t:hierarchiceeg2textassessingeegtotextdecodingacrosshierarchicalabstractionlevels",
+   "title": "Hierarchic-EEG2Text: Assessing EEG-To-Text Decoding across Hierarchical Abstraction Levels",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ows; 100 uV units; heterogeneous multi-source recordings | representation_kind=Per-word EEG embeddings (EEGNet/NICE-EEG/CBraMod) evaluated against WordNet IS-A concept DAG | ProcessingStep.architecture=Episodic meta-learning: baseline, fo-MAML, pr"
+  },
+  {
+   "pid": "arxiv-2606.07259",
+   "key": "t:assessingtruegeneralisabilityofaudiovisualspeechrecognisers",
+   "title": "Assessing True Generalisability of Audio-Visual Speech Recognisers",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ystemConfiguration.component_versions={'description': 'Integrates AV-HuBERT visual features into Whisper, an audio-only foundation model; paper notes Whisper trained on 680,000 h.'} | SystemConfiguration.component_versions={'description': 'Combines pretrai"
+  },
+  {
+   "pid": "arxiv-2607-27268-eegfm",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Khanday, Ben Ticha, Belfrouh, Ouellet,"
+  },
+  {
+   "pid": "arxiv-2607-27268-eegfmspeech",
+   "key": "t:doeseegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecodin",
+   "title": "Does EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Does EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Khanday, Ben Ticha, Belfrouh, Ouellet,"
+  },
+  {
+   "pid": "arxiv-2607.18749",
+   "key": "t:iseegtotextfeasibleinrealworldscenariosanindepthanalysisusinganeuropsychologyins",
+   "title": "Is EEG-to-Text Feasible in Real-World Scenarios? An In-Depth Analysis Using a Neuropsychology-Inspired Benchmark",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "LEU/ROUGE/WER | EvaluationProtocol.test_material_selection=models: BrainBART, BELT, DeWave, Pegasus, T5, EEG-Conformer, EEGPT, UniCoRN-class; metrics BLEU-1..4, ROUGE-1F, WER, embedding-alignment w/ and w/o teacher forcing | vocabulary_regime=op"
+  },
+  {
+   "pid": "arxiv-2607.18749-cofett",
+   "key": "t:cofettreexaminingeegtotextfeasibilitywithateacherforcingfreebenchmark",
+   "title": "COFETT: Re-examining EEG-to-Text Feasibility with a Teacher-Forcing-Free Benchmark",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "st); Text1 x4 reps days1-4, Text2 x16 reps days5-8; models: BrainBART, BELT, DeWave, Pegasus, T5, EEGConformer, EEGNet, EEGPT | task_encoding=task_evoked_inner | task_family=sentence_recognition | tested_population=healthy_volunteers | Cohort.de"
+  },
+  {
+   "pid": "arxiv-2607.25626",
+   "key": "t:jointtextaudioalignmentforeegtotextdecodinginchinesespeechproductionandperceptio",
+   "title": "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ncoder (from-scratch Conformer, channel-wise strided conv k/s=25, ~9.91M params + 16.4K/subject adapters; or pretrained LaBraM) -> dual InfoNCE alignment (BGE-M3 text + wav2vec 2.0 audio) -> CTC character decoder; inference fuses semantic + acous"
+  },
+  {
+   "pid": "arxiv-2607.25626-eegalign",
+   "key": "t:jointtextaudioalignmentforeegtotextdecodinginchinesespeechproductionandperceptio",
+   "title": "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "en BGE-M3; audio side wav2vec 2.0 | ProcessingStep.architecture=EEG encoder (9.91M Conformer from scratch or pretrained LaBraM) -> two contrastive axes: chunk-level InfoNCE (400ms windows, chunk_size=20) vs BGE-M3 text embeddings and wav2vec2 aud"
+  },
+  {
+   "pid": "arxiv-2607.27268",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2607.27268 | paper_version=2607.27268v2 | title=Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Owais Mujtaba Khanday, Mohamed Baha Be"
+  },
+  {
+   "pid": "arxiv-2607.27268-eegf",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.27268-eegf | title=Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Owais Mujtaba Khanday, Mohamed Baha Be"
+  },
+  {
+   "pid": "arxiv-2608.13072",
+   "key": "t:eegprimeprototypealignedrepresentationlearningwithmultilevelconditioningforeegde",
+   "title": "EEG-PRIME: Prototype-Aligned Representation Learning with Multi-Level Conditioning for EEG Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ype-Aligned Representation Learning with Multi-Level Conditioning for EEG Decoding | Study.research_objective=EEG-PRIME foundation model: instruction-conditioned (SBERT prototype) + dataset-embedding + subject-invariant GRL Q-Former EEG decoding across 18"
+  },
+  {
+   "pid": "arxiv-2608.22420",
+   "key": "t:crosssubjectgeneralizationindecodingperceivedspeechfromnoninvasivebrainrecording",
+   "title": "Cross-Subject Generalization in Decoding Perceived Speech from Non-Invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arison backbone.', 'baseline_details': None} | SystemConfiguration.component_versions={'method_summary': 'Cross-subject BIOT baseline; for cross-subject comparisons the paper says it uses the same training stages as CPSD; baseline hyperparamete"
+  },
+  {
+   "pid": "arxiv-2609.03231",
+   "key": "t:the2026pnplcompetitionwordclassificationandefficientcrosssubjectgeneralisationin",
+   "title": "The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "baseline (Broad track) | system_name=Random-chance baseline | information_kind=MEG-XL is described as a self-supervised foundation model pre-trained on approximately 300 hours of MEG from 800 subjects; corpus details and exact pretraining configuration are"
+  },
+  {
+   "pid": "cmcl-2026-akama-brain2text",
+   "key": "t:braintotextdecodingwithbrainatlasesandbrainfoundationmodels",
+   "title": "Brain-to-Text Decoding with Brain Atlases and Brain Foundation Models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-to-Text Decoding with Brain Atlases and Brain Foundation Models | authors=Akama Haruka, Yoshida Ryo, Muller-Eberstein Max, Oseki Yohei | venue=CMCL @ LREC 2026 | doi=10.63317/2"
+  },
+  {
+   "pid": "doi-10.1162-imag.a.1301",
+   "key": "t:meggptatransformerbasedfoundationmodelformagnetoencephalographydata",
+   "title": "MEG-GPT: A transformer-based foundation model for magnetoencephalography data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1162/imag.a.1301 | title=MEG-GPT: A transformer-based foundation model for magnetoencephalography data | authors=Rukuang Huang, SungJun Cho, Chetan Gohil, Oiwi Parker Jones, Mark Woolrich |"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2026.1838064",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfromnoninvasivebrainsigna",
+   "title": "The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.3389/fnhum.2026.1838064 | title=The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review | authors=Esra Sümer-Arpak, Rajkumar Saini, De"
+  },
+  {
+   "pid": "doi-10.64898-2025.11.30.691403",
+   "key": "t:representationalignmentandgenerationacomprehensivesurveyoffoundationmodelsfornon",
+   "title": "Representation, Alignment, and Generation: A Comprehensive Survey of Foundation Models for Non-Invasive Brain Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.64898/2025.11.30.691403 | title=Representation, Alignment, and Generation: A Comprehensive Survey of Foundation Models for Non-Invasive Brain Decoding | authors=Yifan Wang, Shaonan Wang, Yunhao Zhang, Changde Du, Cunhang Fan, Dongyang Li"
+  },
+  {
+   "pid": "isca-duraisamy26_interspeech",
+   "key": "t:subjectinvariantdynamicgraphmodelingforcrosssubjecteegimaginedspeechdecoding",
+   "title": "Subject-Invariant Dynamic Graph Modeling for Cross-Subject EEG Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s=two 15-subject 64-ch 500Hz imagined-speech EEG datasets (5 words ×80 reps=400 trials, 2s epochs) under strict LOSO vs EEGPT/NeuroLM/LaBraM + CNN/RNN/GNN baselines | task_encoding=imagined_utterance | task_family=isolated_word_recognition | tar"
+  },
+  {
+   "pid": "pmc-13254259-fm-is-review",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfromnoninvasivebrainsigna",
+   "title": "The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13254259-fm-is-review | title=The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review | authors=Esra Sümer-Arpak, Rajkumar Saini | v"
+  },
+  {
+   "pid": "pmc-13254259-fminner",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfromnoninvasivebrainsigna",
+   "title": "The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review | venue=Frontiers in Human Neuroscience | doi="
+  },
+  {
+   "pid": "pmc-13254259-foundinner",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfrom",
+   "title": "The current status of foundation models in decoding inner speech from",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The current status of foundation models in decoding inner speech from | authors=foundation-models group | Study.research_objective=foundation-models inner-spe"
+  },
+  {
+   "pid": "pmc-13495059-hieeg",
+   "key": "t:thehumanintracerebraleegplatformacloudbasedtrustedresearchenvironmentforcollabor",
+   "title": "The Human Intracerebral EEG Platform: A Cloud-Based Trusted Research Environment for Collaborative Science",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "evelopment | Claim.claim_scope=a cloud TRE for iEEG is needed so data sharing scales statistical power and enables iEEG foundation models | Claim.claim_scope=iEEG progress needs organisation, reproducible workflows and sensitive-data collaboration — not ag"
+  },
+  {
+   "pid": "pmc-13521586-barista",
+   "key": "t:baristabrainscaleinformedspatiotemporalrepresentationofhumanintracranialneuralac",
+   "title": "BaRISTA: Brain Scale Informed Spatiotemporal Representation of Human Intracranial Neural Activity",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "olled_experiment | Study.research_objective=dissociate spatial encoding vs masking scales for self-supervised iEEG neurofoundation model | Study.unit_of_analysis=ROC-AUC per downstream task across test sessions and finetuning seeds | Acquisition.sensor_geo"
+  },
+  {
+   "pid": "pmc-13623922-soniva",
+   "key": "t:sonivadatabasespeechrecognitionvalidationinaphasia",
+   "title": "SONIVA database: Speech recognition validation in aphasia",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "single-word tasks (naming/reading/repetition) from IC3/PLORAS; orthographic + IPA + linguistic annotations; fine-tuned foundation models vs expert transcripts and acoustic stroke classification | task_encoding=natural_utterance | task_family=sentence_reco"
+  },
+  {
+   "pid": "uef-20261375-listenss",
+   "key": "t:decodinglistenedspeechfromraweegsignalsusingsubjectindependentembeddingsandpretr",
+   "title": "Decoding Listened Speech From Raw EEG Signals Using Subject-Independent Embeddings and Pre-Trained Models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t EEG listened-speech decoder (UEF thesis) | system_boundary=scalp EEG during speech listening -> encoder-decoder (+EEG foundation models) -> mel -> speech | SystemConfiguration.system_lifecycle=implemented_evaluated | TrainingRun.training_objective=EEG->m"
+  },
+  {
+   "pid": "uef-kapoor26_thesis",
+   "key": "t:decodinglistenedspeechfromraweegsignalsusingsubjectindependentembeddingsandpretr",
+   "title": "Decoding Listened Speech From Raw EEG Signals Using Subject-Independent Embeddings and Pre-Trained Foundation Models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oor26_thesis | title=Decoding Listened Speech From Raw EEG Signals Using Subject-Independent Embeddings and Pre-Trained Foundation Models | venue=Master’s Thesis, University of Eastern Finland | review_state=source_checked | Study.study_design=controlled_e"
+  }
+ ],
+ "usual_approach": {
+  "design": "fine-tune a general neural checkpoint (LaBraM, EEGMamba, CBraMod, EEGPT, BIOT, BENDR, NeuroLM, BrainBERT, PopT, Brant) for the speech task",
+  "n": 28,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2601.21148",
+   "arxiv-2602.20932",
+   "arxiv-2607-27268-eegfm",
+   "arxiv-2607-27268-eegfmspeech",
+   "arxiv-2607.18749"
+  ],
+  "population_unique": 40,
+  "note": "full-text pattern counts over the ledger pattern-match population (40 unique studies): general neural checkpoint named 28, speech-specific self-supervised pretraining 6. Slot-filled supervision_kind values are sparse here (paired_audio 4, gesture_label 4, self_supervised 3)."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2509-26301-neurottt",
+   "role": "sota",
+   "loc": "Table 1; Appendix (datasets)",
+   "quote": "TTT with Tent 0.5898±0.0148 0.4872±0.0185 0.5895±0.0142 0.2742±0.0047"
+  },
+  {
+   "pid": "arxiv-2509-26301-neurottt",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "Linear 0.3976±0.0113 0.2470±0.0141 0.3968±0.0120 0.2529±0.0260 0.0661±0.0325 0.2290±0.0565"
+  },
+  {
+   "pid": "arxiv-2504.21214",
+   "role": "prior",
+   "loc": "Table 1; Sec. 4.3",
+   "quote": "LaBraM 5.80M 63.4 13.0 15.1 9.1 8.6 7.5 34.3 8.3 13.2 10.4 20.8 44.2 20.6"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 1,
+  "found": 1,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2509-26301-neurottt",
+  "year": 2025,
+  "metric": "BCIC2020-III 5-class imagined speech, within-subject, competition splits, CBraMod fine-tuned with test-time training (Tent), balanced accuracy",
+  "value": 0.5898,
+  "unit": "balanced accuracy",
+  "timing": "prior"
+ },
+ "deciding_priors_note": "Prior studies read that fine-tune a general EEG checkpoint for speech EEG against compact or from-scratch baselines: arxiv-2504.21214 (2025-04, LaBraM-Base vs EEGNet, TCNet, EEGConformer on 24-word silent speech) and arxiv-2509-26301-neurottt (2025-09, LaBraM-Base and CBraMod on BCIC2020-III).",
+ "used_by": [
+  "do-eeg-foundation-models-transfer-to-speech-a-benchmark-on-overt-and-imagined-speech-decoding"
+ ],
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 40,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "fine-tune a general neural checkpoint (LaBraM, EEGMamba, CBraMod, EEGPT, BIOT, BENDR, NeuroLM, BrainBERT, PopT, Brant) for the speech task",
+   "n": 28,
+   "tier": "pattern match",
+   "population_unique": 40
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2509-26301-neurottt",
+   "year": 2025,
+   "metric": "BCIC2020-III 5-class imagined speech, within-subject, competition splits, CBraMod fine-tuned with test-time training (Tent), balanced accuracy",
+   "value": 0.5898,
+   "unit": "balanced accuracy",
+   "timing": "prior"
+  },
+  "read": 2,
+  "read_prior": [
+   "arxiv-2504.21214",
+   "arxiv-2509-26301-neurottt"
+  ],
+  "unread": 47,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
+}
