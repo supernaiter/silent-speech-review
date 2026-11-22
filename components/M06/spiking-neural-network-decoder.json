@@ -1,0 +1,675 @@
+{
+ "topic": "spiking-neural-network-decoder",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)spiking neural|\\bSNNs?\\b|leaky[- ]integrate|\\bLIF\\b|neuromorphic",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that decode speech, language or other neural or articulatory signals with a spiking neural network (leaky integrate-and-fire, Izhikevich or other spiking units, in software or on neuromorphic hardware) as the classifier or encoder. Boundary: 'SNN' meaning Siamese network and the SNNS simulator are pattern matches only; reviews, editorials and neuromorphic sensing without a spiking decoder are excluded; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 36,
+  "string_match_unique": 29,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "model_family=other",
+    "n": 14,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2606-31225-otcfm",
+     "arxiv-2607-03844-cnnsnn",
+     "arxiv-2609-24391-navir",
+     "doi-10.3390-s25082624",
+     "pmc-11075527-sneditorial"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607-03844-cnnsnn",
+     "arxiv-2609-24391-navir",
+     "doi-10.3390-s25082624",
+     "doi-10.3390-s25196168"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture={'input': 'batch×channels×time'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.03844"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='conv1d_layers': [{'filters': 256",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.03844"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='kernel': 11",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.03844"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='padding': 'symmetric'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.03844"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='batch_norm': true",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.03844"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='activation': 'relu'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.03844"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='dropout': 0.15",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.03844"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='average_pool': 2}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.03844"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "spiking_classifier",
+    "n": 14,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2607-03844-cnnsnn",
+     "arxiv-2607.03844-cnnsnn",
+     "pmc-13493818-bibci",
+     "doi-10.3390-s25082624",
+     "doi-10.3390-s25196168"
+    ]
+   },
+   {
+    "design": "neuromorphic_hardware",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609-24391-navir",
+     "doi-10.3389-fnins.2026.1928223",
+     "pmc-13493818-bibci",
+     "cea-4613773-sgrulip",
+     "pmc-11075527-sneditorial"
+    ]
+   },
+   {
+    "design": "cnn_then_snn",
+    "n": 11,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2607-03844-cnnsnn",
+     "arxiv-2607.03844-cnnsnn",
+     "arxiv-2609-24391-navir",
+     "pmc-13493818-bibci",
+     "doi-10.3390-s25082624"
+    ]
+   },
+   {
+    "design": "energy_measured",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-7614138-neuromorphic"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)accuracy",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "sentence-level command accuracy (%)",
+   "value": 100.0,
+   "unit": "percent",
+   "raw": "100.0",
+   "pid": "arxiv-2609.24391",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word accuracy Model A (isolated), fusion",
+   "value": 98.67,
+   "unit": "percent",
+   "raw": "Fusion | 98.67% | 26.36% | 91.24% | 93.30% | 95.25%",
+   "pid": "doi-10.3390-s25196168",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best accuracy, SNN fused PMLDF (raw EMG+PZT)",
+   "value": 95.63,
+   "unit": "percent",
+   "raw": "95.63%",
+   "pid": "doi-10.3390-s25082624",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SpkVA (Speaker Verification Accuracy); decision protocol not reported",
+   "value": 93.8,
+   "unit": "%",
+   "raw": "93.8",
+   "pid": "arxiv-2606.31225",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "classification accuracy",
+   "value": 80.13,
+   "unit": "percent",
+   "raw": "80.13% on BCI Competition III vs literature up to 70.19%",
+   "pid": "arxiv-2607-03844-cnnsnn",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SNN SpikGRU2+ accuracy",
+   "value": 75.3,
+   "unit": "percent",
+   "raw": "75.3%",
+   "pid": "cea-4613773-sgrulip",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "MSTP baseline accuracy",
+   "value": 72.1,
+   "unit": "% (from fraction)",
+   "raw": "0.721",
+   "pid": "hal-4183135-neurolip",
+   "year": 2023,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2204.02090",
+   "key": "t:vocalistanaudiovisualsynchronisationmodelforlipsandvoices",
+   "title": "VocaLiST: An Audio-Visual Synchronisation Model for Lips and Voices",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "voc 9f | t1 voc 11f | t1 voc 13f | t1 voc 15f | t1 syncnet params | t1 pm params | t1 avst params | t1 voc params | t2 snN 5f | t2 snN 10f | t2 snN 15f | t2 snN 20f | t2 snN 25f | t2 snY 5f | t2 snY 10f | t2 snY 25f | t2 vocL 5f | t2 vocL 10f"
+  },
+  {
+   "pid": "arxiv-2304.01080",
+   "key": "t:lipsfusaneuromorphicdatasetforaudiovisualsensoryfusionoflipreading",
+   "title": "LIPSFUS: A neuromorphic dataset for audio-visual sensory fusion of lip reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2304.01080 | title=LIPSFUS: A neuromorphic dataset for audio-visual sensory fusion of lip reading | Study.research_objective=AER-synced neuromorphic AV lipreading"
+  },
+  {
+   "pid": "arxiv-2408.16564",
+   "key": "t:humaninspiredcomputingforrobustandefficientaudiovisualspeechrecognition",
+   "title": "Human-Inspired Computing for Robust and Efficient Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Inspired Computing for Robust and Efficient Audio-Visual Speech Recognition | Study.research_objective=HI-AVSNN: causal SNN audio-visual word recognition (VCE+SPN, RLIF neurons, sVCSP skip, timestep-aligned causal fusion). First AVSR on event"
+  },
+  {
+   "pid": "arxiv-2409.10213",
+   "key": "t:neuromorphicfacialanalysiswithcrossmodalsupervision",
+   "title": "Neuromorphic Facial Analysis with Cross-Modal Supervision",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2409.10213 | title=Neuromorphic Facial Analysis with Cross-Modal Supervision | Study.research_objective=FACEMORPHIC (journal version): first RGB+event"
+  },
+  {
+   "pid": "arxiv-2606-31225-otcfm",
+   "key": "t:afirstexplorationofneuromorphicotcfmformultispeakervsr",
+   "title": "A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR | authors=Chen, Fang, Liu, Xu, Chen, Li, Cai, Chen (BTBU; Xidian; Tsinghua; USyd) | venue="
+  },
+  {
+   "pid": "arxiv-2606.31225",
+   "key": "t:afirstexplorationofneuromorphicotcfmformultispeakervsr",
+   "title": "A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2606.31225v2 | source_url=https://arxiv.org/pdf/2606.31225v2 | title=A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR | authors=Lin Chen, Jingping Fang, Hairui Liu, Chenyang Xu, Junhao Chen, Xiaorui Li, Weido"
+  },
+  {
+   "pid": "arxiv-2607-03844-cnnsnn",
+   "key": "t:eegbasedimaginedspeechdecodingusingahybridcnnsnnarchitecture",
+   "title": "EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture | authors=Shalhoub, Al Mawla, Chaccour, Lopez-Espejo, Fares (Antonine U / Granada / UTBM / Stanford / Aarh"
+  },
+  {
+   "pid": "arxiv-2607.03844",
+   "key": "t:eegbasedimaginedspeechdecodingusingahybridcnnsnnarchitecture",
+   "title": "EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2607.03844 | paper_version=2607.03844v1 | title=EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture | authors=Fatima Shalhoub, Mariam Al Mawla, Kabalan Chaccour, Iván López-Espejo, Hoda Fares | abstract=The"
+  },
+  {
+   "pid": "arxiv-2607.03844-cnnsnn",
+   "key": "t:imaginedspeechdecodingusingahybridcnnsnnarchitecture",
+   "title": "Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.03844-cnnsnn | title=Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture | authors=Fatima Shalhoub, Mariam Al Mawla, Kabalan Chaccour, Ivan Lopez-Espejo, Hoda Fares | venue=arXiv:"
+  },
+  {
+   "pid": "arxiv-2609-24391-navir",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Interaction on Edge Hardware",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Interaction on Edge Hardware | authors=Delimpasis, Moraiti, Pori"
+  },
+  {
+   "pid": "arxiv-2609.24391",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human–Robot Interaction on Edge Hardware",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "U (Keras) | paper_id=arxiv-2609.24391 | paper_version=arXiv:2609.24391v1 [cs.LG], 21 Sep 2026 (13 pages) | title=NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human–Robot Interaction on Edge Hardware | abstract=Corresponding author: Le"
+  },
+  {
+   "pid": "arxiv-2609.24391-navir",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Interaction on Edge Hardware",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.24391-navir | title=NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Interaction on Edge Hardware | authors=Leonidas Delimpasis, Pana"
+  },
+  {
+   "pid": "cea-4613773-sgrulip",
+   "key": "t:neuromorphiclipreadingwithsignedspikinggatedrecurrentunits",
+   "title": "Neuromorphic Lip-reading with signed spiking gated recurrent units",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neuromorphic Lip-reading with signed spiking gated recurrent units | authors=Dampfhoffer Manon, Mesquida Thomas | venue=CVPR 2024 -"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2023.1132269",
+   "key": "t:explainingcocktailpartyeffectandmcgurkeffectwithaspikingneuralnetworkimprovedbym",
+   "title": "Explaining cocktail party effect and McGurk effect with a spiking neural network improved by Motif-topology",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2023.1132269 | title=Explaining cocktail party effect and McGurk effect with a spiking neural network improved by Motif-topology | authors=Jia, Zhang, Zuo, Xu | venue=Frontiers in Neuroscience | review_state=sourc"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2026.1928223",
+   "key": "t:fromdeepbrainstimulationtobraincomputerinterfacescurrentprogressinimplantableneu",
+   "title": "From deep brain stimulation to brain-computer interfaces: current progress in implantable neurotechnology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "urring bottlenecks in long-term stability, neural coding and equitable access; covers flexible electrodes, AI decoding, neuromorphic edge processing | target_population=speech_impairment, motor_impairment | population_description=implant recipients inc"
+  },
+  {
+   "pid": "doi-10.3390-s25082624",
+   "key": "t:awearablesilenttextinputsystemusingemgandpiezoelectricsensors",
+   "title": "A Wearable Silent Text Input System Using EMG and Piezoelectric Sensors",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| extra.Protocol.evaluation_target=accuracy + F1 per model/modality; 9 scenarios (feature SVM/RF/DT ×6 input sets + CNN/SNN ×3 raw input sets); RFE-optimized features variant | system_name=EMG+PZT PMLDF fusion → CNN/SNN | system_name=EMG-only"
+  },
+  {
+   "pid": "doi-10.3390-s25196168",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "scale) | Dataset.collection_protocol=Corpus A: isolated-word EMG+EEG, 150 recordings × 10 target words = 1500 samples → SNN pretraining (+augmented variants) | Dataset.collection_protocol=Corpus B: continuous sentence EMG+EEG, 100 recordings ×"
+  },
+  {
+   "pid": "doi-10.54254-2755-2721-42-20230786",
+   "key": "t:ahybridneuralnetworkbasedonthesmallworldnetworkforinnerspeechrecognition",
+   "title": "A hybrid neural network based on the small-world network for inner speech recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l arrow cues for 4 imagined direction words | Representation.windowing=per-epoch 4.5s 128ch signals; MNE preprocessing; SNN converts to spike sequences | technical_essence=hybrid SNN+CNN: small-world-structured SNN produces spike sequences, CN"
+  },
+  {
+   "pid": "hal-4183135-neurolip",
+   "key": "t:endtoendneuromorphiclipreading",
+   "title": "End-to-end Neuromorphic Lip Reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-end Neuromorphic Lip Reading | authors=Bulzomi Hugo, Schweiker Marcel, Gruel Amelie, Martinet Jean | venue=IEEE/CVF Conference on Comput"
+  },
+  {
+   "pid": "isca-kroger06_interspeech",
+   "key": "t:modelingsensorytomotormappingsusingneuralnetsanda3darticulatoryspeechsynthesizer",
+   "title": "Modeling sensory-to-motor mappings using neural nets and a 3D articulatory speech synthesizer",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pes) | ProcessingStep.architecture=one-layer feed-forward nets (logistic activation, identity output, bias) trained via SNNS; mappings between sensory maps (auditory/somatosensory state+error), spatial-coordinate motor map, and joint-coordinate"
+  },
+  {
+   "pid": "isca-richmond99_eurospeech",
+   "key": "t:estimatingvelumheightfromacousticsduringcontinuousspeech",
+   "title": "Estimating velum height from acoustics during continuous speech",
+   "year": 1999,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ooled per phone | EvaluationProtocol.experimental_design={'spatial': 'architecture sweep hidden1 16-20 x hidden2 12-16 (SNNS), best 20/14 on 100-utt test', 'temporal': 'per-phone RMSE/PPMC over 50 hand-labelled utterances'} | extra.Protocol.eva"
+  },
+  {
+   "pid": "pmc-10213428-neuromorphic",
+   "key": "t:neuromorphiccomputingfacilitatesdeepbrainmachinefusionforhighperformanceneuropro",
+   "title": "Neuromorphic computing facilitates deep brain-machine fusion for high-performance neuroprosthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neuromorphic computing facilitates deep brain-machine fusion for high-performance neuroprosthesis | authors=Qi, Chen, Wang | venue=F"
+  },
+  {
+   "pid": "pmc-11075527-sneditorial",
+   "key": "t:editorialtheoreticaladvancesandpracticalapplicationsofspikingneuralnetworks",
+   "title": "Editorial: Theoretical advances and practical applications of spiking neural networks",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Editorial: Theoretical advances and practical applications of spiking neural networks | authors=Di Caterina G, Zhang M, Liu J | venue=Frontiers in neuroscience | Study.research_objective=editorial"
+  },
+  {
+   "pid": "pmc-11322636-spikingtrain",
+   "key": "t:directtraininghighperformancedeepspikingneuralnetworksareviewoftheoriesandmethod",
+   "title": "Direct training high-performance deep spiking neural networks: a review of theories and methods",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Direct training high-performance deep spiking neural networks: a review of theories and methods | authors=Zhou C, Zhang H, Yu L | venue=Frontiers in neuroscience | Study.re"
+  },
+  {
+   "pid": "pmc-12031478-emg-pzt-siltext",
+   "key": "t:awearablesilenttextinputsystemusingemgandpiezoelectricsensors",
+   "title": "A Wearable Silent Text Input System Using EMG and Piezoelectric Sensors",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ost frequent English letters, ~100 trials each; model comparison across feature-based (SVM/DT/RF) and non-feature (CNN, SNN/Fea-Shot) learners, EMG-only vs PZT-only vs fused | EvaluationRun.execution_artifacts=Fused EMG+PZT SNN (Fea-Shot) reac"
+  },
+  {
+   "pid": "pmc-12290705-pcddenoise",
+   "key": "t:asuperviseddatadrivenspatialfilterdenoisingmethodforspeechartifactsinintracrania",
+   "title": "A supervised data-driven spatial filter denoising method for speech artifacts in intracranial electrophysiological recordings",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ch signals | Study.unit_of_analysis=intraoperative iEEG (ECoG strips 53/64ch + microelectrodes) on syllable repetition; LIF-network simulations + DenseNet consonant decoding across Raw/CAR/ICA/PCD in 3 subjects | task_encoding=natural_utteranc"
+  },
+  {
+   "pid": "pmc-12526642-emg-eeg-ssi",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "el accuracy on the 4-sentence set | technical_essence=moving-window segmentation of continuous EMG/EEG into word units; SNN few-shot word classifier; EMG-EEG fusion layer; statistical LM corrects syntactic/lexical errors | SystemConfiguration."
+  },
+  {
+   "pid": "pmc-12526642-emgeeg-snn",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12526642-emgeeg-snn | title=Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion an"
+  },
+  {
+   "pid": "pmc-13346406-lingbrain",
+   "key": "t:linguisticsandhumanbrainaperspectiveofcomputationalneuroscience",
+   "title": "Linguistics and human brain: a perspective of computational neuroscience",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "CI translation for language-impaired populations | Claim.claim_scope=future priorities: spoken-language neural corpora, SNNs for biological plausibility, causal interventions; limits: mechanistic interpretability, ecological validity, SRM gener"
+  },
+  {
+   "pid": "pmc-13493818-bibci",
+   "key": "t:towardsneuromorphicneurotechnologiesintegratingbraininspiredcomputingwithbrainco",
+   "title": "Towards neuromorphic neurotechnologies: integrating brain-inspired computing with brain-computer interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13493818-bibci | title=Towards neuromorphic neurotechnologies: integrating brain-inspired computing with brain-computer interfaces | authors=Anonymous (JATS partia"
+  },
+  {
+   "pid": "pmc-7614138-neuromorphic",
+   "key": "t:animplantableneuromorphicsensingsystemfeaturingnearsensorcomputationandsendondel",
+   "title": "An Implantable Neuromorphic Sensing System Featuring Near-sensor Computation and Send-on-Delta transmission",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Implantable Neuromorphic Sensing System Featuring Near-sensor Computation and Send-on-Delta transmission | authors=He Y, Corradi F | venue=IEEE"
+  },
+  {
+   "pid": "pmc-7844055-spikingkinematics",
+   "key": "t:braininspiredspikingneuralnetworksfordecodingandunderstandingmuscleactivityandki",
+   "title": "Brain-inspired spiking neural networks for decoding and understanding muscle activity and kinematics from electroencephalography signals during hand movements",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-inspired spiking neural networks for decoding and understanding muscle activity and kinematics from electroencephalography signals during hand"
+  },
+  {
+   "pid": "pmc-8149394-hfoelectronic",
+   "key": "t:anelectronicneuromorphicsystemforrealtimedetectionofhighfrequencyoscillationshfo",
+   "title": "An electronic neuromorphic system for real-time detection of high frequency oscillations (HFO) in intracranial EEG",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An electronic neuromorphic system for real-time detection of high frequency oscillations (HFO) in intracranial EEG | authors=Sharifshazileh M, Bur"
+  },
+  {
+   "pid": "pmc-9047904-whisker",
+   "key": "t:classificationofwhiskerdeflectionsfromevokedresponsesinthesomatosensorybarrelcor",
+   "title": "Classification of Whisker Deflections From Evoked Responses in the Somatosensory Barrel Cortex With Spiking Neural Networks",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Classification of Whisker Deflections From Evoked Responses in the Somatosensory Barrel Cortex With Spiking Neural Networks | authors=Petschenig H, Bisio M, Maschietto M | venue=Frontiers in neuroscience | Study.research_objective=cla"
+  },
+  {
+   "pid": "pmc-9642903-colorperception",
+   "key": "t:computationalmodelingofcolorperceptionwithbiologicallyplausiblespikingneuralnetw",
+   "title": "Computational modeling of color perception with biologically plausible spiking neural networks",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Computational modeling of color perception with biologically plausible spiking neural networks | authors=Cohen-Duwek H, Slovin H, Ezra Tsur E | venue=PLoS Computational Biology | Study.research_objective=c"
+  },
+  {
+   "pid": "pmc-9688667-neuromorphrewire",
+   "key": "t:neuromorphicbasedneuroprosthesesforbrainrewiringstateoftheartandperspectivesinne",
+   "title": "Neuromorphic-Based Neuroprostheses for Brain Rewiring: State-of-the-Art and Perspectives in Neuroengineering",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neuromorphic-Based Neuroprostheses for Brain Rewiring: State-of-the-Art and Perspectives in Neuroengineering | authors=Chiappalone M"
+  }
+ ],
+ "usual_approach": {
+  "design": "spiking decoders on event-camera or video lip reading and audio-visual speech (3 prior studies); on scalp EEG speech, one prior hybrid SNN-CNN for inner speech",
+  "n": 3,
+  "tier": "pattern match",
+  "pids": [
+   "hal-4183135-neurolip",
+   "cea-4613773-sgrulip",
+   "arxiv-2408.16564",
+   "doi-10.54254-2755-2721-42-20230786"
+  ],
+  "population_unique": 29,
+  "note": "Full-text term counts over the 29 unique pattern-match studies (reference lists removed): 'spiking' used as a decoder in 3 prior lip-reading or audio-visual speech studies (hal-4183135-neurolip 2023, cea-4613773-sgrulip 2024, arxiv-2408.16564 2024), 1 prior scalp-EEG inner-speech study (doi-10.54254-2755-2721-42-20230786, SNN then CNN, 4 classes), 1 prior scalp-EEG non-speech decoder (pmc-7844055-spikingkinematics 2021), 1 [later] audio-visual study (arxiv-2609.24391 NAVIR); 'SNN' means Siamese network in 2 studies (doi-10.3390-s25082624, doi-10.3390-s25196168) and the SNNS simulator in 2 (1999, 2006); the rest are reviews, editorials or neuromorphic hardware. CNN front end followed by a surrogate-gradient LIF classifier on imagined-speech EEG: the target only (pattern match).",
+  "n_prior_spiking_eeg_speech": 1
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.54254-2755-2721-42-20230786",
+   "role": "prior",
+   "loc": "Sec. 3; Sec. 5.3; Table 1",
+   "quote": "challenges, the neural network integrates both SNN and CNN to enhance classification performance."
+  },
+  {
+   "pid": "doi-10.54254-2755-2721-42-20230786",
+   "role": "sota",
+   "loc": "Sec. 5.3; Table 1",
+   "quote": "demonstrated an average accuracy of 27.66% across all subjects"
+  },
+  {
+   "pid": "pmc-7844055-spikingkinematics",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "We applied the BI-SNN to predict muscle activity and kinematics from electroencephalography signals during upper limb functional movements."
+  },
+  {
+   "pid": "doi-10.3390-s25196168",
+   "role": "prior",
+   "loc": "Sec. 2.3",
+   "quote": "2.3. Few-Shot Learning: Siamese Neural Network (SNN)",
+   "note": "pattern-match false positive (Siamese), not a spiking decoder"
+  }
+ ],
+ "state_of_the_art": {
+  "pid": "doi-10.54254-2755-2721-42-20230786",
+  "year": 2024,
+  "metric": "only prior spiking decoder of imagined or inner speech EEG: SNN-CNN hybrid, 4 direction words, 10 participants, 128 channels (chance 25%)",
+  "value": 27.66,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "known_item_recall": {
+  "seeds_in_wiki": 1,
+  "found": 1,
+  "recall": 1.0,
+  "missed": []
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 29,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "spiking decoders on event-camera or video lip reading and audio-visual speech (3 prior studies); on scalp EEG speech, one prior hybrid SNN-CNN for inner speech",
+   "n": 3,
+   "tier": "pattern match",
+   "population_unique": 29
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.54254-2755-2721-42-20230786",
+   "year": 2024,
+   "metric": "only prior spiking decoder of imagined or inner speech EEG: SNN-CNN hybrid, 4 direction words, 10 participants, 128 channels (chance 25%)",
+   "value": 27.66,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "doi-10.3390-s25196168",
+   "doi-10.54254-2755-2721-42-20230786",
+   "pmc-7844055-spikingkinematics"
+  ],
+  "unread": 36,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture"
+ ]
+}

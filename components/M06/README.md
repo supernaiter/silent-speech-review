@@ -143,7 +143,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`imagined-speech-eeg-word-classification.csv`](imagined-speech-eeg-word-classification.csv) (7345 slot-filled, 167 pattern match, usual design in 48, 2 read in full)
 - Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG into a closed set of words, syllables or commands and report accuracy. Boundary: overt-only EEG, EEG-plus-EMG fusion where EEG is not reported alone, perception-only decoding and reviews are excluded; intracranial recordings are excluded; versions count once.
-- Used in: [Pretraining Large Brain Language Model for Active BCI: Silent Speech](../../reviews/pretraining-large-brain-language-model-for-active-bci-silent-speech/), [Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System](../../reviews/toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system/), [Transfer Learning for Covert Speech Classification Using EEG Hilbert Envelope and Temporal Fine Structure](../../reviews/transfer-learning-for-covert-speech-classification-using-eeg-hilbert-envelope-and-temporal-fine-/)
+- Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/), [Pretraining Large Brain Language Model for Active BCI: Silent Speech](../../reviews/pretraining-large-brain-language-model-for-active-bci-silent-speech/), [Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System](../../reviews/toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system/), [Transfer Learning for Covert Speech Classification Using EEG Hilbert Envelope and Temporal Fine Structure](../../reviews/transfer-learning-for-covert-speech-classification-using-eeg-hilbert-envelope-and-temporal-fine-/)
 
 ## intracranial-synthesis-neural-features
 
@@ -186,6 +186,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`speaker-recognition-from-articulation.csv`](speaker-recognition-from-articulation.csv) (7345 slot-filled, 58 pattern match, usual design in 34, 5 read in full)
 - Inclusion rule: Studies that identify or verify the speaker (or subject) from a non-acoustic speech signal: lip or face motion video during speech, ultrasound, EMA, EMG, non-audible murmur or throat contact microphones, or EEG during speech tasks. Boundary: static face recognition without speech, acoustic-only speaker recognition, and identification used only as an auxiliary loss or nuisance factor are excluded; audio-visual fusion counts when the non-acoustic stream is scored on its own; versions count once.
 - Used in: [Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces](../../reviews/neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces/)
+
+## spiking-neural-network-decoder
+
+- Table: [`spiking-neural-network-decoder.csv`](spiking-neural-network-decoder.csv) (7345 slot-filled, 29 pattern match, usual design in 3, 3 read in full)
+- Inclusion rule: Studies that decode speech, language or other neural or articulatory signals with a spiking neural network (leaky integrate-and-fire, Izhikevich or other spiking units, in software or on neuromorphic hardware) as the classifier or encoder. Boundary: 'SNN' meaning Siamese network and the SNNS simulator are pattern matches only; reviews, editorials and neuromorphic sensing without a spiking decoder are excluded; versions of one study count once.
+- Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/)
 
 ## ultrasound-to-speech-network-architecture
 
