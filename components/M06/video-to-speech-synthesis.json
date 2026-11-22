@@ -2233,6 +2233,24 @@
    "role": "sota",
    "loc": "Table 2",
    "quote": "Lip2Wav (ours) 0.731 0.535 1.772 14.08%"
+  },
+  {
+   "pid": "arxiv-2307.16584-av2acascade",
+   "role": "target",
+   "loc": "Sec. I; Tables III-VII",
+   "quote": "none of these methods have investigated the possibility of including audio inputs (in addition to the silent video) during inference as well."
+  },
+  {
+   "pid": "doi-10.1109-tnnls.2022.3191677",
+   "role": "prior",
+   "loc": "Sec. III",
+   "quote": "while, during inference, the outputs from previous steps are used."
+  },
+  {
+   "pid": "cvf-kim21-mabm",
+   "role": "prior",
+   "loc": "Sec. 1",
+   "quote": "it can obtain both audio and visual contexts during inference even when the uni-modal input is provided only."
   }
  ],
  "known_item_recall": {
@@ -2274,6 +2292,7 @@
   "known_item_recall": 1.0
  },
  "used_by": [
+  "audio-visual-video-to-speech-synthesis-with-synthesized-input-audio",
   "improved-speech-reconstruction-from-silent-video",
   "intelligible-lip-to-speech-synthesis-with-speech-units",
   "lip2audspec-speech-reconstruction-from-silent-lip-movements-video",
@@ -2351,6 +2370,50 @@
      "note": "hits after 2017 are mostly related-work descriptions of a two-tower raw-frame plus optical-flow encoder"
     }
    ]
+  },
+  {
+   "by": "audio-visual-video-to-speech-synthesis-with-synthesized-input-audio",
+   "scope": "full texts of the 165 unique video-to-speech studies of this table (reference lists removed)",
+   "tier": "pattern match",
+   "counts": [
+    {
+     "design": "synthesized_speech_as_second_stage_input",
+     "regex": "(synthesi[sz]ed|generated|predicted) (audio|speech|mel[- ]spectrograms?) (is |are )?(used |fed |given )?as (an? )?(additional |auxiliary )?input",
+     "n": 1,
+     "pids": [
+      "arxiv-2307.16584-av2acascade"
+     ],
+     "note": "only the target; the same pattern over every wiki full text found no further study"
+    },
+    {
+     "design": "autoregressive_feedback_teacher_forcing",
+     "regex": "teacher[- ]forcing|scheduled sampling",
+     "n": 8,
+     "pids": [
+      "isca-qu19-lipsound",
+      "arxiv-2005.08209",
+      "doi-10.1609-aaai.v35i16.17693",
+      "arxiv-2112.04748",
+      "arxiv-2306.15464-v2apretrain",
+      "arxiv-2307.16584-av2acascade",
+      "arxiv-2503.16956",
+      "arxiv-2509.25670"
+     ],
+     "note": "8 including the target (7 others); hits include related-work mentions"
+    },
+    {
+     "design": "modality_dropout",
+     "regex": "modality dropout|modality-dropout",
+     "n": 4,
+     "pids": [
+      "arxiv-2305.15403",
+      "arxiv-2307.16584-av2acascade",
+      "arxiv-2309.08030",
+      "arxiv-2606-09667-xmask"
+     ],
+     "note": "all dated 2023 or later"
+    }
+   ]
   }
  ],
  "state_of_the_art_lrs3": {
@@ -2361,5 +2424,50 @@
   "unit": "%",
   "timing": "later",
   "added_by": "intelligible-lip-to-speech-synthesis-with-speech-units"
+ },
+ "fulltext_pattern_audio-visual-video-to-speech-synthesis-with-synthesized-input-audio": "(synthesi[sz]ed|generated|predicted) (audio|speech|mel[- ]spectrograms?) (is |are )?(used |fed |given )?as (an? )?(additional |auxiliary )?input",
+ "known_item_recall_audio-visual-video-to-speech-synthesis-with-synthesized-input-audio": {
+  "seeds_in_wiki": 3,
+  "found": 2,
+  "recall": 0.67,
+  "missed": [
+   "cvf-kim21-mabm"
+  ],
+  "seeds": [
+   "cvf-kim21-mabm",
+   "doi-10.1109-tnnls.2022.3191677",
+   "arxiv-2205.02058"
+  ],
+  "note": "the memory-network paper (ICCV 2021) is outside the ledger pattern; the whole-wiki full-text pattern found no study outside the 165"
+ },
+ "deciding_priors_note_audio-visual-video-to-speech-synthesis-with-synthesized-input-audio": "Target first public 2023-07. Deciding priors read: LipSound2 (arXiv 2021-12) feeds its own predicted frames back at inference; the memory-network model (ICCV 2021) recalls audio context from video at inference. Earlier systems with lower WER on the target's splits (end-to-end WGAN, 2021-04; SVTS, 2022-05) are read from the target's Tables VI-VII. The authors' base-model paper (2023-06) is concurrent.",
+ "tally_audio-visual-video-to-speech-synthesis-with-synthesized-input-audio": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 165,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "neural vocoder (WaveNet, WaveGlow, HiFi-GAN, MelGAN and similar) on predicted acoustic features",
+   "n": 49,
+   "tier": "pattern match",
+   "population_unique": 165
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "year": 2023,
+   "metric": "ASR WER on GRID, four seen speakers (S1, S2, S4, S29), best raw-waveform row of the 2023 comparison table (end-to-end WGAN, 2022)",
+   "value": 4.07,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 13,
+  "read_prior": [
+   "arxiv-2306.03258",
+   "cvf-kim21-mabm",
+   "doi-10.1109-tnnls.2022.3191677",
+   "isca-vougioukas19_ganv2s"
+  ],
+  "unread": 187,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
  }
 }
