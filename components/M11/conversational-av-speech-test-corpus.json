@@ -1,0 +1,980 @@
+{
+ "topic": "conversational-av-speech-test-corpus",
+ "slot": "M11",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(conversation\\w*|\\bmeetings?\\b|video[- ]?(call|conferenc)\\w*|\\bzoom\\b|multi[- ]?party|spontaneous|dyadic)[^|]{0,120}(audio[- ]?visual|lip|visual speech|\\bvsr\\b|avsr)|(audio[- ]?visual|lip|visual speech|\\bvsr\\b|avsr)[^|]{0,120}(conversation\\w*|\\bmeetings?\\b|video[- ]?(call|conferenc)\\w*|\\bzoom\\b|multi[- ]?party|spontaneous|dyadic)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that build or release an audio-visual (face video plus audio) speech test set drawn from spontaneous conversation, meetings or video calls, with transcripts used as ground truth for AVSR or VSR scoring. Boundary: audio-only meeting corpora, read-prompt corpora and broadcast monologue sets selected without a conversation criterion are excluded; corpora derived from conversational recordings of TV or web video count; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 239,
+  "slot_filled_unique": 234,
+  "string_match_folders": 70,
+  "string_match_unique": 59,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M11",
+  "design_slot_fill": 0.027,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "Reference.reference_kind=category",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2608.19034"
+    ]
+   },
+   {
+    "design": "reference_construction=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.24391"
+    ]
+   },
+   {
+    "design": "Reference.reference_kind=verbatim_transcript",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "cvpr26-huang-mldvc"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "overlapping speech handled",
+    "n": 18,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603-01415-mcorec",
+     "arxiv-2604-27866-lrsvoxmm",
+     "arxiv-2606-05763-m2savsr",
+     "arxiv-2608.08510-mcorec",
+     "arxiv-2609-10394-candorlr"
+    ]
+   },
+   {
+    "design": "manually transcribed or corrected reference",
+    "n": 16,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604-27866-lrsvoxmm",
+     "arxiv-2609-10394-candorlr",
+     "arxiv-2609.10366-avsrbench",
+     "doi-10.1016-j.dib.2026.112932",
+     "acl-2025acl753-misp"
+    ]
+   },
+   {
+    "design": "automatic or pseudo-label transcripts",
+    "n": 10,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2601.18177",
+     "arxiv-2604-27866-lrsvoxmm",
+     "arxiv-2606-05763-m2savsr",
+     "arxiv-2608.08510",
+     "arxiv-2609-10394-candorlr"
+    ]
+   },
+   {
+    "design": "duration filter or duration bins",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609-10394-candorlr",
+     "arxiv-2609.10366-avsrbench",
+     "doi-10.1111-ejn.70538",
+     "acl-2025acl753-misp",
+     "pmc-12166514-msi-autism"
+    ]
+   },
+   {
+    "design": "backchannels or short turns named",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2608.08510",
+     "arxiv-2609-10394-candorlr",
+     "arxiv-2609.10366-avsrbench",
+     "doi-10.1177-23312165261477134",
+     "isca-turker18_avturn"
+    ]
+   }
+  ],
+  "metric_pattern": "wer",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "WER (%)",
+   "value": 0.3,
+   "unit": "percent",
+   "raw": "0.3",
+   "pid": "arxiv-2609.24391",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T1 mw-a-off wer",
+   "value": 0.68,
+   "unit": "percent",
+   "raw": "0.68",
+   "pid": "arxiv-2603.22915",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS3 AO WER",
+   "value": 0.74,
+   "unit": "percent",
+   "raw": "Llama-AVSR AO WER on LRS3",
+   "pid": "arxiv-2609.10394-candorlr",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 0.74,
+   "unit": "percent",
+   "raw": "0.74",
+   "pid": "arxiv-2609.10394",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "noisy WER multi-view",
+   "value": 2.02,
+   "unit": "percent",
+   "raw": "2.02% noisy WER with multi-view 1759h",
+   "pid": "arxiv-2606-05763-m2savsr",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 4.55,
+   "unit": "percent",
+   "raw": "4.55",
+   "pid": "arxiv-2601.18177",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best AVSR WER LRS-VoxMM original",
+   "value": 8.91,
+   "unit": "percent",
+   "raw": "Auto-AVSR AV 8.91/11.03 vs LRS3 0.93",
+   "pid": "arxiv-2604-27866-lrsvoxmm",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER How2 medium",
+   "value": 9.2,
+   "unit": "%",
+   "raw": "9.2",
+   "pid": "arxiv-2412.19005",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T2 ours wer",
+   "value": 31.23,
+   "unit": "percent",
+   "raw": "31.23",
+   "pid": "arxiv-2603.01415",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "dev WER / clustering F1",
+   "value": 42.81,
+   "unit": "percent",
+   "raw": "dev WER 42.81%, clustering F1 97.77%, joint error 23.32",
+   "pid": "isca-njuaalab-chime9",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "acl-2025acl753-misp",
+   "key": "t:mispmeetingarealworlddatasetwithmultimodalcuesforlongformmeetingtranscriptionand",
+   "title": "MISP-Meeting: A Real-World Dataset with Multimodal Cues for Long-form Meeting Transcription and Summarization",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "field and average | EvaluationProtocol.null_and_chance_baselines={'zeroshot_whisper': 61.24, 'ft_audio': 23.17} | claim=audio-visual fusion reduces far-field meeting CER from 36.60% (FT audio) to 20.27% — and to 23.17% with GSS audio-only, i.e. visual branch contributes the last ~2.9p"
+  },
+  {
+   "pid": "arxiv-1805.09313",
+   "key": "p:arxiv-1805.09313",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ACD .74e-4, FDBM .121, CPBD .281); static-GAN baseline; Turing chance ~50% | system_boundary=still image + raw audio -> lip-synced talking-head video with spontaneous expressions | extra.Limitation.limitation=expressions random (no mood capture) - future work; seq-disc architecture cou"
+  },
+  {
+   "pid": "arxiv-1906.04301",
+   "key": "t:transferlearningforultrasoundtonguecontourextractionwithdifferentdomains",
+   "title": "Transfer Learning for Ultrasound Tongue Contour Extraction with Different Domains",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vNet/U-net on target data; momentum .9, decay .5, 5 epochs x5000 it, batch10 | technical_essence=offline augmentation hflip+rotation+zoom to 50K images per dataset | extra.Output.output_kind=tongue contour mask | extra.Configuration.configuration_scope=U-ne"
+  },
+  {
+   "pid": "arxiv-1906.06337",
+   "key": "p:arxiv-1906.06337",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sions; small TCD/CREMA -> lower AV conf | Study.study_design=controlled_experiment | Study.research_objective=realistic lip-sync + spontaneous expressions subject-independent end-to-end | Study.negative_findings=static methods jitter at silence; L1-only kills ex"
+  },
+  {
+   "pid": "arxiv-1907.10210",
+   "key": "t:acnnbasedtoolforautomatictonguecontourtrackinginultrasoundimages",
+   "title": "A CNN-based tool for automatic tongue contour tracking in ultrasound images",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "iants: weighted CE, Dice, compound (CE reg + Dice); 50% threshold on predicted prob | technical_essence=augmentation: hflip, rotate ±15°, zoom, h/v shift; train-size sweep 1-100% | extra.Output.output_kind=tongue contour mask / track | extra.Configuration.config"
+  },
+  {
+   "pid": "arxiv-2204.08686-mispwws",
+   "key": "t:audiovisualwakewordspottingsystemformispchallenge2021",
+   "title": "Audio-Visual Wake Word Spotting System for MISP Challenge 2021",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "; per-model and ensemble | task_encoding=natural_utterance | task_family=command_selection | extra.Task.scope=far-field audio-visual wake-word spotting in home conversational scenarios | target_population=general_population | Cohort.demographics=MISP near/mid/far-field multi-room recordings |"
+  },
+  {
+   "pid": "arxiv-2302.10915",
+   "key": "t:conformersareallyouneedforvisualspeechrecognition",
+   "title": "Conformers are All You Need for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "escription=YT mined 100kh <=15s segs (caption-ASR match + AV-sync filter) | dataset_description=MEET360 internal: 20min meetings, 360-GoPro->2D, 11h, ~25s clips, multi-track per audio | representation_kind=raw RGB mouth frames (linear proj) | representation_kind=80d logmel x3 st"
+  },
+  {
+   "pid": "arxiv-2303.06341",
+   "key": "t:thenpuaslpsystemforaudiovisualspeechrecognitioninmisp2022challenge",
+   "title": "The NPU-ASLP System for Audio-Visual Speech Recognition in MISP 2022 Challenge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "43; ROVER fusion 28.13 Dev/31.21 Eval -> 2nd. | task_family=sentence_recognition | extra.Task.scope=Far-field multi-mic conversational AVSR (MISP2022 AVDR) w/ SD+WPE+GSS front; cpCER Dev/Eval. | Cohort.demographics=MISP2022 multi-speaker home/meeting particip"
+  },
+  {
+   "pid": "arxiv-2310.19581",
+   "key": "t:seeingthroughtheconversationaudiovisualspeechseparationbasedondiffusionmodel",
+   "title": "Seeing Through the Conversation: Audio-Visual Speech Separation based on Diffusion Model",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2310.19581 | title=Seeing Through the Conversation: Audio-Visual Speech Separation based on Diffusion Model | authors=Lee S, Jung C, Jang Y, Kim J, Chung JS (KAIST) | venue=arXiv:2310.19581 v"
+  },
+  {
+   "pid": "arxiv-2312.08850",
+   "key": "t:hourglassavsrdownupsamplingbasedcomputationalefficiencymodelforaudiovisualspeech",
+   "title": "Hourglass-AVSR: Down-Up Sampling-based Computational Efficiency Model for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ip video + far/middle-field multichannel audio (MISP home-TV)', 'coordinate_system': 'face'} | dataset_description=MISP-AVSR Mandarin conversational AV corpus; four challenge test sets | representation_kind=audio encoder feats | representation_kind=downsampled visual"
+  },
+  {
+   "pid": "arxiv-2412.19005",
+   "key": "t:enhancingaudiovisualspeechrecognitionthroughbifocalpreferenceoptimization",
+   "title": "Enhancing Audiovisual Speech Recognition through Bifocal Preference Optimization",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "decoders; small 9+9 hidden768, medium 18+18 hidden1024); bifocal DPO with input-side (masked audio content-word noise, flipped vision) and output-side (ChatGPT homophone/spontaneous/vision-based rewrites via ShareGPT4Video captions) preference pairs | extra.Protocol.evaluation_target=WER% on How2/Vis"
+  },
+  {
+   "pid": "arxiv-2505.13971",
+   "key": "t:themultimodalinformationbasedspeechprocessingmisp2025challengeaudiovisualdiariza",
+   "title": "The Multimodal Information Based Speech Processing (MISP) 2025 Challenge: Audio-Visual Diarization and Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "(MISP) 2025 Challenge: Audio-Visual Diarization and Recognition | Study.research_objective=MISP 2025 challenge report: meeting-scenario MISP-Meeting corpus (125h, 90 sessions, 263 participants) + baselines for AVSD(DER)/AVSR(CER)/AVDR(cpCER); top: DER 8.09, CER 9.48, cpCER 11.56. | task_family=speech_activity_detection | task_family=sentence_"
+  },
+  {
+   "pid": "arxiv-2601.18177",
+   "key": "t:lipsiricontactlessopensentencesilentspeechwithwifibackscatter",
+   "title": "Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ens restricted to a configured lexicon. | extra.Production.classification_note=Participants silently articulate visible lip/jaw movements; the recognition input is RF backscatter, not vocal audio. Spontaneous inner speech, imagined speech without articulation, whisper, and NAM are not tested. | sensor_hardware=A frequency-shif"
+  },
+  {
+   "pid": "arxiv-2603-01415-mcorec",
+   "key": "t:theustcnercslipsystemsforthechime9mcorecchallenge",
+   "title": "The USTC-NERCSLIP Systems for the CHiME-9 MCoRec Challenge",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| Study.research_objective=CHiME-9 MCoRec submission: multimodal cascaded pipeline (ASD + AV target speech extraction + AVSR) on 360-degree video per-speaker streams + single-channel audio for up to 8 speakers / 4 concurrent conversations (>90% overlap); ensemble AVSR S1/S2/S3/S3-UASR incl. LLM decoder; Speaker WER reduced to 31.40% | Study.study_design=sy"
+  },
+  {
+   "pid": "arxiv-2603-22915-vcavsr",
+   "key": "t:whenavsrmeetsvideoconferencingdatasetdegradationandthehiddenmechanismbehindperfo",
+   "title": "When AVSR Meets Video Conferencing: Dataset, Degradation, and the Hidden Mechanism Behind Performance Collapse",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=When AVSR Meets Video Conferencing: Dataset, Degradation, and the Hidden Mechanism Behind Performance Collapse | authors=Huang, Xue, Liu, Li, Zhang, Yi, R"
+  },
+  {
+   "pid": "arxiv-2603.01415",
+   "key": "t:theustcnercslipsystemsforthechime9mcorecchallenge",
+   "title": "The USTC-NERCSLIP Systems for the CHiME-9 MCoRec Challenge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "llenge system description (2026) | Study.research_objective=Cascaded AV MCoRec: AV-ASD -> semantic AVTSE -> Whisper/LLM AVSR (S1 face-Trans, S2 face/lip+Whisper, S3/S3-UASR + Qwen) -> ROVER + LLM conversation clustering: Speaker-WER 32.44->31.40, cluster F1=100, JACER 15.70. | task_family=sentence_recognition | intended_use_ca"
+  },
+  {
+   "pid": "arxiv-2603.22915",
+   "key": "t:whenavsrmeetsvideoconferencingdatasetdegradationandthehiddenmechanismbehindperfo",
+   "title": "When AVSR Meets Video Conferencing: Dataset, Degradation, and the Hidden Mechanism Behind Performance Collapse",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.22915 | title=When AVSR Meets Video Conferencing: Dataset, Degradation, and the Hidden Mechanism Behind Performance Collapse | venue=conference paper (2026) | Study.res"
+  },
+  {
+   "pid": "arxiv-2604-27866-lrsvoxmm",
+   "key": "t:lrsvoxmmabenchmarkforinthewildaudiovisualspeechrecognition",
+   "title": "LRS-VoxMM: A benchmark for in-the-wild audio-visual speech recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uthors=Kwak, D., Choi, J., Lee, S., Chung, J.S. (KAIST) | venue=arXiv 2604.27866 | Study.research_objective=in-the-wild AVSR benchmark from VoxMM real-world conversations in LRS format + distorted eval splits (noise/reverb/bandwidth) to probe visual-information contribution under degradati"
+  },
+  {
+   "pid": "arxiv-2604.27866-lrsvoxmm",
+   "key": "t:lrsvoxmmabenchmarkforinthewildaudiovisualspeechrecognition",
+   "title": "LRS-VoxMM: A benchmark for in-the-wild audio-visual speech recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "v:2604.27866 | review_state=source_checked | Study.study_design=dataset_resource | Study.research_objective=In-the-wild AVSR evaluation benchmark from VoxMM real-world conversations in LRS-style format, plus four distorted splits to stress-test audio degradation and isolate visual contribution | Stud"
+  },
+  {
+   "pid": "arxiv-2606-05763-m2savsr",
+   "key": "t:m2savsrmodalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspe",
+   "title": "M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-RealScene (released) + English/Mandarin AVSR benchmarks | Dataset.collection_protocol=public multi-scenario multi-view conversational audio-visual dataset recorded in real-world environments with AVSR benchmark | SystemConfiguration.system_lifecycle=implemented_evaluated | supervision_kind=paired_audio, text_prompt | n"
+  },
+  {
+   "pid": "arxiv-2608.08510",
+   "key": "t:fromspeechtointeractionanalyzingmultimodalsystemsincocktailpartyscenarios",
+   "title": "From Speech to Interaction: Analyzing Multimodal Systems in Cocktail-Party Scenarios",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "search_objective=release MCoRec cocktail-party multimodal corpus + analyze 7 system design strategies for joint speaker-AVSR and conversation clustering | Study.unit_of_analysis=per-session system: speaker-dependent WER + pairwise clustering F1 + joint error |"
+  },
+  {
+   "pid": "arxiv-2608.08510-mcorec",
+   "key": "t:fromspeechtointeractionanalyzingmultimodalsystemsincocktailpartyscenarios",
+   "title": "From Speech to Interaction: Analyzing Multimodal Systems in Cocktail-Party Scenarios",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ve=Analyze the design space of CHiME-9 MCoRec systems that must jointly transcribe each speaker and group speakers into conversations from audio-visual input in cocktail-party recordings | Study.unit_of_analysis=Speaker-dependent WER per participant plus a joint error ra"
+  },
+  {
+   "pid": "arxiv-2608.19034",
+   "key": "t:transcranialmagneticstimulationofvisualmotionareav5mtmodulatessensorythalamusres",
+   "title": "Transcranial magnetic stimulation of visual-motion area V5/MT modulates sensory thalamus responses during visual speech recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dy used 26 analyzed healthy adults and controlled muted videos from three male speakers; no patient population, natural conversation, or audiovisual noisy-speech deployment was tested. | overclaim_risk=V5/MT TMS affected the Colour task as well as speech-related measu"
+  },
+  {
+   "pid": "arxiv-2609-10394-candorlr",
+   "key": "t:candorlradyadicconversationaldatasetforaudiovisualspeechrecognition",
+   "title": "Candor-LR: A Dyadic Conversational Dataset for Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Candor-LR: A Dyadic Conversational Dataset for Audio-Visual Speech Recognition | authors=Jain, R., Papadopoulos, A., Lin, Z., Harte, N. (Trinity College Dublin) | venue=arXiv 2609.10394"
+  },
+  {
+   "pid": "arxiv-2609.10366-avsrbench",
+   "key": "t:avsrbenchamulticonditionavsrbenchmark",
+   "title": "AVSRBench: A Multi-Condition AVSR Benchmark",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ndition + camera-angle ablation | task_encoding=natural_utterance | task_family=sentence_recognition | extra.Task.scope=AVSR under broadcast/grammar/Lombard/lipspeaker/spontaneous/profile-view conditions | target_population=general_population | tested_population=healthy_volunteers | Cohort.demograp"
+  },
+  {
+   "pid": "arxiv-2609.10394",
+   "key": "p:arxiv-2609.10394",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.research_objective=Build Candor-LR for conversational AVSR and evaluate generalization across data, modality, training and noise conditions. | task_encoding=natural_utterance | s"
+  },
+  {
+   "pid": "arxiv-2609.10394-candorlr",
+   "key": "t:candorlradyadicconversationaldatasetforaudiovisualspeechrecognition",
+   "title": "Candor-LR: A Dyadic Conversational Dataset for Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.10394-candorlr | title=Candor-LR: A Dyadic Conversational Dataset for Audio-Visual Speech Recognition | authors=Rishabh Jain, Aristeidis Papadopoulos, Zhaofeng Lin, Naomi Harte | venue=arXiv:2609.10394 | revie"
+  },
+  {
+   "pid": "arxiv-2609.24391",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human–Robot Interaction on Edge Hardware",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "atural_utterance | intended_use_cases=device_control, noisy_environment, hands_busy_communication | scope_limits=Spoken AVSR with fixed-grammar command outputs; not silent speech or open-vocabulary conversation. | extra.Task.target=Audio-visual recognition of spoken words/commands for human-robot interaction. | extra.Task.output"
+  },
+  {
+   "pid": "cvf-zhang24-es3",
+   "key": "t:es3evolvingselfsupervisedlearningofrobustaudiovisualspeechrepresentations",
+   "title": "ES3: Evolving Self-Supervised Learning of Robust Audio-Visual Speech Representations",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k_family=sentence_recognition | Cohort.demographics=LRS2-BBC 224h broadcast English; LRS3-TED 439h, 5.5k+ speakers; CAS-VSR-S101 newly contributed in-the-wild Mandarin (broadcast news + conversational programs) | intended_use_cases=noisy_environment | production_labels=ordinary_voiced_speech | modalities=optical_camera"
+  },
+  {
+   "pid": "cvpr26-huang-mldvc",
+   "key": "t:whenavsrmeetsvideoconferencingdatasetdegradationandthehiddenmechanismbehindperfo",
+   "title": "When AVSR Meets Video Conferencing: Dataset, Degradation, and the Hidden Mechanism Behind Performance Collapse",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=When AVSR Meets Video Conferencing: Dataset, Degradation, and the Hidden Mechanism Behind Performance Collapse | authors=Huang Yihuan, Xue Jun, Liu Jiajun"
+  },
+  {
+   "pid": "doi-10.1016-j.dib.2026.112932",
+   "key": "t:datasetofaudiovisualunscriptedmonologueswithspeechannotations",
+   "title": "Dataset of audiovisual unscripted monologues with speech annotations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "jaw | observed_quantities=position, shape, air_acoustics | intrusiveness=external_noncontact | technical_essence=Public audiovisual corpus of spontaneous German monologues: >300 min of centered face-and-shoulders video from 6 speakers × 60 takes (Canon EOS 700D 25 fps + Ne"
+  },
+  {
+   "pid": "doi-10.1111-ejn.70538",
+   "key": "t:neuraltrackingofsustainedattentionattentionswitchingandnaturalconversationinaudi",
+   "title": "Neural Tracking of Sustained Attention, Attention Switching, and Natural Conversation in Audiovisual Environments Using Wearable EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1111-ejn.70538 | title=Neural Tracking of Sustained Attention, Attention Switching, and Natural Conversation in Audiovisual Environments Using Wearable EEG | authors=Wilroth et al. | venue=European Journal of Neuroscience | review_state=source"
+  },
+  {
+   "pid": "doi-10.1111-lang.12264",
+   "key": "t:eyemovementsduringvisualspeechperceptionindeafandhearingchildren",
+   "title": "Eye Movements During Visual Speech Perception in Deaf and Hearing Children",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task comparing 33 deaf and 59 hearing 5-8yo children (29 deaf retained): gaze distribution across face regions indexes lipreading strategy — deaf children allocate gaze differently to the mouth/eyes, reflecting reliance on visual speech and conversational-turn-taking demands | target_population=general_population, speech_impairment | population_description=Deaf (n=33→29 an"
+  },
+  {
+   "pid": "doi-10.1177-23312165261434604",
+   "key": "t:visualimplicitlearningandspeechrecognitioninadultpostlingualcochlearimplantusers",
+   "title": "Visual Implicit Learning and Speech Recognition in Adult Post-Lingual Cochlear Implant Users",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "visual SL/perceptual learning + cognitive covariates | EvaluationProtocol.test_material_selection=post-lingual CI users meeting AzBio-quiet criterion isolate late deprivation; speech tests keep lip-reading cues available | system_boundary=psychophysical association study — no device product | SystemConfiguration.sys"
+  },
+  {
+   "pid": "doi-10.1177-23312165261477134",
+   "key": "t:realtimeconversationcomprehensioninyoungerandolderadultstheeffectsofnoisevisuals",
+   "title": "Real-Time Conversation Comprehension in Younger and Older Adults: The Effects of Noise, Visual Speech, Speaker Switch, and Context",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1177/23312165261477134 | title=Real-Time Conversation Comprehension in Younger and Older Adults: The Effects of Noise, Visual Speech, Speaker Switch, and Context | authors=Chris Davis, April Ching, Afrah Haroon, Jeesun Kim, et al. | venue=Trends in Hea"
+  },
+  {
+   "pid": "doi-10.5772-36466",
+   "key": "t:automaticvisualspeechrecognition",
+   "title": "Automatic Visual Speech Recognition",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "onsonantal+4 vocalic visemes | claim=corpus design choices (application-specific vs neutral, controlled background, ROI zoom, ≥sufficient sampling) dominate achievable lip-reading performance; NDUTAVSC extends DUTAVSC per these guidelines | claim=lip-reading literature shows no monotonic pr"
+  },
+  {
+   "pid": "hashimoto-2004-avtiming",
+   "key": "t:intermodaltimingcuesforaudiovisualspeechrecognition",
+   "title": "Intermodal timing cues for audio-visual speech recognition",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ented_evaluated | ProcessingStep.hyperparameters=AV temporal offset x lipreading benefit | Dataset.counts_by_unit=daily-conversation sentence clips | tested_population=healthy_volunteers"
+  },
+  {
+   "pid": "iber24-liprtve",
+   "key": "t:extendingliprtvetowardsalargescaleaudiovisualdatasetforcontinuousspanishinthewil",
+   "title": "Extending LIP-RTVE: Towards A Large-Scale Audio-Visual Dataset for Continuous Spanish in the Wild",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rpora | Claim.claim_scope=A 24-hour multi-program in-the-wild Spanish AV corpus narrows the English/non-English gap for lipreading and AVSR, covering spontaneous non-professional speakers unconstrained by studio conditions | extra.Limitation.status=acknowledged | extra.Limitation."
+  },
+  {
+   "pid": "ieee-9777678-dmclr",
+   "key": "t:usinglipreadingrecognitiontopredictdailymandarinconversation",
+   "title": "Using Lip Reading Recognition to Predict Daily Mandarin Conversation",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Using Lip Reading Recognition to Predict Daily Mandarin Conversation | authors=Haq MA, Ruan SJ, Cai WJ, Li LPH | Study.research_objective=predict daily Mandarin conversation via lip readin"
+  },
+  {
+   "pid": "isca-aboutabit08_cuedspeech",
+   "key": "t:featureadaptationofhearingimpairedlipshapesthevowelcaseinthecuedspeechcontext",
+   "title": "Feature adaptation of hearing-impaired lip shapes: the vowel case in the Cued Speech context",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ies=optical_camera | intrusiveness=external_noncontact | Acquisition.sensor_geometry=face video during CS WoZ telephone conversation; 3-D inner-lip contour parameters (A,B,S) at vowel lip-target instant | representation_kind=3-D A/B/S lip-shape parameter vector at vowel lip target; viseme groups via hierar"
+  },
+  {
+   "pid": "isca-afouras18-conversation",
+   "key": "t:theconversationdeepaudiovisualspeechenhancement",
+   "title": "The Conversation: Deep Audio-Visual Speech Enhancement",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The Conversation: Deep Audio-Visual Speech Enhancement | authors=Afouras, Chung, Zisserman | venue=Interspeech 2018 | Study.research_objective=deep audio-visual s"
+  },
+  {
+   "pid": "isca-auvis-chime9",
+   "key": "t:theauvissystemforthechime9multimodalcontextawarerecognitionmcorecchallenge",
+   "title": "The AUVIS System for the CHiME-9 Multi-Modal Context-Aware Recognition (MCoRec) Challenge",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ec (distant mics + 360-deg camera, real multi-speaker) | task_family=sentence_recognition | extra.Production.scope_note=audio-visual ASR + speaker-conversation clustering under joint error metric | modalities=microphone, optical_camera | SystemConfiguration.system_lifecycle=impl"
+  },
+  {
+   "pid": "isca-badin08_interspeech",
+   "key": "t:canyoureadtonguemovements",
+   "title": "Can you \"read tongue movements\"?",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "635-2638 | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=assess (1) spontaneous/innate tongue-reading ability and (2) rapid learning of it, via audiovisual perception tests using an augmented-speech talking head displaying all articulators incl. tongue | Study.unit_of_analys"
+  },
+  {
+   "pid": "isca-campbell09_discsync",
+   "key": "t:anaudiovisualapproachtomeasuringdiscoursesynchronyinmultimodalconversationdata",
+   "title": "An Audio-Visual Approach to Measuring Discourse Synchrony in Multimodal Conversation Data",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-campbell09_discsync | title=An Audio-Visual Approach to Measuring Discourse Synchrony in Multimodal Conversation Data | authors=Nick Campbell | venue=Interspeech 2009 | review_state=source_checked | Study.study_design=system_proposa"
+  },
+  {
+   "pid": "isca-eshky19_interspeech",
+   "key": "t:synchronisingaudioandultrasoundbylearningcrossmodalembeddings",
+   "title": "Synchronising audio and ultrasound by learning cross-modal embeddings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "technical_limits=directed/isolated phones much harder (55.9%); binary-pair accuracy only ~65%; small N for some types (Conversations n=4); UTI datasets small vs lip-video corpora; hardware sync failures common | qualitative_observation=sync accuracy by utterance type: sentences 94.1%"
+  },
+  {
+   "pid": "isca-gao25g_interspeech",
+   "key": "t:themultimodalinformationbasedspeechprocessingmisp2025challengeaudiovisualdiariza",
+   "title": "The Multimodal Information Based Speech Processing (MISP) 2025 Challenge: Audio-Visual Diarization and Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ".study_design=dataset_resource | Study.research_objective=summarize the MISP 2025 Challenge on multi-modal multi-device meeting transcription with AVSD, AVSR and AVDR tasks; report baselines and participant improvements | Study.unit_of_analysis=challenge-system DER (AVSD) and"
+  },
+  {
+   "pid": "isca-gurbuz01_eurospeech",
+   "key": "t:lipreadingfromparametriclipcontoursforaudiovisualspeechrecognition",
+   "title": "Lip-Reading from Parametric Lip Contours for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ntour + 4 oral-cavity features (width,height,w/h ratio,outer-lip area) + temporal differences | technical_essence=color lip segmentation -> track+zoom -> nonparametric contour -> fit general quadratic on overlapping upper/lower sub-contours -> AI-FDs remove 7 affine par"
+  },
+  {
+   "pid": "isca-inan19",
+   "key": "t:evaluatingaudiovisualsourceseparationinthecontextofvideoconferencing",
+   "title": "Evaluating Audiovisual Source Separation in the Context of Video Conferencing",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21437/Interspeech.2019-2671 | paper_version=interspeech-2019 | title=Evaluating Audiovisual Source Separation in the Context of Video Conferencing | authors=Berkay Inan, Milos Cernak, Helmut Grabner, Helena Peic Tukuljac, Rodrigo C. G. Pena, Benjamin Ricaud | venue="
+  },
+  {
+   "pid": "isca-inan19-avsepeval",
+   "key": "t:evaluatingaudiovisualsourceseparationinthecontextofvideoconferencing",
+   "title": "Evaluating Audiovisual Source Separation in the Context of Video Conferencing",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evaluating Audiovisual Source Separation in the Context of Video Conferencing | authors=Inan, Rafie, Anastasakos | venue=Interspeech 2019 | Study.research_objective=audiovisual source separation ev"
+  },
+  {
+   "pid": "isca-lammert10_interspeech",
+   "key": "t:datadrivenanalysisofrealtimevocaltractmriusingcorrelatedimageregions",
+   "title": "Data-Driven Analysis of Realtime Vocal Tract MRI using Correlated Image Regions",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "candidates) -> mean-intensity time functions (relative degree, not absolute) | Dataset.content_inventory=rtMRI corpus clips: 14.45 s spontaneous English (\"people\" in context) and 8.5 s Tamil /kAp/-/tAp/ alternating repetition; corpus collected across studies, not"
+  },
+  {
+   "pid": "isca-luo25b-mispavsr",
+   "key": "t:pseudolabelsbasedneuralspeechenhancementfortheavsrtaskinthemispmeetingchallenge",
+   "title": "Pseudo Labels-based Neural Speech Enhancement for the AVSR Task in the MISP-Meeting Challenge",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-luo25b-mispavsr | title=Pseudo Labels-based Neural Speech Enhancement for the AVSR Task in the MISP-Meeting Challenge | authors=L. Luo, S. Lu, L. Li, Q. Hong | venue=Interspeech 2025 | review_state=source_checked | Study.study_"
+  },
+  {
+   "pid": "isca-luo25b-pseudolabels",
+   "key": "t:pseudolabelsbasedneuralspeechenhancementfortheavsrtaskinthemispmeetingchallenge",
+   "title": "Pseudo Labels-based Neural Speech Enhancement for the AVSR Task in the MISP-Meeting Challenge",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Pseudo Labels-based Neural Speech Enhancement for the AVSR Task in the MISP-Meeting Challenge | venue=Interspeech 2025 | Study.research_objective=pseudo-labels neural enhancement AVSR MISP | Study.study_"
+  },
+  {
+   "pid": "isca-martin07_avsp",
+   "key": "t:a3daudiovisualanimatedagentforexpressiveconversationalquestionanswering",
+   "title": "A 3D Audio-Visual Animated Agent for Expressive Conversational Question Answering",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A 3D Audio-Visual Animated Agent for Expressive Conversational Question Answering | authors=J.-C. Martin, C. Jacquemin, L. Pointal, B. Katz, C. d'Alessandro, A. Max, M. Courgeon | ve"
+  },
+  {
+   "pid": "isca-mcloughlin14_interspeech",
+   "key": "t:theuseoflowfrequencyultrasoundforvoiceactivitydetection",
+   "title": "The Use of Low-Frequency Ultrasound for Voice Activity Detection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cy Ultrasound for Voice Activity Detection | system_name=Active LF-ultrasonic VAD: tweeter+tube sounder a few cm before lips emits broadband chirp train (14–21kHz, ~100/s rep), co-located mic + Zoom H4n @44.1kHz → down-convert + adaptive spectral subtraction self-calibration → frame-wise mouth-state (open/closed/betw"
+  },
+  {
+   "pid": "isca-njuaalab-chime9",
+   "key": "t:thenjuaalabsystemsforthechime9mcorecchallenge",
+   "title": "The NJU-AALAB Systems for the CHiME-9 MCoRec Challenge",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "c Challenge (ISCA Archive) | Study.research_objective=NJU-AALAB CHiME-9 MCoRec systems: refined AV-HuBERT CTC/Attention AVSR + overlap-matched data simulation + Qwen3-8B LLM conversation clustering and hypothesis post-correction; dev-set WER 42.81%, clustering F1 97.77%, joint error 23.32 | Study.study_de"
+  },
+  {
+   "pid": "isca-potamianos97_avsp",
+   "key": "t:speakerindependentaudiovisualdatabaseforbimodalasr",
+   "title": "Speaker independent audio-visual database for bimodal ASR",
+   "year": 1997,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "iew_state=source_checked | Study.study_design=dataset_resource | Study.research_objective=collect a speaker-independent audio-visual database for bimodal ASR (isolated confusable C-V-C words + connected letters; planned NAB and spontaneous parts) and demonstrate collection system + visual front end + HMM ASR on a single-speaker connected-digits test part |"
+  },
+  {
+   "pid": "isca-schwartz01-selflipread",
+   "key": "t:isiteasiertolipreadonesownspeechgesturesthanthoseofsomebodyelseitseemsnot",
+   "title": "Is it easier to lipread one’s own speech gestures than those of somebody else? it seems not!",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cropped to the lips — the stimulus channel presented to lipreaders | representation_kind=Isolated French digits 0-9 as lip-region videos from the 3000-item AV base — viseme-like classes emerge spontaneously: (1,5) confusable at ~57%, (0,2,3,8,9) nearly always correct | ProcessingStep.architecture=Kinesthetic-visual cross-m"
+  },
+  {
+   "pid": "isca-sustech-chime9",
+   "key": "t:thesustechailabsystemdescriptionforchime9mcorecchallenge",
+   "title": "The SUSTech AILab System Description for CHiME-9 MCoRec Challenge",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ME-9 MCoRec system: pseudo-supervised two-stage cascade — extract each speaker speech from multi-speaker cocktail-party conversations then apply AVSR; averaged speaker-WER 66.8 -> 59.5% with AV-HuBERT CTC/Attention; conversation-clustering F1 82.85% | Study.study_desig"
+  },
+  {
+   "pid": "isca-tao15_interspeech",
+   "key": "t:anunsupervisedvisualonlyvoiceactivitydetectionapproachusingtemporalorofacialfeat",
+   "title": "An Unsupervised Visual-only Voice Activity Detection Approach Using Temporal Orofacial Features",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "7D + ST-Var 7D + Delta 4D + OFxy 1D), then PCA-fused into a bimodal \"combo\" feature | Dataset.content_inventory=MSP-AVW audiovisual whisper corpus: 40 subjects (20M/20F), 3 parts (isolated digits 220/spkr, TIMIT read sentences 120/spkr, spontaneous answers 10 Qs) in whisper + neutral modes, ASHA booth, SHURE close-talk mic 48 kHz, 2 SONY cameras 1440x1080 29.97 fps"
+  },
+  {
+   "pid": "isca-turker18_avturn",
+   "key": "t:audiovisualpredictionofheadnodandturntakingeventsindyadicinteractions",
+   "title": "Audio-Visual Prediction of Head-Nod and Turn-Taking Events in Dyadic Interactions",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-turker18_avturn | title=Audio-Visual Prediction of Head-Nod and Turn-Taking Events in Dyadic Interactions | authors=Bekir Berker Türker, Engin Erzin, Yücel Yemez, Metin Sezgin | venue=Interspeech 2018 | review_st"
+  },
+  {
+   "pid": "isca-websdale18_animrt",
+   "key": "t:theeffectofrealtimeconstraintsonautomaticspeechanimation",
+   "title": "The Effect of Real-Time Constraints on Automatic Speech Animation",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "far less future context than DNN for equal realism (70ms vs 170ms) | Claim.claim_scope=total latency under ~200ms keeps conversational lip-sync acceptable | extra.Limitation.limitation=crowdsourced subjective votes; single-speaker-style corpus; network delay"
+  },
+  {
+   "pid": "isca-wrigley05_avtrack",
+   "key": "t:physiologicallymotivatedaudiovisuallocalisationandtracking",
+   "title": "Physiologically Motivated Audio-Visual Localisation and Tracking",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "upings and oculomotor-style tracks participants through time; no quantitative error reported | extra.Output.output_kind=audio-visual groupings and participant tracks in meeting video | Claim.claim_scope=a Hebbian-trained link between azimuth and video-column oscillator networks can segment and g"
+  },
+  {
+   "pid": "lrec22-glips",
+   "key": "t:amultimodalgermandatasetforautomaticlipreadingsystemsandtransferlearning",
+   "title": "A Multimodal German Dataset for Automatic Lip Reading Systems and Transfer Learning",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "target word; 256×256 source reduced to 96×96 for experiments; audio kept as separate .m4a | extra.Production.scope_note=Spontaneous parliamentary speech; each clip encodes one word of interest in 1.16 s context — format chosen to mirror LRW for cross-dataset compatibility | represen"
+  },
+  {
+   "pid": "oa-W2913918387",
+   "key": "t:towardsagreaterunderstandingoftheneurophysiologyofnaturalaudiovisualspeechproces",
+   "title": "Towards a Greater Understanding of the Neurophysiology of Natural Audiovisual Speech Processing: a System Identification Approach to EEG",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eTwo, 128 scalp electrodes + 2 mastoids, 512 Hz | DataPartition.split_axes=leave-one-trial-out | dataset_description=15 audiovisual 60-s video recordings of a male speaker reading conversational political speech; conditions A, V, AVc, AVi, AVif, AVin, AVsf; reused at −9 dB in noise experiment; soundtracks removed"
+  },
+  {
+   "pid": "pmc-11039583-maskavcomm",
+   "key": "t:theimpactoffacecoveringsonaudiovisualcontributionstocommunicationwithconversatio",
+   "title": "The impact of face coverings on audio-visual contributions to communication with conversational speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The impact of face coverings on audio-visual contributions to communication with conversational speech | authors=Jackson IR, Perugia E, Stone MA | venue=Cognitive research: principles and implications | Study.resear"
+  },
+  {
+   "pid": "pmc-12087253-discourse-cues",
+   "key": "t:understandingdiscourseinfacetofacesettingstheimpactofmultimodalcuesandlisteningc",
+   "title": "Understanding Discourse in Face-to-Face Settings: The Impact of Multimodal Cues and Listening Conditions",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| production_labels=ordinary_voiced_speech | modalities=optical_camera, microphone | Acquisition.sensor_geometry=Videoclips of an actress narrating stories: spontaneous gestures vs hands still, and lips visible vs surgical/cloth/transparent mask; audio clear or with cafeteria noise added"
+  },
+  {
+   "pid": "pmc-12166514-msi-autism",
+   "key": "t:multisensoryintegrationofnaturalisticspeechandgesturesinautisticadults",
+   "title": "Multisensory Integration of Naturalistic Speech and Gestures in Autistic Adults",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "earch (2025) | Study.study_design=controlled_experiment | Study.research_objective=compare behavioral and neural MSI of audiovisual speech+co-speech gestures in autistic vs neurotypical adults within a naturalistic multispeaker video-conference task | extra.Task.scope=AV speech+gesture integration in social listening | production_labels=ordinary_voiced_speech |"
+  },
+  {
+   "pid": "pmc-13285626-av-monologue-dataset",
+   "key": "t:datasetofaudiovisualunscriptedmonologueswithspeechannotations",
+   "title": "Dataset of audiovisual unscripted monologues with speech annotations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n Brief | review_state=source_checked | Study.study_design=dataset_resource | Study.research_objective=Publish a paired audiovisual + linguistic-annotation resource: >300 min of spontaneous German monologues with millisecond-resolved word/phoneme/pause annotations for acoustic-phonetic, linguistic and speech"
+  },
+  {
+   "pid": "pmc-13458311-conv-comprehension",
+   "key": "t:realtimeconversationcomprehensioninyoungerandolderadultstheeffectsofnoisevisuals",
+   "title": "Real-Time Conversation Comprehension in Younger and Older Adults: The Effects of Noise, Visual Speech, Speaker Switch, and Context",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-Time Conversation Comprehension in Younger and Older Adults: The Effects of Noise, Visual Speech, Speaker Switch, and Context | venue=Trends in Hearing (2026) | doi=10.1177/23312165261477134 | Study.study_design=cont"
+  },
+  {
+   "pid": "pmc-6929047-avdiarization",
+   "key": "t:multimodalspeakerdiarizationusingapretrainedaudiovisualsynchronizationmodel",
+   "title": "Multimodal Speaker Diarization Using a Pre-Trained Audio-Visual Synchronization Model",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "guration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=speaker diarization with a pre-trained audio-visual synchronization model on AMI meeting corpus recordings | Dataset.counts_by_unit=5.4 h audio, 5.8 h multimodal | metric"
+  }
+ ],
+ "usual_approach": {
+  "design": "manually transcribed or corrected reference transcripts",
+  "n": 16,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2604-27866-lrsvoxmm",
+   "arxiv-2609-10394-candorlr",
+   "arxiv-2609.10366-avsrbench",
+   "doi-10.1016-j.dib.2026.112932",
+   "acl-2025acl753-misp"
+  ],
+  "population_unique": 59,
+  "note": "full-text pattern counts over 59 unique studies matched in the ledger (a study can match several): overlapping speech mentioned 18, manual or corrected transcripts 16, automatic or pseudo-label transcripts 10, duration filter or duration bins 8, backchannels named 7; M11 is filled in 3% of the wiki, so no slot-filled count is used"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2604-27866-lrsvoxmm",
+   "role": "sota",
+   "loc": "Sec. 2; Table 2",
+   "quote": "Specifically, we select samples with utterance durations between 1 and 25 seconds and transcript lengths between 2 and 60 words."
+  },
+  {
+   "pid": "arxiv-2603-22915-vcavsr",
+   "role": "prior",
+   "loc": "Sec. 3.4.1",
+   "quote": "On the LRS3 dataset, the WER of Auto-AVSR in audio-visual modality increases from 0.93% to 33.09%."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2604-27866-lrsvoxmm",
+  "year": 2026,
+  "metric": "AV WER on the LRS-VoxMM original test split (conversational, 1-25 s), Auto-AVSR released checkpoint",
+  "value": "11.03",
+  "unit": "%",
+  "timing": "concurrent"
+ },
+ "tally": {
+  "slot_filled_unique": 234,
+  "string_match_unique": 59,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "manually transcribed or corrected reference transcripts",
+   "n": 16,
+   "tier": "pattern match",
+   "population_unique": 59
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2604-27866-lrsvoxmm",
+   "year": 2026,
+   "metric": "AV WER on the LRS-VoxMM original test split (conversational, 1-25 s), Auto-AVSR released checkpoint",
+   "value": "11.03",
+   "unit": "%",
+   "timing": "concurrent"
+  },
+  "read": 2,
+  "read_prior": [
+   "arxiv-2603-22915-vcavsr"
+  ],
+  "unread": 70,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "avsrbench-a-multi-condition-avsr-benchmark"
+ ]
+}
