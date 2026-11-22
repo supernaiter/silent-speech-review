@@ -2251,6 +2251,34 @@
    "loc": "Table 1",
    "quote": "VAE-GAN [36] 0.51 0.30 0.15 2.063 8.256",
    "added_by": "lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild"
+  },
+  {
+   "pid": "arxiv-2503.16956",
+   "role": "prior",
+   "loc": "Sec. 3 (prosody modeling)",
+   "quote": "The prosody adapter comprises both pitch and energy predictors",
+   "added_by": "lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency"
+  },
+  {
+   "pid": "arxiv-2308.15256",
+   "role": "prior",
+   "loc": "Sec. 3 (Pitch Predictor)",
+   "quote": "The pitch predictor is optimised with L1 loss between the ground truth and predicted pitch sequence",
+   "added_by": "lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency"
+  },
+  {
+   "pid": "arxiv-2503.14928",
+   "role": "prior",
+   "loc": "Fig. 1",
+   "quote": "generates speech solely from a face video, aligning with semantic content, facial identity, and emotional expression",
+   "added_by": "lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency"
+  },
+  {
+   "pid": "arxiv-2202.09081-vcvts",
+   "role": "prior",
+   "loc": "Sec. 1",
+   "quote": "a pitch predictor inferring the fundamental frequency",
+   "added_by": "lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency"
   }
  ],
  "known_item_recall": {
@@ -2296,6 +2324,61 @@
  },
  "used_by": [
   "let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos",
-  "lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild"
- ]
+  "lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild",
+  "lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency"
+ ],
+ "fulltext_pattern_lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency": {
+  "pitch_energy_predictor": "(pitch|f0|energy|variance|prosody) (predictor|adaptor|adapter|encoder)|predict(s|ed|ing)? (the )?(pitch|f0|fundamental frequency|energy)",
+  "face_emotion_prosody_cue": "emotion(al)? (embedding|feature|encoder|cue|prosody)|EmoCLIP|facial expressions? encoder|for prosody modeling, we utilize facial expressions"
+ },
+ "tally_lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency": {
+  "population_unique": 165,
+  "tier": "pattern match",
+  "pattern_counts": [
+   {
+    "design": "pitch_energy_predictor",
+    "n": 15,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2509.25670",
+     "arxiv-2602.01908",
+     "arxiv-2603.14267",
+     "arxiv-2411.19486"
+    ]
+   },
+   {
+    "design": "face_emotion_prosody_cue",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.01908",
+     "arxiv-2603.14267",
+     "arxiv-2604.15923",
+     "arxiv-2503.14928",
+     "arxiv-2503.16956"
+    ]
+   }
+  ],
+  "pitch_energy_predictor_prior": [
+   "arxiv-2107.12003 (2021-07)",
+   "arxiv-2202.09081-vcvts (2022-02)",
+   "arxiv-2307.01233 (2023-07)",
+   "arxiv-2308.15256 (2023-08)",
+   "arxiv-2411.19486 (2024-11)",
+   "arxiv-2502.12002 (2025-02)",
+   "arxiv-2503.16956 (2025-03)",
+   "arxiv-2505.22024 (2025-05)"
+  ],
+  "face_emotion_prosody_cue_prior": [
+   "arxiv-2503.14928 (2025-03)",
+   "arxiv-2503.16956 (2025-03)"
+  ],
+  "face_emotion_prosody_cue_concurrent": [
+   "arxiv-2603.14267 (2026-03)",
+   "arxiv-2604.15923 (2026-04)"
+  ],
+  "note": "Full-text pattern counts over the 165 unique video-to-speech studies (reference list removed): pitch, energy or prosody predictor or encoder named 15 (upper bound; includes 2 pre-2011 non-video hits), of which 8 video-to-speech studies are prior to the target (2026-02); face-derived emotion or expression cue for prosody 5, of which 2 prior, 2 [concurrent] and the target."
+ },
+ "deciding_priors_note_lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency": "Target first public 2026-02. Explicit pitch and energy predictors in video-to-speech before it: VCVTS 2022 (pitch), Let There Be Sound 2023 (pitch and energy), Faces-to-Voices 2025-03 (pitch and energy predicted from a facial-expression encoder alongside lips and face identity); ImaginTalk 2025-03 aligns speech with content, identity and emotional expression from face video. All read; none is cited by the target."
 }
