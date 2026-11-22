@@ -1,98 +1,131 @@
 # IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases
 
-Sunghwa Lee, Younghoon Shin, Myungjong Kim, Jiwon Seo  
-IEEE Access 2023 · [DOI](https://doi.org/10.1109/ACCESS.2023.3344177) · [arXiv](https://arxiv.org/abs/2312.09572)
+Sunghwa Lee, Younghoon Shin, Myungjong Kim, Jiwon Seo. IEEE Access, 2023. [DOI](https://doi.org/10.1109/ACCESS.2023.3344177) · [arXiv](https://arxiv.org/abs/2312.09572)
 
-**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases* (Sunghwa Lee et al., IEEE Access 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi)
 
-Proposes FERASEC feature extraction for contactless IR-UWB radar silent speech recognition of vowels, consonants, words and phrases. With the upper radar and DNN-HMM it reports 86.47% vowel and 81.59% consonant accuracy.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Two IR-UWB radars facing lips and below chin |
-| Task | Contactless silent speech recognition |
-| Vocabulary | 56 items: 8 vowels, 11 consonants, 25 words, 12 phrases |
-| Speaker | Not stated |
-| Session | Not stated |
-| Online / offline | Not stated |
-| Key result | 86.47% vowels, 81.59% consonants, 88.95% words, 96.88% phrases (leave-one-out CV, upper radar) |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Controlled lab study with prompted closed-set items and limited speaker diversity; sensitive to user alignment and tooth blockage; no open vocabulary or conversational speech tested.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | 20 prompted silent repetitions | Prompted repetition; slot total | 3,882 of 8,995 | ● Standard (Inherited protocol [@shin2016contactless].) |
+| M02 Teacher signal | Prompt labels, no audio | Prompt labels; slot total | 31 of 8,995 | ● Standard (No training-only supervision.) |
+| M03 Train / calibrate | Per-participant models | Speaker-dependent training; slot total | 1,526 of 8,995 | ● Standard (No pooling or adaptation across speakers.) |
+| M04 Use-time act | Silent, fixed head | Silent articulation; slot total | 5,595 of 8,995 | ● Standard (Single-radar position aid tested on one participant.) |
+| M05 Sensing | Two IR-UWB radars, lips and chin | Radar or RF sensing, topic population | 32 of 8,995 | ● Standard (Placement confounded with antenna type and distance.) |
+| M06 Decoding | FERASEC + MD-DTW or DNN-HMM | Engineered features | 21 of 8,995 | ● Standard (Large gain over 2016 features; raw-input test limited to a frame-wise DNN-HMM.) |
+| M07 Runtime aids | None | No lexicon or LM; slot total | 119 of 8,995 | – Not applicable (Closed-set task.) |
+| M08 Output | Vowel and consonant syllables, words, phrases | Closed-set labels; slot total | 3,268 of 8,995 | ● Standard (Contactless silent vowel classification predates it; consonant syllables are new.) |
+| M09 Confirmation | None | Mostly absent; slot total | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | None | Mostly absent; slot total | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Prompted item | Prompted labels; slot total | 234 of 8,995 | ● Standard (No check that articulation matched the prompt.) |
+| M12 Evaluation | Within-speaker leave-one-out | Speaker-dependent | 22 of 8,995 | ● Standard (Words and phrases from 4 speakers; no chance level.) |
+| M13 Hardware & limits | Device use not measured | Device constraints; slot total | 6,075 of 8,995 | ✕ Not reported (No latency, power or embedded test.) |
 
-This paper introduces FERASEC, a novel radar feature extraction enabling the first contactless IR-UWB radar phoneme-level silent speech recognition with 86% vowel and 81% consonant accuracy, surpassing raw signal baselines and signifying a key advance in practical silent speech interfaces.
+</details>
 
-### Review
+## Verdict
 
-This work presents the first successful demonstration of contactless phoneme-level silent speech recognition using IR-UWB radar by introducing FERASEC, a radar-specific feature extraction method that transforms raw 2D radar frames into abbreviated envelopes, effectively capturing articulator movements despite noise and clutter. Comprehensive evaluations on 8 vowels, 11 consonants, 25 words, and 12 phrases show classification accuracies up to 86.47% for vowels and 81.59% for consonants using DNN–HMM classifiers with radar antenna positioned near the lips, outperforming baseline methods and prior radar SSR studies. The use of two radar placements reveals that upper lip-positioned radar better captures critical lip motions, necessary for phoneme discrimination. Although raw radar data or end-to-end deep learning on raw input perform poorly (<50%), engineered FERASEC features enable robust recognition. Controlled prompted speech data from 20 participants supports strong validation of phoneme recognition capability, although conversational and open-vocabulary scenarios remain untested. The study insightfully discusses practical deployment issues such as sensor alignment aiding and potential integration into consumer devices, marking a significant advance toward real-world contactless silent speech interfaces.
+The paper changes one component, the radar feature front end (M06), and it is standard: engineered features into a sequence classifier is the usual radar design, and the gain over the authors' 2016 features is large and repeated over 20 participants [[1]](#ref-1), [[2]](#ref-2). Its conclusion that raw frames do not work is unsupported, since raw frames were tested only as DNN–HMM input (Table 3); the first author's [later] convolutional network on minimally processed frames from the same testbed beats hand-crafted features + DNN–HMM, 91.1% to 74.0%, on one participant and 50 words [[3]](#ref-3). The "first phoneme-level contactless radar SSR" claim holds only as consonant-syllable classification: silent vowel classification with contactless IR-UWB radar was reported in 2016 [[2]](#ref-2). Evaluation (M12) is within-speaker leave-one-out without seeds or spread, the field's default and unlike [later] RF work tested on unseen users [[4]](#ref-4). The lip-versus-chin result confounds position with antenna and distance; phone or watch use (M13) is asserted, not measured.
 
-### Why it matters
+## Against the field, component by component
 
-A radar-specialized feature extraction and system design that enables realistic contactless phoneme-level silent speech recognition, a milestone beyond previous radar SSR word-only demos, verified with a large experimental dataset and classifier comparisons.
+### M06 Processing: radar input representation
 
-### Prior state of the art
+**Usual approach:** Hand-engineered features are the default in radar speech recognition (21 of 32 unique studies, pattern match, an upper bound); the 2016 IR-UWB baseline fed two CLEAN features to MD-DTW template matching [[2]](#ref-2). FERASEC stays in that design, replacing them with six envelope and derivative features.
 
-Prior radar-based SSR showed limited small word-level demos with weak or unproven phoneme-level contactless recognition.
+**State of the art:** [later] (2025) a temporal convolutional network on minimally processed frames from the target's testbed reaches 91.1% on 50 words against 74.0% for hand-crafted features + DNN–HMM, with fold spread falling from 10.3 to 3.3 points, on one participant [[3]](#ref-3).
 
-### What changed
+The feature effect is well supported: with MD-DTW and the upper radar, FERASEC lifts vowels from 51.59% to 80.56% and consonants from 42.68% to 74.50% (Table 2), 29.0 and 31.8 points, or 56% and 75% relative from a low base (inference). The old features were run only with MD-DTW, so no row isolates the feature gain under the DNN–HMM. The DNN–HMM adds 5.91 points on vowels and 7.09 on consonants and loses on phrases, 96.88% against 98.02% (Table 2) (inference). The argument against learning rests on Table 3, a DNN–HMM on raw or clutter-reduced frames at 44.38% and 48.13% for vowels; a frame-wise network on 256-dimensional frames is a weak test of learned representations, and the [later] result contradicts the conclusion on the same testbed, if only for one participant [[3]](#ref-3). Verdict: standard.
 
-Introduces FERASEC and demonstrates meaningful contactless IR-UWB radar SSR accuracy on phonemes, words, and phrases with radar antenna placement and aiding logic considerations.
+### M12 Evaluation: speaker split and uncertainty
 
-### Position in the field
+**Usual approach:** Speaker-dependent testing is the usual radar design (22 of 32 unique studies, pattern match, against an overlapping 17 speaker-independent, upper bound), as in the per-speaker jackknife of the 2016 baseline [[2]](#ref-2); the paper follows it with per-participant leave-one-out over 20 repetitions (§IV-C).
 
-Core contactless SSI work establishing radar phoneme recognition feasibility with pragmatic sensor placement and aiding algorithms.
+**State of the art:** [later] (2026) contactless Wi-Fi backscatter work tests three users absent from training at 81.5% to 85.5% word accuracy and 36.3% to 39.6% sentence WER [[4]](#ref-4).
 
-### Practical value
+Table 2 gives means with no spread, seeds or chance level. Words and phrases use only the 4 native English speakers (Table 2 caption), so the 88.95% word and 96.88% phrase figures rest on 4 people. Every test item comes from a speaker whose other repetitions trained the model, so the numbers measure within-speaker repeatability. Verdict: standard.
 
-High potential for hands-free SSR in mobile or wearable devices if hardware integration and user alignment challenges are solved.
+## The 13 components
 
-### Advanced
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | 20 prompted silent repetitions | Prompted repetition; slot total (slot-filled 3,882) | – | standard |
+| M02 Training-only supervision | Prompt labels, no audio | Prompt labels; slot total (slot-filled 31) | – | standard |
+| M03 Training and adaptation | Per-participant models | Speaker-dependent training; slot total (slot-filled 1,526) | – | standard |
+| M04 Use-time action | Silent, fixed head | Silent articulation; slot total (slot-filled 5,595) | – | standard |
+| M05 Sensors | Two IR-UWB radars, lips and chin | Radar or RF sensing, topic population (pattern match 32) | – | standard |
+| M06 Processing and decoding | FERASEC + MD-DTW or DNN-HMM | Engineered features (pattern match 21) | 91.1% on 50 words, one participant [[3]](#ref-3) [later] | standard |
+| M07 Lexicon and LM | None | No lexicon or LM; slot total (slot-filled 119) | – | not applicable |
+| M08 Output | Vowel and consonant syllables, words, phrases | Closed-set labels; slot total (slot-filled 3,268) | Open-vocabulary sentences [[4]](#ref-4) [later] | standard |
+| M09 Confirmation | None | Mostly absent; slot total (slot-filled 82) | – | not applicable |
+| M10 Correction | None | Mostly absent; slot total (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Prompted item | Prompted labels; slot total (slot-filled 234) | – | standard |
+| M12 Evaluation | Within-speaker leave-one-out | Speaker-dependent (pattern match 22) | New users 81.5-85.5% words [[4]](#ref-4) [later] | standard |
+| M13 Device and cost | Device use not measured | Device constraints; slot total (slot-filled 6,075) | – | not reported |
 
-contactless_ssr; phoneme_level_radar; mobile_embedding_potential
+## Where the claims outrun the evidence
 
-### Unresolved
+- "First phoneme-level" (Abstract) needs a qualifier: Shin and Seo classified five silently read vowels from contactless IR-UWB with one speaker (F-measure 0.943) [[2]](#ref-2), and a radar at 0.45 m classified five spoken (voiced) vowels for three participants [[5]](#ref-5), uncited. Neither classifies consonants, so what is new is contactless classification of 11 consonant syllables.
+- Those items are CVC and VCV syllables classified as whole tokens (§III-A), not phonemes in running speech. Contact radar recognised 25 phonemes in 2018, as the paper notes [[6]](#ref-6), and [later] contact radar classifies 26 phonemes at 85.40% in a pooled three-speaker model [[7]](#ref-7).
+- §V-D credits both the 2016 vowel and word results to five speakers; the vowel test used one [[2]](#ref-2).
+- Lip beats chin (§V-B), but the positions also differ in antenna, beam width (55° × 50° versus 40° × 35°) and distance (5–10 versus 10–15 cm) (§III-B, §III-C).
+- The single-radar position aid is tested on one participant, 88.13% against 89.38% with both radars on vowels (§V-E2), with no stated threshold.
 
-open_vocabulary; conversational_use; broader_speaker_variability
+## What the field needs next
 
-### Evaluation details
+- M12: speaker-held-out tests for contactless radar, with seeds, per-speaker spread and chance level.
+- M06: a learned temporal front end against FERASEC on the 20-participant phoneme data.
+- M05: a placement study that swaps antennas between lip and chin at matched distance.
+- M08: open-vocabulary decoding from IR-UWB, as [later] backscatter work attempts [[4]](#ref-4).
 
-| Item | Details |
-| --- | --- |
-| Task | speech-recognition |
-| Input | radar |
-| Sensor | Upper and lower IR-UWB radar sensors; upper uses patch antennas facing lips, lower uses sinuous antennas below chin. |
-| Body site | lip |
-| Output | text |
-| Vocabulary type | 8 vowels, 11 consonants, 25 words, and 12 phrases |
-| Vocabulary size | 56 speech items across four task sets |
-| Metrics and results | Classification accuracy evaluated via leave-one-out cross-validation across 20 reps per phoneme/word/phrase; vowels achieved 86.47%, consonants 81.59%, words 88.95%, phrases 96.88% with FERASEC + DNN-HMM upper radar. |
-| Evaluation protocol | Leave-one-out cross-validation across repeated prompted articulation; separate experiments per speech unit type and radar position. |
+## Questions for the authors
 
-### Limits
+- What is accuracy with the test speaker excluded from training, and how many seeds underlie each Table 2 cell?
+- Were the 20 repetitions recorded in one sitting or across separate placements?
+- Which split produced Table 3?
+- What correlation threshold gates acquisition?
 
-- **Technical:** Performance affected by articulator alignment; signal blockage by teeth can obscure tongue motion with upper radar; FERASEC depends on effective clutter mitigation and engineered transforms.
-- **Evaluation:** Controlled lab study with prompted closed-set items, limited speaker diversity (mostly Korean with American English speakers), no open vocabulary or conversational speech tested.
-- **Deployment:** Needs robust user-position handling, mitigating signal blockage (e.g. teeth), and hardware integration to small devices for daily use.
-- **Scope of this review:** Closed-set prompted isolated and short phrase recognition; no open vocabulary, spontaneous speech, or broader speaker variability tested.
+## Appendix: literature search
 
-### Evidence
+**M06, radar-ssr-input-representation.** Inclusion rule: speech or silent-speech recognition from radar or RF sensing of the articulators (IR-UWB, FMCW, SFCW, CW Doppler, mmWave, Wi-Fi or RFID backscatter); compared design is the classifier input, engineered features versus raw frames or spectrograms into a learned network; throat-vibration speech recovery and datasets without a recognizer excluded; versions count once. Ledger counts: slot-filled 7,345 unique studies; pattern match 32 unique studies. Usual design: engineered features 21 (pattern match, upper bound); HMM 11; DTW template matching 9; learned network on raw frames or spectrograms 4. Known-item recall 1.0 (5 seeds). Read in full: [[3]](#ref-3), [[7]](#ref-7), [[2]](#ref-2), [[5]](#ref-5).
 
-- This study represents the first demonstration of phoneme-level SSR using contactless radar and proposes a novel speech feature extraction algorithm specifically designed for IR-UWB radar-based SSR. (ABSTRACT)
-- The study uses a data set of 20 participants pronouncing 8 vowels, 11 consonants, 25 words, and 12 phrases, with 20 repetitions each, recorded using two IR-UWB radar antennas positioned in front of lips and below chin. (A SPEECH STIMULI)
-- Introduces FERASEC, a novel radar-specific speech feature extraction algorithm reducing dimensionality of IR-UWB radar frames into envelope features capturing articulator movement, essential for phoneme-level SSR accuracy. (A PROPOSED FEATURE EXTRACTION ALGORITHM)
-- FERASEC utilizes concatenation of raw and clutter-reduced radar frames, envelope detection, downsampling, DC removal, plus first and second derivatives, creating six-dimensional feature set for classification. (A PROPOSED FEATURE EXTRACTION ALGORITHM)
-- Evaluation conducted on 20 native or semi-native English-speaking participants trained on closed-set prompted 8 vowels, 11 consonants, 25 phonetically balanced words, and 12 phrases repeated 20 times with leave-one-out cross validation. (A SPEECH STIMULI)
-- FERASEC combined with DNN-HMM and upper radar antenna placement yields recognition accuracies of 86.47% vowels, 81.59% consonants, 88.95% words, and 96.88% phrases. (HMM)
-- Without engineered feature extraction (FERASEC), using raw or clutter-reduced frame sets alone for end-to-end DNN-HMM phoneme recognition yields accuracies below 50%. (1 Necessity of Developing a Feature Extraction Algorithm for IR)
-- Although current proof-of-concept uses a hardware testbed, IR-UWB radar modules based on CMOS transceiver chips and antenna integration feasibility imply potential embedding of contactless SSR into smartphones or wearables. (BASED SSR STUDIES)
-- A supporting aiding algorithm checks that the user's lips are properly aligned and within radar detection range before silent speech capture, improving usability for consumer device integration. (2 IR)
+**M12, radar-ssr-speaker-split.** Inclusion rule: the same radar population; compared design is whether test speakers are held out (speaker-independent, new-user) or models are trained and tested within one speaker; a paper counts under every split it reports; related-work mentions are inside the upper bound. Ledger counts: slot-filled 6,960 unique studies; pattern match 32 unique studies. Usual design: speaker-dependent 22 (pattern match); speaker-independent 17 (pattern match, upper bound). Known-item recall 1.0. Read in full: [[4]](#ref-4), [[2]](#ref-2).
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Lee, S., Shin, Y., Kim, M., Seo, J. “IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases.” *IEEE Access*, 2023. doi:[10.1109/ACCESS.2023.3344177](https://doi.org/10.1109/ACCESS.2023.3344177). arXiv:[2312.09572](https://arxiv.org/abs/2312.09572). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases) [wiki: arxiv-2312.09572](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2312.09572/article.md) [wiki: doi-10.1109-access.2023.3344177](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-access.2023.3344177/article.md)
+2. <a id="ref-2"></a>Shin, Y. H., Seo, J. “Towards Contactless Silent Speech Recognition Based on Detection of Active and Visible Articulators Using IR-UWB Radar.” *Sensors*, 2016, 16(11), 1812. doi:[10.3390/s16111812](https://doi.org/10.3390/s16111812). [wiki: doi-10.3390-s16111812](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3390-s16111812/article.md) [wiki: pmc-5134471-iruwb](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-5134471-iruwb/article.md)
+3. <a id="ref-3"></a>Lee, S., Yu, J. “IR-UWB Radar-Based Contactless Silent Speech Recognition with Attention-Enhanced Temporal Convolutional Networks.” *IEEE International Conference on Consumer Electronics-Asia (ICCE-Asia)*, 2025. doi:[10.1109/ICCE-Asia67487.2025.11263683](https://doi.org/10.1109/ICCE-Asia67487.2025.11263683). arXiv:[2509.26409](https://arxiv.org/abs/2509.26409). [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/ir-uwb-radar-based-contactless-silent-speech-recognition-with-attention-enhanced-temporal-convol) [wiki: arxiv-2509.26409](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2509.26409/article.md)
+4. <a id="ref-4"></a>Tian, Y., Du, H., Gu, C., Zhang, J., Wang, S., Zhou, H., et al. “Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter.” *arXiv preprint*, 2026. arXiv:[2601.18177](https://arxiv.org/abs/2601.18177). [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/lip-siri-contactless-open-sentence-silent-speech-with-wi-fi-backscatter) [wiki: arxiv-2601-18177-lipsiri](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2601-18177-lipsiri/article.md)
+5. <a id="ref-5"></a>Hameed, H., Usman, M., Tahir, A., Hussain, A., Abbas, H., Cui, T. J., et al. “Pushing the limits of remote RF sensing by reading lips under the face mask.” *Nature Communications*, 2022, 13, 5168. doi:[10.1038/s41467-022-32231-1](https://doi.org/10.1038/s41467-022-32231-1). [wiki: pmc-9452506-rflip](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9452506-rflip/article.md) [wiki: doi-10.1038-s41467-022-32231-1](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41467-022-32231-1/article.md) [wiki: pmc-9452506-rflipread](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9452506-rflipread/article.md)
+6. <a id="ref-6"></a>Birkholz, P., Stone, S., Wolf, K., Plettemeier, D. “Non-invasive silent phoneme recognition using microwave signals.” *IEEE/ACM Transactions on Audio, Speech, and Language Processing*, 2018, 26(12), 2404–2411. doi:[10.1109/TASLP.2018.2865609](https://doi.org/10.1109/TASLP.2018.2865609).
+7. <a id="ref-7"></a>Menezes, J., Mouras, A., Fietkau, A., Kazzy, D., Birkholz, P. “Multimodal Silent Recognition of Phonemes Using Radar and Optopalatographic Silent Speech Interfaces.” *Proc. Interspeech 2025*, 2025, 5058–5062. doi:[10.21437/Interspeech.2025-759](https://doi.org/10.21437/Interspeech.2025-759). [later] [wiki: isca-menezes25-radaropg](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-menezes25-radaropg/article.md) [wiki: isca-menezes25_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-menezes25_interspeech/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M06/radar-ssr-input-representation.csv`](../../components/M06/radar-ssr-input-representation.csv): M06 topic "radar-ssr-input-representation", every candidate paper with its decision (7345 slot-filled, 32 pattern match, usual design in 21, 5 read in full)
+- [`components/M12/radar-ssr-speaker-split.csv`](../../components/M12/radar-ssr-speaker-split.csv): M12 topic "radar-ssr-speaker-split", every candidate paper with its decision (6960 slot-filled, 32 pattern match, usual design in 22, 3 read in full)
+
 
 ## More reviews in Radar, RF & Wi-Fi
 
