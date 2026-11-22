@@ -123,7 +123,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`null-model-construction-neural-decoding.csv`](null-model-construction-neural-decoding.csv) (6960 slot-filled, 132 pattern match, usual design in 45, 2 read in full)
 - Inclusion rule: Neural decoding or neural-response prediction studies that test significance against an empirical null built by shuffling or permuting the data (labels, trials, time, channels) rather than only against a theoretical chance level. Boundary: studies that report only theoretical chance are excluded; a null that is mentioned but not described still counts; versions of one study count once.
-- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/), [Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping](../../reviews/zero-shot-imagined-speech-decoding-via-imagined-to-listened-meg-mapping/)
+- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/), [Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes](../../reviews/mechanistic-interpretability-of-brain-to-speech-models-across-speech-modes/), [Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping](../../reviews/zero-shot-imagined-speech-decoding-via-imagined-to-listened-meg-mapping/)
 
 ## silent-emg-voicing-benchmark
 

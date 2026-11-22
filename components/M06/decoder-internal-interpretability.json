@@ -1,0 +1,708 @@
+{
+ "topic": "decoder-internal-interpretability",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "saliency|integrated gradient|attribution (map|analys)|grad-?cam|occlusion (analys|sensitiv)|activation patch|causal scrubb|mechanistic interpret|linear probe|probing (classifier|analys)|probe per [^|]{0,20}layer|layer-?wise prob|explainab",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that analyse what a trained decoder of speech from a non-acoustic or acoustic signal (neural, EMG, articulatory, video, audio) relies on, by input attribution (saliency, gradients, occlusion, channel importance), probing of hidden layers, or interventions on internal activations (activation patching, unit ablation, causal scrubbing). Boundary: architecture ablations that retrain model variants and brain-mapping studies without a trained decoder are excluded; versions of one study count once; ledger pattern matches are an upper bound.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 43,
+  "string_match_unique": 38,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 15,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.10069",
+     "arxiv-2510.23969",
+     "doi-10.21203-rs.3.rs-9156039.v1",
+     "arxiv-2509-16023-visemes",
+     "pmc-12585176-avcorr-detect"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.10069",
+     "arxiv-2510.23969",
+     "arxiv-2609.31992",
+     "arxiv-1611.01599",
+     "arxiv-2106.14016"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.31992",
+     "doi-10.1016-j.iccn.2026.104579",
+     "doi-10.1016-j.neuroscience.2024.11.079",
+     "doi-10.7554-elife.106122",
+     "doi-10.3389-fnhum.2023.1225976"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01247",
+     "doi-10.21203-rs.3.rs-9156039.v1",
+     "arxiv-2210.11723",
+     "arxiv-2609-31992-mechinterp",
+     "isca-leeuwen19_interspeech"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "arxiv-2605.00025",
+     "arxiv-1804.11127",
+     "arxiv-2609-31992-mechinterp"
+    ]
+   },
+   {
+    "design": "model_family=linear_model",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.31992",
+     "doi-10.1371-journal.pbio.3003924",
+     "arxiv-2210.11723",
+     "arxiv-2603.11715"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2605.00025",
+     "arxiv-2509-16023-visemes",
+     "arxiv-2210.11723"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.10069",
+     "arxiv-2510.23969",
+     "doi-10.1038-s41598-024-60277-2"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.10069",
+     "arxiv-2510.23969",
+     "doi-10.1038-s41598-024-60277-2"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=postprocess",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "arxiv-2609.31992",
+     "doi-10.1016-j.iccn.2026.104579"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "input_attribution",
+    "n": 32,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2510.10069",
+     "arxiv-2601.20881-malipnet",
+     "arxiv-2602-01247-mechint",
+     "arxiv-2605.00025",
+     "arxiv-2606.20696"
+    ]
+   },
+   {
+    "design": "hidden_layer_probing",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2605.00025",
+     "isca-toussaint26_interspeech",
+     "pmc12979642-wordclass",
+     "arxiv-2210.11723"
+    ]
+   },
+   {
+    "design": "internal_activation_intervention",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "arxiv-2609-31992-mechinterp"
+    ]
+   }
+  ],
+  "metric_pattern": "PCC|correlation",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "frac > 0 — Conv: 0.65 (fraction of neurons with positive single-neuron ΔPCC; Vocalized→Mimed)",
+   "value": 65.0,
+   "unit": "percent",
+   "raw": "“frac > 0 — Conv: 0.65” (Vocalized→Mimed, conv layer; fraction of neurons with positive ΔPCC)",
+   "pid": "arxiv-2609.31992",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Pearson correlation between flattened spectrograms",
+   "value": 0.954,
+   "unit": "ratio",
+   "raw": "0.954",
+   "pid": "arxiv-2602.01247",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "max H->D(E) linear-map correlation across models/layers",
+   "value": 0.85,
+   "unit": "pearson_r",
+   "raw": "0.85",
+   "pid": "arxiv-2510.23969",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "mean waveform correlation (sd 0.18)",
+   "value": 0.67,
+   "unit": "correlation",
+   "raw": "0.67",
+   "pid": "doi-10.1038-s41598-024-60277-2",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table 4 correlation measure",
+   "value": 0.213,
+   "unit": "mean_squared_correlation",
+   "raw": "0.213",
+   "pid": "arxiv-2605.00025",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1611.01599",
+   "key": "t:lipnetendtoendsentencelevellipreading2016",
+   "title": "LipNet: End-to-End Sentence-level Lipreading (2016)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "=LipNet: STCNN front-end + BiGRU + CTC, sentence-level end-to-end on GRID; unseen-speaker + overlapped-splits, CER/WER; saliency + ARPAbet phoneme analysis. | task_family=sentence_recognition | extra.Task.scope=T1 dataset-SOTA survey 8 rows; T2 4 s"
+  },
+  {
+   "pid": "arxiv-1804.11127",
+   "key": "p:arxiv-1804.11127",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "via acoustic simulator; baseline 3x128 FC+LSTM; fusion \"2+2\" separate+joint best; early-fusion and PCA ablations; class saliency per modality vs noise level; paired one-tailed t-test 95% | EvaluationProtocol.statistical_plan=word accuracy per noise"
+  },
+  {
+   "pid": "arxiv-2106.14016",
+   "key": "t:anattentionselfsupervisedcontrastivelearningbasedthreestagemodelforhandshapefeat",
+   "title": "An Attention Self-supervised Contrastive Learning based Three-stage Model for Hand Shape Feature Representation in Cued Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "% annotated >100% noisy ResNet18. | Study.unit_of_analysis=CNN-HMM/3D-CNN+TDS/ResNet18 rows = lit/baseline descriptive; Grad-CAM figs qualitative. | t1 lm sentences | t1 ca sentences | t1 em sentences | t1 ka sentences | t1 ld sentences | t1 vk sen"
+  },
+  {
+   "pid": "arxiv-2210.11723",
+   "key": "t:evidenceofvocaltractarticulationinselfsupervisedlearningofspeech",
+   "title": "Evidence of Vocal Tract Articulation in Self-Supervised Learning of Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_voiced_speech | representation_kind=frozen SSL layer activations (50Hz) linearly mapped to 12 EMA traces; separate OLS probe per speaker per layer | model_family=linear_model, transformer, cnn | technical_essence=physical grounding: articulatory score (mean Pearson"
+  },
+  {
+   "pid": "arxiv-2404.11979",
+   "key": "t:mtgamultiviewtemporalgranularityalignedaggregationforeventbasedlipreading",
+   "title": "MTGA: Multi-View Temporal Granularity Aligned Aggregation for Event-Based Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "timestep fusion (vs weight/attention fusion) | technical_essence=Bi-GRU + position embedding + Self-Attention back-end; Grad-CAM analysis | extra.Output.output_kind=Acc1/Acc2/Acc %; gait Acc per epoch | extra.Configuration.configuration_scope=branc"
+  },
+  {
+   "pid": "arxiv-2509-16023-visemes",
+   "key": "t:interpretingtheroleofvisemesinaudiovisualspeechrecognition",
+   "title": "Interpreting the Role of Visemes in Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s over AVSR layers (AV-HuBERT 317M, Whisper-Flamingo 2.5B); Adam 200 epochs | Dataset.counts_by_unit=14 viseme classes; layer-wise probes | viseme probing accuracy"
+  },
+  {
+   "pid": "arxiv-2510.10069",
+   "key": "p:arxiv-2510.10069",
+   "title": null,
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k families: lag detection Acc+-K/Offset + R-precision@32 (Hallo3,VFHQ); CelebV-HQ emotion(8-way)+action(35 multi-label) linear probe; VSR WER w/ Whisper Turbo transcripts (VFHQ,Hallo3,HDTF, English only); dubbing Syncconf/FID/FVD vs MuseTalk/LatentSync"
+  },
+  {
+   "pid": "arxiv-2510.23969",
+   "key": "t:emg2speechsynthesizingspeechfromelectromyographyusingselfsupervisedspeechmodels",
+   "title": "emg2speech: synthesizing speech from electromyography using self-supervised speech models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "acy averaged across 12 subjects; chance level 7.69% over 13 classes'} | EvaluationProtocol.statistical_plan={'method': 'linear probe D(E) ~ W H + b trained on DATA_GENERAL train split, Pearson r on test split across S3 models/layers'} | EvaluationProto"
+  },
+  {
+   "pid": "arxiv-2601.20881-malipnet",
+   "key": "t:multidimensionalattentionnetworksforrobustlipreading",
+   "title": "Multi-Dimensional Attention Networks for Robust Lipreading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "CA->JSTA->SSTA) on CMLR (CER) and GRID (WER); seq2seq biGRU encoder + uni-GRU attention decoder; ablations per module + saliency maps | task_encoding=natural_utterance | task_family=sentence_recognition | Cohort.demographics=CMLR speakers (Chinese)"
+  },
+  {
+   "pid": "arxiv-2602-01247-mechint",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes | authors=Maryam Maghsoudi, Ayushi Mishra | Study.research_objecti"
+  },
+  {
+   "pid": "arxiv-2602.01247",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01247 | paper_version=2602.01247v1 | title=Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes | authors=Maryam Maghsoudi, Ayushi Mishra | source_url=https://arx"
+  },
+  {
+   "pid": "arxiv-2602.01247-mib2s",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01247-mib2s | title=Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes | authors=Maryam Maghsoudi, Ayushi Mishra | venue=arXiv:2602.01247"
+  },
+  {
+   "pid": "arxiv-2603.11715",
+   "key": "t:affectdecodinginphonatedandsilentspeechproductionfromsurfaceemg",
+   "title": "Affect Decoding in Phonated and Silent Speech Production from Surface EMG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "r-Large backbone fine-tuned on MSP-Podcast. | technical_essence=RBF-SVM for handcrafted feature sets and L2-regularized linear probes for latent embeddings; scalers fitted only on training data. | model_family=svm, linear_model | training_production_id"
+  },
+  {
+   "pid": "arxiv-2605.00025",
+   "key": "t:modalselfsupervisedneuralmodalitydiscoveryviadecorrelationforspeechneuroprosthes",
+   "title": "MoDAl: Self-Supervised Neural Modality Discovery via Decorrelation for Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ared-space decorrelation mechanism; ablations are consistent with that mechanism in this benchmark. | Claim.claim_scope=Linear probes associate area-44-containing encoders with selected transcript-derived structural and syntactic properties; probe resu"
+  },
+  {
+   "pid": "arxiv-2606.20696",
+   "key": "t:mindaligndecodinginnerspeechfromfmrisignalsviamultimodalembeddingalignmentunderl",
+   "title": "MindAlign: Decoding Inner Speech from fMRI Signals via Multimodal Embedding Alignment under Limited Data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "wed paper. | Acquisition.temporal_resolution={'TR_seconds': 1, 'model_input_TRs': 8} | technical_essence=Category-based explainable-variance voxel filtering; for each semantic category select top-K voxels and union category masks into a fixed mask s"
+  },
+  {
+   "pid": "arxiv-2609-31992-mechinterp",
+   "key": "t:mechanisticinterpretabilityrevealssharedcausalsubspacesinbraintospeechdecoders",
+   "title": "Mechanistic Interpretability Reveals Shared Causal Subspaces in Brain-to-Speech Decoders",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Mechanistic Interpretability Reveals Shared Causal Subspaces in Brain-to-Speech Decoders | Study.study_design=controlled_experiment | Study.r"
+  },
+  {
+   "pid": "arxiv-2609.31992",
+   "key": "t:mechanisticinterpretabilityrevealssharedcausalsubspacesinbraintospeechdecoders",
+   "title": "Mechanistic Interpretability Reveals Shared Causal Subspaces in Brain-to-Speech Decoders",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.31992 | paper_version=arXiv:2609.31992v1 [cs.LG], 25 Sep 2026 (PDF, 5 pages) | title=Mechanistic Interpretability Reveals Shared Causal Subspaces in Brain-to-Speech Decoders | authors=Maryam Maghsoudi, Ayushi Mishra, Sanghamit"
+  },
+  {
+   "pid": "doi-10.1016-j.iccn.2026.104579",
+   "key": "t:exploringtheacceptabilityofalipreadingappinacuteandcriticalcare",
+   "title": "Exploring the acceptability of a lip-reading app in acute and critical care",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "essionals in acute and critical care | Study.unit_of_analysis=interview/focus-group transcript coded to TFA constructs; saliency analysis (importance x recurrence) weights constructs | task_encoding=attempted_utterance | target_population=speech_im"
+  },
+  {
+   "pid": "doi-10.1016-j.neuroscience.2024.11.079",
+   "key": "t:neuralcorrelatesofphoneticcategorizationunderauditoryphonemeandvisualgraphememod",
+   "title": "Neural correlates of phonetic categorization under auditory (phoneme) and visual (grapheme) modalities",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ew_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=compare neural mechanisms/saliency of categorization for phonemes vs homologous graphemes — shared substrates despite modality difference | Study.unit_of_"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-60277-2",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterfaceinanindivid",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "listeners recognize synthesized words (180 samples, closed loop); waveform/spectrogram correlation to spoken originals; saliency of high-gamma to predicted speech onsets | Study.negative_findings=Up vs Left confusions from vowel-formant proximity;"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-62230-9",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ce=Transformer seq2seq: temporal-CNN downsampling -> self-attention encoder-decoder -> token IDs; MFCC teacher forcing; saliency-map electrode contributions | TrainingRun.training_objective=categorical cross-entropy between reference token-ID seque"
+  },
+  {
+   "pid": "doi-10.1371-journal.pbio.3003924",
+   "key": "t:endogenousauditoryandmotorbrainrhythmspredictindividualspeechtracking",
+   "title": "Endogenous auditory and motor brain rhythms predict individual speech tracking",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eural and behavioral rates did not correlate; tracking present even at non-intelligible rates; group split excludes low-explainability participants | sample and group sizes | 27 high synchronizers | 21 low synchronizers | 4.24 syll/s motor rate"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9156039.v1",
+   "key": "t:stablespeechbciperformanceduringslowprogressionofalsalongitudinalecogstudy",
+   "title": "Stable speech BCI performance during slow progression of ALS: A longitudinal ECoG study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "le classification; two-stage: train months 1-6 test months 7-25 vs train months 7-11 test months 12-25; electrode-level saliency for spatial contribution | supervision_kind=phoneme_label | EvaluationProtocol.test_material_selection=chronological sp"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1225976",
+   "key": "t:hearingseeingandfeelingspeechtheneurophysiologicalcorrelatesoftrimodalspeechperc",
+   "title": "Hearing, seeing, and feeling speech: the neurophysiological correlates of trimodal speech perception",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ocol.test_material_selection=within-subject modality conditions with matching/mismatching syllables of differing visual saliency | system_boundary=psychophysics+EEG study of trimodal speech integration; not a recognition system | SystemConfiguratio"
+  },
+  {
+   "pid": "doi-10.3390-e22121367",
+   "key": "t:visualspeechrecognitionwithlightweightpsychologicallymotivatedgaborfeatures",
+   "title": "Visual Speech Recognition with Lightweight Psychologically Motivated Gabor Features",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ptical_camera | observed_quantities=position, shape | intrusiveness=external_noncontact | technical_essence=Lightweight explainable VSR: psychologically motivated 3D geometric lip features from Gabor image patches feed an LSTM; on GRID with overlapp"
+  },
+  {
+   "pid": "doi-10.7302-25565",
+   "key": "p:doi-10.7302-25565",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ol to inform assistive tech: reliable ankle impedance metrics (Ch2), scalable motor-learning platform (Ch3), compressed/explainable iBMI decoders (Ch4-5) | system_boundary=Ch5 pipeline: SBP features -> decoder (KF/KalmanNet/tcFNN/LSTM) -> finger kin"
+  },
+  {
+   "pid": "doi-10.7554-elife.106122",
+   "key": "t:correlationdetectionasastimuluscomputableaccountforaudiovisualperceptioncausalin",
+   "title": "Correlation detection as a stimulus computable account for audiovisual perception, causal inference, and saliency maps in mammals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "106122 | title=Correlation detection as a stimulus computable account for audiovisual perception, causal inference, and saliency maps in mammals | authors=Cesare V. Parise, Jean-Paul Noel, Joshua E. Gold, et al., Wei Ji Ma | review_state=source_che"
+  },
+  {
+   "pid": "ijfmr-86020-thought2speech",
+   "key": "t:interpretablebraincomputerinterfaceforemotionawarethoughttospeechusingeegsignald",
+   "title": "Interpretable Brain-Computer Interface For Emotion-Aware Thought-To-Speech Using EEG Signal Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oposal | Study.research_objective=unified interpretable framework: imagined-speech EEG decoding + emotion recognition + explainability | Study.unit_of_analysis=imagined-speech EEG trials from public datasets, subject-independent | task_encoding=imag"
+  },
+  {
+   "pid": "isca-alm08_poa_voicing",
+   "key": "t:voicinginfluencesthesaliencyofplaceofarticulationinaudiovisualspeechperceptionin",
+   "title": "Voicing influences the saliency of place of articulation in audio-visual speech perception in babble",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-alm08_poa_voicing | title=Voicing influences the saliency of place of articulation in audio-visual speech perception in babble | authors=Magnus Alm, Dawn Behne | venue=INTERSPEE"
+  },
+  {
+   "pid": "isca-baumann24b_interspeech",
+   "key": "t:towardsselfattentionunderstandingforautomaticarticulatoryprocessesanalysisinclef",
+   "title": "Towards Self-Attention Understanding for Automatic Articulatory Processes Analysis in Cleft Lip and Palate Speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lassification-module attention maps align with phoneme-level expert annotations — a lighter interpretability route than Integrated Gradients/DeepLIFT; heads are individually prunable | extra.Limitation.limitation=turn-level results exceed overall averaged res"
+  },
+  {
+   "pid": "isca-leeuwen19_interspeech",
+   "key": "t:cnnbasedphonemeclassifierfromvocaltractmrilearnsembeddingconsistentwitharticulat",
+   "title": "CNN-based phoneme classifier from vocal tract MRI learns embedding consistent with articulatory topology",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "gittal 32×32 unity-normalized grayscale image per sustained phoneme; CNN flattened-layer embedding analyzed via PCA and saliency maps | decoder_route=closed_set_classification | elicitation=instructed_content | supervision_kind=phoneme_label, paire"
+  },
+  {
+   "pid": "isca-toussaint26_interspeech",
+   "key": "t:emergenceofphoneticrepresentationsinemgbasedsilentspeechinterfaces",
+   "title": "Emergence of Phonetic Representations in EMG-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lysis=Gaddy&Klein corpus 18.6h single-speaker 8-el sEMG (12h voiced aligned + 6h unvoiced DTW-aligned); 8 model setups; linear probe phone accuracy sil/no-sil; CKA embedding similarity; Wav2Vec2-WER intelligibility | task_encoding=natural_utterance | t"
+  },
+  {
+   "pid": "isca-wang25w_interspeech",
+   "key": "t:theroleofaudiovisualintegrationinthetimecourseofphoneticencodinginselfsupervised",
+   "title": "The role of audio-visual integration in the time course of phonetic encoding in self-supervised speech models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "phonetic decodability over time vs audio-only HuBERT | Study.unit_of_analysis=per-frame phoneme decodability curve from linear probes on model embeddings | task_encoding=natural_utterance | task_family=phoneme_or_character_classification | target_popul"
+  },
+  {
+   "pid": "pmc-12213747-hypoxia-listening",
+   "key": "t:exploringtheeegrepresentationofenglishlisteningcomprehensionunderhypoxicconditio",
+   "title": "Exploring the EEG representation of English listening comprehension under hypoxic conditions",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l.experimental_design=80/10/10 train/val/test per dataset + cross-val; 3 repeats mean±std; metrics acc/prec/rec/F1/AUC; Grad-CAM interpretation; ablations removing HGCE/ACD/DFS components | technical_essence=0.5-50Hz bandpass; random crop + noise-i"
+  },
+  {
+   "pid": "pmc-12585176-avcorr-detect",
+   "key": "t:correlationdetectionasastimuluscomputableaccountforaudiovisualperceptioncausalin",
+   "title": "Correlation detection as a stimulus computable account for audiovisual perception, causal inference, and saliency maps in mammals.",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Correlation detection as a stimulus computable account for audiovisual perception, causal inference, and saliency maps in mammals. | Study.research_objective=avcorr-detect | task_family=semantic_or_intent_decoding | extra.Production."
+  },
+  {
+   "pid": "pmc-13258914-diagpat",
+   "key": "t:diagpatanexplainablelanguagedetectionmodelusingeegsignals",
+   "title": "DiagPat: An Explainable Language Detection Model Using EEG Signals",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13258914-diagpat | title=DiagPat: An Explainable Language Detection Model Using EEG Signals | authors=Tugce Keles, Kubra Yildirim | venue=Sensors (PMC13258914) | revi"
+  },
+  {
+   "pid": "pmc-13346406-lingbrain",
+   "key": "t:linguisticsandhumanbrainaperspectiveofcomputationalneuroscience",
+   "title": "Linguistics and human brain: a perspective of computational neuroscience",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cope=future priorities: spoken-language neural corpora, SNNs for biological plausibility, causal interventions; limits: mechanistic interpretability, ecological validity, SRM generalization | extra.Limitation.limitation=alignment is functional correspondence no"
+  },
+  {
+   "pid": "pmc-5116473-bbci",
+   "key": "t:theberlinbraincomputerinterfaceprogressbeyondcommunicationandcontrol",
+   "title": "The Berlin Brain-Computer Interface: Progress Beyond Communication and Control",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "features (source-space CSP/SPoC/cSPoC)', 'decode covert state', 'map to application signal (workload index, error flag, saliency)']} | EvaluationProtocol.experimental_design=simulated+real-world paradigms (driving, HCI saccades, workload tasks, vid"
+  },
+  {
+   "pid": "pmc-6923732-xaineuro",
+   "key": "t:explainableartificialintelligenceforneurosciencebehavioralneurostimulation",
+   "title": "Explainable Artificial Intelligence for Neuroscience: Behavioral Neurostimulation",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Explainable Artificial Intelligence for Neuroscience: Behavioral Neurostimulation | authors=Fellous JM, Sapiro G, Rossi A | venue"
+  },
+  {
+   "pid": "pmc-7761847-gabor-vsr",
+   "key": "t:visualspeechrecognitionwithlightweightpsychologicallymotivatedgaborfeatures",
+   "title": "Visual Speech Recognition with Lightweight Psychologically Motivated Gabor Features",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "us with lightweight, psychologically motivated low-dimensional Gabor-based geometric lip features + LSTM, matching less explainable feature pipelines | Study.study_design=controlled_experiment | task_family=sentence_recognition | ProductionCondition"
+  },
+  {
+   "pid": "pmc-9530138-sinm",
+   "key": "t:ultrathincrystallinesiliconbasedstraingaugeswithdeeplearningalgorithmsforsilents",
+   "title": "Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for silent speech interfaces",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "als | ProcessingStep.architecture=3D CNN over the spatiotemporal 2D stacks (2 s × 300 fps), five-fold cross-validation; explainability via relevance-weighted class activation maps (R-CAM) highlighting lower-lip regions; t-SNE visualization; transfer"
+  },
+  {
+   "pid": "pmc-9892761-xaifnirs",
+   "key": "t:explainableartificialintelligencemodeltopredictbrainstatesfromfnirssignals",
+   "title": "Explainable artificial intelligence model to predict brain states from fNIRS signals",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Explainable artificial intelligence model to predict brain states from fNIRS signals | authors=Shibu CJ, Sreedharan S | venue=Fro"
+  },
+  {
+   "pid": "pmc12979642-wordclass",
+   "key": "t:predictionsyntaxandsemanticgroundinginthebrainandlargelanguagemodels",
+   "title": "Prediction, syntax and semantic grounding in the brain and large language models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "reprocessing + ICA denoise; cluster-based paired t-test (29 subj, 2-tailed, 5000 randomizations, FieldTrip/Brainstorm); linear probe + GDV separability on Llama hidden states; prior 5-layer brain-constrained LM for emergence check | EvaluationProtocol."
+  }
+ ],
+ "usual_approach": {
+  "design": "input_attribution",
+  "n": 32,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2510.10069",
+   "arxiv-2601.20881-malipnet",
+   "arxiv-2602-01247-mechint",
+   "arxiv-2605.00025",
+   "arxiv-2606.20696"
+  ],
+  "population_unique": 38,
+  "note": "full-text pattern counts over the topic candidates: input_attribution 32, hidden_layer_probing 6, internal_activation_intervention 2 (the target and its later version)"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2609-31992-mechinterp",
+   "role": "sota",
+   "loc": "Sec. 2 (Decoder, Evaluation); Sec. 3",
+   "quote": "We use six-fold cross-validation over 200 samples per condition and perform all patching analyses on held-out test samples"
+  }
+ ],
+ "state_of_the_art": {
+  "pid": "arxiv-2609-31992-mechinterp",
+  "year": 2026,
+  "metric": "neuron-level activation patching on VocalMind sEEG with per-target-mode decoders, six-fold cross-validation on held-out samples and a permutation null for cross-source neuron overlap",
+  "value": "held-out patching with permutation null",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 38,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "input_attribution",
+   "n": 32,
+   "tier": "pattern match",
+   "population_unique": 38
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2609-31992-mechinterp",
+   "year": 2026,
+   "metric": "neuron-level activation patching on VocalMind sEEG with per-target-mode decoders, six-fold cross-validation on held-out samples and a permutation null for cross-source neuron overlap",
+   "value": "held-out patching with permutation null",
+   "timing": "later"
+  },
+  "read": 1,
+  "read_prior": [],
+  "unread": 43,
+  "confirmed_unique": 0,
+  "known_item_recall": null
+ },
+ "used_by": [
+  "mechanistic-interpretability-of-brain-to-speech-models-across-speech-modes"
+ ]
+}

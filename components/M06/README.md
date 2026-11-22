@@ -97,6 +97,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | End-to-end Silent Speech Recognition with Acoustic Sensing |  | §4.4, Fig. 4(c) |
 | End-to-end Silent Speech Recognition with Acoustic Sensing |  | §4.4, Fig. 4(c) |
 
+## decoder-internal-interpretability
+
+- Table: [`decoder-internal-interpretability.csv`](decoder-internal-interpretability.csv) (7345 slot-filled, 38 pattern match, usual design in 32, 1 read in full)
+- Inclusion rule: Studies that analyse what a trained decoder of speech from a non-acoustic or acoustic signal (neural, EMG, articulatory, video, audio) relies on, by input attribution (saliency, gradients, occlusion, channel importance), probing of hidden layers, or interventions on internal activations (activation patching, unit ablation, causal scrubbing). Boundary: architecture ablations that retrain model variants and brain-mapping studies without a trained decoder are excluded; versions of one study count once; ledger pattern matches are an upper bound.
+- Used in: [Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes](../../reviews/mechanistic-interpretability-of-brain-to-speech-models-across-speech-modes/)
+
 ## diffusion-model-eeg-decoding
 
 - Table: [`diffusion-model-eeg-decoding.csv`](diffusion-model-eeg-decoding.csv) (7345 slot-filled, 13 pattern match, usual design in 3, 3 read in full)
