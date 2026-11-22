@@ -1,0 +1,258 @@
+{
+ "topic": "imagenet-pretrained-vision-backbone-neural-speech",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*\\b(eeg|meg|ecog|seeg|magnetoenceph\\w*|electroenceph\\w*|intracranial|intracortical)\\b).*?(imagenet|(pre-?trained|transfer)[^|]{0,40}(resnet|vgg|alexnet|inception|densenet|googlenet|vit\\b)|(alexnet|resnet-?\\d*|vgg-?\\d*|googlenet|inception|densenet)[^|]{0,60}(pre-?train|transfer))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Speech or language decoders from EEG, MEG or intracranial recordings that initialize a vision backbone pretrained on natural images (ImageNet CNN or ViT) and fine-tune it, or train a head on it, using time-frequency or other image-like neural inputs. Boundary: decoding of images viewed during EEG (ImageNet as stimulus set) is excluded; non-speech imagery (e.g. visual arrows) and reviews remain as pattern matches (upper bound); versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 10,
+  "string_match_unique": 8,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [],
+  "pattern_counts": [
+   {
+    "design": "imagenet_cnn_on_tf_image",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "pmc13407005-viarr",
+     "doi-10.3389-fnhum.2020.00290",
+     "doi-10.3389-fnins.2020.00290",
+     "arxiv-2601.15909",
+     "doi-10.1109-access.2021.3116196"
+    ]
+   },
+   {
+    "design": "imagenet_vit",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "tel-5219015-ecogthesis",
+     "arxiv-2601.15909"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)accuracy",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "spoken-phrase accuracy",
+   "value": 96.0,
+   "unit": "percent",
+   "raw": "average decoding accuracy up to 96% for spoken phrases (CNN)",
+   "pid": "doi-10.3389-fnhum.2020.00290",
+   "year": 2020,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CNN accuracy spoken phrases",
+   "value": 96,
+   "unit": "percent",
+   "raw": "96%",
+   "pid": "doi-10.3389-fnins.2020.00290",
+   "year": 2020,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2506.10165",
+   "key": "t:the2025pnplcompetitionspeechdetectionandphonemeclassificationinthelibribraindata",
+   "title": "The 2025 PNPL Competition: Speech Detection and Phoneme Classification in the LibriBrain Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2506.10165 | title=The 2025 PNPL Competition: Speech Detection and Phoneme Classification in the LibriBrain Dataset | authors=Gilad Landau, Miran Özdogan, Gereon Elvers, Oiwi Parker Jones | venue=arXiv 2506.10165 | review_state=source_checked | Study.study_design=dataset_resource | Study.research_objective=drive an ImageNet-moment for non-invasive neural speech decoding: define 2 foundational tasks (per-sample speech detection + 39-way phone"
+  },
+  {
+   "pid": "arxiv-2601.15909",
+   "key": "t:transferlearningfromimagenetformegbaseddecodingofimaginedspeech",
+   "title": "Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2601.15909 | title=Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech | venue=IEEE TBME-ish submission; v1 (5pp) | Study.research_objective=Time-fr"
+  },
+  {
+   "pid": "arxiv-2601.15909-imgmeg",
+   "key": "t:transferlearningfromimagenetformegbaseddecodingofimaginedspeech",
+   "title": "Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2601.15909-imgmeg | title=Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech | authors=Soufiane Jhilal, Stephanie Martin, Anne-Lise Giraud | venue=ISBI 20"
+  },
+  {
+   "pid": "arxiv-2603.17109",
+   "key": "t:senseefficienteegtotextviaprivacypreservingsemanticretrieval",
+   "title": "SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2603.17109 | title=SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval | authors=Akshaj Murhekar, Christina Liu, Abhijit Mishra, Shounak Roychowdhury, Jacek Gwizdka | venue=arXiv preprint 2603.17109 (UT Austin School of Information) | review_state=source_checked | Study.study_design=system_proposal | Study.research_objective=efficient privacy-preserving EEG-to-text WITHOUT LLM fine-tuning: on-device ChannelNet→CLIP-aligned semantic retrieval → sparse BoW + object label → off-the-shelf zero-shot LLM caption reconstruction | Study.unit_of_analysis=CVPR2017 EEG-ImageNet expanded caption corpus (6 subjects × 2000 images → 9,940 trials; 7,959/1,994/1,987 split); 4 loss variants × 4 LLM dec"
+  },
+  {
+   "pid": "arxiv-2603.17109-sense",
+   "key": "t:senseefficienteegtotextviaprivacypreservingsemanticretrieval",
+   "title": "SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.17109-sense | title=SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval | authors=Akshaj Murhekar, Christina Liu, Abhijit Mishra, Shounak Roychowdhury, Jacek Gwizdka | venue=arXiv:2603.17109 (ICMI 2026) | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Decode image-viewing EEG into captions WITHOUT LLM fine-tuning or neural-data exposure: on-device EEG->CLIP-space BoW keywords (top-15 of V=1210) + object label -> zero-shot remote LLM caption; compare losses/LLMs vs Thought2Text on 6 subjects | Study.unit_of_analysis=128-ch EEG during image viewing w/ paired captions (ImageNet-style), 9,940 samples 6 subjects -> 7959/1994/1987 split; generated captions scored by ROUGE/BLEU/METEOR/BERTScore + GP"
+  },
+  {
+   "pid": "doi-10.1109-access.2021.3116196",
+   "key": "t:decodingimaginedspeechfromeegusingtransferlearning",
+   "title": "Decoding Imagined Speech From EEG Using Transfer Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined Speech From EEG Using Transfer Learning | intended_use_cases=research_of_inner_speech, assistive_text_entry | task_family=semantic_or_intent_decoding | Study.study_design=controlled_experiment | Study.negative_findings=sliding-window augmentation disturbs time-series so CNN+RNN combo failed; alpha band weakest, gamma strongest (~20% gap); cannot pinpoint discriminative channels/features; autocorrelation-based windowing infeasible at EEG SNR | population_description=15 subjects (11M/4F), subset available per protocol (ASU HORC dataset) | dataset_id=ASU imagined speech EEG dataset (HORC lab, public) | dataset_description=64ch EEG BrainProducts ActiCHamp, 1kHz->256Hz, 8-70Hz Butterworth + 60Hz notch + adaptive ocular removal; 4 prompt types: long (independent/cooperate), short (in/out/up), vowels (/a/i/u/), short-long (in/cooperate); beep-cued repeated imagination; ~600-1600 trials/prompt class | split_protocol=subject_holdout | DataPartition.split_axes=per-subject 10-fold on windowed trials; augmentation applied to training data only | observed_quantities=neural_activity | sensor_hardware=BrainProducts ActiCHamp 64ch; recorded 1kHz downsampled 256Hz; 8-70Hz bandpass + 60Hz notch + adaptive ocular filtering | ProductionCondition.activity_origin=instructed_imagery | acoustic_mode=no_vocalization | elicitation=instructed_content | production_instruction=repeatedly imagine uttering prompts without moving articulators; imagination rate cued by audio beeps | representation_kind=MPC (Hilbert phase, [0,1]) + MSC (Welch 8-seg Hamming) computed jointly across all 64 channels per band | technical_essence=symmetric MPC/MSC matrices packed (upper tri=MPC, lower tri=MSC) into 64x64x3 band array (alpha/beta/gamma) resembling ImageNet RGB; ImageNet-pretrained ResNet50 frozen + FC128+FC64+softmax; 1s window 0.25s stride -> 17x augmentation (train only)"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2020.00290",
+   "key": "t:decodingimaginedandspokenphrasesfromnoninvasiveneuralmegsignals",
+   "title": "Decoding Imagined and Spoken Phrases From Non-invasive Neural (MEG) Signals",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnhum.2020.00290 | title=Decoding Imagined and Spoken Phrases From Non-invasive Neural (MEG) Signals | authors=Debadatta Dash, Paul Ferrari, Jun Wang | venue=Frontiers in Human Neuroscience | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=decode five imagined and five spoken AAC-style English phrases from single-trial non-invasive MEG to assess feasibility of a neuromagnetic speech BCI | Study.unit_of_analysis=single-trial MEG epochs per phrase class; 5-class decoding accuracy for imagined and spoken conditions | task_encoding=imagined_utterance | task_family=sentence_recognition | target_population=general_population | intended_use_cases=speech_restoration, research_of_inner_speech | tested_population=healthy_volunteers | Cohort.demographics=eight adult subjects | Dataset.content_inventory=single-trial MEG (204 gradiometers) during imagined and spoken production of five common AAC English phrases, ~100 trials per stimulus | body_sites=scalp, cortex | intrusiveness=external_noncontact | sensor_hardware=204-sensor MEG gradiometer array | Representation.feature_dimensions=spatial-spectral-temporal MEG features as image-like tensors for transfer-learned CNNs vs statistical feature vectors for ANN | ProcessingStep.architecture=two pipelines: ANN on hand-crafted statistics vs pretrained CNNs (e.g., AlexNet) fine-tuned on MEG-derived scalogram images for 5-class phrase decoding | EvaluationProtocol.test_material_selection=fi"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2020.00290",
+   "key": "t:decodingimaginedandspokenphrasesfromnoninvasivemagnetoencephalographysignals",
+   "title": "Decoding Imagined and Spoken Phrases From Non-invasive Magnetoencephalography Signals",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2020.00290 | doi=10.3389/fnins.2020.00290 | title=Decoding Imagined and Spoken Phrases From Non-invasive Magnetoencephalography Signals | venue=Frontiers in Neuroscience 14:290 (Dash, Ferrari, Wang — UT Dallas/Austin) | task_family=sentence_recognition | extra.Task.target=5-phrase closed-set: Do you understand me / That's perfect / How are you / Good-bye / I need help; imagined then overt within same trial | production_labels=task_evoked_inner_speech, ordinary_voiced_speech | Cohort.demographics=8 adult subjects, English speakers, written consent; UT Dallas IRB#15-92 + UT Austin IRB#2015-09-0042 | sensor_hardware=MEG 306ch (204 planar gradiometers + 102 magnetometers); 196 gradiometers analyzed; EOG eye-blink recording | Session.session_timing=8 subjects x 5 phrases x 100 trials; imagined and overt consecutively within same trial | Dataset.collection_protocol=3046 valid/4000 trials (~75 per phrase per subject); 250Hz 4th-order Butterworth LP; Daubechies wavelet denoise | Representation.transformation_definition=wavelet-denoised decomposition into 6 oscillation bands: delta 0.1-4, theta 4-8, alpha 8-16, beta 16-30, gamma 31-58, high-gamma 62-125Hz; RMS features (ANN) and spatio-spectro-temporal maps (CNN) | technical_essence=baseline ANN on RMS features vs ImageNet-pretrained AlexNet/ResNet101/Inception-ResNet-v2 with replaced fc+softmax layers on MEG segment maps | TrainingRun.trai"
+  },
+  {
+   "pid": "pmc13407005-viarr",
+   "key": "t:adeeplearningframeworkforeegbaseddecodingofvisuallyimaginedarrowswithdifferentco",
+   "title": "A Deep Learning Framework for EEG-Based Decoding of Visually Imagined Arrows with Different Colors and Directions",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13407005-viarr | title=A Deep Learning Framework for EEG-Based Decoding of Visually Imagined Arrows with Different Colors and Directions | authors=Oula Hatahet, Rami Alazrai, Youssef Alothman, Mohamed Bader-El-Den | venue=Biosensors (PMC13407005) | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Decode simultaneously-combined color+direction attributes of a single visually imagined object (arrow) from scalp EEG: 16 classes = 4 directions (up/down/left/right) x 4 colors (red/green/blue/white), via CW-TFD time-freq-spatial images + purpose-built CNN, as a visual-imagery alternative to motor imagery for BCI control | Study.unit_of_analysis=One imagined-arrow trial -> CW-TFD TFSR grayscale image (per-electrode 32x256 TFR x M=15 electrodes stacked) -> single 16-class label | task_encoding=task_evoked_inner | task_family=inner_experience_analysis | tested_population=healthy_volunteers | Cohort.demographics=16 healthy volunteers (2F/14M, mean age 20.7), normal/corrected vision, written consent, Helsinki + German Jordanian Univ. ethics approval | intended_use_cases=device_control, other | demonstrated_use_cases=research_of_inner_speech | production_labels=task_evoked_inner_speech | Acquisition.sensor_geometry=BioSemi ActiveTwo, 16 scalp electrodes 10-20, 2048 Hz; bandpass 0.5-32.5 Hz, re-ref Cz (excluded after), baseline-correct on last 500ms relaxation, AAR toolbox (MATLAB R2025a) artifact rejection | representation_kind=Choi-Williams TFD (beta=0.5) per electrode -> 32x256 TFR; 4 bands FB1 0.5-8.5 / FB2 8.5-16.5 / FB3 16.5-24.5 / FB4 24.5-32.5 Hz; TFSR = vertical concat of 15 electrode TFRs -> grayscale image; ImageNet baselines get resize + 3-channel replication | ProcessingStep.architecture=CNN two layer-sets: B1 joint time-freq-spati"
+  },
+  {
+   "pid": "tel-5219015-ecogthesis",
+   "key": "t:reconstructionofovertspeechfromelectrocorticographicecogdatausingdeepneuralnetwo",
+   "title": "Reconstruction of overt speech from Electrocorticographic (ECoG) data using deep neural networks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Reconstruction of overt speech from Electrocorticographic (ECoG) data using deep neural networks | authors=Mohamed Baha Ben Ticha | venue=PhD thesis (HAL theses tel-05219015) | doi=tel-05219015 | Study.research_objective=decode overt speech acoustics from epidural ECoG via encoder-decoder DNNs; evaluate CNN vs ViT encoders, CLIP training, augmentation, cross-participant transfer | Study.study_design=controlled_experiment | task_family=speech_reconstruction | ProductionCondition.activity_origin=overt_articulation | sensor_hardware=EPIDURAL ECoG implants (first use for speech decoding — less invasive than subdural) | observed_quantities=neural_activity | Representation.transformation_definition=spectral features + slow LFP (0.5-5Hz) -> CNN or ViT encoder -> acoustic coefficients -> vocoder | system_name=epidural-ECoG encoder-decoder speech reconstruction (CNN/ViT+CLIP) | system_boundary=epidural ECoG -> spectral+LFP features -> encoder -> vocoder coefficients -> reconstructed overt speech | SystemConfiguration.system_lifecycle=implemented_evaluated | TrainingRun.training_objective=direct continuous decoding of acoustic coefficients; CLIP contrastive training + neural augmentation; per-participant and transfer settings | InformationUse.access_class=normally_available | Cohort.demographics=two epidural-ECoG participants (patient cohort) | tested_population=target_users | EvaluationProtocol.experimental_design=PCC and MCD of reconstructed acoustics; intelligible-vowel qualitative check; cross-participant transfer with ViT+CLIP | Reference.reference_kind=reconstructed_signal | claim=first epidural-ECoG speech decoding: ViT encoder consisten"
+  }
+ ],
+ "usual_approach": {
+  "design": "imagenet_cnn_on_tf_image",
+  "n": 5,
+  "tier": "pattern match",
+  "pids": [
+   "pmc13407005-viarr",
+   "doi-10.3389-fnhum.2020.00290",
+   "doi-10.3389-fnins.2020.00290",
+   "arxiv-2601.15909",
+   "doi-10.1109-access.2021.3116196"
+  ],
+  "population_unique": 8,
+  "note": "full-text pattern counts over the ledger pattern-match population (8 unique studies): ImageNet CNN on time-frequency images 5 (Dash et al. 2020 is indexed under two DOIs), ImageNet ViT 2."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2601.15909",
+   "role": "target",
+   "loc": "Sec. 2.5",
+   "quote": "Early and mid-level layers were kept frozen, while the final convolutional or transformer block, the new classification layers, and the learnable 1×1 convolutional projection were trained from scratch."
+  },
+  {
+   "pid": "doi-10.3389-fnins.2020.00290",
+   "role": "prior",
+   "loc": "Methods, CNN decoders",
+   "quote": "These deep ConvNets are pre-trained with more than a million images of 1, 000 categories from the ImageNet database"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2020.00290",
+   "role": "sota",
+   "loc": "Results; Fig. 8",
+   "quote": "whereas, with SST-CNN the accuracies were 90.38 ± 2.28%, 93.24 ± 2.87%, and 96.65 ± 2.88%"
+  },
+  {
+   "pid": "doi-10.1109-access.2021.3116196",
+   "role": "prior",
+   "loc": "Sec. III (classifier)",
+   "quote": "During the training on imagined speech data, the ResNet model layers are frozen and only the appended FC layers are trained"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.3389-fnins.2020.00290",
+  "year": 2020,
+  "metric": "5 imagined phrases, MEG, ImageNet-pretrained CNNs on sensor-mosaic scalograms, within-subject 70/15/15 split, 8 subjects, accuracy",
+  "value": 93.24,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "deciding_priors_note": "ImageNet-pretrained CNNs on MEG Morlet scalograms for imagined phrases (Dash et al. 2020) and a frozen ImageNet ResNet50 on imagined-speech EEG (Panachakel and Ganesan 2021) precede the target.",
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 8,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "imagenet_cnn_on_tf_image",
+   "n": 5,
+   "tier": "pattern match",
+   "population_unique": 8
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.3389-fnins.2020.00290",
+   "year": 2020,
+   "metric": "5 imagined phrases, MEG, ImageNet-pretrained CNNs on sensor-mosaic scalograms, within-subject 70/15/15 split, 8 subjects, accuracy",
+   "value": 93.24,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "doi-10.1109-access.2021.3116196",
+   "doi-10.3389-fnins.2020.00290"
+  ],
+  "unread": 10,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech"
+ ]
+}

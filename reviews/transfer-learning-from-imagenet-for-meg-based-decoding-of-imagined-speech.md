@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech/](transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech/).**
 
-Adapts ImageNet-pretrained vision models to MEG time-frequency images for closed-set imagined-speech classification, reaching 60.6% (pooled CV) and 51.7% (leave-one-subject-out) on three-vowel decoding (chance 33%).
+ImageNet transfer on MEG scalograms (M03) and the learned sensor projection (M06) are standard; the ablation is new; rest and reading-order confounds limit the binary tasks (M12).
 
 [Read the full review](transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech/) · [All reviews](../README.md)

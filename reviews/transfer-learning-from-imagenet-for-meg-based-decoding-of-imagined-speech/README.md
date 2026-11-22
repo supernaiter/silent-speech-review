@@ -1,104 +1,136 @@
 # Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech
 
-Soufiane Jhilal, Stéphanie Martin, Anne-Lise Giraud  
-arXiv 2026 · [arXiv](https://arxiv.org/abs/2601.15909)
+Jhilal S, Martin S, Giraud AL. IEEE International Symposium on Biomedical Imaging (ISBI), 2026. [arXiv:2601.15909](https://arxiv.org/abs/2601.15909)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech* (Soufiane Jhilal et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical)
 
-Adapts ImageNet-pretrained vision models to MEG time-frequency images for closed-set imagined-speech classification, reaching 60.6% (pooled CV) and 51.7% (leave-one-subject-out) on three-vowel decoding (chance 33%).
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | 248-magnetometer MEG (non-invasive) |
-| Task | Closed-set imagined speech condition and vowel classification |
-| Vocabulary | 3 vowel classes; 18 syllable items |
-| Speaker | Both |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | Three-vowel balanced accuracy 60.6% pooled CV, 51.7% LOSO, chance 33% |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Decodes task/vowel labels, not words or sentences; binary contrasts may reflect attention or residual sensorimotor activity; no online, clinical or communication evaluation.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Imagined and silently read French sentences | Speech production tasks | 4,015 of 8,995 | ● Standard (Own recording.) |
+| M02 Teacher signal | Condition and vowel labels only | Paired audio or text labels | 31 of 8,995 | ● Standard (None beyond labels.) |
+| M03 Train / calibrate | ImageNet ResNet-18 / ViT-Tiny, last block tuned | ImageNet CNN on time-frequency images | 5 of 8,995 | ● Standard (Design prior; ablation new.) |
+| M04 Use-time act | Offline imagined-speech epochs | Overt or silent production | 6,538 of 8,995 | ● Standard (No online use.) |
+| M05 Sensing | 248-magnetometer MEG, 1 kHz | MEG or EEG | 8,898 of 8,995 | ● Standard (Inherited laboratory MEG.) |
+| M06 Decoding | Scalograms, learned 3-map projection | Raw time-series CNN | 8 of 8,995 | ● Standard (No mosaic comparison.) |
+| M07 Runtime aids | None | None | 120 of 8,995 | – Not applicable (Closed-set.) |
+| M08 Output | Condition or vowel labels | Class labels | 3,760 of 8,995 | ● Standard (No text or speech.) |
+| M09 Confirmation | Offline | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | Offline | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Cue timing, 400 ms per syllable | Corpus or cue labels | 239 of 8,995 | ● Standard (Imagery timing unverified.) |
+| M12 Evaluation | Permutation null; SAP, LOSO | Label or trial permutation | 45 of 8,995 | ● Standard (Rest and order confounds; no EMG.) |
+| M13 Hardware & limits | Laboratory MEG, offline | Laboratory | 6,721 of 8,995 | ● Standard (Laboratory MEG, as usual.) |
 
-ImageNet-pretrained vision models improve closed-set MEG classification, including held-out-subject tests, but the study decodes task/vowel labels—not sentences—and leaves practical communication undemonstrated.
+</details>
 
-### Review
+## Verdict
 
-This paper's useful contribution is a representation-learning experiment: it turns MEG time-frequency scalograms into three learned spatial maps and adapts ImageNet-pretrained ResNet-18 and ViT-Tiny models to classify imagined-speech conditions and vowel labels. On the full window, ResNet-18 reports balanced accuracy of 90.4% SAP / 77.5% LOSO for imagined speech versus silence, 81.0% / 72.2% for imagined speech versus silent reading, and 60.6% / 51.7% for three-vowel classification. SAP is trial-grouped pooled evaluation, not evidence of held-out-person performance; LOSO is the actual participant-held-out protocol. The ablation supports a contribution from pretraining and learned sensor mixing, but these results remain class-label decoding on a closed French paradigm. They do not show word or sentence transcription, speech reconstruction, or a usable SSI. The authors themselves caution that task engagement, attention, or residual sensorimotor activity may help distinguish imagined speech from silence and that vowel accuracy is below practical speech-BCI needs. Larger phonemic sets, adaptive timing, interpretability, and further domain adaptation are left for future work.
+The paper [[1]](#ref-1) changes training (M03), fine-tuning ImageNet-pretrained ResNet-18 and ViT-Tiny on MEG scalograms, and the representation (M06), a learned three-map sensor projection. M03 is standard: ImageNet-pretrained CNNs on MEG Morlet scalograms of imagined phrases came earlier, in work the paper cites only for its decoding result [[2]](#ref-2), as did a frozen ImageNet ResNet50 on imagined-speech EEG [[3]](#ref-3). The new evidence is an ablation over 21 participants with leave-one-subject-out testing: removing pretraining costs 5.7 to 8.9 points of balanced accuracy across the three tasks and both splits of Table 4 (inference). M06 is standard: the projection is tested against PCA-3, not against the earlier sensor mosaic [[2]](#ref-2). The strongest confound is in M12: the binary tasks contrast imagery with rest and with silent reading that always precedes it (Fig. 1), and no EMG separates imagery from movement, unlike [[4]](#ref-4); only the vowel task, 51.7% for held-out participants against 33% chance (Table 3), bears on speech content.
 
-### Why it matters
+## Against the field, component by component
 
-Shows that image-like MEG time-frequency representations paired with ImageNet pretraining and learned sensor mixing can support above-chance imagined-speech condition and three-vowel classification, including a separate leave-one-subject-out evaluation.
+### M03 Training: ImageNet-pretrained vision backbone
 
-### Prior state of the art
+**Usual approach:** Of 8 unique ledger studies on ImageNet backbones for neural speech decoding (pattern match, Appendix), 5 use an ImageNet CNN on time-frequency images and 2 an ImageNet ViT. The paper follows the majority and adds a ViT, training only the last block, head and projection (Sec. 2.5).
 
-Non-invasive imagined-speech studies commonly classify neural recordings into limited tasks or labels. This paper tests whether MEG time-frequency structure can be recast as image-like inputs so that vision-model pretraining can be transferred to closed-set imagined-speech classification.
+**State of the art:** For five imagined MEG phrases (2020, prior), ImageNet CNNs on sensor-mosaic scalograms reached 93.24% in the imagination stage, within subject on a 70/15/15 split [[2]](#ref-2). The paper's three-vowel task reaches 60.6% pooled and 51.7% held-out (Table 3); tasks and splits differ, so the gap says nothing about the method.
 
-### What changed
+Removing ImageNet weights lowers imagery versus silence from 90.4% to 81.6% pooled and held-out vowels from 51.7% to 46.0% (Table 4), relative drops of 9.7% and 11.0% (inference). The earlier MEG work compared pretrained CNNs only with a shallow network on statistical features [[2]](#ref-2). Verdict: standard; the design is prior, the ablation is the contribution.
 
-Transforms each epoch's 248-channel MEG scalograms into three learned spatial mixtures, resizes the resulting time-frequency representation to 224×224×3, and fine-tunes pretrained ImageNet vision models for imagined-speech condition and vowel labels.
+### M06 Representation: scalograms with a learned sensor projection
 
-### Position in the field
+**Usual approach:** Among 43 unique ledger studies of imagined-speech MEG decoding (pattern match, Appendix), raw time-series CNNs appear in 8, scalogram inputs in 7 and scalogram images with a pretrained CNN in 3. The paper mixes 248-channel scalograms into three maps with a 1×1 convolution (Sec. 2.4).
 
-A non-invasive MEG representation-learning study for closed-set imagined-speech condition and vowel classification, not an end-to-end speech restoration or text-entry system.
+**State of the art:** Dash et al. (2020, prior) tiled scalograms of 196 sensors into one 14×14 image, which beat per-sensor scalograms in all three task stages [[2]](#ref-2).
 
-### Practical value
+The only control, PCA-3, costs 3.9 points pooled for imagery versus silence and 3.5 for vowels, pooled and held-out alike (inference), and full fine-tuning costs 3.0 points pooled with overlapping 95% intervals (Table 4; inference). Verdict: standard; the gain over a fixed layout is untested.
 
-Methodological evidence that ImageNet-pretrained vision backbones can be adapted to learned image-like MEG time-frequency inputs under participant-held-out evaluation. It does not yet provide text/audio output or demonstrate a communication interface.
+### M12 Evaluation: null model and task confounds
 
-### Advanced
+**Usual approach:** Label or trial permutation is the most frequent empirical null (45 of 132 unique studies, pattern match, Appendix), as in the paper's 10,000-iteration tests (Sec. 2.5).
 
-Applies ImageNet-pretrained vision representations to MEG time-frequency maps for imagined-speech task and vowel classification, and reports both trial-grouped pooled evaluation and leave-one-subject-out evaluation on 21 participants.
+**State of the art:** Concurrent MEG work (2026) shuffles only the pairing under test, so the null passes through the full decoder [[5]](#ref-5).
 
-### Unresolved
+A chance-level null does not remove confounds. Silence comes from inter-trial rest (Sec. 2.2), and the authors concede engagement or sensorimotor activity may drive it (Sec. 4). Imagery always follows reading of the same sentence (Fig. 1). Earlier MEG imagery work recorded lip and jaw EMG and showed micromovements did not discriminate syllables [[4]](#ref-4), and within-subject MEG decoding was above chance before any stimulus [[2]](#ref-2). Verdict: standard.
 
-Larger phonemic inventories and naturalistic or continuous imagined speech; linguistic decoding beyond three vowel labels; clinical or communication-user validation; real-time use; interpretation of task engagement, attention, and residual sensorimotor contributions; replication outside this French MEG cohort.
+## The 13 components
 
-### Narrowed or regressed
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Imagined and silently read French sentences | Speech production tasks (slot-filled 4,015) | – | standard |
+| M02 Training-only supervision | Condition and vowel labels only | Paired audio or text labels (slot-filled 31) | – | standard |
+| M03 Training and adaptation | ImageNet ResNet-18 / ViT-Tiny, last block tuned | ImageNet CNN on time-frequency images (pattern match 5) | 93.24%, 5 imagined phrases [[2]](#ref-2) | standard |
+| M04 Use-time action | Offline imagined-speech epochs | Overt or silent production (slot-filled 6,538) | – | standard |
+| M05 Sensors | 248-magnetometer MEG, 1 kHz | MEG or EEG (slot-filled 8,898) | – | standard |
+| M06 Processing and decoding | Scalograms, learned 3-map projection | Raw time-series CNN (pattern match 8) | 14x14 sensor mosaic [[2]](#ref-2) | standard |
+| M07 Lexicon and LM | None | None (slot-filled 120) | – | not applicable |
+| M08 Output | Condition or vowel labels | Class labels (slot-filled 3,760) | – | standard |
+| M09 Confirmation | Offline | None (slot-filled 82) | – | not applicable |
+| M10 Correction | Offline | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Cue timing, 400 ms per syllable | Corpus or cue labels (slot-filled 239) | – | standard |
+| M12 Evaluation | Permutation null; SAP, LOSO | Label or trial permutation (pattern match 45) | Pairing-only shuffle [[5]](#ref-5) | standard |
+| M13 Device and cost | Laboratory MEG, offline | Laboratory (slot-filled 6,721) | – | standard |
 
-The demonstrated outputs are offline class labels for two task contrasts and three cued vowels, not transcribed sentences, reconstructed speech, or a working communication interface. Fine-grained vowel results are modest, especially under held-out-subject evaluation.
+## Where the claims outrun the evidence
 
-### Evaluation details
+- The introduction presents image-like TF input for pretrained vision models as the proposal; [[2]](#ref-2) did this on MEG and is cited only for imagined sentences.
+- "Shared neural representations across participants" (Abstract; Table 3): above-chance LOSO on imagery versus rest or reading can reflect task state; only vowels, 18.4 points above chance (inference), speak to content.
+- Pooled ablation gaps of 3.0 to 3.9 points (inference) rest on unreported seeds and no stated selection data (Sec. 2.5).
+- "Imagery-locked" (Sec. 5): syllables last 400 ms but epochs span 800 ms (inference), so windows overlap neighbouring syllables.
 
-| Item | Details |
-| --- | --- |
-| Task | speech-recognition |
-| Input | Magnetoencephalography (MEG), recorded with 248 magnetometers at 1 kHz; non-invasive. |
-| Sensor | MEG recorded at 1 kHz with 248 magnetometers; device make/model is not specified in the reviewed text. |
-| Body site | brain |
-| Output | labels |
-| Vocabulary type | Cued French sentence imagery and closed-set three-vowel labels; no open vocabulary or continuous text output. |
-| Vocabulary size | Closed set of 18 syllable items combining one of five consonants or none with one of three vowels; the distinct sentence-set size is not separately specified beyond three blocks of 34 sentence trials. |
-| Metrics and results | Full-window ResNet-18 balanced accuracy (mean ± 95% CI): ISP vs silence 90.4 ± 2.5% SAP and 77.5 ± 1.3% LOSO; ISP vs silent reading 81.0 ± 2.0% SAP and 72.2 ± 1.5% LOSO; three-vowel decoding 60.6 ± 1.5% SAP and 51.7 ± 0.8% LOSO (three-class chance 33%). SAP is trial-grouped pooled 10-fold CV; LOSO is participant-held-out. Table 4's no-pretraining convolutional/random-initialization/partial-fine-tuning variant reports 81.6/70.8% for ISP-vs-silence, 72.1/64.9% for ISP-vs-silent-reading, and 53.3/46.0% for vowels (SAP/LOSO). |
-| Evaluation protocol | Offline balanced-accuracy classification with 95% bootstrap confidence intervals. The paper compares LDA, EEGNet, a shallow CNN, a Riemannian tangent-space classifier, ResNet-18, and ViT-Tiny across pre-cue, post-cue, and full (-300 to 500 ms) windows. It reports stratified 10-fold SAP grouped by trial and a distinct 21-fold leave-one-subject-out (LOSO) protocol; pairwise model tests use Wilcoxon signed-rank tests and comparisons against chance use permutation tests, with Holm-Bonferroni correction stated. |
+## What the field needs next
 
-### Limits
+- M06: the 14×14 mosaic [[2]](#ref-2) against the learned projection with one backbone.
+- M12: counterbalanced imagery and reading, with articulatory EMG as in [[4]](#ref-4).
+- M03: repeated seeds, and vowels on epochs that do not overlap adjacent syllables.
 
-- **Technical:** The task labels are ISP-versus-silence, ISP-versus-silent-reading, and /a/, /e/, /i/ vowel classes. The binary contrast can reflect task engagement, attention, or residual sensorimotor activity, as the authors acknowledge. Closed-set epoch classification does not establish word/sentence decoding or speech reconstruction; SAP and LOSO have different generalization meanings.
-- **Evaluation:** The cohort is 21 neurotypical native French speakers after excluding five of 26 participants, and stimuli use a closed, cued syllable/sentence paradigm. Subject-Agnostic Pooled (SAP) uses trial-grouped 10-fold cross-validation and must not be read as subject-independent; Leave-One-Subject-Out (LOSO) is the separate held-out-participant protocol. The main content task is three-vowel classification, not word or sentence decoding. The authors note that task engagement, attention, or residual sensorimotor activity could contribute to ISP-versus-silence discrimination and that vowel scores are below practical speech-BCI requirements. Online, clinical, naturalistic, and continuous-speech evaluation is absent.
-- **Deployment:** The paper evaluates offline classification of recorded MEG epochs. It reports no real-time or online interface, continuous speech decoding, user communication study, portable implementation, latency, or deployment measurement. The recording uses a 248-magnetometer MEG system.
-- **Scope of this review:** Twenty-one neurotypical native French participants after exclusions; cued, closed-set sentence/syllable tasks; two condition contrasts and three-vowel classification. No continuous sentence transcription, open-vocabulary decoding, speech synthesis, clinical cohort, online use, or user communication outcome.
+## Questions for the authors
 
-### Evidence
+- Which data selected checkpoints and hyperparameters within each fold?
+- Which baseline interval was used for z-scoring?
+- What is the bootstrap resampling unit?
+- Can a participant contribute to both training and test folds in SAP?
 
-- The abstract presents an image-based MEG approach that maps imagined-speech signals to time-frequency representations for ImageNet-pretrained vision models, and reports three task families: imagery versus silence, imagery versus silent reading, and vowel decoding. (Abstract; PDF p. 1)
-- Twenty-six neurotypical native French speakers took part and five were excluded, leaving 21. The paradigm used three blocks of 34 sentences (6–11 syllables), a closed set of 18 syllable items, silent reading followed by imagery at 400 ms per syllable, and 248-channel MEG recorded at 1 kHz. (Section 2.1, Dataset and tasks; PDF p. 1)
-- Preprocessing includes 50/100/150 Hz notch filters, a 0.5–150 Hz band-pass, downsampling to 500 Hz, ICA and AutoReject artifact handling, and pre-cue (-300 to 0 ms), post-cue (0 to 500 ms), and full (-300 to 500 ms) epochs; silence examples come from inter-trial rest, not inter-syllable gaps. (Section 2.2, Preprocessing and epoch extraction; PDF p. 2)
-- The representation applies Morlet CWT independently to each channel at 96 log-spaced frequencies from 1 to 150 Hz, then uses a learnable 1×1 sensor-space projection to mix 248 channel scalograms into three maps and resizes the result to 224×224×3 for the vision models. (Sections 2.3–2.4 and Fig. 2; PDF p. 2)
-- The evaluation distinguishes Subject-Agnostic Pooled stratified 10-fold cross-validation grouped by trial from a separate Leave-One-Subject-Out protocol with 21 folds; balanced accuracy is used, with 50% binary and 33% three-class chance levels. (Evaluation protocol in Section 2.5; PDF p. 3)
-- For full-window ISP-versus-silence decoding, ResNet-18 reports 90.4 ± 2.5% SAP and 77.5 ± 1.3% LOSO balanced accuracy; SAP is pooled trial-grouped evaluation and LOSO is the participant-held-out result. (Section 3.1, Table 1 and Fig. 3; PDF p. 3)
-- For full-window ISP-versus-silent-reading decoding, ResNet-18 reports 81.0 ± 2.0% SAP and 72.2 ± 1.5% LOSO balanced accuracy; the text identifies this contrast as more difficult than ISP versus silence. (Section 3.2, Table 2 and Fig. 4; PDF p. 3)
-- For full-window three-class /a/, /e/, /i/ decoding, ResNet-18 reports 60.6 ± 1.5% SAP and 51.7 ± 0.8% LOSO balanced accuracy; the separate post-cue LOSO table entry is 51.4 ± 0.9% and should not be substituted for the full-window value. (Section 3.3 and Table 3, PDF p. 3; Fig. 5, PDF p. 4)
-- In the full-window ablation, the convolutional-projection model with random initialization and partial fine-tuning reports SAP/LOSO balanced accuracy of 81.6/70.8% for ISP versus silence, 72.1/64.9% for ISP versus silent reading, and 53.3/46.0% for vowel decoding, below the pretrained baseline entries. (Section 3.4, Table 4; PDF p. 4)
-- The discussion says ISP-versus-silence decoding may be influenced by broader task engagement, attention, or residual sensorimotor activity, and that current vowel accuracy remains below what would be required for practical speech BCIs; future work includes larger phonemic sets and adaptive timing. (Section 4, Discussion; PDF p. 4)
-- The conclusion describes an image-driven MEG decoding strategy and imagery-locked discriminative information, while framing it as a foundation for future non-invasive speech decoding studies rather than reporting a communication interface or sentence transcription result. (Section 5, Conclusion; PDF p. 4)
+## Appendix: literature search
+
+- M03 imagenet-pretrained-vision-backbone-neural-speech (new). Inclusion rule: speech or language decoders from EEG, MEG or intracranial recordings that initialize a vision backbone pretrained on natural images (ImageNet CNN or ViT) and fine-tune it, or train a head on it, using time-frequency or other image-like neural inputs; decoding of viewed images is excluded; non-speech imagery and reviews remain as pattern matches (upper bound); versions counted once. Ledger counts: slot-filled 1,526 unique studies (M03); pattern match 8 unique studies (10 folders). Design counts (pattern match, full text): ImageNet CNN on time-frequency images 5 (one study indexed under two DOIs), ImageNet ViT 2. Read in full: [[2]](#ref-2) (prior; state of the art), [[3]](#ref-3) (prior). Known-item recall 1.0 (2 seeds).
+- M06 imagined-speech-meg-classification (new). Inclusion rule: studies that decode imagined, covert or inner speech, or contrast it with other conditions, from MEG and report a classification score; perceived-only, overt-only and EEG-only studies are excluded; reviews remain as pattern matches (upper bound); versions counted once. Ledger counts: slot-filled 7,345 unique studies (M06); pattern match 43 unique studies (60 folders). Design counts (pattern match, full text): raw time-series CNN 8, scalogram or time-frequency input 7, time-frequency image with pretrained CNN 3. Read in full: [[2]](#ref-2) (state of the art), [[4]](#ref-4), [[3]](#ref-3) (prior). Known-item recall 1.0 (1 seed).
+- M12 null-model-construction-neural-decoding (published table, reused). Inclusion rule: neural decoding or neural-response prediction studies that test significance against an empirical null built by shuffling or permuting the data rather than only against theoretical chance. Ledger counts: slot-filled 6,960 unique studies (M12); pattern match 132 unique studies (157 folders). Usual design: label or trial permutation 45 (pattern match). Read in full: [[4]](#ref-4), [[2]](#ref-2) (prior).
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Jhilal, S., Martin, S., Giraud, A. “Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech.” *IEEE International Symposium on Biomedical Imaging (ISBI)*, 2026. doi:[10.48550/arXiv.2601.15909](https://doi.org/10.48550/arXiv.2601.15909). arXiv:[2601.15909](https://arxiv.org/abs/2601.15909). Target. arXiv:2601.15909 v1 read. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech) [wiki: arxiv-2601.15909](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2601.15909/article.md) [wiki: arxiv-2601.15909-imgmeg](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2601.15909-imgmeg/article.md)
+2. <a id="ref-2"></a>Dash, D., Ferrari, P., Wang, J. “Decoding Imagined and Spoken Phrases From Non-invasive Neural (MEG) Signals.” *Frontiers in Neuroscience*, 2020, 14, 290. doi:[10.3389/fnins.2020.00290](https://doi.org/10.3389/fnins.2020.00290). [wiki: doi-10.3389-fnins.2020.00290](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3389-fnins.2020.00290/article.md) [wiki: doi-10.3389-fnhum.2020.00290](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3389-fnhum.2020.00290/article.md)
+3. <a id="ref-3"></a>Panachakel, J. T., Ganesan, R. A. “Decoding Imagined Speech From EEG Using Transfer Learning.” *IEEE Access*, 2021, 9, 135371-135385. doi:[10.1109/ACCESS.2021.3116196](https://doi.org/10.1109/ACCESS.2021.3116196). [wiki: doi-10.1109-access.2021.3116196](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-access.2021.3116196/article.md)
+4. <a id="ref-4"></a>Orpella, J., Mantegna, F., Assaneo, M. F., Poeppel, D. “Speech imagery decoding as a window to speech planning and production.” *bioRxiv*, 2022. doi:[10.1101/2022.05.30.494046](https://doi.org/10.1101/2022.05.30.494046). [wiki: doi-10.1101-2022.05.30.494046](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1101-2022.05.30.494046/article.md)
+5. <a id="ref-5"></a>Maghsoudi, M., Shamma, S. “Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping.” *arXiv preprint*, 2026. arXiv:[2605.08075](https://arxiv.org/abs/2605.08075). [concurrent] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/zero-shot-imagined-speech-decoding-via-imagined-to-listened-meg-mapping) [wiki: arxiv-2605.08075](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2605.08075/article.md) [wiki: arxiv-2605-08075-zeromeg](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2605-08075-zeromeg/article.md) [wiki: arxiv-2605.08075-i2lmeg](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2605.08075-i2lmeg/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M03/imagenet-pretrained-vision-backbone-neural-speech.csv`](../../components/M03/imagenet-pretrained-vision-backbone-neural-speech.csv): M03 topic "imagenet-pretrained-vision-backbone-neural-speech", every candidate paper with its decision (1526 slot-filled, 8 pattern match, usual design in 5, 3 read in full)
+- [`components/M06/imagined-speech-meg-classification.csv`](../../components/M06/imagined-speech-meg-classification.csv): M06 topic "imagined-speech-meg-classification", every candidate paper with its decision (7345 slot-filled, 43 pattern match, usual design in 8, 4 read in full)
+- [`components/M12/null-model-construction-neural-decoding.csv`](../../components/M12/null-model-construction-neural-decoding.csv): M12 topic "null-model-construction-neural-decoding", every candidate paper with its decision (6960 slot-filled, 132 pattern match, usual design in 45, 2 read in full)
+
 
 ## More reviews in Brain signals (EEG, MEG, intracortical)
 
