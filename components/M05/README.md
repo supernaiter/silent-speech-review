@@ -77,6 +77,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that decode speech (text or a speech waveform) from video of the talking face or lips, with the ledger recording an optical camera and a lip-reading, visual speech recognition or video-to-speech task, and count from the full text (reference list removed) whether the study feeds more than one simultaneous camera view (multi-view input), addresses non-frontal or profile poses, or uses the multi-view OuluVS2 corpus. Boundary: audio-visual speech recognition counts when the visual stream is decoded; talking-head generation, face recognition and biometric-only studies are excluded; a study counts under every design its text names (upper bound, related-work mentions included); versions counted once.
 - Used in: [Harnessing AI for Speech Reconstruction using Multi-view Silent Video Feed](../../reviews/harnessing-ai-for-speech-reconstruction-using-multi-view-silent-video-feed/)
 
+## rf-articulator-sensing-placement
+
+- Table: [`rf-articulator-sensing-placement.csv`](rf-articulator-sensing-placement.csv) (7329 slot-filled, 33 pattern match, usual design in 21, 1 read in full)
+- Inclusion rule: Speech or silent-speech recognition studies that sense the articulators with radar or other RF signals (IR-UWB, FMCW/SFCW, mmWave, RFID, backscatter, Wi-Fi channel sensing); the design compared is the RF front end and where it sits (active radar at a distance, Wi-Fi channel sensing, or a tag or antenna worn on the face, in a headset or in a mask). Boundary: papers that mention Wi-Fi only as a data link are left out by the pattern; datasets and surveys count; full-text and ledger hits include related-work mentions, so counts are upper bounds.
+- Used in: [Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter](../../reviews/lip-siri-contactless-open-sentence-silent-speech-with-wi-fi-backscatter/)
+
 ## skin-strain-sensor-channel-count
 
 - Table: [`skin-strain-sensor-channel-count.csv`](skin-strain-sensor-channel-count.csv) (7329 slot-filled, 27 pattern match, usual design in 18, 3 read in full)

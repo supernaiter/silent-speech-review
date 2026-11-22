@@ -1,105 +1,142 @@
 # Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter
 
-Ye Tian, Haohua Du, Chao Gu, Junyang Zhang, Shanyue Wang, Hao Zhou, Jiahui Hou, Xiang-Yang Li  
-arXiv 2026 · [arXiv](https://arxiv.org/abs/2601.18177)
+Tian, Y., Du, H., Gu, C., Zhang, J., Wang, S., Zhou, H., Hou, J., Li, X.-Y. · arXiv preprint · 2026 · [arXiv:2601.18177](https://arxiv.org/abs/2601.18177)
 
-**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter* (Ye Tian et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Radar, RF & Wi-Fi](../../README.md#radar-rf--wi-fi)
 
-Lip-Siri senses lip motion contactlessly with Wi-Fi frequency-shifted backscatter and decodes lexicon-constrained sentences, reporting 85.61% word accuracy and 36.87% sentence WER on a random 80/20 split plus three held-out users.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Wi-Fi backscatter tag with SDR (USRP) transceivers |
-| Task | Lexicon-constrained sentence recognition |
-| Vocabulary | 340 handbook sentences, 3,398 reported words; lexicon-composed |
-| Speaker | Both |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | 85.61% word accuracy, 36.87% sentence WER, random 80/20 split; new users 81.5-85.5% |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Lexicon composition is not unseen-word recognition; main split is not sentence-disjoint, and SDR hardware, manual start/end clicks and 50 cm geometry limit deployment.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Energy segments, K-means units | Supervised training | 3,882 of 8,995 | ● Standard (Normalization policy unstated.) |
+| M02 Teacher signal | Cluster pseudo-label pre-training | Paired targets | 31 of 8,995 | ● Standard (HuBERT-style lineage.) |
+| M03 Train / calibrate | One split, no validation set | Train/test split | 1,526 of 8,995 | ✕ Not reported (No seeds.) |
+| M04 Use-time act | Silent, manual start/end | Silent or overt | 5,595 of 8,995 | ● Standard (Not hands-free.) |
+| M05 Sensing | Wi-Fi backscatter tag, 50 cm | Radar front end | 21 of 8,995 | ● Standard (Backscatter tags predate it.) |
+| M06 Decoding | Transformer encoder-decoder | Neural decoder | 7,345 of 8,995 | ● Standard (Beam width unstated.) |
+| M07 Runtime aids | Corpus subword lexicon | Lexicon or LM | 119 of 8,995 | ● Standard (Lexicon from the test corpus.) |
+| M08 Output | Subword sentences | Class label | 5 of 8,995 | ● Standard (No unseen-sentence test.) |
+| M09 Confirmation | Display only | None | 82 of 8,995 | – Not applicable (Prototype display only.) |
+| M10 Correction | None | None | 82 of 8,995 | – Not applicable (Fine-tuning only proposed.) |
+| M11 Eval reference | Prompted sentences | Read script | 234 of 8,995 | ● Standard (Transcript checks unstated.) |
+| M12 Evaluation | 3 held-out users, random split | Speaker-dependent | 22 of 8,995 | ● Standard (No sentence-disjoint split.) |
+| M13 Hardware & limits | SDR prototype, 20 dBm | Device constraints | 6,075 of 8,995 | ✕ Not reported (Power not measured.) |
 
-A credible contactless Wi-Fi backscatter SSI prototype with 85.61% word accuracy and 36.87% sentence WER, but lexicon-composed sentences are not unseen-word recognition and deployment still requires SDR hardware plus manual boundaries.
+</details>
 
-### Review
+## Verdict
 
-Lip-Siri is a useful contactless RF prototype: it places a frequency-shifted backscatter tag on a nearby object rather than on the user's face, then turns filtered lip-motion traces into variable-length subword sequences. The reported base experiment uses 15 volunteers, 340 sentences and 3,398 word occurrences, with three users held out; average word accuracy is 85.61% and sentence WER is 36.87%. Those results support feasibility, not a general open-vocabulary claim. The lexicon is built from a handbook and new words are usable only when composed from existing subwords; the paper does not test words outside that lexicon or provide a sentence-disjoint split for the other users. The SDR prototype also depends on a tag within 50 cm, a PC, and manual start/end clicks. Its 717.5 ms figure is measured from the end click to the displayed result for a 10-second signal, not end-to-end hands-free streaming latency. Figure 13 shows useful tolerance to moderate conditions but a large RF WER under jumping and materially higher WER with a mask. Whole-system power, rejection coverage, exact lexicon/beam settings, and component ablations remain unresolved.
+The paper [[1]](#ref-1) changes the sensor (M05), a passive Wi-Fi backscatter tag near the face, and the output (M08), subword sentences instead of class labels. Both are standard: contactless radio-frequency sensing is already usual, Wi-Fi lip reading predates it [[2]](#ref-2), and face-worn RFID tags already sense speech by backscatter (Table I). The open-sentence claim is untested: 340 scripted sentences, each read at least twice, are split 80/20 at random, so test sentences very likely also appear in training (inference), and no unseen-sentence test exists. The headline 36.87% WER is worse than the visual baseline's 32.3% in the same room (§VI-B), although the text calls the two comparable. The held-out-user test (M12, standard) is the paper's strongest evidence.
 
-### Why it matters
+## Against the field, component by component
 
-Demonstrates a non-wearable near-field RF sensing architecture and a practical path from lip-motion traces to lexicon-constrained sentence output, with explicit held-out-user and scenario tests.
+### M05 Sensors: passive Wi-Fi backscatter tag off the body
 
-### Prior state of the art
+**Usual approach:** of 33 radio-frequency speech-sensing studies (pattern match, Appendix), 21 record radar in the ledger (slot-filled, same 33), as in [[3]](#ref-3); the target uses a tag on a bracket within 50 cm (§VI-A).
 
-Sensing-based silent speech interfaces commonly use wearable or held sensors, or dedicated radar, and usually classify a fixed list of words or sentences. Wireless backscatter lip sensing has also generally required a tag near the face.
+**State of the art:** Wi-Fi lip reading under a face mask reached 95% accuracy on five vowels plus closed lips (2022) [[2]](#ref-2); for sentences, the target's own Table I quotes mmWave radar at 9.5% WER on 1,000 fixed sentences and 4-D radar at 4.55% WER on 30, both closed-set (§VIII-A). The target's 36.87% is 27.37 points above the 9.5% (inference), on a different output, so the gap does not rank the sensors.
 
-### What changed
+Contact-free operation (§VIII-A) is shared with every remote radar and Wi-Fi system, and backscatter is not new: Table I lists face-worn RFID tags for speech (RFID Tattoo, 86% on 100 words and 20 sentences; HearMe). Only the tag's placement off the body is new. Its low power and cost (§I) go unmeasured on the software-defined radio prototype; commercial Wi-Fi is out of scope (§VI-A). The authors concede that jumping breaks it (§VIII-B). Verdict: standard.
 
-Moves the sensing tag from the user's body or chin to a nearby stand or monitor and decodes continuous lip-motion traces into variable-length subword sequences constrained by an extensible lexicon.
+### M08 Output: subword sentences instead of class labels
 
-### Position in the field
+**Usual approach:** among the 19 of 33 studies with a ledger output (slot-filled), the most frequent is a class label, 5; full-text counts give sequence decoding 12 and closed-set classification 11 (pattern match, upper bounds, Appendix), so neither output dominates. The deciding priors classify five vowels [[2]](#ref-2) or fixed sentences [[4]](#ref-4); the target decodes subword tokens from a lexicon built on its own corpus (§V-C.1).
 
-A contactless Wi-Fi backscatter sentence-decoding prototype that extends RF silent-speech work beyond fixed command sets, while remaining an SDR-based laboratory system with lexicon and split limitations.
+**State of the art:** SoniSpeech [later] (2026) reports 26.3% open-vocabulary silent WER with acoustic eyewear, one speaker, on 1,000 sentences from a separate split [[5]](#ref-5); the target reports 36.87% on a random split.
 
-### Practical value
+One speaker on unseen sentences against 12 users on probably recurring ones (inference): the 10.57-point gap ranks neither system but names the missing control, a sentence-disjoint split. The authors limit the claim to compositions the lexicon covers (§V-C.1). Verdict: standard, because the move to sequences is not tested on new sentences.
 
-Moderate: nearby-object placement and no on-body sensor are promising for quiet or privacy-sensitive settings, but manual segmentation, 50 cm geometry, SDR hardware, and unmeasured whole-system power limit immediate deployment claims.
+### M12 Evaluation: three held-out users
 
-### Advanced
+**Usual approach:** of 32 radar and radio-frequency recognition studies (pattern match, Appendix), 22 name a speaker-dependent split and 17 a speaker-independent one (overlapping); the target holds out three users and splits the rest 80/20 at random (§VI-B).
 
-contactless-near-field-sensing; lexicon-composed-sentence-decoding; radio-interference-suppression; non-wearable-input
+**State of the art:** none external; the topic table's best entry is this paper's own new-user result (2026), 81.5–85.5% word accuracy and 36.3–39.6% WER (§VI-F), a baseline rather than a win.
 
-### Unresolved
+New users fall within about 4 points of the overall 85.61% (inference), the best evidence against per-user memorisation, from three users and one split. Verdict: standard.
 
-Unseen-word recognition; sentence-disjoint evaluation; speaker/session independence; continuous hands-free operation; rejection coverage; tag and receiver cost/power; robustness to violent motion and tag-facing geometry
+## The 13 components
 
-### Narrowed or regressed
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Energy segments, K-means units | Supervised training (slot-filled 3,882) | – | standard |
+| M02 Training-only supervision | Cluster pseudo-label pre-training | Paired targets (slot-filled 31) | Lineage: [[6]](#ref-6) (2022) | standard |
+| M03 Training and adaptation | One split, no validation set | Train/test split (slot-filled 1,526) | – | not reported |
+| M04 Use-time action | Silent, manual start/end | Silent or overt (slot-filled 5,595) | – | standard |
+| M05 Sensors | Wi-Fi backscatter tag, 50 cm | Radar front end (slot-filled 21) | 95%, 5 vowels [[2]](#ref-2) (2022) | standard |
+| M06 Processing and decoding | Transformer encoder-decoder | Neural decoder (slot-filled 7,345) | – | standard |
+| M07 Lexicon and LM | Corpus subword lexicon | Lexicon or LM (slot-filled 119) | Lineage: [[7]](#ref-7) (2022) | standard |
+| M08 Output | Subword sentences | Class label (slot-filled 5) | 26.3% WER, one speaker [[5]](#ref-5) (2026) | standard |
+| M09 Confirmation | Display only | None (slot-filled 82) | – | not applicable |
+| M10 Correction | None | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Prompted sentences | Read script (slot-filled 234) | – | standard |
+| M12 Evaluation | 3 held-out users, random split | Speaker-dependent (pattern match 22) | None external; this paper [[1]](#ref-1) (2026) | standard |
+| M13 Device and cost | SDR prototype, 20 dBm | Device constraints (slot-filled 6,075) | – | not reported |
 
-The prototype still uses USRP SDR hardware, a PC, a tag within 50 cm, and manual start/end buttons; no measured whole-system power or complete commercial-Wi-Fi deployment is provided.
+## Where the claims outrun the evidence
 
-### Evaluation details
+- "Open sentence" (Abstract) is untested: no split holds out sentences or words (§VI-B), and the lexicon comes from the evaluation corpus (§V-C.1).
+- The text calls the system comparable to the visual baseline [[8]](#ref-8), yet its WER is 4.57 points, or 14% relative, higher in the same environment (inference). Whether that baseline was trained on the 340-sentence corpus is not stated (§VI-B); if not, the comparison favours Lip-Siri, which saw the recurring sentences (inference).
+- The voice-assistant test (§VII-B) adds 50 dB audio noise, which drops the assistant from 98% to 31% while Lip-Siri scores 90.5% with a 100-word lexicon; such noise cannot reach a radio sensor, so the test favours it by construction (inference).
+- The 717.5 ms latency starts at a manual end click (§VI-G), so it is not hands-free.
+- After two months accuracy falls 4.3% and WER rises 5.6% (§VI-E), not saying whether in points or relative terms.
 
-| Item | Details |
-| --- | --- |
-| Task | speech-recognition |
-| Input | Contactless Wi-Fi frequency-shifted backscatter sensing of lip-motion traces; SDR transmitter/receiver prototype. |
-| Sensor | Frequency-shifted passive backscatter tag on a bracket or nearby object, connected antenna, USRP-RIO transmitter, USRP-2943R receiver, LabVIEW control, Ethernet-connected PC with Intel Core i5-11500 and 32 GB RAM; a camera records lip motion for visual comparison. |
-| Body site | face; lip |
-| Output | text |
-| Vocabulary type | Lexicon-guided subword sequence decoding; composable sentence combinations within a scenario lexicon. |
-| Vocabulary size | The base handbook is organized into 340 sentences and 3,398 reported words; unique-word count and final subword lexicon size are not reported. |
-| Metrics and results | Overall average word prediction accuracy 85.61% and continuous sentence WER 36.87%; representative visual SSI WER 32.3% on recorded videos. Three new users range from 81.5% to 85.5% word accuracy and 36.3% to 39.6% WER. The silent-assistant 100-word lexicon case reports 92% accuracy and 90.5% under 50 dB audio interference. Reported latency is 717.5 ms from end-button click to displayed result for a 10-second signal, consisting of no more than 50 ms transmission, 525 ms processing, and 142.5 ms inference. Values are author-reported and not independently reproduced. |
-| Evaluation protocol | Offline word accuracy and continuous-sentence WER on a random 80/20 split plus three held-out users; sentence-length, signal-strength, time-interval, office/library/bedroom, silent-assistant, and eight-condition motion/lighting/mask comparisons; visual-SSI comparison from recorded video; end-button-to-result latency measurement. |
+## What the field needs next
 
-### Limits
+- M12: a sentence-disjoint and word-disjoint test on the same users.
+- M05: measured power of tag and receiver, and a commercial Wi-Fi receiver instead of software-defined radios.
+- M08: WER against lexicon size, including words outside the lexicon.
 
-- **Technical:** The tag isolates a shifted component but does not remove all non-target paths; contaminated windows are discarded and the rejection rate is not reported. The main cohort uses random sample splitting, leaving possible sentence or repetition overlap unspecified. Lexicon composition is not evidence of unseen-word recognition. Manual start/end clicks prevent a hands-free streaming interpretation of the reported latency. Jumping substantially worsens RF WER, while tag geometry and whole-system power are unmeasured.
-- **Evaluation:** The 12-user experiment uses a random 80/20 sample split without an explicit sentence-disjoint protocol, while only three users are held out as new users. The lexicon is initialized from a fixed English handbook and its final size is not reported; adding words is only supported when they can be composed from existing subwords. Rejection rate from contamination gating, confidence intervals, repeated-seed variation, ablations, exact beam width, optimizer settings, and full power are not reported.
-- **Deployment:** The demonstrated system is an SDR prototype using a USRP-RIO transmitter, USRP-2943R receiver, Ethernet-connected PC, and a backscatter tag within 50 cm. Users manually click start and end buttons, the tag is fixed on a bracket, and a complete commercial-Wi-Fi implementation is explicitly outside scope. Violent motion can substantially degrade RF recognition, and tag-facing geometry is not characterized beyond the tested scenarios.
-- **Scope of this review:** Fifteen-volunteer SDR prototype evaluation with 340 handbook sentences, 3,398 reported word occurrences, three held-out users, and selected indoor/motion scenarios. No clinical participants, unrestricted vocabulary, sentence-disjoint split for the main cohort, adversarial privacy analysis, or continuous hands-free use.
+## Questions for the authors
 
-### Evidence
+- Is the 80/20 split by sample, utterance or sentence, and how many test sentences also occur in training?
+- How large is the final subword lexicon, and how many distinct words does the corpus contain?
+- Were z-score statistics fitted on training data only, and which data chose hyperparameters and checkpoints?
+- How many runs or seeds stand behind each figure, and what is their spread?
+- What beam width is used, and is any language model applied?
 
-- The abstract presents Lip-Siri as a Wi-Fi backscatter SSI supporting open-vocabulary sentence recognition through lexicon-guided subword decoding, with a frequency-shifted tag and Transformer encoder-decoder. (Abstract; PDF p. 1)
-- The prototype uses a frequency-shifted passive backscatter tag placed on a stand or monitor, allowing the user to face the tag without attaching or holding it near the chin. (Section V-A1; PDF pp. 5-6)
-- The system extracts a first-order shifted backscatter component, computes phase differences, applies a 0–50 Hz low-pass filter, rejects windows above median plus three MAD, and uses VMD to suppress slower modes. (Section V-A2; PDF p. 6)
-- Lip-motion units are approximately segmented with 0.2 s, 5 s, and 0.1 s windows; 67-dimensional time/frequency/differential features are standardized and clustered with K-means. The signal-processing description separately cites VMD with K=4 as its implementation example. (Sections V-B1–V-B2 and Algorithm 1; PDF pp. 6-7)
-- The lexicon starts from characters in a scenario corpus and repeatedly merges frequent adjacent symbols; the decoder predicts variable-length subword sequences with a 12-layer, 12-head encoder, 6-layer, 4-head decoder, and beam search. (Sections V-C1–V-C2; PDF pp. 7-8)
-- The paper defines open-sentence recognition as variable-length decoding over a lexicon and states that adding a word does not require retraining only when it is composable from existing subwords. This does not test recognition of words outside the lexicon or unrestricted open-vocabulary speech. (Section V-C2 and Table I caption; PDF pp. 8 and 11)
-- The evaluation recruits 15 volunteers over six months, uses 340 handbook sentences and 3,398 reported words, asks users to repeat base sentences at least twice, and collects 11,700 base samples. Three users are reserved as new users; the remaining data use a random 80/20 training/testing split. (Sections VI-A–VI-B, Data Collection and evaluation setup; PDF pp. 8–9)
-- The reported overall result is 85.61% average word accuracy and 36.87% average continuous-sentence WER; a recorded-video visual SSI comparison reports 32.3% WER. (Section VI-B; Fig. 9; PDF p. 9)
-- For three new users, average word accuracy ranges from 81.5% to 85.5% and sentence WER ranges from 36.3% to 39.6%. (Section VI-F; Fig. 11; PDF pp. 9–10)
-- The paper does not specify sentence-disjoint grouping for the random 80/20 split, unique vocabulary size, final subword lexicon size, beam width, optimizer, epochs, contamination rejection rate, confidence intervals, or component ablations. (Sections VI-A, V-B, and V-C; PDF pp. 6-9)
-- The interface requires a user to click start before lip-reading and end afterward. For a 10-second signal, the paper reports no more than 50 ms transmission, 525 ms signal processing, 142.5 ms inference, and 717.5 ms total latency from end click to displayed result. (Section VI-G; PDF p. 10)
-- In eight scenario comparisons with two volunteers, RF WER is 35.8% in normal conditions, 38.5% with head rotation, 83.5% while jumping, 33.4% while typing, 39.0% while walking, and 46.5% with a mask; the prototype uses SDR hardware and the paper does not measure whole-system power. (Sections VIII-A–VIII-B; Fig. 13; PDF p. 11)
+## Appendix: literature search
+
+- M05 rf-articulator-sensing-placement. Inclusion rule: speech or silent-speech recognition studies that sense the articulators with radar or other radio-frequency signals; the design compared is the front end and where it sits. Ledger counts: 7,329 slot-filled (M05); 33 pattern match (unique studies). Usual design: radar, 21 (slot-filled). Read in full: [[2]](#ref-2). Known-item recall: 0.75 (the missed id is a duplicate version of [[2]](#ref-2)).
+- M08 rf-ssr-output-granularity. Inclusion rule: the same radio-frequency population; the design compared is a class label from a closed list versus a variable-length token sequence scored by WER. Ledger counts: 3,268 slot-filled (M08); 33 pattern match (unique studies), 19 with a recorded output. Usual design: class label, 5 (slot-filled); full-text pattern counts: sequence decoding 12, closed-set classification 11 (pattern match, upper bounds). Read in full: [[5]](#ref-5), [[4]](#ref-4), [[2]](#ref-2). Known-item recall: 0.75.
+- M12 radar-ssr-speaker-split (published topic table, appended). Inclusion rule: radar or radio-frequency recognition studies; the design compared is whether test speakers are held out. Ledger counts: 6,960 slot-filled (M12); 32 pattern match (unique studies). Usual design: speaker-dependent, 22 (pattern match). Read in full: [[3]](#ref-3). Known-item recall: 1.0.
+- Inherited slots, lineage examples: M02 cluster pseudo-label pre-training [[6]](#ref-6); M07 sub-word token inventories [[7]](#ref-7).
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Tian, Y., Du, H., Gu, C., Zhang, J., Wang, S., Zhou, H., et al. “Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter.” *arXiv preprint*, 2026. doi:[10.48550/arXiv.2601.18177](https://doi.org/10.48550/arXiv.2601.18177). arXiv:[2601.18177](https://arxiv.org/abs/2601.18177). Target. Read as arXiv v1. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/lip-siri-contactless-open-sentence-silent-speech-with-wi-fi-backscatter) [wiki: arxiv-2601-18177-lipsiri](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2601-18177-lipsiri/article.md) [wiki: arxiv-2601.18177](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2601.18177/article.md)
+2. <a id="ref-2"></a>Hameed, H., Usman, M., Tahir, A., Hussain, A., Abbas, H., Cui, T. J., et al. “Pushing the limits of remote RF sensing by reading lips under the face mask.” *Nature Communications*, 2022, 13, 5168. doi:[10.1038/s41467-022-32231-1](https://doi.org/10.1038/s41467-022-32231-1). Prior; deciding prior for M05 and M08; M05 state of the art. [wiki: doi-10.1038-s41467-022-32231-1](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41467-022-32231-1/article.md) [wiki: pmc-9452506-rflip](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9452506-rflip/article.md) [wiki: pmc-9452506-rflipread](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9452506-rflipread/article.md)
+3. <a id="ref-3"></a>Shin, Y. H., Seo, J. “Towards Contactless Silent Speech Recognition Based on Detection of Active and Visible Articulators Using IR-UWB Radar.” *Sensors*, 2016, 16(11), 1812. doi:[10.3390/s16111812](https://doi.org/10.3390/s16111812). Prior; read for the M12 topic table (speaker-dependent split). [wiki: doi-10.3390-s16111812](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3390-s16111812/article.md) [wiki: pmc-5134471-iruwb](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-5134471-iruwb/article.md)
+4. <a id="ref-4"></a>Ge, Y., Tang, C., Li, H., Chen, Z., Wang, J., Li, W., et al. “A comprehensive multimodal dataset for contactless lip reading and acoustic analysis.” *Scientific Data*, 2023, 10, 895. doi:[10.1038/s41597-023-02793-w](https://doi.org/10.1038/s41597-023-02793-w). Prior; deciding prior for M08. [wiki: doi-10.1038-s41597-023-02793-w](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41597-023-02793-w/article.md) [wiki: pmc-10719268-mmdataset](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10719268-mmdataset/article.md) [wiki: pmc-10719268-rvtall](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10719268-rvtall/article.md)
+5. <a id="ref-5"></a>Zhang, R., Liu, J., Guimbretière, F., Zhang, C. “SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces.” *Proc. Interspeech 2026*, 2026. arXiv:[2608.00803](https://arxiv.org/abs/2608.00803). Later; M08 state of the art. [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces) [wiki: arxiv-2608.00803](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2608.00803/article.md) [wiki: isca-zhang26y-sonispeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-zhang26y-sonispeech/article.md)
+6. <a id="ref-6"></a>Shi, B., Hsu, W., Lakhotia, K., Mohamed, A. “Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction.” *International Conference on Learning Representations (ICLR)*, 2022. arXiv:[2201.02184](https://arxiv.org/abs/2201.02184). Prior; lineage example for M02 (cluster pseudo-label pre-training). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction) [wiki: arxiv-2201.02184](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2201.02184/article.md)
+7. <a id="ref-7"></a>Prajwal, K. R., Afouras, T., Zisserman, A. “Sub-word Level Lip Reading With Visual Attention.” *Proc. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2022. <https://openaccess.thecvf.com/content/CVPR2022/papers/Prajwal_Sub-Word_Level_Lip_Reading_With_Visual_Attention_CVPR_2022_paper.pdf> Prior; lineage example for M07 (sub-word token inventory). [wiki: cvf-prajwal22-subword-vtp](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/cvf-prajwal22-subword-vtp/article.md)
+8. <a id="ref-8"></a>Ma, P., Petridis, S., Pantic, M. “Visual Speech Recognition for Multiple Languages in the Wild.” *Nature Machine Intelligence*, 2022, 4. doi:[10.1038/s42256-022-00550-z](https://doi.org/10.1038/s42256-022-00550-z). arXiv:[2202.13084](https://arxiv.org/abs/2202.13084). Prior; the target's visual lip-reading baseline. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/visual-speech-recognition-for-multiple-languages-in-the-wild) [wiki: doi-10.1038-s42256-022-00550-z](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s42256-022-00550-z/article.md) [wiki: arxiv-2202.13084](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2202.13084/article.md) [wiki: doi-10.21203-rs.3.rs-1386805-v1](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.21203-rs.3.rs-1386805-v1/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M05/rf-articulator-sensing-placement.csv`](../../components/M05/rf-articulator-sensing-placement.csv): M05 topic "rf-articulator-sensing-placement", every candidate paper with its decision (7329 slot-filled, 33 pattern match, usual design in 21, 1 read in full)
+- [`components/M08/rf-ssr-output-granularity.csv`](../../components/M08/rf-ssr-output-granularity.csv): M08 topic "rf-ssr-output-granularity", every candidate paper with its decision (3268 slot-filled, 33 pattern match, usual design in 5, 3 read in full)
+- [`components/M12/radar-ssr-speaker-split.csv`](../../components/M12/radar-ssr-speaker-split.csv): M12 topic "radar-ssr-speaker-split", every candidate paper with its decision (6960 slot-filled, 32 pattern match, usual design in 22, 3 read in full)
+
 
 ## More reviews in Radar, RF & Wi-Fi
 
