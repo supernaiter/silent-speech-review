@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/iphoneme-brain-to-text-communication-for-als-using-conformerxl-decoding/](iphoneme-brain-to-text-communication-for-als-using-conformerxl-decoding/).**
 
-ConformerXL-based intracortical brain-to-text decoding for ALS with a proposed gaze-confirmation interface; WFST decoding reaches 7.86% phoneme error rate retrospectively in one participant.
+Behind: 26.61% WER is four times the 6.67% holdout baseline on the same recordings; the T15 best-result claim fails, the scoring split is unnamed and the gaze interface is untested.
 
 [Read the full review](iphoneme-brain-to-text-communication-for-als-using-conformerxl-decoding/) · [All reviews](../README.md)
