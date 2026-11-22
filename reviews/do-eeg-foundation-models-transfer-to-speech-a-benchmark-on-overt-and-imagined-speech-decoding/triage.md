@@ -1,0 +1,26 @@
+# Triage: Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding
+
+Date: 2026-11-22. Round 1 of the independent evaluation (16 required fixes). Each fix was checked against `notes.json`, the audits and the source passages it concerns (target text, NeuroTTT, the BCI Competition 2020 review, the deep-metric-learning paper). Counts: 7 correct, 6 partly correct, 2 wrong, 1 unverifiable; 13 applied.
+
+| # | Verdict (applied / rejected / unverified) | Evidence | Where applied |
+|---|---|---|---|
+| 1 | Unverified (unverifiable) | The CBraMod paper (arXiv 2412.07236) is not in the wiki; its BCIC2020-3 table could not be checked against a source. The prior LaBraM result cited for this corpus (NeuroTTT Table 1, linear 0.2529, TTT 0.2742; n1, n2) stands as read. | `verification_status.cbramod_paper_bcic` |
+| 2 | Applied (correct) | NeuroTTT trains and tests "with a standard train/test split per subject provided by the competition" (n6, Appendix); the target reports the official validation split (t76, Sec. 2.1). "Same split" was not supported. | Verdict ("competition's per-subject splits"); M06 evidence paragraph states each comparator's protocol; verdict.json |
+| 3 | Applied (correct) | NeuroTTT Table 1 header lists CBraMod columns then LaBraM-Base columns; 0.2529 is the LaBraM linear row, 0.2742 the TTT-with-Tent row (n1, n2, new n6). | Verdict ("with a linear head"); M03 state of the art ("with test-time training"); M06 paragraph; slots M03 sota; notes n6 |
+| 4 | Applied (partly correct) | The review states that final models were scored on the test set (b2) and reports 82.6% as the best performance (b1), but no sentence ties 82.6% to the test set explicitly. The review's report is kept as stated; the M06 verdict now rests on 48.10% (k1) and 0.3976 (n1). | Verdict M06 sentence; M06 state of the art and verdict line; "Where the claims" bullet; verdict.json |
+| 5 | Applied (partly correct) | Sec. 2.4 lists four baselines on UGR-MINDVOICE (EEGNet, ShallowFBCSPNet, Deep4Net, EEGConformer; t82); Table 3 has three on BCIC2020-T3 under "Baselines (CNN / hybrid)". The evaluator's "three baselines" holds only for BCIC2020-T3. | Verdict ("CNN baselines"); slots M06 choice ("4 CNN/hybrid baselines (3 on BCIC), 2 foundation models"); fix_row expert_true_value |
+| 6 | Applied (correct) | t22: on BCIC2020-T3 baselines use 1e-3 and foundation models 1e-4. | M06 usual approach sentence; slots M06 |
+| 7 | Applied (correct) | n5 (subjects 1-28 / 29-32) is the MentalArithmetic protocol, not speech. LBLM's selection is a separate session within subject (l5). | M12 state of the art now cites only the session split |
+| 8 | Applied (correct) | t23 shows the protocol; no quote shows how much it changes the significance. | "Where the claims" bullet reworded as an upward bias, marked (inference) |
+| 9 | Applied (partly correct) | Table 1 lists 3/6/30; Sec. 2.1, Table 2 and Fig. 1 use 60 words (t83, t32). The consequence holds only if 30 is right, so it is stated as inference. | "Where the claims" bullet; notes t83 |
+| 10 | Rejected (wrong) | "remains untested" and "We present the first systematic benchmark" are verbatim in the Abstract (also Sec. 1 and Sec. 4); the 35-entry reference list cites neither LBLM nor NeuroTTT. Quotes added to notes (t81) for the claim table. | None in text; notes t81 |
+| 11 | Applied (correct) | The deep-metric-learning paper names "the BCI Competition DB from Track 3 in the 2020 International BCI Competition", 15 subjects, five words (k3). | notes k3; claim table rows 4 and 17 |
+| 12 | Rejected (wrong) | t61 quotes Sec. 4 in full: "... and explore speech-specific pre-training"; the Abstract also says "motivating speech-specific foundation models". | None |
+| 13 | Applied (partly correct) | The labelling request is right; the same-corpus fine-tuned LaBraM result it cites is fix 1 (unverifiable). | Verdict and M06 paragraph: "under-trained models" and "cannot separate" marked (inference) |
+| 14 | Applied (partly correct) | The 48 and 37 are slot-filled model-family values within this topic's population (M06 audit `usual_approach.population_unique` 165), not counts out of 7,345; the wording now says so. "Other" is kept as the ledger's most frequent value, with CNN named as the most common named family. | M06 usual approach; slots M06 field |
+| 15 | Applied (correct) | M12 audit: leave-one-subject-out 46, fixed held-out subjects 41 of 153 (pattern match). | Verdict; M12 usual approach; slots M12 field |
+| 16 | Applied (partly correct) | Verdict `not_reported` concerns latency and compute; the column showed only "Laboratory". | slots M13 choice ("Not reported (laboratory, offline)") |
+
+Reruns after the changes: render_review, build_refs, fill_row (then fix_row.py, updated for the linear-head condition and "CNN baselines"), check_review 0 FAIL / 0 WARN (body 6,990 characters), verify_quotes 90 found / 0 missing, audit_tally passes for all three audits; the reused M06 and M12 tallies equal the published tables. Claim table regenerated and refilled (42 rows); compact text regenerated.
+
+Open after this round: fix 1 (CBraMod paper on BCIC2020-3) is recorded in `verification_status`.

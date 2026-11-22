@@ -1,104 +1,139 @@
 # Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding
 
-Owais Mujtaba Khanday, Mohamed Baha Ben Ticha, Sanae Belfrouh, Marc Ouellet, Jose A. Gonzalez-Lopez  
-arXiv 2026 · [arXiv](https://arxiv.org/abs/2607.27268)
+Khanday OM, Ben Ticha MB, Belfrouh S, Ouellet M, Gonzalez-Lopez JA. arXiv, 2026. [arXiv:2607.27268](https://arxiv.org/abs/2607.27268)
 
-**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding* (Owais Mujtaba Khanday et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Brain signals (EEG, MEG, intracortical)](../../README.md#brain-signals-eeg-meg-intracortical)
 
-Benchmark of EEG foundation models versus conventional models for overt and imagined speech decoding on two datasets; general EEG pretraining shows no consistent advantage and word decoding stays near chance.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Existing 64-channel scalp EEG |
-| Task | Speech-related EEG classification |
-| Vocabulary | 60 Spanish words/categories (UGR); 5 words/phrases (BCIC) |
-| Speaker | Both |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | Speech-mode accuracy 61.3% (EEGNet) vs 33.3% chance; 60-word accuracy 1.7-2.9% vs 1.7% chance |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Test-subject-informed early stopping weakens unseen-user claims; small cohorts and fixed vocabularies; no pretraining ablation, multiple seeds or online evaluation.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Overt, covert, imagined words | Speech production tasks | 4,015 of 8,995 | ● Standard (Inherited corpora.) |
+| M02 Teacher signal | Class labels only | Paired audio or text labels | 31 of 8,995 | ● Standard (None beyond labels.) |
+| M03 Train / calibrate | Public LaBraM-Base and EEGMamba, fully fine-tuned | General neural checkpoint | 28 of 8,995 | ● Standard (Earlier LaBraM results repeated [@zhou2025lblm; @wang2025neurottt].) |
+| M04 Use-time act | Offline fixed epochs | Overt or silent production | 6,538 of 8,995 | ● Standard (No online use.) |
+| M05 Sensing | Existing 64-channel scalp EEG | Scalp EEG | 8,898 of 8,995 | ● Standard (Inherited corpora.) |
+| M06 Decoding | 4 CNN/hybrid baselines (3 on BCIC), 2 foundation models | Model family other (48); CNN (37) | 48 of 8,995 | ▼ Behind (Best within-subject 30.2% vs 48.10% [@lee2021dml].) |
+| M07 Runtime aids | None | None | 120 of 8,995 | – Not applicable (Closed-set.) |
+| M08 Output | Class logits | Class labels | 3,760 of 8,995 | ● Standard (No text or speech.) |
+| M09 Confirmation | Offline | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | Offline | None | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Corpus labels; BCIC validation split | Corpus labels | 239 of 8,995 | ● Standard (30 vs 60 word classes.) |
+| M12 Evaluation | LOSO; test-subject early stopping | Leave-one-subject-out (most frequent) | 46 of 8,995 | ● Standard (No seed repetition.) |
+| M13 Hardware & limits | Not reported (laboratory, offline) | Laboratory | 6,721 of 8,995 | ✕ Not reported (No latency or compute.) |
 
-General EEG pretraining shows no consistent speech-decoding advantage here; word decoding remains weak, and test-subject-informed early stopping limits the unseen-user claim.
+</details>
 
-### Review
+## Verdict
 
-This is a useful caution for EEG-based silent communication: scaling a model pretrained on general EEG does not automatically improve speech-content decoding. In UGR-MINDVOICE, EEGNet reaches 61.3% accuracy on overt/covert/rest classification, compared with 57.3% for LaBraM and 56.6% for EEGMamba. Those are speech-mode results, not word-recognition accuracy. On the 60-word task, all models reach only 1.7–2.9% accuracy against 1.7% chance. In BCIC2020-T3, within-subject balanced accuracy is 25.7–30.2% for five imagined words/phrases, but cross-subject results are 18.9–20.2%, with no model significantly above 20% chance. The value is therefore a controlled comparison and a warning against importing foundation-model expectations into SSI, rather than a usable communication system. A major qualification is that Section 2.4 uses the held-out test subject to choose when training stops and which checkpoint is evaluated. This is test-informed model selection even without gradient updates, so UGR-MINDVOICE results are not a clean estimate of performance on a wholly untouched user. The paper also relies on official BCIC validation data, leaves multiple training seeds to future work, and contains a 30-versus-60-class inconsistency between its dataset table and word results. The experiments support a lack of consistent advantage for these two models under the reported conditions; they do not prove that all EEG pretraining fails or that speech-specific pretraining would solve the problem.
+The paper [[1]](#ref-1) fine-tunes the public LaBraM and EEGMamba checkpoints against CNN baselines on two speech corpora (M03, M06). Its negative result holds for these checkpoints but is not new: uncited work had found LaBraM below EEGNet on silent-speech EEG [[2]](#ref-2), and, on the same BCIC2020-T3 data, near 25% balanced accuracy within subject with a linear head and chance across subjects [[3]](#ref-3). M03 is standard, and the claim of a first systematic benchmark fails against the Appendix. The conclusion that general-purpose EEG pretraining does not transfer overreaches: CBraMod reached 0.3976 balanced accuracy with a linear head on the competition's per-subject splits [[3]](#ref-3), above every model here. M06 is behind: the best within-subject score, 30.2%, is 17.9 points below deep metric learning on the same corpus (inference) [[4]](#ref-4), pointing to under-trained models (inference). M12 uses the most frequent design, held-out subjects, but stops training on the test subject (Sec. 2.4).
 
-### Why it matters
+## Against the field, component by component
 
-A speech-focused negative-result benchmark that separates mode detection from lexical decoding and makes the limited cross-subject utility of the tested models visible.
+### M03 Training: general EEG checkpoint fine-tuned for speech
 
-### Prior state of the art
+**Usual approach:** Of 40 unique ledger studies on neural foundation models for speech (pattern match, Appendix), 28 name a general neural checkpoint and 6 a speech-specific pretraining. The paper follows the majority design (Sec. 2.2).
 
-The paper situates its comparison against general EEG pretraining successes on non-speech tasks and small-vocabulary imagined-speech studies. Such results do not by themselves establish transfer to speech production.
+**State of the art:** On BCIC2020-III within subject (2025, prior), with test-time training, CBraMod reaches 0.5898 balanced accuracy and LaBraM-Base 0.2742 [[3]](#ref-3). The paper's LaBraM, fully fine-tuned, scores 27.7% (Table 3): level with that LaBraM figure, 31.3 points below CBraMod (inference).
 
-### What changed
+On 24-word silent speech, LaBraM-Base scored 20.6% against 30.5% for EEGNet, the worst baseline in its authors' words [[2]](#ref-2). On BCIC2020-III, both checkpoints were at chance across subjects [[3]](#ref-3), as all models are here under LOSO (18.9–20.2%, Table 3). The remedy the authors point to, speech-specific pretraining (Sec. 4), was tested before: 39.6% against 30.5% for EEGNet [[2]](#ref-2). Verdict: standard; it confirms earlier reports.
 
-Evaluates whether generic pretrained EEG representations help speech-related classification, with compact baselines and separate speech-mode, semantic-category, word-identity, within-subject, and cross-subject results. This is an adjacent imagined-speech BCI benchmark, not articulatory SSI recognition.
+### M06 Decoding: closed-set imagined-speech classification
 
-### Position in the field
+**Usual approach:** Among 167 unique ledger studies of imagined-speech EEG word classification (pattern match, Appendix), the decoder is coded other in 48 and CNN, the most common named family, in 37 (slot-filled). The paper shares loss, batch and stopping rule across all models but gives the foundation models a ten-fold lower learning rate on BCIC2020-T3 (Sec. 2.4).
 
-An adjacent imagined-speech EEG/BCI benchmark with negative transfer findings; useful for SSI evaluation methodology but not a demonstrated articulatory or deployable silent-speech interface.
+**State of the art:** On BCIC2020-T3 (2022, prior), the competition winner reached 82.6% and the runner-up 75.5% with final models scored on the test set [[5]](#ref-5). The paper's best within-subject score is 30.2% against 20.0% chance on the validation split (Table 3).
 
-### Practical value
+Three earlier works exceed it on the same corpus: the competition entries [[5]](#ref-5), deep metric learning at 48.10% with 5-fold cross-validation [[4]](#ref-4), and CBraMod at 0.3976 (linear head) to 0.5898 (test-time training) balanced accuracy on the competition splits [[3]](#ref-3). Splits differ; subjects, classes and recordings do not. Verdict: behind the best comparable work, on the 48.10% and 0.3976 results alone. A recipe this close to chance cannot separate pretrained from compact models (inference).
 
-Helps researchers justify compact baselines and distinguish task difficulty and participant splits before spending resources on larger pretrained EEG models.
+### M12 Evaluation: held-out-subject testing
 
-### Advanced
+**Usual approach:** Leave-one-subject-out over all subjects is the most frequent design (46 of 153 unique studies, pattern match, Appendix; fixed held-out subjects 41), as here.
 
-Separates speech-mode discrimination from lexical decoding, compares pretrained and compact models, and exposes the gap between within-subject and cross-subject imagined-speech classification.
+**State of the art:** Speech-EEG work (2025) selects models on one held-out session and tests on another [[2]](#ref-2).
 
-### Unresolved
+On UGR-MINDVOICE the held-out subject decides early stopping and gives the score (Sec. 2.4). The lexical results it touches sit just above chance: kappa below 0.04 (Sec. 3.1), word accuracy at most 2.9% against 1.7% chance (Table 2). Verdict: standard, weakened by test-subject selection.
 
-Independent model selection, repeat-seed robustness, speech-specific pretraining, natural continuous language, online use, and clinical generalization remain unresolved.
+## The 13 components
 
-### Narrowed or regressed
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Overt, covert, imagined words | Speech production tasks (slot-filled 4,015) | – | standard |
+| M02 Training-only supervision | Class labels only | Paired audio or text labels (slot-filled 31) | – | standard |
+| M03 Training and adaptation | Public LaBraM-Base and EEGMamba, fully fine-tuned | General neural checkpoint (pattern match 28) | 0.5898 balanced accuracy, CBraMod with test-time training [[3]](#ref-3) | standard |
+| M04 Use-time action | Offline fixed epochs | Overt or silent production (slot-filled 6,538) | – | standard |
+| M05 Sensors | Existing 64-channel scalp EEG | Scalp EEG (slot-filled 8,898) | – | standard |
+| M06 Processing and decoding | 4 CNN/hybrid baselines (3 on BCIC), 2 foundation models | Model family other (48); CNN (37) (slot-filled 48) | 82.6%, competition winner [[5]](#ref-5) | behind |
+| M07 Lexicon and LM | None | None (slot-filled 120) | – | not applicable |
+| M08 Output | Class logits | Class labels (slot-filled 3,760) | – | standard |
+| M09 Confirmation | Offline | None (slot-filled 82) | – | not applicable |
+| M10 Correction | Offline | None (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Corpus labels; BCIC validation split | Corpus labels (slot-filled 239) | – | standard |
+| M12 Evaluation | LOSO; test-subject early stopping | Leave-one-subject-out (most frequent) (pattern match 46) | Separate validation data [[2]](#ref-2) | standard |
+| M13 Device and cost | Not reported (laboratory, offline) | Laboratory (slot-filled 6,721) | – | not reported |
 
-No new interface capability is demonstrated; larger pretrained models add parameters without a consistent performance gain under the tested protocol.
+## Where the claims outrun the evidence
 
-### Evaluation details
+- "Remains untested" and "first systematic benchmark" (Abstract): two prior studies did this for LaBraM [[2]](#ref-2), [[3]](#ref-3) (Appendix); neither is cited.
+- "General-purpose EEG pretraining does not yet transfer" (Abstract; Sec. 4) rests on two checkpoints; CBraMod exceeds every model here [[3]](#ref-3).
+- Sec. 2.1 calls the 82.6% a validation score with "far lower" test accuracy; the cited review reports it as the best competition result and scores final models on the test set [[5]](#ref-5).
+- Above-chance lexical results (p < 0.05, Sec. 3.1) rest on runs stopped on the test subject (Sec. 2.4), which biases them upward (inference).
+- Table 1 lists 30 word classes, Table 2 uses 60; with 30, chance is 3.3% and the best word accuracy (2.9%) falls below it (inference).
+- No seed repetition; multi-seed runs are left to future work (Sec. 4).
 
-| Item | Details |
-| --- | --- |
-| Task | speech-recognition |
-| Input | eeg |
-| Sensor | Existing 64-channel scalp EEG recordings. UGR-MINDVOICE uses a 10–20 layout, 1000 Hz acquisition and FCz reference, retaining 62 scalp channels after preprocessing; both datasets are resampled to 200 Hz. No new hardware. |
-| Body site | brain |
-| Output | labels |
-| Vocabulary type | closed-set word/phrase and category labels; no open vocabulary |
-| Vocabulary size | UGR results: 60 word classes, six semantic categories, and three speech modes; BCIC: five words/phrases. Table 1 inconsistently lists 30 for the UGR word-class count. |
-| Metrics and results | UGR-MINDVOICE Table 2: speech-mode accuracy EEGNet 61.3% (95% CI 56.5–66.1), LaBraM 57.3% (53.0–61.7), EEGMamba 56.6% (51.8–61.3), versus 33.3% chance; EEGNet semantic-category accuracy 19.9% versus 16.7% chance; 60-word accuracy across models 1.7–2.9% versus 1.7% chance. BCIC2020-T3 Table 3, mean ± SD across 15 participants: within-subject balanced accuracy EEGNet 26.7 ± 3.3%, EEGConformer 30.2 ± 4.4%, LaBraM 27.7 ± 2.7%, EEGMamba 25.7 ± 2.5%; cross-subject range 18.9–20.2%, all p > 0.18 against 20% chance. These are reported results, not independently reproduced measurements. |
-| Evaluation protocol | Offline UGR-MINDVOICE leave-one-subject-out evaluation over 14 participants, with test-subject-informed early stopping; semantic and word tasks pool overt and covert examples. BCIC2020-T3 reports within-subject and leave-one-subject-out results over 15 participants. Accuracy or balanced accuracy, weighted F1, Cohen kappa, and Wilcoxon tests are reported. |
+## What the field needs next
 
-### Limits
+- M03: CBraMod and a speech-pretrained model [[2]](#ref-2) under one protocol, over several seeds.
+- M06: baselines that first reproduce published same-corpus accuracies [[4]](#ref-4), [[5]](#ref-5).
+- M12: nested leave-one-subject-out with separate validation subjects.
 
-- **Technical:** Low lexical signal, small cohorts and fixed vocabulary; EEGConformer collapses to chance on all UGR tasks under this training configuration. No random-initialization ablation of the same foundation architectures establishes the causal benefit or harm of pretraining.
-- **Evaluation:** Section 2.4 explicitly uses the held-out test subject for early stopping and restores the best checkpoint; although gradients do not use that subject, model selection is test-informed. BCIC results use the official validation split, not a hidden test set. Multiple training seeds are left to future work. Table 1 lists 3/6/30 classes whereas Table 2 and the word-analysis text use 60 word classes.
-- **Deployment:** Only offline classification is reported. No online communication interface, assistive-user trial, walking test, latency, power consumption, or mobile execution measurement is provided.
-- **Scope of this review:** Two EEG datasets, two foundation-model families, and finite-label offline tasks. Spanish lexical tasks combine overt and covert trials; they do not establish a silent-only continuous decoder. No free-form thought reading, audio reconstruction, or open-vocabulary communication is tested.
+## Questions for the authors
 
-### Evidence
+- Which data selected checkpoints and learning rates on BCIC2020-T3?
+- How many seeds were run per fold, and how much do scores vary?
+- Were UGR-MINDVOICE participants in the LaBraM or EEGMamba pretraining corpora?
+- Were z-score statistics fitted on training data only?
+- Does word identity use 30 or 60 classes?
 
-- UGR-MINDVOICE starts with 15 participants and 22 sessions; excluding subject 15 for ICA errors leaves 14 evaluated participants. BCIC2020-T3 contains 15 healthy participants and five imagined words/phrases. (Sections 2.1 and 2.3; Table 1; PDF p. 2)
-- Table 2 reports speech-mode accuracy of 61.3% for EEGNet, 57.3% for LaBraM, and 56.6% for EEGMamba against 33.3% chance. This task distinguishes overt, covert, and rest states rather than individual words. (Section 3.1; Table 2; PDF pp. 3–4)
-- The UGR-MINDVOICE 60-word task yields 1.7–2.9% accuracy across the six models against 1.7% chance. EEGNet reaches 2.8%, LaBraM 1.9%, and EEGMamba 2.9%. (Table 2, Word (60-cl) columns; PDF p. 4)
-- BCIC2020-T3 within-subject balanced accuracy is 26.7 ± 3.3% for EEGNet, 30.2 ± 4.4% for EEGConformer, 27.7 ± 2.7% for LaBraM, and 25.7 ± 2.5% for EEGMamba; these are means and standard deviations over 15 participants for five classes. (Table 3, Within-subject columns and caption; PDF p. 4)
-- BCIC2020-T3 cross-subject balanced accuracy ranges from 18.9% to 20.2%; no model significantly exceeds 20% chance, with all reported one-sided Wilcoxon p-values greater than 0.18. (Table 3 and Section 3.1 continuation; PDF p. 4)
-- Section 2.4 says the held-out UGR test subject determines early stopping and that the best checkpoint is restored. Reviewer assessment: excluding this subject from gradient updates does not make the evaluation independent, because the test subject informs model selection. (Section 2.4, first two paragraphs; PDF p. 2)
-- The authors report BCIC2020-T3 results on the official validation split because official test labels are unavailable. Absence of this dataset from pretraining, as asserted by the authors, does not resolve the separate issue of validation/test separation during model selection. (Section 2.1 final paragraph; Section 2.4; PDF pp. 2–3)
-- Table 1 lists UGR classes as 3/6/30, but Table 2 and Figure 1 label word identity as 60 classes. This review reports Table 2 values and preserves the inconsistency for clarification. (Table 1, PDF p. 2; Figure 1, PDF p. 3; Table 2, PDF p. 4)
-- UGR semantic-category and word models train on pooled overt/covert labels. Their separate overt-only and covert-only evaluation shows no statistically significant difference, all p > 0.11; this is not a silent-only training protocol. (Section 2.4, PDF p. 2; Section 3.2, PDF p. 4)
-- Multiple-seed experiments and speech-specific pretraining are explicitly future work. Reviewer assessment: speech-specific pretraining is a proposed direction, not an experimentally demonstrated remedy. (Section 4, final sentences; PDF p. 4)
-- The paper compares pretrained LaBraM and EEGMamba with established baselines across speech-mode and lexical tasks on two datasets. Reviewer assessment: its contribution is comparative evidence about transfer, not a new decoder or usable speech interface. (Abstract; Sections 2.2 and 3; Tables 2–3; PDF pp. 1–4)
+## Appendix: literature search
+
+- M03 neural-foundation-model-speech-transfer (new). Inclusion rule: speech or language decoders from EEG, MEG or intracranial recordings that initialize from a checkpoint pretrained on large neural corpora and fine-tune it for word, phrase, sentence or speech-feature decoding; speech-audio and video foundation models excluded; reviews and dataset papers remain as pattern matches (upper bound); versions counted once. Ledger counts: slot-filled 1,526 unique studies (M03); pattern match 40 unique studies (47 folders). Design counts (pattern match, full text): general neural checkpoint 28, speech-specific self-supervised pretraining 6. Read in full: [[2]](#ref-2) (prior), [[3]](#ref-3) (prior; state of the art). Known-item recall 1.0 (1 seed).
+- M06 imagined-speech-eeg-word-classification (published table, reused). Inclusion rule: studies that classify imagined, covert or inner speech from scalp EEG into a closed set of words, syllables or commands and report accuracy. Ledger counts: slot-filled 7,345 unique studies (M06); pattern match 167 unique studies (256 folders). Usual design: model family other 48, CNN 37 (slot-filled). Read in full: [[5]](#ref-5), [[4]](#ref-4), [[3]](#ref-3) (prior). Known-item recall 1.0 (4 seeds).
+- M12 eeg-held-out-subject-test (published table, reused). Inclusion rule: EEG decoding studies that report accuracy on subjects whose data were not used to train the decoder. Ledger counts: slot-filled 6,960 unique studies (M12); pattern match 153 unique studies (195 folders). Usual design: leave-one-subject-out over all subjects 46, fixed held-out subjects 41 (pattern match). Read in full: [[2]](#ref-2), [[3]](#ref-3) (prior).
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Khanday, O. M., Ben Ticha, M. B., Belfrouh, S., Ouellet, M., Gonzalez-Lopez, J. A. “Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding.” *arXiv*, 2026. doi:[10.48550/arXiv.2607.27268](https://doi.org/10.48550/arXiv.2607.27268). arXiv:[2607.27268](https://arxiv.org/abs/2607.27268). Target. arXiv:2607.27268 v2 (2026-09-07) read. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/do-eeg-foundation-models-transfer-to-speech-a-benchmark-on-overt-and-imagined-speech-decoding) [wiki: arxiv-2607-27268-eegfm](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2607-27268-eegfm/article.md) [wiki: arxiv-2607.27268](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2607.27268/article.md) [wiki: arxiv-2607.27268-eegf](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2607.27268-eegf/article.md) [wiki: arxiv-2607-27268-eegfmspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2607-27268-eegfmspeech/article.md)
+2. <a id="ref-2"></a>Zhou, J., Cao, Z., Duan, Y., Barkley, C., Leong, D., Jiang, X., et al. “Pretraining Large Brain Language Model for Active BCI: Silent Speech.” *arXiv*, 2025. arXiv:[2504.21214](https://arxiv.org/abs/2504.21214). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/pretraining-large-brain-language-model-for-active-bci-silent-speech) [wiki: arxiv-2504.21214](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2504.21214/article.md)
+3. <a id="ref-3"></a>Wang, S., Deng, Y., Bao, Z., Zhan, X., Duan, Y. “NeuroTTT: Bridging Pretrain-Downstream Task Misalignment in EEG Foundation Models via Test-Time Training.” *arXiv*, 2025. arXiv:[2509.26301](https://arxiv.org/abs/2509.26301). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/neurottt-bridging-pretraining-downstream-task-misalignment-in-eeg-foundation-models-via-test-tim) [wiki: arxiv-2509-26301-neurottt](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2509-26301-neurottt/article.md) [wiki: arxiv-2509.26301](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2509.26301/article.md)
+4. <a id="ref-4"></a>Lee, D., Lee, M., Lee, S. “Decoding Imagined Speech Based on Deep Metric Learning for Intuitive BCI Communication.” *IEEE Transactions on Neural Systems and Rehabilitation Engineering*, 2021, 29, 1363–1374. doi:[10.1109/TNSRE.2021.3096874](https://doi.org/10.1109/TNSRE.2021.3096874). [wiki: doi-10.1109-tnsre.2021.3096874](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-tnsre.2021.3096874/article.md)
+5. <a id="ref-5"></a>Jeong, J., Cho, J., Lee, Y., Lee, S., Shin, G., Kweon, Y., et al. “2020 International Brain-Computer Interface Competition: A Review.” *Frontiers in Human Neuroscience*, 2022, 16, 898300. doi:[10.3389/fnhum.2022.898300](https://doi.org/10.3389/fnhum.2022.898300). [wiki: doi-10.3389-fnhum.2022.898300](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3389-fnhum.2022.898300/article.md) [wiki: pmc-9354666-bci2020](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9354666-bci2020/article.md) [wiki: pmc-9354666-bcicomp](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9354666-bcicomp/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M03/neural-foundation-model-speech-transfer.csv`](../../components/M03/neural-foundation-model-speech-transfer.csv): M03 topic "neural-foundation-model-speech-transfer", every candidate paper with its decision (1526 slot-filled, 40 pattern match, usual design in 28, 2 read in full)
+- [`components/M06/imagined-speech-eeg-word-classification.csv`](../../components/M06/imagined-speech-eeg-word-classification.csv): M06 topic "imagined-speech-eeg-word-classification", every candidate paper with its decision (7345 slot-filled, 167 pattern match, usual design in 48, 2 read in full)
+- [`components/M12/eeg-held-out-subject-test.csv`](../../components/M12/eeg-held-out-subject-test.csv): M12 topic "eeg-held-out-subject-test", every candidate paper with its decision (6960 slot-filled, 153 pattern match, usual design in 46, 2 read in full)
+
 
 ## More reviews in Brain signals (EEG, MEG, intracortical)
 

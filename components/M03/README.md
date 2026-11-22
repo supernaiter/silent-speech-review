@@ -59,6 +59,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Research on Robust Audio-Visual Speech Recognition Algorithms | 2023 | Ledger M03 |
 | E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience | 2026 | Ledger M06 |
 
+## neural-foundation-model-speech-transfer
+
+- Table: [`neural-foundation-model-speech-transfer.csv`](neural-foundation-model-speech-transfer.csv) (1526 slot-filled, 40 pattern match, usual design in 28, 2 read in full)
+- Inclusion rule: Speech or language decoders from EEG, MEG or intracranial recordings that initialize from a checkpoint pretrained on large neural corpora (a neural foundation model) and fine-tune it for word, phrase, sentence or speech-feature decoding. Boundary: speech-audio or video foundation models are excluded; reviews and dataset papers that only mention foundation models still count as pattern matches (upper bound); versions of one study count once.
+- Used in: [Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding](../../reviews/do-eeg-foundation-models-transfer-to-speech-a-benchmark-on-overt-and-imagined-speech-decoding/)
+
 ## overt-silent-joint-training
 
 - Table: [`overt-silent-joint-training.csv`](overt-silent-joint-training.csv) (1526 slot-filled, 354 pattern match, usual design in 31, 5 read in full)
