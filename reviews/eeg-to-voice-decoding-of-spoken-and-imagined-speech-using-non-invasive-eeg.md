@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/eeg-to-voice-decoding-of-spoken-and-imagined-speech-using-non-invasive-eeg/](eeg-to-voice-decoding-of-spoken-and-imagined-speech-using-non-invasive-eeg/).**
 
-Reconstructs cued overt and imagined speech audio and text from 130-channel wet EEG with subject-specific models; imagined-speech WER is 47.48% (2 s) and 43.46% (4 s) before language correction.
+Drops DTW from an EEG-to-Mel generator (M06, standard) but tests only the ten trained classes (M12, behind); one frozen ASR both trains and scores it, and EEG output beats recorded-speech WER.
 
 [Read the full review](eeg-to-voice-decoding-of-spoken-and-imagined-speech-using-non-invasive-eeg/) · [All reviews](../README.md)

@@ -173,7 +173,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`noninvasive-speech-decoding-objective.csv`](noninvasive-speech-decoding-objective.csv) (7345 slot-filled, 538 pattern match, usual design in 98, 6 read in full)
 - Inclusion rule: Speech or language decoding studies from scalp EEG or MEG (perceived, imagined, attempted or overt). The design compared is the training objective of the decoder: contrastive alignment to a speech or text embedding with ranking of candidates, regression of an acoustic or feature target, or classification into fixed classes. Boundary: EEG/MEG used only as an auxiliary channel to another sensor still counts; reviews are excluded; versions count once.
-- Used in: [Decoding speech perception from non-invasive brain recordings](../../reviews/decoding-speech-perception-from-non-invasive-brain-recordings/)
+- Used in: [Decoding speech perception from non-invasive brain recordings](../../reviews/decoding-speech-perception-from-non-invasive-brain-recordings/), [EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG](../../reviews/eeg-to-voice-decoding-of-spoken-and-imagined-speech-using-non-invasive-eeg/)
 
 ## perception-imagery-cross-condition-model
 
