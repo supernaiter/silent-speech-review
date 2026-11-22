@@ -115,6 +115,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Visual-only word-level lip reading evaluated on the English LRW benchmark (500 words, BBC clips) with top-1 accuracy on its test set. Boundary: LRW-1000 / CAS-VSR-W1k and other-language LRW variants are excluded; audio-visual results count only when a visual-only figure is also reported; results that feed word-boundary indicators to the model are kept but labelled; versions of one study count once.
 - Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/)
 
+## neural-speech-reconstruction-identification-test
+
+- Table: [`neural-speech-reconstruction-identification-test.csv`](neural-speech-reconstruction-identification-test.csv) (6960 slot-filled, 173 pattern match, usual design in 122, 4 read in full)
+- Inclusion rule: Studies that reconstruct a continuous acoustic speech representation (spectrogram, mel features, envelope or waveform) from neural recordings (EEG, MEG, ECoG, sEEG or intracortical) during perceived, produced, mimed or imagined speech and evaluate the reconstruction. Boundary: classification-only and text-only decoders are excluded; auditory attention decoding that only tracks an envelope to select a talker is counted by the ledger pattern but is not a reconstruction study; versions of one study count once. Design categories are full-text pattern matches and overlap: correlation, identification among candidates, mel-cepstral distortion, human listening test, STOI.
+- Used in: [Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech](../../reviews/relating-the-neural-representations-of-vocalized-mimed-and-imagined-speech/)
+
 ## neural-text-unseen-sentence-test
 
 - Table: [`neural-text-unseen-sentence-test.csv`](neural-text-unseen-sentence-test.csv) (6960 slot-filled, 145 pattern match, usual design in 21, 4 read in full)
@@ -129,7 +135,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`null-model-construction-neural-decoding.csv`](null-model-construction-neural-decoding.csv) (6960 slot-filled, 132 pattern match, usual design in 45, 2 read in full)
 - Inclusion rule: Neural decoding or neural-response prediction studies that test significance against an empirical null built by shuffling or permuting the data (labels, trials, time, channels) rather than only against a theoretical chance level. Boundary: studies that report only theoretical chance are excluded; a null that is mentioned but not described still counts; versions of one study count once.
-- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/), [Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes](../../reviews/mechanistic-interpretability-of-brain-to-speech-models-across-speech-modes/), [Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping](../../reviews/zero-shot-imagined-speech-decoding-via-imagined-to-listened-meg-mapping/)
+- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/), [Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes](../../reviews/mechanistic-interpretability-of-brain-to-speech-models-across-speech-modes/), [Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech](../../reviews/relating-the-neural-representations-of-vocalized-mimed-and-imagined-speech/), [Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping](../../reviews/zero-shot-imagined-speech-decoding-via-imagined-to-listened-meg-mapping/)
 
 ## silent-emg-voicing-benchmark
 

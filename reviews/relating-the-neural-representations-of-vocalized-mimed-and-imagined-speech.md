@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/relating-the-neural-representations-of-vocalized-mimed-and-imagined-speech/](relating-the-neural-representations-of-vocalized-mimed-and-imagined-speech/).**
 
-Cross-mode analysis of speech reconstruction from sEEG in vocalized, mimed and imagined speech in one participant, showing envelope correlation needs sentence-discrimination checks.
+Cross-mode transfer and rank scoring are standard tests; one participant, unstated alignment to vocalized targets and mismatched nulls leave the hierarchy and linear-better claims unsupported.
 
 [Read the full review](relating-the-neural-representations-of-vocalized-mimed-and-imagined-speech/) · [All reviews](../README.md)
