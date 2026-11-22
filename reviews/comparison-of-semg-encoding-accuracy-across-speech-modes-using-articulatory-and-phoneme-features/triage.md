@@ -1,0 +1,29 @@
+# Triage: Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features
+
+Date: 2026-11-22. Input: the fallback evaluation (13 required fixes). Each fix was checked against notes.json, the topic audits and, where a fact needed it, the source passage. Round 1 of at most 2.
+
+Summary: 13 fixes; 8 correct, 4 partly correct, 0 wrong, 1 unverifiable. Applied: 12 (all correct and partly correct ones).
+
+| # | Verdict | Evidence | Where applied |
+|---|---|---|---|
+| 1 | applied (correct) | notes t8: aloud uses 14 SPARC dimensions, silent modes 12; "A 12-dimensional smooth trajectory" was wrong for aloud. | M06 confound sentence: "A 12- or 14-dimensional smooth trajectory (silent or aloud)". |
+| 2 | applied (correct) | notes c2: Chartier et al. tested on sentences from separate sessions; no speaker-held-out test in that paper. | What the field needs next, M12: "session-held-out encoding tests, as in [2], and speaker-held-out tests". |
+| 3 | applied (partly correct) | The claim is a ledger tally, not a reading claim: the M06 audit usual_approach note records the target as the only surface-EMG study among the 136 pattern matches, and the Appendix already states it. Lee et al. [3] (surface EMG, decoding direction) was read and falls outside the inclusion rule. The fix was right that the sentence lacked an Appendix pointer. | M06 usual approach: "by the same Appendix tally the target is the only surface-EMG study among them". |
+| 4 | applied (partly correct) | M02 audit usual_approach: two prior studies (phoneme labels mapped by linear length scaling; DTW-transferred audio targets [4]); after the target, DTW transfer is the default on the Gaddy corpus. The suggested earlier DTW work was checked: Janke, Wand and Schultz, Interspeech 2010 (wiki isca-janke10-emgfeedback, Sec. 3.3) aligns silent EMG with a recognizer trained on audible EMG, not by DTW to the audible recording, so [4] stays the earliest DTW case in the table. | M02 usual approach now gives the typical design and the two prior studies instead of "the earliest". |
+| 5 | applied (partly correct) | Every value listed is in notes.json (t2, t39, c3, c1, l2, l3, t35, g1 with M02 audit metric, t15, t37, t31, t32, t34, t18); the gap was the claim-table mapping, not the evidence. | claims.md refilled with quotes and locations for rows 1-17; rows 25-27 added for the §III-B defence, the §II-C span-shuffle null and the unstated folds, seeds and sessions. |
+| 6 | applied (partly correct) | Chartier et al. source: "We evaluated vSMC encoding of both acoustics (described here by using the first three formants: F1, F2, and F3) and phonemes"; Fig. 7B names the "formant encoding model". "Formant" was accurate, but the quoted term is "acoustic". | M06 state of the art: "articulatory, phoneme and acoustic (formant) encoding models"; claim row 6 notes the formant definition. |
+| 7 | applied (correct) | notes l1 quote: "approximately 0.9 for most articulatory features". | M06: "correlation of about 0.9 for most features, on vocalized speech of one speaker". |
+| 8 | applied (correct) | M06 audit: acoustic 124 is a pattern-match upper bound. | M06 usual approach: "acoustic predictors ... match 124 (upper bound)". |
+| 9 | applied (correct) | notes t26: the authors concede DTW inflation only; no concession for the 12-versus-14 feature difference. | Verdict: "confounded by 12 silent against 14 aloud features (§II-B) and by a warp to the aloud trial; the authors concede only that the warp can inflate absolute correlations (§III-B)". |
+| 10 | applied (correct) | notes t24 quote: "the shared component dominates across electrodes". | M06: "the component both feature sets share dominates across electrodes (§III-A, Fig. 3)". |
+| 11 | applied (partly correct) | The verdict rule for not_reported ("the paper needed to state it and does not") fits: fold counts, seeds and session separation are needed for a held-out test and are missing (t31, t32, t34). The choice column describes what was done; the note did not say which part is unreported. Verdict kept. | slots.json M12 note: "Test split not stated: folds, seeds, sessions." |
+| 12 | unverifiable | Showing that no later production-side articulatory-versus-phoneme encoding comparison exists would need reading beyond the review's budget. One later articulatory-kinematics encoding candidate in the M06 audit (bioRxiv 2025, doi-10.1101-2025.05.27.656311) was checked and fits no phoneme encoding model. Not applied; recorded in verification_status open_items. | none |
+| 13 | applied (correct) | refs.json carried "arXiv v2 read" (process note) and a note on where the wiki files the dissertation. | Removed the target's note; the dissertation note now gives only the related journal article (Janke and Diener, TASLP 2017) as bibliographic data. |
+
+## Other checks after the changes
+
+- Legacy row fields: canon_before, delta_from_canon and position_in_field did not mention the earlier ECoG comparison and presented the predictor comparison as the paper's delta, which the review contradicts. They were rewritten in English by fix_row.py (run after fill_row.py); no field was dropped. The other legacy fields agree with the review.
+- verification_status: evaluator and triage recorded; open items added for fix 12 and for the WARN below.
+- Gates: check_review 0 FAIL, 1 WARN; verify_quotes 40 found, 0 missing; audit_tally passes on both audits (no --write, so the published M02 tally stays as published: 15 confirmed). Body 6,746 characters.
+- WARN "9 papers read in full besides the target": the count includes read_fulltext entries carried over from earlier reviews in the reused published M02 table. This review read 4 named papers (Chartier et al. 2018, Lee et al. 2025, Janke 2016, Lee et al. 2026).
+- claims.md and compact.md regenerated; verdict.json unchanged (its text already limited the confounds correctly) and copied to the slug-named verdict file.

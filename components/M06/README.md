@@ -199,6 +199,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that identify or verify the speaker (or subject) from a non-acoustic speech signal: lip or face motion video during speech, ultrasound, EMA, EMG, non-audible murmur or throat contact microphones, or EEG during speech tasks. Boundary: static face recognition without speech, acoustic-only speaker recognition, and identification used only as an auxiliary loss or nuisance factor are excluded; audio-visual fusion counts when the non-acoustic stream is scored on its own; versions count once.
 - Used in: [Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces](../../reviews/neural-speaker-embeddings-for-ultrasound-based-silent-speech-interfaces/)
 
+## speech-feature-encoding-model
+
+- Table: [`speech-feature-encoding-model.csv`](speech-feature-encoding-model.csv) (7345 slot-filled, 137 pattern match, usual design in 124, 3 read in full)
+- Inclusion rule: Studies that fit forward encoding models (TRF, mTRF, linear or nonlinear regression from time-varying speech features to a recorded biosignal: EEG, MEG, ECoG, EMG, fMRI) and evaluate them on held-out data, classified by the predictor feature space (acoustic, phonetic/phoneme, articulatory). Boundary: pure decoding (signal to features) studies, source-localisation forward models and acoustic-only articulatory inversion are excluded when read; a study can use several feature spaces; versions count once.
+- Used in: [Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features](../../reviews/comparison-of-semg-encoding-accuracy-across-speech-modes-using-articulatory-and-phoneme-features/)
+
 ## spiking-neural-network-decoder
 
 - Table: [`spiking-neural-network-decoder.csv`](spiking-neural-network-decoder.csv) (7345 slot-filled, 29 pattern match, usual design in 3, 3 read in full)
