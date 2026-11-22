@@ -187,6 +187,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Neural or articulatory speech decoders that emit phoneme (or character) probabilities with a recurrent or CTC-trained network and convert them to words with an n-gram or neural language model. Included: sEMG, EEG, ECoG and intracortical; online or offline. Excluded: closed-set word classifiers and direct audio synthesis.
 - Used in: [A cross-species neural foundation model for end-to-end speech decoding](../../reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/), [A high-performance neuroprosthesis for speech decoding and avatar control](../../reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/), [A high-performance speech neuroprosthesis](../../reviews/a-high-performance-speech-neuroprosthesis/), [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
 
+## radar-ssr-input-representation
+
+- Table: [`radar-ssr-input-representation.csv`](radar-ssr-input-representation.csv) (7345 slot-filled, 32 pattern match, usual design in 21, 5 read in full)
+- Inclusion rule: Speech or silent-speech recognition studies that classify speech units from radar or RF reflections or transmissions of the articulators (IR-UWB, FMCW, SFCW, CW Doppler, mmWave, Wi-Fi or RFID backscatter); the design compared is the representation fed to the classifier: hand-engineered features (distances, envelopes, velocity or spectral descriptors) versus raw frames or spectrograms fed to a learned network. Boundary: radar used only to recover the acoustic vibration of the throat or vocal folds is excluded; datasets without a recognizer are excluded; versions of one study count once; ledger hits from non-radar papers are inside the pattern-match upper bound.
+- Used in: [IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases](../../reviews/ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases/)
+
 ## speaker-recognition-from-articulation
 
 - Table: [`speaker-recognition-from-articulation.csv`](speaker-recognition-from-articulation.csv) (7345 slot-filled, 58 pattern match, usual design in 34, 5 read in full)
