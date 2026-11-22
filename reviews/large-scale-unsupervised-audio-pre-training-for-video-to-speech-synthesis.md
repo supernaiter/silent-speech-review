@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis/](large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis/).**
 
-Pretrains the decoder of a video-to-speech model on large audio-only corpora, improving reconstruction quality on GRID, TCD-TIMIT and LRW, though WER gains are not consistent.
+Audio-only decoder pre-training (M03) is standard after TTS decoder transfer; it lowers WER in 7 of 16 pairs, earlier systems keep lower WER, and no equal-training control or listener test exists.
 
 [Read the full review](large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis/) · [All reviews](../README.md)

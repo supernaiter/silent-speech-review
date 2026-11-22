@@ -2251,6 +2251,18 @@
    "role": "prior",
    "loc": "Sec. 1",
    "quote": "it can obtain both audio and visual contexts during inference even when the uni-modal input is provided only."
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "role": "sota",
+   "loc": "Table VIII",
+   "quote": "SVTS-M [29] 1.46 0.649 0.482 12.90"
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "role": "sota",
+   "loc": "Table V",
+   "quote": "SVTS-S [29] 1.97 0.705 0.523 2.37"
   }
  ],
  "known_item_recall": {
@@ -2295,6 +2307,7 @@
   "audio-visual-video-to-speech-synthesis-with-synthesized-input-audio",
   "improved-speech-reconstruction-from-silent-video",
   "intelligible-lip-to-speech-synthesis-with-speech-units",
+  "large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis",
   "lip2audspec-speech-reconstruction-from-silent-lip-movements-video",
   "multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video",
   "video-driven-speech-reconstruction-using-generative-adversarial-networks",
@@ -2442,6 +2455,36 @@
  },
  "deciding_priors_note_audio-visual-video-to-speech-synthesis-with-synthesized-input-audio": "Target first public 2023-07. Deciding priors read: LipSound2 (arXiv 2021-12) feeds its own predicted frames back at inference; the memory-network model (ICCV 2021) recalls audio context from video at inference. Earlier systems with lower WER on the target's splits (end-to-end WGAN, 2021-04; SVTS, 2022-05) are read from the target's Tables VI-VII. The authors' base-model paper (2023-06) is concurrent.",
  "tally_audio-visual-video-to-speech-synthesis-with-synthesized-input-audio": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 165,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "neural vocoder (WaveNet, WaveGlow, HiFi-GAN, MelGAN and similar) on predicted acoustic features",
+   "n": 49,
+   "tier": "pattern match",
+   "population_unique": 165
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "year": 2023,
+   "metric": "ASR WER on GRID, four seen speakers (S1, S2, S4, S29), best raw-waveform row of the 2023 comparison table (end-to-end WGAN, 2022)",
+   "value": 4.07,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 13,
+  "read_prior": [
+   "arxiv-2306.03258",
+   "cvf-kim21-mabm",
+   "doi-10.1109-tnnls.2022.3191677",
+   "isca-vougioukas19_ganv2s"
+  ],
+  "unread": 187,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "deciding_priors_note_large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis": "Target first public 2023-06. Its tables give earlier systems lower WER on all four WER splits: end-to-end WGAN (2021-04) 4.07% GRID-4 and 16.05% GRID-33 unseen; SVTS (2022-05) 2.37% GRID-33 seen and 12.90% LRW. Target bests: 4.54%, 17.08%, 2.66%, 14.96%.",
+ "tally_large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis": {
   "slot_filled_unique": 7345,
   "string_match_unique": 165,
   "fulltext_only_folders": 0,

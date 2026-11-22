@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced speech on video; audio muted at test"
+  ],
+  "field": "Ordinary voiced speech",
+  "n": 7388,
+  "matched": 4015,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Ground-truth audio target; GAN and spectral losses"
+  ],
+  "field": "Paired audio targets",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "End-to-end WGAN lineage.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Decoder pre-trained on 3,572 h of audio alone, then transferred"
+  ],
+  "field": "Pretrained vocoder only",
+  "n": 7388,
+  "matched": 9,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Helps WER in 7 of 16 pairs (inference).",
+  "sota": "TTS decoder transfer, 55.9% to 36.5% WER [@zhang2021talnet]"
+ },
+ "M04": {
+  "choice": [
+   "Offline synthesis from silent video"
+  ],
+  "field": "Offline decoding",
+  "n": 7388,
+  "matched": 6538,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "One frontal camera, mouth crop"
+  ],
+  "field": "Single camera",
+  "n": 7388,
+  "matched": 8898,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Raw-waveform generator or mel plus vocoder"
+  ],
+  "field": "Neural vocoder",
+  "n": 7388,
+  "matched": 49,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "WER behind on all four splits; TCD-TIMIT STOI, ESTOI behind.",
+  "sota": "GRID unseen 16.05% WER [@mira2021endtoend]; LRW 12.90% [@mira2022svts]"
+ },
+ "M07": {
+  "choice": [
+   "Speaker d-vector or face embedding; no language model"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 120,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Raw 24 kHz waveform or mel with HiFi-GAN"
+  ],
+  "field": "Waveform via vocoder",
+  "n": 7388,
+  "matched": 3760,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "Offline study"
+  ],
+  "field": "Absent",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "Offline study"
+  ],
+  "field": "Absent",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot_filled",
+  "verdict": "not_applicable",
+  "note": "Offline.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "GRID, TCD-TIMIT, LRW"
+  ],
+  "field": "Standard corpora",
+  "n": 7388,
+  "matched": 239,
+  "matched_tier": "slot_filled",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "PESQ, STOI, ESTOI, ASR WER; single runs"
+  ],
+  "field": "Listener test",
+  "n": 7388,
+  "matched": 83,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "behind",
+  "note": "No listener test, no seeds.",
+  "sota": "Listeners by 2015 [@lecornu2015reconstructing]; 85% word accuracy [@lecornu2017generating]"
+ },
+ "M13": {
+  "choice": [
+   "Not evaluated"
+  ],
+  "field": "Not reported",
+  "n": 7388,
+  "matched": 6721,
+  "matched_tier": "slot_filled",
+  "verdict": "not_reported",
+  "note": "No latency or compute.",
+  "sota": "–"
+ }
+}

@@ -20,6 +20,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Models that map a non-acoustic speech signal (ultrasound, EMA or PMA, EMG, lip video, other wearable sensors) to speech, text or articulatory output and adapt a trained model to a new speaker or recording session with target data, reporting an unadapted or full-retraining comparison; classified by what is adapted (whole network, a layer subset, an input-space transform, or an input prompt/padding/embedding). Boundary: acoustic-only systems, speaker-independent training without an adaptation step, neural-recording calibration, tongue-contour tracking and reviews are excluded; versions counted once.
 - Used in: [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](../../reviews/adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks/)
 
+## audio-only-decoder-pretraining
+
+- Table: [`audio-only-decoder-pretraining.csv`](audio-only-decoder-pretraining.csv) (1526 slot-filled, 30 pattern match, usual design in 9, 3 read in full)
+- Inclusion rule: Studies that synthesize speech from a non-acoustic signal (video, ultrasound, EMG, articulography, neural recordings) and pre-train the speech-generating part of the model (decoder, generator or speech autoencoder) on speech data without the non-acoustic signal, then transfer it into the signal-to-speech model. Boundary: an off-the-shelf pretrained vocoder used alone is counted separately (pretrained_vocoder_only), encoder-side self-supervised pre-training on the non-acoustic signal belongs to M03 self-supervised-pretraining, audio-visual paired pre-training (VoxCeleb2) is counted separately, knowledge distillation into a visual encoder belongs to M02 audio-knowledge-transfer-to-video; full-text design counts are pattern matches (upper bounds, mentions included); versions counted once.
+- Used in: [Large-scale unsupervised audio pre-training for video-to-speech synthesis](../../reviews/large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis/)
+
 ## cross-subject-pooled-training
 
 - Table: [`cross-subject-pooled-training.csv`](cross-subject-pooled-training.csv) (1526 slot-filled, 370 pattern match, usual design in 90, 4 read in full)

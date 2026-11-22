@@ -1,0 +1,658 @@
+{
+ "topic": "audio-only-decoder-pretraining",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*(task_family=speech_reconstruction|speech synthesis|synthesi[sz]ed speech|vocoder|lip-to-speech|video-to-speech|-to-speech))(?=.*(audio-only (corpora|data|speech|pre-?train)|unpaired (audio|speech)|unlabel+ed (audio|speech)|speech-only|pre-?train\\w*[^|]{0,60}(decoder|generator|auto-?encoder)|(decoder|generator|auto-?encoder)[^|]{0,40}pre-?train|speech auto-?encoder|audio auto-?encoder|audio-to-audio|transfer\\w* [^|]{0,30}(TTS|text-to-speech)))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that synthesize speech from a non-acoustic signal (video, ultrasound, EMG, articulography, neural recordings) and pre-train the speech-generating part of the model (decoder, generator or speech autoencoder) on speech data without the non-acoustic signal, then transfer it into the signal-to-speech model. Boundary: an off-the-shelf pretrained vocoder used alone is counted separately (pretrained_vocoder_only), encoder-side self-supervised pre-training on the non-acoustic signal belongs to M03 self-supervised-pretraining, audio-visual paired pre-training (VoxCeleb2) is counted separately, knowledge distillation into a visual encoder belongs to M02 audio-knowledge-transfer-to-video; full-text design counts are pattern matches (upper bounds, mentions included); versions counted once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 34,
+  "string_match_unique": 30,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2506.11862",
+     "arxiv-2307.01233",
+     "arxiv-2511.01056",
+     "isca-lee24c_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2406.11568",
+     "arxiv-2511.01056"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2412.18839",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "adaptation=machine_finetuning",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2412.18839",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "adaptation=none",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=80 epochs, 8x p40, ~4200s/epoch; adam b1 .9 b2 .98 eps 1e-9 dropout .1",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2004.09347"
+    ]
+   },
+   {
+    "design": "TrainingRun.optimization={'zero_shot': 'no per-user fine-tune; unpaired corpora only'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2303.01639"
+    ]
+   },
+   {
+    "design": "TrainingRun.optimization=50,000 iterations per experiment; person-specific fine-tune few epochs",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2312.06613"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=training without latent feature loss llf.",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2312.13600"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "pretrained_vocoder_only",
+    "n": 9,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609.04455",
+     "uef-kapoor26_thesis",
+     "arxiv-2412.18839",
+     "arxiv-2512-22146-eeg2voice",
+     "arxiv-2412.13387"
+    ]
+   },
+   {
+    "design": "audio_only_decoder_pretraining",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2306.15464-v2apretrain",
+     "arxiv-2303.01639",
+     "doi-10.1101-2023.09.16.558028",
+     "doi-10.1101-2024.12.16.628596"
+    ]
+   },
+   {
+    "design": "tts_decoder_transfer",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2412.13387",
+     "doi-10.1609-aaai.v35i16.17693"
+    ]
+   },
+   {
+    "design": "audiovisual_pretraining",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2306.15464-v2apretrain",
+     "arxiv-2511.01056"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 1.07,
+   "unit": "percent",
+   "raw": "1.07",
+   "pid": "arxiv-2412.18839",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Text WER",
+   "value": 2.1,
+   "unit": "percent",
+   "raw": "0.021",
+   "pid": "arxiv-2609.04455",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table2 wtn wer",
+   "value": 11.55,
+   "unit": "%",
+   "raw": "11.55",
+   "pid": "arxiv-2303.01639",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best WER",
+   "value": 15.2,
+   "unit": "%",
+   "raw": "best speaker WER",
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word error rate at ~16h mixed training (%)",
+   "value": 18.03,
+   "unit": "percent",
+   "raw": "18.03%",
+   "pid": "arxiv-2506.11862",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "EMG WER tri-modal+DFL (best)",
+   "value": 18.091,
+   "unit": "percent",
+   "raw": "18.091",
+   "pid": "arxiv-2412.13387",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)↓",
+   "value": 23.8,
+   "unit": "percent",
+   "raw": "23.8",
+   "pid": "arxiv-2406.11568",
+   "year": 2024,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1904.05259",
+   "key": "t:autoencoderbasedarticulatorytoacousticmappingforultrasoundsilentspeechinterfaces",
+   "title": "Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1904.05259 | doi=10.48550/arxiv.1904.05259 | title=Autoencoder-Based Articulatory-to-Acoustic Mapping for"
+  },
+  {
+   "pid": "arxiv-2004.09347",
+   "key": "t:endtoendwhispertonaturalspeechconversionusingmodifiedtransformernetwork",
+   "title": "End-to-End Whisper to Natural Speech Conversion using Modified Transformer Network",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2004.09347 | title=End-to-End Whisper to Natural Speech Conversion using Modified Transformer Network | S"
+  },
+  {
+   "pid": "arxiv-2303.01639",
+   "key": "t:wesperzeroshotandrealtimewhispertonormalvoiceconversionforwhisperbasedspeechinte",
+   "title": "WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.01639 | title=WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Sp"
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "key": "t:largescaleunsupervisedaudiopretrainingforvideotospeechsynthesis",
+   "title": "Large-scale unsupervised audio pre-training for video-to-speech synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.15464-v2apretrain | title=Large-scale unsupervised audio pre-training for video-to-speech synthesis"
+  },
+  {
+   "pid": "arxiv-2307.01233",
+   "key": "t:robustl2sspeakerspecificliptospeechsynthesisexploitingselfsupervisedrepresentati",
+   "title": "RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Representations",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2307.01233 | title=RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Represe"
+  },
+  {
+   "pid": "arxiv-2312.06613",
+   "key": "p:arxiv-2312.06613",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vocabulary_regime=open_vocabulary | extra.Production.scope_note=English text drives simultaneous speech audio and lip ar"
+  },
+  {
+   "pid": "arxiv-2312.13600",
+   "key": "t:braintalkerlowresourcebraintospeechsynthesiswithtransferlearningusingwav2vec20",
+   "title": "BrainTalker: Low-Resource Brain-to-Speech Synthesis with Transfer Learning using Wav2Vec 2.0",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2312.13600 | paper_version=2312.13600v1 | title=BrainTalker: Low-Resource Brain-to-Speech Synthesis with"
+  },
+  {
+   "pid": "arxiv-2406.11568",
+   "key": "t:towardsanendtoendframeworkforinvasivebrainsignaldecodingwithlargelanguagemodels",
+   "title": "Towards an End-to-End Framework for Invasive Brain Signal Decoding with Large Language Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2406.11568 | paper_version=2406.11568v1 | title=Towards an End-to-End Framework for Invasive Brain Signal"
+  },
+  {
+   "pid": "arxiv-2412.13387",
+   "key": "t:deepspeechsynthesisfrommultimodalarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from Multimodal Articulatory Representations",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.13387 | doi=10.48550/arxiv.2412.13387 | title=Deep Speech Synthesis from Multimodal Articulatory Rep"
+  },
+  {
+   "pid": "arxiv-2412.18839",
+   "key": "t:advancingnamtospeechconversionwithnovelmethodsandthemultinamdataset",
+   "title": "Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.18839 | paper_version=arXiv:2412.18839v2 [cs.SD] 23 Jan 2025 | title=Advancing NAM-to-Speech Convers"
+  },
+  {
+   "pid": "arxiv-2506.11862",
+   "key": "t:confidencebasedselftrainingforemgtospeechleveragingsyntheticemgforrobustmodeling",
+   "title": "Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2506.11862v2 | title=Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robus"
+  },
+  {
+   "pid": "arxiv-2511.01056",
+   "key": "t:whispervcdecoupledcrossdomainalignmentandspeechgenerationforlowresourcewhisperto",
+   "title": "WhisperVC: Decoupled Cross-Domain Alignment and Speech Generation for Low-Resource Whisper-to-Normal Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arxiv_id=2511.01056v3 | paper_version=2511.01056v3; 20 July 2026 | title=WhisperVC: Decoupled Cross-Domain Alignment and"
+  },
+  {
+   "pid": "arxiv-2511.04691",
+   "key": "t:apennyforyourthoughtsdecodingspeechfrominexpensivebrainsignals",
+   "title": "A Penny for Your Thoughts: Decoding Speech from Inexpensive Brain Signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511.04691 | paper_version=2511.04691v1 | title=A Penny for Your Thoughts: Decoding Speech from Inexpensi"
+  },
+  {
+   "pid": "arxiv-2512-22146-eeg2voice",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512-22146-eeg2voice | title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG |"
+  },
+  {
+   "pid": "arxiv-2512.22146",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512.22146 | title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG | venue=arX"
+  },
+  {
+   "pid": "arxiv-2512.22146-e2voice",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512.22146-e2voice | title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG | a"
+  },
+  {
+   "pid": "arxiv-2609.04455",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2609.04455 | paper_version=2609.04455v2 | title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech S"
+  },
+  {
+   "pid": "cvf-kim25-facesvoices",
+   "key": "t:fromfacestovoiceslearninghierarchicalrepresentationsforhighqualityvideotospeech",
+   "title": "From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-kim25-facesvoices | title=From Faces to Voices: Learning Hierarchical Representations for High-quality Vide"
+  },
+  {
+   "pid": "doi-10.1038-s42256-024-00824-8",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A neural speech decoding framework leveraging deep learning and speech synthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42256-024-00824-8 | doi=10.1038/s42256-024-00824-8 | title=A neural speech decoding framework leve"
+  },
+  {
+   "pid": "doi-10.1101-2023.09.16.558028",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis | venue=bioRxiv preprint (later N"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.21.608927",
+   "key": "t:speechsynthesisfromelectrocorticogramduringimaginedspeechusingatransformerbasedd",
+   "title": "Speech Synthesis from Electrocorticogram During Imagined Speech Using a Transformer-Based Decoder and Pretrained Vocoder",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.08.21.608927 | doi=10.1101/2024.08.21.608927 | title=Speech Synthesis from Electrocorticogram"
+  },
+  {
+   "pid": "doi-10.1101-2024.12.16.628596",
+   "key": "t:naturalspeechresynthesisfromdirectcorticalrecordingsusingapretrainedencoderdecod",
+   "title": "Natural speech re-synthesis from direct cortical recordings using a pre-trained encoder-decoder framework",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Natural speech re-synthesis from direct cortical recordings using a pre-trained encoder-decoder framework | intend"
+  },
+  {
+   "pid": "doi-10.1109-msp.2024.3484629",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1109/msp.2024.3484629 | title=Emerging Brain-to-Content Technologies from Generative AI and Deep Representat"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2024.3520498",
+   "key": "t:endtoendmandarinspeechreconstructionbasedonultrasoundtongueimagesusingdeeplearni",
+   "title": "End-to-End Mandarin Speech Reconstruction Based on Ultrasound Tongue Images Using Deep Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-End Mandarin Speech Reconstruction Based on Ultrasound Tongue Images Using Deep Learning | needs_manual_che"
+  },
+  {
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "key": "p:doi-10.1609-aaai.v35i16.17693",
+   "title": null,
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=AAAI 2021 (v35i16) | needs_manual_check=Table 2 per-speaker-count grid partially captured (1/9/25/75 spk rows), MU"
+  },
+  {
+   "pid": "doi-10.21437-ssw.2025-25",
+   "key": "t:exploringlanguagedependencyinultrasoundtospeechsynthesis",
+   "title": "Exploring Language Dependency in Ultrasound-to-Speech Synthesis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Exploring Language Dependency in Ultrasound-to-Speech Synthesis | needs_manual_check=small n=3 male-speaker biling"
+  },
+  {
+   "pid": "isca-biasutto19_labialgru",
+   "key": "t:modelinglabialcoarticulationwithbidirectionalgatedrecurrentnetworksandtransferle",
+   "title": "Modeling Labial Coarticulation with Bidirectional Gated Recurrent Networks and Transfer Learning",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-biasutto19_labialgru | title=Modeling Labial Coarticulation with Bidirectional Gated Recurrent Networks an"
+  },
+  {
+   "pid": "isca-geng25b_interspeech",
+   "key": "t:eegbasedvoiceconversionhearingthevoiceofyourbrain",
+   "title": "EEG-based Voice Conversion: Hearing the Voice of Your Brain",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-based Voice Conversion: Hearing the Voice of Your Brain | venue=Proc. Interspeech 2025 | intended_use_cases=sp"
+  },
+  {
+   "pid": "isca-ghosh26b_interspeech",
+   "key": "t:lipadaptertexttovideoalignmentisallyouneedforliptospeech",
+   "title": "LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ghosh26b_interspeech | title=LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | autho"
+  },
+  {
+   "pid": "isca-hofer07_interspeech",
+   "key": "t:automaticheadmotionpredictionfromspeechdata",
+   "title": "Automatic head motion prediction from speech data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Automatic head motion prediction from speech data | authors=Gregor Hofer, Hiroshi Shimodaira | venue=Proc. Intersp"
+  },
+  {
+   "pid": "isca-lee24c_interspeech",
+   "key": "t:towardfullyendtoendlistenedspeechdecodingfromeegsignals",
+   "title": "Toward Fully-End-to-End Listened Speech Decoding from EEG Signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Toward Fully-End-to-End Listened Speech Decoding from EEG Signals | system_name=FESDE: EEG module + connector (pre"
+  },
+  {
+   "pid": "isca-toussaint26_interspeech",
+   "key": "t:emergenceofphoneticrepresentationsinemgbasedsilentspeechinterfaces",
+   "title": "Emergence of Phonetic Representations in EMG-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-toussaint26_interspeech | title=Emergence of Phonetic Representations in EMG-based Silent Speech Interface"
+  },
+  {
+   "pid": "pmc-12965882-nmidecode",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A neural speech decoding framework leveraging deep learning and speech synthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12965882-nmidecode | title=A neural speech decoding framework leveraging deep learning and speech synthesis"
+  },
+  {
+   "pid": "uef-kapoor26_thesis",
+   "key": "t:decodinglistenedspeechfromraweegsignalsusingsubjectindependentembeddingsandpretr",
+   "title": "Decoding Listened Speech From Raw EEG Signals Using Subject-Independent Embeddings and Pre-Trained Foundation Models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=uef-kapoor26_thesis | title=Decoding Listened Speech From Raw EEG Signals Using Subject-Independent Embeddings"
+  }
+ ],
+ "usual_approach": {
+  "design": "off-the-shelf pretrained vocoder only; no transfer of a pre-trained decoder",
+  "n": 9,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2609.04455",
+   "uef-kapoor26_thesis",
+   "arxiv-2412.18839",
+   "arxiv-2512-22146-eeg2voice",
+   "arxiv-2412.13387"
+  ],
+  "population_unique": 30,
+  "note": "full-text pattern counts over 30 unique studies: pretrained_vocoder_only 9, audio_only_decoder_pretraining 4 (the target, one acoustic-input whisper conversion study and two ECoG studies, all 2023 or later), tts_decoder_transfer 2 (TaLNet 2021 and one 2024 study), audiovisual_pretraining 2; slot-filled M03 values cover 16 studies and record supervision kind (paired_audio 5), so they give no design count"
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "role": "prior",
+   "loc": "Abstract; Sec. 4",
+   "quote": "a Tacotron 2 TTS model is ﬁrst trained, and then the parameters of its de- coder are transferred to the TaLNet decoder"
+  },
+  {
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "TaLNet* 3.43±0.16 0.66±0.03 37.3±7.8 55.9±9.9 TaLNet 3.22±0.16 0.69±0.03 23.3±7.9 36.5±10.8"
+  },
+  {
+   "pid": "arxiv-2112.04748",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "The proposed LipSound2 model is ﬁrstly pre-trained"
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "role": "target",
+   "loc": "Tables IV, V, VII, VIII",
+   "quote": "V2A-WaveGAN-SP 1.43 0.589 0.316 19.88 + basic fine-tuning 1.41 0.595 0.325 17.08"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 2,
+  "recall": 0.67,
+  "missed": [
+   "arxiv-2112.04748"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.1609-aaai.v35i16.17693",
+  "year": 2021,
+  "metric": "ASR WER of speech synthesized from ultrasound tongue and lip video, all test speakers, with TTS decoder transfer (55.9% without transfer, Table 1)",
+  "value": 36.5,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "deciding_priors_note": "Target first public 2023-06. Deciding priors read: TaLNet (AAAI 2021) transfers a Tacotron 2 decoder trained on 460 h of LibriTTS into a tongue-and-lip-to-speech model; LipSound2 (arXiv 2021-12) pre-trains on about 2400 h of paired audio-visual VoxCeleb2. The audio-only decoder hits other than the target are 2023 or later.",
+ "used_by": [
+  "large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis"
+ ],
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 30,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "off-the-shelf pretrained vocoder only; no transfer of a pre-trained decoder",
+   "n": 9,
+   "tier": "pattern match",
+   "population_unique": 30
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "year": 2021,
+   "metric": "ASR WER of speech synthesized from ultrasound tongue and lip video, all test speakers, with TTS decoder transfer (55.9% without transfer, Table 1)",
+   "value": 36.5,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-2112.04748",
+   "doi-10.1609-aaai.v35i16.17693"
+  ],
+  "unread": 34,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.67
+ }
+}
