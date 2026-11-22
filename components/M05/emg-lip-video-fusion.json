@@ -1,0 +1,873 @@
+{
+ "topic": "emg-lip-video-fusion",
+ "slot": "M05",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "modalities=[^|]*surface_emg[^|]*optical_camera|modalities=[^|]*optical_camera[^|]*surface_emg|(semg|surface emg|\\bemg\\b|electromyograph)[^|]{0,120}(lip ?reading|lip video|lip images|mouth video|video|visual stream|camera)|(lip ?reading|lip video|lip images|mouth video|video|camera)[^|]{0,120}(semg|surface emg|\\bemg\\b|electromyograph)",
+ "scope": "ledger",
+ "fulltext_pattern": "(sEMG|surface EMG|electromyograph\\w*)[^.]{0,160}(lip ?reading|lip video|lip images)|(lip ?reading|lip video|lip images)[^.]{0,160}(sEMG|surface EMG|electromyograph\\w*)",
+ "inclusion_rule": "Include studies whose decoder (recognition, classification or speech synthesis) takes surface EMG of the speech muscles together with lip or face video as joint inputs and reports a fused result. Boundary: studies that record both but decode each separately, use a face image only for voice identity, use video only as a prediction target, or only acquire data are excluded; reviews are excluded; full-text-only matches are read as snippets and count only if the snippet shows a fused decoder; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8898,
+  "slot_filled_unique": 7329,
+  "string_match_folders": 24,
+  "string_match_unique": 20,
+  "fulltext_only_folders": 23
+ },
+ "ledger_tally": {
+  "design_slot": "M05",
+  "design_slot_fill": 0.989,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "modalities=surface_emg",
+    "n": 15,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.04840",
+     "arxiv-2603.11877",
+     "arxiv-2606-09667-xmask",
+     "isca-blanco26-phonewise",
+     "pmc-13493936-dbs"
+    ]
+   },
+   {
+    "design": "modalities=optical_camera",
+    "n": 14,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "arxiv-2606-09667-xmask",
+     "isca-blanco26-phonewise",
+     "isca-lee26b-rtmrieeg",
+     "arxiv-2501.16780"
+    ]
+   },
+   {
+    "design": "modalities=other",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.04840",
+     "arxiv-2603.11877",
+     "pmc-13493936-dbs",
+     "arxiv-2509.04507-dualstg",
+     "doi-10.1007-s00521-024-10456-z"
+    ]
+   },
+   {
+    "design": "body_sites=face",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.04840",
+     "arxiv-2603.11877",
+     "doi-10.21437-odyssey.2026-19",
+     "arxiv-2602.01879",
+     "doi-10.1007-s00521-024-10456-z"
+    ]
+   },
+   {
+    "design": "observed_quantities=muscle_activity",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.04840",
+     "arxiv-2603.11877",
+     "doi-10.21437-odyssey.2026-19",
+     "arxiv-2602.01879",
+     "doi-10.3390-s23041971"
+    ]
+   },
+   {
+    "design": "intrusiveness=external_noncontact",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.21437-odyssey.2026-19",
+     "isca-lee26b-rtmrieeg",
+     "arxiv-2509.04507-dualstg",
+     "doi-10.1007-s00521-024-10456-z"
+    ]
+   },
+   {
+    "design": "observed_quantities=shape",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.21437-odyssey.2026-19",
+     "isca-lee26b-rtmrieeg",
+     "arxiv-2602.01879",
+     "doi-10.3390-s23041971"
+    ]
+   },
+   {
+    "design": "intrusiveness=skin_contact",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.04840",
+     "arxiv-2603.11877",
+     "doi-10.21437-odyssey.2026-19",
+     "arxiv-2602.01879",
+     "doi-10.3390-s23041971"
+    ]
+   },
+   {
+    "design": "body_sites=neck",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.04840",
+     "arxiv-2603.11877",
+     "doi-10.21437-odyssey.2026-19",
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.3390-s23041971"
+    ]
+   },
+   {
+    "design": "body_sites=lips",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.21437-odyssey.2026-19",
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.3390-s23041971",
+     "pmc-5355525-semglip3d"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "speech_synthesis_output",
+    "n": 24,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.04840",
+     "arxiv-2603.11877",
+     "arxiv-2606-09667-xmask",
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.20517-ss.2026.38"
+    ]
+   },
+   {
+    "design": "recognition_or_classification",
+    "n": 21,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2601-18177-lipsiri",
+     "arxiv-2603.11877",
+     "arxiv-2606-09667-xmask",
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.20517-ss.2026.38"
+    ]
+   },
+   {
+    "design": "feature_or_decision_fusion",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2606-09667-xmask",
+     "doi-10.1038-s44460-025-00010-2",
+     "arxiv-2501.16780",
+     "pmc-13096943-aacaccess",
+     "arxiv-2302-05907-liplearner"
+    ]
+   },
+   {
+    "design": "missing_modality_test",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2606-09667-xmask"
+    ]
+   }
+  ],
+  "metric_pattern": null,
+  "better": "lower"
+ },
+ "sota_candidates": [],
+ "recall_sample": [
+  "isca-shandiz21_interspeech",
+  "arxiv-2506.03831",
+  "isca-ibrahimov25-usconformer",
+  "doi-10.1038-s44460-025-00010-2",
+  "isca-shandiz21-usspeaker",
+  "pmc-9696288-utiaam",
+  "doi-10.1145-3544548.3581465",
+  "doi-10.20517-ss.2026.38",
+  "arxiv-2009.02110",
+  "arxiv-2601.18177",
+  "arxiv-2106.04552",
+  "pmc-8816571-mouthlyrics",
+  "doi-10.12700-aph.17.7.2020.7.6",
+  "arxiv-2601-18177-lipsiri",
+  "doi-10.1109-taslp.2017.2752365",
+  "isca-ibrahimov25_interspeech",
+  "doi-10.21437-interspeech.2021-1466",
+  "doi-10.3390-s22228601",
+  "arxiv-2302.05907",
+  "arxiv-2603.10324",
+  "arxiv-2302-05907-liplearner",
+  "isca-ibrahimov26-tongueroi",
+  "arxiv-2403.05583"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2009.02110",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Review."
+  },
+  {
+   "pid": "arxiv-2106.04552",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "arxiv-2302-05907-liplearner",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "arxiv-2302.05907",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "arxiv-2403.05583",
+   "key": "t:acrossmodalapproachtosilentspeechwithllmenhancedrecognition",
+   "title": "A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "arxiv-2501.16780",
+   "key": "t:avespeechacomprehensivemultimodaldatasetforspeechrecognitionintegratingaudiovisu",
+   "title": "AVE Speech: A Comprehensive Multi-Modal Dataset for Speech Recognition Integrating Audio, Visual, and Electromyographic Signals",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "labels=ordinary_voiced_speech | Cohort.demographics=100 adults (29F/71M, 18-40y); recruited baseline cohort; ~1h each | modalities=microphone, surface_emg, optical_camera | sensor_hardware=mic 44.1kHz; RGB lip cam 30fps front-facing; NSW308M bipolar EMG 6ch@1kHz on risorius/levator anguli",
+   "decision": "include",
+   "reason": "Fuses audio, lip video and six-channel EMG for 100-sentence classification on unseen subjects (prior, read in full)."
+  },
+  {
+   "pid": "arxiv-2506.03831",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "arxiv-2508.18127",
+   "key": "t:anintroductiontosilentparalinguistics",
+   "title": "An Introduction to Silent Paralinguistics",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "'emotion', 'stress', 'pain', 'confidence']}, 'biosignal_modalities': ['EEG', 'fNIRS', 'ECoG', 'intracortical signals', 'EMG', 'video', 'ultrasound', 'EMA', 'PMA', 'EGG'], 'excluded_modality_note': 'fMRI is mentioned as potentially relevant but excluded",
+   "decision": "exclude",
+   "reason": "Review or position paper."
+  },
+  {
+   "pid": "arxiv-2509.04507-dualstg",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "LM correction stage | Study.study_design=system_proposal | task_family=sentence_recognition | sensor_hardware=8-channel surface EMG (sEMG) electrodes; other SSI modalities (UTI, EMA, lip video) discussed but not used | observed_quantities=neural_activity, other | intrusiveness=external_noncontact | Representati",
+   "decision": "exclude",
+   "reason": "sEMG only; other modalities discussed but not used."
+  },
+  {
+   "pid": "arxiv-2601-18177-lipsiri",
+   "key": "t:lipsiricontactlessopensentencesilentspeechwithwifibackscatter",
+   "title": "Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "arxiv-2601.18177",
+   "key": "t:lipsiricontactlessopensentencesilentspeechwithwifibackscatter",
+   "title": "Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "omly selected per source test sample and trials repeat ten times. Reported size is 40 x n_test; n_test not specified. | modalities=surface_emg, optical_camera | observed_quantities=muscle_activity, shape | sensor_hardware=Gaddy facial EMG recording equipment not specified in th",
+   "decision": "exclude",
+   "reason": "Face image used only to set voice identity; articulation from EMG alone."
+  },
+  {
+   "pid": "arxiv-2603.04840",
+   "key": "t:anapproachtosimultaneousacquisitionofrealtimemrivideoeegandsurfaceemgforarticula",
+   "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2603.04840v2 | title=An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production | authors=Jihwan Lee, Parsa Razmara, Kevin Huang,",
+   "decision": "exclude",
+   "reason": "Acquisition study (real-time MRI, EEG, sEMG); no decoder."
+  },
+  {
+   "pid": "arxiv-2603.10324",
+   "key": "t:nasovoceanosemountedlowaudibilityspeechinterfaceforalwaysavailablespeechinteract",
+   "title": "NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "arxiv-2603.11877",
+   "key": "t:silentspeechinterfacesintheeraoflargelanguagemodelsacomprehensivetaxonomyandsyst",
+   "title": "Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "; primary sources not independently rechecked in this extraction'} | Synthesis.heterogeneity={'modalities': ['neural', 'sEMG', 'articulatory', 'ultrasound', 'video', 'acoustic/RF'], 'tasks': ['recognition', 'speech synthesis', 'classification', 'command/text entry'], 'metrics': 'WER",
+   "decision": "exclude",
+   "reason": "Review."
+  },
+  {
+   "pid": "arxiv-2606-09667-xmask",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "title=Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading | authors=del Blanco, Gimeno-Gomez, Navas, Martinez-Hinarejos, Hernaez | venue=arXiv 2606.09667 (IEEE TASLP submission)",
+   "decision": "include",
+   "reason": "Target: fused sEMG and lip video for speech synthesis."
+  },
+  {
+   "pid": "arxiv-2606.09667",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "v1 | source_url=https://arxiv.org/pdf/2606.09667v1 | title=Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading | authors=Eder del Blanco, David Gimeno-Gómez, Eva Navas, Carlos-D. Martínez-Hinarejos, Inma Hernáez | question=Does ma",
+   "decision": "include",
+   "reason": "Target (other version)."
+  },
+  {
+   "pid": "doi-10.1007-s00521-024-10456-z",
+   "key": "t:decodingsilentspeechamachinelearningperspectiveondatamethodsandframeworks",
+   "title": "Decoding silent speech: a machine learning perspective on data, methods, and frameworks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "synthesis of methods/datasets/frameworks + Table 1/2 model and metric comparison | task_encoding=attempted_utterance | modalities=surface_emg, ultrasound_imaging, optical_camera, intracortical_microelectrode, strain_sensor, other | body_sites=face, neck, lips, tongue, chin, scalp | intrusiveness=",
+   "decision": "exclude",
+   "reason": "Review."
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ysis=sensing techniques and decoding approaches reviewed across disorders: laryngectomy, dysarthria, apraxia, aphasia | modalities=surface_emg, intramuscular_emg, scalp_eeg, ecog, intracortical_microelectrode, ultrasound_imaging, optical_camera, magnetic_tracking, other | sensor_hardware=taxonomy across reviewed studies: EEG, ECoG, implanted microelectrode array",
+   "decision": "exclude",
+   "reason": "Review."
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2752365",
+   "key": "t:biosignalbasedspokencommunicationasurvey",
+   "title": "Biosignal-based Spoken Communication: A Survey",
+   "year": 2017,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "doi-10.1145-3544548.3581465",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "doi-10.12700-aph.17.7.2020.7.6",
+   "key": "t:applyingdnnadaptationtoreducethesessiondependencyofultrasoundbasedsilentspeechin",
+   "title": "Applying DNN Adaptation to Reduce the Session Dependency of Ultrasound-Based Silent Speech Interfaces",
+   "year": 2020,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "doi-10.20517-ss.2026.38",
+   "key": "t:biointegratedsystemsforsilentspeechrecognitionfromadvancedbioplatformstomedicala",
+   "title": "Bio-integrated systems for silent speech recognition: from advanced bioplatforms to medical applications",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2021-1466",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "doi-10.21437-odyssey.2026-19",
+   "key": "t:adaptivephonewiseweightedlossforsilentspeechrestorationincontinuousspanish",
+   "title": "Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "t | Study.research_objective=does adaptive phone-aware weighting of frame loss improve silent speech restoration across EMG and lipreading? | acoustic_mode=no_vocalization | extra.Production.scope_note=silent mouthed speech; audible paired recordings used on",
+   "decision": "exclude",
+   "reason": "Same study as isca-blanco26-phonewise (published version); no fused decoder."
+  },
+  {
+   "pid": "doi-10.3390-s22228601",
+   "key": "t:optimizingtheultrasoundtongueimagerepresentationforresidualnetworkbasedarticulat",
+   "title": "Optimizing the Ultrasound Tongue Image Representation for Residual Network-Based Articulatory-to-Acoustic Mapping",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "doi-10.3390-s23041971",
+   "key": "t:futurespeechinterfaceswithsensorsandmachineintelligence",
+   "title": "Future Speech Interfaces with Sensors and Machine Intelligence",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "elligence” (11 contributions): frames SSI/VSR motivation (privacy, inclusivity, noise robustness); taxonomy — AVSR (mic+lip video), classical SSI (sEMG/EMA/ultrasound/radar), CNN lipreading architectures, speech-inclusivity tools; notes non-acoustic signal handling lags",
+   "decision": "exclude",
+   "reason": "Editorial overview."
+  },
+  {
+   "pid": "isca-blanco26-phonewise",
+   "key": "t:adaptivephonewiseweightedlossforsilentspeechrestorationincontinuousspanish",
+   "title": "Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "bjective=adaptive phone-aware weighted loss for speaker adaptation in continuous-Spanish silent-speech synthesis across sEMG and lipreading: re-weights phones with larger errors; EMG speaker-avg WER 63.7->61.0 (scratch encoder); lipreading baseline 36.1-96.8 WER per speaker on 203h Spanish adaptation corpus; ~51% avg WER across 4 benchmarks | Study.study_de",
+   "decision": "exclude",
+   "reason": "Concurrent sibling study: trains EMG and lipreading models separately, no fused decoder."
+  },
+  {
+   "pid": "isca-ferreira21_interspeech",
+   "key": "p:isca-ferreira21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "additionally kept consistent pattern (best-case proxy) | dataset_id=AAL 13-word EP radar corpus (same corpus as earlier video/depth/sEMG/UD studies) | Dataset.collection_protocol=TI DemoVisualizer; LCD shows random word, beep + green screen cues utterance;",
+   "decision": "exclude",
+   "reason": "Radar input; earlier video/depth/sEMG corpus only mentioned."
+  },
+  {
+   "pid": "isca-freitas14_interspeech",
+   "key": "t:enhancingmultimodalsilentspeechinterfaceswithfeatureselection",
+   "title": "Enhancing Multimodal Silent Speech Interfaces with Feature Selection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Enhancing Multimodal Silent Speech Interfaces with Feature Selection | system_name=Quad-modal SSI testbed: Kinect video + depth, Plux 5-pair facial sEMG (+reference), custom UDS board (Zhu et al.; band 2275–5200Hz, DCT-38); RRFS feature-selection filters (MI, Fisher super",
+   "decision": "include",
+   "reason": "Fuses Kinect video, depth, facial sEMG and Doppler features for isolated-digit recognition (prior, read in full)."
+  },
+  {
+   "pid": "isca-ibrahimov25-usconformer",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "isca-ibrahimov25_interspeech",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "isca-ibrahimov26-tongueroi",
+   "key": "t:ontheroleofthetongueregioninultrasoundtoacousticmapping",
+   "title": "On the Role of the Tongue Region in Ultrasound-to-Acoustic Mapping",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "isca-lee26b-rtmri",
+   "key": "t:anapproachtosimultaneousacquisitionofrealtimemrivideoeegandsurfaceemgforarticula",
+   "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production | authors=Lee, Razmara, Huang, Foley, ... Narayan",
+   "decision": "exclude",
+   "reason": "Acquisition study; no decoder."
+  },
+  {
+   "pid": "isca-lee26b-rtmrieeg",
+   "key": "t:anapproachtosimultaneousacquisitionofrealtimemrivideoeegandsurfaceemgforarticula",
+   "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production | authors=Jihwan Lee, Parsa Razmara, Kevin Huang,",
+   "decision": "exclude",
+   "reason": "Acquisition study; no decoder."
+  },
+  {
+   "pid": "isca-manabe03_eurospeech",
+   "key": "t:speechrecognitionusingemgmimespeechrecognition",
+   "title": "Speech Recognition Using EMG; Mime Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "=frame-length sweep 20-400 ms at 20 ms period; 3 subjects; 9:1 trial split; average accuracy per subject | claim=3-site sEMG recognizes 5 unvoiced Japanese vowels >95% avg at 200 ms frames; EMG captures tongue state invisible to lip video; consonant recognition plausible via amplitude/depression/event-timing cues | technical_limits=isolated vowels only; co",
+   "decision": "exclude",
+   "reason": "sEMG only."
+  },
+  {
+   "pid": "isca-shandiz21-usspeaker",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "isca-shandiz21_interspeech",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-Based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "isca-zulfikar24_interspeech",
+   "key": "t:analyzingspeechmotormovementusingsurfaceelectromyographyinminimallyverbaladultsw",
+   "title": "Analyzing Speech Motor Movement using Surface Electromyography in Minimally Verbal Adults with Autism Spectrum Disorder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g Surface Electromyography in Minimally Verbal Adults with Autism Spectrum Disorder | system_name=8-channel facial/neck sEMG (Ag/AgCl, ref+bias, 250Hz) + audio/video; preprocessing = rectification + 0.5–20Hz bandpass (RASTA-anchored 8Hz phoneme-rate, 20Hz cutoff); analysis = per-chann",
+   "decision": "exclude",
+   "reason": "Analysis of speech motor activity; no fused speech decoder."
+  },
+  {
+   "pid": "pmc-11280854-signlangwearable",
+   "key": "t:novelwearablesystemtorecognizesignlanguageinrealtime",
+   "title": "Novel Wearable System to Recognize Sign Language in Real Time",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tim | Study.study_design=system_proposal | extra.Production.scope_note=novel wearable system sign language real-time | modalities=optical_camera, surface_emg | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=n=1 participants | tested_populat",
+   "decision": "exclude",
+   "reason": "Sign language, not speech."
+  },
+  {
+   "pid": "pmc-13096943-aacaccess",
+   "key": "t:alternativewaystoaccessaactechnologies",
+   "title": "Alternative Ways to Access AAC Technologies",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ch_restoration, other | demonstrated_use_cases=speech_restoration | production_labels=task_evoked_inner_speech, other | modalities=ecog, surface_emg, optical_camera, other | Acquisition.sensor_geometry=surface brain implant over sensorimotor cortex (UCSF trial); AAC access peripheral",
+   "decision": "exclude",
+   "reason": "Review of AAC access methods."
+  },
+  {
+   "pid": "pmc-13493936-dbs",
+   "key": "t:frequencydependenteffectsofmotorthalamusdeepbrainstimulationonspeechandswallowin",
+   "title": "Frequency-dependent effects of motor thalamus deep brain stimulation on speech and swallowing",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "her | Acquisition.sensor_geometry=VIM/VOP motor-thalamus DBS electrodes (Medtronic/Neuro-Omega); bilateral subcutaneous EMG needles in up to 5 facial/oropharyngeal muscles; 3D kinematics + videofluoroscopy + audio | representation_kind=MEP amplitudes of facial/oropharyngeal muscles; AIDS intelligibility, listener",
+   "decision": "exclude",
+   "reason": "Deep brain stimulation study; needle EMG; no speech decoder."
+  },
+  {
+   "pid": "pmc-5355525-semglip3d",
+   "key": "t:predicting3dlipmovementusingfacialsemgafirststeptowardsestimatingfunctionalandae",
+   "title": "Predicting 3D lip movement using facial sEMG: a first step towards estimating functional and aesthetic outcome of oral cancer surgery",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sted_population=healthy_volunteers | Cohort.demographics=5 healthy volunteers | Cohort.recruitment=healthy volunteers | modalities=surface_emg, optical_camera | body_sites=face, lips, chin, jaw | sensor_hardware=16-channel bipolar sEMG (1.5mm Ag/AgCl, 8 muscles bilateral) + 3x",
+   "decision": "exclude",
+   "reason": "Video used as the prediction target (lip movement), not as an input."
+  },
+  {
+   "pid": "pmc-8781659-fmcw-radar",
+   "key": "t:exploringsilentspeechinterfacesbasedonfrequencymodulatedcontinuouswaveradar",
+   "title": "Exploring Silent Speech Interfaces Based on Frequency-Modulated Continuous-Wave Radar",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nt, session-independent (3-month gap), and speaker-independent settings — avoiding intrusive/lighting/privacy issues of sEMG/video | Study.unit_of_analysis=Per-word class among 13 European Portuguese words decoded from radar return of face/mouth regi",
+   "decision": "exclude",
+   "reason": "Radar input; sEMG and video only mentioned."
+  },
+  {
+   "pid": "pmc-8816571-mouthlyrics",
+   "key": "t:collaborativeresearchonmouthshapeandlyricsinsingingpracticebasedonimageprocessin",
+   "title": "Collaborative Research on Mouth Shape and Lyrics in Singing Practice Based on Image Processing",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  },
+  {
+   "pid": "pmc-9696288-utiaam",
+   "key": "t:optimizingtheultrasoundtongueimagerepresentationforresidualnetworkbasedarticulat",
+   "title": "Optimizing the Ultrasound Tongue Image Representation for Residual Network-Based Articulatory-to-Acoustic Mapping",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "Snippet read: sEMG and lip video named as separate SSI modalities in related work; no fused decoder."
+  }
+ ],
+ "usual_approach": {
+  "design": "sEMG and lip or face video fused at the feature level for word or sentence classification (recognition); no prior study synthesizes speech from the pair",
+  "n": 2,
+  "tier": "confirmed",
+  "pids": [
+   "isca-freitas14_interspeech",
+   "arxiv-2501.16780"
+  ],
+  "population_unique": 20,
+  "note": "20 unique studies match the ledger pattern; 3 fuse sEMG and video in one decoder (2 prior, both classification, plus the target); the slot-filled design values (modalities=surface_emg 15) only restate the search; 23 full-text-only folders read as snippets, none fuses the two"
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-freitas14_interspeech",
+   "role": "prior",
+   "loc": "Sec. 3.1; Sec. 4.3",
+   "quote": "Video combined with EMG improves the results of Video by 14.5% and the results of EMG with 2.4%"
+  },
+  {
+   "pid": "arxiv-2501.16780",
+   "role": "prior",
+   "loc": "Sec. IV-B; Sec. IV-C",
+   "quote": "we frame the task as a sentence-level classification problem"
+  },
+  {
+   "pid": "arxiv-2501.16780",
+   "role": "sota",
+   "loc": "Sec. IV-D; Tables III-IV",
+   "quote": "the fusion network achieves recognition accuracies of 93% and 95.51% on the validation and test sets"
+  },
+  {
+   "pid": "arxiv-2606-09667-xmask",
+   "role": "target",
+   "loc": "Sec. III-B; Table III",
+   "quote": "strategies [21], in which one modality is entirely removed during training"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2501.16780",
+  "year": 2025,
+  "metric": "100-sentence classification accuracy on unseen subjects, audio + lip video + EMG fusion with test audio at -10 dB (visual-only network 98.55%)",
+  "value": 95.51,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "tally": {
+  "slot_filled_unique": 7329,
+  "string_match_unique": 20,
+  "fulltext_only_folders": 23,
+  "usual_approach": {
+   "design": "sEMG and lip or face video fused at the feature level for word or sentence classification (recognition); no prior study synthesizes speech from the pair",
+   "n": 2,
+   "tier": "confirmed",
+   "population_unique": 20
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2501.16780",
+   "year": 2025,
+   "metric": "100-sentence classification accuracy on unseen subjects, audio + lip video + EMG fusion with test audio at -10 dB (visual-only network 98.55%)",
+   "value": 95.51,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-2501.16780",
+   "isca-freitas14_interspeech"
+  ],
+  "unread": 0,
+  "confirmed_unique": 3,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "cross-modal-masking-for-robust-silent-speech-synthesis-using-semg-and-lipreading"
+ ]
+}
