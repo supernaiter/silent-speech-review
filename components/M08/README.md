@@ -72,6 +72,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that infer a paralinguistic property of the speaker or utterance (affect or emotion, speaker identity, speaking mode, prosody, intonation or pitch) from a non-acoustic speech-production signal recorded while speaking (EMG, EMA, ultrasound, real-time MRI, electropalatography, strain sensors, ECoG or intracortical recordings). Boundary: acoustic-only and face-video audiovisual emotion recognition are excluded; facial EMG or EEG emotion recognition without speech production is excluded; F0 or prosody counts only when reported as an output; surveys are pattern matches only; versions of one study count once.
 - Used in: [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](../../reviews/affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg/)
 
+## rf-ssr-output-granularity
+
+- Table: [`rf-ssr-output-granularity.csv`](rf-ssr-output-granularity.csv) (3268 slot-filled, 33 pattern match, usual design in 5, 3 read in full)
+- Inclusion rule: Radar or RF silent-speech and speech recognition studies (same population as M05 rf-articulator-sensing-placement, plus papers whose text mentions RF or FMCW sensing); the design compared is the output: a class label from a closed list of vowels, words, commands or sentences, versus a variable-length token sequence decoded into words and scored by WER. Boundary: a paper counts under every output it reports; classification over a fixed list of sentences counts as closed set; pattern counts include related-work mentions, so they are upper bounds.
+- Used in: [Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter](../../reviews/lip-siri-contactless-open-sentence-silent-speech-with-wi-fi-backscatter/)
+
 ## vsr-output-token-unit
 
 - Table: [`vsr-output-token-unit.csv`](vsr-output-token-unit.csv) (3268 slot-filled, 633 pattern match, usual design in 120, 5 read in full)
