@@ -1,0 +1,589 @@
+{
+ "topic": "voiced-emg-to-speech-benchmark",
+ "slot": "M12",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(gaddy|digital voicing|voicing silent speech|emg[- ]to[- ]speech|electromyograph\\w*[- ]to[- ]speech)[^|]{0,300}(voiced|vocali[sz]ed|audible)|(voiced|vocali[sz]ed|audible)[- ](emg|semg)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include studies that synthesize speech from vocalized (audible) surface EMG and report a word error rate of the synthesized speech, by ASR or listener transcription. Boundary: silent-EMG-only results belong to silent-emg-voicing-benchmark; recognition-only (EMG-to-text) studies are excluded; tests on synthetic EMG are recorded as a design value, not as a benchmark result; versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8381,
+  "slot_filled_unique": 6960,
+  "string_match_folders": 24,
+  "string_match_unique": 23,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M12",
+  "design_slot_fill": 0.932,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "evaluation_mode=offline",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "isca-han26f-tapets",
+     "arxiv-2506.11862",
+     "arxiv-2509.04507-dualstg",
+     "doi-10.5220-0001549601550162"
+    ]
+   },
+   {
+    "design": "target_unit=word",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1016-j.bspc.2015.02.009",
+     "arxiv-2509.04507",
+     "isca-wand11_interspeech",
+     "isca-wand14b_interspeech"
+    ]
+   },
+   {
+    "design": "metric_value=100",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2506.13835",
+     "doi-10.5220-0001549601550162"
+    ]
+   },
+   {
+    "design": "target_unit=sentence",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "doi-10.18653-v1-2025.acl-short.56",
+     "isca-toth09_interspeech"
+    ]
+   },
+   {
+    "design": "target_unit=phoneme",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.11862",
+     "doi-10.1016-j.bspc.2015.02.009",
+     "isca-lee25d_interspeech"
+    ]
+   },
+   {
+    "design": "vocabulary_regime=open_vocabulary",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.18920",
+     "arxiv-2506.11862",
+     "isca-lee25d_interspeech"
+    ]
+   },
+   {
+    "design": "vocabulary_regime=closed_lexicon",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1016-j.bspc.2015.02.009",
+     "doi-10.18653-v1-2025.acl-short.56",
+     "isca-toth09_interspeech"
+    ]
+   },
+   {
+    "design": "EvaluationRun.execution_stage=executed",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-lee26r_interspeech",
+     "isca-lee26v_interspeech",
+     "isca-toussaint26_interspeech"
+    ]
+   },
+   {
+    "design": "metric_value=3.7",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.05583",
+     "arxiv-2405.08021"
+    ]
+   },
+   {
+    "design": "metric_value=17.6",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.05583",
+     "arxiv-2405.08021"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "whisper",
+    "n": 11,
+    "tier": "pattern match",
+    "pids": [
+     "isca-han26f-tapets",
+     "isca-lee26r_interspeech",
+     "isca-lee26v_interspeech",
+     "arxiv-2602.01879",
+     "doi-10.5220-0001549601550162"
+    ]
+   },
+   {
+    "design": "deepspeech",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "isca-lee26r_interspeech",
+     "arxiv-2506.11862",
+     "arxiv-2403.05583",
+     "arxiv-2509.04507",
+     "isca-lee25d_interspeech"
+    ]
+   },
+   {
+    "design": "synthetic_test_data",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "isca-lee26v_interspeech",
+     "isca-toussaint26_interspeech",
+     "arxiv-2506.11862"
+    ]
+   },
+   {
+    "design": "listener_transcription",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "isca-li23l_interspeech"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "Whisper v2 Gaddy audio WER",
+   "value": 2.3,
+   "unit": "percent",
+   "raw": "2.3",
+   "pid": "arxiv-2403.05583",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 2.85,
+   "unit": "percent",
+   "raw": "2.85",
+   "pid": "arxiv-2602.01879",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GT WER",
+   "value": 2.9,
+   "unit": "percent",
+   "raw": "2.9",
+   "pid": "arxiv-2405.08021",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "power-wheelchair users needing steering assistance (range upper bound)",
+   "value": 9.0,
+   "unit": "percent",
+   "raw": "5–9%",
+   "pid": "doi-10.1016-j.bspc.2015.02.009",
+   "year": 2015,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "11.89",
+   "value": 11.89,
+   "unit": "WER%",
+   "raw": "silent-EMG WER 11.89% (Whisper); prior best 25.74",
+   "pid": "isca-lee26r_interspeech",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "audible-EMG WER 22.82% small / 12.00% large sessions",
+   "value": 12.0,
+   "unit": "%",
+   "raw": "session-dependent audible-EMG WER: large sessions 12.00%, small sessions 22.82% (108-word vocab, tristate HMM)",
+   "pid": "isca-wand14b_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (DATA SMALL-VOCAB)",
+   "value": 14,
+   "unit": "percent",
+   "raw": "14",
+   "pid": "arxiv-2502.05762",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word error rate at ~16h mixed training (%)",
+   "value": 18.03,
+   "unit": "percent",
+   "raw": "18.03%",
+   "pid": "arxiv-2506.11862",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER TAP-ETS",
+   "value": 19.77,
+   "unit": "wer_percent",
+   "raw": "19.77%",
+   "pid": "isca-han26f-tapets",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "24.12% avg WER audible EMG baseline; silent-mode WER gap per session (avg silent ~47.13% → ~33.39% with spectral mapping)",
+   "value": 24.12,
+   "unit": "%",
+   "raw": "best average WER on audible utterances (reference baseline)",
+   "pid": "isca-wand11_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2403.05583",
+   "key": "t:acrossmodalapproachtosilentspeechwithllmenhancedrecognition",
+   "title": "A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eaderboard 9.8->8.9%. | task_family=sentence_recognition | extra.Task.scope=Open-vocab silent-articulation EMG->text on Gaddy 2020 benchmark (18h face/neck EMG, silent+vocalized parallel readings); CTC beam-search decode. | intended_use_cases=speech_restoration, private_communication, noisy_envir"
+  },
+  {
+   "pid": "arxiv-2405.08021",
+   "key": "t:diffetslearningadiffusionprobabilisticmodelforelectromyographytospeechconversion",
+   "title": "Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dio @16kHz; single speaker; open-vocabulary EMG database [20]. | dataset_description=Open-vocab EMG db: 1588 utt silent+audible EMG (7 sessions) + 5477 utt audible EMG+audio (10 sessions); same train/val/test split as [20]. | Dataset.counts_by_unit={'"
+  },
+  {
+   "pid": "arxiv-2407.21345",
+   "key": "t:towardsemgtospeechwithanecklaceformfactor",
+   "title": "Towards EMG-to-Speech with a Necklace Form Factor",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ce Form Factor | venue=arXiv preprint (UC Berkeley) | task_family=isolated_word_recognition | extra.Task.target=11-word voiced EMG classification (heed/had/hood/tail/kale/doe/goat/aba/ada/aga/aka) + EMG→WavLM linear mapping feasibility; multi-speaker"
+  },
+  {
+   "pid": "arxiv-2501.06530",
+   "key": "t:multimodalspeechenhancementwithlimitedelectromyographychannels",
+   "title": "Multi-modal Speech Enhancement with Limited Electromyography Channels",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "+face, 1000Hz; audio 16kHz (Gaddy&Klein corpus) | Session.session_timing=predefined train/val/test splits of GK corpus (audible EMG utterances); MUSAN noise mixed at 5 SNRs; EMG resampled to 50Hz frame rate | Dataset.collection_protocol=GK EMG+speech"
+  },
+  {
+   "pid": "arxiv-2502.05762",
+   "key": "t:noninvasiveelectromyographicspeechneuroprosthesisageometricperspective",
+   "title": "Non-invasive electromyographic speech neuroprosthesis: a geometric perspective",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vocalization | production_instruction=Participant silently articulates the displayed sentence at a comfortable pace; no audible EMG/audio is collected for the main corpus. | physiology_verification=instruction_only | body_sites=neck, face, chin, jaw,"
+  },
+  {
+   "pid": "arxiv-2506.11862",
+   "key": "t:confidencebasedselftrainingforemgtospeechleveragingsyntheticemgforrobustmodeling",
+   "title": "Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "via a pre-trained speech-to-EMG generator and filtering with phoneme-level confidence self-training (CoM2S) to improve voiced EMG-to-speech | task_family=speech_reconstruction | task_encoding=natural_utterance | target_population=speech_impairment |"
+  },
+  {
+   "pid": "arxiv-2506.13835",
+   "key": "t:asilentspeechdecodingsystemfromeegandemgwithheterogenouselectrodeconfigurations",
+   "title": "A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tions; prose gives 76.9 hours, while the three marked Table 1 row values are retained separately. | dataset_description=Gaddy et al. dataset used for cross-language evaluation: 19 hours of 8-channel facial EMG from a single English speaker, with silent and vocalized speech and 9,828-word vocabulary; samples up to 15 seconds were used. | Dataset.content_inventory={'speaker_count': 1,"
+  },
+  {
+   "pid": "arxiv-2509.04507",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "io targets. | Dataset.content_inventory={'speakers': 'multiple; exact count not stated', 'conditions': ['silent sEMG', 'vocalized sEMG with audio'], 'sEMG_channels': 8, 'sEMG_sampling_rate_hz': 1000, 'evaluation_test_set': 'approximately 100 utterances'}"
+  },
+  {
+   "pid": "arxiv-2509.04507-dualstg",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speech remains; independent-researcher preprint; no clinical/target-user validation | Dataset.counts_by_unit=silent and vocalized sEMG utterances with parallel/non-parallel alignments (Gaddy corpus style) | transformer ASR WER | transformer+LLM WER | per"
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "assistive_text_entry, other | target_population=speech_impairment, other | scope_limits=Speech synthesis from silent or voiced EMG content paired with a target face image; only a single-speaker EMG dataset is used, with multi-speaker identity supplie"
+  },
+  {
+   "pid": "arxiv-2604.18920",
+   "key": "t:comparisonofsemgencodingaccuracyacrossspeechmodesusingarticulatoryandphonemefeat",
+   "title": "Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "0, 'repetitions_per_sentence_per_mode': 3, 'utterances_per_sentence_per_participant': 9} | dataset_description=External Gaddy dataset [18], single-subject, voiced and mimed sEMG; used for generality check. | Cohort.recruitment=Speech-typical participants recruited at New York Unive"
+  },
+  {
+   "pid": "doi-10.1016-j.bspc.2015.02.009",
+   "key": "t:currentstateofdigitalsignalprocessinginmyoelectricinterfacesandrelatedapplicatio",
+   "title": "Current state of digital signal processing in myoelectric interfaces and related applications",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| Study.negative_findings=for vocabularies over 10 words sEMG speech recognition stayed below 70% until 2001; silent vs audible sEMG signals differ significantly, so audible-speech results may not transfer | claim=sEMG signals measured during silent an"
+  },
+  {
+   "pid": "doi-10.18653-v1-2025.acl-short.56",
+   "key": "p:doi-10.18653-v1-2025.acl-short.56",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dom_utterance | Study.study_design=system_proposal | Study.research_objective=test whether frozen LLMs can transcribe unvoiced EMG via a small learned adaptor | claim=a 6M-param EMG adaptor + frozen LLM transcribes unvoiced EMG at 0.49–0.52 WER, beat"
+  },
+  {
+   "pid": "doi-10.5220-0001549601550162",
+   "key": "t:towardsspeakeradaptivespeechrecognitionbasedonsurfaceelectromyography",
+   "title": "Towards Speaker-Adaptive Speech Recognition Based on Surface Electromyography",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ls (6000 dist/2000 codebooks) trained on EMG for the first time | ~100-minute corpus: 77.5 train / 22.5 test minutes of audible EMG"
+  },
+  {
+   "pid": "isca-han26f-tapets",
+   "key": "t:tapetstimealignedphonemeguidingforemgtospeechsynthesis",
+   "title": "TAP-ETS: Time Aligned Phoneme Guiding for EMG-to-Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "m_proposal | task_family=speech_reconstruction | ProductionCondition.activity_origin=attempted_speech | sensor_hardware=Gaddy et al. paired vocalized and silent EMG benchmark (surface EMG, 8-electrode) | observed_quantities=muscle_activity | intrusiveness=skin_contact"
+  },
+  {
+   "pid": "isca-lee25d_interspeech",
+   "key": "t:articulatoryfeaturepredictionfromsurfaceemgduringspeechproduction",
+   "title": "Articulatory Feature Prediction from Surface EMG during Speech Production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d from audio via AAI; single-speaker dataset | population_description=single male American English speaker | dataset_id=Gaddy et al. vocalized sEMG dataset | dataset_description=7,565 utterances / 15.6h vocalized speech, laptop-mic audio 16kHz + 8-channel facial"
+  },
+  {
+   "pid": "isca-lee26r_interspeech",
+   "key": "t:getsguidingemgtospeechsynthesisviasilentspeechrecognition",
+   "title": "GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ordinary_voiced_speech | modalities=surface_emg, microphone | intrusiveness=skin_contact | Acquisition.sensor_geometry=Gaddy&Klein 8-ch monopolar sEMG @1kHz resampled 800Hz; 60Hz notch+2Hz HP; audio 16kHz; mel 100fps; 1285 parallel + 5470 non-parallel voiced utts, single subject | representation_kind=8-ch sEMG → conv+transformer encoder features; DTW warping silent→voiced fea"
+  },
+  {
+   "pid": "isca-lee26v_interspeech",
+   "key": "t:enhancingemgtospeechviasilentvoicedrepresentationalignment",
+   "title": "Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lee26v_interspeech | title=Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment | authors=Jiwon Lee, Injune Hwang, Jaejun Lee, Eungbeom Kim, Dongyub Han, Kyogu Lee | venue=In"
+  },
+  {
+   "pid": "isca-li23l_interspeech",
+   "key": "t:hybridsilentspeechinterfacethroughfusionofelectroencephalographyandelectromyogra",
+   "title": "Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speakers, all young healthy Mandarin natives; CER varies 1–12% across speakers (Spk6/Spk8 weak); comparison vs English Gaddy WER 42% not apples-to-apples; audible-vs-silent mismatch handled only at training | avg CER 7.22%±3.79 across 8 speakers (Citrinet); MCD 3.18±0.39dB"
+  },
+  {
+   "pid": "isca-toth09_interspeech",
+   "key": "p:isca-toth09_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", 100.018 (190+190 train, 60+60 test), EMG-PIT (14 speakers x 2 sessions, 100 sent/session half audible); VT trained on audible EMG only; 108-word test vocab; lattice-rescored trigram BN ASR | EvaluationProtocol.statistical_plan=MCD mean+sd per GMM si"
+  },
+  {
+   "pid": "isca-toussaint26_interspeech",
+   "key": "t:emergenceofphoneticrepresentationsinemgbasedsilentspeechinterfaces",
+   "title": "Emergence of Phonetic Representations in EMG-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "presentations; test role of acoustic regression loss and why contrastive SSL pretraining fails | Study.unit_of_analysis=Gaddy&Klein corpus 18.6h single-speaker 8-el sEMG (12h voiced aligned + 6h unvoiced DTW-aligned); 8 model setups; linear probe phone accuracy sil/no-sil; CKA embedding similarity; Wav2Vec2-WER intelligib"
+  },
+  {
+   "pid": "isca-wand11_interspeech",
+   "key": "t:investigationsonspeakingmodediscrepanciesinemgbasedspeechrecognition",
+   "title": "Investigations on Speaking Mode Discrepancies in EMG-based Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "spectral-energy discrepancy and silent-vs-audible WER difference per session (regression-line scatter) | 24.12% avg WER audible EMG baseline; silent-mode WER gap per session (avg silent ~47.13% → ~33.39% with spectral mapping)"
+  },
+  {
+   "pid": "isca-wand14b_interspeech",
+   "key": "t:theemgukacorpusforelectromyographicspeechprocessing",
+   "title": "The EMG-UKA Corpus for Electromyographic Speech Processing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "essions/8 speakers with a free 1:52h trial subset and utterance/word/phone alignments, enabling comparable SSI studies; audible-EMG baseline WER 22.82% (small) / 12.00% (large) | evidence_relation=supported_within_scope | technical_limits=small 50-utt"
+  },
+  {
+   "pid": "zenodo-22441724-leakctrl",
+   "key": "t:doesspokenspeechteachimaginedspeechleakagecontrolledlinearbaselinesonthreepublic",
+   "title": "Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "magined transfer accuracy | FEIS same-trial apparent transfer | Nieto within-session imagined accuracy (best subject) | Gaddy sEMG voiced->silent top-10 retrieval"
+  }
+ ],
+ "usual_approach": {
+  "design": "ASR-scored WER with Whisper",
+  "n": 11,
+  "tier": "pattern match",
+  "pids": [
+   "isca-han26f-tapets",
+   "isca-lee26r_interspeech",
+   "isca-lee26v_interspeech",
+   "arxiv-2602.01879",
+   "doi-10.5220-0001549601550162"
+  ],
+  "population_unique": 23,
+  "note": "full-text pattern counts over 23 unique studies: whisper 11, deepspeech 5, synthetic test data 3, listener transcription 1"
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-han26f-tapets",
+   "role": "sota",
+   "loc": "Sec. 4.1-4.2; Table 1",
+   "quote": "achieves a new state-of-the-art WER of 19.77%"
+  },
+  {
+   "pid": "isca-scheck23_interspeech",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "STE-GAN (SU) 0.66 82.65 1.87 10.29"
+  },
+  {
+   "pid": "arxiv-2506.11862",
+   "role": "target",
+   "loc": "Sec. IV-C.2; Table IV",
+   "quote": "our mix-train-from-scratch model achieves a WER of 8.75%"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 0,
+  "recall": 0.0,
+  "missed": [
+   "arxiv-2010.02960",
+   "arxiv-2106.01933",
+   "isca-scheck23_interspeech"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "isca-han26f-tapets",
+  "year": 2026,
+  "metric": "WER of speech synthesized from silent EMG, Gaddy test set (98 utterances), Whisper-medium; no voiced-EMG WER confirmed in a later ledger paper",
+  "value": 19.77,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 23,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "ASR-scored WER with Whisper",
+   "n": 11,
+   "tier": "pattern match",
+   "population_unique": 23
+  },
+  "state_of_the_art": {
+   "pid": "isca-han26f-tapets",
+   "year": 2026,
+   "metric": "WER of speech synthesized from silent EMG, Gaddy test set (98 utterances), Whisper-medium; no voiced-EMG WER confirmed in a later ledger paper",
+   "value": 19.77,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "isca-scheck23_interspeech"
+  ],
+  "unread": 24,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.0
+ },
+ "used_by": [
+  "confidence-based-self-training-for-emg-to-speech-leveraging-synthetic-emg-for-robust-modeling"
+ ]
+}
