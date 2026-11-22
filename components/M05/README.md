@@ -75,3 +75,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`video-to-speech-visual-input-stream.csv`](video-to-speech-visual-input-stream.csv) (7329 slot-filled, 165 pattern match, usual design in 76, 4 read in full)
 - Inclusion rule: Include the video-to-speech population of components/M06/video-to-speech-synthesis (speech waveform synthesized from talking-face or lip video, audio muted at test) and count, from the full text with the reference list removed, the visual input named: a mouth or lip crop, the full face, an optical-flow stream. Boundary: a study counts under every input its text names (upper bound; related-work mentions included); audio-visual enhancement with noisy audio at test, talking-head generation and video-to-text-to-speech pipelines excluded; versions counted once.
 - Used in: [Improved Speech Reconstruction from Silent Video](../../reviews/improved-speech-reconstruction-from-silent-video/)
+
+## wearable-integrated-dry-emg-speech-sensing
+
+- Table: [`wearable-integrated-dry-emg-speech-sensing.csv`](wearable-integrated-dry-emg-speech-sensing.csv) (7329 slot-filled, 21 pattern match, usual design in 16, 2 read in full)
+- Inclusion rule: Surface-EMG speech or silent-speech decoding studies whose electrodes are dry, textile or printed and mounted on a worn object or garment (headphones, earphones, around-ear frame, glasses, mask, collar or choker, headband, patch-free garment) rather than adhesive gel electrodes placed one by one. Boundary: tattoo-like or adhesive dry patches count as dry electrodes but not as integrated into a worn object; wet adhesive arrays, non-speech EMG and non-EMG wearables (strain, acoustic) are excluded when read; versions count once.
+- Used in: [Wireless Silent Speech Interface Using Multi-Channel Textile EMG Sensors Integrated into Headphones](../../reviews/wireless-silent-speech-interface-using-multi-channel-textile-emg-sensors-integrated-into-headpho/)
