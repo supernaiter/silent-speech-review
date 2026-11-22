@@ -171,6 +171,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | --- | --- | --- |
 | Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild | 2022 | Table 3 caption; Supplement A.1.1 |
 
+## voiced-emg-to-speech-benchmark
+
+- Table: [`voiced-emg-to-speech-benchmark.csv`](voiced-emg-to-speech-benchmark.csv) (6960 slot-filled, 23 pattern match, usual design in 11, 3 read in full)
+- Inclusion rule: Include studies that synthesize speech from vocalized (audible) surface EMG and report a word error rate of the synthesized speech, by ASR or listener transcription. Boundary: silent-EMG-only results belong to silent-emg-voicing-benchmark; recognition-only (EMG-to-text) studies are excluded; tests on synthetic EMG are recorded as a design value, not as a benchmark result; versions once.
+- Used in: [Confidence-Based Self-Training for EMG-to-Speech: Leveraging Synthetic EMG for Robust Modeling](../../reviews/confidence-based-self-training-for-emg-to-speech-leveraging-synthetic-emg-for-robust-modeling/)
+
 ## wearable-sensor-word-test-split
 
 - Table: [`wearable-sensor-word-test-split.csv`](wearable-sensor-word-test-split.csv) (6960 slot-filled, 143 pattern match, usual design in 65, 3 read in full)

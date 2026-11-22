@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Voiced read speech with EMG; silent data excluded"
+     ],
+     "field": "Prompted read sentences",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "Silent EMG excluded (§IV)."
+    },
+    "M02": {
+     "choice": [
+      "Real speech, MFCCs, phonemes as pseudo-labels for generated EMG"
+     ],
+     "field": "Paired audio targets",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Inherited from the generator lineage."
+    },
+    "M03": {
+     "choice": [
+      "STE-GAN synthetic EMG, phoneme-loss filter, 1:1 real mix by utterance count"
+     ],
+     "field": "Speech-driven generator (8 of 13)",
+     "n": 8995,
+     "matched": 13,
+     "verdict": "standard",
+     "note": "Real-test gain 6.1% relative (inference)."
+    },
+    "M04": {
+     "choice": [
+      "Offline EMG-to-MFCC transduction"
+     ],
+     "field": "Offline decoding",
+     "n": 8995,
+     "matched": 6538,
+     "verdict": "standard",
+     "note": "Filtering is training-time only."
+    },
+    "M05": {
+     "choice": [
+      "Eight-channel facial and neck sEMG"
+     ],
+     "field": "Facial sEMG array",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "Gaddy and Klein setup."
+    },
+    "M06": {
+     "choice": [
+      "3 conv blocks, 6 transformer layers, MFCC target"
+     ],
+     "field": "Gaddy-Klein transduction model",
+     "n": 8995,
+     "matched": 8925,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M07": {
+     "choice": [
+      "None in synthesis; DeepSpeech scorer only for evaluation"
+     ],
+     "field": "No language model",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M08": {
+     "choice": [
+      "Audio via frozen HiFi-GAN"
+     ],
+     "field": "Synthesized audio",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Libri-EMG: 8.3 h synthetic EMG, 1,532 source voices"
+     ],
+     "field": "Recorded EMG corpora",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Synthetic corpus counted under M03; real EMG from one speaker."
+    },
+    "M12": {
+     "choice": [
+      "DeepSpeech WER on real and synthetic EMG tests"
+     ],
+     "field": "Whisper or DeepSpeech WER (11 and 5 of 23)",
+     "n": 8995,
+     "matched": 23,
+     "verdict": "standard",
+     "note": "Headline gains on synthetic test EMG; real baseline 23.30% is a reported value."
+    },
+    "M13": {
+     "choice": [
+      "None reported"
+     ],
+     "field": "Laboratory, offline",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "missing",
+     "note": "Clinical use motivated, not evaluated."
+    }
+   }
+  }
+ ]
+}
