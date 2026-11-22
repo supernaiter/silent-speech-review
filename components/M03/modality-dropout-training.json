@@ -1,0 +1,917 @@
+{
+ "topic": "modality-dropout-training",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "modality dropout|modality-dropout|drop(ping|s)? (the |one )?(audio|visual|video|acoustic) (modality|stream|input)|randomly (drop|mask)(s|ping)? (one|either|the audio|the visual|a) (modality|stream)",
+ "scope": "ledger",
+ "fulltext_pattern": "modality dropout|modality-dropout",
+ "inclusion_rule": "Include studies that train a multimodal speech model (audio-visual or other paired modalities) while randomly withholding one input modality for whole training examples or sequences (modality dropout), so the model also works from either modality alone. Boundary: frame-level masking inside one modality, ordinary feature dropout, and papers that only cite modality dropout without using it are excluded; counts are pattern match over ledger text and full text (reference lists removed), grouped into unique studies by title.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 23,
+  "string_match_unique": 21,
+  "fulltext_only_folders": 37
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "TrainingRun.training_hardware=unreported",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2307.14491",
+     "arxiv-2309.17395"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=not specified",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.14402",
+     "arxiv-2405.12983"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=autoregressive lip-reading ce loss; encoder frozen",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "acl-2024emnlp858-audiovsr"
+    ]
+   },
+   {
+    "design": "TrainingRun.selection_data=authentic ± synthetic video per β; audio only for zero-shot",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "acl-2024emnlp858-audiovsr"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=64 v100",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.06419"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=4-12 days",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.06419"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=dual-label detection; modality dropout; batch12 adam lr1e-5 100it",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2307.14491"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=audio-only pt then joint av ctc + cpl on unlabeled voxceleb2",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.17395"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=ft whisper on 1,141h muavic video; small ablation on 5 langs",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.01547"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=not reported",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.01547"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "\\bWER\\b|word error rate",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "WER (%)",
+   "value": 0.65,
+   "unit": "percent",
+   "raw": "0.65",
+   "pid": "arxiv-2606.05763",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "unified V/A/AV WER",
+   "value": 0.69,
+   "unit": "percent",
+   "raw": "AV 0.69% / A 0.84% / V 20.9% WER on LRS3",
+   "pid": "arxiv-2510-22961-sfmavsr",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS3 ASR WER % (A-HuBERT LARGE, AV clusters, 433h/1759h)",
+   "value": 1.3,
+   "unit": "percent",
+   "raw": "ASR WER %, audio-HuBERT LARGE w/ AV clusters, 433h lab + 1759h",
+   "pid": "arxiv-2201.02184",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "clean WER 433h AV",
+   "value": 1.4,
+   "unit": "percent",
+   "raw": "LRS3 clean WER, AV 433h (vs Ma 2.3)",
+   "pid": "isca-shi22_interspeech",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t6 av224 wer",
+   "value": 2.7,
+   "unit": "percent",
+   "raw": "2.7",
+   "pid": "arxiv-2306.06410",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "AVSR vs Opensr WER",
+   "value": 5.4,
+   "unit": "%",
+   "raw": "vs Opensr: VSR 39.8 vs 39.2; AVSR 5.4 vs 6.3 (on par VSR, better AVSR)",
+   "pid": "acl-2024emnlp858-audiovsr",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS2 AV WER avg",
+   "value": 9.4,
+   "unit": "% WER",
+   "raw": "LRS2 with ground-truth visual tokens avg WER 9.4 vs AVEC 10.3 / LUSL 24.7; beats AV-RelScore all SNR without video",
+   "pid": "aaai-29926-vishallu",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "impl rel WER red",
+   "value": 16,
+   "unit": "%",
+   "raw": "16%",
+   "pid": "arxiv-2205.14295",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER Whisper-large-v3",
+   "value": 18.3,
+   "unit": "percent",
+   "raw": "18.3",
+   "pid": "arxiv-2603.08249",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t7 en-auto wer",
+   "value": 20.5,
+   "unit": "percent",
+   "raw": "20.5",
+   "pid": "arxiv-2401.09802",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [
+  "doi-10.64898-2025.11.30.691403",
+  "isca-chochlakis24-missingmod",
+  "arxiv-2201.02184",
+  "arxiv-2401.09802",
+  "arxiv-2608-18114-natsent",
+  "arxiv-2201.01763",
+  "arxiv-2606.05763",
+  "arxiv-2609.31898-maestro",
+  "arxiv-2403.04245",
+  "arxiv-2512.14083",
+  "arxiv-2407.03563",
+  "arxiv-2606.05763-m2savsr",
+  "cvf-zhang24-es3",
+  "arxiv-2306.06410",
+  "arxiv-2512.14083-scalableavsr",
+  "cvf-dai24-modalbias",
+  "doi-10.26092-elib.5498",
+  "isca-shi22-robustav",
+  "arxiv-2504.18539",
+  "arxiv-2606.09667",
+  "arxiv-2603.08249",
+  "arxiv-2502.05766",
+  "doi-10.1016-j.eswa.2025.126741",
+  "aaai-29926-vishallu",
+  "cvf24-dai_modality",
+  "arxiv-2205.14295",
+  "arxiv-2307.16584-av2acascade",
+  "arxiv-2608.18114-brain2qwerty2",
+  "arxiv-2502.05758",
+  "arxiv-2606-05763-m2savsr"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "aaai-29926-vishallu",
+   "key": "t:visualhallucinationelevatesspeechrecognition",
+   "title": "Visual Hallucination Elevates Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "acl-2024emnlp858-audiovsr",
+   "key": "t:audiovsrenhancingvideospeechrecognitionwithaudiodata",
+   "title": "AudioVSR: Enhancing Video Speech Recognition with Audio Data",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "re clustering + mask prediction over audio and video streams; Transformer backbone | ProcessingStep.architecture=random modality dropout masking audio/video features during pretrain to force audio-lip alignment (universal semantic binding) | ProcessingStep"
+  },
+  {
+   "pid": "arxiv-1911.04890",
+   "key": "t:recurrentneuralnetworktransducerforaudiovisualspeechrecognition",
+   "title": "Recurrent Neural Network Transducer for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ent Neural Network Transducer for Audio-Visual Speech Recognition | Study.research_objective=AV RNN-T on 31khr YouTube: modality-dropout training, variable-vs-fixed fps, noise robustness (babble 20/10/0dB, overlap), overlap-augmented training, zero-shot LR"
+  },
+  {
+   "pid": "arxiv-2201.01763",
+   "key": "t:robustselfsupervisedaudiovisualspeechrecognition",
+   "title": "Robust Self-Supervised Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2201.02184",
+   "key": "t:learningaudiovisualspeechrepresentationbymaskedmultimodalclusterprediction",
+   "title": "Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2205.14295",
+   "key": "t:islipregionofinterestsufficientforlipreading",
+   "title": "Is Lip Region-of-Interest Sufficient for Lipreading?",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2207.07036",
+   "key": "t:asingleselfsupervisedmodelformanyspeechmodalitiesenableszeroshotmodalitytransfer",
+   "title": "A Single Self-Supervised Model for Many Speech Modalities Enables Zero-Shot Modality Transfer (u-HuBERT)",
+   "year": 2022,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "-supervised model for ALL speech modalities: unified masked cluster prediction over mixed unimodal+multimodal data with modality dropout -> single fine-tuned model serves AV/A/V inputs, zero-shot transfer to modalities never seen in fine-tuning (audio-FT -"
+  },
+  {
+   "pid": "arxiv-2211.11275",
+   "key": "t:vatlmvisualaudiotextpretrainingwithunifiedmaskedpredictionforspeechrepresentatio",
+   "title": "VATLM: Visual-Audio-Text Pre-Training with Unified Masked Prediction for Speech Representation Learning",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "kind=WER AVSR/VSR per SNR/noise | technical_essence=unified masked prediction: Lav+La+Lap+Lp losses; kmeans 2000 units; modality dropout+mask as AV-Hubert; lambda=1 | technical_essence=phoneme2unit Adam 40k upd on TED-LIUM3 433h, lr5e-4, batch10K phonemes"
+  },
+  {
+   "pid": "arxiv-2212.02782",
+   "key": "t:selfsupervisedaudiovisualspeechrepresentationslearningbymultimodalselfdistillati",
+   "title": "Self-Supervised Audio-Visual Speech Representations Learning by Multimodal Self-Distillation",
+   "year": 2022,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "3072/12; teacher normalizes and averages last 8 layers; student masked (80% audio/30% video span masks) + noise p=.25 + modality dropout; Lreg MSE on latent; AV2vec-MLM adds CE on discrete targets via separate linear head | extra.Configuration.configuratio"
+  },
+  {
+   "pid": "arxiv-2302.06419",
+   "key": "t:avdata2vecselfsupervisedlearningofaudiovisualspeechrepresentationswithcontextual",
+   "title": "AV-data2vec: Self-supervised Learning of Audio-Visual Speech Representations with Contextualized Target Representations",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "alities=optical_camera, microphone | Acquisition.sensor_geometry={'electrodes': 'in-the-wild face video + speech audio; modality dropout inputs', 'coordinate_system': 'face'} | dataset_description=LRS3 labeled: 30h low / 433h high | dataset_description=unl"
+  },
+  {
+   "pid": "arxiv-2305.15403",
+   "key": "t:avtranspeechaudiovisualrobustspeechtospeechtranslation",
+   "title": "AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2306.06410",
+   "key": "t:opensropenmodalityspeechrecognitionviamaintainingmultimodalityalignment",
+   "title": "OpenSR: Open-Modality Speech Recognition via Maintaining Multi-Modality Alignment",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2307.14491",
+   "key": "t:aunifiedframeworkformodalityagnosticdeepfakesdetection",
+   "title": "A Unified Framework for Modality-Agnostic Deepfakes Detection",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "nical_essence=joint FCD (1 layer) + TAM (2 layers) cross-modal fusion | technical_essence=dual-label detection heads w/ modality dropout | extra.Output.output_kind=detection scores (AUC/ACC/F1/EER) | extra.Configuration.configuration_scope=unified framewor"
+  },
+  {
+   "pid": "arxiv-2307.16584-av2acascade",
+   "key": "t:audiovisualvideotospeechsynthesiswithsynthesizedinputaudio",
+   "title": "Audio-visual video-to-speech synthesis with synthesized input audio",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2309.08030",
+   "key": "t:av2wavdiffusionbasedresynthesisfromcontinuousselfsupervisedfeaturesforaudiovisua",
+   "title": "AV2Wav: Diffusion-Based Re-synthesis from Continuous Self-supervised Features for Audio-Visual Speech Enhancement",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2309.17395",
+   "key": "t:avcplcontinuouspseudolabelingforaudiovisualspeechrecognition",
+   "title": "AV-CPL: Continuous Pseudo-Labeling for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "raining on LRS3 labeled(30/433h)+VoxCeleb2 unlabeled(1326/1759h); single CTC encoder does ASR/AVSR/VSR; audio-only PT + modality-dropout ablations; VSR 58.6->45.3. | task_family=sentence_recognition | extra.Task.scope=LRS3 test WER% for VSR/ASR/AVSR under"
+  },
+  {
+   "pid": "arxiv-2312.02512",
+   "key": "t:av2avdirectaudiovisualspeechtoaudiovisualspeechtranslationwithunifiedaudiovisual",
+   "title": "AV2AV: Direct Audio-Visual Speech to Audio-Visual Speech Translation with Unified Audio-Visual Speech Representation",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "| production_labels=ordinary_voiced_speech | representation_kind=discrete AV speech units from multilingual AV-HuBERT (modality dropout enables audio-only extraction) treated as pseudo-text | technical_essence=AV2AV pipeline: mAV-HuBERT (~7,011h multiling"
+  },
+  {
+   "pid": "arxiv-2401.03468",
+   "key": "t:multichannelavwav2vec2aframeworkforlearningmultichannelmultimodalspeechrepresent",
+   "title": "Multichannel AV-wav2vec2: A Framework for Learning Multichannel Multi-Modal Speech Representation",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2401.09802",
+   "key": "t:efficienttrainingformultilingualvisualspeechrecognitionpretrainingwithdiscretize",
+   "title": "Efficient Training for Multilingual Visual Speech Recognition: Pre-training with Discretized Visual Speech Representation",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2403.04245",
+   "key": "t:astudyofdropoutinducedmodalitybiasonrobustnesstomissingvideoframesforaudiovisual",
+   "title": "A Study of Dropout-Induced Modality Bias on Robustness to Missing Video Frames for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2403.14402",
+   "key": "t:xlavsrcrosslingualaudiovisualspeechrepresentationlearningfornoiserobustspeechper",
+   "title": "XLAVS-R: Cross-Lingual Audio-Visual Speech Representation Learning for Noise-Robust Speech Perception",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "via MuAViC) + Music/Noise types | representation_kind=A-only SSL units (XLS-R 36th layer, 2000 k-means) as AV targets; modality dropout pm=pa=0.5 | technical_essence=Stage1: A-only SSL pretrain 436K h 128 lang (XLS-R recipe). Stage2: AV-SSL inject video v"
+  },
+  {
+   "pid": "arxiv-2405.12983",
+   "key": "t:multilingualaudiovisualspeechrecognitionwithhybridctcrnntfastconformer",
+   "title": "Multilingual Audio-Visual Speech Recognition with Hybrid CTC/RNN-T Fast Conformer",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "h total); LRS3 AV 0.8/A 0.7/V 25.5 SOTA; MuAViC -11.94 avg vs AV-HuBERT baseline; white/babble noise robust; InterCTC & modality-dropout enable unimodal inference. | task_family=sentence_recognition | extra.Task.scope=En LRS3 AV/A/V WER + noisy SNR sweep;"
+  },
+  {
+   "pid": "arxiv-2407.03563",
+   "key": "t:learningvideotemporaldynamicswithcrossmodalattentionforrobustaudiovisualspeechre",
+   "title": "Learning Video Temporal Dynamics with Cross-Modal Attention for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2502.01547",
+   "key": "t:mwhisperflamingoformultilingualaudiovisualnoiserobustspeechrecognition",
+   "title": "mWhisper-Flamingo for Multilingual Audio-Visual Noise-Robust Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "AVSR: prepend multilingual AV-HuBERT visual feats into Whisper (small/medium) decoder via Flamingo cross-attn; decoder modality dropout (pAV=0.5,pV=0.5); MuAViC 9-lang clean+babble/6-noise WER eval. | task_family=sentence_recognition | extra.Task.scope=9-"
+  },
+  {
+   "pid": "arxiv-2502.05758",
+   "key": "t:targetspeakerlipreadingbyaudiovisualselfdistillationpretrainingandspeakeradaptat",
+   "title": "Target Speaker Lipreading by Audio-Visual Self-Distillation Pretraining and Speaker Adaptation",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2502.05766",
+   "key": "t:audiovisualrepresentationlearningviaknowledgedistillationfromspeechfoundationmod",
+   "title": "Audio-Visual Representation Learning via Knowledge Distillation from Speech Foundation Models",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2504.18539",
+   "key": "t:multitaskcorruptedpredictionforlearningrobustaudiovisualspeechrepresentation",
+   "title": "Multi-Task Corrupted Prediction for Learning Robust Audio-Visual Speech Representation",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2508.09913",
+   "key": "p:arxiv-2508.09913",
+   "title": null,
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ed via k-means | ProcessingStep.architecture=ResNet-18 2D+3D visual frontend + single linear-projection audio frontend; modality dropout allows unimodal input | ProcessingStep.architecture=masked-prediction transformer encoder over corrupted visual+audio f"
+  },
+  {
+   "pid": "arxiv-2508.18734",
+   "key": "t:improvingnoiserobustaudiovisualspeechrecognitionviaroutergatedcrossmodalfeaturef",
+   "title": "Improving Noise Robust Audio-Visual Speech Recognition via Router-Gated Cross-Modal Feature Fusion",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2508.20476",
+   "key": "t:towardsinclusivecommunicationaunifiedframeworkforgeneratingspokenlanguagefromsig",
+   "title": "Towards Inclusive Communication: A Unified Framework for Generating Spoken Language from Sign, Lip, and Audio",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "r SLT+VSR+ASR+AVSR: sign encoder + lip encoder + audio -> LLM; two-stage multi-task training (visual first then joint); modality dropout controls task sampling. | task_family=sentence_recognition | extra.Task.scope=Sign translation (How2Sign) + VSR/ASR/AVS"
+  },
+  {
+   "pid": "arxiv-2510-22961-sfmavsr",
+   "key": "t:adaptingspeechfoundationmodelsforunifiedmultimodalspeechrecognitionwithlargelang",
+   "title": "Adapting Speech Foundation Models for Unified Multimodal Speech Recognition with Large Language Models",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2510.22961",
+   "key": "t:adaptingspeechfoundationmodelsforunifiedmultimodalspeechrecognitionwithlargelang",
+   "title": "Adapting Speech Foundation Models for Unified Multimodal Speech Recognition with Large Language Models",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "extra.Task.scope=Unified shared-model VSR/ASR/AVSR: frozen SFM + visual injection pretraining (VIPT corrupted->clean) + modality dropout + parameter sharing. | intended_use_cases=noisy_environment, assistive_text_entry | Cohort.demographics=LRS3 labeled 30"
+  },
+  {
+   "pid": "arxiv-2512.14083",
+   "key": "t:scalableframeworksforrealworldaudiovisualspeechrecognition",
+   "title": "Scalable Frameworks for Real-World Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2512.14083-scalableavsr",
+   "key": "t:scalableframeworksforrealworldaudiovisualspeechrecognition",
+   "title": "Scalable Frameworks for Real-World Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2603.08249",
+   "key": "t:bootstrappingaudiovisualspeechrecognitioninzeroavresourcescenarios",
+   "title": "Bootstrapping Audiovisual Speech Recognition in Zero-AV-Resource Scenarios",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606-05763-m2savsr",
+   "key": "t:m2savsrmodalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspe",
+   "title": "M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606-09667-xmask",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ed | ProcessingStep.hyperparameters=joint sEMG+lip encoder with modality masking in training; degrades gracefully under modality dropout/low bitrate | Dataset.counts_by_unit=multi-speaker paired recordings | tested_population=healthy_volunteers | multimoda"
+  },
+  {
+   "pid": "arxiv-2606.05763",
+   "key": "t:m2savsrmodalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspe",
+   "title": "M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606.05763-m2savsr",
+   "key": "t:modalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspeechreco",
+   "title": "Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606.09667",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2608-18114-natsent",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2608.18114",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "rs=Frozen CTC encoder; Qwen3-4B causal LLM; per-subject LoRA and model soup (rank 128, alpha 256); label smoothing .02; modality dropout .1 on CTC and MEG tokens; beam search size 16, maximum 60 tokens, length penalty .2. | code_url=https://github.com/face"
+  },
+  {
+   "pid": "arxiv-2608.18114-brain2qwerty2",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2609.31898-maestro",
+   "key": "t:maestroamultimodalauditoryattentionegocentricspeechtrackingopencorpus",
+   "title": "MAESTRO: a Multimodal Auditory-attention Egocentric Speech-TRacking Open corpus",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-dai24-modalbias",
+   "key": "t:astudyofdropoutinducedmodalitybiasonrobustnesstomissingvideoframesforaudiovisual",
+   "title": "A Study of Dropout-Induced Modality Bias on Robustness to Missing Video Frames for Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-dai24-modalitybias",
+   "key": "t:astudyofdropoutinducedmodalitybiasonrobustnesstomissingvideoframesforaudiovisual",
+   "title": "A Study of Dropout-Induced Modality Bias on Robustness to Missing Video Frames for Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-zhang24-es3",
+   "key": "t:es3evolvingselfsupervisedlearningofrobustaudiovisualspeechrepresentations",
+   "title": "ES3: Evolving Self-Supervised Learning of Robust Audio-Visual Speech Representations",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf24-choi_av2av",
+   "key": "t:av2avdirectaudiovisualspeechtoaudiovisualspeechtranslationwithunifiedaudiovisual",
+   "title": "A V2A V: Direct Audio-Visual Speech to Audio-Visual Speech Translation with Unified Audio-Visual Speech Representation",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "stem_proposal | Study.research_objective=first direct AV->AV speech translation via unified AV speech representations + modality dropout | Study.unit_of_analysis=ASR-BLEU on LRS3-T (low-resource) and MuAViC many-to-many, plus noise-corruption SNR sweep | t"
+  },
+  {
+   "pid": "cvf24-dai_modality",
+   "key": "t:astudyofdropoutinducedmodalitybiasonrobustnesstomissingvideoframesforaudiovisual",
+   "title": "A Study of Dropout-Induced Modality Bias on Robustness to Missing Video Frames for Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf24-zhang_es3",
+   "key": "t:es3evolvingselfsupervisedlearningofrobustaudiovisualspeechrepresentations",
+   "title": "ES3: Evolving Self-Supervised Learning of Robust Audio-Visual Speech Representations",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1016-j.eswa.2025.126741",
+   "key": "t:targetspeakerlipreadingbyaudiovisualselfdistillationpretrainingandspeakeradaptat",
+   "title": "Target Speaker Lipreading by Audio-Visual Self-Distillation Pretraining and Speaker Adaptation",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1109-asru46091.2019.9004036",
+   "key": "t:recurrentneuralnetworktransducerforaudiovisualspeechrecognition",
+   "title": "Recurrent Neural Network Transducer for Audio-Visual Speech Recognition",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "figuration.component_versions=RNN-T with modality encoders, joint network, softmax over characters; V2P visual pathway; modality dropout | technical_essence=RNN-T joint network combines audio/visual encoder outputs; character softmax enables open vocabular"
+  },
+  {
+   "pid": "doi-10.26092-elib.5498",
+   "key": "t:personalizingmyoelectricsilentspeechinterfacesviacrossspeakertrainingandvoicetim",
+   "title": "Personalizing Myoelectric Silent Speech Interfaces via Cross-Speaker Training and Voice Timbre Control",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.64898-2025.11.30.691403",
+   "key": "t:representationalignmentandgenerationacomprehensivesurveyoffoundationmodelsfornon",
+   "title": "Representation, Alignment, and Generation: A Comprehensive Survey of Foundation Models for Non-Invasive Brain Decoding",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "in24-disfluency-av",
+   "key": "t:missingnessresilientvideoenhancedmultimodaldisfluencydetection",
+   "title": "Missingness-resilient Video-enhanced Multimodal Disfluency Detection",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "eo full-face frames and cropped lip ROI per the Ma et al. lip-preprocessing pipeline; modality missingness simulated by dropping the video input with p=0.5 | representation_kind=Audio: base wav2vec 2.0, 12 frozen transformer layers → temporal decimator (swap-in Hu"
+  },
+  {
+   "pid": "in24-mamauv",
+   "key": "t:tacklingmissingmodalitiesinaudiovisualrepresentationlearningusingmaskedautoencod",
+   "title": "Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders",
+   "year": 2024,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "the frozen encoder + a fine-tuned classification head consume them | Study.unit_of_analysis=Classification accuracy vs modality-dropout rate (10–90%) on CREMA-D / RAVDESS emotion recognition and Lombard-vs-plain speech recognition; 2 backbones (AVID-CMA,"
+  },
+  {
+   "pid": "isca-chochlakis24-missingmod",
+   "key": "t:tacklingmissingmodalitiesinaudiovisualrepresentationlearningusingmaskedautoencod",
+   "title": "Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-shi22-robustav",
+   "key": "t:robustselfsupervisedaudiovisualspeechrecognition",
+   "title": "Robust Self-Supervised Audio-Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-shi22_interspeech",
+   "key": "t:robustselfsupervisedaudiovisualspeechrecognition",
+   "title": "Robust Self-Supervised Audio-Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "V100, 5 iterations | technical_essence=9-layer transformer decoder appended for CTC-free fine-tuning; no input masking/modality dropout at FT | decoder_route=recognition_to_text | system_name=Noise-augmented AV-HuBERT AVSR | system_boundary=AV-HuBERT enco"
+  },
+  {
+   "pid": "mdpi-math11071733",
+   "key": "t:researchonrobustaudiovisualspeechrecognitionalgorithms",
+   "title": "Research on Robust Audio-Visual Speech Recognition Algorithms",
+   "year": 2023,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "uBERT/MoCo variants | system_name=Transformer-CTC (replicated) | system_name=AV-HuBERT seq2seq (replicated; BASE/LARGE; modality dropout, audio-visual clustering, substitution masking) | system_name=MoCo visual frontend + wav2vec 2.0 audio frontend fusion"
+  }
+ ],
+ "usual_approach": {
+  "design": "modality dropout in audio-visual speech recognition, lip reading or self-supervised audio-visual pre-training (AV-HuBERT lineage)",
+  "n": 38,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2201.02184",
+   "arxiv-2207.07036",
+   "arxiv-2211.11275",
+   "arxiv-2302.06419",
+   "isca-shi22_interspeech"
+  ],
+  "population_unique": 44,
+  "note": "full-text pattern counts over 44 unique studies matching the modality-dropout pattern: recognition or lip reading 38, self-supervised pre-training 30, speech generation or re-synthesis output 9 (including the target); slot-filled M03 design values cover only 13 studies and record training hardware, so they give no usual approach"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2201.02184",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "The input discrepancy is addressed by modality dropout described next."
+  },
+  {
+   "pid": "arxiv-2307.16584-av2acascade",
+   "role": "target",
+   "loc": "Sec. V-C",
+   "quote": "we compute audio features from the ground truth audio rather than the synthesized audio."
+  }
+ ],
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 21,
+  "fulltext_only_folders": 37,
+  "usual_approach": {
+   "design": "modality dropout in audio-visual speech recognition, lip reading or self-supervised audio-visual pre-training (AV-HuBERT lineage)",
+   "n": 38,
+   "tier": "pattern match",
+   "population_unique": 44
+  },
+  "state_of_the_art": {
+   "metric": "WER (%)",
+   "value": 0.65,
+   "unit": "percent",
+   "raw": "0.65",
+   "pid": "arxiv-2606.05763",
+   "year": null,
+   "tier": "ledger only",
+   "source": "ledger candidate, not yet confirmed"
+  },
+  "read": 2,
+  "read_prior": [
+   "arxiv-2201.02184"
+  ],
+  "unread": 60,
+  "confirmed_unique": 0,
+  "known_item_recall": null
+ },
+ "used_by": [
+  "audio-visual-video-to-speech-synthesis-with-synthesized-input-audio"
+ ]
+}
