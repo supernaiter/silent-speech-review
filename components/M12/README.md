@@ -38,6 +38,18 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: EEG decoding studies that report accuracy on subjects whose data were not used to train the decoder (leave-one-subject-out, a fixed set of held-out subjects, or subject-independent cross-validation). Boundary: within-subject cross-validation only, fine-tuning on the test subject's labeled trials before scoring (counted, but recorded as calibrated transfer), and reviews are excluded; versions of one study count once.
 - Used in: [Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding](../../reviews/do-eeg-foundation-models-transfer-to-speech-a-benchmark-on-overt-and-imagined-speech-decoding/), [MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding](../../reviews/multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding/)
 
+## emg-text-unseen-sentence-test
+
+- Table: [`emg-text-unseen-sentence-test.csv`](emg-text-unseen-sentence-test.csv) (6960 slot-filled, 64 pattern match, usual design in 13, 3 read in full)
+- Inclusion rule: Surface-EMG decoders whose output is scored with WER or CER (recognition, or ASR on synthesized speech); the design compared is whether the headline error is measured on sentences absent from all training data (sentence-disjoint, open vocabulary) or on repeats of training sentences (closed set). Boundary: a paper is counted under each protocol its text names; reviews count as pattern matches only; versions of one study count once.
+- Used in: [Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding](../../reviews/multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition |  | Abstract |
+| Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding | 2026 | Sec. 3.2 |
+| An Improved Model for Voicing Silent Speech |  | Sec. 1 |
+
 ## human-lipreader-baseline
 
 - Table: [`human-lipreader-baseline.csv`](human-lipreader-baseline.csv) (7 confirmed, 116 candidates read, 0 unread)

@@ -30,13 +30,30 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`cross-subject-pooled-training.csv`](cross-subject-pooled-training.csv) (1526 slot-filled, 370 pattern match, usual design in 90, 4 read in full)
 - Inclusion rule: Speech or language decoders from neural or other biosignals that train one model on data pooled across participants, with or without participant-specific layers or embeddings. Boundary: a per-participant model that only reports results averaged over participants is excluded; transfer by fine-tuning from another participant counts; versions of one study count once.
-- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/), [A cross-species neural foundation model for end-to-end speech decoding](../../reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/), [A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations](../../reviews/a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations/), [Decoding speech perception from non-invasive brain recordings](../../reviews/decoding-speech-perception-from-non-invasive-brain-recordings/), [MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding](../../reviews/multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding/), [Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping](../../reviews/zero-shot-imagined-speech-decoding-via-imagined-to-listened-meg-mapping/)
+- Used in: [A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses](../../reviews/a-convolutional-framework-for-mapping-imagined-auditory-meg-into-listened-brain-responses/), [A cross-species neural foundation model for end-to-end speech decoding](../../reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/), [A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations](../../reviews/a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations/), [Decoding speech perception from non-invasive brain recordings](../../reviews/decoding-speech-perception-from-non-invasive-brain-recordings/), [Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding](../../reviews/multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/), [MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding](../../reviews/multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding/), [Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping](../../reviews/zero-shot-imagined-speech-decoding-via-imagined-to-listened-meg-mapping/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding | 2026 | Sec. 3.2 |
 
 ## eeg-user-identification
 
 - Table: [`eeg-user-identification.csv`](eeg-user-identification.csv) (1526 slot-filled, 6 pattern match, usual design in 6, 3 read in full)
 - Inclusion rule: Studies in the wiki that identify the user (subject identification, biometric authentication) from scalp EEG; the design compared is identification from speech-imagery trials and how identification is tested (session-held-out vs trials permuted across sessions). Boundary: identification used only as a nuisance factor is excluded; versions count once; the target is counted in the pattern match.
 - Used in: [Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System](../../reviews/toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system/)
+
+## emg-cross-speaker-training-and-calibration
+
+- Table: [`emg-cross-speaker-training-and-calibration.csv`](emg-cross-speaker-training-and-calibration.csv) (1526 slot-filled, 64 pattern match, usual design in 40, 3 read in full)
+- Inclusion rule: Surface-EMG speech decoders (recognition, classification or synthesis) that train on data from several speakers and test on a speaker held out of that training pool, with or without target-speaker calibration or adaptation. Boundary: per-speaker models averaged over speakers and pooled training with speaker-mixed random splits are excluded; session-only adaptation within one speaker is excluded; EEG-EMG fusion counts when EMG is a decoder input; reviews count as pattern matches only; versions of one study count once.
+- Used in: [Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding](../../reviews/multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding | 2026 | Sec. 3.2 |
+| Personalizing Myoelectric Silent Speech Interfaces via Cross-Speaker Training and Voice Timbre Control | 2026 | Scheck et al. 2024, Sec. IV-B |
+| A novel silent speech recognition approach based on parallel inception convolutional neural network and Mel frequency spectral coefficient |  | Sec. 5 |
+| Towards Speaker-Adaptive Speech Recognition Based on Surface Electromyography | 2008 | Sec. 3.4 |
 
 ## imagenet-pretrained-vision-backbone-neural-speech
 

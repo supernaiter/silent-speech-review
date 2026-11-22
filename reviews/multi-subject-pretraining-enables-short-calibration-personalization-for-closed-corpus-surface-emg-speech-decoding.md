@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/](multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/).**
 
-Multi-subject pretraining plus target fine-tuning for 8-channel face/neck sEMG decoding of a closed 50-sentence corpus (27 subjects, LOSO); 21.7% CER / 31.9% WER, with 3-minute calibration not significantly worse.
+Standard training recipe (M03) at larger scale: pretrain on 26, calibrate 3 min. The closed corpus carries the result: unseen sentences give 99.9% WER (M12, behind).
 
 [Read the full review](multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/) · [All reviews](../README.md)
