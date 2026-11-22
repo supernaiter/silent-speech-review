@@ -12,7 +12,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`llm-transcript-correction.csv`](llm-transcript-correction.csv) (119 slot-filled, 382 pattern match, usual design in 78, 4 read in full)
 - Inclusion rule: Text-producing speech decoders from non-acoustic or neural signals (surface EMG, EEG, MEG, ECoG, intracortical, ultrasound, articulography, lip video, fMRI) whose ledger mentions a use-time language model, lexicon, beam search or rescoring. The design compared is the use-time language prior: an n-gram or lexicon-constrained beam search, neural language-model rescoring, or a large language model that rescores or rewrites the decoded transcript. Boundary: language models used only to build training targets or stimuli do not count; acoustic-only ASR is excluded; versions of one study count once.
-- Used in: [From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach](../../reviews/from-silent-signals-to-natural-language-a-dual-stage-transformer-llm-approach/)
+- Used in: [EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG](../../reviews/eeg-to-voice-decoding-of-spoken-and-imagined-speech-using-non-invasive-eeg/), [From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach](../../reviews/from-silent-signals-to-natural-language-a-dual-stage-transformer-llm-approach/)
 
 ## noninvasive-text-decoding-language-model
 

@@ -2358,6 +2358,16 @@
    "reason": "Sentence-disjoint split, 444/30 sentences per subject and mode; reports phoneme accuracy and DTW-aligned MFCC distances, CER only for two example sentences.",
    "loc": "Sec. II-A; Table II",
    "quote": "The sentences used in our test set were unseen sentences that were not present in the training dataset."
+  },
+  {
+   "pid": "doi-10.7507-1001-5515.202107018",
+   "key": "t:keytechnologyofbraincomputerinteractionbasedonspeechimagery",
+   "title": "(title not in English; omitted)",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l participants; authors flag need for speech-impaired/patient participants and transfer learning for patient decoders | modalities=scalp_eeg, ecog, intracortical_microelectrode, fnirs, meg | body_sites=cortex, scalp | sensor_hardware=reviewed hardware families: invasive neurotrophic/microelectrode arrays and ECoG grids (surgical implantation limits cohorts), scalp EEG, fNIRS; recommendation to develop lightweight multimodal acquisition devices | technical_essence=MFCC (borrowed from speech recognition) achieved best classification on Riaz/Cooney data; CSP + frequency-domain methods most used; alpha band best in syllable-imagery, low-gamma 30-40Hz features, Broca beta, high-gamma for decoding; ERP differences between imagined tasks small | technical_essence=reviewed comparisons: ELM>LDA and RBF-SVM (Min); Gaussian SVM best with little data (suited online, Matsumoto); ANN best on EEG, regularized LDA best on fNIRS (Sereshkeh); classic CSP+SVM pairing common; no single algorithm wins across datasets; DL needs large data and hampers online deployment | InteractionProtocol.feedback_modalities=cue modalities: auditory, visual, or combined audio-visual prompts; combined audio-visual beats visual-only on Mandarin 4-tone syllables (Zhang 2020); paced imagination with periodic beep/tick rhythm (D'Zmura, Nguyen, Qureshi/Mohanchandra Table 2) | extra.Interaction.correction=trial phases: preparation (fixation cross for baseline + async idle separability) -> cue -> imagination -> rest (black screen); AlSaleh: prep-vs-imagery binary beats rest-vs-imagery due to visual attention | extra.Output.output_kind=classified speech-imagery commands (device/IoT/wheelchair/mouse control) and decoded synthetic speech/text; applications include silent encrypted communication, brainprint ID, education focus assessment, VR/game control | claim=Speech imagery is a viable spontaneous (non-evoked) BCI paradigm: true and imagined speech partly share neural substrates; two paradigm families exist - finite-class classification (phoneme/syllable/tone/character/word) and continuous-sentence decoding | Claim.claim_type=generalization | Claim.claim_scope=Survey-level claim over reviewed literature; advantages claimed: spontaneous generation, no training, subject-friendly. | claim=Real-time online output/control is the gold standard of BCI, but most speech-imagery BCIs remain offline; online works concentrate on binary/ternary classification - multi-class online systems are the needed direction | Claim.claim_scope=Nonstationarity + individual differences hinder online deployment; adaptive algorithms and transfer learning proposed as partial fixes. | claim=No single feature/classifier dominates across datasets: CSP+frequency features are most used, MFCC best where applied; CSP+SVM is the classic pairing; algorithm choice should follow data size (DL for large, transfer learning for small, SVM for online) | Claim.claim_scope=Comparison restricted to studies sharing the same datasets (Table 5, EEG imagined-speech only); metrics mostly accuracy - authors call for ITR/failure-rate evaluation. | claim=Key data gaps: corpora are mostly from healthy participants (patients with speech disorders needed); most work is offline classification not control; no Chinese imagined-character database exists despite Chinese being the most-spoken language | Claim.claim_scope=Existing databases noted: Spanish (Coretto 2017) and English (Zhao 2015); MOCHA-TIMIT dominant for decoding. | claim=Outlook/applications: silent encrypted communication (military), multi-person coordinated decision fusion, IoT/smart-home/smart-driving control, education attention assessment, brainprint identification, VR/games; neurofeedback could improve imagery ability | Claim.claim_scope=Forward-looking speculation; ethical issues acknowledged for education use (privacy, network security). | Risk.mitigation=acknowledged as open ethical issues; no concrete mitigation specified in review | extra.Limitation.limitation=Field-level limitations identified by authors: mostly offline analysis (online is the gold standard); no standardized paradigm; participants mostly healthy not patients; no Chinese imagined-speech corpus; sentence decoding restricted to ECoG (surgical invasiveness limits cohorts); ERP between-task differences small | extra.Limitation.limitation=Evaluation practice: nearly all studies report accuracy only; kappa/sensitivity/specificity rare; authors call for ITR and failure-rate metrics | DaSalla 2009 CSP+SVM paired-binary acc /a/ vs idle (%) | DaSalla 2009 paired-binary acc /u/ vs idle (%) | DaSalla 2009 paired-binary acc /a/ vs /u/ (%) | Riaz 2015 MFCC+KNN paired-binary acc /a/ vs /u/ (%) | Iqbal 2016 time-domain+linear paired-binary acc /u/ vs idle (%) | Zhao 2015 time-domain+SVM category binary acc mean/max (%) | Sun 2016 NN category binary acc mean/max (%) | Saha 2019 covariance+CNN/LSTM/DAE/XGBoost binary acc mean/max (%) | Bakhshali 2020 Riemannian+KNN binary acc mean/max (%) | Cooney 2018 MFCC+SVM 11-class acc mean/max (%) | Panachakel 2019 DWT+DNN 11-class acc mean/max (%) | Coretto 2017 DWT+RF 5-vowel / 6-word acc mean (%) | Garcia-Salinas 2018 tensor decomposition+SVM 6-word acc mean (%) | Cooney 2019 CNN+transfer 5-vowel acc mean (%) | Cooney 2020 CNN/EEGNet 5-vowel acc mean (%) | Nguyen 2018 kappa long vs short word (long-word kappa) | Nguyen 2018 short-vs-long word binary acc max (%) | Sereshkeh online speech-imagery BCI: no vs rest acc (%) | Sereshkeh online: no vs yes acc (%) | Sereshkeh online 3-class (no/yes/rest) acc (%) | Chaudhary online no/yes acc lower bound (%) | Wang online speech+motor imagery acc lower bound (%) | Makin ECoG sentence decoding mean WER (%) | Sun ECoG read+mouthed sentence decoding best WER (%) | Brumberg 2011 imagined American-English phoneme count | AlSaleh 2018 distinct imagination materials count"
   }
  ],
  "usual_approach": {
@@ -2446,6 +2456,13 @@
    "role": "sota",
    "loc": "Results",
    "quote": "Average Copy Task decoding performance in the final 5 evaluation sessions had a word error rate of 2.5%"
+  },
+  {
+   "pid": "arxiv-2301-07173-neurotalk",
+   "role": "prior",
+   "loc": "Sec. Dataset Composition and Training Procedure; Table 1",
+   "quote": "It was chosen to test unseen case, since every phoneme composing the",
+   "read_for": "eeg-to-voice-decoding-of-spoken-and-imagined-speech-using-non-invasive-eeg"
   }
  ],
  "known_item_recall": {
@@ -2511,6 +2528,7 @@
   "a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding",
   "brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings",
   "continuous-silent-speech-recognition-using-eeg",
+  "eeg-to-voice-decoding-of-spoken-and-imagined-speech-using-non-invasive-eeg",
   "reconstructing-unseen-sentences-from-speech-related-biosignals-for-open-vocabulary-neural-commun"
  ],
  "known_item_recall_crossspecies": {
