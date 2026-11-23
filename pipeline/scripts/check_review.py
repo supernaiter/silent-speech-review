@@ -51,6 +51,8 @@ FIRST = re.compile(r'\b(?:the first (?:to|study|work|paper|system|report|demonst
                    r'|for the first time|the only (?:study|work|paper|system|one|method|approach|example|other|report)'
                    r'|no other|none of the|no (?:prior|previous|earlier|published) (?:study|studies|work|works|paper|papers|example|report)'
                    r'|unique(?:ly)?\b(?! (?:stud|paper|work|folder))|unprecedented|novel(?:ty)?|has never been|never (?:been )?(?:reported|shown|done))', re.I)
+ABSOLUTE = re.compile(r"\b(?:does not hold|nothing|never|no (?:prior|earlier|other) (?:work|study|paper)s?|none of|first to|the first (?:to|work|study|paper|system|demonstration)|the only|only (?:work|study|paper)|already|always|cannot|fails? to)\b", re.I)
+GROUND = re.compile(r'\[\[\d+\]\]\(#ref-\d+\)|\[\d+\]|§\s?\d|\b(?:Table|Fig\.|Figure|Sec\.|Section|Eq\.|p\.)\s?[\dA-Z]|Appendix|\(inference\)', re.I)
 HEDGE = re.compile(r'\b(?:may|might|possibly|perhaps|arguably|somewhat|it is possible|on the other hand|on balance)\b', re.I)
 CIT = re.compile(r'\[\[(\d+)\]\]\(#ref-(\d+)\)')
 LOC = re.compile(r'\[\[\d+\]\]|§|\b(?:Table|Tab\.|Fig\.|Figure|Sec\.|Section|Eq\.|p\.)\s?\d|\bAppendix\b')
@@ -415,6 +417,15 @@ def main():
     if nchar < a.min_chars or nchar > a.max_chars:
         fails.append('body (first heading to Appendix) is %d characters (allowed %d-%d)' % (nchar, a.min_chars, a.max_chars))
 
+    # --- overreach (audit of 971 evaluator fixes: 60 overreach + 52 absence/novelty fixes): absolute wording needs a
+    # citation, a paper location, an Appendix number or "(inference)" in the same sentence
+    for i, l in enumerate(lines[:ref_i]):
+        if i <= first_h2 - 1 or (ti2 is not None and ti2 <= i < tj2) or l.startswith('#') or l.startswith('|'):
+            continue
+        for snt in re.split(r'(?<=[.!?])\s+', l):
+            m = ABSOLUTE.search(snt)
+            if m and not GROUND.search(snt):
+                warns.append('line %d: absolute wording "%s" with no citation, location or Appendix number in the sentence' % (i + 1, m.group(0)))
     if a.strict:
         fails.extend(warns); warns.clear()
     for w in warns:

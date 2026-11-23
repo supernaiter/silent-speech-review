@@ -133,7 +133,7 @@ Writing rules:
 
 **9. Independent evaluation [evaluator].**
 The evaluator is a separate top-tier model (not the writer model), called once without tools. Send only our own review text and claim table, never wiki `source/` files.
-1. `scripts/compact_for_chat.py <slug>.md compact.md --claims claims.md` (the review without Questions and Appendix, the reference list, then the claim table with shortened claims; links stripped, `[n]` citations).
+1. `scripts/compact_for_chat.py <slug>.md compact.md --claims claims.md` (the whole review incl. Questions and Appendix, the reference list, then the full claim table; links stripped, `[n]` citations).
 2. Call the evaluator model once with the instruction block from `references/evaluator-brief.md`, then `=====REVIEW TEXT=====`, then `compact.md`. Nothing else goes into the call.
 3. Save its answer verbatim to `<slug>.eval.md` with the date and the evaluator label "a language model separate from the writer".
 4. Triage (reader model; writer model for rewrites): check each finding; open the source passage only for findings that need it (a number, a quote, a bibliographic fact), never the whole candidate set. Log `# | Verdict (applied / rejected / unverified) | Evidence | Where applied` in `<slug>.triage.md`, in English. Findings can be wrong (in an early run, 23 of 32 findings were right, 2 wrong and 7 unverifiable). The writer model rewrites only the sentences that change; rerun steps 6–8. At most two rounds; what is still open goes into `verification_status`.
@@ -159,6 +159,16 @@ Judgment (writer, then evaluator):
 - [ ] No [concurrent] / [later] work counted as prior; authors' own caveats reported.
 - [ ] Inherited slots kept to table rows.
 - [ ] Budget kept: writer model ≤ 50k tokens (or the reason logged).
+
+Frequent errors (971 evaluator fixes over 83 reviews; about 10 per review, not falling). Check each before handing over:
+- [ ] Every number and condition word in a claim is inside the quote of its notes entry (274 fixes). Do not carry a number from a truncated quote; ask the reader for the full sentence.
+- [ ] Every compared number names its condition on both sides: speaker-dependent or independent, session, vocabulary size, sensor count, metric and unit (84).
+- [ ] One quantity, one value: counts equal the `audit_tally.py` value with the same tier and base; years agree across text, table and References (71).
+- [ ] Verdict follows the rule in the slots and the text: no `not_reported` with a filled cell, no `behind` beside "typical of the field" (67).
+- [ ] Before citing a table value, name its column header, row label and whose number it is (63).
+- [ ] "never / nothing / none of / does not hold / already / the first" carries a citation, a location or an Appendix number in the same sentence (60). `check_review.py` warns.
+- [ ] Absence or novelty: cite the read prior; "the paper does not state X" needs the sections checked in notes (52).
+- [ ] State of the art: take the best matching entry of the audit `sota_candidates`, including later work; never an older value from memory (49).
 
 ## Output contract
 

@@ -2,7 +2,7 @@
 
 You did not write this review. Trust nothing in it.
 
-The evaluator is a top-tier model that is **separate from the writer model**. It is called once, without tools, and it receives exactly two things: this brief (the instruction block below) and the output of `scripts/compact_for_chat.py` (the review without Questions and Appendix, the reference list, and the claim table with each claim's source quote and location). It writes `<slug>.eval.md`.
+The evaluator is a top-tier model that is **separate from the writer model**. It is called once, without tools, and it receives exactly two things: this brief (the instruction block below) and the output of `scripts/compact_for_chat.py` (the whole review incl. Questions and Appendix, the reference list, and the full claim table with each claim's source quote and location). It writes `<slug>.eval.md`.
 
 The review follows the format in `pipeline/SKILL.md` (step 5): English only, no paper summary, no process disclaimers, a clear position, and two differences per component (usual approach, state of the art).
 The field comparison (usual approach, counts) comes from the wiki ledger tallies (slot-filled / pattern match, unique studies); the candidate papers were not read one by one, and only the target and the papers the review names were read in full. Do not ask for candidate-by-candidate audits, confirmed counts or recall estimates; check the claims that are made.
@@ -15,6 +15,14 @@ Check, in this order (at most 25 claims):
 5. **Fairness.** Is any work the authors could not have read (within 6 months of the target, or later) treated as prior work or as a missed citation? Does the review present as its own finding something the authors report themselves?
 6. **Absence and novelty claims.** For each "none of the N ledger papers" or "first / only" sentence: does it name the deciding prior works, and do you know of an earlier work with the same design? Report it with year and locator.
 7. **Verdicts.** For each slot verdict that is not `standard`: does it follow the verdict rules in `pipeline/SKILL.md` (for `ahead`: ledger count in the Appendix, deciding priors named, effect repeated)?
+
+Before you call a claim wrong (81 of 971 earlier fixes were wrong):
+- Read the quoted table's column header and row label, and the condition, before saying the review misread it (27 wrong fixes).
+- If a quote looks too thin, say "insufficient quote", not "wrong"; the source may hold it (28).
+- Questions for the authors and the Appendix are part of the text you were given; claims may point there (13).
+- "(inference)" on the reviewer's own arithmetic is required by the skill; do not ask to remove it (8).
+- Appendix ledger counts are exact tallies; equal counts across slots are not by themselves an error (5).
+- Outside knowledge that you cannot locate (year, venue, value) is "unverified", not a required fix (11).
 
 Output (English): a table (claim, where checked, correct / wrong / insufficient evidence, note), then a list of required fixes ordered by impact, then two scores out of 10 (procedure, final text). No praise section longer than five lines.
 

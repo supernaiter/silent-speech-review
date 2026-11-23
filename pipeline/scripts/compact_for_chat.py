@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Make a compact copy of a review for the evaluator model (a separate model from the writer).
 
-usage: compact_for_chat.py REVIEW.md OUT.md [--claims claims.md] [--full]
+usage: compact_for_chat.py REVIEW.md OUT.md [--claims claims.md] [--short]
 
-Default (evaluation copy): the review up to "## References" without "## Questions for the authors" and without
-"## Appendix: literature search" (wiki counts are outside the evaluator's check), then the References list, then the
-claim table from claim_table.py (--claims). --full keeps the Appendix and Questions (old behaviour).
+Default: the whole review incl. Questions and Appendix, the References list, then the full claim table (claims
+not cut). In an audit of 971 evaluator fixes, 13 of the 81 wrong ones came from claim rows pointing at removed
+sections and 28 from cut claims or quotes. --short restores the old copy (no Questions/Appendix, claims cut to
+12 words).
 Strips anchors, [[n]](#ref-n) -> [n], drops [review] and wiki links, unwraps other links.
 """
 import re, sys
@@ -20,7 +21,7 @@ if '--claims' in sys.argv:
 t = open(args[0]).read()
 j = t.find('\n## References')
 main = t[:j] if j > 0 else t; refs = t[j:] if j > 0 else ''
-if '--full' not in sys.argv:
+if '--short' in sys.argv:
     for h in ('Questions for the authors', 'Appendix: literature search'):
         main = re.sub(r'\n## ' + re.escape(h) + r'\n.*?(?=\n## |\Z)', '\n', main, flags=re.S)
 main = re.sub(r'\[\[(\d+)\]\]\(#ref-\d+\)', r'[\1]', main)
@@ -40,6 +41,6 @@ def short_row(l):
     c[3] = ' ' + ' '.join(re.findall(r'\[\d+\]', c[3])) + ' '
     return '|' + '|'.join(c) + '|'
 if claims:
-    rows = [short_row(l) for l in open(claims).read().split('\n')]
+    rows = [(short_row(l) if '--short' in sys.argv else l) for l in open(claims).read().split('\n')]
     out += '\n## Claim table (each number or citation in the review, with the source quote and location)\n\n' + '\n'.join(rows)
 open(args[1], 'w').write(out); print(len(out), 'chars')
