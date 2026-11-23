@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include lip-reading and video-to-speech studies that take only lip or face video at test and use paired audio or a speech model during training to enrich the visual model, by knowledge distillation, regression of audio features, or a learned memory of audio representations recalled from video. Boundary: exclude audio-visual models that need audio at test and talking-head generation; full-text design counts are pattern matches (upper bounds, mentions included); count versions of one study once.
 - Used in: [AKVSR: Audio Knowledge Empowered Visual Speech Recognition by Compressing Audio Knowledge of a Pretrained Model](../../reviews/akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model/), [Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video](../../reviews/multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video/)
 
+## audio-only-pretraining-for-visual-speech-generation
+
+- Table: [`audio-only-pretraining-for-visual-speech-generation.csv`](audio-only-pretraining-for-visual-speech-generation.csv) (31 slot-filled, 165 pattern match, usual design in 9, 2 read in full)
+- Inclusion rule: Include the video-to-speech population of components/M06/video-to-speech-one-to-many-decoder (speech synthesized from lip or face video, audio muted at test) and count, from full text with the reference list removed, studies that pretrain the speech generator on audio without video before training with paired video, and studies that denoise or enhance the training target audio. Boundary: a study counts under every design its text names (upper bound, mentions and vocoder-only pretraining included); audio-visual enhancement with noisy audio at test is counted only if it is in that population; versions counted once.
+- Used in: [LipDiffuser: Lip-to-Speech Generation with Conditional Diffusion Models](../../reviews/lipdiffuser-lip-to-speech-generation-with-conditional-diffusion-models/)
+
 ## auxiliary-phoneme-loss-in-speech-synthesis
 
 - Table: [`auxiliary-phoneme-loss-in-speech-synthesis.csv`](auxiliary-phoneme-loss-in-speech-synthesis.csv) (31 slot-filled, 34 pattern match, usual design in 10, 3 read in full)

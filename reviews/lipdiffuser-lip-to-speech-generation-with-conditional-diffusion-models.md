@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/lipdiffuser-lip-to-speech-generation-with-conditional-diffusion-models/](lipdiffuser-lip-to-speech-generation-with-conditional-diffusion-models/).**
 
-LipDiffuser generates speech from mouth video plus the target speaker's enrollment audio using a conditional diffusion model. On LRS3-CHiME3 at -10 dB it improves quality and speaker similarity, but WER is 38% versus 36% for the best baseline.
+Diffusion decoder with per-frame MP-FiLM (M06) and audio-only pretraining (M02) are standard; quality and speaker-similarity leads rest on enhanced targets and a clean-reference enrollment.
 
 [Read the full review](lipdiffuser-lip-to-speech-generation-with-conditional-diffusion-models/) · [All reviews](../README.md)

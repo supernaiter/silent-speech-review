@@ -4,7 +4,7 @@ Richter, J., de Oliveira, D., Peer, T., Gerkmann, T. · arXiv preprint · 2025 �
 
 ## Verdict
 
-LipDiffuser [[1]](#ref-1) changes the decoder (M06), a diffusion denoiser conditioned on video frame by frame through MP-FiLM, and the training targets (M02), with audio-only pretraining and enhanced LRS3 audio. Both are standard: Table 1, the only quantitative table, isolates neither, and audio-only decoder pretraining was already ablated, with mixed effect, by Kefalas et al. [[2]](#ref-2), uncited. The quality lead is a lead over the recordings themselves (DNSMOS 3.64 against 3.56 for the clean reference, Table 1) after training on enhanced targets. The speaker-similarity lead (0.63 against 0.37 for IL2S (SSL)) is measured against an enrollment taken from the clean reference (Table 1); [concurrent] V2SFlow [[3]](#ref-3) shows that an audio-derived embedding raises speaker similarity at unchanged WER. On content it does not beat LipVoicer or IL2S (SSL) (WER 0.38 against 0.36, within one standard deviation), and the claimed cross-dataset generalization has no result (Sec. 5).
+LipDiffuser [[1]](#ref-1) changes the decoder (M06), a diffusion denoiser conditioned on video frame by frame through MP-FiLM, and the training targets (M02), with audio-only pretraining and enhanced LRS3 audio. Both are standard: no experiment isolates either (Table 1, the only table; Fig. 2, WER over input SNR), and Kefalas et al. [[2]](#ref-2), uncited, had already ablated audio-only decoder pretraining, with mixed effect. Trained on enhanced targets, it matches the clean recordings in quality rather than exceeding them: DNSMOS 3.64 against 3.56 (standard deviations 0.30, 0.36), NISQA 4.57 against 4.65 (Table 1). The speaker-similarity lead (0.63 against 0.37 for IL2S (SSL)) is measured against an enrollment taken from the clean reference (Table 1); [concurrent] V2SFlow [[3]](#ref-3) shows that an audio-derived embedding raises speaker similarity at unchanged WER. On content it does not beat LipVoicer or IL2S (SSL), which the authors call "comparable" (Sec. 5): WER 0.38 against 0.36, standard deviations 0.33-0.35, no interval or test (Table 1); the claimed cross-dataset generalization has no result (Sec. 5).
 
 ## Against the field, component by component
 
@@ -12,7 +12,7 @@ LipDiffuser [[1]](#ref-1) changes the decoder (M06), a diffusion denoiser condit
 
 **Usual approach:** Of 165 video-to-speech studies (pattern match), 54 use adversarial training and 22 a diffusion decoder; 15 upsample video features to the acoustic rate, the earliest from 1999, and FiLM appears in 1, this paper (Appendix). The closest prior, DiffV2S, conditions its denoiser on concatenated visual features and a speaker embedding (Sec. 3.2.1) [[4]](#ref-4).
 
-**State of the art:** [concurrent] Faces-to-Voices (2025) [[5]](#ref-5): 30.45% LRS3 WER at 10 steps, speaker embedding from video, Whisper Medium (Table 2). LipDiffuser's 0.38 (QuartzNet, 1,321 LRS3-CHiME3 files, 32 steps, enrollment audio) cannot be read against it; in its own Table 1 it is 0.02 worse than LipVoicer, about 6% relative (inference).
+**State of the art:** [concurrent] Faces-to-Voices (2025) [[5]](#ref-5): 30.45% LRS3 WER at 10 steps, speaker embedding from video, Whisper Medium (Table 2). V2SFlow's 28.5% (M12) uses another recognizer, which gives DiffV2S 39.2% against 41.07% under Whisper Medium [[3]](#ref-3); the scales differ. LipDiffuser's 0.38 (QuartzNet, 1,321 LRS3-CHiME3 files, 32 steps, enrollment audio) cannot be read against it; in its own Table 1 it is 0.02 worse than LipVoicer, about 6% relative (inference).
 
 No experiment compares MP-FiLM with concatenation or plain FiLM (Secs. 4-5). Verdict: standard.
 
@@ -20,7 +20,7 @@ No experiment compares MP-FiLM with concatenation or plain FiLM (Secs. 4-5). Ver
 
 **Usual approach:** Of 165 video-to-speech studies, 9 name audio-only pretraining and 6 enhanced training audio (pattern match, upper bounds; Appendix); the rest train on paired audio-video data. LipDiffuser pretrains on 960 hours of enhanced LibriSpeech and enhances the LRS3 audio (Sec. 4.1).
 
-**State of the art:** Kefalas et al. (2023) [[2]](#ref-2) pretrained decoders on more than 3,500 hours of audio: on unseen GRID speakers WER fell from 25.75% to 18.57% (Table VII), on seen speakers a mel model worsened from 2.66% to 3.58% (Table V).
+**State of the art:** Kefalas et al. (2023) [[2]](#ref-2) pretrained decoders on more than 3,500 hours of audio: on unseen GRID speakers (33-speaker split, Table VII) WER fell from 25.75% to 18.57% when the waveform decoder was initialized from the audio-pretrained one; on seen speakers (Table V) a mel model rose from 2.66% to 3.58% with the frozen pretrained decoder.
 
 LipDiffuser calls the pretraining "required" (Sec. 4.1) but gives no number without it, or for raw against enhanced targets. Verdict: standard.
 
@@ -41,7 +41,7 @@ SpkSim is the cosine between enrollment and output embeddings (Sec. 4.3); LipDif
 | M03 Training and adaptation | One run; selection unstated | Training records (slot-filled 1,526) | – | not reported |
 | M04 Use-time action | Overt speech, audio replaced | Silent or overt (slot-filled 5,595) | – | standard |
 | M05 Sensors | 88x88 mouth crop, BRAVEn | Camera video (slot-filled 7,329) | – | standard |
-| M06 Processing and decoding | MP-ADM diffusion, per-frame MP-FiLM | Adversarial training (pattern match 54) | [[5]](#ref-5) (2025): 30.45% WER, 10 steps | standard |
+| M06 Processing and decoding | MP-ADM diffusion, per-frame MP-FiLM | Adversarial training (pattern match 54) | [[5]](#ref-5) (2025): 30.45% WER (Whisper Medium), 10 steps | standard |
 | M07 Lexicon and LM | Enrollment speaker embedding | Use-time auxiliary information (slot-filled 119) | – | standard |
 | M08 Output | Mel to HiFi-GAN waveform | Waveform or text (slot-filled 3,268) | – | standard |
 | M09 Confirmation | Offline | Offline (slot-filled 82) | – | not applicable |
@@ -52,9 +52,9 @@ SpkSim is the cosine between enrollment and output embeddings (Sec. 4.3); LipDif
 
 ## Where the claims outrun the evidence
 
-- "Cross-dataset evaluations demonstrate the strong generalization" (Sec. 1) and "robustness w.r.t different enrollment utterance scenarios" (Sec. 6) have no table or figure; Sec. 5 reports only the in-domain test.
+- "Cross-dataset evaluations demonstrate the strong generalization" (Sec. 1) and "robustness w.r.t different enrollment utterance scenarios" (Sec. 6) have no result: Sec. 5 reports only LRS3-CHiME3 (Table 1, Figs. 1-2).
 - "Highest speech quality scores" (Sec. 5) compares a model trained on enhanced targets with baselines described only as trained on LRS3 (Sec. 4.4).
-- The listening test (Fig. 1) gives no sample count, interval or test.
+- The listening test (Fig. 1 caption, Sec. 4.3) gives no sample count, interval or test.
 
 ## What the field needs next
 
