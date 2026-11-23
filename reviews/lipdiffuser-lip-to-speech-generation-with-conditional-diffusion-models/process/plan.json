@@ -1,0 +1,73 @@
+{
+ "target": "arxiv-2505.11391",
+ "changed": [
+  "M02",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "MP-ADM denoiser-training lineage: the reported Adam schedule, batch size, and training scale are implementation settings, not a claimed change to the training action.",
+  "M03": "MP-ADM training lineage for optimizer and noise-level configuration; no calibration or adaptation procedure is claimed.",
+  "M04": "Lip2Speech-style enrolled-speaker lip-to-speech inference: silent video is paired at use time with target-speaker enrollment audio, without a new interaction action.",
+  "M05": "BRAVEn visual encoding and cited lip-reading mouth-ROI preprocessing lineage (25-fps grayscale 88×88 crops).",
+  "M07": "Use-time auxiliary information: a Wespeaker embedding from an enrollment utterance of the target speaker (Lip2Speech and IL2S lineage); in Table 1 the enrollment comes from the clean reference, treated under M12.",
+  "M08": "Mel-spectrogram-to-waveform lineage using the 16-kHz-pretrained HiFi-GAN vocoder.",
+  "M09": "Offline Lip2Speech-style generation pipeline; no presentation, confirmation, or commit component is reported.",
+  "M10": "Offline Lip2Speech-style generation pipeline; no correction or re-entry loop is reported.",
+  "M11": "LRS3 test references with synthetic CHiME3 noise mixed at fixed SNRs, the protocol of the authors' earlier AV-Gen enhancement work; it matters only for the enhancement baselines, and its consequences for the speaker reference are treated under M12.",
+  "M13": "About 205M denoiser parameters and about 60 H100 GPU-hours reported; code and checkpoints promised upon acceptance; no inference runtime for 32 sampling steps."
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "audio-only-pretraining-for-visual-speech-generation",
+   "inclusion_rule": "Include the video-to-speech population of components/M06/video-to-speech-one-to-many-decoder (speech synthesized from lip or face video, audio muted at test) and count, from full text with the reference list removed, studies that pretrain the speech generator on audio without video before training with paired video, and studies that denoise or enhance the training target audio. Boundary: a study counts under every design its text names (upper bound, mentions and vocoder-only pretraining included); audio-visual enhancement with noisy audio at test is counted only if it is in that population; versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "design_field": null,
+   "design_slot": "M02",
+   "design_regex": [
+    "audio_only_pretraining=(audio|speech)[- ]only (data|pre-?train\\w*|training|stage|corpus|corpora)|audio pre-?train|pre-?train\\w*[^.]{0,60}(on|with|using) (large[- ]scale )?(unlabel+ed |untranscribed )?(audio|speech)( data| corpora| datasets?)?[^.]{0,30}(without|before|then|first)|(without|no) (video|visual) (input|features|conditioning)[^.]{0,60}pre-?train|pre-?train\\w*[^.]{0,60}(without|no) (video|visual) (input|features|conditioning)",
+    "enhanced_training_audio=(enhance|denois)\\w*[^.]{0,50}(audio tracks?|training (audio|speech|targets?|data)|target speech|ground[- ]truth (audio|speech))|(audio tracks?|training (audio|speech)|target speech)[^.]{0,50}(enhance|denois)\\w*"
+   ],
+   "metric_pattern": "\\bWER\\b|word error rate",
+   "unit_pattern": "(?:fraction|%)",
+   "better": "lower",
+   "metric": "Word error rate (WER); lower is better under matched test conditions.",
+   "widened": true,
+   "rebuilt": "population = video-to-speech table pattern; full-text design counts"
+  },
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-one-to-many-decoder",
+   "reuse": "components/M06/video-to-speech-one-to-many-decoder.json",
+   "inclusion_rule": "Include the video-to-speech population of components/M06/video-to-speech-synthesis (speech waveform synthesized from talking-face or lip video, audio muted at test) and classify, from the full text with the reference list removed, how the acoustic decoder handles the one-to-many mapping: explicit pitch or energy (variance) predictors, flow-based decoders (normalizing flow, flow matching, rectified flow), diffusion decoders, adversarial training with a discriminator, and self-supervised speech-unit conditioning. Boundary: a study counts under every design its text names (upper bound; related-work mentions included); audio-visual enhancement with noisy audio at test, talking-head generation and video-to-text-to-TTS pipelines excluded; versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "WER|word error",
+   "better": "lower",
+   "added_fulltext_patterns": {
+    "film_conditioning": "(?-i:\\bFiLM\\b)|feature-?wise linear modulation|adaptive (layer|instance|group) norm\\w*[^.]{0,60}(visual|video|lip)",
+    "diffusion_any": "diffusion",
+    "frame_rate_upsampling": "(upsampl|interpolat|repeat)\\w*[^.]{0,80}(video|visual|lip)[^.]{0,40}(features?|frames?|embeddings?)[^.]{0,80}(mel|audio|spectrogram|frame rate|temporal resolution)|(video|visual|lip) features?[^.]{0,60}(upsampl|interpolat)\\w*"
+   }
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "inclusion_rule": "Include studies that synthesize a speech waveform from talking-face or lip video (the population of the M06 video-to-speech-synthesis table) and compare how the synthesized speech is evaluated: human listener or opinion tests, ASR word error on the synthesized speech, and tests on speakers unseen in training. Boundary: audio-visual enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS pipelines excluded; a study counts under every protocol its full text names (upper bound, related-work mentions included); versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "wer|word error",
+   "better": "lower",
+   "added_fulltext_patterns": {
+    "speaker_similarity_metric": "\\bSECS\\b|speaker (encoder )?cosine similarity|speaker similarity|SpkSim|SIM-o",
+    "audio_reference_or_enrollment_embedding": "speaker embeddings? (derived |extracted )?from (the |a )?(reference )?(audio|utterance|speech)|reference (audio|utterance|speech)|enrol+ment (audio|utterance|speech|data)"
+   }
+  }
+ ],
+ "dropped_topics": {
+  "M11/synthetic-noise-speech-reference-construction": "1 ledger match; the noise protocol only affects the enhancement baselines; the reference issue (enrollment from the clean reference) belongs to M12",
+  "M13/video-to-speech-compute-and-release": "usual approach was a single slot-filled value (n=1); no substantive point beyond the table row"
+ }
+}

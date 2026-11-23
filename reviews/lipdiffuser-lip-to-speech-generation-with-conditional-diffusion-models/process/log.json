@@ -1,0 +1,65 @@
+{
+ "slug": "lipdiffuser-lip-to-speech-generation-with-conditional-diffusion-models",
+ "stage": "final",
+ "steps": [
+  {
+   "step": "reading",
+   "by": "reader (language model)",
+   "output": "notes.json",
+   "what": "claims, numbers, conditions and unstated items of the target and comparator papers, each with a quote and location",
+   "finished": "2026-11-23T13:05:21+00:00"
+  },
+  {
+   "step": "plan",
+   "by": "writer (language model)",
+   "output": "plan.json",
+   "what": "which of the 13 components the paper changes, and the topics to compare on",
+   "finished": "2026-11-23T12:53:15+00:00"
+  },
+  {
+   "step": "field counts",
+   "by": "script",
+   "output": "topic tables under components/",
+   "what": "ledger search per topic: population, usual approach, candidate state of the art",
+   "finished": "2026-11-23T12:58:48+00:00"
+  },
+  {
+   "step": "draft",
+   "by": "writer (language model)",
+   "output": "draft.md, claims-draft.md",
+   "what": "review written from the notes and counts only; every claim mapped to a note or a count",
+   "finished": "2026-11-23T13:00:10+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-23T13:01:42+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-23T13:07:52+00:00"
+  }
+ ],
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 86 found, 0 missing, 13 unchecked (unstated, figure-only or no source)",
+  "topic counts M02-audio-only-pretraining-for-visual-speech-generation": "ok",
+  "topic counts M06-video-to-speech-one-to-many-decoder": "ok",
+  "topic counts M12-video-to-speech-output-evaluation": "ok"
+ },
+ "inputs": {
+  "notes_sha256": "b1eb84e34bc21c23424ee8c38eb1959c1c8988f2deb3e2ac39b038d3235ff761",
+  "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+  "method_sha256": "e8a70a09aa6de9f44dabca89b49999dd1a33f4b014759fcb8827e7a2a8c2747a",
+  "method": "pipeline/SKILL.md"
+ },
+ "body_chars": {
+  "draft": 12529,
+  "final": 12971
+ }
+}
