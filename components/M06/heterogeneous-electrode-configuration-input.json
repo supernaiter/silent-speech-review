@@ -19,7 +19,123 @@
   "design_slot": "M06",
   "design_slot_fill": 0.992,
   "sparse": false,
-  "design_values": [],
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 28,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02254",
+     "doi-10.1038-s41593-026-02303-2",
+     "doi-10.3389-fnins.2026.1816455",
+     "isca-belfrouh26-xcalib",
+     "arxiv-2506.13835"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 18,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.18749",
+     "arxiv-2609.30832",
+     "isca-belfrouh26-xcalib",
+     "arxiv-2506.13835",
+     "arxiv-2511.04691"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 12,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2608.22420",
+     "arxiv-2506.13835",
+     "doi-10.3389-fmed.2025.1646364",
+     "isca-niu24c-spatialatt",
+     "doi-10.1007-s11571-022-09819-w"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.30832",
+     "arxiv-2511.04691",
+     "doi-10.3389-fninf.2025.1583428",
+     "arxiv-2112.08569",
+     "biorxiv-2022.11.15.516461"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02254",
+     "arxiv-2609.30832",
+     "doi-10.1038-s41593-026-02303-2",
+     "doi-10.3389-fnins.2026.1816455",
+     "arxiv-2512.15830"
+    ]
+   },
+   {
+    "design": "model_family=linear_model",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.30832",
+     "doi-10.1186-s12984-025-01836-0",
+     "doi-10.64898-2026.07.09.737536",
+     "doi-10.1007-s11571-025-10289-z",
+     "doi-10.1007-s11571-022-09819-w"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s41593-026-02303-2",
+     "arxiv-2506.13835",
+     "doi-10.3390-s25216541",
+     "arxiv-2608.20186"
+    ]
+   },
+   {
+    "design": "model_family=svm",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s11571-022-09819-w",
+     "doi-10.1109-access.2020.3028831",
+     "doi-10.5220-0003769603700373",
+     "isca-li20ma_interspeech"
+    ]
+   },
+   {
+    "design": "representation_kind=time_series",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-11851104-ci-crossmodal",
+     "pmc-12213747-hypoxia-listening",
+     "pmc-12453656-eegspeech-review",
+     "pmc-12837114-vishallu"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=postprocess",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.18749",
+     "arxiv-2511.04691",
+     "arxiv-2112.08569"
+    ]
+   }
+  ],
   "pattern_counts": [
    {
     "design": "sensor_position_spatial_attention",
@@ -1310,6 +1426,12 @@
    "role": "sota",
    "loc": "Abstract",
    "quote": "The multi-subject models achieved high performance on unseen participants, with an average PCC=0.765 in leave-one-out cross-validation."
+  },
+  {
+   "pid": "arxiv-2405.11459",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "extracts contextual embeddings based on region-level"
   }
  ],
  "known_item_recall": {
@@ -1350,13 +1472,107 @@
   "read": 2,
   "read_prior": [
    "arxiv-2208.12266-natmi",
-   "doi-10.1101-2024.03.11.584533"
+   "doi-10.1101-2024.03.11.584533",
+   "arxiv-2405.11459"
   ],
   "unread": 110,
   "confirmed_unique": 0,
   "known_item_recall": 0.5
  },
  "used_by": [
-  "a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations"
+  "a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations",
+  "towards-unified-neural-decoding-with-brain-functional-network-modeling"
+ ],
+ "sota_candidates_published": [
+  {
+   "metric": "best pair accuracy /a/-/i/",
+   "value": 100,
+   "unit": "percent",
+   "raw": "100%",
+   "pid": "doi-10.1155-2016-2618265",
+   "year": 2016,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ELM max accuracy (gamma)",
+   "value": 99,
+   "unit": "percent",
+   "raw": "99%",
+   "pid": "pmc-12453656-eegspeech-review",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WCA; all pretraining data; SS tokenizer; eight healthy participants",
+   "value": 95.3,
+   "unit": "percent",
+   "raw": "95.3",
+   "pid": "arxiv-2506.13835",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best individual binary accuracy (imagined-only, P22)",
+   "value": 95,
+   "unit": "percent",
+   "raw": "highest accuracy (95%)",
+   "pid": "doi-10.3389-fninf.2025.1583428",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "EEGEyeNet accuracy",
+   "value": 91.8,
+   "unit": "percent",
+   "raw": "91.80%",
+   "pid": "pmc-12213747-hypoxia-listening",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "peak accuracy",
+   "value": 90,
+   "unit": "percent",
+   "raw": "peak single-participant decoding accuracy (lower bound)",
+   "pid": "doi-10.3389-fnins.2026.1816455",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "silent tone accuracy",
+   "value": 88.08,
+   "unit": "percent",
+   "raw": "88.08%",
+   "pid": "arxiv-2511.10935-catnet",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "prior control accuracy",
+   "value": 88,
+   "unit": "percent",
+   "raw": "healthy controls",
+   "pid": "pmc-12837114-vishallu",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy",
+   "value": 87.18,
+   "unit": "percent",
+   "raw": "87.18% for AT",
+   "pid": "doi-10.1109-tbme.2021.3132861",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy (%)",
+   "value": 85.0,
+   "unit": "percent",
+   "raw": "85.0",
+   "pid": "arxiv-2112.08569",
+   "year": 2022,
+   "tier": "ledger only"
+  }
  ]
 }

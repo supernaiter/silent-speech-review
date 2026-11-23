@@ -232,6 +232,33 @@
    "pid": "arxiv-2601.21148",
    "year": 2026,
    "tier": "ledger only"
+  },
+  {
+   "metric": "8-task benchmark",
+   "value": 98.2,
+   "unit": "accuracy_pct",
+   "raw": "OpenMIIR-P best-task accuracy (CBraMod 97.5)",
+   "pid": "arxiv-2512.09524",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "speech-to-text accuracy (%, SD 18.10)",
+   "value": 96.67,
+   "unit": null,
+   "raw": "ASTT (%) 96.67",
+   "pid": "arxiv-2602.20219",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "acc 66.35",
+   "value": 66.35,
+   "unit": "pct_accuracy",
+   "raw": "BrainStratify-Fine 61-word top-1 on Du-IN sEEG",
+   "pid": "arxiv-2505.20480",
+   "year": 2025,
+   "tier": "ledger only"
   }
  ],
  "recall_sample": [],
@@ -740,6 +767,18 @@
    "role": "prior",
    "loc": "Table 1; Sec. 4.3",
    "quote": "LaBraM 5.80M 63.4 13.0 15.1 9.1 8.6 7.5 34.3 8.3 13.2 10.4 20.8 44.2 20.6"
+  },
+  {
+   "pid": "arxiv-2405.11459",
+   "role": "sota",
+   "loc": "Sec. 1; Table 2",
+   "quote": "Du-IN achieves 62.70% top-1"
+  },
+  {
+   "pid": "arxiv-2405.11459",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "Du-IN (poms) Region ! ! 5.18M 59.18±4.63"
   }
  ],
  "known_item_recall": {
@@ -758,7 +797,8 @@
  },
  "deciding_priors_note": "Prior studies read that fine-tune a general EEG checkpoint for speech EEG against compact or from-scratch baselines: arxiv-2504.21214 (2025-04, LaBraM-Base vs EEGNet, TCNet, EEGConformer on 24-word silent speech) and arxiv-2509-26301-neurottt (2025-09, LaBraM-Base and CBraMod on BCIC2020-III).",
  "used_by": [
-  "do-eeg-foundation-models-transfer-to-speech-a-benchmark-on-overt-and-imagined-speech-decoding"
+  "do-eeg-foundation-models-transfer-to-speech-a-benchmark-on-overt-and-imagined-speech-decoding",
+  "towards-unified-neural-decoding-with-brain-functional-network-modeling"
  ],
  "tally": {
   "slot_filled_unique": 1526,
@@ -781,10 +821,111 @@
   "read": 2,
   "read_prior": [
    "arxiv-2504.21214",
-   "arxiv-2509-26301-neurottt"
+   "arxiv-2509-26301-neurottt",
+   "arxiv-2405.11459"
   ],
   "unread": 47,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
- }
+ },
+ "state_of_the_art_towards-unified-neural-decoding-with-brain-functional-network-modeling": {
+  "pid": "arxiv-2405.11459",
+  "year": 2024,
+  "metric": "61-word sEEG classification, 12 subjects, top-1 accuracy (mean over subjects), Brant 11.16-12.42 and BrainBERT 6.72-7.50 on the same task",
+  "value": 62.7,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "sota_candidates_published": [
+  {
+   "metric": "Rankacc",
+   "value": 97.1,
+   "unit": "percent",
+   "raw": "97.1 ± 1.3 percent",
+   "pid": "arxiv-2608.22420",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BAcc@10",
+   "value": 83.6,
+   "unit": "%",
+   "raw": "83.60%",
+   "pid": "arxiv-2609.03231",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "RA Top-1",
+   "value": 82.37,
+   "unit": "percent",
+   "raw": "RA Top-1 accuracy",
+   "pid": "arxiv-2607.25626-eegalign",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T2 oth leaf bacc",
+   "value": 71.36,
+   "unit": "percent",
+   "raw": "71.36",
+   "pid": "arxiv-2509.24302",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T1 top10 acc bo lib 100%data",
+   "value": 63.0,
+   "unit": "percent",
+   "raw": "63.0",
+   "pid": "arxiv-2602.02494",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "top1 accuracy",
+   "value": 62.7,
+   "unit": "percent",
+   "raw": "61-word top-1 accuracy",
+   "pid": "arxiv-2405.11459",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "speech-mode acc EEGNet",
+   "value": 61.3,
+   "unit": "percent",
+   "raw": "EEGNet 61.3% (chance 33.3) vs LaBraM 57.3, EEGMamba 56.6",
+   "pid": "arxiv-2607-27268-eegfm",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "speech-mode balanced acc",
+   "value": 61.3,
+   "unit": "percent",
+   "raw": "EEGNet 61.3% vs LaBraM 57.3% (chance 33.3%)",
+   "pid": "arxiv-2607-27268-eegfmspeech",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "lblm-fstp semantic-level avg acc (Table2)",
+   "value": 47.0,
+   "unit": "percent",
+   "raw": "47.0",
+   "pid": "arxiv-2504.21214",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BrainStack SOTA accuracy",
+   "value": 41.87,
+   "unit": "percent",
+   "raw": "BrainStack avg word-level accuracy (24-way)",
+   "pid": "arxiv-2601.21148",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ]
 }
