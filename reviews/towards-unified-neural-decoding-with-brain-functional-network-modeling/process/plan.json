@@ -1,0 +1,60 @@
+{
+ "target": "arxiv-2506.12055",
+ "changed": [
+  "M03",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Cued reading of displayed Mandarin characters in an epilepsy-monitoring unit, the standard sEEG speech-task lineage; nothing new in the user's training-time action.",
+  "M02": "Phoneme-initial labels taken from the displayed stimulus; audio is used only to annotate onsets for analysis. The masked-reconstruction pretext belongs to M03, not to a training-only supervision target.",
+  "M04": "Audible and silent (mouthed) articulation of single characters; the overt/mouthed pairing is common in intracranial speech work.",
+  "M05": "Clinical sEEG depth electrodes placed for epilepsy monitoring (8-13 electrodes, 30-88 selected channels); channel selection by articulation-versus-rest power, a standard choice.",
+  "M07": "No language model or lexicon; closed-set classification.",
+  "M08": "23-class phoneme-initial classification, a closed-set unit output of the kind common in early intracranial speech work.",
+  "M09": "Practice-only feedback (Correct or top-3 predictions); nothing new.",
+  "M10": "No correction loop.",
+  "M11": "Stimulus-defined labels with expert onset annotation; standard.",
+  "M13": "Bedside clinical sEEG with GPU server; no latency or deployment measure reported."
+ },
+ "topics": [
+  {
+   "slot": "M03",
+   "topic": "cross-subject-pooled-training",
+   "reuse": "components/M03/cross-subject-pooled-training.json",
+   "inclusion_rule": "Speech or language decoders from neural or other biosignals that train one model on data pooled across participants, with or without participant-specific layers or embeddings. Boundary: a per-participant model that only reports results averaged over participants is excluded; transfer by fine-tuning from another participant counts; versions of one study count once.",
+   "metric": "Accuracy gain of the pooled model over the per-participant model on the same test split; held-out-subject accuracy."
+  },
+  {
+   "slot": "M03",
+   "topic": "neural-foundation-model-speech-transfer",
+   "reuse": "components/M03/neural-foundation-model-speech-transfer.json",
+   "inclusion_rule": "Speech or language decoders from EEG, MEG or intracranial recordings that initialize from a checkpoint pretrained on large neural corpora (a neural foundation model) and fine-tune it for word, phrase, sentence or speech-feature decoding. Boundary: speech-audio or video foundation models are excluded; reviews and dataset papers that only mention foundation models still count as pattern matches (upper bound); versions of one study count once.",
+   "note_for_this_review": "The target pretrains its own masked-reconstruction model on the task cohort and compares it with two general intracranial checkpoints (Brant, BrainBERT); it is a boundary case scored against the topic's usual design and against task-specific self-supervised sEEG speech pretraining (Du-IN).",
+   "metric": "Closed-set sEEG speech classification accuracy."
+  },
+  {
+   "slot": "M06",
+   "topic": "heterogeneous-electrode-configuration-input",
+   "reuse": "components/M06/heterogeneous-electrode-configuration-input.json",
+   "inclusion_rule": "Speech or language decoders from neural or muscle signals (EEG, MEG, ECoG, sEEG, EMG) that train one model on recordings whose channel count or electrode layout differs across participants, devices or datasets, by mapping channels into a shared space (sensor-position spatial attention or coordinate embeddings, per-subject or per-layout input layers, graph models over electrodes, channel tokens, or a common channel subset). Boundary: a model trained and tested on one fixed montage is excluded even when pooled over subjects; channel-subset selection within one array is excluded; auditory-attention and non-speech EEG models are excluded when read; versions of one study count once.",
+   "metric": "Held-out-subject decoding performance of a layout-agnostic model."
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-speech-test-partition",
+   "inclusion_rule": "Speech or language decoding studies from intracranial recordings (sEEG, ECoG, intracortical arrays) whose ledger text names the signal and a speech unit; the design of interest is how test data are separated from training data: random trial split, k-fold cross-validation, held-out session or day, or held-out subject. Boundary: the ledger pattern also admits reviews, listening studies and non-intracranial papers that mention intracranial work, so counts are upper bounds; versions of one study count once.",
+   "pattern": "(?s)^(?=.*(\\bseeg\\b|stereo-?eeg|stereoelectro|\\becog\\b|electrocortico|intracranial|\\bieeg\\b|intracortical|utah array|microelectrode array))(?=.*(speech|phonem|syllab|articulat|word|sentence|vocal))",
+   "design_regex": [
+    "random_trial_split",
+    "k_fold_cross_validation",
+    "held_out_session_or_day",
+    "held_out_subject"
+   ],
+   "metric": "Test partition design (categorical)."
+  }
+ ],
+ "prep_used": "plan.draft.json corrected: M02 and M06 prep topics dropped (key=value design regex; 3-match pattern with zero known-item recall); M03 prep audit copied; M06 and second M03 topic reuse published tables; M12 topic rebuilt with full-text design patterns; M13 topic dropped (latency not reported, kept as a table row)."
+}
