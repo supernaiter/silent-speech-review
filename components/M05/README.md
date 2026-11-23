@@ -2,11 +2,17 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## active-acoustic-sensor-placement-and-audio-stream
+
+- Table: [`active-acoustic-sensor-placement-and-audio-stream.csv`](active-acoustic-sensor-placement-and-audio-stream.csv) (7329 slot-filled, 22 pattern match, usual design in 12, 3 read in full)
+- Inclusion rule: Same population as active-acoustic-speech-sensing (emitted near-ultrasonic or ultrasonic signal, reflection decoded for speech or mouth state); the design compared is where the transducers sit (in-ear, earphone or headphone; glasses or headset; smartphone or loudspeaker) and whether a voiced or whispered audio stream is fused with the echo. Boundary: a study counts under every design its full text names (upper bound); surveys and datasets count as pattern matches only.
+- Used in: [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](../../reviews/poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult/)
+
 ## active-acoustic-speech-sensing
 
 - Table: [`active-acoustic-speech-sensing.csv`](active-acoustic-speech-sensing.csv) (7329 slot-filled, 22 pattern match, usual design in 16, 3 read in full)
 - Inclusion rule: Studies that emit an acoustic signal (near-ultrasonic or ultrasonic, from a loudspeaker, earphone or transducer) and decode speech, silent speech or mouth state from its reflection or Doppler shift off the lips, face, jaw or vocal tract, captured by a microphone. Boundary: B-mode ultrasound tongue imaging, RF radar, Wi-Fi and laser sensing are excluded when read; reviews and datasets without a decoding result count as pattern matches only; versions of one study count once.
-- Used in: [End-to-End Silent Speech Recognition with Acoustic Sensing](../../reviews/end-to-end-silent-speech-recognition-with-acoustic-sensing/), [SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces](../../reviews/sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces/)
+- Used in: [End-to-End Silent Speech Recognition with Acoustic Sensing](../../reviews/end-to-end-silent-speech-recognition-with-acoustic-sensing/), [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](../../reviews/poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult/), [SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces](../../reviews/sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |

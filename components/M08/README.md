@@ -18,6 +18,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | --- | --- | --- |
 | Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild | 2022 | Sec. 3.2.4 |
 
+## content-and-identity-output
+
+- Table: [`content-and-identity-output.csv`](content-and-identity-output.csv) (3268 slot-filled, 75 pattern match, usual design in 67, 4 read in full)
+- Inclusion rule: Same verification population as the M03 topic; the design compared is what the deployed system returns: an identity decision only, or decoded content (word, digit, password, command) together with an identity decision from the same utterance; also whether silent or unvoiced input, EER and attack or liveness tests are named. Boundary: content and identity produced by separately trained stages still count as joint output; a study counts under every design its full text names.
+- Used in: [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](../../reviews/poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult/)
+
 ## intracranial-synthesis-waveform-generation
 
 - Table: [`intracranial-synthesis-waveform-generation.csv`](intracranial-synthesis-waveform-generation.csv) (3268 slot-filled, 180 pattern match, usual design in 51, 2 read in full)

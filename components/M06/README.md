@@ -223,6 +223,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that fit forward encoding models (TRF, mTRF, linear or nonlinear regression from time-varying speech features to a recorded biosignal: EEG, MEG, ECoG, EMG, fMRI) and evaluate them on held-out data, classified by the predictor feature space (acoustic, phonetic/phoneme, articulatory). Boundary: pure decoding (signal to features) studies, source-localisation forward models and acoustic-only articulatory inversion are excluded when read; a study can use several feature spaces; versions count once.
 - Used in: [Comparison of sEMG Encoding Accuracy Across Speech Modes Using Articulatory and Phoneme Features](../../reviews/comparison-of-semg-encoding-accuracy-across-speech-modes-using-articulatory-and-phoneme-features/)
 
+## speech-signal-verification-model
+
+- Table: [`speech-signal-verification-model.csv`](speech-signal-verification-model.csv) (7345 slot-filled, 75 pattern match, usual design in 37, 4 read in full)
+- Inclusion rule: Same verification population as the M03 topic; the design compared is the identity model: GMM/HMM classifiers, GMM-UBM or i-/x-vector back-ends, metric-learning embeddings (triplet, contrastive, angular margin, siamese), cross-modal alignment between two streams, and a multi-task or shared encoder that also serves content recognition. Boundary: a study counts under every design its full text names (upper bound); a related-work mention counts as a match.
+- Used in: [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](../../reviews/poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult/)
+
 ## spiking-neural-network-decoder
 
 - Table: [`spiking-neural-network-decoder.csv`](spiking-neural-network-decoder.csv) (7345 slot-filled, 29 pattern match, usual design in 3, 3 read in full)
