@@ -19,3 +19,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`noninvasive-text-decoding-language-model.csv`](noninvasive-text-decoding-language-model.csv) (119 slot-filled, 1458 pattern match, usual design in 169, 1 read in full)
 - Inclusion rule: Language or text decoding studies whose ledger names scalp EEG or MEG. The design compared is the use-time language prior: n-gram or character language model with beam search, neural or large language model rescoring or generation, or none. Boundary: a language model used only to build stimuli or embeddings for training targets does not count; closed candidate-set ranking counts as none.
 - Used in: [Brain-to-Text Decoding: A Non-invasive Approach via Typing](../../reviews/brain-to-text-decoding-a-non-invasive-approach-via-typing/), [Continuous Silent Speech Recognition using EEG](../../reviews/continuous-silent-speech-recognition-using-eeg/)
+
+## reference-speaker-conditioning-at-inference
+
+- Table: [`reference-speaker-conditioning-at-inference.csv`](reference-speaker-conditioning-at-inference.csv) (119 slot-filled, 165 pattern match, usual design in 21, 3 read in full)
+- Inclusion rule: Video-to-speech studies (the 165-study population of the M06 video-to-speech-synthesis table), classified by the speaker information supplied at use time: a speaker embedding from reference audio, a speaker embedding derived from the face or lip video, or none. Boundary: embeddings used only in training or only to score speaker similarity are not use-time conditioning; a study counts under every design its full text names (upper bound); versions count once.
+- Used in: [NaturalL2S: End-to-End High-quality Multispeaker Lip-to-Speech Synthesis with Differential Digital Signal Processing](../../reviews/naturall2s-end-to-end-high-quality-multispeaker-lip-to-speech-synthesis-with-differential-digita/)
