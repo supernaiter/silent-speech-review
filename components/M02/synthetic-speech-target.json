@@ -908,6 +908,18 @@
    "role": "target",
    "loc": "Sec. 3",
    "quote": "We therefore synthesize pseudo-speech targets from the prompted text with a pre-trained VITS model"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.14.607690",
+   "role": "prior",
+   "loc": "Fig. 1 legend",
+   "quote": "Lacking T15’s ground truth speech, we first generated synthetic speech from the known text cue in the"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "role": "prior",
+   "loc": "Methods",
+   "quote": "the 1024-word-General set, we used the Wavenet text-to-speech model62 to generate basis"
   }
  ],
  "known_item_recall": {
@@ -953,6 +965,241 @@
  },
  "used_by": [
   "an-instantaneous-voice-synthesis-neuroprosthesis",
-  "brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding"
- ]
+  "brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding",
+  "emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models"
+ ],
+ "ledger_tally_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=other",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-12854981-av-stimulus",
+     "arxiv-2412.18839",
+     "pmc-12695901-meg-scans",
+     "isca-fabre14_interspeech",
+     "isca-hueber13b_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.14267",
+     "arxiv-2412.18839",
+     "arxiv-2502.03128",
+     "arxiv-2403.01087",
+     "arxiv-2209.00642"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609-04455-b2snet",
+     "arxiv-2412.18839",
+     "arxiv-2403.01087"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2412.18839",
+     "isca-baljekar15_interspeech"
+    ]
+   },
+   {
+    "design": "adaptation=machine_finetuning",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.03128",
+     "isca-mitra10_interspeech"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=style quality close to natural with ~40min/style data",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2101.05313"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=generate synthetic library once per accent (800+600+700 each ae/ie)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2208.09796"
+    ]
+   },
+   {
+    "design": "TrainingRun.optimization=50,000 iterations per experiment; person-specific fine-tune few epochs",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2312.06613"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=l1 reconstruction ~900k steps",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.01087"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": [
+  {
+   "metric": "MCD [source direction: lower]",
+   "value": 0.0,
+   "unit": null,
+   "raw": "",
+   "pid": "arxiv-2603.14853",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 1.07,
+   "unit": "percent",
+   "raw": "1.07",
+   "pid": "arxiv-2412.18839",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "quantitative LRS2 + L2T-WER",
+   "value": 1.61,
+   "unit": "PESQ",
+   "raw": "LRS2 Ours vs Multi-task L2S 1.36 / SVTS 1.34 / VCA-GAN 1.24",
+   "pid": "arxiv-2403.01087",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Text WER",
+   "value": 2.1,
+   "unit": "percent",
+   "raw": "0.021",
+   "pid": "arxiv-2609.04455",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "final-5-session WER",
+   "value": 2.5,
+   "unit": "percent",
+   "raw": "2.5",
+   "pid": "doi-10.1056-nejmoa2314132",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GT WER",
+   "value": 2.9,
+   "unit": "percent",
+   "raw": "2.9",
+   "pid": "arxiv-2405.08021",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (NeMo FastConformer)",
+   "value": 3.9,
+   "unit": "percent",
+   "raw": "Normal Speech table cell",
+   "pid": "arxiv-2603.04296",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "TSA word error rate",
+   "value": 4.2,
+   "unit": "percent",
+   "raw": "4.2",
+   "pid": "arxiv-2411.18266",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "impl bf-resyn gap",
+   "value": 4.4,
+   "unit": "wer",
+   "raw": "4.4",
+   "pid": "arxiv-2212.11377",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best WER",
+   "value": 15.2,
+   "unit": "%",
+   "raw": "best speaker WER",
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "year": 2021,
+   "tier": "ledger only"
+  }
+ ],
+ "known_item_recall_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": {
+  "seeds_in_wiki": 4,
+  "found": 0,
+  "recall": 0.0,
+  "missed": [
+   "arxiv-2106.01933",
+   "arxiv-2510.23969",
+   "doi-10.1038-s41586-023-06443-4",
+   "doi-10.1101-2024.08.14.607690"
+  ]
+ },
+ "tally_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 56,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "supervision_kind=other",
+   "n": 8,
+   "tier": "slot-filled",
+   "population_unique": 32
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.64898-2026.06.30.735633",
+   "year": 2026,
+   "metric": "median listener open-transcription WER of synthesized speech, same participant and benchmark as the target, offline simulated causal inference",
+   "value": "5.24%",
+   "timing": "later"
+  },
+  "read": 5,
+  "read_prior": [
+   "doi-10.1038-s41586-023-06443-4",
+   "doi-10.1101-2024.08.14.607690",
+   "pmc-12369848-voice-synth-np"
+  ],
+  "unread": 62,
+  "confirmed_unique": 1,
+  "known_item_recall": 0.0
+ }
 }

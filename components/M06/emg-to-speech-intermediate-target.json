@@ -1018,6 +1018,24 @@
    "role": "target",
    "loc": "Table 2",
    "quote": "our proposed approach via articulatory features exhibits intelligibility comparable to GADDY ET AL. [10] in terms of PER and WER, though slightly worse"
+  },
+  {
+   "pid": "arxiv-2502.05762",
+   "role": "prior",
+   "loc": "Sec. 5",
+   "quote": "both of which are SPD matrices of size 31×31"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "role": "prior",
+   "loc": "Methods",
+   "quote": "We used HuBERT to process our basis waveforms and generate a series of reference discrete"
+  },
+  {
+   "pid": "isca-lee26v_interspeech",
+   "role": "sota",
+   "loc": "Sec. 5.1; Table 1",
+   "quote": "27.78% to 26.55% (p=0.009)"
   }
  ],
  "known_item_recall": {
@@ -1061,6 +1079,276 @@
   "known_item_recall": 1.0
  },
  "used_by": [
-  "articulatory-feature-prediction-from-surface-emg-during-speech-production"
- ]
+  "articulatory-feature-prediction-from-surface-emg-during-speech-production",
+  "emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models"
+ ],
+ "ledger_tally_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 19,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2603.11877",
+     "arxiv-2606-09667-xmask",
+     "arxiv-2609.36687-myocodec",
+     "doi-10.1038-s44460-025-00010-2"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 18,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.36687-myocodec",
+     "doi-10.3390-vibration5040041",
+     "isca-cao21-laryngectomy",
+     "pmc-7922488-biosigspeech",
+     "isca-botelho20-speech2emg"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 16,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2606-09667-xmask",
+     "arxiv-2609.36687-myocodec",
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.21437-odyssey.2026-19",
+     "doi-10.26092-elib.5498"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 14,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2609.36687-myocodec",
+     "doi-10.21437-odyssey.2026-19",
+     "arxiv-2602.01879",
+     "arxiv-2412.13387"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "doi-10.21437-odyssey.2026-19",
+     "isca-han26f-tapets",
+     "arxiv-2501.06530",
+     "arxiv-2602.01879"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.36687-myocodec",
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.21437-odyssey.2026-19",
+     "doi-10.26092-elib.5498",
+     "arxiv-2505.13814"
+    ]
+   },
+   {
+    "design": "decoder_route=direct_signal_to_audio",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1002-lio2.70559",
+     "doi-10.26092-elib.5498",
+     "arxiv-2505.13814",
+     "arxiv-2506.11862",
+     "doi-10.1016-j.specom.2009.08.002"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "doi-10.1038-s44460-025-00010-2",
+     "arxiv-2602.01879",
+     "arxiv-2108.00190",
+     "arxiv-2405.08021"
+    ]
+   },
+   {
+    "design": "model_family=linear_model",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-brumberg15_interspeech",
+     "doi-10.1016-j.specom.2010.01.001",
+     "doi-10.1109-access.2020.3026579",
+     "doi-10.21437-interspeech.2023-1881",
+     "isca-diener20_interspeech"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.26092-elib.5498",
+     "arxiv-2509.04507",
+     "doi-10.1109-access.2020.3026579",
+     "doi-10.18653-v1-2020.emnlp-main.445",
+     "isca-diener20_interspeech"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": [
+  {
+   "metric": "sentence Mann-Whitney lower-lip p (U=0)",
+   "value": 0.004,
+   "unit": null,
+   "raw": "[U( n1=5 , n2=5) =0 , p= 0.004]",
+   "pid": "doi-10.26021-8583",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "sEMG silent-speech recognition WER as low as 3% (limited vocabulary, speaker-dependent, from reviewed study)",
+   "value": 0.03,
+   "unit": null,
+   "raw": "WERs as low as 3%",
+   "pid": "doi-10.1109-access.2020.3026579",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER",
+   "value": 0.2696,
+   "unit": null,
+   "raw": "WER=0.2696",
+   "pid": "arxiv-2603.11877",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Env.CC 0.66 both datasets; PhonAcc 82.65% EMG-audio / 76.86% LibriTTS; WER 10.29/12.28",
+   "value": 0.66,
+   "unit": "Env.CC",
+   "raw": "best Env.CC=0.66 both datasets; PhonAcc 82.65% (EMG-test audio) / 76.86% (LibriTTS); WER 10.29/12.28 vs ~125 baseline",
+   "pid": "isca-scheck23_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "4-electrode subset {2,3,4,6}: EMA corr .882, loudness .904, pitch .538, PER 39.7 WER 22.9 SBS 83.2; electrode 4 alone loudness .73 pitch .32",
+   "value": 0.882,
+   "unit": null,
+   "raw": "corr",
+   "pid": "isca-lee25d_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 2.85,
+   "unit": "percent",
+   "raw": "2.85",
+   "pid": "arxiv-2602.01879",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GT WER",
+   "value": 2.9,
+   "unit": "percent",
+   "raw": "2.9",
+   "pid": "arxiv-2405.08021",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T4 WER ours",
+   "value": 3.6,
+   "unit": "%",
+   "raw": "3.6",
+   "pid": "arxiv-2010.02960",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER %",
+   "value": 4.2,
+   "unit": null,
+   "raw": "stroke-patient strain system 4.2% WER, +55% satisfaction in 5 patients (as cited)",
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "11.89",
+   "value": 11.89,
+   "unit": "WER%",
+   "raw": "silent-EMG WER 11.89% (Whisper); prior best 25.74",
+   "pid": "isca-lee26r_interspeech",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "known_item_recall_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": {
+  "seeds_in_wiki": 16,
+  "found": 4,
+  "recall": 0.25,
+  "missed": [
+   "arxiv-2210.11723",
+   "arxiv-2311.03611",
+   "arxiv-2403.05583",
+   "doi-10.1038-s41586-023-06377-x",
+   "doi-10.1038-s41586-023-06443-4",
+   "doi-10.1101-2024.08.14.607690",
+   "pmc-10468393-neuroprosthesis",
+   "pmc-10826467-avatarnp",
+   "pmc-11370360-instvoice",
+   "pmc-12369848-voice-synth-np",
+   "pmc-12369848-voicesynth",
+   "pmc-pmc11086983"
+  ]
+ },
+ "tally_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 54,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "spectral acoustic target (mel spectrogram, MFCC or vocoder parameters)",
+   "n": 37,
+   "tier": "pattern match",
+   "population_unique": 54
+  },
+  "state_of_the_art": {
+   "pid": "isca-lee26r_interspeech",
+   "year": 2026,
+   "metric": "silent-EMG WER, Gaddy test split, Whisper-medium; at the time, Gaddy and Klein 2021 reached 12.6% WER on the vocalized test as rescored in the target Table 2",
+   "value": 11.89,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 7,
+  "read_prior": [
+   "arxiv-2412.13387",
+   "arxiv-2502.05762",
+   "doi-10.1038-s41586-023-06443-4"
+  ],
+  "unread": 69,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
 }

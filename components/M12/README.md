@@ -48,7 +48,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`emg-text-unseen-sentence-test.csv`](emg-text-unseen-sentence-test.csv) (6960 slot-filled, 64 pattern match, usual design in 13, 3 read in full)
 - Inclusion rule: Surface-EMG decoders whose output is scored with WER or CER (recognition, or ASR on synthesized speech); the design compared is whether the headline error is measured on sentences absent from all training data (sentence-disjoint, open vocabulary) or on repeats of training sentences (closed set). Boundary: a paper is counted under each protocol its text names; reviews count as pattern matches only; versions of one study count once.
-- Used in: [Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding](../../reviews/multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/)
+- Used in: [emg2speech: Synthesizing speech from electromyography using self-supervised speech models](../../reviews/emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models/), [Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding](../../reviews/multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |

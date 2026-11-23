@@ -18,7 +18,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`auxiliary-phoneme-loss-in-speech-synthesis.csv`](auxiliary-phoneme-loss-in-speech-synthesis.csv) (31 slot-filled, 34 pattern match, usual design in 10, 3 read in full)
 - Inclusion rule: Speech synthesis from a non-acoustic signal (EMG, ultrasound, articulography, video, neural) whose training adds a phoneme, phone-state, CTC or text classification loss on a shared encoder that is discarded or used only as guidance at synthesis time. Boundary: recognition-only models, cascaded recognize-then-TTS systems, and regression-only auxiliary targets are excluded; versions counted once.
-- Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/), [Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language](../../reviews/sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language/), [Vocoder-Based Speech Synthesis from Silent Videos](../../reviews/vocoder-based-speech-synthesis-from-silent-videos/)
+- Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/), [emg2speech: Synthesizing speech from electromyography using self-supervised speech models](../../reviews/emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models/), [Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language](../../reviews/sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language/), [Vocoder-Based Speech Synthesis from Silent Videos](../../reviews/vocoder-based-speech-synthesis-from-silent-videos/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |
@@ -90,7 +90,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`synthetic-speech-target.csv`](synthetic-speech-target.csv) (31 slot-filled, 56 pattern match, usual design in 8, 2 read in full)
 - Inclusion rule: Studies that train a decoder of speech acoustics (or speech units) from a non-acoustic signal using target speech that the user did not produce: text-to-speech output, a reference speaker's recording, or a voice-converted or pre-injury voice, because the user cannot produce intelligible audio. Boundary: exclude targets recorded from the same user during the same or a paired vocalized trial (paired audio, DTW target transfer); exclude text-only targets; count versions of one study once.
-- Used in: [An instantaneous voice-synthesis neuroprosthesis](../../reviews/an-instantaneous-voice-synthesis-neuroprosthesis/), [Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding](../../reviews/brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding/)
+- Used in: [An instantaneous voice-synthesis neuroprosthesis](../../reviews/an-instantaneous-voice-synthesis-neuroprosthesis/), [Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding](../../reviews/brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding/), [emg2speech: Synthesizing speech from electromyography using self-supervised speech models](../../reviews/emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |

@@ -4,17 +4,17 @@ Gowda, H. T., Comstock, D. C., Miller, L. M. · arXiv preprint · 2025 · [arXiv
 
 ## Verdict
 
-The paper [[1]](#ref-1) ports to surface EMG the ECoG synthesis pipeline it says it adopts [[2]](#ref-2): HuBERT units from text-to-speech audio, learned with CTC and voiced by a pretrained vocoder. Its own changes, an auxiliary phoneme CTC head with a consistency loss (M02) and a covariance input from the same group's earlier work (M06) [[3]](#ref-3), are standard; auxiliary phoneme losses for EMG voicing date from 2021 [[4]](#ref-4). The strongest confound is the paper's Table 6: its own text route reports 51.17% WER against 61.02% for direct synthesis on the 460 evaluated sentences; the "more fluid, natural interaction" claimed for direct synthesis (Appendix D.4) is untested. Listener WERs of 62.55% (healthy, vocalized) and 50.82% (one ALS participant, silent) stay far above 11.89% to 12.2% for silent EMG on the Gaddy benchmark [[5]](#ref-5), [[6]](#ref-6), with other corpora and scoring.
+The paper [[1]](#ref-1) ports to surface EMG the ECoG synthesis pipeline it says it adopts [[2]](#ref-2): HuBERT units from text-to-speech audio, learned with CTC (§5.3) and voiced by a pretrained Tacotron "vocoder" (§2). Its own changes, an auxiliary phoneme CTC head with a consistency loss (M02) and a covariance input from the same group's earlier work (M06) [[3]](#ref-3), are standard; auxiliary phoneme losses for EMG voicing date from 2021 [[4]](#ref-4). The strongest confound is the paper's Table 6: its text route reports 51.17% WER (decoder output) against 61.02% for direct synthesis (listener transcripts, 460 sentences, Appendix D.3), but the scoring differs and the text decoder was trained "on all 460 sentences" (Appendix D.4), so the table ranks neither route, and the "more fluid, natural interaction" claimed for direct synthesis is untested. Listener WERs of 62.55% (healthy, vocalized) and 50.82% (one ALS participant, silent) stay far above 11.89% to 12.2% for silent EMG on the Gaddy benchmark [[5]](#ref-5), [[6]](#ref-6), with other corpora and scoring.
 
 ## Against the field, component by component
 
 ### M02 Training-only supervision: synthetic units, phoneme guidance
 
-**Usual approach:** Of 34 studies matching an auxiliary phoneme, phone-state or CTC loss (pattern match), 10 are synthesis studies; among 32 slot-filled studies on synthetic or reference-speaker targets, supervision is "other" in 8 and paired audio in 7 (Appendix). The paper uses TTS units and phoneme CTC.
+**Usual approach:** Synthesis usually uses acoustic targets only: of 34 studies matching an auxiliary phoneme, phone-state or CTC loss (pattern match, recognition and synthesis), 10 are synthesis studies; among 32 slot-filled studies on synthetic or reference-speaker targets, supervision is "other" in 8 and paired audio in 7 (Appendix). The paper uses TTS units and phoneme CTC.
 
-**State of the art:** Intracortical synthesis on a benchmark with text-synthesized targets [[7]](#ref-7) reaches 5.24% listener WER for one ALS participant in 2026 [[8]](#ref-8) [later], against 50.82% here. On silent EMG with an added training loss, the best is 25.14% WER (ASR-scored, Gaddy split, 10 seeds) [[9]](#ref-9) [later].
+**State of the art:** Intracortical synthesis on a benchmark with text-synthesized targets [[7]](#ref-7) reaches 5.24% listener WER for one ALS participant in 2026 [[8]](#ref-8) [later], against 50.82% here. On silent EMG with an added training loss, the best is 25.14% WER (ASR-scored, Gaddy split, 10 seeds) [[9]](#ref-9) [later]; GETS (11.89%) [[5]](#ref-5) guides only at inference.
 
-Synthetic targets are prior practice: WaveNet text-to-speech waveforms turned into HuBERT units [[2]](#ref-2), and text-to-speech audio from cued text aligned to neural activity [[7]](#ref-7). The auxiliary phoneme loss for EMG voicing used forced-aligned frame labels [[4]](#ref-4); CTC removes that alignment. The gain holds over five seeds: 56.08% to 51.81% UER (healthy, p < 10^-6) and 52.29% to 46.98% (ALS), 4.27 and 5.31 points or 7.6% and 10.2% relative (inference) (Tables 3, 4), but on units only. The healthy participant vocalized (footnote 3), but no table compares TTS units with units from that audio (Tables 1 to 5). They map to phonemes at 0% PER (App. B), so the target carries text in a synthetic voice and timing (inference). Verdict: standard.
+Synthetic targets are prior practice: WaveNet text-to-speech waveforms turned into HuBERT units [[2]](#ref-2), and text-to-speech audio from cued text aligned to neural activity [[7]](#ref-7). The auxiliary phoneme loss for EMG voicing used forced-aligned frame labels [[4]](#ref-4); CTC removes that alignment. The gain holds over five seeds: 56.08% to 51.81% UER (healthy, p < 10^-6, Table 3 caption) and 52.29% to 46.98% (ALS), 4.27 and 5.31 points or 7.6% and 10.2% relative (inference) (Tables 3, 4), but on units only. The healthy participant vocalized (footnote 3), but no table compares TTS units with units from that audio (Tables 1 to 5). They map to phonemes at 0% PER (App. B), so the target carries text in a synthetic voice and timing (inference). Verdict: standard.
 
 ### M06 Intermediate representation: HuBERT units from covariance input
 
@@ -22,37 +22,37 @@ Synthetic targets are prior practice: WaveNet text-to-speech waveforms turned in
 
 **State of the art:** 11.89% WER for silent EMG in 2026 (ASR-scored, Gaddy test split, one speaker) [[5]](#ref-5) [later]; the paper's 62.55% (listeners, vocalized EMG) shows only the direction of the gap (other corpus and scoring).
 
-Units are not shown to help: on the Gaddy benchmark, soft units gave 26.55% WER against 25.14% for mel targets over 10 seeds [[9]](#ref-9) [later], and the paper has no spectral-target baseline. The covariance input fed the group's EMG-to-text decoder [[3]](#ref-3); here it beats EMG spectrogram input, 56.08% against 62.71% UER (Table 1). Verdict: standard.
+Units are not shown to help: on the Gaddy benchmark, one method gave 26.55% WER with soft-unit targets ("Ours (SU)") against 25.14% with mel targets ("Ours (Mel)", Table 1) over 10 seeds [[9]](#ref-9) [later], and the paper has no spectral-target baseline. The covariance input fed the group's EMG-to-text decoder [[3]](#ref-3); here it beats EMG spectrogram input, 56.08% against 62.71% UER (Table 1). Verdict: standard.
 
 ### M12 Evaluation: unseen sentences, one participant per corpus
 
-**Usual approach:** Of 64 surface-EMG studies scored with WER or CER (pattern match), 13 name a sentence-disjoint test and 9 a closed set (Appendix); both corpora here are sentence-disjoint (§3).
+**Usual approach:** Of 64 surface-EMG studies scored with WER or CER (pattern match), 13 name a sentence-disjoint test against 9 a closed set (Appendix); held-out speakers (21) are another axis. Both corpora here are sentence-disjoint (§3).
 
 **State of the art:** 12.2% WER for one speaker's open-vocabulary silent EMG, decoded to text, in 2024 [[6]](#ref-6); here 50.82% (listeners, 60 ALS sentences).
 
-The group's silent large-vocabulary corpus gave 73.53% WER on 1,970 unseen sentences [[3]](#ref-3); here the 6,800-word corpus is vocalized, so silent speech is tested only at about 300 words. Vocabulary size, not the ALS condition, may explain 50.82% against 62.55% (inference). One participant per corpus, sessions unstated (§3), and no seed named for the listener audio (Table 5). Verdict: standard.
+The group's silent large-vocabulary corpus gave 73.53% mean WER on 1,970 test sentences absent from training [[3]](#ref-3); here the 6,800-word corpus is vocalized, so silent speech is tested only at about 300 words. Vocabulary size, not the ALS condition, may explain 50.82% against 62.55% (inference). One participant per corpus, sessions unstated (§3), and no seed named for the listener audio (Table 5). Verdict: standard.
 
 ## The 13 components
 
 | Component | This paper | Usual approach (count) | State of the art | Verdict |
 |---|---|---|---|---|
 | M01 Training-time action | Vocalized and silent | Recorded articulation (slot-filled 3,882) | – | standard |
-| M02 Training-only supervision | TTS units; phoneme CTC | Auxiliary phoneme loss (minority) (pattern match 10) | 25.14% WER [[9]](#ref-9) (2026) | standard |
+| M02 Training-only supervision | TTS units; phoneme CTC | Acoustic targets only; phoneme loss in 10 (pattern match 10) | 25.14% WER [[9]](#ref-9) (2026) | standard |
 | M03 Training and adaptation | Per participant | Per-participant training (slot-filled 1,526) | – | standard |
 | M04 Use-time action | Vocalized and silent | Silent or overt (slot-filled 5,595) | – | standard |
 | M05 Sensors | 31-site face and neck sEMG | Sensor montage (slot-filled 7,329) | – | standard |
 | M06 Processing and decoding | Covariance input, HuBERT units | Spectral acoustic target (pattern match 37) | 11.89% WER [[5]](#ref-5) (2026) | standard |
 | M07 Lexicon and LM | None in synthesis | Lexicon or LM (slot-filled 119) | – | standard |
-| M08 Output | Pretrained unit vocoder | Text or waveform (slot-filled 3,268) | – | standard |
+| M08 Output | Pretrained Tacotron (unit vocoder) | Text or waveform (slot-filled 3,268) | – | standard |
 | M09 Confirmation | Offline | Offline (slot-filled 82) | – | not applicable |
 | M10 Correction | Offline | Offline (slot-filled 82) | – | not applicable |
 | M11 Reference construction | Sentence transcripts | Reference transcripts (slot-filled 234) | – | standard |
-| M12 Evaluation | Sentence-disjoint, 3 listeners | Sentence-disjoint test (pattern match 13) | 12.2% WER [[6]](#ref-6) (2024) | standard |
+| M12 Evaluation | Sentence-disjoint, 3 listeners | Sentence-disjoint (13) over closed (9) (pattern match 13) | 12.2% WER [[6]](#ref-6) (2024) | standard |
 | M13 Device and cost | Lab; 1 ALS participant, 1 h | Offline lab study (slot-filled 6,075) | – | standard |
 
 ## Where the claims outrun the evidence
 
-- Phoneme guidance "improves the quality of the generated audio" (§2.1) rests on UER alone; listeners heard only the guided model (Table 5).
+- Phoneme guidance "improves the quality of the generated audio" (§2.1) rests on UER alone; listeners heard only the guided model's audio (§5.3.1, Table 5).
 - EMG2TEXT is trained "on all 460 sentences" (Appendix D.4), the number of test sentences; if those entered training, Table 6 compares unlike conditions.
 - The 3.79 mean opinion score covers 35 sentences and, the authors note, can stay moderate at high WER (Appendix D.3).
 
@@ -71,7 +71,7 @@ The group's silent large-vocabulary corpus gave 73.53% WER on 1,970 unseen sente
 ## Appendix: literature search
 
 - M02, synthetic-speech-target (published table, reused). Inclusion rule: studies that train a decoder of speech acoustics or speech units from a non-acoustic signal using target speech the user did not produce (text-to-speech output, a reference speaker's recording, or a converted or pre-injury voice); targets recorded from the same user in the same or a paired vocalized trial and text-only targets are excluded; versions count once. Ledger: 31 unique studies slot-filled for M02; 56 unique studies pattern match (63 folders). Usual design: supervision recorded as other, 8 of 32 (slot-filled, design slot M03); paired audio 7. Read in full: [[2]](#ref-2), [[7]](#ref-7), [[8]](#ref-8). Known-item recall 0.0 (0 of 4 seeds).
-- M02, auxiliary-phoneme-loss-in-speech-synthesis (published table, reused). Inclusion rule: speech synthesis from a non-acoustic signal whose training adds a phoneme, phone-state, CTC or text classification loss on a shared encoder that is discarded or used only as guidance at synthesis time; recognition-only models, cascaded recognize-then-synthesize systems and regression-only auxiliary targets are excluded; versions count once. Ledger: 31 unique studies slot-filled for M02; 34 unique studies pattern match (38 folders). Usual design: acoustic targets only, with an auxiliary phoneme, phone-state or CTC loss in 10 of 34 (pattern match). Read in full: [[4]](#ref-4), [[9]](#ref-9). Known-item recall 1.0 for the published seeds (2 of 2); 0.25 for this review's seeds (1 of 4).
+- M02, auxiliary-phoneme-loss-in-speech-synthesis (published table, reused). Inclusion rule: speech synthesis from a non-acoustic signal whose training adds a phoneme, phone-state, CTC or text classification loss on a shared encoder that is discarded or used only as guidance at synthesis time; recognition-only models, cascaded recognize-then-synthesize systems and regression-only auxiliary targets are excluded; versions count once. Ledger: 31 unique studies slot-filled for M02; 34 unique studies pattern match (38 folders). Usual design: acoustic targets only; of the 34 (recognition and synthesis), 10 are synthesis studies with such a loss (pattern match). Read in full: [[4]](#ref-4), [[9]](#ref-9). Known-item recall 1.0 for the published seeds (2 of 2); 0.25 for this review's seeds (1 of 4).
 - M06, emg-to-speech-intermediate-target (published table, reused). Inclusion rule: surface-EMG speech synthesis or voicing studies classified by the intermediate target the EMG model predicts before the waveform (spectral features, self-supervised units, articulatory features, or text and phonemes); EMG-to-text recognition only, EMG as an auxiliary channel to audio, non-speech EMG and reviews are excluded; a study can use several targets; versions count once. Ledger: 7,345 unique studies slot-filled for M06; 54 unique studies pattern match (69 folders). Designs (full-text pattern counts over the 54): spectral 37, text or phoneme 26, articulatory 22 (upper bound), self-supervised units 19. Read in full: [[5]](#ref-5), [[9]](#ref-9), [[3]](#ref-3), [[2]](#ref-2). Known-item recall 1.0 for the published seeds (3 of 3); 0.25 for this review's seeds (4 of 16).
 - M12, emg-text-unseen-sentence-test (published table, reused). Inclusion rule: surface-EMG decoders scored with WER or CER (recognition, or ASR on synthesized speech); the design compared is whether the headline error is measured on sentences absent from all training or on repeats of training sentences; each protocol a paper names is counted; reviews count as pattern matches only; versions count once. Ledger: 6,960 unique studies slot-filled for M12; 64 unique studies pattern match (79 folders). Designs (pattern match): held-out speaker 21, sentence-disjoint or open vocabulary 13, closed or repeated sentences 9. Read in full: [[6]](#ref-6), [[4]](#ref-4), [[3]](#ref-3). Known-item recall 1.0 for the published seeds (3 of 3); 0.31 for this review's seeds (5 of 16).
 

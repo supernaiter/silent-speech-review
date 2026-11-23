@@ -1,6 +1,6 @@
 {
  "slug": "emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,30 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-23T09:10:59+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-23T09:12:46+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": 11,
+   "total": 12,
+   "finished": "2026-11-23T09:20:03+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 105 found, 0 missing, 24 unchecked (unstated, figure-only or no source)",
+  "topic counts M02-auxiliary-phoneme-loss-in-speech-synthesis": "ok",
+  "topic counts M02-synthetic-speech-target": "ok",
+  "topic counts M06-emg-to-speech-intermediate-target": "ok",
+  "topic counts M12-emg-text-unseen-sentence-test": "ok"
+ },
  "inputs": {
   "notes_sha256": "5a267f16bf0c8a56897c5f0c3a1a12e868aaa0027ede4bee7f1551d03e1d87c1",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +61,6 @@
  },
  "body_chars": {
   "draft": 16486,
-  "final": null
+  "final": 17006
  }
 }
