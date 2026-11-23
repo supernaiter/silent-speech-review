@@ -503,6 +503,103 @@
   "known_item_recall": 1.0
  },
  "used_by": [
+  "cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding",
   "speaker-disentanglement-in-video-to-speech-conversion"
- ]
+ ],
+ "ledger_tally_cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2305.14359",
+     "isca-wand18_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-noda14_interspeech",
+     "doi-10.1007-s10489-014-0629-7"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=adapt to unseen target speaker using unlabeled target data only",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1708.01565"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=adamw lr0.001 bs112(grid)/220(lrw-id); adapt only padding lr0.01; 5-fold mean",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2208.04498"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective={'stage1': 'joint vsr + speaker-id multi-task until id module converges'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.16071"
+    ]
+   },
+   {
+    "design": "training_sample_count=276000",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s10489-014-0629-7"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=denoising reconstruction (audio ae); phoneme-label logistic regression (cnn)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s10489-014-0629-7"
+    ]
+   },
+   {
+    "design": "adaptation=user_specific_training",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-noda14_interspeech"
+    ]
+   },
+   {
+    "design": "training_vocabulary_size=216",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-noda14_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-wand18_interspeech"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": null,
+  "better": "lower"
+ },
+ "sota_candidates_cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding": [],
+ "review_notes": {
+  "cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding": "Target trains a gradient-reversal subject discriminator on EEG-EMG tone features; mean LOSO accuracy 84.69% without it, 85.10% with it (Table 5), single runs. Compared with ALIGN (arxiv-2603.18299-align, concurrent), whose session-adversary ablation uses 4 seeds."
+ }
 }

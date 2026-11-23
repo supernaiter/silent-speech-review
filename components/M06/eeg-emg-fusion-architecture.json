@@ -1,0 +1,728 @@
+{
+ "topic": "eeg-emg-fusion-architecture",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)modalities=[^|]*scalp_eeg.*modalities=[^|]*surface_emg|modalities=[^|]*surface_emg.*modalities=[^|]*scalp_eeg|modalities=[^|]*scalp_eeg[^|]*surface_emg|modalities=[^|]*surface_emg[^|]*scalp_eeg",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Speech, tone or articulation decoders that record scalp EEG together with surface EMG and combine the two inside one model; the design value is the fusion form named in the full text (cross-modal or bidirectional attention, feature concatenation, late or decision-level fusion), and studies that record EMG only as an EEG artifact are counted separately. Boundary: non-speech EEG-EMG fusion (limb movement), reviews and datasets without decoding are excluded from the usual-approach reading but stay in the pattern-match population; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 41,
+  "string_match_unique": 30,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 15,
+    "tier": "slot-filled",
+    "pids": [
+     "biorxiv-747136-chinesewords",
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.1038-s42003-025-07464-7",
+     "doi-10.3389-fninf.2025.1583428",
+     "isca-inoue25b-eegemg"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 13,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.04840",
+     "isca-inoue25b-eegemg",
+     "pmc-12686446-mdspeech",
+     "pmc-11244127-mouthmotion",
+     "isca-li23l-eegemgssi"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-lee26b-rtmrieeg",
+     "doi-10.3389-fninf.2025.1583428",
+     "pmc-12686446-mdspeech",
+     "doi-10.3390-s24134125"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.3390-s24134125",
+     "doi-10.1101-2024.05.09.591996",
+     "doi-10.1109-access.2020.3026579"
+    ]
+   },
+   {
+    "design": "decoder_route=closed_set_classification",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1088-1741-2552-ae54d0",
+     "doi-10.1101-2024.05.09.591996",
+     "doi-10.17851-2237-2083.30.3.1314-1338",
+     "isca-jaumardhakoun17_interspeech"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.1109-access.2020.3026579",
+     "isca-li23l_interspeech"
+    ]
+   },
+   {
+    "design": "model_family=linear_model",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-brumberg15_interspeech",
+     "doi-10.1109-access.2020.3026579",
+     "zenodo-22441724-leakctrl"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s24134125",
+     "doi-10.1016-j.tics.2023.08.014"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s24134125",
+     "doi-10.1016-j.tics.2023.08.014"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s24134125",
+     "doi-10.1109-access.2020.3026579"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "emg_as_eeg_artifact",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.04840",
+     "doi-10.1038-s41597-026-07809-9",
+     "doi-10.1088-1741-2552-aeb073",
+     "doi-10.1038-s42003-025-07464-7",
+     "doi-10.3389-fninf.2025.1583428"
+    ]
+   },
+   {
+    "design": "feature_concatenation",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.21203-rs.3.rs-9365678-v1",
+     "isca-li23l-eegemgssi",
+     "pmc-7873899-eraseica",
+     "doi-10.1088-1741-2552-ae54d0"
+    ]
+   },
+   {
+    "design": "late_or_decision_fusion",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.3390-s23125575",
+     "isca-li23l-eegemgssi",
+     "pmc-9538146-eegsemgfusion",
+     "doi-10.1109-access.2020.3026579"
+    ]
+   },
+   {
+    "design": "bidirectional_cross_attention",
+    "n": 0,
+    "tier": "pattern match",
+    "pids": []
+   }
+  ],
+  "metric_pattern": "(?i)accura",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "Willett offline accuracy",
+   "value": 99,
+   "unit": "%",
+   "raw": "99",
+   "pid": "doi-10.3390-s23125575",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "95.3% healthy (vs 70.1%)",
+   "value": 95.3,
+   "unit": "% accuracy",
+   "raw": "healthy-participant word accuracy vs 70.1% single-subject",
+   "pid": "isca-inoue25b_interspeech",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best individual binary accuracy (imagined-only, P22)",
+   "value": 95,
+   "unit": "percent",
+   "raw": "highest accuracy (95%)",
+   "pid": "doi-10.3389-fninf.2025.1583428",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best accuracy, 3-shot CNN + augmentation",
+   "value": 95,
+   "unit": "percent",
+   "raw": "large improvement of 95% accuracy",
+   "pid": "doi-10.3390-s24134125",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "online accuracy day5",
+   "value": 70,
+   "unit": "percent",
+   "raw": "70%",
+   "pid": "doi-10.1038-s42003-025-07464-7",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "64-word silent-speech decoding accuracy, Cross-Task training (healthy 56.6 / LIS 47.3)",
+   "value": 56.6,
+   "unit": "percent",
+   "raw": "56.6% (SD=34.1, 95% CI 14.4) Cross-Task healthy; 47.3% (SD=12.8) LIS",
+   "pid": "doi-10.1088-1741-2552-ae54d0",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Nieto within-session imagined accuracy (best subject)",
+   "value": 32.4,
+   "unit": "percent",
+   "raw": "32.4 ± 2.2 (14ch, 20 seeds, p=0.001)",
+   "pid": "zenodo-22441724-leakctrl",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2603.04840",
+   "key": "t:anapproachtosimultaneousacquisitionofrealtimemrivideoeegandsurfaceemgforarticula",
+   "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "r'], 'repetitions': 12, 'imagined_runs': 2} | Dataset.counts_by_unit={'stimuli': 18, 'repetitions_per_condition': 12} | modalities=scalp_eeg, surface_emg, other | body_sites=scalp, face, neck, tongue | observed_quantities=neural_activity, muscle_activity, position | sensor"
+  },
+  {
+   "pid": "biorxiv-747136-chinesewords",
+   "key": "t:sharedanddistincttemporalrepresentationsofchinesewordsacrossimaginedsilentandove",
+   "title": "Shared and distinct temporal representations of Chinese words across imagined, silent, and overt speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| extra.Task.output_kind=word-identity decode of 10 Chinese words per mode + cross-mode generalization + RSA geometry | modalities=scalp_eeg, surface_emg | sensor_hardware=EEG + facial sEMG at 1,000 Hz (open SCIDB dataset, Zhao et al. 2025) | observed_quantities=neural_act"
+  },
+  {
+   "pid": "doi-10.1016-j.tics.2023.08.014",
+   "key": "t:innerspeechaslanguageprocessandcognitivetool",
+   "title": "Inner speech as language process and cognitive tool",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", schizophrenia patients, 53 aphasic patients, preschool children (imaginary companions/private speech), older adults | modalities=surface_emg, scalp_eeg, fmri, ecog | body_sites=face, scalp, cortex | Acquisition.sensor_geometry={'sensors': 'facial/articulatory EMG electro"
+  },
+  {
+   "pid": "doi-10.1038-s41597-026-07809-9",
+   "key": "t:eegbasedbraincomputerinterfacebcidatasetfordirectionalwordrecognition",
+   "title": "EEG-based brain-computer interface (BCI) dataset for directional word recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y=command_selection | task_encoding=natural_utterance | production_labels=ordinary_voiced_speech, silent_articulation | modalities=scalp_eeg, surface_emg | body_sites=scalp, jaw, neck | observed_quantities=neural_activity, muscle_activity | intrusiveness=skin_contact | tec"
+  },
+  {
+   "pid": "doi-10.1038-s42003-025-07464-7",
+   "key": "t:learningtooperateanimaginedspeechbraincomputerinterfaceinvolvesthespatialandfreq",
+   "title": "Learning to operate an imagined speech Brain-Computer Interface involves the spatial and frequency tuning of neural activity",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "feedback; separate control group 10 (5F 24.9±4.38, 18-35y) discontinuous; ethics 2022-00451; paid +10CHF/day bonuses | modalities=scalp_eeg, surface_emg | sensor_hardware=64ch ANT Neuro eego mylab @512Hz, AFz ground, CPz ref, <20kΩ, LSL, right-face EMG monitor | Session.s"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_sites=face, jaw, ear, lips | observed_quantities=position, muscle_activity, neural_activity, pressure, strain, other | modalities=vibration_sensor, surface_emg, strain_sensor, scalp_eeg, other | observed_quantities=neural_activity | modalities=ecog, intracortical_microelectrode, other | system_name=SSI s"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ae54d0",
+   "key": "t:largescaletrainingdataenhancessilentspeechdecodingwitharoundeareeg",
+   "title": "Large-scale training data enhances silent speech decoding with around-ear EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ta enhances silent speech decoding with around-ear EEG | intended_use_cases=speech_restoration, private_communication | modalities=scalp_eeg, surface_emg | observed_quantities=neural_activity, muscle_activity | decoder_route=closed_set_classification | supervision_kind=tex"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-aeb073",
+   "key": "t:involuntaryfacialmuscleactivityduringimaginedvocalisationcontaminateseegandenabl",
+   "title": "Involuntary facial muscle activity during imagined vocalisation contaminates EEG and enables emotion decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n=5 | demonstrated_use_cases=research_of_inner_speech | production_labels=ordinary_voiced_speech, instructed_imagery | modalities=scalp_eeg, surface_emg | intrusiveness=skin_contact | Acquisition.sensor_geometry=10-10 EEG + sEMG pairs over frontalis/temporalis/orbicularis"
+  },
+  {
+   "pid": "doi-10.1101-2024.05.09.591996",
+   "key": "t:delineatingneuralcontributionstoelectroencephalogrambasedspeechdecoding",
+   "title": "Delineating neural contributions to electroencephalogram-based speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "try | task_family=command_selection | Study.study_design=controlled_experiment | tested_population=healthy_volunteers | modalities=scalp_eeg, surface_emg | observed_quantities=neural_activity, muscle_activity | intrusiveness=skin_contact | ProductionCondition.activity_orig"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ysis=sensing techniques and decoding approaches reviewed across disorders: laryngectomy, dysarthria, apraxia, aphasia | modalities=surface_emg, intramuscular_emg, scalp_eeg, ecog, intracortical_microelectrode, ultrasound_imaging, optical_camera, magnetic_tracking, other | sensor_hardware=tax"
+  },
+  {
+   "pid": "doi-10.13140-rg.2.2.34426.03527",
+   "key": "p:doi-10.13140-rg.2.2.34426.03527",
+   "title": null,
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "15 + 16 controls); all monolingual Finnish, age-sex-handedness matched; stimuli from Leinonen et al. 1997/Kujala 2005 | modalities=scalp_eeg, surface_emg | extra.Configuration.configuration_scope=BioSemi ActiveTwo Mk2 64-channel + nose reference + mastoids + EOG; loudspeak"
+  },
+  {
+   "pid": "doi-10.17851-2237-2083.30.3.1314-1338",
+   "key": "p:doi-10.17851-2237-2083.30.3.1314-1338",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tested_population=healthy_volunteers | intended_use_cases=research_of_inner_speech | modalities=surface_emg, scalp_eeg | sensor_hardware=varied: e.g. EMG 7-electrode layouts, EGG 10/20 systems | intrusiveness=skin_contact | observed_quant"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9365678-v1",
+   "key": "t:semanticawaredecodingofcovertinnerspeechamultimodaleegemgaudioframework",
+   "title": "Semantic-Aware Decoding of Covert Inner Speech: A Multimodal EEG–EMG–Audio Framework",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ction | task_encoding=task_evoked_inner | supervision_kind=gesture_label | production_labels=task_evoked_inner_speech | modalities=scalp_eeg, surface_emg | body_sites=scalp, face, cortex | observed_quantities=neural_activity, muscle_activity | intrusiveness=skin_contact |"
+  },
+  {
+   "pid": "doi-10.3389-fninf.2025.1583428",
+   "key": "t:frompronouncedtoimaginedimprovingspeechdecodingwithmulticonditioneegdata",
+   "title": "From pronounced to imagined: improving speech decoding with multi-condition EEG data",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nstitutional Research Ethics Committee EHE-2023-9a per Declaration of Helsinki | tested_population=healthy_volunteers | modalities=scalp_eeg, surface_emg, microphone | sensor_hardware=32 active Ag/AgCl electrodes, 10/10 montage, AFz ground, right-earlobe reference; g.tec g"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-70, high-gamma >80 Hz), sEEG/intracortical, sEMG; typical features MFCC, ICA/PCA, FFT, wavelet, kinematic trajectory | modalities=scalp_eeg, ecog, intracortical_microelectrode, surface_emg | sensor_hardware=non-invasive: scalp EEG (e.g., Emotiv EPOC+ 14ch, 40ch 500Hz), sEMG 1kHz; invasive: high-density ECoG"
+  },
+  {
+   "pid": "doi-10.3390-s24134125",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uction_compliance=eyes open during tests; blinking not regulated; ≥5 repetitions of 2-5s intervals with baseline rest | modalities=scalp_eeg, surface_emg | body_sites=scalp, jaw, face | sensor_hardware=custom wireless wearable with biopotential electrodes adhering to skin"
+  },
+  {
+   "pid": "isca-brumberg15_interspeech",
+   "key": "t:temporaldynamicsofthespeechreadinesspotentialanditsuseinaneuraldecoderofspeechmo",
+   "title": "Temporal dynamics of the speech readiness potential, and its use in a neural decoder of speech-motor intention",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "line (slope/intercept/knot time per segment); single-trial RP-occurrence detection by Wiener+logistic+Markov pipeline | modalities=scalp_eeg, surface_emg, microphone, other | body_sites=scalp, lips, other | intrusiveness=skin_contact | Representation.feature_dimensions=EEG"
+  },
+  {
+   "pid": "isca-inoue25b-eegemg",
+   "key": "t:asilentspeechdecodingsystemfromeegandemgwithheterogenouselectrodeconfigurations",
+   "title": "A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "=controlled_experiment | task_family=sentence_recognition | extra.Production.scope_note=silent speech interface study | modalities=scalp_eeg, surface_emg | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=EEG+EMG silent decoding |"
+  },
+  {
+   "pid": "isca-inoue25b_interspeech",
+   "key": "t:asilentspeechdecodingsystemfromeegandemgwithheterogenouselectrodeconfigurations",
+   "title": "A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "roduction_labels=silent_articulation, task_evoked_inner_speech | ProductionCondition.activity_origin=attempted_speech | modalities=scalp_eeg, surface_emg | Acquisition.signal_quality=EEG/EMG with heterogeneous electrode configurations across datasets (e.g., g.Pangolin 128-"
+  },
+  {
+   "pid": "isca-jaumardhakoun17_interspeech",
+   "key": "t:anapparatustoinvestigatewesternoperasingingskilllearningusingperformanceandresul",
+   "title": "An Apparatus to Investigate Western Opera Singing Skill Learning Using Performance and Result Biofeedback, and Measuring its Neural Correlates",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ng Using Performance and Result Biofeedback, and Measuring its Neural Correlates | Study.study_design=system_proposal | modalities=surface_emg, scalp_eeg, microphone | observed_quantities=muscle_activity, neural_activity, air_acoustics | intrusiveness=skin_contact | Produc"
+  },
+  {
+   "pid": "isca-lee26b-rtmri",
+   "key": "t:anapproachtosimultaneousacquisitionofrealtimemrivideoeegandsurfaceemgforarticula",
+   "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| extra.Production.scope_note=overt speech production under rtMRI incl. micro-articulatory/silent-speaker observation | modalities=fmri, scalp_eeg, surface_emg, microphone | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=0.55T MRI, cu"
+  },
+  {
+   "pid": "isca-lee26b-rtmrieeg",
+   "key": "t:anapproachtosimultaneousacquisitionofrealtimemrivideoeegandsurfaceemgforarticula",
+   "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "culatory kinematics in speech | Study.study_design=dataset_resource | task_family=phoneme_or_character_classification | modalities=fmri, scalp_eeg, surface_emg, optical_camera | sensor_hardware=rtMRI spiral sequence TR 5.05ms (99fps) + 16-electrode device: 9 EEG (C3..), 3 sEMG c"
+  },
+  {
+   "pid": "isca-li23l-eegemgssi",
+   "key": "t:hybridsilentspeechinterfacethroughfusionofelectroencephalographyandelectromyogra",
+   "title": "Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "=controlled_experiment | task_family=sentence_recognition | extra.Production.scope_note=silent speech interface study | modalities=scalp_eeg, surface_emg | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=EEG+EMG hybrid SSI | Data"
+  },
+  {
+   "pid": "isca-li23l_interspeech",
+   "key": "t:hybridsilentspeechinterfacethroughfusionofelectroencephalographyandelectromyogra",
+   "title": "Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| task_encoding=attempted_utterance | intended_use_cases=private_communication, speech_restoration, noisy_environment | modalities=scalp_eeg, surface_emg, microphone | observed_quantities=neural_activity, muscle_activity, air_acoustics | intrusiveness=skin_contact | body_s"
+  },
+  {
+   "pid": "pmc-11244127-eeg-emg-mouth",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ech_restoration, device_control | demonstrated_use_cases=assistive_text_entry | production_labels=silent_articulation | modalities=scalp_eeg, surface_emg | Acquisition.sensor_geometry=Custom wireless biopotential headset: Intan RHD2216 16-channel differential amplifier + 1"
+  },
+  {
+   "pid": "pmc-11244127-mouthmotion",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tructed_content | extra.Production.scope_note=mouth/tongue-motion phoneme articulation without voice; wearable sensor | modalities=surface_emg, scalp_eeg | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=few-shot three-shot netwo"
+  },
+  {
+   "pid": "pmc-12245923-pron2img-eeg",
+   "key": "t:frompronouncedtoimaginedimprovingspeechdecodingwithmulticonditioneegdata",
+   "title": "From pronounced to imagined: improving speech decoding with multi-condition EEG data",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "onsent | intended_use_cases=assistive_text_entry | production_labels=task_evoked_inner_speech, ordinary_voiced_speech | modalities=scalp_eeg, surface_emg, microphone | Acquisition.sensor_geometry=32 active Ag/AgCl electrodes over the scalp in the 10/10 standard (g.HIAMP, g"
+  },
+  {
+   "pid": "pmc-12319751-megartifact",
+   "key": "t:automatedspeechartefactremovalfrommegdatautilizingfacialgesturesandmutualinforma",
+   "title": "Automated speech artefact removal from MEG data utilizing facial gestures and mutual information",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ers | demonstrated_use_cases=research_of_inner_speech | production_labels=ordinary_voiced_speech, silent_articulation | modalities=meg, surface_emg, scalp_eeg | intrusiveness=skin_contact | Acquisition.sensor_geometry=306-ch Elekta Neuromag TRIUX in shielded room @1000Hz/0.03-3"
+  },
+  {
+   "pid": "pmc-12452802-aac_access",
+   "key": "t:supportingeffectivealternativeaccessforindividualswithphysicaldisabilitiesstateo",
+   "title": "Supporting effective alternative access for individuals with physical disabilities: state of the science, emerging technologies, and future directions",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d (wpm) per access method across published studies | task_family=spelling_text_entry | tested_population=target_users | modalities=scalp_eeg, surface_emg, intracortical_microelectrode, other | intrusiveness=external_noncontact | Acquisition.sensor_geometry=reviewed methods"
+  },
+  {
+   "pid": "pmc-12526642-emgeeg-snn",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nication, assistive_text_entry | demonstrated_use_cases=private_communication | production_labels=silent_articulation | modalities=surface_emg, scalp_eeg | Acquisition.sensor_geometry=Bipolar single-channel EMG pair bilaterally beneath the chin over genioglossus/hyoglossus"
+  },
+  {
+   "pid": "pmc-12686446-mandataset",
+   "key": "t:anopendatasetofmultidimensionalsignalsbasedondifferentspeechpatternsinpragmaticm",
+   "title": "An open dataset of multidimensional signals based on different speech patterns in pragmatic Mandarin",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "duction_labels=ordinary_voiced_speech, silent_articulation, instructed_imagery | tested_population=healthy_volunteers | modalities=scalp_eeg, surface_emg, microphone | Acquisition.sensor_geometry=NeuroScan SynAmps2 64-ch 10-20 EEG (<5kohm) + NeuSen WM 6-ch sEMG on levator"
+  },
+  {
+   "pid": "pmc-12686446-mdataset",
+   "key": "t:anopendatasetofmultidimensionalsignalsbasedondifferentspeechpatternsinpragmaticm",
+   "title": "An open dataset of multidimensional signals based on different speech patterns in pragmatic Mandarin",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s=speech_restoration, other | production_labels=ordinary_voiced_speech, silent_articulation, task_evoked_inner_speech | modalities=scalp_eeg, surface_emg | Acquisition.sensor_geometry=64ch EEG 10-20 @1000Hz (<5kΩ) + 6ch sEMG @1000Hz (levator labii superioris, risorius,...)"
+  },
+  {
+   "pid": "pmc-12686446-mdspeech",
+   "key": "t:anopendatasetofmultidimensionalsignalsbasedondifferentspeechpatternsinpragmaticm",
+   "title": "An open dataset of multidimensional signals based on different speech patterns in pragmatic Mandarin",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cted_content | extra.Production.scope_note=pragmatic Mandarin across overt, silent (mouthed), and imagined production | modalities=scalp_eeg, surface_emg, microphone | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=simultaneous"
+  },
+  {
+   "pid": "pmc-13482365-dirword",
+   "key": "t:eegbasedbraincomputerinterfacebcidatasetfordirectionalwordrecognition",
+   "title": "EEG-based brain-computer interface (BCI) dataset for directional word recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "anguage group (russian/, spanish/); overt+covert of up/down/left/right/forward/backward; ~358-2148 trials/participant | modalities=scalp_eeg, surface_emg | sensor_hardware=flat active gel electrodes, monopolar combined auricular reference (A1+A2), ground AFz; EDF continuou"
+  },
+  {
+   "pid": "pmc-7317235-biodevices",
+   "key": "t:naturederivedmaterialsforthefabricationoffunctionalbiodevices",
+   "title": "Nature-derived materials for the fabrication of functional biodevices",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ials for the fabrication of functional b | extra.Production.scope_note=nature-derived materials functional biodevices | modalities=surface_emg, scalp_eeg | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=n=1 participants | metric"
+  },
+  {
+   "pid": "pmc-7873899-eraseica",
+   "key": "t:electromyogramemgremovalbyaddingsourcesofemgeraseanovelicabasedalgorithmforremov",
+   "title": "Electromyogram (EMG) Removal by Adding Sources of EMG (ERASE)-A Novel ICA-Based Algorithm for Removing Myoelectric Artifacts From EEG",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "m_proposal | task_family=intermediate_signal_processing | extra.Production.scope_note=EMG removal ERASE ICA algorithm | modalities=scalp_eeg, surface_emg | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=n=8 participants | metric"
+  },
+  {
+   "pid": "pmc-8540117-biosignhmi",
+   "key": "t:biosignalbasedhumanmachineinterfacesforassistanceandrehabilitationasurvey",
+   "title": "Biosignal-Based Human-Machine Interfaces for Assistance and Rehabilitation: A Survey",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y=command_selection | extra.Production.scope_note=biosignal human-machine interfaces assistance rehabilitation survey | modalities=surface_emg, scalp_eeg | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=n=29 participants | metric"
+  },
+  {
+   "pid": "pmc-8844234-thinkoutloud",
+   "key": "t:thinkingoutloudanopenaccesseegbasedbcidatasetforinnerspeechrecognition",
+   "title": "Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cases=device_control, other | production_labels=task_evoked_inner_speech, ordinary_voiced_speech, silent_articulation | modalities=scalp_eeg, surface_emg | Acquisition.sensor_geometry=BioSemi 136-channel system: 128 active EEG + 8 external EOG/EMG, 24-bit, 1024 Hz, 208 Hz"
+  },
+  {
+   "pid": "pmc-9538146-eegsemgfusion",
+   "key": "t:electroencephalogramandsurfaceelectromyogramfusionbasedprecisedetectionoflowerli",
+   "title": "Electroencephalogram and surface electromyogram fusion-based precise detection of lower limb voluntary movement using convolution neural network-long short-term memory model",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | task_family=command_selection | extra.Production.scope_note=primary N: EEG+sEMG fusion movement decoding | modalities=scalp_eeg, surface_emg | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=lower limb voluntary move"
+  },
+  {
+   "pid": "zenodo-22441724-leakctrl",
+   "key": "t:doesspokenspeechteachimaginedspeechleakagecontrolledlinearbaselinesonthreepublic",
+   "title": "Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "+ Nieto 2022 + FEIS 2019 EEG | SystemConfiguration.system_lifecycle=implemented_evaluated | model_family=linear_model | modalities=scalp_eeg, surface_emg | extra.Production.scope_note=spoken/silently-articulated vs imagined speech transfer across sessions | task_family=iso"
+  },
+  {
+   "pid": "zenodo-imgspeech-baselines",
+   "key": "t:doesspokenspeechteachimaginedspeechleakagecontrolledlinearbaselinesonthreepublic",
+   "title": "Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG)",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Production.scope_note=linear bandpower/logistic + ridge TF-IDF retrieval; permutation nulls; session-split validation | modalities=surface_emg, scalp_eeg | SystemConfiguration.system_lifecycle=implemented_evaluated | model_family=linear_model | ProcessingStep.hyperparamete"
+  }
+ ],
+ "usual_approach": {
+  "design": "EMG recorded with EEG as an artifact source (8) rather than fused; fused decoders concatenate features (4) or fuse late or at the decision level (4); cross-modal attention named in none",
+  "n": 8,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2603.04840",
+   "doi-10.1038-s41597-026-07809-9",
+   "doi-10.1088-1741-2552-aeb073",
+   "doi-10.1038-s42003-025-07464-7",
+   "doi-10.3389-fninf.2025.1583428"
+  ],
+  "population_unique": 30,
+  "note": "full-text design-regex counts over the 30 unique studies whose ledger names both scalp_eeg and surface_emg (the target's ledger is not among them): emg_as_eeg_artifact 8, feature_concatenation 4, late_or_decision_fusion 4, bidirectional_cross_attention 0; a study can match several."
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-li23l-eegemgssi",
+   "role": "prior",
+   "loc": "Table 3; Sec. 3.3",
+   "quote": "Only EEG 38.85±14.98 4.55±0.77 Only sEMG 10.52±5.24 3.10±0.31 Feature Concatenate 13.14±6.74"
+  },
+  {
+   "pid": "arxiv-2506.13835",
+   "role": "sota",
+   "loc": "Sec. 4.1",
+   "quote": "reaching 95.3 ± 2.6% for healthy controls"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2506.13835",
+  "year": 2025,
+  "metric": "64-word silent-speech accuracy from EEG+EMG, eight healthy participants, within-participant session split (95% bootstrap CI 2.6)",
+  "value": 95.3,
+  "unit": "%",
+  "timing": "concurrent"
+ },
+ "deciding_priors_note": "Target first public 2025-11. Deciding prior: Li et al. 2023 (Interspeech), decision-level EEG+sEMG fusion compared against feature concatenation and single modalities. No ahead verdict: the target's cross-attention effect is one 5-fold average without spread or seeds.",
+ "review_notes": {
+  "cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding": "Target fuses EEG and EMG with bidirectional cross-attention; none of the 30 population studies names cross-modal attention in its full text."
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 30,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "EMG recorded with EEG as an artifact source (8) rather than fused; fused decoders concatenate features (4) or fuse late or at the decision level (4); cross-modal attention named in none",
+   "n": 8,
+   "tier": "pattern match",
+   "population_unique": 30
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2506.13835",
+   "year": 2025,
+   "metric": "64-word silent-speech accuracy from EEG+EMG, eight healthy participants, within-participant session split (95% bootstrap CI 2.6)",
+   "value": 95.3,
+   "unit": "%",
+   "timing": "concurrent"
+  },
+  "read": 2,
+  "read_prior": [
+   "isca-li23l-eegemgssi"
+  ],
+  "unread": 41,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding"
+ ]
+}
