@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## imagined-speech-test-trial-averaging
+
+- Table: [`imagined-speech-test-trial-averaging.csv`](imagined-speech-test-trial-averaging.csv) (5595 slot-filled, 68 pattern match, usual design in 9, 1 read in full)
+- Inclusion rule: Studies that classify or decode imagined, covert or inner speech from EEG or MEG and state whether each test decision uses one trial or an average over repeated trials of the same item. Boundary: averaging over subjects, folds or seeds is not test-trial averaging; ERP figures averaged for display only are excluded; perceived or overt speech alone is excluded; versions of one study count once.
+- Used in: [Physiological Noise Augmentation Improves Non-Invasive Brain-to-Speech](../../reviews/physiological-noise-augmentation-improves-non-invasive-brain-to-speech/)
+
 ## noninvasive-text-production-action
 
 - Table: [`noninvasive-text-production-action.csv`](noninvasive-text-production-action.csv) (5595 slot-filled, 1458 pattern match, usual design in 784, 3 read in full)
