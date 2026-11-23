@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/physiological-noise-augmentation-improves-non-invasive-brain-to-speech/](physiological-noise-augmentation-improves-non-invasive-brain-to-speech/).**
 
-Physiological noise augmentation (PNA) using ICA-derived artifact components for non-invasive MEG imagined-speech decoding; improves 10-class imagined digit accuracy, e.g. EEGNet 73.0% to 76.3% with 10-trial averaging.
+Artifact-remix augmentation repeats 2024 reference-signal mixing, gains 3.3 points (not 4.7) only with 10-trial averaging, barely beats white noise, and does not directly test the claimed invariance.
 
 [Read the full review](physiological-noise-augmentation-improves-non-invasive-brain-to-speech/) · [All reviews](../README.md)
