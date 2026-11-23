@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## imagined-speech-eeg-online-operation
+
+- Table: [`imagined-speech-eeg-online-operation.csv`](imagined-speech-eeg-online-operation.csv) (6075 slot-filled, 445 pattern match, usual design in 110, 1 read in full)
+- Inclusion rule: EEG imagined, inner or covert speech studies (ledger text), classified by full-text pattern into online or closed-loop operation, reported latency, reported calibration time and asynchronous (idle-state) detection. Boundary: reviews counted by the ledger pattern; a pattern hit in related work counts (upper bound); versions once.
+- Used in: [Subject-Independent Imagined Speech Detection via Cross-Subject Generalization and Calibration](../../reviews/subject-independent-imagined-speech-detection-via-cross-subject-generalization-and-calibration/)
+
 ## long-term-home-use
 
 - Table: [`long-term-home-use.csv`](long-term-home-use.csv) (6075 slot-filled, 39 pattern match, usual design in 21, 3 read in full)

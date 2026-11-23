@@ -40,6 +40,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies whose ledger names silent (mouthed, silently articulated or unvoiced) speech, sentence-level or open- or large-vocabulary material, and a word error rate, with any signal (EMG, ultrasound, video, EEG, intracranial, acoustic sensing); the design compared is the recording signal and whether the corpus comes from a single speaker, counted by full-text pattern. Boundary: imagined or inner speech and silent reading match the ledger pattern and stay in the count (upper bound); closed command sets without sentences are excluded by the pattern; reviews count as pattern matches only; versions of one study count once.
 - Used in: [SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces](../../reviews/sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces/)
 
+## overt-speech-reference-for-imagined-eeg
+
+- Table: [`overt-speech-reference-for-imagined-eeg.csv`](overt-speech-reference-for-imagined-eeg.csv) (234 slot-filled, 49 pattern match, usual design in 10, 2 read in full)
+- Inclusion rule: Include EEG imagined-speech detection studies that construct or align imagined-speech ground-truth labels using overt speech or another explicit reference source. Boundary: exclude overt-speech recognition where overt speech itself is the decoder input, and distinguish directly observed labels from timing labels transferred from a paired overt utterance.
+- Used in: [Subject-Independent Imagined Speech Detection via Cross-Subject Generalization and Calibration](../../reviews/subject-independent-imagined-speech-detection-via-cross-subject-generalization-and-calibration/)
+
 ## paired-imagery-perception-neural-recordings
 
 - Table: [`paired-imagery-perception-neural-recordings.csv`](paired-imagery-perception-neural-recordings.csv) (234 slot-filled, 112 pattern match, usual design in 83, 3 read in full)

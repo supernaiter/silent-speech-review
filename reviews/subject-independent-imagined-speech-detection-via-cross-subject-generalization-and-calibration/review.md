@@ -1,20 +1,20 @@
 # Subject-Independent Imagined Speech Detection via Cross-Subject Generalization and Calibration
 
-Ko, B.-K., Kim, S., Lee, S.-H. · arXiv preprint · 2025 · [arXiv:2511.13739](https://arxiv.org/abs/2511.13739)
+Ko, B., Kim, S., Lee, S. · arXiv preprint · 2025 · [arXiv:2511.13739](https://arxiv.org/abs/2511.13739)
 
 ## Verdict
 
-The paper [[1]](#ref-1) changes only the training regime (M03) of an inherited EEG speech-versus-idle detector: a subject-cyclic schedule and fine-tuning on 5–15% of the held-out subject's samples. Both are standard. The cyclic schedule has no counterpart among 141 EEG imagined-speech studies (pattern match, Appendix), but rests on one comparison of two settings, with no pooled baseline and no seeds. Target-subject calibration after source-subject training was described by 2021 [[2]](#ref-2). Without calibration the detector barely separates the classes (MCC 0.044 and 0.123, Table I), so "subject-independent" holds only with the target's labelled data. Every label is a surrogate timed from overt speech [[3]](#ref-3), so detection of imagery itself is not shown.
+The paper [[1]](#ref-1) changes only the training regime (M03) of its own earlier EEG speech-versus-idle detector, kept unchanged (§II.A): a subject-cyclic schedule and fine-tuning on 5–15% of the held-out subject's samples. Both are standard. The cyclic schedule has no counterpart among 141 EEG imagined-speech studies (pattern match, Appendix), but only two settings are compared, with no pooled baseline and seeds not reported. Target-subject calibration after source-subject training was described by 2021 [[2]](#ref-2). Without calibration the detector barely separates the classes (MCC 0.044 and 0.123, Table I), so "subject-independent" holds only with the target's labelled data, and 90%-overlapping windows with no stated trial-level split leave the calibrated gains open to leakage (inference). Every label is a surrogate timed from overt speech [[3]](#ref-3), so detection of imagery itself is not shown (inference).
 
 ## Against the field, component by component
 
 ### M03 Training: subject-cyclic schedule and calibration
 
-**Usual approach:** Of 141 EEG imagined-, inner- or covert-speech studies with cross-subject, calibration or transfer terms (pattern match, Appendix), 61 test held-out subjects, 56 train per subject only, 38 use domain adaptation and 25 fine-tune on the target subject. The paper trains each subject for N epochs per shuffled cycle, R cycles, then fine-tunes two epochs on target samples (§II.B).
+**Usual approach:** Of 141 EEG imagined-, inner- or covert-speech studies with cross-subject, calibration or transfer terms (pattern match, Appendix), 61 test held-out subjects, 56 train per subject only, 38 use domain adaptation and 25 fine-tune on the target subject.
 
-**State of the art:** Belfrouh et al. (2026, [later]): five classes, 15 subjects, zero-shot LOSO near the 20% chance level, 53.71% after 60 calibration trials per class (about 25 min), 5 seeds [[4]](#ref-4).
+**State of the art:** Belfrouh et al. (2026, [later]), five-class decoding, not detection: 15 subjects, zero-shot LOSO near the 20% chance level, 53.71% after 60 calibration trials per class (about 25 min), 5 seeds [[4]](#ref-4).
 
-Of 4 full-text hits for a subject-cyclic schedule among the 141, three are false positives (Appendix). Yet N=5, R=6 and N=3, R=10 both give 30 epochs per subject (inference), and the switch lowers accuracy from 0.694 to 0.670 while MCC rises from 0.044 to 0.123 (Table I), with overlapping spreads. Calibration follows the inter-subject transfer recipe [[2]](#ref-2); a [concurrent] same-institution system fine-tunes on ten trials per class [[5]](#ref-5). At 10% (N=3, R=10), MCC 0.382 against 0.561 subject-dependent closes 59% of the gap from strict LOSO, AUC 0.801 against 0.860 closes 76% (inference). Verdict: standard.
+Of 4 full-text hits for a subject-cyclic schedule among the 141, three are false positives (Appendix), so the verdict rests on effect, not novelty. N=5, R=6 and N=3, R=10 both give 30 epochs per subject (inference); in strict LOSO, moving from (5, 6) to (3, 10) lowers accuracy from 0.694 to 0.670 while MCC rises from 0.044 to 0.123 (Table I), with overlapping spreads. Calibration follows the inter-subject transfer recipe [[2]](#ref-2); a [concurrent] same-institution system fine-tunes on ten trials per class [[5]](#ref-5). At 10% (N=3, R=10), MCC 0.382 against 0.561 subject-dependent closes 59% of the gap from strict LOSO (3, 10), AUC 0.801 against 0.860 closes 76% (inference). Verdict: standard.
 
 ### M11 Ground truth: overt-timed surrogate labels
 
@@ -22,21 +22,21 @@ Of 4 full-text hits for a subject-cyclic schedule among the 141, three are false
 
 **State of the art:** the cited labeling method (Soroush et al., 2022) sets imagined-speech onset and offset from the same participant's average overt onset and duration (sEEG, 7 participants) [[3]](#ref-3).
 
-Windows are aligned by this overt-speech-based method (§II.A), so the "speech" interval is a post-cue window, not an observed event. The detector can learn cue-locked responses rather than imagery (inference). Verdict: standard, and the main confound.
+Windows are aligned by this method (§II.A), so the "speech" interval is a post-cue window, not an observed event. The detector can learn cue-locked responses rather than imagery (inference). Verdict: standard, and the main confound.
 
 ### M12 Evaluation: strict and calibrated LOSO, six subjects
 
-**Usual approach:** Of 153 EEG studies with held-out-subject terms (pattern match, published table), 46 run leave-one-subject-out over all subjects, as here; EEG speech/non-speech detection with leave-one-subject-out testing dates from 2020, about 76% detection accuracy [[7]](#ref-7).
+**Usual approach:** Of 153 EEG studies with held-out-subject terms (pattern match, published table), 46 run leave-one-subject-out over all subjects, as here; EEG speech/non-speech detection under leave-one-subject-out dates from 2020 (about 76% activity-detection accuracy) [[7]](#ref-7).
 
-**State of the art:** Attar (2025, [concurrent]): 82.4% accuracy, macro-F1 0.70, eight inner-speech words, LOSO over four participants [[8]](#ref-8).
+**State of the art:** Attar (2025, [concurrent]): 82.4% accuracy, macro-F1 0.70, eight inner-speech words (classification, not detection), LOSO over four participants [[8]](#ref-8).
 
-Strict LOSO at 0.694 accuracy with MCC 0.044 (Table I) implies a dominant idle class (inference); no class balance or chance level is given (§II.A). Verdict: standard.
+Strict LOSO at 0.694 accuracy with MCC 0.044 (Table I) suggests a dominant idle class (inference); no class balance or chance level is given (§II.A). Verdict: standard.
 
 ### M13 Operation: calibration cost
 
 **Usual approach:** Of 445 EEG imagined-speech studies (pattern match, Appendix), 110 name online or closed-loop operation, 15 a latency value and 4 a calibration time.
 
-**State of the art:** Bhadra et al. (2025): closed-loop binary syllable-imagery EEG BCI, 100 ms mean delay to feedback, daily recalibration [[9]](#ref-9).
+**State of the art:** Bhadra et al. (2025): binary syllable-imagery EEG BCI, 100 ms mean delay to feedback, offline calibration then control each day [[9]](#ref-9).
 
 Calibration is a share of samples (§II.B); its duration, latency and false activations are not reported. Verdict: not reported.
 
@@ -60,30 +60,27 @@ Calibration is a share of samples (§II.B); its duration, latency and false acti
 
 ## Where the claims outrun the evidence
 
-- "Consistent" cyclic gains (Abstract): accuracy falls 0.694 to 0.670 (§III, Table I); no seeds.
+- "Consistent" cyclic gains (Abstract): strict-LOSO accuracy falls 0.694 to 0.670 while MCC and AUC rise (§III, Table I); seeds not reported.
 - "All performance metrics improved progressively" with calibration (§III): at N=5, R=6 accuracy is 0.778 at 10% and 0.777 at 15%.
-- MCC 0.358 ± 0.791 (§III, Table I, 10%, N=5, R=6) is an outlier spread.
+- MCC 0.358 ± 0.791 (§III, Table I, 10%, N=5, R=6): the ± equals that row's AUC, likely a transcription error.
 - The Fig. 2 caption assigns N=5, R=6 to both curves.
-- 500-ms windows with 50-ms shift share 90% of samples (inference); no trial-level calibration/test split is stated (§II.A–B).
+- 500-ms windows with 50-ms shift share 90% of samples (§II.A, inference).
 - "Scalable, user-adaptive" systems (Abstract) are untested; the authors call the evidence preliminary (§I).
 
 ## What the field needs next
 
-- M03: cyclic versus shuffled pooled training at equal epochs over seeds, and calibration versus training from scratch on the same target data.
+- M03: cyclic versus pooled training at equal epochs over seeds; calibration versus training from scratch on the same target data.
 - M11: labels from a measured onset with a cue-only control.
-- M12: trial-disjoint calibration and test sets, chance level, per-subject MCC.
-- M13: calibration in minutes and false activations per minute in continuous EEG.
+- M12: trial-disjoint calibration and test sets, chance level, per-subject MCC; calibration time in minutes (M13).
 
 ## Questions for the authors
 
 - What do the ± values aggregate, over how many seeds?
 - Are calibration and test windows separated by trial?
-- What is the idle-to-speech window ratio?
-- How many minutes do 5%, 10% and 15% correspond to?
 
 ## Appendix: literature search
 
-- M03, imagined-speech-eeg-cross-subject-calibration (new). Inclusion rule: EEG imagined, inner or covert speech decoders or detectors whose ledger records cross-subject training, held-out-subject testing, transfer learning, fine-tuning or calibration, classified by full-text pattern; reviews and datasets counted; every named design counts (upper bound). Ledger: 1,526 unique studies slot-filled for M03; 141 unique studies pattern match. Held-out-subject testing 61, per-subject-only training 56, domain adaptation or subject-invariant learning 38, target-subject fine-tuning or calibration 25, subject-cyclic schedule 4 (the target; the other three are false positives) (pattern match). Read in full: [[2]](#ref-2), [[5]](#ref-5), [[4]](#ref-4). Known-item recall 1.0 (5 seeds).
+- M03, imagined-speech-eeg-cross-subject-calibration (new). Inclusion rule: EEG imagined, inner or covert speech decoders or detectors whose ledger records cross-subject training, held-out-subject testing, transfer learning, fine-tuning or calibration, classified by full-text pattern; reviews and datasets counted; every named design counts (upper bound). Ledger: 1,526 unique studies slot-filled for M03; 141 unique studies pattern match. Held-out-subject testing 61, per-subject-only training 56, domain adaptation or subject-invariant learning 38, target-subject fine-tuning or calibration 25, subject-cyclic schedule 4 (the target; the other three describe alternating leave-one-subject-out folds, trials shuffled within a subject, and a section heading) (pattern match). Read in full: [[2]](#ref-2), [[5]](#ref-5), [[4]](#ref-4). Known-item recall 1.0 (5 seeds).
 - M03, cross-subject-pooled-training (published table, reused). Inclusion rule: speech or language decoders from neural or other biosignals that train one model on data pooled across participants; per-participant models excluded. Ledger: 1,526 unique studies slot-filled; 370 unique studies pattern match. Usual design: per-subject model, 90 of 379 (pattern match, published counts). Known-item recall 1.0.
 - M11, overt-speech-reference-for-imagined-eeg (new). Inclusion rule: EEG imagined-speech studies that build or align imagined-speech labels from overt speech or another explicit reference; overt-speech recognition excluded. Ledger: 234 unique studies slot-filled for M11; 49 unique studies pattern match. Labels or alignment tied to overt speech 10, speech-activity detection 7, cue-locked epochs 6 (pattern match). Read in full: [[3]](#ref-3), [[6]](#ref-6).
 - M12, eeg-held-out-subject-test (published table, reused). Inclusion rule: EEG decoding studies reporting accuracy on subjects not used for training; calibrated transfer counted and recorded as such. Ledger: 6,960 unique studies slot-filled for M12; 153 unique studies pattern match. Leave-one-subject-out over all subjects 46, fixed held-out subjects 41 (pattern match, published counts). Read in full: [[8]](#ref-8), [[7]](#ref-7).
