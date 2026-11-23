@@ -2058,6 +2058,20 @@
    "loc": "Table I; Sec. III-A",
    "quote": "V2SFlow-V 3.780 28.5 0.664 0.251 8.09",
    "by": "naturall2s-end-to-end-high-quality-multispeaker-lip-to-speech-synthesis-with-differential-digita"
+  },
+  {
+   "pid": "arxiv-2411.19486",
+   "role": "sota",
+   "loc": "Table I",
+   "quote": "V2SFlow-A 3.624 28.5 0.851 0.245 7.97",
+   "added_by": "resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling"
+  },
+  {
+   "pid": "arxiv-2306.03258",
+   "role": "prior",
+   "loc": "Sec. 5.1",
+   "quote": "For predicting the text from the silent video at inference time, we use Ma et al. (2023) as our lip-reader for LRS2 and LRS3.",
+   "added_by": "resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling"
   }
  ],
  "known_item_recall": {
@@ -2097,13 +2111,51 @@
   "read": 3,
   "read_prior": [
    "arxiv-2107.12003",
-   "arxiv-2308.07787-diffv2s"
+   "arxiv-2308.07787-diffv2s",
+   "arxiv-2306.03258"
   ],
   "unread": 187,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
  },
  "used_by": [
-  "naturall2s-end-to-end-high-quality-multispeaker-lip-to-speech-synthesis-with-differential-digita"
- ]
+  "naturall2s-end-to-end-high-quality-multispeaker-lip-to-speech-synthesis-with-differential-digita",
+  "resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling"
+ ],
+ "state_of_the_art_resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling": {
+  "pid": "arxiv-2411.19486",
+  "year": 2024,
+  "metric": "LRS3 SECS on unseen speakers with an audio-derived speaker embedding (0.664 video-derived), WER 28.5%",
+  "value": 0.851,
+  "unit": "SECS",
+  "timing": "concurrent"
+ },
+ "fulltext_pattern_resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling": "audio_prompt_or_reference_segment; lip_reader_text_conditioning (full text, 165-study population; related-work mentions included)",
+ "pattern_tally_resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling": [
+  {
+   "design": "audio_prompt_or_reference_segment",
+   "n": 23,
+   "tier": "pattern match",
+   "pids": [
+    "arxiv-2505.22024",
+    "arxiv-2601.14777",
+    "arxiv-2602.01908",
+    "arxiv-2602.11477",
+    "arxiv-2603.14267"
+   ]
+  },
+  {
+   "design": "lip_reader_text_conditioning",
+   "n": 16,
+   "tier": "pattern match",
+   "pids": [
+    "arxiv-2505.22024",
+    "arxiv-2602.01908",
+    "arxiv-2610.01012",
+    "isca-ghosh26b-lipadapt",
+    "arxiv-2412.18839"
+   ]
+  }
+ ],
+ "deciding_priors_note_resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling": "Lip-reader text at use time: LipVoicer 2023 (read; same lip reader family, Ma et al. 2023). Reference audio speaker conditioning is the usual approach (21). DiffV2S 2023 needs no reference audio (read)."
 }

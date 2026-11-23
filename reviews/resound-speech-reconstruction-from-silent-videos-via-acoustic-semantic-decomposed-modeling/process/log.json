@@ -1,6 +1,6 @@
 {
  "slug": "resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,29 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-23T19:21:29+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-23T19:23:23+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "7 applied (two of them partly or claim-table only), 3 rejected (one of these unverified). Gate after rewrite: 0 FAIL, 1 WARN (papers read count inherited from the published topic tables).",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-23T19:26:19+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 97 found, 0 missing, 20 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-video-to-speech-one-to-many-decoder": "ok",
+  "topic counts M07-reference-speaker-conditioning-at-inference": "ok",
+  "topic counts M12-video-to-speech-output-evaluation": "ok"
+ },
  "inputs": {
   "notes_sha256": "161a9a800eaccab966ecb638859728eecbc536acf83409cb8aaba62f01d238c4",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +60,6 @@
  },
  "body_chars": {
   "draft": 17626,
-  "final": null
+  "final": 17826
  }
 }
