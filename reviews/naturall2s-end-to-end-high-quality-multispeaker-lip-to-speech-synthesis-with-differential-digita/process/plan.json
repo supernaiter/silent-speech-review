@@ -1,0 +1,58 @@
+{
+ "target": "arxiv-2502.12002",
+ "changed": [
+  "M06",
+  "M07"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "LRS2 and LRS3 overt speech video with paired audio",
+  "M02": "HuBERT 200-cluster speech units, F0 and mel targets from paired audio (Lip2Speech Unit / FastSpeech 2 lineage)",
+  "M03": "One run per dataset, 500k steps; ground-truth F0 drives DDSP in training, predicted F0 at inference; seeds and selection not stated",
+  "M04": "Overt speech video, audio muted at test",
+  "M05": "88x88 grayscale mouth crop, frozen AV-HuBERT Large",
+  "M08": "16 kHz waveform from the conditional HiFi-GAN (folded into M06)",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "LRS2 and LRS3 recordings and transcripts, original splits",
+  "M13": "Training on one A100; no runtime or model size; authors concede dependence on large pretrained models"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-synthesis",
+   "reuse": "components/M06/video-to-speech-synthesis.json",
+   "inclusion_rule": "Reused published table: studies that synthesize a speech waveform from talking-face or lip video and report the acoustic representation and how it becomes a waveform; enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS excluded; versions once.",
+   "pattern": "published pattern",
+   "design_field": "published full-text vocoder counts",
+   "metric": "LRS3 ASR WER, STOI-Net and DNSMOS"
+  },
+  {
+   "slot": "M06",
+   "topic": "joint-end-to-end-lip-to-speech-training",
+   "inclusion_rule": "The same 165-study population, classified by whether the waveform generator is trained together with the visual-to-acoustic path or is a pre-trained or separately trained vocoder, and whether a DDSP or harmonic-plus-noise signal model is used; a study counts under every design its full text names (upper bound); end-to-end training that stops at mel or units with a separate vocoder is not joint waveform training.",
+   "pattern": "M06 video-to-speech population pattern",
+   "design_field": "full-text regexes pretrained_vocoder, joint_waveform_training, ddsp_or_harmonic_noise",
+   "metric": "presence of the design; LRS3 WER and quality for state of the art"
+  },
+  {
+   "slot": "M07",
+   "topic": "reference-speaker-conditioning-at-inference",
+   "inclusion_rule": "The same 165-study population, classified by the speaker information supplied at use time: an embedding from reference audio, an embedding derived from the face or lip video, or none; training-only or scoring-only embeddings do not count; a study counts under every design its full text names (upper bound).",
+   "pattern": "M06 video-to-speech population pattern",
+   "design_field": "full-text regexes audio_reference_speaker_embedding, visual_speaker_embedding, no_speaker_embedding_claimed",
+   "metric": "speaker similarity (SECS) at equal WER"
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "inclusion_rule": "Reused published table: the same video-to-speech population, counting the evaluation protocols its full text names (listener test, ASR WER on output, unseen speakers, confidence intervals or tests, reference-free MOS predictors).",
+   "pattern": "published pattern",
+   "design_field": "published protocol counts",
+   "metric": "LRS3 WER under one ASR; listener MOS"
+  }
+ ]
+}
