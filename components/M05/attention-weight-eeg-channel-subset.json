@@ -1,0 +1,771 @@
+{
+ "topic": "attention-weight-eeg-channel-subset",
+ "slot": "M05",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?is)\\A(?=.*?(scalp_eeg|\\bEEG\\b))(?=.*?((channel|electrode)s? (subset|selection|reduction|importance|ranking)|(subset|selection|reduction) of (eeg )?(channels|electrodes)|(fewer|reduced|minimal|selected) (number of )?(eeg )?(channels|electrodes)|reduced[- ]channel|minimal[- ]channel|top[- ]?\\d+ (eeg )?(channels|electrodes)))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Neural signal speech or tone decoding studies that shrink the recording set for the main experiment by ranking channels with trained-model attention weights (or similar attribution) and keeping a top subset, and that report a full-versus-reduced accuracy comparison. Boundary: hardware-only channel counts, exhaustive or greedy selection without attention, EMG-only electrode subsets and papers with no full-versus-reduced comparison are excluded; selecting channels with data spanning test folds or subjects is included but flagged; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8898,
+  "slot_filled_unique": 7329,
+  "string_match_folders": 42,
+  "string_match_unique": 34,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M05",
+  "design_slot_fill": 0.989,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "modalities=scalp_eeg",
+    "n": 33,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.29820",
+     "doi-10.3389-fpsyg.2026.1833448",
+     "ijsce-bisla26_connectivity",
+     "osf-g34v7-istals",
+     "pmc-13642302-centroid"
+    ]
+   },
+   {
+    "design": "body_sites=scalp",
+    "n": 13,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.29820",
+     "pmcid-PMC13453738",
+     "arxiv-2511.10935",
+     "doi-10.1088-1741-2552-ad8d0a",
+     "doi-10.3389-fnrgo.2025.1578586"
+    ]
+   },
+   {
+    "design": "observed_quantities=neural_activity",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.29820",
+     "osf-g34v7-istals",
+     "pmcid-PMC13453738",
+     "arxiv-2511.10935-catnet",
+     "doi-10.3389-fnrgo.2025.1578586"
+    ]
+   },
+   {
+    "design": "intrusiveness=skin_contact",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3389-fpsyg.2026.1833448",
+     "ijsce-bisla26_connectivity",
+     "pmc-13642302-centroid",
+     "arxiv-2511.10935",
+     "doi-10.3389-fnrgo.2025.1578586"
+    ]
+   },
+   {
+    "design": "intrusiveness=external_noncontact",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "osf-g34v7-istals",
+     "pmcid-PMC13453738",
+     "arxiv-2511.10935-catnet",
+     "doi-10.1088-1741-2552-ad8d0a",
+     "doi-10.1038-s41467-023-43490-x"
+    ]
+   },
+   {
+    "design": "modalities=other",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2505.20480",
+     "arxiv-2511.10935-catnet",
+     "doi-10.1088-1741-2552-ad8d0a",
+     "pmc-12644565-eareeg-aad"
+    ]
+   },
+   {
+    "design": "modalities=microphone",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-13642302-fpga",
+     "doi-10.1088-1741-2552-ad8d0a",
+     "arxiv-2606.01264",
+     "isca-bras24_interspeech"
+    ]
+   },
+   {
+    "design": "body_sites=face",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2511.10935",
+     "doi-10.1088-1741-2552-ad8d0a",
+     "arxiv-2606.01264"
+    ]
+   },
+   {
+    "design": "sampling_rate_hz=256",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "applsci-13-11787-lipsync",
+     "doi-10.1109-access.2021.3116196"
+    ]
+   },
+   {
+    "design": "body_sites=cortex",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3389-fnrgo.2025.1578586",
+     "applsci-13-11787-lipsync"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "post_hoc_attribution",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.3389-fpsyg.2026.1833448",
+     "srep-66298-electrode-is",
+     "doi-10.3389-fnrgo.2025.1578586",
+     "pmc-12263900-elecred",
+     "pmc-12644565-eareeg-aad"
+    ]
+   },
+   {
+    "design": "anatomical_prior_subset",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2511.10935",
+     "doi-10.3389-fnrgo.2025.1578586",
+     "pmc-12263900-elecred",
+     "oa-W3088488915",
+     "arxiv-2112.09239"
+    ]
+   },
+   {
+    "design": "attention_weight_ranking",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2511.10935"
+    ]
+   },
+   {
+    "design": "search_based_selection",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-12644565-eareeg-aad"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)accura",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "subject classification accuracy (%)",
+   "value": 95.63,
+   "unit": "percent",
+   "raw": "95.63",
+   "pid": "arxiv-2511.10935",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ETC best-subject accuracy %",
+   "value": 92.6,
+   "unit": "percent",
+   "raw": "",
+   "pid": "srep-66298-electrode-is",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Accuracy (%)",
+   "value": 85.2,
+   "unit": "percent",
+   "raw": "Earlier Kumar coarse accuracy 85.20%, as summarized here",
+   "pid": "arxiv-2609.29820",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best linear accuracy Dataset SI (Channel 3)",
+   "value": 84.21,
+   "unit": "%",
+   "raw": "~84.21%",
+   "pid": "applsci-13-11787-lipsync",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "4-way Mandarin-tone classification accuracy % by cue condition × electrode configuration",
+   "value": 80.1,
+   "unit": "%",
+   "raw": "4-way imagined-tone accuracy: 80.1+/-1.2% (audio-visual, all-6 electrodes) vs 67.7+/-1.0% (visual-only); single-region: Broca 55.2/39.9, Wernicke 39.2/31.6, mot",
+   "pid": "isca-li20ma_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "avg hybrid online accuracy",
+   "value": 79,
+   "unit": "percent",
+   "raw": "79%",
+   "pid": "oa-W3088488915",
+   "year": 2018,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "overt accuracy",
+   "value": 69.83,
+   "unit": "percent",
+   "raw": "69.83% overt",
+   "pid": "pmc-13453738-cneeg",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "4-class imagined-speech accuracy wired / wireless",
+   "value": 62.0,
+   "unit": "percent",
+   "raw": "62.00% wired vs 46.67% wireless (3 subj, chance 25%)",
+   "pid": "arxiv-2511-07936-wirelessimg",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "64→32 channels (−50%) retains speech-imagery classification accuracy across 3 datasets; informative sites distributed bilaterally",
+   "value": 50,
+   "unit": "percent_channels",
+   "raw": "could be reduced by 50% without a significant performance loss",
+   "pid": "doi-10.3389-fnrgo.2025.1578586",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "cited accuracy",
+   "value": 39.73,
+   "unit": "%",
+   "raw": "39.73",
+   "pid": "doi-10.14569-ijacsa.2024.0150242",
+   "year": 2024,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "applsci-13-11787-lipsync",
+   "key": "t:theperformanceofalipsyncimagerymodelnaebifeng",
+   "title": "The Performance of a Lip-Sync Imagery Model... (Naebi & Feng)",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The Performance of a Lip-Sync Imagery Model... (Naebi & Feng) | venue=Applied Sciences 2023, 13:11787 (MDPI, OA) |"
+  },
+  {
+   "pid": "arxiv-1705.07771",
+   "key": "t:simulationexperimentofbcibasedonimaginedspeecheegdecoding",
+   "title": "Simulation Experiment of BCI Based on Imagined Speech EEG Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1705.07771 | title=Simulation Experiment of BCI Based on Imagined Speech EEG Decoding | venue=conference"
+  },
+  {
+   "pid": "arxiv-1908.05743-eegasr",
+   "key": "t:stateoftheartspeechrecognitionusingeegandtowardsdecodingofspeechspectrumfromeeg",
+   "title": "State-of-the-art Speech Recognition using EEG and Towards Decoding of Speech Spectrum From EEG",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1908.05743-eegasr | title=State-of-the-art Speech Recognition using EEG and Towards Decoding of Speech Sp"
+  },
+  {
+   "pid": "arxiv-2003.09374",
+   "key": "t:anoveldeeplearningarchitecturefordecodingimaginedspeechfromeeg",
+   "title": "A Novel Deep Learning Architecture for Decoding Imagined Speech from EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2003.09374 | title=A Novel Deep Learning Architecture for Decoding Imagined Speech from EEG | venue=confe"
+  },
+  {
+   "pid": "arxiv-2008.07621-dryeeg",
+   "key": "t:speechrecognitionusingeegsignalsrecordedusingdryelectrodes",
+   "title": "Speech Recognition using EEG Signals Recorded using Dry Electrodes",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2008.07621-dryeeg | title=Speech Recognition using EEG Signals Recorded using Dry Electrodes | authors=Ga"
+  },
+  {
+   "pid": "arxiv-2112.09239",
+   "key": "t:eegtransformerselfattentionfromtransformerarchitecturefordecodingeegofimaginedsp",
+   "title": "EEG-Transformer: Self-attention from Transformer Architecture for Decoding EEG of Imagined Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2112.09239 | title=EEG-Transformer: Self-attention from Transformer Architecture for Decoding EEG of Imag"
+  },
+  {
+   "pid": "arxiv-2203.15250-eegbands",
+   "key": "t:analysisofeegfrequencybandsforenvisionedspeechrecognition",
+   "title": "Analysis of EEG frequency bands for Envisioned Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2203.15250-eegbands | title=Analysis of EEG frequency bands for Envisioned Speech Recognition | authors=A"
+  },
+  {
+   "pid": "arxiv-2505.20480",
+   "key": "t:brainstratifycoarsetofinedisentanglementofintracranialneuraldynamics",
+   "title": "BrainStratify: Coarse-to-Fine Disentanglement of Intracranial Neural Dynamics",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.20480 | title=BrainStratify: Coarse-to-Fine Disentanglement of Intracranial Neural Dynamics | author"
+  },
+  {
+   "pid": "arxiv-2511-07936-wirelessimg",
+   "key": "t:towardpracticalbciarealtimewirelessimaginedspeecheegdecodingsystem",
+   "title": "Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System | authors=Park, Kwak, Shin (Korea U"
+  },
+  {
+   "pid": "arxiv-2511.10935",
+   "key": "t:catnetacrossattentiontonenetworkforcrosssubjecteegemgfusiontonedecoding",
+   "title": "CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2511.10935 | paper_version=2511.10935v1 | title=CAT-Net: A Cross-Attention Tone Network for Cross-Subject"
+  },
+  {
+   "pid": "arxiv-2511.10935-catnet",
+   "key": "t:catnetacrossattentiontonenetworkforcrosssubjecteegemgfusiontonedecoding",
+   "title": "CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding | venue=arXiv preprint | St"
+  },
+  {
+   "pid": "arxiv-2606.01264",
+   "key": "t:a1000houreegemgaudiodatasetofjapanesespeechproduction",
+   "title": "A 1000-hour EEG–EMG–audio dataset of Japanese speech production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A 1000-hour EEG–EMG–audio dataset of Japanese speech production | arxiv_id=2606.01264v1 | paper_version=arXiv v1,"
+  },
+  {
+   "pid": "arxiv-2609.29820",
+   "key": "t:decodingimaginedspeechastrictlysubjectindependentapproachusingeeg",
+   "title": "Decoding Imagined Speech: A Strictly Subject-Independent Approach Using EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.29820 | paper_version=2609.29820v1 | source_url=https://arxiv.org/pdf/2609.29820v1 | title=Decoding"
+  },
+  {
+   "pid": "doi-10.1038-s41467-023-43490-x",
+   "key": "t:emergenceofthecorticalencodingofphoneticfeaturesinthefirstyearoflife",
+   "title": "Emergence of the cortical encoding of phonetic features in the first year of life",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41467-023-43490-x | title=Emergence of the cortical encoding of phonetic features in the first year of"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ad8d0a",
+   "key": "t:continuousanddiscretedecodingofovertspeechwithscalpelectroencephalographyeeg",
+   "title": "Continuous and discrete decoding of overt speech with scalp electroencephalography (EEG)",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1088/1741-2552/ad8d0a | title=Continuous and discrete decoding of overt speech with scalp electroencephalogr"
+  },
+  {
+   "pid": "doi-10.1109-access.2021.3116196",
+   "key": "t:decodingimaginedspeechfromeegusingtransferlearning",
+   "title": "Decoding Imagined Speech From EEG Using Transfer Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined Speech From EEG Using Transfer Learning | intended_use_cases=research_of_inner_speech, assistive"
+  },
+  {
+   "pid": "doi-10.14569-ijacsa.2024.0150242",
+   "key": "t:areviewonapplicationsofelectroencephalogramincludesimaginedspeech",
+   "title": "A Review on Applications of Electroencephalogram: Includes Imagined Speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.14569-ijacsa.2024.0150242 | doi=10.14569/IJACSA.2024.0150242 | title=A Review on Applications of Electro"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2025.1547074",
+   "key": "p:doi-10.3389-fnhum.2025.1547074",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Frontiers in Human Neuroscience 2025 | vocabulary_regime=not_a_word_task | scope_limits=systems limited to publish"
+  },
+  {
+   "pid": "doi-10.3389-fnrgo.2025.1578586",
+   "key": "t:howlowcanyougoevaluatingelectrodereductionmethodsforeegbasedspeechimagerybcis",
+   "title": "How low can you go: evaluating electrode reduction methods for EEG-based speech imagery BCIs",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnrgo.2025.1578586 | title=How low can you go: evaluating electrode reduction methods for EEG-based"
+  },
+  {
+   "pid": "doi-10.3389-fpsyg.2026.1833448",
+   "key": "t:decodingchinesespeechacrossmultipleneuralconditionsviaeegdatasetconstructionandi",
+   "title": "Decoding Chinese speech across multiple neural conditions via EEG: dataset construction and interpretability driven spatial optimization",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fpsyg.2026.1833448 | title=Decoding Chinese speech across multiple neural conditions via EEG: datas"
+  },
+  {
+   "pid": "doi-10.54254-2755-2721-42-20230786",
+   "key": "t:ahybridneuralnetworkbasedonthesmallworldnetworkforinnerspeechrecognition",
+   "title": "A hybrid neural network based on the small-world network for inner speech recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.54254-2755-2721-42-20230786 | doi=10.54254/2755-2721/42/20230786 | title=A hybrid neural network based o"
+  },
+  {
+   "pid": "ijsce-bisla26_connectivity",
+   "key": "t:eegbasedimaginedspeechanalysisusingfunctionalconnectivity",
+   "title": "EEG-based imagined speech analysis using functional connectivity",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ijsce-bisla26_connectivity | title=EEG-based imagined speech analysis using functional connectivity | authors=M"
+  },
+  {
+   "pid": "isca-bras24_interspeech",
+   "key": "t:usingarticulatedspeecheegsignalsforimaginedspeechdecoding",
+   "title": "Using articulated speech EEG signals for imagined speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Using articulated speech EEG signals for imagined speech decoding | system_name=two CNN pipelines over scalp EEG:"
+  },
+  {
+   "pid": "isca-duraisamy25_interspeech",
+   "key": "t:functionalconnectivityandhilbertbasedfeaturesforcovertspeecheegvariabilityanalys",
+   "title": "Functional Connectivity and Hilbert-Based Features for Covert Speech EEG Variability Analysis and Classification",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Functional Connectivity and Hilbert-Based Features for Covert Speech EEG Variability Analysis and Classification |"
+  },
+  {
+   "pid": "isca-li20ma_interspeech",
+   "key": "t:classifyimaginarymandarintoneswithcorticaleegsignals",
+   "title": "Classify Imaginary Mandarin Tones with Cortical EEG Signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Classify Imaginary Mandarin Tones with Cortical EEG Signals | system_name=64ch EEG → CSP spatial features (electro"
+  },
+  {
+   "pid": "isca-li25j_interspeech",
+   "key": "t:eegbasedspeechdecodingbasedonmultimodejointmodeling",
+   "title": "EEG-based Speech Decoding Based on Multi-mode Joint Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-li25j_interspeech | title=EEG-based Speech Decoding Based on Multi-mode Joint Modeling | authors=Peiran Li"
+  },
+  {
+   "pid": "oa-W3088488915",
+   "key": "t:developmentofahybridbcibasedonimaginedspeechusingeegandfnirsphdthesis",
+   "title": "Development of a Hybrid BCI Based on Imagined Speech Using EEG and fNIRS (PhD thesis)",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W3088488915 | title=Development of a Hybrid BCI Based on Imagined Speech Using EEG and fNIRS (PhD thesis) |"
+  },
+  {
+   "pid": "osf-6ng2k",
+   "key": "t:decodingthetemporaldynamicsofspokenwordandnonwordprocessingfromeeg",
+   "title": "Decoding the temporal dynamics of spoken word and nonword processing from EEG",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding the temporal dynamics of spoken word and nonword processing from EEG | authors=McMurray B, Sarrett ME, Ch"
+  },
+  {
+   "pid": "osf-g34v7-istals",
+   "key": "t:anovelmachinelearningmodelfornoninvasiveeegbasedinnerspeechtranslationinals",
+   "title": "A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Translation in ALS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Translation in ALS | authors=Alex Steiner |"
+  },
+  {
+   "pid": "pmc-12263900-elecred",
+   "key": "t:howlowcanyougoevaluatingelectrodereductionmethodsforeeg",
+   "title": "How low can you go: evaluating electrode reduction methods for EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=How low can you go: evaluating electrode reduction methods for EEG | authors=electrode-reduction group | Study.res"
+  },
+  {
+   "pid": "pmc-12263900-electrode",
+   "key": "t:howlowcanyougoevaluatingelectrodereductionmethodsforeegbasedspeechimagerybcis",
+   "title": "How low can you go: evaluating electrode reduction methods for EEG-based speech imagery BCIs",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12263900-electrode | title=How low can you go: evaluating electrode reduction methods for EEG-based speech"
+  },
+  {
+   "pid": "pmc-12644565-eareeg-aad",
+   "key": "t:adirectcomparisonofsimultaneouslyrecordedscalparoundearandineareegforneuralselec",
+   "title": "A direct comparison of simultaneously recorded scalp, around-ear and in-ear EEG for neural selective auditory attention decoding to speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12644565-eareeg-aad | title=A direct comparison of simultaneously recorded scalp, around-ear and in-ear EEG"
+  },
+  {
+   "pid": "pmc-13453738-chinese-eeg",
+   "key": "t:decodingchinesespeechacrossmultipleneuralconditionsviaeegdatasetconstructionandi",
+   "title": "Decoding Chinese speech across multiple neural conditions via EEG: dataset construction and interpretability driven spatial optimization",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13453738-chinese-eeg | title=Decoding Chinese speech across multiple neural conditions via EEG: dataset con"
+  },
+  {
+   "pid": "pmc-13453738-cneeg",
+   "key": "t:decodingchinesespeechacrossmultipleneuralconditionsviaeegdatasetconstructionandi",
+   "title": "Decoding Chinese speech across multiple neural conditions via EEG: dataset construction and interpretability driven spatial optimization",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Chinese speech across multiple neural conditions via EEG: dataset construction and interpretability drive"
+  },
+  {
+   "pid": "pmc-13642302-centroid",
+   "key": "t:ahighprecisionsynchronizationandcentroidbasedframeworkforsingletrialdecodingofpe",
+   "title": "A high-precision synchronization and centroid-based framework for single-trial decoding of perceived natural speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13642302-centroid | title=A high-precision synchronization and centroid-based framework for single-trial de"
+  },
+  {
+   "pid": "pmc-13642302-egvowel",
+   "key": "t:ahighprecisionsynchronizationandcentroidbasedframeworkforsingletrialdecodingofpe",
+   "title": "A high-precision synchronization and centroid-based framework for single-trial decoding of perceived natural speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13642302-egvowel | title=A high-precision synchronization and centroid-based framework for single-trial dec"
+  },
+  {
+   "pid": "pmc-13642302-fpga",
+   "key": "t:ahighprecisionsynchronizationandcentroidbasedframeworkforsingletrialdecodingofpe",
+   "title": "A high-precision synchronization and centroid-based framework for single-trial decoding of perceived natural speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13642302-fpga | title=A high-precision synchronization and centroid-based framework for single-trial decodi"
+  },
+  {
+   "pid": "pmc-13642302-singletrial",
+   "key": "t:ahighprecisionsynchronizationandcentroidbasedframeworkforsingletrialdecodingofpe",
+   "title": "A high-precision synchronization and centroid-based framework for single-trial decoding of perceived natural speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13642302-singletrial | title=A high-precision synchronization and centroid-based framework for single-trial"
+  },
+  {
+   "pid": "pmc-13645647-avh-corollary",
+   "key": "t:corollarydischargedysfunctiontoinnerspeechanditsrelationshiptoauditoryverbalhall",
+   "title": "Corollary Discharge Dysfunction to Inner Speech and its Relationship to Auditory Verbal Hallucinations in Patients with Schizophrenia Spectrum Disorders",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Corollary Discharge Dysfunction to Inner Speech and its Relationship to Auditory Verbal Hallucinations in Patients"
+  },
+  {
+   "pid": "pmc-5605645-eegfnirs-hyb",
+   "key": "t:enhancingperformanceofahybrideegfnirssystemusingchannelselectionandearlytemporal",
+   "title": "Enhancing Performance of a Hybrid EEG-fNIRS System Using Channel Selection and Early Temporal Features.",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Enhancing Performance of a Hybrid EEG-fNIRS System Using Channel Selection and Early Temporal Features. | authors="
+  },
+  {
+   "pid": "pmcid-PMC13453738",
+   "key": "t:decodingchinesespeechacrossmultipleneuralconditionsviaeegdatasetconstructionandi",
+   "title": "Decoding Chinese speech across multiple neural conditions via EEG: dataset construction and interpretability driven spatial optimization",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmcid:PMC13453738 | title=Decoding Chinese speech across multiple neural conditions via EEG: dataset constructi"
+  },
+  {
+   "pid": "srep-66298-electrode-is",
+   "key": "t:decodingimaginedspeechroleofelectrodelocalizationandsubjectspecificclassificatio",
+   "title": "Decoding imagined speech: role of electrode localization and subject-specific classification",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding imagined speech: role of electrode localization and subject-specific classification | authors=Vaishnavi K"
+  }
+ ],
+ "usual_approach": {
+  "design": "channels ranked by post-hoc attribution (6) or chosen by anatomical prior (5); ranking by trained attention weights only in the target (1)",
+  "n": 6,
+  "tier": "pattern match",
+  "pids": [
+   "doi-10.3389-fpsyg.2026.1833448",
+   "srep-66298-electrode-is",
+   "doi-10.3389-fnrgo.2025.1578586",
+   "pmc-12263900-elecred",
+   "pmc-12644565-eareeg-aad"
+  ],
+  "population_unique": 34,
+  "note": "full-text design-regex counts over the 34 unique EEG studies whose ledger names a channel subset, selection or reduction: post_hoc_attribution 6, anatomical_prior_subset 5, attention_weight_ranking 1 (the target), search_based_selection 1; a study can match several."
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-li20ma-eegtones",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "Combined audio-visual 55.2 ± 1.1 39.2 ± 1.0 41.2 ± 0.9 80.1 ± 1.2"
+  },
+  {
+   "pid": "pmc-12263900-elecred",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "the original 64 channels could be reduced by 50% without a significant performance loss in classification accuracy"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 1,
+  "recall": 0.5,
+  "missed": [
+   "isca-li20ma-eegtones"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "pmc-12263900-elecred",
+  "year": 2025,
+  "metric": "share of 64 EEG channels removed without a significant accuracy loss, several reduction methods, three imagined-speech datasets; optimal positions not consistent across datasets",
+  "value": 50,
+  "unit": "%",
+  "timing": "concurrent"
+ },
+ "review_notes": {
+  "cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding": "Target ranks EEG channels by trained channel-attention weights after training and keeps 20 of 64; the data scope of the ranking is not stated."
+ },
+ "tally": {
+  "slot_filled_unique": 7329,
+  "string_match_unique": 34,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "channels ranked by post-hoc attribution (6) or chosen by anatomical prior (5); ranking by trained attention weights only in the target (1)",
+   "n": 6,
+   "tier": "pattern match",
+   "population_unique": 34
+  },
+  "state_of_the_art": {
+   "pid": "pmc-12263900-elecred",
+   "year": 2025,
+   "metric": "share of 64 EEG channels removed without a significant accuracy loss, several reduction methods, three imagined-speech datasets; optimal positions not consistent across datasets",
+   "value": 50,
+   "unit": "%",
+   "timing": "concurrent"
+  },
+  "read": 2,
+  "read_prior": [
+   "isca-li20ma-eegtones"
+  ],
+  "unread": 42,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.5
+ },
+ "used_by": [
+  "cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding"
+ ]
+}

@@ -15,6 +15,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces | 2026 | Abstract, Table 3 |
 | Multimodal Speech Recognition with Ultrasonic Sensors |  | Sec. 5.1, Table 1 |
 
+## attention-weight-eeg-channel-subset
+
+- Table: [`attention-weight-eeg-channel-subset.csv`](attention-weight-eeg-channel-subset.csv) (7329 slot-filled, 34 pattern match, usual design in 6, 2 read in full)
+- Inclusion rule: Neural signal speech or tone decoding studies that shrink the recording set for the main experiment by ranking channels with trained-model attention weights (or similar attribution) and keeping a top subset, and that report a full-versus-reduced accuracy comparison. Boundary: hardware-only channel counts, exhaustive or greedy selection without attention, EMG-only electrode subsets and papers with no full-versus-reduced comparison are excluded; selecting channels with data spanning test folds or subjects is included but flagged; versions of one study count once.
+- Used in: [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](../../reviews/cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding/)
+
 ## body-conducted-sensor-with-air-microphone
 
 - Table: [`body-conducted-sensor-with-air-microphone.csv`](body-conducted-sensor-with-air-microphone.csv) (7329 slot-filled, 123 pattern match, usual design in 71, 2 read in full)

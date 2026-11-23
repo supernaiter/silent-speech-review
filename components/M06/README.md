@@ -115,6 +115,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: EEG decoding studies (classification, text or speech decoding) that train a denoising diffusion model as part of the decoder, either jointly with a classifier, as a feature learner, or to generate training samples. Boundary: diffusion used only to synthesize EEG with no decoding result, reviews, and 'diffusion' in a non-generative sense (drift-diffusion, diffusion MRI) are excluded; versions of one study count once.
 - Used in: [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/), [MultiDiffNet: A Multi-Objective Diffusion Framework for Generalizable Brain Decoding](../../reviews/multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding/)
 
+## eeg-emg-fusion-architecture
+
+- Table: [`eeg-emg-fusion-architecture.csv`](eeg-emg-fusion-architecture.csv) (7345 slot-filled, 30 pattern match, usual design in 8, 2 read in full)
+- Inclusion rule: Speech, tone or articulation decoders that record scalp EEG together with surface EMG and combine the two inside one model; the design value is the fusion form named in the full text (cross-modal or bidirectional attention, feature concatenation, late or decision-level fusion), and studies that record EMG only as an EEG artifact are counted separately. Boundary: non-speech EEG-EMG fusion (limb movement), reviews and datasets without decoding are excluded from the usual-approach reading but stay in the pattern-match population; versions of one study count once.
+- Used in: [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](../../reviews/cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding/)
+
 ## emg-speech-encoder-input-and-sequence-model
 
 - Table: [`emg-speech-encoder-input-and-sequence-model.csv`](emg-speech-encoder-input-and-sequence-model.csv) (7345 slot-filled, 83 pattern match, usual design in 18, 3 read in full)

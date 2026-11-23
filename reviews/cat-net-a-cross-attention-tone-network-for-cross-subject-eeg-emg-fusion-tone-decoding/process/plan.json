@@ -1,0 +1,67 @@
+{
+ "target": "arxiv-2511.10935",
+ "changed": [
+  "M03",
+  "M05",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Focal-loss four-class tone classification, standard supervised classifier training.",
+  "M02": "Tone-class plus speaker-identity labels supervising the domain head, as in domain-adversarial EEG/EMG decoders.",
+  "M04": "Prompted audible and silent Mandarin-tone articulation from the source EEG-EMG tone corpus.",
+  "M07": "Direct closed-set prediction with no use-time lexicon or language model, as in baseline biosignal tone decoders.",
+  "M08": "Four-class tone label from the prompted-character tone paradigm.",
+  "M09": "One-shot offline prediction with no presentation or confirmation stage, as in standard biosignal classifiers.",
+  "M10": "Offline classification with no correction or re-entry path.",
+  "M11": "Stimulus-locked tone labels of the prompted characters, as in the source corpus.",
+  "M13": "Offline EEG+EMG lab acquisition (64-channel, 1000 Hz) with deployment left as future work, inherited from the source corpus."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "eeg-emg-fusion-architecture",
+   "inclusion_rule": "Speech, tone or articulation decoders that record scalp EEG together with surface EMG and combine the two inside one model; the design value is the fusion form named in the full text (cross-modal or bidirectional attention, feature concatenation, late or decision-level fusion), and studies that record EMG only as an EEG artifact are counted separately. Boundary: non-speech EEG-EMG fusion (limb movement), reviews and datasets without decoding are excluded from the usual-approach reading but stay in the pattern-match population; versions of one study count once.",
+   "pattern": "ledger modalities name both scalp_eeg and surface_emg",
+   "design_field": "full-text design regexes: bidirectional_cross_attention, feature_concatenation, late_or_decision_fusion, emg_as_eeg_artifact",
+   "metric": "Accuracy or CER of the fused decoder against single-modality and concatenation baselines.",
+   "note": "Replaces the prep topic cross-attention-eeg-emg-fusion, whose pattern matched only the target and gave no usual approach."
+  },
+  {
+   "slot": "M05",
+   "topic": "attention-weight-eeg-channel-subset",
+   "inclusion_rule": "Neural signal speech or tone decoding studies that shrink the recording set for the main experiment by ranking channels with trained-model attention weights (or similar attribution) and keeping a top subset, and that report a full-versus-reduced accuracy comparison. Boundary: hardware-only channel counts, exhaustive or greedy selection without attention, EMG-only electrode subsets and papers with no full-versus-reduced comparison are excluded; selecting channels with data spanning test folds or subjects is included but flagged; versions of one study count once.",
+   "pattern": "EEG ledger text naming a channel or electrode subset, selection or reduction",
+   "design_field": "full-text design regexes: attention_weight_ranking, post_hoc_attribution, search_based_selection, anatomical_prior_subset",
+   "design_slot": "M05",
+   "metric_pattern": "\\baccuracy\\b|\\bkappa\\b|cohen",
+   "unit_pattern": "%|percent",
+   "better": "higher",
+   "metric": "Mean classification accuracy (and Cohen's kappa) for the reduced versus full channel set; higher is better."
+  },
+  {
+   "reuse": "components/M03/adversarial-speaker-removal-from-signal-encoder.json",
+   "slot": "M03",
+   "topic": "adversarial-speaker-removal-from-signal-encoder",
+   "inclusion_rule": "Studies that decode speech or text from a non-acoustic speech signal (lip or face video, articulatory imaging, EMG, EEG/ECoG/intracortical) and train the signal encoder against a speaker, subject or session classifier (gradient reversal, entropy-maximising or confusion loss, mutual-information penalty, or a VAE split of identity and content) to remove identity from the content representation. Boundary: GAN discriminators on the generated audio, plain multi-speaker training, and speaker classifiers used only for evaluation are excluded; versions count once; the pattern match is an upper bound.",
+   "pattern": "(?s)^(?=.*modalities=[^|]*(ultrasound_imaging|optical_camera|surface_emg|magnetic_tracking|scalp_eeg|ecog|meg|intracortical|permanent_magnet))(?=.*(gradient reversal|reverse[d]? gradient|domain[- ]adversarial|adversarial (speaker|subject|identity|domain)|(speaker|subject|identity)[- ](adversarial|invariant|disentangl)|disentangl\\w* (speaker|subject|identity)))",
+   "metric_pattern": "WER|word error|EER|accuracy",
+   "better": "lower"
+  },
+  {
+   "reuse": "components/M12/eeg-held-out-subject-test.json",
+   "slot": "M12",
+   "topic": "eeg-held-out-subject-test",
+   "inclusion_rule": "EEG decoding studies that report accuracy on subjects whose data were not used to train the decoder (leave-one-subject-out, a fixed set of held-out subjects, or subject-independent cross-validation). Boundary: within-subject cross-validation only, fine-tuning on the test subject's labeled trials before scoring (counted, but recorded as calibrated transfer), and reviews are excluded; versions of one study count once.",
+   "pattern": "(?is)(scalp_eeg|\\bEEG\\b).*(cross[- ]subject|leave[- ]one[- ]subject|LOSO|unseen subject|held[- ]out subject|subject[- ]independent|subject_holdout)|(cross[- ]subject|leave[- ]one[- ]subject|LOSO|unseen subject|held[- ]out subject|subject[- ]independent|subject_holdout).*(scalp_eeg|\\bEEG\\b)",
+   "metric_pattern": "(?i)(cross[- ]subject|LOSO|unseen|held[- ]out|subject[- ]independent).{0,40}accura|accura.{0,40}(cross[- ]subject|LOSO|unseen|held[- ]out|subject[- ]independent)",
+   "better": "higher"
+  }
+ ],
+ "dropped_topics": {
+  "M06/cross-attention-eeg-emg-fusion": "pattern matched only the target; replaced by eeg-emg-fusion-architecture",
+  "M12/cross-subject-evaluation-counting-rules": "covered by the published M12/eeg-held-out-subject-test table and the target's own unstated items"
+ }
+}
