@@ -30,6 +30,12 @@ reviews/<slug>/                    one folder per paper
   figures/*.svg                    generated  from figures.json (light and dark)
   evaluation*.md                   source     independent evaluation(s)
   triage.md                        source     how each evaluation finding was checked and resolved
+  process/                         source     how the review was made (see "Process record")
+    log.json                                  steps, who did each (reader / script / writer / evaluator), times, checks, input versions
+    notes.json                                reading notes with locations; quotes only for notes the claim table cites
+    plan.json                                 components judged changed, and the comparison topics
+    draft.md, claims-draft.md                 the review and its claim table before the independent evaluation
+    claims.md                                 claim table of the published review
 
 components/
   README.md                        generated  index of the 13 components and their topics
@@ -51,6 +57,16 @@ scripts/                           build.py (generation), figures.py (figures)
 ## Paper page
 
 For a component review: the review's title and citation line, the section link, figures, the review body, Materials (the folder's sources and the topic tables it used), related reviews. Papers without a component review show the older English itemized review until they are rewritten.
+
+## Process record
+
+Reviews here are written by language models, so each review keeps the record of how it was produced.
+
+- `process/` holds every intermediate product: reading notes, plan, the draft before evaluation, the claim tables, and `log.json` (steps in order, the role that did each, completion times, check results, and the versions of the notes, the wiki and the method in `pipeline/`).
+- A review's pull request has two commits: the draft as written, then the state after the independent evaluation and triage. The diff between them is what the evaluation changed. `evaluation.md` and `triage.md` give the findings and how each was checked in the source.
+- Roles are named (reader, writer, evaluator), not products. The evaluator is a language model run separately from the writer and sees only the draft, its references and the claim table.
+- No source full texts. `notes.json` keeps a quote only where the claim table cites it; other quotes are replaced by a hash so they can be checked against the source.
+- Corrections from readers come in as issues (template "Correction"); the fixing pull request closes the issue.
 
 ## Topic tables
 

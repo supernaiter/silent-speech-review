@@ -317,6 +317,17 @@ MATERIAL_FILES = [
 ]
 
 
+# How the review was made, step by step (docs/STRUCTURE.md, "Process record").
+PROCESS_FILES = [
+    ("log.json", "process record: each step, who did it (reader, script, writer, evaluator), when, the checks run and the input versions"),
+    ("notes.json", "reading notes on the target and comparator papers: claims, numbers, conditions and what is not stated, with locations"),
+    ("plan.json", "plan: which components the paper changes and the topics it is compared on"),
+    ("draft.md", "the review as first written, before the independent evaluation"),
+    ("claims-draft.md", "claim table of the draft: every claim mapped to a note or a count"),
+    ("claims.md", "claim table of the published review"),
+]
+
+
 def topics():
     """All topic tables: components/<Mxx>/<topic>.json."""
     out = []
@@ -347,6 +358,9 @@ def materials_section(p):
             rows.append((f.name, "independent evaluation by a second reviewer"))
     if (d / "triage.md").exists():
         rows.append(("triage.md", "how each evaluation finding was checked against the sources and resolved"))
+    for f, desc in PROCESS_FILES:
+        if (d / "process" / f).exists():
+            rows.append((f"process/{f}", desc))
     used = [t for t in topics() if p["slug"] in t.get("used_by", [])]
     if not rows and not used:
         return []
