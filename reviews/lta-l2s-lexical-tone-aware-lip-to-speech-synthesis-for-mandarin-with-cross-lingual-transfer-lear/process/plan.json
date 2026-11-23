@@ -1,0 +1,92 @@
+{
+ "target": [
+  "arxiv-2509.25670",
+  "arxiv-2509.25670-ltal2s"
+ ],
+ "changed": [
+  "M02",
+  "M03",
+  "M06"
+ ],
+ "incidental": [
+  "M11",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Two-stage training (frozen first stage plus second-stage mel refiner) and DiT/FastSpeech2 backbone inherited from prior flow-matching TTS and L2S post-training lineages.",
+  "M04": "Silent talking-face/lip video as the only use-time input, inherited from the standard video-to-speech (lip-to-speech) lineage.",
+  "M05": "Optical camera with 96x96 grayscale lip crops, dlib 68-landmark alignment, 16 kHz audio and 80-bin mel front end inherited from the CN-CVS visual-speech processing lineage.",
+  "M07": "Speaker-embedding conditioning with no output LM, lexicon or beam search, inherited from the biosignal-to-speech voice-control lineage.",
+  "M08": "HiFi-GAN neural vocoder turning refined mel spectrograms into waveform, inherited from the neural-vocoder L2S lineage.",
+  "M09": "No presentation, confirmation or commit step; the absent interaction step is inherited from the one-shot video-to-speech synthesis lineage.",
+  "M10": "No correction or re-entry step; the absence is inherited from the one-shot video-to-speech synthesis lineage.",
+  "M13": "Offline two-4090 training and research-only CN-CVS Mandarin scope with dialects/accents deferred to future work, inherited from the standard academic L2S setup."
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "reuse": "components/M02/ssl-speech-unit-target.json",
+   "topic": "ssl-speech-unit-target",
+   "inclusion_rule": "Include studies that synthesize speech from a non-acoustic speech signal and train the signal encoder to predict self-supervised speech representations (HuBERT units, soft units, ContentVec, wav2vec features) derived from paired or aligned audio, instead of or besides spectral targets. Boundary: exclude recognition-only studies, targets the model generates itself, and acoustic-input conversion; count versions once.",
+   "pattern": "(?s)^(?=.*?(to-speech|speech synthesis|synthesi[sz]ed speech|voicing|vocoder|speech reconstruction))(?=.*?(hubert|soft (speech )?unit|speech unit|contentvec|wav2vec|self-supervised speech))",
+   "metric_pattern": "\\bWER\\b|word error",
+   "better": "lower",
+   "design_regex_added": [
+    "asr_finetuned_ssl_target",
+    "hubert_unit_target",
+    "f0_target"
+   ]
+  },
+  {
+   "slot": "M03",
+   "topic": "cross-lingual-encoder-transfer-to-video-speech",
+   "inclusion_rule": "Include lip-reading, visual speech recognition and video-to-speech studies whose ledger names a non-English target language (Mandarin, Chinese, German, Korean, Spanish and others) or a multilingual or cross-lingual setting, and classify from the full text (reference list removed) whether the visual encoder is pretrained on English or other external data and then transferred, is an AV-HuBERT-family encoder, or is trained from scratch. Boundary: a study counts under every design its text names (upper bound; related-work mentions included); audio-only encoders excluded; versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip ?reading|lipreading|visual speech|lip-to-speech|video-to-speech|lip video))(?=.*\\b(mandarin|chinese|cantonese|german|korean|japanese|spanish|french|portuguese|italian|arabic|russian|turkish|persian|hindi|multilingual|cross-lingual|non-english)\\b)",
+   "metric_pattern": "\\bCER\\b|character error rate|\\bTER\\b|tone error rate",
+   "better": "lower",
+   "metric": "CER/TER (character/tone error rate) of the target-language synthesis, lower is better",
+   "design_regex": [
+    "avhubert_encoder",
+    "english_pretrained_transfer",
+    "target_language_only"
+   ]
+  },
+  {
+   "slot": "M06",
+   "reuse": "components/M06/video-to-speech-one-to-many-decoder.json",
+   "topic": "video-to-speech-one-to-many-decoder",
+   "inclusion_rule": "Include the video-to-speech population of components/M06/video-to-speech-synthesis (speech waveform synthesized from talking-face or lip video, audio muted at test) and classify, from the full text with the reference list removed, how the acoustic decoder handles the one-to-many mapping: explicit pitch or energy (variance) predictors, flow-based decoders (normalizing flow, flow matching, rectified flow), diffusion decoders, adversarial training with a discriminator, and self-supervised speech-unit conditioning. Boundary: a study counts under every design its text names (upper bound; related-work mentions included); audio-visual enhancement with noisy audio at test, talking-head generation and video-to-text-to-TTS pipelines excluded; versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "WER|word error",
+   "better": "lower"
+  },
+  {
+   "slot": "M11",
+   "topic": "asr-retranscribed-evaluation-reference",
+   "inclusion_rule": "Include the video-to-speech population of components/M06 (speech waveform synthesized from talking-face or lip video, audio muted at test) and classify from the full text (reference list removed) how the text reference for ASR-scored intelligibility is built: ASR transcripts of the real audio used as the reference (re-transcription), and whether the ASR error on the real test audio is reported beside the systems. Boundary: a study counts under every design its text names (upper bound); audio-visual enhancement, talking-head generation and text-only lip reading excluded; versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "\\bCER\\b|character error rate|\\bTER\\b|tone error rate",
+   "better": "lower",
+   "metric": "CER/TER (character/tone error rate) computed against ASR-retranscribed references, lower is better",
+   "design_regex": [
+    "gt_audio_asr_error",
+    "asr_transcript_as_reference"
+   ]
+  },
+  {
+   "slot": "M12",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "topic": "video-to-speech-output-evaluation",
+   "inclusion_rule": "Include studies that synthesize a speech waveform from talking-face or lip video (the population of the M06 video-to-speech-synthesis table) and compare how the synthesized speech is evaluated: human listener or opinion tests, ASR word error on the synthesized speech, and tests on speakers unseen in training. Boundary: audio-visual enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS pipelines excluded; a study counts under every protocol its full text names (upper bound, related-work mentions included); versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "wer|word error",
+   "better": "lower",
+   "metric": "listener test, ASR error on output, unseen speakers"
+  }
+ ],
+ "plan_changes_from_draft": [
+  "M03 and M11 topics rebuilt on visual-speech populations with full-text design patterns",
+  "M02 audit built from the published table (missing in prep)",
+  "FlowW2N comparator dropped; FA-GAN and V2SFlow added"
+ ]
+}
