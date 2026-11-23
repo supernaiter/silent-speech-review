@@ -1,0 +1,106 @@
+{
+ "target": "arxiv-2511.13739",
+ "changed": [
+  "M03"
+ ],
+ "incidental": [
+  "M11",
+  "M12",
+  "M13"
+ ],
+ "inherited": {
+  "M01": "Imagined-speech and idle trials from the authors' earlier six-subject dataset [18]; no new user action.",
+  "M02": "Prior dataset lineage [18]: binary idle=0 and imagined-speech=1 training labels.",
+  "M04": "Prior dataset lineage [18]: imagined speech is the use-time action in an offline detection task.",
+  "M05": "Prior dataset and preprocessing lineage [18]: EEG filtering and common-average reference; acquisition details are not restated.",
+  "M06": "MRF-EEGNet baseline [18]: the multi-receptive-field CNN/LSTM architecture and parameter settings are inherited.",
+  "M07": "Binary activity-detection lineage [18]: no use-time lexicon or language model; the task does not decode text.",
+  "M08": "Prior binary detector [18]: output is the imagined-speech versus idle state.",
+  "M09": "Offline classifier lineage [18]: no presentation or confirmation workflow is specified.",
+  "M10": "Offline classifier lineage [18]: no correction or re-entry workflow is specified."
+ },
+ "topics": [
+  {
+   "slot": "M03",
+   "topic": "cross-subject-pooled-training",
+   "reuse": "components/M03/cross-subject-pooled-training.json",
+   "inclusion_rule": "Speech or language decoders from neural or other biosignals that train one model on data pooled across participants, with or without participant-specific layers or embeddings. Boundary: a per-participant model that only reports results averaged over participants is excluded; transfer by fine-tuning from another participant counts; versions of one study count once.",
+   "pattern": "subject[- ]specific (layer|linear|embedding|adapter)|subject layer|subject embedding|cross[- ]subject|multi[- ]subject|across (participants|subjects)|pooled",
+   "metric_pattern": "top[- ]?(1|10)|segment|retriev|identification|rank",
+   "better": "higher"
+  },
+  {
+   "slot": "M03",
+   "topic": "imagined-speech-eeg-cross-subject-calibration",
+   "inclusion_rule": "EEG imagined, inner or covert speech decoders or detectors whose ledger records cross-subject training, held-out-subject testing, transfer learning, fine-tuning or calibration; classified by full-text pattern into fine-tuning or calibration on the target subject, zero-shot held-out-subject testing, per-subject-only training, domain adaptation and subject-cyclic training schedules. Boundary: reviews and datasets without a decoder are counted by the ledger pattern but carry no design; every named design counts (upper bound); versions of one study count once.",
+   "pattern": "EEG + imagined/inner/covert speech + cross-subject / LOSO / calibration / fine-tuning / transfer learning (ledger text)",
+   "design_regex": [
+    "target_finetune",
+    "zero_shot_held_out",
+    "per_subject_only",
+    "domain_adaptation",
+    "subject_cyclic_schedule"
+   ],
+   "metric": "cross-subject or calibrated accuracy / AUC (higher)",
+   "better": "higher",
+   "rebuilt_from_prep": "prep topic cyclic-inter-subject-eeg-training (usual approach was a supervision_kind value unrelated to the topic)"
+  },
+  {
+   "slot": "M11",
+   "topic": "overt-speech-reference-for-imagined-eeg",
+   "inclusion_rule": "Include EEG imagined-speech detection studies that construct or align imagined-speech ground-truth labels using overt speech or another explicit reference source. Boundary: exclude overt-speech recognition where overt speech itself is the decoder input, and distinguish directly observed labels from timing labels transferred from a paired overt utterance.",
+   "pattern": "(?is)(?=.*(?:EEG|electroencephal|brain signal))(?=.*(?:imagined.{0,40}speech|speech.{0,40}imagery))(?=.*(?:overt[- ]speech|spoken speech|overtly spoken|speech[- ]based.{0,20}ground[- ]truth|label.{0,40}align)).*",
+   "design_slot": "M11",
+   "design_regex": [
+    "label_source=(?i)(?:overt|spoken).{0,60}(?:speech|utterance).{0,60}(?:ground[- ]truth|label|align)|(?:ground[- ]truth|label|align).{0,60}(?:overt|spoken).{0,60}(?:speech|utterance)"
+   ],
+   "metric_pattern": "(?i)\\b(?:validation|validated|agreement|reliability|inter-rater)\\b",
+   "better": "higher",
+   "metric": "Independent validation or agreement evidence for reference labels (higher)."
+  },
+  {
+   "slot": "M12",
+   "topic": "eeg-held-out-subject-test",
+   "reuse": "components/M12/eeg-held-out-subject-test.json",
+   "inclusion_rule": "EEG decoding studies that report accuracy on subjects whose data were not used to train the decoder (leave-one-subject-out, a fixed set of held-out subjects, or subject-independent cross-validation). Boundary: within-subject cross-validation only, fine-tuning on the test subject's labeled trials before scoring (counted, but recorded as calibrated transfer), and reviews are excluded; versions of one study count once.",
+   "pattern": "(?is)(scalp_eeg|\\bEEG\\b).*(cross[- ]subject|leave[- ]one[- ]subject|LOSO|unseen subject|held[- ]out subject|subject[- ]independent|subject_holdout)|(cross[- ]subject|leave[- ]one[- ]subject|LOSO|unseen subject|held[- ]out subject|subject[- ]independent|subject_holdout).*(scalp_eeg|\\bEEG\\b)",
+   "metric_pattern": "(?i)(cross[- ]subject|LOSO|unseen|held[- ]out|subject[- ]independent).{0,40}accura|accura.{0,40}(cross[- ]subject|LOSO|unseen|held[- ]out|subject[- ]independent)",
+   "better": "higher"
+  },
+  {
+   "slot": "M13",
+   "topic": "imagined-speech-eeg-online-operation",
+   "inclusion_rule": "EEG imagined, inner or covert speech studies (ledger text), classified by full-text pattern into online or closed-loop operation, reported latency, reported calibration time and asynchronous (idle-state) detection. Boundary: reviews counted by the ledger pattern; a pattern hit in related work counts (upper bound); versions once.",
+   "pattern": "EEG + imagined/inner/covert speech (ledger text)",
+   "design_regex": [
+    "online_closed_loop",
+    "latency_reported",
+    "calibration_time_reported",
+    "asynchronous_detection"
+   ],
+   "metric": "use-time latency (lower)",
+   "better": "lower",
+   "rebuilt_from_prep": "prep topic imagined-speech-eeg-operating-constraints (design regex matched 121 of 123 papers)"
+  }
+ ],
+ "deciding_priors": {
+  "M03": [
+   "doi-10.1109-access.2021.3116196",
+   "arxiv-2511-07936-wirelessimg"
+  ],
+  "M11": [
+   "doi-10.1101-2022.08.04.502829",
+   "pmc-12245923-pron2img-eeg"
+  ],
+  "M12": [
+   "isca-sharon20_interspeech"
+  ],
+  "M13": [
+   "doi-10.1038-s42003-025-07464-7"
+  ]
+ },
+ "sota": {
+  "M03": "isca-belfrouh26_odyssey (later)",
+  "M12": "doi-10.3389-fnhum.2025.1668935 / arxiv-2609-29820-strictimg"
+ }
+}
