@@ -1,104 +1,150 @@
 # SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition
 
-Giusy Spacone, Sebastian Frey, Giovanni Pollo, Alessio Burrello, Daniele Jahier Pagliari, Victor Kartsch, Andrea Cossettini, Luca Benini  
-arXiv 2026 · [arXiv](https://arxiv.org/abs/2603.02847)
+Spacone, G., Frey, S., Pollo, G., Burrello, A., Jahier Pagliari, D., Kartsch, V., Cossettini, A., Benini, L. · arXiv preprint · 2026 · [arXiv:2603.02847](https://arxiv.org/abs/2603.02847)
 
-**Section:** [Surface EMG](../../README.md#surface-emg) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition* (Giusy Spacone et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Surface EMG](../../README.md#surface-emg)
 
-SilentWear, an ultra-low-power dry textile neckband with embedded CNN for EMG command recognition; silent balanced accuracy is 77.5% on pooled-day batches but drops to 59.3% on a new day.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Dry textile neckband, 14-channel differential surface EMG |
-| Task | Closed-set command recognition |
-| Vocabulary | 8 commands plus rest |
-| Speaker | Speaker-dependent |
-| Session | Cross-day |
-| Online / offline | Offline |
-| Key result | 59.3% silent balanced accuracy on held-out days (77.5% pooled-day), 9 classes; 2.47 ms inference |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Only four subjects and subject-specific models; large drop on new days; no closed-loop user study, walking or false-trigger evaluation.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Cued vocalized and silent commands | Recorded articulation | 3,882 of 8,995 | ● Standard (Inherited.) |
+| M02 Teacher signal | Cue-derived class labels | Text or paired-audio targets | 31 of 8,995 | ● Standard (No audio or text supervision.) |
+| M03 Train / calibrate | Fine-tune on labeled new-session data | Label-free adaptation | 11 of 8,995 | ● Standard (Supervised recovery known since 2005.) |
+| M04 Use-time act | Vocalized or silent, 8 commands | Silent or overt | 5,595 of 8,995 | ● Standard (Inherited.) |
+| M05 Sensing | Dry textile neckband, 14 channels | Adhesive or tattoo-like patches | 16 of 8,995 | ● Standard (Hardware of the 2025 version.) |
+| M06 Decoding | 15k-parameter CNN; Random Forest baseline | Classifier over fixed windows | 7,345 of 8,995 | ● Standard (Beats the paper's Random Forest.) |
+| M07 Runtime aids | None (closed 9-class decision) | Lexicon or LM | 119 of 8,995 | ● Standard (Closed command set.) |
+| M08 Output | Command or rest label | Class label | 3,268 of 8,995 | ● Standard (Inherited.) |
+| M09 Confirmation | Offline | Confirmation step | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | Offline | Correction step | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | Cue-trigger labels | Cue or transcript references | 234 of 8,995 | ● Standard (Onset misalignment conceded (Sec. V).) |
+| M12 Evaluation | Per-subject batch and session splits | Speaker-disjoint test | 65 of 8,995 | ● Standard (Headline from seen days.) |
+| M13 Hardware & limits | On-device CNN, 20.5 mW | Off-body, no power figure | 24 of 8,995 | ● Standard (Quantized accuracy unreported.) |
 
-A useful dry-neckband and embedded-CNN study: silent balanced accuracy falls from 77.5% across pooled-day batches to 59.3% on a new day; 2.47 ms is compute time, while closed-loop usability remains untested.
+</details>
 
-### Review
+## Verdict
 
-SilentWear is strongest as an integrated sensing-and-embedded-computing study. It combines a fully dry 14-channel textile neckband, a 15,489-parameter CNN and explicit multiday tests, while reporting both inference energy and the larger acquisition/communication power budget. The key recognition result is the day-transfer gap: silent balanced accuracy is 77.5% when training and testing use different batches from the same set of days, but only 59.3% when an entire day is held out. That difference is more informative for daily use than the headline accuracy alone. Incremental fine-tuning improves next-batch results with roughly one additional acquisition batch, although this is supervised recalibration and is not demonstrated as on-device learning. The embedded measurements are valuable but must retain their boundaries: 2.47 ms is inference time on an 800 ms window, predictions are scheduled every 100 ms, and the 27.1-hour battery duration is an estimate from the reported power and battery capacity. Neither the analytical information-transfer rate nor near-perfect classification of cued rest segments measures actual communication throughput or accidental activations during daily activity. The paper explicitly says that online closed-loop system validation remains future work. Offline zero-phase filtering also needs reconciliation with a causal deployed implementation, and quantized recognition accuracy is not separately reported. This is a useful reproducible direction for personalized command interfaces, with stronger hardware evidence than evidence for everyday communication readiness.
+The paper [[1]](#ref-1) changes deployment (M13), running a 15,489-parameter CNN on the neckband, and training (M03), fine-tuning on new-session batches. The sensor (M05) is the authors' 2025 neckband [[2]](#ref-2) [concurrent], with its hardware reused (§III-A). M13 is the strongest part: 20.5 mW including inference is below every read wearable that streams raw data [[2]](#ref-2), [[3]](#ref-3), [[4]](#ref-4), but the quantized on-device model has no accuracy figure (§IV-E), so the deployed path is unvalidated. M03 is standard: supervised recovery after electrode repositioning dates from 2005 [[5]](#ref-5), and no label-free baseline is run. The headline 77.5% silent accuracy tests days already in training; an unseen day gives 59.3% (Table II).
 
-### Why it matters
+## Against the field, component by component
 
-Makes the cost of day-to-day sensor repositioning visible while providing a compact embedded baseline and a concrete supervised recalibration strategy.
+### M13 Deployment: on-body inference and power
 
-### Prior state of the art
+**Usual approach:** 24 of 30 speech-wearable studies on the topic (pattern match, Appendix) decode off the body with no energy, latency or power figure [[6]](#ref-6), [[4]](#ref-4).
 
-Dry neck EMG sensing and the BioGAP-Ultra hardware were presented in prior work. Wearable SSI reports often use small vocabularies and offline classifiers without testing electrode repositioning or reporting integrated energy.
+**State of the art:** No read prior decodes on the body. Lowest raw streaming: the same neckband at 22.2 mW [[2]](#ref-2) (2025), then 46 mW [[3]](#ref-3) and 76.5 mW [[4]](#ref-4). The target: 20.5 mW, one inference per 100 ms at 63.9 µJ and 2.47 ms (§IV-E).
 
-### What changed
+Against the same hardware the saving is 1.7 mW (inference); inference takes 0.639 mW (§IV-E). Larger gaps mix front ends, radios and sensors. The authors' priority claim for on-device processing at the neck (§IV-F) holds against the read priors (Appendix). Accuracy comes from GPU runs, as the authors state (§III-E). Verdict: standard, as no on-device effect is shown across subjects.
 
-Extends the prior neckband study with four-person multiday recordings, a small CNN, next-batch fine-tuning and GAP9 deployment benchmarks.
+### M03 Training: recalibration after repositioning
 
-### Position in the field
+**Usual approach:** Among 41 sEMG studies with session or re-attachment wording (pattern match, Appendix), the most common design is session-independent training or label-free adaptation (11); 5 fine-tune on labeled new-session data, as the target does.
 
-Personalized non-invasive EMG command recognition with on-device inference and dry neck sensing; distinct from open-vocabulary speech transcription or synthesis.
+**State of the art:** An around-ear interface reached 92.24% across days without test-day calibration on a 25-class sentence task over three seeds [[7]](#ref-7) [concurrent] (2026). The target needs one labeled round to lift silent accuracy from 58% to 72% at a 1.4 s window (§IV-D).
 
-### Practical value
+In 2005, repositioning cut seven-channel EMG accuracy on ten digits from 97.3% to 76.2%, 21.1 points or 21.7% relative (inference), and normalization plus adaptation restored 87.1% [[5]](#ref-5). The target's silent drop from 77.5% to 59.3% is 18.2 points, 23.5% relative (inference), from different starting points (four subjects, 9 classes; three speakers, 10 digits). Verdict: standard.
 
-Strong candidate baseline for research on low-power personalized command interfaces; hardware and day-transfer evidence identify practical development priorities.
+### M05 Sensors: dry textile neckband
 
-### Advanced
+**Usual approach:** Of 21 dry or worn-object sEMG speech studies (pattern match, Appendix), 16 mention adhesive or tattoo-like patches and 7 a collar, choker, necklace or neckband; a study can match several (16 is an upper bound).
 
-Combines fully dry neck sensing with measured embedded compute/energy and explicit unseen-day/repositioning evaluation; provides sequential recalibration comparisons and public data/code links.
+**State of the art:** 98.7% on five phrases from a textile scarf sensing radio-frequency phase, not sEMG [[8]](#ref-8) [concurrent] (2026). Read sEMG figures: 96% on 10 words, silver-paste electrodes [[6]](#ref-6); 92.7% on 11 voiced words, wet reference [[3]](#ref-3); both random splits; 5-, 10- and 11-class figures are not comparable.
 
-### Unresolved
+Removing the wet reference dates from the 2025 version [[2]](#ref-2). Verdict: standard.
 
-Closed-loop communication accuracy, accidental activations in daily activity, cross-user generalization, quantized-versus-floating accuracy, causal preprocessing parity, long-duration comfort and measured battery endurance.
+### M12 Evaluation: splits across sessions and speakers
 
-### Narrowed or regressed
+**Usual approach:** Among 143 wearable-sensor word-classification studies (pattern match, Appendix), the most common split is speaker-disjoint (65), then random or k-fold (58) and session-disjoint (44); categories overlap. The target has per-subject batch and session splits, none speaker-disjoint.
 
-Silent balanced accuracy drops from 77.5% in pooled-day batch evaluation to 59.3% on a held-out day. An 800 ms window improves calculated throughput and compute cost at some accuracy loss.
+**State of the art:** A neck-worn strain interface reached 85.8% on 26 words under subject-independent cross-validation [[9]](#ref-9) [concurrent] (2026).
 
-### Evaluation details
+Verdict: standard.
 
-| Item | Details |
-| --- | --- |
-| Task | command-recognition |
-| Input | 14-channel differential surface EMG from a fully dry textile neckband. |
-| Sensor | 27 dry SoftPulse electrodes in a textile neckband form 14 differential channels: 10 overlapping central channels and four lateral channels; four shorted electrodes provide ground. BioGAP-Ultra uses two ADS1298 AFEs, GAP9/NE16 and nRF5340 BLE, in 26 x 65 x 13 mm electronics with a 150 mAh Li-Po battery. |
-| Body site | throat |
-| Output | commands;labels |
-| Vocabulary type | closed-set isolated commands |
-| Vocabulary size | Eight fixed commands plus one rest class, nine output classes total. |
-| Metrics and results | Table II, 1.4 s windows: SpeechNet balanced accuracy 84.8 +/- 4.6% vocalized and 77.5 +/- 6.6% silent for pooled-day held-out batches; 71.1 +/- 8.3% and 59.3 +/- 2.2% for held-out days. Random Forest silent results are 62.9% and 48.7%, respectively. Table III, 800 ms windows: 2.47 ms / 63.9 microjoules at 240 MHz, or 1.60 ms / 97.1 microjoules at 370 MHz. System power 20.5 mW with 100 ms stride; estimated battery life 27.1 h. Author-reported measurements, not independently reproduced. |
-| Evaluation protocol | Subject-specific balanced accuracy using pooled-day held-out batches, leave-one-session-out testing and sequential next-batch fine-tuning; window-length ablation and analytical ITR; embedded latency/energy benchmarking. |
+## The 13 components
 
-### Limits
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Cued vocalized and silent commands | Recorded articulation (slot-filled 3,882) | – | standard |
+| M02 Training-only supervision | Cue-derived class labels | Text or paired-audio targets (slot-filled 31) | – | standard |
+| M03 Training and adaptation | Fine-tune on labeled new-session data | Label-free adaptation (pattern match 11) | 92.24% cross-day without calibration [[7]](#ref-7) (2026) | standard |
+| M04 Use-time action | Vocalized or silent, 8 commands | Silent or overt (slot-filled 5,595) | – | standard |
+| M05 Sensors | Dry textile neckband, 14 channels | Adhesive or tattoo-like patches (pattern match 16) | 98.7% on 5 phrases, RF-phase scarf, not sEMG [[8]](#ref-8) (2026) | standard |
+| M06 Processing and decoding | 15k-parameter CNN; Random Forest baseline | Classifier over fixed windows (slot-filled 7,345) | – | standard |
+| M07 Lexicon and LM | None (closed 9-class decision) | Lexicon or LM (slot-filled 119) | – | standard |
+| M08 Output | Command or rest label | Class label (slot-filled 3,268) | – | standard |
+| M09 Confirmation | Offline | Confirmation step (slot-filled 82) | – | not applicable |
+| M10 Correction | Offline | Correction step (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Cue-trigger labels | Cue or transcript references (slot-filled 234) | – | standard |
+| M12 Evaluation | Per-subject batch and session splits | Speaker-disjoint test (pattern match 65) | 85.8% on 26 words, subject-independent [[9]](#ref-9) (2026) | standard |
+| M13 Device and cost | On-device CNN, 20.5 mW | Off-body, no power figure (pattern match 24) | No on-body prior; 22.2 mW raw streaming [[2]](#ref-2) (2025) | standard |
 
-- **Technical:** Offline preprocessing uses a zero-phase 20 Hz high-pass filter plus 50 Hz notch; causal deployment equivalence is not established. Trigger timing imperfectly aligns articulation. Quantization changes recognition accuracy by an unreported amount. Whole-window ITR omits actual cue/rest/correction overhead.
-- **Evaluation:** Four subjects and eight commands plus rest. Global evaluation mixes every recording day into train and test through different batches; only leave-one-session-out isolates a new day. All models remain subject- and mode-specific. Rest is downsampled to class balance, unlike typical idle-heavy use. Online closed-loop validation is explicitly future work.
-- **Deployment:** Personalized fixed-command models, cued seated data and sensor-fit sensitivity. No closed-loop user study, walking/activity false-trigger study, patient cohort or measured all-day endurance. Recalibration is trained offline rather than demonstrated on-device.
-- **Scope of this review:** Four seated participants, eight prompted English commands plus rest, three days and separate models for vocalized/silent conditions. No unseen words, sentences, patient communication or naturalistic continuous use.
+## Where the claims outrun the evidence
 
-### Evidence
+- The abstract leads with within-session results (84.8%, 77.5%), not unseen-day ones (71.1%, 59.3%; §III-D, Table II).
+- "superior performance compared to our prior solution" (§V) compares cross-validated 84.8% and 77.5% (four subjects, 9 classes) with 87% and 68% (one subject, 8 classes, shuffled 5-fold) [[2]](#ref-2): vocalized is lower. Leave-one-session-out favours the target (71.1% vs 64%, 59.3% vs 54%).
+- "more than 10% accuracy recovery with less than 10 minutes" (Abstract) is loose: one round of 20 repetitions per command takes about 10 minutes and lifts accuracy by 10 points vocalized (70% to 80%) and 14 silent (58% to 72%) (§IV-D).
+- Transfer rates of 92.7 and 69.2 bit/min (§IV-C) are calculated; the authors leave closed-loop validation to future work (§V).
+- No chance level is reported (§III-D); the code fixes one seed, 42.
 
-- Four subjects each provide three multiday sessions with neckband repositioning, containing eight prompted commands in vocalized and silent modes. Classification includes a ninth rest class, which is downsampled for balance. (Sections III-B/C; PDF pp. 3-4)
-- SpeechNet uses temporal then spatial CNN blocks with 15,489 parameters; the dry neckband hardware extends prior conference work. GAP9 deployment uses 8-bit post-training quantization. (Sections III-A/E/G; Table I; PDF pp. 3-5)
-- Silent balanced accuracy is 77.5 +/- 6.6% for pooled-day held-out batches and 59.3 +/- 2.2% for held-out sessions, an 18.2 percentage-point gap. Corresponding Random Forest values are 62.9% and 48.7%. (Table II; PDF p. 6)
-- The Global protocol trains and tests on separate batches from all three days. The Inter-Session protocol holds one day out. Models are explicitly subject-specific and condition-specific. (Section III-D; PDF p. 4)
-- The text reports that one 1.4-second-window adaptation round improves silent accuracy from about 58% to 72%, with roughly 20 repetitions per word and about 10 minutes of acquisition. The protocol evaluates the following unseen batch. (Sections III-D and IV-D; Figures 7/8; PDF pp. 4 and 7-8)
-- For an 800 ms input, GAP9 achieves 2.47 ms and 63.9 microjoules per inference at 240 MHz/0.65 V, or 1.60 ms and 97.1 microjoules at 370 MHz/0.8 V. (Table III; Section IV-E; PDF pp. 7-8)
-- A 100 ms sliding-window stride gives reported total power 20.5 mW: 15.3 mW acquisition, 4.55 mW data handling/result streaming and 0.639 mW compute. Battery life of 27.1 h with 150 mAh is explicitly estimated. (Section IV-E; PDF p. 8)
-- Online validation under real-time closed-loop user interaction and adaptive recalibration is explicitly left for future work. Reviewer assessment: embedded latency does not establish operational communication accuracy or usability. (Section V; PDF p. 10)
-- ITR uses class accuracy and input-window duration; reported silent peak is 69.2 bit/min at 800 ms. Reviewer assessment: this analytical rate omits the cued protocol, rest intervals and error correction and is not measured user throughput. (Sections III-B/F and IV-C; PDF pp. 3-6)
-- Offline preprocessing uses a zero-phase Butterworth high-pass filter; acquisition labels follow visual triggers with acknowledged reaction-time mismatch. Reviewer assessment: causal online filter/segmentation parity and post-quantization accuracy need explicit verification. (Sections III-C/G and V; PDF pp. 4-5 and 9-10)
-- Figures 7/8 use five tested batches with the first batch preceding adaptation, leaving four sequential updates in the specified protocol; the text nevertheless describes five fine-tuning rounds and Figure 8 repeats a vocalized caption. Reviewer assessment: update counts and condition labeling need correction. (Sections III-D and IV-D; Figures 7/8; PDF pp. 4 and 7-8)
+## What the field needs next
+
+- M13: per-subject accuracy of the quantized model on the device with causal filtering.
+- M03: labeled fine-tuning against label-free normalization or feature-space adaptation at matched data, from 2 to 20 repetitions per command.
+- M12: leave-one-subject-out and calibration-free unseen-day tests.
+
+## Questions for the authors
+
+- How much do results vary across seeds?
+- Was the from-scratch fine-tuning baseline matched in data and update count?
+- How often are commands detected during non-speech activity?
+
+## Appendix: literature search
+
+- M13, wearable-speech-sensor-on-device-inference. Inclusion rule: non-acoustic silent-speech or speech-recognition wearables (EMG, strain, accelerometer, ultrasound, EEG) whose decoder runs on an embedded processor on or near the body rather than on a PC, phone or cloud; the design compared is whether inference latency, energy per inference and total system power are measured; neural implants with external processing, acoustic keyword spotting and PC-tethered demos are excluded when read; versions count once. Ledger: 6,075 unique studies slot-filled for M13; 30 unique studies pattern match. Designs (full-text pattern match): energy per inference 4 (the target and three EEG handwriting studies), inference latency 3, system power 3; none of the three 24. Read in full: [[2]](#ref-2), [[3]](#ref-3), [[6]](#ref-6), [[4]](#ref-4). Known-item recall 1.0 (2 of 2 seeds).
+- M03, emg-cross-session-recalibration. Inclusion rule: surface-EMG speech or silent-speech decoders tested on a session or day not used for training (electrodes re-attached), classified as no recalibration, supervised fine-tuning or retraining on new-session data, or unsupervised or feature-level adaptation; same-session random splits only, cross-speaker transfer without a session test, non-EMG sensors and reviews are excluded when read; versions count once. Ledger: 1,526 unique studies slot-filled for M03; 41 unique studies pattern match. Designs (full-text pattern match): unsupervised or feature-space adaptation 11, supervised new-session fine-tuning 5, no-recalibration wording 3. Read in full: [[5]](#ref-5), [[2]](#ref-2), [[7]](#ref-7). Known-item recall 1.0 (3 of 3 seeds).
+- M05, wearable-integrated-dry-emg-speech-sensing (published table, reused). Inclusion rule: surface-EMG speech or silent-speech decoding with dry, textile or printed electrodes mounted on a worn object or garment; tattoo-like dry patches count as dry but not integrated; wet adhesive arrays and non-EMG wearables are excluded; versions count once. Ledger: 7,329 unique studies slot-filled for M05; 21 unique studies pattern match. Usual design: adhesive or tattoo-like patch wording, 16 of 21 (pattern match, upper bound); collar, choker, necklace or neckband 7; a study can match several. Read in full: [[3]](#ref-3), [[2]](#ref-2), [[6]](#ref-6), [[8]](#ref-8). Known-item recall 0.5.
+- M12, wearable-sensor-word-test-split (published table, reused). Inclusion rule: word or command classification with a wearable non-acoustic face or neck sensor, classified by how test samples are separated from training samples (speaker-disjoint, session- or day-disjoint, random or per-class split); a paper counts under every split it reports. Ledger: 6,960 unique studies slot-filled for M12; 143 unique studies pattern match. Designs (pattern match, overlapping): speaker-disjoint 65, random or k-fold 58, session-disjoint 44. Read in full: [[5]](#ref-5), [[2]](#ref-2), [[9]](#ref-9).
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Spacone, G., Frey, S., Pollo, G., Burrello, A., Jahier Pagliari, D., Kartsch, V., et al. “SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition.” *arXiv preprint (IEEE Sensors Journal format)*, 2026. doi:[10.48550/arXiv.2603.02847](https://doi.org/10.48550/arXiv.2603.02847). arXiv:[2603.02847](https://arxiv.org/abs/2603.02847). Target. Read as arXiv v2. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/silentwear-an-ultra-low-power-wearable-system-for-emg-based-silent-speech-recognition) [wiki: arxiv-2603.02847](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2603.02847/article.md)
+2. <a id="ref-2"></a>Meier, F., Spacone, G., Frey, S., Benini, L., Cossettini, A. “A Parallel Ultra-Low Power Silent Speech Interface based on a Wearable, Fully-dry EMG Neckband.” *2025 IEEE SENSORS*, 2025. doi:[10.1109/SENSORS59705.2025.11330464](https://doi.org/10.1109/SENSORS59705.2025.11330464). arXiv:[2509.21964](https://arxiv.org/abs/2509.21964). The target's own conference version, which the target extends; deciding prior for M05, M03, M12, M13. [concurrent] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/a-parallel-ultra-low-power-silent-speech-interface-based-on-a-wearable-fully-dry-emg-neckband) [wiki: arxiv-2509.21964](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2509.21964/article.md)
+3. <a id="ref-3"></a>Wu, P., Kaveh, R., Nautiyal, R., Zhang, C., Guo, A., Kachinthaya, A., et al. “Towards EMG-to-Speech with a Necklace Form Factor.” *Proc. Interspeech 2024*, 2024. doi:[10.21437/Interspeech.2024-1568](https://doi.org/10.21437/Interspeech.2024-1568). arXiv:[2407.21345](https://arxiv.org/abs/2407.21345). Prior; deciding prior for M05 and M13. [wiki: isca-wu24k_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-wu24k_interspeech/article.md) [wiki: arxiv-2407.21345](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2407.21345/article.md) [wiki: doi-10.48550-arxiv.2407.21345](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.48550-arxiv.2407.21345/article.md)
+4. <a id="ref-4"></a>Tang, C., Gao, S., Li, C., Yi, W., Jin, Y., Zhai, X., et al. “Wearable intelligent throat enables natural speech in stroke patients with dysarthria.” *Nature Communications*, 2026. doi:[10.1038/s41467-025-68228-9](https://doi.org/10.1038/s41467-025-68228-9). arXiv:[2411.18266](https://arxiv.org/abs/2411.18266). arXiv 2024; deciding prior for M13. The .bib lists the first twelve authors. [wiki: arxiv-2411.18266](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2411.18266/article.md) [wiki: pmc-12816716-intelligent-throat](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-12816716-intelligent-throat/article.md)
+5. <a id="ref-5"></a>Maier-Hein, L., Metze, F., Schultz, T., Waibel, A. “Session Independent Non-Audible Speech Recognition Using Surface Electromyography.” *Proc. IEEE ASRU 2005*, 2005. doi:[10.1109/ASRU.2005.1566521](https://doi.org/10.1109/ASRU.2005.1566521). Prior; deciding prior for M03 and M12. [wiki: doi-10.1109-asru.2005.1566521](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-asru.2005.1566521/article.md)
+6. <a id="ref-6"></a>Tang, C., Mallah, J., Kazieczko, D., Yi, W., Kandukuri, T. R., Occhipinti, E., et al. “Wireless Silent Speech Interface Using Multi-Channel Textile EMG Sensors Integrated into Headphones.” *IEEE Transactions on Instrumentation and Measurement*, 2025. doi:[10.1109/TIM.2025.3583386](https://doi.org/10.1109/TIM.2025.3583386). arXiv:[2504.13921](https://arxiv.org/abs/2504.13921). Prior; deciding prior for M05 and M13. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/wireless-silent-speech-interface-using-multi-channel-textile-emg-sensors-integrated-into-headpho) [wiki: arxiv-2504.13921](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2504.13921/article.md) [wiki: doi-10.1109-tim.2025.3583386](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-tim.2025.3583386/article.md)
+7. <a id="ref-7"></a>Xu, X., Dong, M., Yan, Y., Wang, C., Jiao, Y., Chen, J. “AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration.” *arXiv preprint*, 2026. doi:[10.48550/arXiv.2609.21436](https://doi.org/10.48550/arXiv.2609.21436). arXiv:[2609.21436](https://arxiv.org/abs/2609.21436). State of the art for M03. [concurrent] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/aessi-an-around-ear-silent-speech-interface-for-cross-day-online-reuse-without-test-day-calibrat) [wiki: arxiv-2609.21436](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2609.21436/article.md)
+8. <a id="ref-8"></a>Lin, Y., Yu, S., Liu, L., Wang, H., Wang, Y., Jiang, M., et al. “An in-sensor communication electronic textile for imperceptible and ultrarobust silent speech communication.” *Nature Communications*, 2026. doi:[10.1038/s41467-026-74035-7](https://doi.org/10.1038/s41467-026-74035-7). State of the art for M05 (radio-frequency phase sensing, not sEMG). The .bib lists the first twelve authors. [concurrent] [wiki: pmc-13396449-insensortextile](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-13396449-insensortextile/article.md) [wiki: pmc-13396449-etextile](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-13396449-etextile/article.md)
+9. <a id="ref-9"></a>Hong, S., Yoo, J., Park, S. “Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speech in Noise.” *Cyborg and Bionic Systems*, 2026. doi:[10.34133/cbsystems.0536](https://doi.org/10.34133/cbsystems.0536). State of the art for M12. [concurrent] [wiki: pmc-13006734-cvos-ssi](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-13006734-cvos-ssi/article.md) [wiki: doi-10.34133-cbsystems.0536](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.34133-cbsystems.0536/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M03/emg-cross-session-recalibration.csv`](../../components/M03/emg-cross-session-recalibration.csv): M03 topic "emg-cross-session-recalibration", every candidate paper with its decision (1526 slot-filled, 41 pattern match, usual design in 11, 3 read in full)
+- [`components/M05/wearable-integrated-dry-emg-speech-sensing.csv`](../../components/M05/wearable-integrated-dry-emg-speech-sensing.csv): M05 topic "wearable-integrated-dry-emg-speech-sensing", every candidate paper with its decision (7329 slot-filled, 21 pattern match, usual design in 16, 2 read in full)
+- [`components/M12/wearable-sensor-word-test-split.csv`](../../components/M12/wearable-sensor-word-test-split.csv): M12 topic "wearable-sensor-word-test-split", every candidate paper with its decision (6960 slot-filled, 143 pattern match, usual design in 65, 3 read in full)
+- [`components/M13/wearable-speech-sensor-on-device-inference.csv`](../../components/M13/wearable-speech-sensor-on-device-inference.csv): M13 topic "wearable-speech-sensor-on-device-inference", every candidate paper with its decision (6075 slot-filled, 30 pattern match, usual design in 24, 5 read in full)
+
 
 ## More reviews in Surface EMG
 

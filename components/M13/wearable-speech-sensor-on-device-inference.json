@@ -1,0 +1,608 @@
+{
+ "topic": "wearable-speech-sensor-on-device-inference",
+ "slot": "M13",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?is)\\A(?=.*(surface[_ -]?emg|\\bsemg\\b|electromyogra|\\bemg\\b|strain[_ -]?(sensor|gauge)|accelerometer|triboelectric|piezo|\\beeg\\b|radar))(?=.*(silent|speech|command|spoken|word|phonem))(?=.*(microcontroller|\\bmcu\\b|gap9|gap8|stm32|cortex[- ]?m\\d|nrf5\\d|esp32|on[- ]device|on[- ]board (inference|classif|processing|computing)|edge[- ]?(ai|computing|inference|deploy|device)|embedded (processor|inference|deployment|platform|system)|in[- ]sensor (comput|process)|ultra[- ]low[- ]power|self_contained))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Non-acoustic silent-speech or speech-recognition wearables (EMG, strain, accelerometer, ultrasound, EEG) whose decoder runs on an embedded processor or microcontroller on or near the body, rather than on a PC, phone or cloud; design compared: whether inference latency, energy per inference and total system power are measured. Boundary: neural implants with external rack processing, acoustic-only keyword spotting and PC-tethered real-time demos are excluded when read; versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 6721,
+  "slot_filled_unique": 6075,
+  "string_match_folders": 35,
+  "string_match_unique": 30,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M13",
+  "design_slot_fill": 0.747,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "SystemConfiguration.system_lifecycle=implemented_evaluated",
+    "n": 10,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2603.17109",
+     "pmc-12987850-anarthria-devices",
+     "rs-10442598-accssi",
+     "rs-10911750-xsadapt"
+    ]
+   },
+   {
+    "design": "compute_dependency=self_contained",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "doi-10.1587-transinf-2019edp7211",
+     "doi-10.1541-ieejeiss-138-828",
+     "doi-10.1371-journal-pone-0127040"
+    ]
+   },
+   {
+    "design": "device_form_factor=skin_patch",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s25082624",
+     "doi-10.3390-s25196168",
+     "doi-10.5772-60467"
+    ]
+   },
+   {
+    "design": "environment=laboratory",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-12635066-eeg-handwrite",
+     "arxiv-2509.21964"
+    ]
+   },
+   {
+    "design": "connection_types=wireless",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "doi-10.1109-tim.2025.3583386"
+    ]
+   },
+   {
+    "design": "Risk.risk_kind=privacy",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "doi-10.7507-1001-5515.202107018"
+    ]
+   },
+   {
+    "design": "device_form_factor=other",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.17109",
+     "doi-10.1038-s44460-025-00010-2"
+    ]
+   },
+   {
+    "design": "system_name=emotion 1d-cnn+dft",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2411.18266"
+    ]
+   },
+   {
+    "design": "system_name=svm/lda/rf/mlp emotion baselines",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2411.18266"
+    ]
+   },
+   {
+    "design": "system_name=it full system (tsa+sea)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2411.18266"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "energy_per_inference_reported",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.02847",
+     "rs-10911750-eeg-handwriting-trie",
+     "arxiv-2510.19832",
+     "pmc-12635066-eeg-handwrite"
+    ]
+   },
+   {
+    "design": "inference_latency_reported",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2510.19832",
+     "pmc-12635066-eeg-handwrite"
+    ]
+   },
+   {
+    "design": "system_power_reported",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2411.18266",
+     "arxiv-2509.21964"
+    ]
+   }
+  ],
+  "metric_pattern": "power",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "edge computation power",
+   "value": 0.639,
+   "unit": "mW",
+   "raw": "0.639",
+   "pid": "arxiv-2603.02847",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2411.18266",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411.18266 | title=Wearable intelligent throat enables natural speech in stroke patients with dysarthria"
+  },
+  {
+   "pid": "arxiv-2502.11478",
+   "key": "t:throatandacousticpairedspeechdatasetfordeeplearningbasedspeechenhancement",
+   "title": "Throat and acoustic paired speech dataset for deep learning-based speech enhancement",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.11478 | title=Throat and acoustic paired speech dataset for deep learning-based speech enhancement |"
+  },
+  {
+   "pid": "arxiv-2504.13921",
+   "key": "t:wirelesssilentspeechinterfaceusingmultichanneltextileemgsensorsintegratedintohea",
+   "title": "Wireless Silent Speech Interface Using Multi-Channel Textile EMG Sensors Integrated into Headphones",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2504.13921 | title=Wireless Silent Speech Interface Using Multi-Channel Textile EMG Sensors Integrated in"
+  },
+  {
+   "pid": "arxiv-2509.21964",
+   "key": "p:arxiv-2509.21964",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=system_proposal | task_family=command_selection | vocabulary_regime=finite_command_set | validation_d"
+  },
+  {
+   "pid": "arxiv-2510.19832",
+   "key": "t:lowlatencyneuralinferenceonanedgedeviceforrealtimehandwritingrecognitionfromeegs",
+   "title": "Low-Latency Neural Inference on an Edge Device for Real-Time Handwriting Recognition from EEG Signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2510.19832 | title=Low-Latency Neural Inference on an Edge Device for Real-Time Handwriting Recognition f"
+  },
+  {
+   "pid": "arxiv-2603.02847",
+   "key": "t:silentwearanultralowpowerwearablesystemforemgbasedsilentspeechrecognition",
+   "title": "SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.02847 | arxiv_id=2603.02847v2 | source_url=https://arxiv.org/pdf/2603.02847v2 | title=SilentWear: an"
+  },
+  {
+   "pid": "arxiv-2603.17109",
+   "key": "t:senseefficienteegtotextviaprivacypreservingsemanticretrieval",
+   "title": "SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2603.17109 | title=SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval | authors=Aksha"
+  },
+  {
+   "pid": "arxiv-2603.17109-sense",
+   "key": "t:senseefficienteegtotextviaprivacypreservingsemanticretrieval",
+   "title": "SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.17109-sense | title=SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval | authors"
+  },
+  {
+   "pid": "doi-10.1007-s11571-025-10289-z",
+   "key": "t:linearmodelingofbrainactivityduringselectiveattentiontocontinuousspeechthecritic",
+   "title": "Linear modeling of brain activity during selective attention to continuous speech: the critical role of the N1 effect in event-related potentials to acoustic edges",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1007/s11571-025-10289-z | title=Linear modeling of brain activity during selective attention to continuous s"
+  },
+  {
+   "pid": "doi-10.1038-s41467-025-65499-0",
+   "key": "t:towardsdecodingindividualwordsfromnoninvasivebrainrecordings",
+   "title": "Towards decoding individual words from non-invasive brain recordings",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41467-025-65499-0 | title=Towards decoding individual words from non-invasive brain recordings | autho"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sensing technologies for silent speech interfaces | needs_manual_check=cited metrics are secondhand: values summar"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "key": "t:silentspeechrecognitionasanalternativecommunicationdeviceforpersonswithlaryngect",
+   "title": "Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy | authors=Geoffrey"
+  },
+  {
+   "pid": "doi-10.1109-tim.2025.3583386",
+   "key": "p:doi-10.1109-tim.2025.3583386",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Headphone-integrated multichannel textile-EMG wireless SSI (graphene/PEDOT:PSS electrodes + ESP32-S3 + 1D SE"
+  },
+  {
+   "pid": "doi-10.1152-jn.00381.2022",
+   "key": "t:towardsasomatosensorytheoryofspeechperception",
+   "title": "Towards a somatosensory theory of speech perception",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1152/jn.00381.2022 | title=Towards a somatosensory theory of speech perception | authors=Matthias K. Franken"
+  },
+  {
+   "pid": "doi-10.1371-journal-pone-0127040",
+   "key": "p:doi-10.1371-journal-pone-0127040",
+   "title": null,
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=PLoS ONE 10(6) (2015) | needs_manual_check=Tables 1-5 numeric grids partially transcribed, EMG figure captions | S"
+  },
+  {
+   "pid": "doi-10.1541-ieejeiss-138-828",
+   "key": "p:doi-10.1541-ieejeiss-138-828",
+   "title": null,
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=IEEJ Trans. EIS 138(7):828-837 (2018) | needs_manual_check=Tables 3-5 participant accuracy grids, Fig 5 confusion"
+  },
+  {
+   "pid": "doi-10.1587-transinf-2019edp7211",
+   "key": "p:doi-10.1587-transinf-2019edp7211",
+   "title": null,
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=IEICE Trans. Inf. & Syst. E103-D(8), Aug 2020 | needs_manual_check=Tables 2-4 PESQ/STOI grids partially transcribe"
+  },
+  {
+   "pid": "doi-10.3390-bioengineering10060649",
+   "key": "t:imaginedspeechclassificationusingeeganddeeplearning",
+   "title": "Imagined Speech Classification Using EEG and Deep Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined Speech Classification Using EEG and Deep Learning | venue=Bioengineering 10(6):649 (MDPI) | intended_use_"
+  },
+  {
+   "pid": "doi-10.3390-s24134125",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s24134125 | doi=10.3390/s24134125 | title=Wireless Mouth Motion Recognition System Based on EEG-EMG"
+  },
+  {
+   "pid": "doi-10.3390-s25082624",
+   "key": "t:awearablesilenttextinputsystemusingemgandpiezoelectricsensors",
+   "title": "A Wearable Silent Text Input System Using EMG and Piezoelectric Sensors",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s25082624 | doi=10.3390/s25082624 | title=A Wearable Silent Text Input System Using EMG and Piezoel"
+  },
+  {
+   "pid": "doi-10.3390-s25196168",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s25196168 | doi=10.3390/s25196168 | title=Sentence-Level Silent Speech Recognition Using a Wearable"
+  },
+  {
+   "pid": "doi-10.5772-60467",
+   "key": "t:silentspeechrecognitionbysurfaceelectromyography",
+   "title": "Silent Speech Recognition by Surface Electromyography",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.5772-60467 | doi=10.5772/60467 | title=Silent Speech Recognition by Surface Electromyography | authors=A"
+  },
+  {
+   "pid": "doi-10.7507-1001-5515.202107018",
+   "key": "t:keytechnologyofbraincomputerinteractionbasedonspeechimagery",
+   "title": "[Key technology of brain-computer interaction based on speech imagery]",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.7507-1001-5515.202107018 | doi=10.7507/1001-5515.202107018 | title=[Key technology of brain-computer int"
+  },
+  {
+   "pid": "isca-friedrichs24_interspeech",
+   "key": "t:temporalcoregistrationofsimultaneouselectromagneticarticulographyandelectroencep",
+   "title": "Temporal Co-Registration of Simultaneous Electromagnetic Articulography and Electroencephalography for Precise Articulatory and Neural Data Alignment",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Temporal Co-Registration of Simultaneous Electromagnetic Articulography and Electroencephalography for Precise Art"
+  },
+  {
+   "pid": "pmc-10880169-wearablebci",
+   "key": "t:recentprogressinwearablebraincomputerinterfacebcidevicesbasedonelectroencephalog",
+   "title": "Recent Progress in Wearable Brain-Computer Interface (BCI) Devices Based on Electroencephalogram Acquisition",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Recent Progress in Wearable Brain-Computer Interface (BCI) Devices Based on Electroencephalogram Acquisition | aut"
+  },
+  {
+   "pid": "pmc-11244127-eeg-emg-mouth",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11244127-eeg-emg-mouth | title=Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe"
+  },
+  {
+   "pid": "pmc-12635066-eeg-handwrite",
+   "key": "t:alowlatencyneuralinferenceframeworkforrealtimehandwritingrecognitionfromeegsigna",
+   "title": "A low-latency neural inference framework for real-time handwriting recognition from EEG signals on an edge device",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A low-latency neural inference framework for real-time handwriting recognition from EEG signals on an edge device"
+  },
+  {
+   "pid": "pmc-12635066-eeghandw",
+   "key": "t:alowlatencyneuralinferenceframeworkforrealtimehandwritingrecognitionfromeegsigna",
+   "title": "A low-latency neural inference framework for real-time handwriting recognition from EEG signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A low-latency neural inference framework for real-time handwriting recognition from EEG signals | authors=Sen, Son"
+  },
+  {
+   "pid": "pmc-12816716-intelligent-throat",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12816716-intelligent-throat | title=Wearable intelligent throat enables natural speech in stroke patients w"
+  },
+  {
+   "pid": "pmc-12837114-visual-erp-bci-spi",
+   "key": "t:visualerpbasedbraincomputerinterfaceusewithseverephysicalspeechandeyemovementimp",
+   "title": "Visual ERP-based brain–computer interface use with severe physical, speech and eye movement impairments: case studies",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12837114-visual-erp-bci-spi | title=Visual ERP-based brain–computer interface use with severe physical, spe"
+  },
+  {
+   "pid": "pmc-12987850-anarthria-devices",
+   "key": "t:theevolutionofspeechcommunicationdevicesforanarthriaareview",
+   "title": "The evolution of speech communication devices for anarthria: a review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The evolution of speech communication devices for anarthria: a review | authors=Catherine T. Jones, Erik R. Hill |"
+  },
+  {
+   "pid": "pmc-13504003-aadhear",
+   "key": "t:fromselectivelisteningtobraincontrolledhearingaperspectiveonthefutureofauditoryt",
+   "title": "From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13504003-aadhear | title=From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future"
+  },
+  {
+   "pid": "rs-10442598-accssi",
+   "key": "t:efficientsensorconfigurationforaccelerometerbasedsilentspeechinterfaces",
+   "title": "Efficient Sensor Configuration for Accelerometer-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Efficient Sensor Configuration for Accelerometer-based Silent Speech Interfaces | venue=Research Square preprint |"
+  },
+  {
+   "pid": "rs-10911750-eeg-handwriting-trie",
+   "key": "t:supervisedcrosssubjectadaptationandlowlatencyconfidenceawaretriedecodingforeegba",
+   "title": "Supervised Cross-Subject Adaptation and Low-Latency Confidence-Aware Trie Decoding for EEG-Based Imagined Handwriting Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=rs-10911750-eeg-handwriting-trie | title=Supervised Cross-Subject Adaptation and Low-Latency Confidence-Aware T"
+  },
+  {
+   "pid": "rs-10911750-xsadapt",
+   "key": "t:supervisedcrosssubjectadaptationandlowlatencyconfidenceawaretriedecodingforeegba",
+   "title": "Supervised Cross-Subject Adaptation and Low-Latency Confidence-Aware Trie Decoding for EEG-Based Imagined Handwriting Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Supervised Cross-Subject Adaptation and Low-Latency Confidence-Aware Trie Decoding for EEG-Based Imagined Handwrit"
+  }
+ ],
+ "usual_approach": {
+  "design": "decoding off the body (PC, phone or server) with no energy-per-inference, inference-latency or system-power figure",
+  "n": 24,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2504.13921",
+   "doi-10.3390-s25082624",
+   "doi-10.3390-s25196168",
+   "rs-10442598-accssi",
+   "pmc-11244127-eeg-emg-mouth"
+  ],
+  "population_unique": 30,
+  "note": "Full-text pattern counts over 30 unique candidate studies: energy per inference 4 (the target and three EEG handwriting studies), inference latency 3, system power in mW 3 (the target, its 2025 conference version, a strain-sensor throat choker); 6 match any pattern, 24 none."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2509.21964",
+   "role": "prior",
+   "loc": "Sec. II-B; Sec. IV",
+   "quote": "our system can sustain continuous data acquisition and wireless transmission via BLE with a power consumption of only 22.2 mW."
+  },
+  {
+   "pid": "isca-wu24k_interspeech",
+   "role": "prior",
+   "loc": "Table 1; Sec. 2",
+   "quote": "W ANDmini Power 46 mW"
+  },
+  {
+   "pid": "arxiv-2504.13921",
+   "role": "prior",
+   "loc": "Fig. 1 caption; Sec. V",
+   "quote": "and transmits data via Wi-Fi to a PC or mobile device."
+  },
+  {
+   "pid": "arxiv-2411.18266",
+   "role": "prior",
+   "loc": "Results (Fig. 2E)",
+   "quote": "the designed PCB operates with a total power consumption of 76.5 mW"
+  },
+  {
+   "pid": "arxiv-2603.02847",
+   "role": "sota",
+   "loc": "Sec. IV-E; Table III",
+   "quote": "the total system power is 20.5 mW"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2603.02847",
+  "year": 2026,
+  "metric": "total system power with on-device inference every 100 ms (acquisition, inference, result streaming), 14-channel EMG neckband",
+  "value": "20.5 mW",
+  "timing": "target"
+ },
+ "tally": {
+  "slot_filled_unique": 6075,
+  "string_match_unique": 30,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "decoding off the body (PC, phone or server) with no energy-per-inference, inference-latency or system-power figure",
+   "n": 24,
+   "tier": "pattern match",
+   "population_unique": 30
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2603.02847",
+   "year": 2026,
+   "metric": "total system power with on-device inference every 100 ms (acquisition, inference, result streaming), 14-channel EMG neckband",
+   "value": "20.5 mW",
+   "timing": "target"
+  },
+  "read": 5,
+  "read_prior": [
+   "arxiv-2411.18266",
+   "arxiv-2504.13921",
+   "arxiv-2509.21964",
+   "isca-wu24k_interspeech"
+  ],
+  "unread": 35,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "silentwear-an-ultra-low-power-wearable-system-for-emg-based-silent-speech-recognition"
+ ]
+}

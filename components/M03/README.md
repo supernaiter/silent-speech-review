@@ -42,6 +42,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies in the wiki that identify the user (subject identification, biometric authentication) from scalp EEG; the design compared is identification from speech-imagery trials and how identification is tested (session-held-out vs trials permuted across sessions). Boundary: identification used only as a nuisance factor is excluded; versions count once; the target is counted in the pattern match.
 - Used in: [Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System](../../reviews/toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system/)
 
+## emg-cross-session-recalibration
+
+- Table: [`emg-cross-session-recalibration.csv`](emg-cross-session-recalibration.csv) (1526 slot-filled, 41 pattern match, usual design in 11, 3 read in full)
+- Inclusion rule: Surface-EMG speech or silent-speech decoders tested on a recording session or day not used for training (electrodes re-attached), classified by how the session shift is handled: no recalibration, supervised fine-tuning or retraining on new-session data, or unsupervised/feature-level adaptation. Boundary: same-session random splits only, cross-speaker transfer without a session test, non-EMG sensors, and reviews are excluded when read; versions once.
+- Used in: [SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition](../../reviews/silentwear-an-ultra-low-power-wearable-system-for-emg-based-silent-speech-recognition/)
+
 ## emg-cross-speaker-training-and-calibration
 
 - Table: [`emg-cross-speaker-training-and-calibration.csv`](emg-cross-speaker-training-and-calibration.csv) (1526 slot-filled, 64 pattern match, usual design in 40, 3 read in full)

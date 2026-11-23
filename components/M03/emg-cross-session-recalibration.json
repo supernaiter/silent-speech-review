@@ -1,0 +1,735 @@
+{
+ "topic": "emg-cross-session-recalibration",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?is)\\A(?=.*(surface[_ -]?emg|\\bsemg\\b|electromyogra|\\bemg\\b))(?=.*(speech|phonem|word|silent|command|articulat))(?=.*(inter[- ]?session|cross[- ]?session|session[- ]?(independent|transfer|adapt|shift|disjoint|variab|to[- ]session)|cross[- ]?day|multi[- ]?day|between[- ]days|across (days|sessions)|different days|re-?attach|re-?position|re-?don|electrode (shift|displacement|re-?placement)|remount|leave[- ]one[- ]session))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Surface-EMG speech or silent-speech decoders tested on a recording session or day not used for training (electrodes re-attached), classified by how the session shift is handled: no recalibration, supervised fine-tuning or retraining on new-session data, or unsupervised/feature-level adaptation. Boundary: same-session random splits only, cross-speaker transfer without a session test, non-EMG sensors, and reviews are excluded when read; versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 41,
+  "string_match_unique": 41,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01879",
+     "arxiv-2509.04507",
+     "doi-10.1109-icassp.2006.1660093",
+     "isca-wand18_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=unpaired",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2509.04507",
+     "isca-wand14_interspeech"
+    ]
+   },
+   {
+    "design": "training_production_ids=prod-silent",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436",
+     "arxiv-2509.04507"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436",
+     "arxiv-2509.21964"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "isca-wand18_interspeech"
+    ]
+   },
+   {
+    "design": "adaptation=user_specific_training",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2609.21436"
+    ]
+   },
+   {
+    "design": "TrainingRun.optimization='weight_decay': 0.0001",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2609.21436"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.22214-ijraset.2026.82364",
+     "isca-aminidigehsara22_interspeech"
+    ]
+   },
+   {
+    "design": "training_production_ids=prod-voiced",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2509.04507"
+    ]
+   },
+   {
+    "design": "training_sample_count=3360",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2509.21964"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "unsupervised_or_feature_adaptation",
+    "n": 11,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609.21436",
+     "doi-10.3390-app13137746",
+     "pmc-8781659-fmcw-radar",
+     "pmc-8913675-sfcw-radar",
+     "doi-10.5220-0003169702950300"
+    ]
+   },
+   {
+    "design": "supervised_new_session_finetune",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609.21436",
+     "doi-10.5220-0003169702950300",
+     "doi-10.1109-access.2020.3026579",
+     "isca-wand14_interspeech",
+     "isca-wand18_interspeech"
+    ]
+   },
+   {
+    "design": "no_recalibration_reported",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2609.21436",
+     "doi-10.1038-s44460-025-00010-2"
+    ]
+   }
+  ],
+  "metric_pattern": "accura",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "online accuracy (correct / 50 trials)",
+   "value": 100.0,
+   "unit": "percent",
+   "raw": "100.0",
+   "pid": "arxiv-2609.21436",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy",
+   "value": 98.6,
+   "unit": "percent",
+   "raw": "98.6% for the 70-word set",
+   "pid": "doi-10.1109-access.2024.3356597",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "97.3% word accuracy with stable electrode positions",
+   "value": 97.3,
+   "unit": "percent",
+   "raw": "word accuracy same electrode position",
+   "pid": "doi-10.1109-asru.2005.1566521",
+   "year": 2005,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "classification accuracy (%)",
+   "value": 94.2,
+   "unit": "percent",
+   "raw": "classification accuracy 94.2%, latency <250 ms",
+   "pid": "doi-10.22214-ijraset.2026.82364",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "balanced accuracy (methods; Table II caption labels it Accuracy)",
+   "value": 90.3,
+   "unit": "percent",
+   "raw": "90.3",
+   "pid": "arxiv-2603.02847",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "100-word strain-gauge SSI recognition accuracy",
+   "value": 87.53,
+   "unit": "percent",
+   "raw": "Our model with a 3D-convolution algorithm produced 87.53% recognition accuracy",
+   "pid": "doi-10.1038-s41467-022-33457-9",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy_100w",
+   "value": 87.53,
+   "unit": "percent",
+   "raw": "100-word silent classification",
+   "pid": "pmc-9530138-straintssi",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "vocalized global 5-fold accuracy",
+   "value": 87.0,
+   "unit": "%",
+   "raw": "vocalized global 5-fold accuracy = 87.0",
+   "pid": "arxiv-2509.21964",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "85.8",
+   "value": 85.8,
+   "unit": "% accuracy",
+   "raw": "26 NATO-word decoding",
+   "pid": "pmc-13006734-cvos-ssi",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "session-dependent avg validation accuracy (±5.80)",
+   "value": 43.34,
+   "unit": "percent",
+   "raw": "43.34",
+   "pid": "doi-10.3390-app13137746",
+   "year": 2023,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2509.04507",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.04507 | arxiv_id=2509.04507v1 | source_url=https://arxiv.org/pdf/2509.04507v1 | title=From Silent Si"
+  },
+  {
+   "pid": "arxiv-2509.21964",
+   "key": "p:arxiv-2509.21964",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=system_proposal | task_family=command_selection | vocabulary_regime=finite_command_set | validation_d"
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01879 | arxiv_id=2602.01879v1 | source_url=https://arxiv.org/pdf/2602.01879v1 | title=Speaking Witho"
+  },
+  {
+   "pid": "arxiv-2603.02847",
+   "key": "t:silentwearanultralowpowerwearablesystemforemgbasedsilentspeechrecognition",
+   "title": "SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.02847 | arxiv_id=2603.02847v2 | source_url=https://arxiv.org/pdf/2603.02847v2 | title=SilentWear: an"
+  },
+  {
+   "pid": "arxiv-2606.01264",
+   "key": "t:a1000houreegemgaudiodatasetofjapanesespeechproduction",
+   "title": "A 1000-hour EEG–EMG–audio dataset of Japanese speech production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A 1000-hour EEG–EMG–audio dataset of Japanese speech production | arxiv_id=2606.01264v1 | paper_version=arXiv v1,"
+  },
+  {
+   "pid": "arxiv-2609.21436",
+   "key": "t:aessianaroundearsilentspeechinterfaceforcrossdayonlinereusewithouttestdaycalibra",
+   "title": "AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.21436 | paper_version=arXiv 2609.21436v1 (preprint PDF, 26 pages, retrieved 2026-09-29) | title=AESS"
+  },
+  {
+   "pid": "arxiv-2609.36687-myocodec",
+   "key": "t:myocodecastreamingneuralcodecforelectromyography",
+   "title": "MYOCODEC: A Streaming Neural Codec for Electromyography",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MYOCODEC: A Streaming Neural Codec for Electromyography | authors=Jihwan Lee, Kleanthis Avramidis, Junhyeok Lee, T"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.08.002",
+   "key": "t:silentspeechinterfaces",
+   "title": "Silent speech interfaces",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Speech Communication | doi=10.1016/j.specom.2009.08.002 | title=Silent speech interfaces | authors=B. Denby, T. Sc"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2010.01.001",
+   "key": "p:doi-10.1016-j.specom.2010.01.001",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=neurotrophic-electrode formant-synthesizer speech BCI | task_family=speech_reconstruction | intended_use_cas"
+  },
+  {
+   "pid": "doi-10.1038-s41467-022-33457-9",
+   "key": "p:doi-10.1038-s41467-022-33457-9",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=c-silicon biaxial strain-gauge SSI + 3D-CNN (Kim) | intended_use_cases=private_communication, assistive_text"
+  },
+  {
+   "pid": "doi-10.1038-s41597-022-01147-2",
+   "key": "t:thinkingoutloudanopenaccesseegbasedbcidatasetforinnerspeechrecognition",
+   "title": "Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-022-01147-2 | doi=10.1038/s41597-022-01147-2 | title=Thinking out loud, an open-access EEG-b"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sensing technologies for silent speech interfaces | needs_manual_check=cited metrics are secondhand: values summar"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases"
+  },
+  {
+   "pid": "doi-10.1109-access.2024.3356597",
+   "key": "p:doi-10.1109-access.2024.3356597",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=healthy_volunteers | task_family=isolated_word_recognition"
+  },
+  {
+   "pid": "doi-10.1109-asru.2005.1566521",
+   "key": "t:sessionindependentnonaudiblespeechrecognitionusingsurfaceelectromyography",
+   "title": "Session Independent Non-Audible Speech Recognition Using Surface Electromyography",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Session Independent Non-Audible Speech Recognition Using Surface Electromyography | authors=Lena Maier-Hein; Flori"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2006.1660093",
+   "key": "p:doi-10.1109-icassp.2006.1660093",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | task_family=phoneme_or_character_classification | modalities=surface_emg, mic"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2738568",
+   "key": "t:emgtospeechdirectgenerationofspeechfromfacialelectromyographicsignals",
+   "title": "EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals | authors=M. Janke; L. Diener | v"
+  },
+  {
+   "pid": "doi-10.1186-1475-925x-10-31",
+   "key": "t:alternativecommunicationsystemsforpeoplewithseveremotordisabilitiesasurvey",
+   "title": "Alternative communication systems for people with severe motor disabilities: a survey",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1186-1475-925x-10-31 | doi=10.1186/1475-925x-10-31 | title=Alternative communication systems for people"
+  },
+  {
+   "pid": "doi-10.22214-ijraset.2026.82364",
+   "key": "t:emgbasedsilentspeechrecognition",
+   "title": "EMG Based Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.22214/ijraset.2026.82364 | title=EMG Based Silent Speech Recognition | authors=S Swetha, Sharmeela AS, S"
+  },
+  {
+   "pid": "doi-10.3390-app13137746",
+   "key": "t:framebasedphoneclassificationusingemgsignals",
+   "title": "Frame-Based Phone Classification Using EMG Signals",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-app13137746 | doi=10.3390/app13137746 | title=Frame-Based Phone Classification Using EMG Signals |"
+  },
+  {
+   "pid": "doi-10.5220-0001549601550162",
+   "key": "t:towardsspeakeradaptivespeechrecognitionbasedonsurfaceelectromyography",
+   "title": "Towards Speaker-Adaptive Speech Recognition Based on Surface Electromyography",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Speaker-Adaptive Speech Recognition Based on Surface Electromyography | authors=Michael Wand; Tanja Schult"
+  },
+  {
+   "pid": "doi-10.5220-0003169702950300",
+   "key": "t:sessionindependentemgbasedspeechrecognition",
+   "title": "Session-Independent EMG-Based Speech Recognition",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Session-Independent EMG-Based Speech Recognition | authors=M. Wand; T. Schultz | venue=Proc. BIOSIGNALS 2011 | Stu"
+  },
+  {
+   "pid": "doi-10.5220-0003786100910100",
+   "key": "t:towardsasilentspeechinterfaceforportuguesesurfaceelectromyographyandthenasalityc",
+   "title": "Towards a Silent Speech Interface for Portuguese: Surface Electromyography and the nasality challenge",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.5220-0003786100910100 | doi=10.5220/0003786100910100 | title=Towards a Silent Speech Interface for Portu"
+  },
+  {
+   "pid": "isca-aminidigehsara22_interspeech",
+   "key": "t:auserfriendlyheadsetforradarbasedsilentspeechrecognition",
+   "title": "A User-Friendly Headset for Radar-Based Silent Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A User-Friendly Headset for Radar-Based Silent Speech Recognition | system_name=paired-cheek SFCW radar (1–6GHz,12"
+  },
+  {
+   "pid": "isca-botelho20_interspeech",
+   "key": "p:isca-botelho20_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2020 | task_family=intermediate_signal_processing | vocabulary_regime=open_vocabulary | scope_limits=s"
+  },
+  {
+   "pid": "isca-fang12_eog",
+   "key": "t:hmmbasedcontinuouseogrecognitionforeyeinputspeechinterface",
+   "title": "HMM Based Continuous EOG Recognition for Eye-input Speech Interface",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-fang12_eog | title=HMM Based Continuous EOG Recognition for Eye-input Speech Interface | authors=Fuming Fa"
+  },
+  {
+   "pid": "isca-jou06_interspeech",
+   "key": "t:towardscontinuousspeechrecognitionusingsurfaceelectromyography",
+   "title": "Towards Continuous Speech Recognition Using Surface Electromyography",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Continuous Speech Recognition Using Surface Electromyography | authors=Szu-Chen Jou; Tanja Schultz; Matthi"
+  },
+  {
+   "pid": "isca-raugas10",
+   "key": "p:isca-raugas10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=BBN sEMG subvocalic ASR: LIBSVM GLDS-kernel one-vs-all word models, DWT+MFCC fusion | sensor_hardware=11 sEM"
+  },
+  {
+   "pid": "isca-salomons23_interspeech",
+   "key": "t:spanishphoneconfusionanalysisforemgbasedsilentspeechinterfaces",
+   "title": "Spanish Phone Confusion Analysis for EMG-Based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Spanish Phone Confusion Analysis for EMG-Based Silent Speech Interfaces | venue=Proc. Interspeech 2023:1179-1183 |"
+  },
+  {
+   "pid": "isca-simada90_icslp",
+   "key": "t:sternohyoidmuscleactivityandpitchcontrolattheonsetofutterances",
+   "title": "Sternohyoid Muscle Activity and Pitch Control at the Onset of Utterances",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sternohyoid Muscle Activity and Pitch Control at the Onset of Utterances | venue=Proc. ICSLP 1990 (Kobe) | Study.n"
+  },
+  {
+   "pid": "isca-wand14_interspeech",
+   "key": "t:towardsreallifeapplicationofemgbasedspeechrecognitionbyusingunsupervisedadaptati",
+   "title": "Towards Real-life Application of EMG-based Speech Recognition by using Unsupervised Adaptation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Real-life Application of EMG-based Speech Recognition by using Unsupervised Adaptation | system_name=EMG-U"
+  },
+  {
+   "pid": "isca-wand18_interspeech",
+   "key": "t:domainadversarialtrainingforsessionindependentemgbasedspeechrecognition",
+   "title": "Domain-Adversarial Training for Session Independent EMG-based Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Domain-Adversarial Training for Session Independent EMG-based Speech Recognition | system_name=session-independent"
+  },
+  {
+   "pid": "pmc-11842755-bcilearning",
+   "key": "t:learningtooperateanimaginedspeechbraincomputerinterfaceinvolvesthespatialandfreq",
+   "title": "Learning to operate an imagined speech Brain-Computer Interface involves the spatial and frequency tuning of neural activity",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11842755-bcilearning | title=Learning to operate an imagined speech Brain-Computer Interface involves the s"
+  },
+  {
+   "pid": "pmc-13006734-cvos-ssi",
+   "key": "t:softmultiaxialstrainmappinginterfacewithaidrivendecodingforsilentspeechinnoise",
+   "title": "Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speech in Noise",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13006734-cvos-ssi | title=Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speec"
+  },
+  {
+   "pid": "pmc-4466523-emgnasal",
+   "key": "t:detectingnasalvowelsinspeechinterfacesbasedonsurfaceelectromyography",
+   "title": "Detecting Nasal Vowels in Speech Interfaces Based on Surface Electromyography",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4466523-emgnasal | title=Detecting Nasal Vowels in Speech Interfaces Based on Surface Electromyography | au"
+  },
+  {
+   "pid": "pmc-8569408-semgchannels",
+   "key": "t:influenceofthenumberofchannelsandclassificationalgorithmontheperformancerobustne",
+   "title": "Influence of the Number of Channels and Classification Algorithm on the Performance Robustness to Electrode Shift in Steady-State Visual Evoked Potential-Based Brain-Computer Interfaces",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Influence of the Number of Channels and Classification Algorithm on the Performance Robustness to Electrode Shift"
+  },
+  {
+   "pid": "pmc-8781659-fmcw-radar",
+   "key": "t:exploringsilentspeechinterfacesbasedonfrequencymodulatedcontinuouswaveradar",
+   "title": "Exploring Silent Speech Interfaces Based on Frequency-Modulated Continuous-Wave Radar",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8781659-fmcw-radar | title=Exploring Silent Speech Interfaces Based on Frequency-Modulated Continuous-Wave"
+  },
+  {
+   "pid": "pmc-8791746-persianwords",
+   "key": "t:eegbasedmultiwordimaginedspeechclassificationforpersianwords",
+   "title": "EEG-Based Multiword Imagined Speech Classification for Persian Words",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8791746-persianwords | title=EEG-Based Multiword Imagined Speech Classification for Persian Words | authors"
+  },
+  {
+   "pid": "pmc-8913675-sfcw-radar",
+   "key": "t:silentspeechcommandwordrecognitionusingsteppedfrequencycontinuouswaveradar",
+   "title": "Silent speech command word recognition using stepped frequency continuous wave radar",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8913675-sfcw-radar | title=Silent speech command word recognition using stepped frequency continuous wave r"
+  },
+  {
+   "pid": "pmc-9530138-straintssi",
+   "key": "t:ultrathincrystallinesiliconbasedstraingaugeswithdeeplearningalgorithmsforsilents",
+   "title": "Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for silent speech interfaces",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for silent speech interfaces | ven"
+  },
+  {
+   "pid": "zenodo-22441724-leakctrl",
+   "key": "t:doesspokenspeechteachimaginedspeechleakagecontrolledlinearbaselinesonthreepublic",
+   "title": "Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Does spoken speech teach imagined speech? Leakage-controlled linear baselines on three public datasets (sEMG + EEG"
+  }
+ ],
+ "usual_approach": {
+  "design": "session-independent training, normalization or unsupervised / feature-space adaptation without new labeled session data",
+  "n": 11,
+  "tier": "pattern match",
+  "pids": [
+   "doi-10.1109-asru.2005.1566521",
+   "doi-10.5220-0003169702950300",
+   "isca-wand14_interspeech",
+   "isca-wand18_interspeech",
+   "arxiv-2609.21436"
+  ],
+  "population_unique": 41,
+  "note": "Full-text pattern counts over 41 unique candidate studies (ledger text names EMG with session, day or re-attachment wording; upper bounds, radar and EEG mentions included): unsupervised or feature-space adaptation 11, supervised fine-tuning on new-session data 5, no-recalibration wording 3; 10 match any pattern. Slot-filled M03 values record supervision kind only."
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1109-asru.2005.1566521",
+   "role": "prior",
+   "loc": "Abstract; Tables 2-4",
+   "quote": "The performance drops to 76.2% after repositioning the electrodes if no normalization or adaptation is performed."
+  },
+  {
+   "pid": "arxiv-2509.21964",
+   "role": "prior",
+   "loc": "Abstract; Sec. III",
+   "quote": "achieving leave-one-session-out accuracies of 64±18% and 54±7% for the vocalized and silent experiments, respectively."
+  },
+  {
+   "pid": "arxiv-2609.21436",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "AESSI achieved 92.24% mean accuracy without test -day calibration."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2609.21436",
+  "year": 2026,
+  "metric": "cross-day accuracy without test-day calibration, around-ear electrophysiology, 25 Mandarin sentences, six held-out participants, three seeds",
+  "value": "92.24%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 41,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "session-independent training, normalization or unsupervised / feature-space adaptation without new labeled session data",
+   "n": 11,
+   "tier": "pattern match",
+   "population_unique": 41
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2609.21436",
+   "year": 2026,
+   "metric": "cross-day accuracy without test-day calibration, around-ear electrophysiology, 25 Mandarin sentences, six held-out participants, three seeds",
+   "value": "92.24%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-2509.21964",
+   "doi-10.1109-asru.2005.1566521"
+  ],
+  "unread": 41,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "silentwear-an-ultra-low-power-wearable-system-for-emg-based-silent-speech-recognition"
+ ]
+}
