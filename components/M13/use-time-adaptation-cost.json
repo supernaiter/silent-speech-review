@@ -1,0 +1,930 @@
+{
+ "topic": "use-time-adaptation-cost",
+ "slot": "M13",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?:(?:test[- ]time|inference|online adaptation).{0,100}(?:latency|runtime|memory|compute|power|energy|cost|wearable)|(?:latency|runtime|memory|compute|power|energy|cost|wearable).{0,100}(?:test[- ]time|inference|online adaptation))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Speech-related or neural-signal decoders (any modality) whose text ties test-time or online adaptation, or inference, to latency, runtime, memory, compute, power or wearability. Boundary: training-only cost is excluded; privacy or edge-suitability claims without a measurement count as pattern matches only; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 6721,
+  "slot_filled_unique": 6075,
+  "string_match_folders": 66,
+  "string_match_unique": 64,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M13",
+  "design_slot_fill": 0.747,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "SystemConfiguration.system_lifecycle=implemented_evaluated",
+    "n": 17,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01908",
+     "arxiv-2603.02847",
+     "arxiv-2604.05751",
+     "arxiv-2607.08236",
+     "arxiv-2608.10836"
+    ]
+   },
+   {
+    "design": "Risk.risk_kind=privacy",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2512.16518",
+     "arxiv-2602.01879"
+    ]
+   },
+   {
+    "design": "privacy_threats=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2512.16518",
+     "arxiv-2602.01879"
+    ]
+   },
+   {
+    "design": "device_form_factor=other",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01908",
+     "arxiv-2312.06613"
+    ]
+   },
+   {
+    "design": "extra.Configuration.configuration_scope={'arch': 'audio-lip student'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.10455"
+    ]
+   },
+   {
+    "design": "extra.Configuration.configuration_scope={'arch': 'audio-lip-tongue teacher (3-modality)'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.10455"
+    ]
+   },
+   {
+    "design": "extra.Configuration.configuration_scope={'arch': 'kd-based audio-lip (tongue distilled)'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.10455"
+    ]
+   },
+   {
+    "design": "extra.Configuration.configuration_scope={'arch': 'memory-based audio-lip (lip-tongue kv memory)'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2309.10455"
+    ]
+   },
+   {
+    "design": "system_name=neutart (neural text to articulate talk)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2312.06613"
+    ]
+   },
+   {
+    "design": "system_name=random forest",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2504.13921"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "memory or FLOPs reported",
+    "n": 22,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2604.05605",
+     "arxiv-2606.31225",
+     "arxiv-2607.08236",
+     "arxiv-2608.13610"
+    ]
+   },
+   {
+    "design": "inference latency in ms reported",
+    "n": 19,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2604.05605",
+     "arxiv-2606.31225",
+     "arxiv-2608.20198-asicaad",
+     "arxiv-2506.05320"
+    ]
+   },
+   {
+    "design": "embedded or edge device named",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2608.20198-asicaad",
+     "arxiv-2508.08468",
+     "arxiv-2510.19832",
+     "arxiv-2512.16518"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)latency|inference time|runtime",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "RTFS-Net per-sample inference time",
+   "value": 0.52,
+   "unit": "s",
+   "raw": "0.52",
+   "pid": "arxiv-2507.07270",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "real-time latency",
+   "value": 10,
+   "unit": "ms",
+   "raw": "Real-time VAD latency",
+   "pid": "pmc-11451764-angrick",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "local per-char latency",
+   "value": 41.25,
+   "unit": "ms",
+   "raw": "41.25ms",
+   "pid": "pmc-12635066-eeg-handwrite",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Latency (inference, ms); processing endpoints and measurement hardware not reported",
+   "value": 180,
+   "unit": "ms",
+   "raw": "180",
+   "pid": "arxiv-2606.31225",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "context latency",
+   "value": 850,
+   "unit": "ms",
+   "raw": "context latency of Brain2Char model is 850 ms",
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "year": 2020,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1905.03968",
+   "key": "t:mobivsravisualspeechrecognitionsolutionformobiledevices",
+   "title": "MobiVSR: A Visual Speech Recognition Solution for Mobile Devices",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "claim_scope=6x fewer params / 20x smaller than SOTA with competitive acc; acc/size ratio 4.06 vs 0.64; ~3MB per +100bp; energy 25.37mJ vs 667mJ per inference. | Study.unit_of_analysis=SOTA (Stafylakis & Tzimiropoulos LSTM+ResNet) and LRW baseline are literature implementations"
+  },
+  {
+   "pid": "arxiv-2108.13630",
+   "key": "t:simullrsimultaneouslipreadingtransducerwithattentionguidedadaptivememory",
+   "title": "SimulLR: Simultaneous Lip Reading Transducer with Attention-Guided Adaptive Memory",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k, summarization) | TrainingRun.training_objective=transducer + CTC; Adam lr 5e-4(GRID)/3e-4(TCD) shrink .99; 1x2080Ti inference | EvaluationProtocol.statistical_plan={'metrics': 'WER/CER/PER + NCA latency + speedup', 'test': 'GRID + TCD-TIMIT test'} | Claim.claim_scope=SimulLR beats all simultaneous baselines, ≈DualLip (2."
+  },
+  {
+   "pid": "arxiv-2209.03275",
+   "key": "t:multimodalspeechenhancementusingburstpropagation",
+   "title": "Multimodal Speech Enhancement Using Burst Propagation",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ncy regulates learning (burst-dependent rule per Kording-Konig principles); activation sparsity (~0.1 firing rate) cuts energy ~70%/65% vs multimodal/unimodal backprop baselines | extra.Decoder.inference_information=dense burst layer classifies IBM bins (LC-gated TF units: SNR>=LC -> 1 else 0); mask multiplies noisy STFT"
+  },
+  {
+   "pid": "arxiv-2211.00988",
+   "key": "t:audiovisualspeechenhancementwithadeepkalmanfiltergenerativemodel",
+   "title": "Audio-Visual Speech Enhancement with a Deep Kalman Filter Generative Model",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "DKF) with first-order Markov latent dynamics — extends frame-independent AV-VAE to sequential latent modeling; EM-based test-time enhancement keeps computational cost of non-sequential models | production_labels=ordinary_voiced_speech | Dataset.collection_protocol=TCD-TIMIT: 56 speaker"
+  },
+  {
+   "pid": "arxiv-2303.07005",
+   "key": "t:realtimeaudiovisualendtoendspeechenhancement",
+   "title": "Real-Time Audio-Visual End-to-End Speech Enhancement",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "then sum); 4 LSTM bottleneck blocks; ConvTrans1d decoder; PLCPA loss; AdamW step-decay warmup peak lr 1e-3; theoretical latency 20 ms | extra.Decoder.inference_information=lightweight ShuffleNetV2 0.5x on mouth ROI keeps CPU budget; face-reveals-identity and lip-phonetic cues gu"
+  },
+  {
+   "pid": "arxiv-2306.00160",
+   "key": "t:audiovisualspeechseparationinnoisyenvironmentswithalightweightiterativemodel",
+   "title": "Audio-Visual Speech Separation in Noisy Environments with a Lightweight Iterative Model",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k params) reconstructs single lip frames; LipReadingTCN (32M params) linguistic embeddings give best separation but too costly — AE chosen for lightweight | extra.Decoder.inference_information=negative SI-SDR objective; AV models keep speaker order from visual inputs, audio-only use PIT | extra.Outp"
+  },
+  {
+   "pid": "arxiv-2309.10455",
+   "key": "t:incorporatingultrasoundtongueimagesforaudiovisualspeechenhancement",
+   "title": "Incorporating Ultrasound Tongue Images for Audio-Visual Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rove lip-based audio-visual speech enhancement by adding ultrasound tongue information without needing tongue images at inference: (a) KD from audio-lip-tongue teacher to audio-lip student, (b) lip-tongue key-value memory network; verified on TaL80 + GRID subsets plus PER analysis. | task_family=intermediate_signal_processing | extra.Task."
+  },
+  {
+   "pid": "arxiv-2310.19581",
+   "key": "t:seeingthroughtheconversationaudiovisualspeechseparationbasedondiffusionmodel",
+   "title": "Seeing Through the Conversation: Audio-Visual Speech Separation based on Diffusion Model",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cross-attention integrates phonetic info from audio-visual correspondence at high temporal resolution without excessive compute; lip movements align auditory/visual cues; facial attributes add identity cues | extra.Decoder.inference_information=VoxCeleb2: DiffSep 2.2436/.6291/4.9435; VisualVoice 1.9708/.7691/9.6810; AVDiffuSS 2.5031/.8122/12.0282. LR"
+  },
+  {
+   "pid": "arxiv-2312.06613",
+   "key": "p:arxiv-2312.06613",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "m_boundary=single joint model maps text to synced mel+3DMM; renderer separately trained person-specific then coupled at inference; avoids 2-stage TTS->audio-driven cascade | TrainingRun.training_objective=unweighted sum: pitch/energy/duration MSE + spectrogram MAE + 3DMM MSE + L_grad + L_flow + L_lip + L_reg; renderer: GAN + mouth discriminator | Trai"
+  },
+  {
+   "pid": "arxiv-2407.18541",
+   "key": "t:towardsimprovingnamtospeechsynthesisintelligibilityusingselfsupervisedspeechmode",
+   "title": "Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "random seed or grouping constraints. | SystemConfiguration.environmental_constraints=Described as a research evaluation/inference pipeline; no real-time deployment, runtime environment or user-facing latency is measured. Non-autoregressive generation is motivated by real-time potential only. | TrainingRun.training_objective=T"
+  },
+  {
+   "pid": "arxiv-2504.13921",
+   "key": "t:wirelesssilentspeechinterfaceusingmultichanneltextileemgsensorsintegratedintohea",
+   "title": "Wireless Silent Speech Interface Using Multi-Channel Textile EMG Sensors Integrated into Headphones",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "iguration_scope={'deployment': {'mcu': 'ESP32-S3', 'emg_circuits': '4x SeeedStudio', 'link': 'Wi-Fi to PC/smartphone', 'power': 'LiPo battery', 'inference_cost': 'O(10^7) FLOPs (~us on 10 GFLOPs/ms CPU)'}} | system_name=1D SE-ResNet (proposed) | system_name=1D SE-ResNet w/o"
+  },
+  {
+   "pid": "arxiv-2505.04394",
+   "key": "t:swinlipanefficientvisualspeechencoderforlipreadingusingswintransformer",
+   "title": "SwinLip: An Efficient Visual Speech Encoder for Lip Reading Using Swin Transformer",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "/3 FLOPs: LRW 90.67/92.43 (WB), LRW-1000 48.09/59.41, LRS WER VO 37.01/48.88 AV 2.86/2.37; ~35% fewer params, ~30% less inference cost than Swin-T; best VO-only SoTA on LRW. | Study.unit_of_analysis=Own SwinLip runs; T9/T10 SoTA rows are literature value"
+  },
+  {
+   "pid": "arxiv-2506.05320",
+   "key": "t:generalizablerealtimeneuraldecodingwithhybridstatespacemodels",
+   "title": "Generalizable, real-time neural decoding with hybrid state-space models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-spike cross-attention tokenization + causal SSM backbone (S4D/GRU/Mamba variants); fast fine-tune updating <1% params; inference 9x faster than Transformers at <=10ms latency | supervision_kind=phoneme_label | TrainingRun.training_objective=multi-dataset pretraining (~36h) then efficient trans"
+  },
+  {
+   "pid": "arxiv-2507.07270",
+   "key": "t:audiovisualspeechseparationviabottleneckiterativenetwork",
+   "title": "Audio-Visual Speech Separation via Bottleneck Iterative Network",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "DRi — fusion tokens essential | extra.Protocol.evaluation_target=SI-SDRi/PESQ/ESTOI + training time(h) + peak GPU train/inference memory on NTCD-TIMIT and LRS3+WHAM!; MACs/params/inference time on 2080 Ti bs=1 | Study.negative_findings=BIN/16 on LRS3+WHAM!"
+  },
+  {
+   "pid": "arxiv-2508.02974",
+   "key": "t:realtimespeechenhancementinnoiseforthroatmicrophoneusingneuralaudiocodecasfounda",
+   "title": "Real-time speech enhancement in noise for throat microphone using neural audio codec as foundation model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_target=STOI/SI-SDR/Noresqa-MOS/PER on Vibravox speech-clean test; interactive demo: spectrogram, model-switching, live inference+E2E latency | Study.negative_findings=occasional minor phoneme hallucinations (PER 15.1% > Nemo 7.6%); SI-SDR lower than flow-match"
+  },
+  {
+   "pid": "arxiv-2508.08468",
+   "key": "t:audiovisualspeechenhancementarchitecturaldesignanddeploymentstrategies",
+   "title": "Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ingStep.architecture=CNN audio enc + OpenCV visual enc + LSTM temporal fusion + decoder; reduced model variants shorten inference at cost of reconstruction quality | extra.Protocol.evaluation_target=RTT, uplink/downlink throughput, packet loss, jitter, host"
+  },
+  {
+   "pid": "arxiv-2510.19832",
+   "key": "t:lowlatencyneuralinferenceonanedgedeviceforrealtimehandwritingrecognitionfromeegs",
+   "title": "Low-Latency Neural Inference on an Edge Device for Real-Time Handwriting Recognition from EEG Signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2510.19832 | title=Low-Latency Neural Inference on an Edge Device for Real-Time Handwriting Recognition from EEG Signals | authors=Ovishake Sen, Raghav Soni, Darpan Vi"
+  },
+  {
+   "pid": "arxiv-2512.16518",
+   "key": "t:posterrecognizinghiddenintheearprivatekeyforreliablesilentspeechinterfaceusingmu",
+   "title": "Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l_accounting={'reported_acquisition_features': '426 ms windows with 85 ms stride; OFDM symbol about 42 ms', 'end_to_end_inference_latency': 'not reported', 'authentication_response_latency': 'not reported'} | EvaluationProtocol.exclusion_policy={'reported_exclusion_rule': 'not specified', 'reported_failed_o"
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g) | SystemConfiguration.network_dependency={'inference_inputs': ['facial EMG', 'target face image'], 'audible input at inference': False, 'speech audio during training': True, 'compute platform': 'not reported'} | SystemConfiguration.network_dependency={'inference_inputs': ['facial EMG', 'target face im"
+  },
+  {
+   "pid": "arxiv-2602.01908",
+   "key": "t:lipsodyliptospeechsynthesiswithenhancedprosodyconsistency",
+   "title": "LipSody: Lip-to-Speech Synthesis with Enhanced Prosody Consistency",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ate=demonstrated_test | system_boundary=LipSody = LipVoicer DDPM L2S + visual-only prosody module (3-cue concat → pitch/energy predictors); inference uses only facial video | SystemConfiguration.system_lifecycle=implemented_evaluated | extra.Output.output_kind=16kHz sp"
+  },
+  {
+   "pid": "arxiv-2603.02847",
+   "key": "t:silentwearanultralowpowerwearablesystemforemgbasedsilentspeechrecognition",
+   "title": "SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ary=14-channel EMG acquisition and on-device 9-class SpeechNet; only classification results are sent over BLE; no cloud inference. | SystemConfiguration.runtime_hardware={'SoC': 'GAP9, RISC-V controller plus 9-core compute cluster and NE16 accelerator', 'companion': 'Nordic nRF5340 MCU with BLE', 'AFEs': 'two Texas Instruments ADS1298', 'me"
+  },
+  {
+   "pid": "arxiv-2603.13321",
+   "key": "t:brainwhispererleveraginglargescaleasrmodelsforneuralspeechdecoding",
+   "title": "BrainWhisperer: Leveraging Large-Scale ASR Models for Neural Speech Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rotocol.statistical_plan={'metrics': 'PER (test) + WER with 5-gram rescoring + WER E2E, on test AND competition splits; inference cost VRAM/latency; ablations on windowed attention/dual loss/low-rank'} | Claim.claim_scope=BrainWhisperer matches/beats SOTA: E2E WER 8."
+  },
+  {
+   "pid": "arxiv-2604.05605",
+   "key": "t:interactanaidrivenextendedrealityframeworkforaccessiblecommunicationfeaturingrea",
+   "title": "INTERACT: An AI-Driven Extended Reality Framework for Accessible Communication Featuring Real-Time Sign Language Interpretation and Emotion Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "EC2 GPU inference behind CORTEX2 gateway + Rainbow SDK conferencing; XR client on Quest 3/desktop | SystemConfiguration.runtime_hardware=Meta Quest 3 XR client; AWS EC2 G4DN.xlarge with NVIDIA T4 (16 GB VRAM) backend inference; load-balanced auto-scaling to 1,000 concurrent users | EvaluationProtocol.experimental_design=two-phase pilot aligned"
+  },
+  {
+   "pid": "arxiv-2604.05751",
+   "key": "t:braintospeechprosodyfeatureengineeringandtransformerbasedreconstruction",
+   "title": "Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_gap=The chapter calls for more diverse participants, including non-epileptic populations. | technical_limits=Real-time inference is challenging due to computational requirements; latency is not measured/reported. | technical_limits=MOSA-Net is an indirect automated proxy for human perception; no listener"
+  },
+  {
+   "pid": "arxiv-2605.28456",
+   "key": "t:diffusionlargelanguagemodelsforvisualspeechrecognition",
+   "title": "Diffusion Large Language Models for Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n the primary table. | reference_access=not_runtime_input | vocabulary_regime=open_vocabulary | reference_access=oracle_runtime_input | extra.Protocol.reference_kind=Ground-truth transcript length is provided at inference as an upper-bound condition; the full reference transcript is not described as a model input. | EvaluationProtocol.expe"
+  },
+  {
+   "pid": "arxiv-2606.05763",
+   "key": "t:m2savsrmodalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspe",
+   "title": "M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s, width1280, 20 heads; visual cross-attention before self-attention; gated feed-forward branch'} | SystemConfiguration.runtime_hardware={'reported_training_hardware': '2 NVIDIA RTX PRO 6000 GPUs, 96GB each', 'inference': 'beam search size 25, batch size 4', 'inference_latency': 'not reported'} | extra.Output.output_kind=autoregressive t"
+  },
+  {
+   "pid": "arxiv-2606.09667",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tuning with a surrogate laryngeal voice reference. | deployment_limits=Frame-rate/bitrate stress tests are simulated at inference; no actual network codec, measured bitrate unit, packet loss, latency, live interaction or deployment outcomes reported. | overclaim_risk=WER reference construction, normalization, tokeniza"
+  },
+  {
+   "pid": "arxiv-2606.31225",
+   "key": "t:afirstexplorationofneuromorphicotcfmformultispeakervsr",
+   "title": "A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| timing_policy=processing_only | author_claimed_contribution=Authors report LipsFlow WER 22.3%, VER 19.8%, and 240 ms inference latency on the DVS-Lip table, with AVA condition-specific"
+  },
+  {
+   "pid": "arxiv-2607.08236",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", or repeated-run variability are reported in the inspected result tables. | deployment_limits=Offline benchmark study; inference latency, power, wearable form factor, safety, comfort, and assistive communication burden were not evaluated. | system_name=Event Clouds [38] |"
+  },
+  {
+   "pid": "arxiv-2608.10836",
+   "key": "t:whisperawarellmselfsuperviseduncertaintylearningforrobustwhisperedspeechrecognit",
+   "title": "Whisper-Aware LLM: Self-Supervised Uncertainty Learning for Robust Whispered Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "time computation of h_conf: Eq.2 needs the F0 prediction error, which presumes a ground-truth F0 that is unavailable at test time; the paper does not state the runtime substitute., Provenance of S1-S7 table scores (re-run by authors vs quoted) is not stated; S4 is an audio-visual system"
+  },
+  {
+   "pid": "arxiv-2608.13610",
+   "key": "t:loopvsraloopengineeringframeworkforautomatedrepairofvisualspeechrecognitioninfer",
+   "title": "LoopVSR: A Loop Engineering Framework for Automated Repair of Visual Speech Recognition Inference Pipelines",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g/pdf/2608.13610v1 | Study.study_design=system_proposal | Study.research_objective=Automate diagnosis and repair of VSR inference-pipeline faults by coupling constrained code-agent patches to protected end-to-end inference, runtime evidence, CER-based decisions, and rollback. | extra.Task.target=Repair source code and runtime configuration in an alr"
+  },
+  {
+   "pid": "arxiv-2608.20198-asicaad",
+   "key": "t:aresourceefficientcnnbasedeegauditoryattentiondecodingasic",
+   "title": "A Resource-Efficient CNN-Based EEG Auditory Attention Decoding ASIC",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "essors | EvaluationRun.execution_artifacts=GF22FDX 22-nm implementation: 0.076 mm² total area, 0.4941 mW @0.55V average power, 7.34 ms inference latency (within 8 ms/sample real-time bound at 125 Hz), 0.1953 mW leakage worst-case; CNN+classifier robust to PoT quan"
+  },
+  {
+   "pid": "arxiv-2609.10296",
+   "key": "t:thesemanticbottleneckleveragingsemanticrepresentationsfornoninvasivespeechdecodi",
+   "title": "The Semantic Bottleneck: Leveraging Semantic Representations for Non-Invasive Speech Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "te | system_name=SONAR sentence embedding candidate | system_name=T5 sentence embedding candidate | SystemConfiguration.runtime_hardware={'note': 'Source reports model training hardware only; inference hardware and runtime latency not reported.'} | vocabulary_regime=open_vocabulary | validation_dimension=cross_session |"
+  },
+  {
+   "pid": "arxiv-2609.24391",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human–Robot Interaction on Edge Hardware",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "er its artificial neural network counterpart at 27.6%\nmean firing rate. On-board measurements show roughly 5-fold lower energy per inference than a Raspberry\nPi central processing unit on the lip-reading model, and over 100-fold lower than a laptop graphics pr"
+  },
+  {
+   "pid": "arxiv-2609.24391-navir",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Interaction on Edge Hardware",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.unit_of_analysis=WER on GRID unseen/overlapped speaker splits under noise; command accuracy on industrial corpus; energy per inference and inferences/sec on AKD1000+Pi5 | task_encoding=natural_utterance | task_family=command_selection | Cohort.demographics=GRID corpus"
+  },
+  {
+   "pid": "arxiv-2609.28988",
+   "key": "t:personalizedkoreanlipreadingasvisualspeechrecognitiontransfercensusandadaptation",
+   "title": "Personalized Korean Lipreading as Visual Speech Recognition: Transfer, Census and Adaptation on OLKAVS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ng, machine_finetuning | reproduction_status=original_report | vocabulary_regime=open_vocabulary | reference_access=not_runtime_input | evaluator_chain=Visual-only Conformer inference with hybrid CTC/attention beam search for official results; CER and WER are scored against dataset text transcripts. Pe"
+  },
+  {
+   "pid": "cvf-kim23-lowresource-lipread",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ition.sensor_geometry=Talking-face video (mTEDx/MLS/LRS corpora); audio used ONLY during training for speech units & LM memory — inference is visual-only | representation_kind=Vector-quantized speech units (shared pseudo-labels across languages) + language-s"
+  },
+  {
+   "pid": "doi-10.1038-s41598-022-26155-5",
+   "key": "t:twostagevisualspeechrecognitionforintensivecarepatients",
+   "title": "Two-stage visual speech recognition for intensive care patients",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "re_dimensions=predicted low-dimensional MFCC audio features as intermediate representation (audio used at training, not runtime) | ProcessingStep.architecture=two-stage: CNN frame encoder → audio-feature (MFCC) inference → 1D-convolutional STT with CTC loss → word-level language model for correction; frame augmentation for small-dataset g"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "key": "t:brain2charadeeparchitecturefordecodingtextfrombrainrecordings",
+   "title": "Brain2Char: a deep architecture for decoding text from brain recordings",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| minimum per-participant data | highest reported WER (1900w) | mid reported WER | best reported WER (1200w) | context latency | inference complexity | model parameters (millions) | DS_1 joint-optimization WER gain | MFCC feature dims (AKT 33) | patients in"
+  },
+  {
+   "pid": "doi-10.1121-10.0020988",
+   "key": "t:effectsofmicrophonemountinglocationandgenderonaccuracyinspeechrecognitionusingat",
+   "title": "Effects of microphone mounting location and gender on accuracy in speech recognition using a throat microphone",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "; three-way ANOVA (system x mounting position x gender, 5%); ICC within-subject reproducibility (R irr) | extra.Decoder.inference_information=generic ready-made ASR on throat-mic speech; CER computed per utterance; condenser baseline lower CER; throat lower at P5-P8 than P1-P4 across all systems | extra.Decoder.infer"
+  },
+  {
+   "pid": "doi-10.25777-he41-jj63",
+   "key": "t:characterizationanddecodingofspeechrepresentationsfromtheelectrocorticogram",
+   "title": "Characterization and Decoding of Speech Representations From the Electrocorticogram",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "140-150 and 150-160 next; lower sub-bands (<110 Hz) dominate auditory/STG perception-related activation | extra.Decoder.inference_information=preparation-based (-200,-100,0 ms) LR models: speech power r avg 0.12 (all significant); F0 0.13, F1 0.08, F2 0.09 (7/8 sig F0/F2); LPC coefs 0.06-0.13; MFCC 0.08-0.16; PLP 0.10-"
+  },
+  {
+   "pid": "doi-10.25777-yhb9-vq36",
+   "key": "t:characterizationoflanguagecortexactivityduringspeechproductionandperception",
+   "title": "Characterization of Language Cortex Activity During Speech Production and Perception",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "N) decoding of auditory consonants and articulatory place/manner representations from motor-cortex ECoG | extra.Decoder.inference_information=STFT per frequency band -> gamma power features, feature selection per subject | extra.Decoder.inference_information=LDA classifies feature groups; significan"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-b5ykj_v2",
+   "key": "t:rethinkinginnerspeechthroughlinguisticactiveinference",
+   "title": "Rethinking Inner Speech through Linguistic Active Inference",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ceptual inference and active control | claim=LAIT grounds inner speech in two complementary generators — verbal working memory and perceptual simulation — producing perceptual-inference functions (categorisation, problem perception, socio-emotional, self-understanding) and active-control functions (atten"
+  },
+  {
+   "pid": "isca-arora26b_interspeech",
+   "key": "t:vibavsrvariationalinformationbottleneckfornoiserobustllmbasedaudiovisualspeechre",
+   "title": "VIB-AVSR: Variational Information Bottleneck for Noise-Robust LLM-Based Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ".Limitation.limitation=only LRS2 (BBC English); frozen audio encoder; gains smaller under speech noise; adds VIB params/inference cost; evaluation limited to babble+speech noise classes | extra.Limitation.status=acknowledged | 24.59 | 14.86"
+  },
+  {
+   "pid": "isca-cappellazzo25_interspeech",
+   "key": "t:scalingandenhancingllmbasedavsrasparsemixtureofprojectorsapproach",
+   "title": "Scaling and Enhancing LLM-based AVSR: A Sparse Mixture of Projectors Approach",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "o-visual speech recognition efficient: scale capacity via Sparse Mixture of Projectors (MoE projectors) without raising inference cost, enabling smaller LLMs | Study.unit_of_analysis=WER on LRS3 across ASR/VSR/AVSR tasks and SNR levels; three SMoP config"
+  },
+  {
+   "pid": "isca-chen24z_interspeech",
+   "key": "t:edgedbasedaudiovisualspeechenhancementdemonstrator",
+   "title": "Edged based Audio-Visual Speech enhancement demonstrator",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "I extraction, 3-layer 3D-CNN + ReLU + max-pool per layer -> flatten to 1-D -> 2-layer BiLSTM for temporal dependencies; memory-efficient for real-time phone inference; UI: start/stop recording + run denoise | evaluation_mode=live_interactive | target_unit=audio_signal | vocabulary_regi"
+  },
+  {
+   "pid": "isca-gogate23_interspeech",
+   "key": "t:applicationforrealtimeaudiovisualspeechenhancement",
+   "title": "Application for Real-time Audio-Visual Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "fleNet v2 0.5x; DNN outputs spectral mask enhancing target-speech TF regions, suppressing speech+non-speech noise; ONNX-runtime inference in Qt desktop app; audio pipeline mic->downsample->STFT->inference->ISTFT->loopback (Blackhole) usable by Zoom/Skype/Teams | evaluation_mode=live_interactive | EvaluationProtocol.experim"
+  },
+  {
+   "pid": "isca-labiak11_interspeech",
+   "key": "t:nearestneighborswithlearneddistancesforphoneticframeclassification",
+   "title": "Nearest Neighbors with Learned Distances for Phonetic Frame Classification",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vised LPP) for k-NN phonetic frame classification vs Euclidean/LDA/GMM/MLP on TIMIT, with LSH approximate search to cut test-time cost | Study.unit_of_analysis=test error rate on TIMIT core test set per classifier/metric/feature config; tuned on 50k-fram"
+  },
+  {
+   "pid": "isca-lidestam01-speechread",
+   "key": "t:speechreadingessentialssignalparalinguisticcuesandskill",
+   "title": "Speechreading essentials: signal, paralinguistic cues, and skill",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al skills do fast bottom-up extraction (viseme discrimination), cognitive skills fill information gaps — verbal working memory, inference-making, intact phonological representations integrate cues into meaning | EvaluationProtocol.experimental_design=Senten"
+  },
+  {
+   "pid": "isca-milner11_interspeech",
+   "key": "t:maximumaposterioriestimationofnoisefromnonacousticreferencesignalsinverylowsigna",
+   "title": "Maximum a posteriori estimation of noise from non-acoustic reference signals in very low signal-to-noise ratio environments",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "te=source_checked | Study.study_design=controlled_experiment | Study.research_objective=estimate airflow and tyre noise power spectra from non-acoustic F1 telemetry (engine speed, road speed, throttle) via MAP inference over a GMM joint density, then enhance speech at SNRs down to -15dB | Study.unit_of_analysis=per-frame mean-square nois"
+  },
+  {
+   "pid": "isca-nss11_interspeech",
+   "key": "t:articulatoryfeatureclassificationusingnearestneighbors",
+   "title": "Articulatory Feature Classification Using Nearest Neighbors",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "thongs split 2/3+1/3), not measured articulators; phone mapping suboptimal; high-prior classes dominate confusion; k-NN test-time search cost; only 36.5min of labels"
+  },
+  {
+   "pid": "isca-sepulveda12_interspeech",
+   "key": "t:inferenceofcriticalarticulatorpositionforfricativeconsonants",
+   "title": "Inference of Critical Articulator Position for Fricative Consonants",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ear | observed_quantities=position, air_acoustics | intrusiveness=skin_contact | technical_essence=Critical-articulator inference for fricatives: χ² dependence measure computes relevant time–frequency acoustic maps over MOCHA-TIMIT EMA data (500 Hz coils on incisors, lips, tongue tip/body/dorsu"
+  },
+  {
+   "pid": "isca-su26_interspeech",
+   "key": "t:robustllmbasedaudiovisualspeechrecognitionwithsparsemodalityalignmentandvisualun",
+   "title": "Robust LLM-based Audio-Visual Speech Recognition with Sparse Modality Alignment and Visual Unit-Guided Refinement",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t/shallow fusion | extra.Limitation.limitation=LRS3 TED-English only; babble noise class only; LLaMA2-7B rescoring adds inference cost; VUR depends on discrete-token quality | extra.Limitation.status=acknowledged | 0.75 | 1.70"
+  },
+  {
+   "pid": "oa-W138214614",
+   "key": "t:multilevelaudiovisualinteractionsinspeechandlanguageperception",
+   "title": "Multi-Level Audio-Visual Interactions in Speech and Language Perception",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "envelope pairs, real-word McGurk dubbing — test whether AV facilitation vs integration share mechanisms | extra.Decoder.inference_information=M50/M100/M150 field extraction per syllable+modality; SSR harmonic power at Fm and phase-locked entrainment to comodulated AV pairs by sensor region | extra.Decoder.inference_information=logRT"
+  },
+  {
+   "pid": "oa-W7172561507",
+   "key": "t:innerspeechrecognitionusingeegsignalswithreservoircomputing",
+   "title": "Inner Speech Recognition Using EEG Signals with Reservoir Computing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g past dependencies; bidirectional RC processes both directions capturing past and future temporal dependencies; states computed via leaking-rate update, 5 initial states dropped, entire state sequence used | extra.Decoder.inference_information=PCA dimensionality reduction to 75 dimensions for efficiency | extra.Decoder.inference_information=readout"
+  },
+  {
+   "pid": "pmc-11451764-angrick",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: A pilot study with an ALS participant",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "latency streaming | EvaluationRun.execution_artifacts=Median alignment error ~0.5s; unseen words 446-490ms median; 10ms inference latency | extra.Output.output_kind=First demonstration of speech-activity detection from unlabeled ECoG with real-time deployme"
+  },
+  {
+   "pid": "pmc-12635066-eeg-handwrite",
+   "key": "t:alowlatencyneuralinferenceframeworkforrealtimehandwritingrecognitionfromeegsigna",
+   "title": "A low-latency neural inference framework for real-time handwriting recognition from EEG signals on an edge device",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A low-latency neural inference framework for real-time handwriting recognition from EEG signals on an edge device | venue=Scientific Reports (2025) |"
+  },
+  {
+   "pid": "pmc-12635066-eeghandw",
+   "key": "t:alowlatencyneuralinferenceframeworkforrealtimehandwritingrecognitionfromeegsigna",
+   "title": "A low-latency neural inference framework for real-time handwriting recognition from EEG signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A low-latency neural inference framework for real-time handwriting recognition from EEG signals | authors=Sen, Soni, Virmani, Parekh | venue=Scientifi"
+  },
+  {
+   "pid": "pmc-12635066-lowlat",
+   "key": "t:alowlatencyneuralinferenceframeworkforrealtimehandwriting",
+   "title": "A low-latency neural inference framework for real-time handwriting",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A low-latency neural inference framework for real-time handwriting | authors=low-latency group | Study.research_objective=low-latency real-time neural"
+  },
+  {
+   "pid": "pmc-13363825-fav-denoisenet",
+   "key": "t:favdenoisenetanaudiovisualspeechenhancementframeworkbasedonconditionalflowmatchi",
+   "title": "FAV-DenoiseNet: An Audio-Visual Speech Enhancement Framework Based on Conditional Flow Matching and Visual Encoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ith real-time efficiency | Claim.claim_scope=Residual conditional flow matching restores fine speech detail in a single inference step, matching or beating multi-step diffusion AVSE while cutting latency | Claim.claim_scope=Splitting enhancement into prior denoising + residual compensation keeps stable structure while rec"
+  },
+  {
+   "pid": "pmc-3187541-innerspeech",
+   "key": "t:theneuralcorrelatesofinnerspeechdefinedbyvoxelbasedlesionsymptommapping",
+   "title": "The neural correlates of inner speech defined by voxel-based lesion–symptom mapping",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lesions to left pars opercularis (IFG) and left supramarginal gyrus, over and above overt speech production and working memory | claim=inner speech cannot be assumed to be simply overt speech without articulation; inference either way risks misleading conclusions | claim=first use of lesion analysis for inner-speech correlates, avoiding prio"
+  },
+  {
+   "pid": "pmc-8747278-mcnnlip",
+   "key": "t:lipreadingarchitecturebasedonmultipleconvolutionalneuralnetworksforsentencelevel",
+   "title": "Lipreading Architecture Based on Multiple Convolutional Neural Networks for Sentence-Level Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "(4 dense blocks) + MLFF 3D CNN (3x5x5 kernels over dense layer) -> two-layer bi-GRU -> CTC decode | SystemConfiguration.runtime_hardware=GPU training/inference (offline) | claim=the proposed three-CNN architecture reduces CER by 5.681% and WER by ~1x% relative to the baseline on"
+  },
+  {
+   "pid": "pmc-9312762-ssrnet-tonal",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Configuration.configuration_scope=Silent mode: imagined sentence reading with slight muscle motion allowed; GT duration computed from vocal-silent alignment, refreshed every 5 epochs after first 4; at inference, predicted durations substitute GT | EvaluationProtocol.experimental_design=Per-speaker 8:1:1 train/val/test split of p"
+  },
+  {
+   "pid": "pmc-9609693-mavsr",
+   "key": "t:noiserobustmultimodalaudiovisualspeechrecognitionsystemforspeechbasedinteraction",
+   "title": "Noise-Robust Multimodal Audio-Visual Speech Recognition System for Speech-Based Interaction Applications",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eq2seq/attention decoder; API words -> pretrained word vectors -> concatenation/fusion prediction | SystemConfiguration.runtime_hardware=camera+mic with cloud OCSR API and on-device DNN inference | claim=the multimodal audio-visual system reaches an average recognition rate of 91.42% and outperforms existing singl"
+  },
+  {
+   "pid": "pmc-9963439-avsrnoisy",
+   "key": "t:improvingspeechrecognitionperformanceinnoisyenvironmentsbyenhancinglipreadingacc",
+   "title": "Improving Speech Recognition Performance in Noisy Environments by Enhancing Lip Reading Accuracy",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "onment speech recognition by (1) a lip→speech one-to-many mapping that preserves audio representations recoverable from memory at inference with video input, and (2) a joint cross-fusion attention model weighting complementary intermodal relationships | Study"
+  },
+  {
+   "pid": "pmc-PMC11245360",
+   "key": "t:stabilityofecoghighgammasignalsduringspeechandimplicationsforaspeechbcisystemina",
+   "title": "Stability of ECoG high gamma signals during speech and implications for a speech BCI system in an individual with ALS: a year-long longitudinal study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ver 12 months concentrated in first 5 months; significant channels fell 24-85% across metrics after 5 months; marked HG-power increase ~64d post-implant coincided with HDMI cable change (technical) | extra.Decoder.inference_information=12-class LDA 20% / NCA 32.5%; 3-class LDA 75% / NCA 77.5% (above chance); training on 6-10mo vs 0-5mo chang"
+  }
+ ],
+ "usual_approach": {
+  "design": "memory or FLOPs reported",
+  "n": 22,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2603.02847",
+   "arxiv-2604.05605",
+   "arxiv-2606.31225",
+   "arxiv-2607.08236",
+   "arxiv-2608.13610"
+  ],
+  "population_unique": 64,
+  "note": "full-text pattern counts over 64 unique candidate studies with text: memory or FLOPs reported 22, inference latency in ms reported 19, embedded or edge device named 12."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2506.05320",
+   "role": "sota",
+   "loc": "Sec. 2.3; Sec. 3.1",
+   "quote": "typically updates less than 1% of the model’s total parameters."
+  },
+  {
+   "pid": "pmc-12635066-eeg-handwrite",
+   "role": "prior",
+   "loc": "Table 2; Sec. Results",
+   "quote": "The corresponding inference latency per character on a local machine is 41.25 ms, while inference on the NVIDIA Jetson TX2 requires 914.18 ms per-character"
+  }
+ ],
+ "state_of_the_art": {
+  "pid": "arxiv-2506.05320",
+  "year": 2025,
+  "metric": "POSSM: new-session adaptation (unit identification) updates under 1% of parameters; CPU inference about 2.44 ms per 50-ms chunk (POSSM-SS, AMD EPYC 7502), offline NHP reaching benchmark",
+  "value": 2.44,
+  "unit": "ms per chunk",
+  "timing": "concurrent"
+ },
+ "tally": {
+  "slot_filled_unique": 6075,
+  "string_match_unique": 64,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "memory or FLOPs reported",
+   "n": 22,
+   "tier": "pattern match",
+   "population_unique": 64
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2506.05320",
+   "year": 2025,
+   "metric": "POSSM: new-session adaptation (unit identification) updates under 1% of parameters; CPU inference about 2.44 ms per 50-ms chunk (POSSM-SS, AMD EPYC 7502), offline NHP reaching benchmark",
+   "value": 2.44,
+   "unit": "ms per chunk",
+   "timing": "concurrent"
+  },
+  "read": 2,
+  "read_prior": [
+   "pmc-12635066-eeg-handwrite"
+  ],
+  "unread": 66,
+  "confirmed_unique": 0,
+  "known_item_recall": null
+ },
+ "used_by": [
+  "neurottt-bridging-pretraining-downstream-task-misalignment-in-eeg-foundation-models-via-test-tim"
+ ]
+}

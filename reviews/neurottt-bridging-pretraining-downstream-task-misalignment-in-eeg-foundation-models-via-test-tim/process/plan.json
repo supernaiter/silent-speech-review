@@ -1,0 +1,62 @@
+{
+ "target": "arxiv-2509.26301",
+ "changed": [
+  "M02",
+  "M03"
+ ],
+ "incidental": [
+  "M12",
+  "M13"
+ ],
+ "inherited": {
+  "M01": "BCIC2020-III, MentalArithmetic, and BCI Competition IV-2a collection protocols; NeuroTTT introduces no new user action during training-data collection.",
+  "M04": "The imagined-phrase, mental-arithmetic stress-detection, and motor-imagery task actions come from the benchmark protocols; test-time model adaptation is handled in M03.",
+  "M05": "EEG acquisition channels, sampling rates, and dataset sensor setups are inherited from BCIC2020-III, MentalArithmetic, and BCI Competition IV-2a; preprocessing follows the CBraMod pipeline.",
+  "M06": "CBraMod and LaBraM backbones and the downstream classification-head design are inherited; training-only auxiliary objectives are classified in M02.",
+  "M07": "The benchmark tasks use their closed-set class labels without a use-time language model, lexicon, or other linguistic decoding aid.",
+  "M08": "Outputs are the benchmark's phrase, stress, or motor-imagery class labels.",
+  "M09": "The inherited offline dataset-classification pipelines have no interactive presentation, confirmation, or commit stage.",
+  "M10": "The inherited offline dataset-classification pipelines have no user correction, re-entry, or action-adjustment stage.",
+  "M11": "Ground-truth class labels are inherited from BCIC2020-III, MentalArithmetic, and BCI Competition IV-2a."
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "auxiliary-ssl-loss-in-neural-fine-tuning",
+   "inclusion_rule": "Neural-signal decoders (EEG, MEG, intracranial) that start from a checkpoint pretrained on large neural corpora (the 40-study neural foundation-model population) and, during supervised fine-tuning, add a training-only self-supervised loss (signal-transformation prediction, reconstruction, contrastive or pretext targets) to the task loss. Boundary: pretraining objectives used only before fine-tuning are excluded; use-time updates are M03; versions of one study count once; full-text pattern hits are an upper bound.",
+   "pattern": "neural foundation-model pattern of the published M03 table (ledger)",
+   "design_field": "M03 supervision_kind; full-text design regexes (self-supervised loss added to supervised fine-tuning; domain-specific pretext task)",
+   "metric": "downstream balanced accuracy (higher)",
+   "rebuilt": "replaces prep topic eeg-domain-specific-self-supervision (design regexes were key=value strings; population not the foundation-model fine-tuning population)"
+  },
+  {
+   "slot": "M03",
+   "topic": "unlabeled-test-time-adaptation",
+   "inclusion_rule": "Decoders of speech-related or neural signals (any modality: EEG, intracranial, EMG, ultrasound, video) that update model weights or normalization state from unlabeled test data at use time (self-supervised test-time training, entropy minimization such as Tent, pseudo-label self-training, source-free adaptation). Boundary: training-only auxiliary losses are M02; supervised recalibration on labeled target data is excluded; flip or crop test-time augmentation without parameter updates is a pattern match only; citing-only mentions count as full-text hits; versions count once.",
+   "pattern": "test-time adaptation/training, Tent, entropy minimization, source-free, TTA/TTT, unsupervised adaptation, pseudo-label at test (ledger) + test-time full-text pattern",
+   "design_field": "full-text regexes: pseudo-label, entropy minimization, SSL test-time training, re-centering",
+   "metric": "balanced accuracy (higher)",
+   "rebuilt": "replaces prep topic eeg-test-time-adaptation (pattern matched 448 studies, usual approach supervision_kind=other)"
+  },
+  {
+   "slot": "M12",
+   "topic": "bci2020-imagined-speech-benchmark",
+   "reuse": "components/M12/bci2020-imagined-speech-benchmark.json",
+   "inclusion_rule": "Studies that report classification results on the 2020 International BCI Competition Track 3 imagined-speech data (15 subjects, five words or phrases, 64-channel EEG), including the organisers' review, classified by the test data scored: the competition's released test trials, the public validation subset used as test, cross-validation, or held-out subjects. Boundary: papers that only cite the dataset, and multi-dataset benchmarks where Track 3 results are not reported separately, are pattern matches only; versions count once.",
+   "pattern": "published",
+   "metric": "five-class accuracy (higher)"
+  },
+  {
+   "slot": "M13",
+   "topic": "use-time-adaptation-cost",
+   "inclusion_rule": "Speech-related or neural-signal decoders (any modality) whose text ties test-time or online adaptation, or inference, to latency, runtime, memory, compute, power or wearability. Boundary: training-only cost is excluded; privacy or edge-suitability claims without a measurement count as pattern matches only; versions count once.",
+   "pattern": "prep M13 pattern (test-time/inference near latency/memory/compute/power/cost)",
+   "design_field": "full-text regexes: latency in ms, memory or FLOPs, edge device",
+   "metric": "latency and adapted-parameter share (lower)",
+   "rebuilt": "replaces prep topic test-time-adaptation-operating-cost (usual approach was a lifecycle field value)"
+  }
+ ],
+ "dropped": [
+  "M03 neural-foundation-model-speech-transfer (inherited CBraMod/LaBraM checkpoints; the published table lists the target itself as state of the art)"
+ ]
+}

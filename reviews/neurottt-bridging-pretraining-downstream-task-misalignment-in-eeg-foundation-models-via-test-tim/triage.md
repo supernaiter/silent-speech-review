@@ -1,0 +1,22 @@
+# Triage of the evaluation: NeuroTTT review
+
+Evaluator: a language model separate from the writer (13 required fixes). Triage by the writer against notes.json and, where needed, the target source text (grep of the cited lines). Date: 2026-11-23.
+
+| # | Verdict | Evidence | Where applied |
+|---|---|---|---|
+| 1 | applied | The public repository files were read at the current main branch (raw files). `bciciv2a_dataset.py` builds the 'val' DataLoader from `test_set`, and `ttt_main.py` uses `torch.optim.SGD` with default `--ttt_lr` 1e-4 and `--ttt_steps` 1, so the "five steps" claim came from a README example. No commit hash could be obtained (GitHub API access blocked in this session), so under the rule "quote with commit or drop" the code claim was dropped from the body. The question about the selection subjects stays. | Removed the code bullet under "Where the claims outrun the evidence"; the Questions entry on subjects 6–7 is kept. |
+| 2 | applied | b1/b2: the competition review scores the released test data (10 per class). l3: the [later] benchmark says the official test labels are not public. t15/w8: the paper says it uses the competition splits but does not name its test trials (t81). The 23.6-point gap is now conditional. | Verdict; M12 State of the art; verdict.json short and position |
+| 3 | applied | l1/l5: 30.2% is EEGConformer's balanced accuracy ("highest balanced accuracy was obtained by a baseline (EEGConformer, 30.2%)"); LaBraM-Base is 27.7% (l2). The reference is relabelled as fine-tuning without adaptation. T-TIME as an alternative is rejected: it is not in the wiki and its values are unverified. | M03 State of the art; slots.json M03 sota cell |
+| 4 | applied | The audit gives 26 unique ledger pattern matches and 38 including full-text hits. The pattern_counts pids show that arxiv-2509.24700 matches both the entropy and the SSL-TTT regexes, so the text now says its design is entropy minimization (c23). | M03 Usual approach; slots.json M03 n = 26 |
+| 5 | applied | All twelve values are in t33–t60 quotes, and the author statement is in w4; the claim table now lists every quote. The gaps compared with ±: 0.0011/0.0148, 0.0084/0.0553, 0.0239/0.0112, 0.0022/0.0083, 0.0108/0.0231 and 0.01275/0.01856, so 5 of 6 are smaller than one reported ±. | M03 evidence paragraph ("five of the six gaps ... none is tested (inference)"); verdict.json position |
+| 6 | applied | t98/w14 (150 vs 100 epochs) and t9 ("modest"). The lead is now attributed to "the Stage-I objective plus 50 extra epochs". | M03 evidence paragraph |
+| 7 | applied | t26: LaBraM-Base Linear 0.2529; t36: Tent 0.2742; l4: chance 20%. | Bullet under "Where the claims outrun the evidence" |
+| 8 | applied | c46 quote: "These results held in a CPU environment (AMD EPYC 7502 32-Core)", so the CPU wording is kept. c45: training on the new session's data with the rest frozen. The [5] description now names the intracortical modality and the session-training setting. The "Verdict: not reported" sentence is unchanged. | M13 State of the art |
+| 9 | applied | w2 quote: "(treating the foundation model as fixed feature extractor, akin to linear probing on source)." (Appendix B.4). claim_table.py extracts only sentences with numbers or citations, so a row was added by hand. | claims.md row 39 |
+| 10 | applied | New entry w13, Sec. 5: "proposed alignment strategy yields state-of-the-art performance" (verified). The location now says Sec. 5. | Bullet under "Where the claims outrun the evidence"; notes w13 |
+| 11 | applied | The audit counts are full-text term counts (note in the published table). The text now says "term counts, not designs" and that the paper uses the competition's per-subject split (t15). | M12 Usual approach |
+| 12 | applied | New entry w14, Sec. 4.1: "In contrast, Imagined Speech Classification requires longer training due to slower convergence under domain-specific SSL supervision" (verified). | notes w14; claim-table row 9 |
+| 13 | applied | M02 Appendix tally: 3 studies with an added loss, the other 2 [later]; the pretext tasks match only the target. The verdict reason is now stated. | M02 Verdict sentence |
+
+Counts: 13 applied, 0 rejected, 0 unverified. Rejected in part: the T-TIME suggestion in #3 (outside the wiki, unverified).
+To keep the body within 7,000 characters, I shortened some sentences that the findings did not touch: the Verdict opening, the M02 state of the art, the M12 note on prior results, the M13 usual approach, one question (the Fig. 3 values) and two next-step bullets.
