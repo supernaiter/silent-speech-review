@@ -1,0 +1,927 @@
+{
+ "topic": "air-and-body-conducted-channel-fusion",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)\\A(?=.*(contact_microphone|vibration_sensor|throat mic|bone[- ]conduct|body[- ]conduct|tissue[- ]conduct|accelerometer|nam microphone|vibration))(?=.*(\\bmicrophone\\b|air[- ]conduct|close[- ]talk|airborne))(?=.*(fus|combin|concaten|joint|2ch|dual[- ]input|multi-?modal|both (channels|microphones|sensors)))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Speech studies that feed an air-microphone channel and a skin-, bone- or tissue-conducted channel from the same talker into one model or feature mapping (enhancement, conversion or recognition). Boundary: systems that use the conducted channel only for voice activity detection are counted by pattern only; reviews count as pattern matches; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 72,
+  "string_match_unique": 68,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [],
+  "pattern_counts": [
+   {
+    "design": "whispered or murmured input",
+    "n": 43,
+    "tier": "pattern match",
+    "pids": [
+     "isca-zhang26y-sonispeech",
+     "arxiv-2501.01636",
+     "arxiv-2502.11478",
+     "arxiv-2512.16518",
+     "doi-10.21203-rs.3.rs-5443479-v1"
+    ]
+   },
+   {
+    "design": "fusion for recognition",
+    "n": 42,
+    "tier": "pattern match",
+    "pids": [
+     "isca-zhang26y-sonispeech",
+     "zenodo-22684290-strokevoice",
+     "arxiv-2501.01636",
+     "arxiv-2502.11478",
+     "arxiv-2512.16518"
+    ]
+   },
+   {
+    "design": "fusion for enhancement or conversion",
+    "n": 32,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2502.11478",
+     "arxiv-2512.16518",
+     "pmc-11598394-eyewear-ssi",
+     "pmc-10719268-mmdataset",
+     "doi-10.1109-taslp.2015.2499040"
+    ]
+   },
+   {
+    "design": "deep network fusion",
+    "n": 23,
+    "tier": "pattern match",
+    "pids": [
+     "isca-zhang26y-sonispeech",
+     "zenodo-22684290-strokevoice",
+     "arxiv-2502.11478",
+     "arxiv-2512.16518",
+     "doi-10.21203-rs.3.rs-5443479-v1"
+    ]
+   }
+  ],
+  "metric_pattern": "PESQ",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "Fig.8 plotted-axis label 20 dB for pesq enhanced (visually estimated; §5.2 prose lists a different signed noise-level set)",
+   "value": 3.5,
+   "unit": "instrument_output",
+   "raw": "Fig.8 plotted-axis label 20 dB for pesq enhanced (visually estimated; §5.2 prose lists a different signed noise-level set)",
+   "pid": "arxiv-2603.10324",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "pesqUpperBound",
+   "value": 2.72,
+   "unit": null,
+   "raw": "upper bound: best target mapping with true AM parameters reaches 2.72 PESQ (M2) — headroom for excitation correction",
+   "pid": "isca-turan13_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "PESQ PDHM-T best (residual)",
+   "value": 2.53,
+   "unit": "score",
+   "raw": "2.53",
+   "pid": "arxiv-1804.05937",
+   "year": 2013,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "pesq",
+   "value": 2.108,
+   "unit": null,
+   "raw": "MLP+PD+HE avg PESQ 2.108 (Nk=5, ws=0.25), +0.107 over no-HE; only method >2.0; STOI 0.567",
+   "pid": "doi-10.3390-app12020827",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SE-conformer PESQ",
+   "value": 1.971,
+   "unit": null,
+   "raw": "1.971",
+   "pid": "arxiv-2502.11478",
+   "year": 2025,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "apsipa2010-deguchi-acoustic-compensation",
+   "key": "t:acousticcompensationmethodforacceptingdifferentrecordingdevicesinbodyconductedvo",
+   "title": "Acoustic Compensation Method for Accepting Different Recording Devices in Body-Conducted Voice Conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=apsipa2010/deguchi-acoustic-compensation | title=Acoustic Compensation Method for Accepting Different Recording"
+  },
+  {
+   "pid": "arxiv-1804.05937",
+   "key": "t:enhancementofthroatmicrophonerecordingsusinggaussianmixturemodelprobabilisticest",
+   "title": "Enhancement of Throat Microphone Recordings Using Gaussian Mixture Model Probabilistic Estimator",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1804.05937 | doi=10.48550/arxiv.1804.05937 | title=Enhancement of Throat Microphone Recordings Using Gaus"
+  },
+  {
+   "pid": "arxiv-2501.01636",
+   "key": "t:whisphonewhisperinginputearbuds",
+   "title": "Whisphone: Whispering Input Earbuds",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.01636 | title=Whisphone: Whispering Input Earbuds | venue=arXiv:2501.01636 (Fukumoto, Dentsu Science"
+  },
+  {
+   "pid": "arxiv-2502.11478",
+   "key": "t:throatandacousticpairedspeechdatasetfordeeplearningbasedspeechenhancement",
+   "title": "Throat and acoustic paired speech dataset for deep learning-based speech enhancement",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.11478 | title=Throat and acoustic paired speech dataset for deep learning-based speech enhancement |"
+  },
+  {
+   "pid": "arxiv-2511.07955",
+   "key": "t:speechemotionrecognitionwithphonationexcitationinformationandarticulatorykinemat",
+   "title": "Speech Emotion Recognition with Phonation Excitation Information and Articulatory Kinematics",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Emotion Recognition with Phonation Excitation Information and Articulatory Kinematics | language=mandarin_c"
+  },
+  {
+   "pid": "arxiv-2512.16518",
+   "key": "t:posterrecognizinghiddenintheearprivatekeyforreliablesilentspeechinterfaceusingmu",
+   "title": "Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512.16518 | arxiv_id=2512.16518v1 | title=Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable"
+  },
+  {
+   "pid": "arxiv-2603.10324",
+   "key": "t:nasovoceanosemountedlowaudibilityspeechinterfaceforalwaysavailablespeechinteract",
+   "title": "NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction | authors=Jun Rek"
+  },
+  {
+   "pid": "asa2006-kojima-nam-speaker-verification",
+   "key": "t:studyonnonaudiblemurmurspeakerverificationusingmultiplesessiondata",
+   "title": "Study on nonaudible murmur speaker verification using multiple session data",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=asa2006/kojima-nam-speaker-verification | title=Study on nonaudible murmur speaker verification using multiple"
+  },
+  {
+   "pid": "asa2006-nakajima-urethane-nam-mic",
+   "key": "t:methodsoffittinganonaudiblemurmurmicrophonefordailyuseanddevelopmentofurethaneel",
+   "title": "Methods of fitting a nonaudible murmur microphone for daily use and development of urethane elastomer duplex structure type nonaudible murmur microphone",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=asa2006/nakajima-urethane-nam-mic | title=Methods of fitting a nonaudible murmur microphone for daily use and d"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.08.002",
+   "key": "t:silentspeechinterfaces",
+   "title": "Silent speech interfaces",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Speech Communication | doi=10.1016/j.specom.2009.08.002 | title=Silent speech interfaces | authors=B. Denby, T. Sc"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2009.4960405",
+   "key": "t:voiceconversionforvarioustypesofbodytransmittedspeech",
+   "title": "Voice conversion for various types of body transmitted speech",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-icassp.2009.4960405 | doi=10.1109/icassp.2009.4960405 | title=Voice conversion for various types of"
+  },
+  {
+   "pid": "doi-10.1109-iccme.2012.6275604",
+   "key": "p:doi-10.1109-iccme.2012.6275604",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=ICME Int. Conf. Complex Medical Engineering, Kobe, Jul 2012 (IEEE), pp.623-628; Toda, NAIST; MEXT Grant-in-Aid You"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2015.2499040",
+   "key": "t:sourceandfilterestimationforthroatmicrophonespeechenhancement",
+   "title": "Source and Filter Estimation for Throat-Microphone Speech Enhancement",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-taslp.2015.2499040 | doi=10.1109/taslp.2015.2499040 | title=Source and Filter Estimation for Throat"
+  },
+  {
+   "pid": "doi-10.1146-annurev-linguistics-011718-012353",
+   "key": "t:crossmodaleffectsinspeechperception",
+   "title": "Cross-modal effects in speech perception",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1146-annurev-linguistics-011718-012353 | doi=10.1146/annurev-linguistics-011718-012353 | title=Cross-mod"
+  },
+  {
+   "pid": "doi-10.1587-elex.6.77",
+   "key": "t:exploitingvisualinformationfornamrecognition",
+   "title": "Exploiting visual information for NAM recognition",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1587-elex.6.77 | doi=10.1587/elex.6.77 | title=Exploiting visual information for NAM recognition | venue"
+  },
+  {
+   "pid": "doi-10.1587-transinf.e93.d.1909",
+   "key": "t:evaluationofextremelysmallsoundsourcesignalsusedinspeakingaidsystemwithstatistic",
+   "title": "Evaluation of extremely small sound source signals used in speaking-aid system with statistical voice conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1587-transinf.e93.d.1909 | doi=10.1587/transinf.e93.d.1909 | title=Evaluation of extremely small sound s"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-5443479-v1",
+   "key": "t:integratinggraywolfoptimizationwithdeeplearningforenhancingnamtospeechconversion",
+   "title": "Integrating Gray Wolf Optimization with Deep Learning for Enhancing NAM-to-Speech Conversion",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-5443479-v1 | doi=10.21203/rs.3.rs-5443479/v1 | title=Integrating Gray Wolf Optimization wi"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2009-224",
+   "key": "t:technologiesforprocessingbodyconductedspeechdetectedwithnonaudiblemurmurmicropho",
+   "title": "Technologies for Processing Body-Conducted Speech Detected with Non-Audible Murmur Microphone",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21437-interspeech.2009-224 | doi=10.21437/interspeech.2009-224 | title=Technologies for Processing Body-"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2015-583",
+   "key": "t:nonaudiblemurmurenhancementbasedonstatisticalconversionusingairandbodyconductive",
+   "title": "Non-audible murmur enhancement based on statistical conversion using air- and body-conductive microphones in noisy environments",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21437-interspeech.2015-583 | doi=10.21437/interspeech.2015-583 | title=Non-audible murmur enhancement ba"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2022.1031424",
+   "key": "t:multisensorybenefitsforspeechrecognitioninnoisyenvironments",
+   "title": "Multisensory benefits for speech recognition in noisy environments",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2022.1031424 | title=Multisensory benefits for speech recognition in noisy environments | authors"
+  },
+  {
+   "pid": "doi-10.3390-app12020827",
+   "key": "t:ultrasonicdopplerbasedsilentspeechinterfaceusingperceptualdistance",
+   "title": "Ultrasonic Doppler Based Silent Speech Interface Using Perceptual Distance",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrasonic Doppler Based Silent Speech Interface Using Perceptual Distance | intended_use_cases=speech_restoration"
+  },
+  {
+   "pid": "doi-10.63317-26hq9jzng47p",
+   "key": "t:avcaraspanishmultichannelmultimodalcorpusforinvehicleautomaticaudiovisualspeechr",
+   "title": "AV@CAR: A Spanish Multichannel Multimodal Corpus for In-Vehicle Automatic Audio-Visual Speech Recognition",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.63317-26hq9jzng47p | title=AV@CAR: A Spanish Multichannel Multimodal Corpus for In-Vehicle Automatic Aud"
+  },
+  {
+   "pid": "icassp2011-babani-transformed-nam-sat",
+   "key": "t:acousticmodeltrainingfornonaudiblemurmurrecognitionusingtransformednormalspeechd",
+   "title": "Acoustic Model Training for Non-Audible Murmur Recognition Using Transformed Normal Speech Data",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=icassp2011/babani-transformed-nam-sat | title=Acoustic Model Training for Non-Audible Murmur Recognition Using"
+  },
+  {
+   "pid": "ieice2007-nakamura-laryngectomee-vc",
+   "key": "t:aspeechcommunicationaidsystemfortotallaryngectomeesusingvoiceconversionofbodytra",
+   "title": "A Speech Communication Aid System for Total Laryngectomees Using Voice Conversion of Body-Transmitted Artificial Speech",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ieice2007/nakamura-laryngectomee-vc | title=A Speech Communication Aid System for Total Laryngectomees Using Vo"
+  },
+  {
+   "pid": "ioa-23430-lipread-f0",
+   "key": "d:10.25144/23430",
+   "title": null,
+   "year": 1979,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ioa-23430-lipread-f0 | doi=10.25144/23430 | Study.research_objective=evaluate whether supplementing lipreading"
+  },
+  {
+   "pid": "isca-anand09_interspeech",
+   "key": "p:isca-anand09_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=system_proposal | Study.research_objective=improve perceptual quality of throat-microphone speech and"
+  },
+  {
+   "pid": "isca-arsikere14_interspeech",
+   "key": "t:speakerrecognitionviafusionofsubglottalfeaturesandmfccs",
+   "title": "Speaker recognition via fusion of subglottal features and MFCCs",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/arsikere14-interspeech | title=Speaker recognition via fusion of subglottal features and MFCCs | authors=H"
+  },
+  {
+   "pid": "isca-bone10",
+   "key": "p:isca-bone10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=USC EGG + inverse-filtered glottal-airflow voice-source feature analysis for emotion variability | modalitie"
+  },
+  {
+   "pid": "isca-buera08_interspeech",
+   "key": "p:isca-buera08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=robust ASR via joint standard+throat mic feature nor"
+  },
+  {
+   "pid": "isca-cai10",
+   "key": "p:isca-cai10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Eureqa analytic TM->AC Mel-band log-energy enhancement + WSJ keyword spotter | modalities=contact_microphone"
+  },
+  {
+   "pid": "isca-chawah14_interspeech",
+   "key": "t:aneducationalplatformtocapturevisualizeandanalyzeraresinging",
+   "title": "An educational platform to capture, visualize and analyze rare singing",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/chawah14-interspeech | title=An educational platform to capture, visualize and analyze rare singing | auth"
+  },
+  {
+   "pid": "isca-csapo09_interspeech",
+   "key": "t:relationofformantsandsubglottalresonancesinhungarianvowels",
+   "title": "Relation of formants and subglottal resonances in Hungarian vowels",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/csapo09-interspeech | title=Relation of formants and subglottal resonances in Hungarian vowels | authors=T"
+  },
+  {
+   "pid": "isca-graciarena04-interspeech",
+   "key": "p:isca-graciarena04-interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=target_users | population_description=male US Military Acad"
+  },
+  {
+   "pid": "isca-graciarena04_interspeech",
+   "key": "t:combinationofstandardandthroatmicrophonesforrobustspeechrecognitioninhighlynoisy",
+   "title": "Combination of Standard and Throat Microphones for Robust Speech Recognition in Highly Noisy Environments",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:graciarena04_interspeech | title=Combination of Standard and Throat Microphones for Robust Speech Recognit"
+  },
+  {
+   "pid": "isca-heracleous10",
+   "key": "p:isca-heracleous10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=ATR NAM+visual AV phoneme classification: late-fusion of NAM-HMM and visual-HMM classifiers (HTK3.4) | modal"
+  },
+  {
+   "pid": "isca-heracleous10_interspeech",
+   "key": "t:nonaudiblemurmurrecognitionbasedonfusionofaudioandvisualstreams",
+   "title": "Non-Audible Murmur Recognition Based on Fusion of Audio and Visual Streams",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:heracleous10_interspeech | title=Non-Audible Murmur Recognition Based on Fusion of Audio and Visual Stream"
+  },
+  {
+   "pid": "isca-huckvale21_interspeech",
+   "key": "t:automateddetectionofvoicedisorderinthesaarbrueckenvoicedatabaseeffectsofpatholog",
+   "title": "Automated Detection of Voice Disorder in the Saarbruecken Voice Database: Effects of Pathology Subset and Audio Materials",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Automated Detection of Voice Disorder in the Saarbruecken Voice Database: Effects of Pathology Subset and Audio Ma"
+  },
+  {
+   "pid": "isca-jaumardhakoun16_interspeech",
+   "key": "t:anarticulatorybasedsingingvoicesynthesisusingtongueandlipsimaging",
+   "title": "An Articulatory-Based Singing Voice Synthesis Using Tongue and Lips Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Articulatory-Based Singing Voice Synthesis Using Tongue and Lips Imaging | task_family=speech_reconstruction |"
+  },
+  {
+   "pid": "isca-jou04_interspeech",
+   "key": "t:adaptationforsoftwhisperrecognitionusingathroatmicrophone",
+   "title": "Adaptation for Soft Whisper Recognition Using a Throat Microphone",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:jou04_interspeech | title=Adaptation for Soft Whisper Recognition Using a Throat Microphone | authors=Szu-"
+  },
+  {
+   "pid": "isca-kagomiya11_interspeech",
+   "key": "t:evaluationofboneconductedultrasonichearingaidregardingtransmissionofspeakerdiscr",
+   "title": "Evaluation of Bone-conducted Ultrasonic Hearing-aid Regarding Transmission of Speaker Discrimination Information",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/kagomiya11-interspeech | title=Evaluation of Bone-conducted Ultrasonic Hearing-aid Regarding Transmission"
+  },
+  {
+   "pid": "isca-kagomiya13_interspeech",
+   "key": "t:evaluationofaboneconductedultrasonichearingaidinvocalemotiontransmission",
+   "title": "Evaluation of a Bone-Conducted Ultrasonic Hearing Aid in Vocal Emotion Transmission",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/kagomiya13-interspeech | title=Evaluation of a Bone-Conducted Ultrasonic Hearing Aid in Vocal Emotion Tran"
+  },
+  {
+   "pid": "isca-kawahara12b_turntake",
+   "key": "t:predictionofturntakingbycombiningprosodicandeyegazeinformationinposterconversati",
+   "title": "Prediction of Turn-Taking by Combining Prosodic and Eye-Gaze Information in Poster Conversations",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kawahara12b_turntake | title=Prediction of Turn-Taking by Combining Prosodic and Eye-Gaze Information in P"
+  },
+  {
+   "pid": "isca-medabalimi10",
+   "key": "p:isca-medabalimi10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Speaker-dependent MLFFNN TM->CSM source+system mapping (GCI-anchored) | modalities=contact_microphone, micro"
+  },
+  {
+   "pid": "isca-nakamura07_interspeech",
+   "key": "t:impactofvarioussmallsoundsourcesignalsonvoiceconversionaccuracyinspeechcommunica",
+   "title": "Impact of Various Small Sound Source Signals on Voice Conversion Accuracy in Speech Communication Aid for Laryngectomees",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/nakamura07-interspeech | title=Impact of Various Small Sound Source Signals on Voice Conversion Accuracy i"
+  },
+  {
+   "pid": "isca-nakamura10_interspeech",
+   "key": "t:theuseofairpressuresensorinelectrolaryngealspeechenhancementbasedonstatisticalvo",
+   "title": "The Use of Air-Pressure Sensor in Electrolaryngeal Speech Enhancement Based on Statistical Voice Conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/nakamura10-interspeech | title=The Use of Air-Pressure Sensor in Electrolaryngeal Speech Enhancement Based"
+  },
+  {
+   "pid": "isca-okamoto07_interspeech",
+   "key": "t:studyonspeakerverificationwithnonaudiblemurmursegments",
+   "title": "Study on Speaker Verification with Non-Audible Murmur Segments",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/okamoto07-interspeech | title=Study on Speaker Verification with Non-Audible Murmur Segments | authors=Hid"
+  },
+  {
+   "pid": "isca-ramamurty08_interspeech",
+   "key": "p:isca-ramamurty08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=system_proposal | Study.research_objective=low-bitrate TM speech representation via joint-VQ spectral"
+  },
+  {
+   "pid": "isca-sahidullah16b_interspeech",
+   "key": "t:robustspeakerrecognitionwithcombineduseofacousticandthroatmicrophonespeech",
+   "title": "Robust Speaker Recognition with Combined Use of Acoustic and Throat Microphone Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Robust Speaker Recognition with Combined Use of Acoustic and Throat Microphone Speech | Study.study_design=system_"
+  },
+  {
+   "pid": "isca-tajiri15_interspeech",
+   "key": "t:nonaudiblemurmurenhancementbasedonstatisticalconversionusingairandbodyconductive",
+   "title": "Non-Audible Murmur Enhancement based on Statistical Conversion using Air- and Body-Conductive Microphones in Noisy Environments",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Non-Audible Murmur Enhancement based on Statistical Conversion using Air- and Body-Conductive Microphones in Noisy"
+  },
+  {
+   "pid": "isca-tanaka13_interspeech",
+   "key": "t:ahybridapproachtoelectrolaryngealspeechenhancementbasedonspectralsubtractionands",
+   "title": "A Hybrid Approach to Electrolaryngeal Speech Enhancement Based on Spectral Subtraction and Statistical Voice Conversion",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/tanaka13-interspeech | title=A Hybrid Approach to Electrolaryngeal Speech Enhancement Based on Spectral Su"
+  },
+  {
+   "pid": "isca-turan13_interspeech",
+   "key": "t:anewstatisticalexcitationmappingforenhancementofthroatmicrophonerecordings",
+   "title": "A New Statistical Excitation Mapping for Enhancement of Throat Microphone Recordings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A New Statistical Excitation Mapping for Enhancement of Throat Microphone Recordings | intended_use_cases=noisy_en"
+  },
+  {
+   "pid": "isca-wang09b_interspeech",
+   "key": "t:barkshiftbasednonlinearspeakernormalizationusingthesecondsubglottalresonance",
+   "title": "Bark-shift based nonlinear speaker normalization using the second subglottal resonance",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/wang09b-interspeech | title=Bark-shift based nonlinear speaker normalization using the second subglottal r"
+  },
+  {
+   "pid": "isca-whispery05",
+   "key": "t:whisperyspeechrecognitionusingadaptedarticulatoryfeatures",
+   "title": "Whispery Speech Recognition using Adapted Articulatory Features",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-icassp.2005.1415287 | title=Whispery Speech Recognition using Adapted Articulatory Features | autho"
+  },
+  {
+   "pid": "isca-yegnanarayana04-interspeech",
+   "key": "p:isca-yegnanarayana04-interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=healthy_volunteers | population_description=40 laboratory v"
+  },
+  {
+   "pid": "isca-zhang07d_interspeech",
+   "key": "t:analysisandclassificationofspeechmodewhisperedthroughshouted",
+   "title": "Analysis and Classification of Speech Mode: Whispered through Shouted",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/zhang07d-interspeech | title=Analysis and Classification of Speech Mode: Whispered through Shouted | autho"
+  },
+  {
+   "pid": "isca-zhang08g_interspeech",
+   "key": "p:isca-zhang08g_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=locate and identify whispered islands embedded in ne"
+  },
+  {
+   "pid": "isca-zhang26y-sonispeech",
+   "key": "t:sonispeechalargescaleopenvocabularytrimodaldatasetforwearablesilentspeechinterfa",
+   "title": "SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces | authors=Ruidon"
+  },
+  {
+   "pid": "isspit2012-itoi-blind-speech-extraction-nam",
+   "key": "t:blindspeechextractionfornonaudiblemurmurspeechwithspeakersmovementnoise",
+   "title": "Blind Speech Extraction for Non-Audible Murmur Speech with Speaker's Movement Noise",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isspit2012/itoi-blind-speech-extraction-nam | title=Blind Speech Extraction for Non-Audible Murmur Speech with"
+  },
+  {
+   "pid": "naist-4824",
+   "key": "t:atissueconductiveacousticsensorappliedinspeechrecognitionforprivacy",
+   "title": "A tissue-conductive acoustic sensor applied in speech recognition for privacy",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A tissue-conductive acoustic sensor applied in speech recognition for privacy | authors=Panikos Heracleous, Yoshit"
+  },
+  {
+   "pid": "naist-msc2005-takenae-nam-noise",
+   "key": "t:nonaudiblemurmurnamrecognitioninnoisyenvironments",
+   "title": "Non-Audible Murmur (NAM) Recognition in Noisy Environments",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=naist-msc2005/takenae-nam-noise | title=Non-Audible Murmur (NAM) Recognition in Noisy Environments | authors=Ko"
+  },
+  {
+   "pid": "naist-msc2007-kojima-nam-verification",
+   "key": "t:speakerverificationusingnonaudiblemurmur",
+   "title": "Speaker Verification using Non-Audible Murmur",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=naist-msc2007/kojima-nam-verification | title=Speaker Verification using Non-Audible Murmur | authors=Mariko Ko"
+  },
+  {
+   "pid": "naist-phd2010-nakamura-el-vc",
+   "key": "t:speakingaidsystemsusingstatisticalvoiceconversionforelectrolaryngealspeech",
+   "title": "Speaking-Aid Systems Using Statistical Voice Conversion for Electrolaryngeal Speech",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=naist-phd2010/nakamura-el-vc | title=Speaking-Aid Systems Using Statistical Voice Conversion for Electrolarynge"
+  },
+  {
+   "pid": "oa-W2270281106",
+   "key": "t:improvingperformanceofnonaudiblemurmurrecognitionusingtransformednormalspeechdat",
+   "title": "Improving Performance of Non-Audible Murmur Recognition Using Transformed Normal Speech Data",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W2270281106 | title=Improving Performance of Non-Audible Murmur Recognition Using Transformed Normal Speech"
+  },
+  {
+   "pid": "pmc-10719268-mmdataset",
+   "key": "t:acomprehensivemultimodaldatasetforcontactlesslipreadingandacousticanalysis",
+   "title": "A comprehensive multimodal dataset for contactless lip reading and acoustic analysis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A comprehensive multimodal dataset for contactless lip reading and acoustic analysis | venue=Scientific Data | doi"
+  },
+  {
+   "pid": "pmc-10719268-rvtall",
+   "key": "t:acomprehensivemultimodaldatasetforcontactlesslipreadingandacousticanalysis",
+   "title": "A comprehensive multimodal dataset for contactless lip reading and acoustic analysis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10719268-rvtall | title=A comprehensive multimodal dataset for contactless lip reading and acoustic analysi"
+  },
+  {
+   "pid": "pmc-11143305-recurrenceplot",
+   "key": "t:recurrenceplotembeddingsasshortsegmentnonlinearfeaturesformultimodalspeakerident",
+   "title": "Recurrence plot embeddings as short segment nonlinear features for multimodal speaker identification using air, bone and throat microphones",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Recurrence plot embeddings as short segment nonlinear features for multimodal speaker identification using air, bo"
+  },
+  {
+   "pid": "pmc-11598394-eyewear-ssi",
+   "key": "t:silentspeecheyewearinterfacesilentspeechrecognitionmethodusingeyewearandanearmou",
+   "title": "Silent Speech Eyewear Interface: Silent Speech Recognition Method Using Eyewear and an Ear-Mounted Sensor",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11598394-eyewear-ssi | title=Silent Speech Eyewear Interface: Silent Speech Recognition Method Using Eyewea"
+  },
+  {
+   "pid": "pmc-13280397-taps",
+   "key": "t:throatandacousticpairedspeechdatasetfordeeplearningbasedspeechenhancement",
+   "title": "Throat and acoustic paired speech dataset for deep learning-based speech enhancement",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13280397-taps | title=Throat and acoustic paired speech dataset for deep learning-based speech enhancement"
+  },
+  {
+   "pid": "w-2246823171",
+   "key": "t:silentcommunicationwhisperedspeechtoclearspeechconversion",
+   "title": "Silent Communication: whispered speech-to-clear speech conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=w-2246823171 | title=Silent Communication: whispered speech-to-clear speech conversion | venue=PhD thesis, Univ"
+  },
+  {
+   "pid": "w-2256880750",
+   "key": "t:acousticcompensationmethodforacceptingdifferentrecordingdevicesinbodyconductedvo",
+   "title": "Acoustic compensation method for accepting different recording devices in body-conducted voice conversion",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=w-2256880750 | title=Acoustic compensation method for accepting different recording devices in body-conducted v"
+  },
+  {
+   "pid": "zenodo-22684290-strokevoice",
+   "key": "t:strokevoicealowcosthybridmultimodalaacecosystemforpoststrokeaphasiaanddysarthria",
+   "title": "StrokeVoice: A Low-Cost Hybrid Multimodal AAC Ecosystem for Post-Stroke Aphasia and Dysarthria",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=StrokeVoice: A Low-Cost Hybrid Multimodal AAC Ecosystem for Post-Stroke Aphasia and Dysarthria | authors=Phi Van L"
+  }
+ ],
+ "usual_approach": {
+  "design": "air and body-conducted channels combined for a recognizer (42) or for enhancement or conversion (32); deep-network fusion named in 23",
+  "n": 42,
+  "tier": "pattern match",
+  "pids": [
+   "isca-graciarena04_interspeech",
+   "doi-10.21437-interspeech.2015-583",
+   "arxiv-2502.11478",
+   "arxiv-2512.16518",
+   "zenodo-22684290-strokevoice"
+  ],
+  "population_unique": 68,
+  "note": "Full-text pattern counts over 68 unique ledger matches (upper bounds; a paper naming several uses is counted under each). Whispered or murmured wording 43."
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-graciarena04_interspeech",
+   "role": "prior",
+   "loc": "Abstract; Sec. 3, Table 1",
+   "quote": "The combined microphone approach significantly outperforms the single microphone approach in all the recognition experiments."
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2015-583",
+   "role": "prior",
+   "loc": "Abstract; Table 1",
+   "quote": "we propose a framework for NAM enhancement using not only the NAM microphone but also an air-conductive microphone."
+  },
+  {
+   "pid": "isca-graciarena04_interspeech",
+   "role": "sota",
+   "loc": "Sec. 3, Table 1",
+   "quote": "In Table 1 the clean WER is 18.2%, which increases significantly to 95.6% for the 0 dB case."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 3,
+  "recall": 0.75,
+  "missed": [
+   "isca-mehta17_neckacc"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "isca-graciarena04_interspeech",
+  "year": 2004,
+  "metric": "WER at 0 dB SNR, standard mic vs combined standard and throat mic features, 7 test speakers, 6,153-word vocabulary",
+  "value": 52.6,
+  "unit": "% (from 95.6%)",
+  "timing": "prior"
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 68,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "air and body-conducted channels combined for a recognizer (42) or for enhancement or conversion (32); deep-network fusion named in 23",
+   "n": 42,
+   "tier": "pattern match",
+   "population_unique": 68
+  },
+  "state_of_the_art": {
+   "pid": "isca-graciarena04_interspeech",
+   "year": 2004,
+   "metric": "WER at 0 dB SNR, standard mic vs combined standard and throat mic features, 7 test speakers, 6,153-word vocabulary",
+   "value": 52.6,
+   "unit": "% (from 95.6%)",
+   "timing": "prior"
+  },
+  "read": 2,
+  "read_prior": [
+   "doi-10.21437-interspeech.2015-583",
+   "isca-graciarena04_interspeech"
+  ],
+  "unread": 72,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.75
+ },
+ "used_by": [
+  "nasovoce"
+ ]
+}

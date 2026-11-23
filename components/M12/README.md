@@ -20,6 +20,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that report classification results on the 2020 International BCI Competition Track 3 imagined-speech data (15 subjects, five words or phrases, 64-channel EEG), including the organisers' review, classified by the test data scored: the competition's released test trials, the public validation subset used as test, cross-validation, or held-out subjects. Boundary: papers that only cite the dataset, and multi-dataset benchmarks where Track 3 results are not reported separately, are pattern matches only; versions count once.
 - Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/)
 
+## body-conducted-sensor-noise-test-protocol
+
+- Table: [`body-conducted-sensor-noise-test-protocol.csv`](body-conducted-sensor-noise-test-protocol.csv) (6960 slot-filled, 123 pattern match, usual design in 44, 3 read in full)
+- Inclusion rule: Same population as M05 body-conducted-sensor-with-air-microphone; design compared is whether quantitative noise tests expose the conducted sensor to the noise (noise physically present while recording, or noise recorded through both channels) or add noise digitally to the air channel only. Boundary: a paper naming both protocols is counted under each; qualitative field recordings do not count as a quantitative test.
+- Used in: [NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction](../../reviews/nasovoce/)
+
 ## cross-corpus-avsr-generalization
 
 - Table: [`cross-corpus-avsr-generalization.csv`](cross-corpus-avsr-generalization.csv) (6960 slot-filled, 75 pattern match, usual design in 33, 4 read in full)

@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## air-and-body-conducted-channel-fusion
+
+- Table: [`air-and-body-conducted-channel-fusion.csv`](air-and-body-conducted-channel-fusion.csv) (7345 slot-filled, 68 pattern match, usual design in 42, 2 read in full)
+- Inclusion rule: Speech studies that feed an air-microphone channel and a skin-, bone- or tissue-conducted channel from the same talker into one model or feature mapping (enhancement, conversion or recognition). Boundary: systems that use the conducted channel only for voice activity detection are counted by pattern only; reviews count as pattern matches; versions count once.
+- Used in: [NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction](../../reviews/nasovoce/)
+
 ## articulator-video-spatiotemporal-front-end
 
 - Table: [`articulator-video-spatiotemporal-front-end.csv`](articulator-video-spatiotemporal-front-end.csv) (7345 slot-filled, 1342 pattern match, usual design in 380, 5 read in full)
