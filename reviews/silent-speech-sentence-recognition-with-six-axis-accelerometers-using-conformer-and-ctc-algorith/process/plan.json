@@ -1,0 +1,58 @@
+{
+ "target": "arxiv-2502.17829",
+ "changed": [
+  "M03",
+  "M05",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Prompted repeated silent articulation of listed words (100 times) and sentences or phrases (30 times); no new recording action.",
+  "M02": "Text labels of the silent utterance with CTC plus cross-entropy; the usual CTC-text design (published table M02/silent-articulation-text-label-supervision).",
+  "M04": "Silent articulation of intended words; offline.",
+  "M07": "No external language model, lexicon or CTC search procedure stated (t50, t51).",
+  "M08": "Word-sequence text; synthesis left to future work.",
+  "M09": "Offline study.",
+  "M10": "Offline study.",
+  "M11": "Fixed prompt list (Table 1) as reference; session count and label verification not stated.",
+  "M13": "Portability and daily-use claim (Sec. 5) without wearability, comfort, latency or power measurement; authors concede comfort (Sec. 4)."
+ },
+ "prep_corrections": "plan.draft.json put M02 as changed (text-label CTC supervision is the usual design) and M13 as incidental; M03 (word-concatenation training sentences) was missing; the M05 draft pattern required silent-speech, inertial and ablation words in one ledger line (overbroad/fragile); M06 reused the closed-vocabulary word classification table whose usual approach is 'model_family=other', which does not compare sequence decoders. Rebuilt M03, M05, M06; M12 reused as published.",
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "wearable-silent-sentence-decoding",
+   "inclusion_rule": "Sentence or phrase recognition from silently articulated speech measured by body-worn or contact non-video sensors (EMG, inertial, strain, triboelectric, magnetic, EMA, ultrasound, active acoustic); the design compared is how a sentence is decoded: whole-sentence classification, HMM decoding, CTC, or attention sequence-to-sequence. Boundary: lip video, imagined speech, overt-only and synthesis-only studies are outside; a study counts under every decoder its full text names (upper bound, related-work mentions included); versions count once.",
+   "pattern": "(?s)\\A(?=.*task_family=sentence_recognition)(?=.*(silent_articulation|no_vocalization|silent(ly)? (speech|articulat|mouth)|mouthed|lip language|subvocal))(?=.*(accelerometer|gyroscope|inertial|\\bimu\\b|motion capture|strain[_ -]?(sensor|gauge)|triboelectric|piezo|surface_emg|\\bsemg\\b|\\bemg\\b|electromyograph|acoustic[_ ]sensing|inaudible|magnet|radar|ultrasound))",
+   "design_field": "full-text regexes ctc, hmm, attention_seq2seq, sentence_as_class, word_concat_synthesis",
+   "metric": "sentence or phrase accuracy / WER at the stated vocabulary and split"
+  },
+  {
+   "slot": "M03",
+   "topic": "word-concatenation-sentence-training-data",
+   "inclusion_rule": "The same 54-study population as M06/wearable-silent-sentence-decoding, classified by how sentence-level training data are obtained or enlarged: synthetic sentences concatenated from recorded word samples, additive noise, time masking or warping; a study counts under every design its full text names (upper bound); a study that names concatenation only to reject it is counted and read.",
+   "pattern": "(?s)\\A(?=.*task_family=sentence_recognition)(?=.*(silent_articulation|no_vocalization|silent(ly)? (speech|articulat|mouth)|mouthed|lip language|subvocal))(?=.*(accelerometer|gyroscope|inertial|\\bimu\\b|motion capture|strain[_ -]?(sensor|gauge)|triboelectric|piezo|surface_emg|\\bsemg\\b|\\bemg\\b|electromyograph|acoustic[_ ]sensing|inaudible|magnet|radar|ultrasound))",
+   "design_field": "full-text regexes word_concat_synthesis, additive_noise, time_masking_or_warping",
+   "metric": "sentence accuracy on actually spoken sentences when trained on synthetic concatenations"
+  },
+  {
+   "slot": "M05",
+   "topic": "wearable-inertial-silent-speech-sensing",
+   "inclusion_rule": "Silent-speech studies (any task) whose ledger or full text names wearable accelerometers, gyroscopes or IMUs on the face, jaw or neck; the design compared is the inertial quantity used (acceleration only, gyroscope or attitude angles) and whether sensor count, subsets or axes are compared. Boundary: body-conduction microphones and accelerometers used only as vibration pickups for voiced speech, EMA/magnetic tracking without inertial sensors, and hand or body gesture IMUs are outside when read; versions count once.",
+   "pattern": "(?s)\\A(?=.*(accelerometer|gyroscope|inertial (sensor|measurement)|\\bimus?\\b|motion capture))(?=.*(silent_articulation|no_vocalization|silent(ly)? (speech|articulat)|mouthed|lip language|subvocal|silent speech interface)) plus full-text pattern",
+   "design_field": "full-text regexes gyroscope, sensor_subset_comparison, axis_comparison",
+   "metric": "silent word or sentence accuracy against sensor count"
+  },
+  {
+   "slot": "M12",
+   "topic": "wearable-sensor-word-test-split",
+   "reuse": "components/M12/wearable-sensor-word-test-split.json",
+   "inclusion_rule": "Reused published table: word or command classification studies with a wearable non-acoustic face or neck sensor, classified by how test samples are separated from training samples (speaker-disjoint, session- or day-disjoint, random or per-class split).",
+   "pattern": "published pattern",
+   "design_field": "published full-text split counts",
+   "metric": "accuracy under the stated split"
+  }
+ ]
+}
