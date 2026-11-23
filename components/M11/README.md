@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## asr-retranscribed-evaluation-reference
+
+- Table: [`asr-retranscribed-evaluation-reference.csv`](asr-retranscribed-evaluation-reference.csv) (234 slot-filled, 165 pattern match, usual design in 20, 5 read in full)
+- Inclusion rule: Include the video-to-speech population of components/M06 (speech waveform synthesized from talking-face or lip video, audio muted at test) and classify from the full text (reference list removed) how the text reference for ASR-scored intelligibility is built: ASR transcripts of the real audio used as the reference (re-transcription), and whether the ASR error on the real test audio is reported beside the systems. Boundary: a study counts under every design its text names (upper bound); audio-visual enhancement, talking-head generation and text-only lip reading excluded; versions counted once.
+- Used in: [LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning](../../reviews/lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear/)
+
 ## conversational-av-speech-test-corpus
 
 - Table: [`conversational-av-speech-test-corpus.csv`](conversational-av-speech-test-corpus.csv) (234 slot-filled, 59 pattern match, usual design in 16, 2 read in full)

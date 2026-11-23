@@ -26,6 +26,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that synthesize speech from a non-acoustic signal (video, ultrasound, EMG, articulography, neural recordings) and pre-train the speech-generating part of the model (decoder, generator or speech autoencoder) on speech data without the non-acoustic signal, then transfer it into the signal-to-speech model. Boundary: an off-the-shelf pretrained vocoder used alone is counted separately (pretrained_vocoder_only), encoder-side self-supervised pre-training on the non-acoustic signal belongs to M03 self-supervised-pretraining, audio-visual paired pre-training (VoxCeleb2) is counted separately, knowledge distillation into a visual encoder belongs to M02 audio-knowledge-transfer-to-video; full-text design counts are pattern matches (upper bounds, mentions included); versions counted once.
 - Used in: [Large-scale unsupervised audio pre-training for video-to-speech synthesis](../../reviews/large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis/)
 
+## cross-lingual-encoder-transfer-to-video-speech
+
+- Table: [`cross-lingual-encoder-transfer-to-video-speech.csv`](cross-lingual-encoder-transfer-to-video-speech.csv) (1526 slot-filled, 468 pattern match, usual design in 43, 1 read in full)
+- Inclusion rule: Include lip-reading, visual speech recognition and video-to-speech studies whose ledger names a non-English target language (Mandarin, Chinese, German, Korean, Spanish and others) or a multilingual or cross-lingual setting, and classify from the full text (reference list removed) whether the visual encoder is pretrained on English or other external data and then transferred, is an AV-HuBERT-family encoder, or is trained from scratch. Boundary: a study counts under every design its text names (upper bound; related-work mentions included); audio-only encoders excluded; versions counted once.
+- Used in: [LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning](../../reviews/lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear/)
+
 ## cross-subject-pooled-training
 
 - Table: [`cross-subject-pooled-training.csv`](cross-subject-pooled-training.csv) (1526 slot-filled, 370 pattern match, usual design in 90, 4 read in full)

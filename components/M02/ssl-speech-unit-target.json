@@ -957,6 +957,18 @@
    "loc": "Sec. Linguistic Predictor; Table 5",
    "quote": "HuBERT-LARGE layer 12, 200 clusters; removing the linguistic predictor raises Lip2Wav WER from 34.71 to 42.51",
    "added_by": "let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos"
+  },
+  {
+   "pid": "arxiv-2305.19603",
+   "role": "prior",
+   "loc": "Sec. 2.2",
+   "quote": "The speech units can be obtained by quantizing speech representations"
+  },
+  {
+   "pid": "arxiv-2411.19486",
+   "role": "prior",
+   "loc": "Sec. II",
+   "quote": "we employ HuBERT tokens discretized by K-means algorithm"
   }
  ],
  "known_item_recall": {
@@ -1000,6 +1012,7 @@
  "used_by": [
   "intelligible-lip-to-speech-synthesis-with-speech-units",
   "let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos",
+  "lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear",
   "speaking-without-sound-multi-speaker-silent-speech-voicing-with-facial-inputs-only"
  ],
  "state_of_the_art_lrs3": {
@@ -1033,6 +1046,227 @@
   "read_prior": [
    "arxiv-2202.09081-vcvts",
    "arxiv-2212.11377"
+  ],
+  "unread": 68,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "ledger_tally_lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear": {
+  "design_slot": "M02",
+  "design_slot_fill": 0.003,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "InformationUse.access_class=privileged_training",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "information_availability=training_only",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "target_relation=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "InformationUse.use_stage=training",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "InformationUse.information_consumer=synthetic-nam generator (hifigan decoder) training on recorded multinam nams",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "hubert_unit_target",
+    "n": 23,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2509.25670",
+     "arxiv-2510.23969",
+     "isca-lee26v_interspeech",
+     "isca-toussaint26_interspeech"
+    ]
+   },
+   {
+    "design": "f0_target",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2509.25670",
+     "arxiv-2603.04296",
+     "arxiv-2603.08046",
+     "arxiv-2411.19486"
+    ]
+   },
+   {
+    "design": "asr_finetuned_ssl_target",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2509.25670"
+    ]
+   }
+  ],
+  "metric_pattern": "\\bWER\\b|word error|\\bCER\\b|character error",
+  "better": "lower"
+ },
+ "sota_candidates_lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear": [
+  {
+   "metric": "Env.CC 0.66 both datasets; PhonAcc 82.65% EMG-audio / 76.86% LibriTTS; WER 10.29/12.28",
+   "value": 0.66,
+   "unit": "Env.CC",
+   "raw": "best Env.CC=0.66 both datasets; PhonAcc 82.65% (EMG-test audio) / 76.86% (LibriTTS); WER 10.29/12.28 vs ~125 baseline",
+   "pid": "isca-scheck23_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 gt wer",
+   "value": 0.71,
+   "unit": "percent",
+   "raw": "0.71%",
+   "pid": "arxiv-2502.12002",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CER (Character Error Rate)",
+   "value": 0.9,
+   "unit": "percent",
+   "raw": "0.9",
+   "pid": "arxiv-2602.01879",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 1.07,
+   "unit": "percent",
+   "raw": "1.07",
+   "pid": "arxiv-2412.18839",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "quantitative LRS2 + L2T-WER",
+   "value": 1.61,
+   "unit": "PESQ",
+   "raw": "LRS2 Ours vs Multi-task L2S 1.36 / SVTS 1.34 / VCA-GAN 1.24",
+   "pid": "arxiv-2403.01087",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Text WER",
+   "value": 2.1,
+   "unit": "percent",
+   "raw": "0.021",
+   "pid": "arxiv-2609.04455",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "resyn WER",
+   "value": 2.71,
+   "unit": null,
+   "raw": "2.71",
+   "pid": "arxiv-2309.08030",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (NeMo FastConformer)",
+   "value": 3.9,
+   "unit": "percent",
+   "raw": "Normal Speech table cell",
+   "pid": "arxiv-2603.04296",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "impl bf-resyn gap",
+   "value": 4.4,
+   "unit": "wer",
+   "raw": "4.4",
+   "pid": "arxiv-2212.11377",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table2 wtn cer",
+   "value": 4.66,
+   "unit": "%",
+   "raw": "4.66",
+   "pid": "arxiv-2303.01639",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "known_item_recall_lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear": {
+  "seeds_in_wiki": 4,
+  "found": 3,
+  "recall": 0.75,
+  "missed": [
+   "arxiv-2205.02058"
+  ]
+ },
+ "state_of_the_art_lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear": {
+  "pid": "arxiv-2411.19486",
+  "year": 2024,
+  "metric": "LRS3 ASR WER, unseen speakers (SVTS split), HuBERT content tokens plus YAAPT pitch tokens predicted from video, speaker embedding from video",
+  "value": 28.5,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "deciding_priors_note_lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear": "Target first public 2025-09. Speech-unit targets in video-to-speech before it: Intelligible (2023-05, HuBERT, 200 clusters) and V2SFlow (2024-11, HuBERT tokens plus YAAPT pitch), both read. ASR-fine-tuned SSL features as the unit target: the target only (1 of 54, pattern match); no repetition across seeds or datasets.",
+ "tally_lta-l2s-lexical-tone-aware-lip-to-speech-synthesis-for-mandarin-with-cross-lingual-transfer-lear": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 54,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "supervision_kind=paired_audio",
+   "n": 11,
+   "tier": "slot-filled",
+   "population_unique": 22
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2411.19486",
+   "year": 2024,
+   "metric": "LRS3 ASR WER, unseen speakers (SVTS split), HuBERT content tokens plus YAAPT pitch tokens predicted from video, speaker embedding from video",
+   "value": 28.5,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 7,
+  "read_prior": [
+   "arxiv-2202.09081-vcvts",
+   "arxiv-2212.11377",
+   "arxiv-2305.19603",
+   "arxiv-2411.19486"
   ],
   "unread": 68,
   "confirmed_unique": 0,
