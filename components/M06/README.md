@@ -281,6 +281,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Visual or audio-visual speech recognition studies (lip reading, VSR, AVSR; word or sentence level) whose ledger names lip reading, VSR, AVSR or an LRS/LRW benchmark. The design compared is how the per-frame spatial feature map of the visual front-end is reduced to a vector: global average pooling (or flatten) after a CNN/ResNet trunk, versus learned spatial attention or transformer pooling over the map. Boundary: temporal attention alone, attention used for audio-visual fusion, and ROI cropping are not spatial pooling; reviews count as pattern matches only; versions of one study count once.
 - Used in: [Sub-word Level Lip Reading With Visual Attention](../../reviews/sub-word-level-lip-reading-with-visual-attention/)
 
+## wearable-silent-sentence-decoding
+
+- Table: [`wearable-silent-sentence-decoding.csv`](wearable-silent-sentence-decoding.csv) (7345 slot-filled, 54 pattern match, usual design in 30, 6 read in full)
+- Inclusion rule: Sentence or phrase recognition from silently articulated speech measured by body-worn or contact non-video sensors (EMG, inertial, strain, triboelectric, magnetic, EMA, ultrasound, active acoustic); the design compared is how a sentence is decoded: whole-sentence classification, HMM decoding, CTC, or attention sequence-to-sequence. Boundary: lip video, imagined speech, overt-only and synthesis-only studies are outside; a study counts under every decoder its full text names (upper bound, related-work mentions included); versions count once.
+- Used in: [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](../../reviews/silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/)
+
 ## whisper-conversion-intermediate-representation
 
 - Table: [`whisper-conversion-intermediate-representation.csv`](whisper-conversion-intermediate-representation.csv) (7345 slot-filled, 60 pattern match, usual design in 50, 5 read in full)

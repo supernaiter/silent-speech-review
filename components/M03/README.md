@@ -159,3 +159,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`unlabeled-test-time-adaptation.csv`](unlabeled-test-time-adaptation.csv) (1526 slot-filled, 26 pattern match, usual design in 11, 2 read in full)
 - Inclusion rule: Decoders of speech-related or neural signals (any modality: EEG, intracranial, EMG, ultrasound, video) that update model weights or normalization state from unlabeled test data at use time (self-supervised test-time training, entropy minimization such as Tent, pseudo-label self-training, source-free adaptation). Boundary: training-only auxiliary losses are M02; supervised recalibration on labeled target data is excluded; flip or crop test-time augmentation without parameter updates is a pattern match only; citing-only mentions count as full-text hits; versions count once.
 - Used in: [NeuroTTT: Bridging Pretrain–Downstream Task Misalignment in EEG Foundation Models via Test-Time Training](../../reviews/neurottt-bridging-pretraining-downstream-task-misalignment-in-eeg-foundation-models-via-test-tim/)
+
+## word-concatenation-sentence-training-data
+
+- Table: [`word-concatenation-sentence-training-data.csv`](word-concatenation-sentence-training-data.csv) (1526 slot-filled, 54 pattern match, usual design in 17, 3 read in full)
+- Inclusion rule: The same 54-study population as M06/wearable-silent-sentence-decoding, classified by how sentence-level training data are obtained or enlarged: synthetic sentences concatenated from recorded word samples, additive noise, time masking or warping; a study counts under every design its full text names (upper bound); a study that names concatenation only to reject it is counted and read.
+- Used in: [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](../../reviews/silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/)

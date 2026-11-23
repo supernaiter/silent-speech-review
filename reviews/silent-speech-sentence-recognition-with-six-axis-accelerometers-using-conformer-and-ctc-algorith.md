@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/](silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/).**
 
-Uses six wearable 6-axis IMUs (accelerometer plus gyroscope) on the face and neck with a Conformer-CTC model to recognize silently articulated words and word sequences. Reports 97.17% word-level accuracy in a 4-participant study.
+CTC decoder (M06), concatenated training sentences (M03) and six IMUs (M05) are standard: CTC silent-phrase decoding predates it; 97.17% is a word ratio on 4 people, split unstated.
 
 [Read the full review](silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/) · [All reviews](../README.md)

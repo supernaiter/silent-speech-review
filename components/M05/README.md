@@ -113,6 +113,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include the video-to-speech population of components/M06/video-to-speech-synthesis (speech waveform synthesized from talking-face or lip video, audio muted at test) and count, from the full text with the reference list removed, the visual input named: a mouth or lip crop, the full face, an optical-flow stream. Boundary: a study counts under every input its text names (upper bound; related-work mentions included); audio-visual enhancement with noisy audio at test, talking-head generation and video-to-text-to-speech pipelines excluded; versions counted once.
 - Used in: [Improved Speech Reconstruction from Silent Video](../../reviews/improved-speech-reconstruction-from-silent-video/)
 
+## wearable-inertial-silent-speech-sensing
+
+- Table: [`wearable-inertial-silent-speech-sensing.csv`](wearable-inertial-silent-speech-sensing.csv) (7329 slot-filled, 13 pattern match, usual design in 14, 3 read in full)
+- Inclusion rule: Silent-speech studies (any task) whose ledger or full text names wearable accelerometers, gyroscopes or IMUs on the face, jaw or neck; the design compared is the inertial quantity used (acceleration only, gyroscope or attitude angles) and whether sensor count, subsets or axes are compared. Boundary: body-conduction microphones and accelerometers used only as vibration pickups for voiced speech, EMA/magnetic tracking without inertial sensors, and hand or body gesture IMUs are outside when read; versions count once.
+- Used in: [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](../../reviews/silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/)
+
 ## wearable-integrated-dry-emg-speech-sensing
 
 - Table: [`wearable-integrated-dry-emg-speech-sensing.csv`](wearable-integrated-dry-emg-speech-sensing.csv) (7329 slot-filled, 21 pattern match, usual design in 16, 2 read in full)
