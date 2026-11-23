@@ -2234,6 +2234,18 @@
    "role": "target",
    "loc": "Sec. V-D",
    "quote": "To measure the quality and intelligibility of our reconstructed speech we employ 4 objective metrics"
+  },
+  {
+   "pid": "arxiv-2411.19486",
+   "role": "sota",
+   "loc": "Table I; Sec. III-A",
+   "quote": "V2SFlow-V 3.780 28.5 0.664 0.251 8.09"
+  },
+  {
+   "pid": "arxiv-2503.16956",
+   "role": "sota",
+   "loc": "Sec. 5.2; Table 1",
+   "quote": "real-world ground truth audio often contains significant background noise, which adversely affects the audio quality"
   }
  ],
  "known_item_recall": {
@@ -2256,6 +2268,7 @@
   "harnessing-ai-for-speech-reconstruction-using-multi-view-silent-video-feed",
   "improved-speech-reconstruction-from-silent-video",
   "large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis",
+  "sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis",
   "video-driven-speech-reconstruction-using-generative-adversarial-networks"
  ],
  "tally": {
@@ -2346,5 +2359,85 @@
   "unread": 187,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
- }
+ },
+ "fulltext_pattern_sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis": {
+  "mos_predictor": "UTMOS|DNSMOS|SCOREQ|NISQA",
+  "output_exceeds_ground_truth": "(exceed|surpass|outperform|higher than|above)[^.]{0,40}(the )?ground[- ]truth",
+  "ci_or_significance": "confidence interval|significan(t|ce|tly) (difference|test|better)|p ?< ?0\\.0|t-test|Wilcoxon",
+  "audio_reference_speaker_embedding": "speaker embeddings? (derived |extracted )?from (the |a )?(reference )?(audio|utterance|speech)|reference (audio|utterance|speech)"
+ },
+ "tally_sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis": {
+  "population_unique": 165,
+  "slot_filled_unique": 6960,
+  "tier": "pattern match",
+  "pattern_counts": [
+   {
+    "design": "ci_or_significance",
+    "n": 40,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2602.01908",
+     "arxiv-2606-09667-xmask",
+     "arxiv-2610.01012",
+     "doi-10.3390-s26134175"
+    ]
+   },
+   {
+    "design": "mos_predictor",
+    "n": 21,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2509.25670",
+     "arxiv-2601.14777",
+     "arxiv-2602.01908",
+     "arxiv-2602.11477"
+    ]
+   },
+   {
+    "design": "audio_reference_speaker_embedding",
+    "n": 21,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2601.14777",
+     "arxiv-2602.01908",
+     "arxiv-2602.11477",
+     "arxiv-2603.14267",
+     "arxiv-2610.01012"
+    ]
+   },
+   {
+    "design": "output_exceeds_ground_truth",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2411.19486",
+     "arxiv-2502.03128",
+     "arxiv-2503.16956",
+     "isca-liang25d-lightl2s",
+     "arxiv-2207.03800"
+    ]
+   }
+  ],
+  "known_item_recall": {
+   "seeds_in_wiki": 3,
+   "found": 3,
+   "recall": 1.0,
+   "missed": []
+  },
+  "read": [
+   "arxiv-2411.19486",
+   "arxiv-2503.16956"
+  ]
+ },
+ "state_of_the_art_sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis": {
+  "pid": "arxiv-2411.19486",
+  "year": 2024,
+  "metric": "LRS3 ASR WER on unseen speakers (SVTS split), same 28.5% with audio- or video-derived speaker embedding; SECS 0.851 vs 0.664",
+  "value": 28.5,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "deciding_priors_note_sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis": "Target first public 2026-02. Reference-free MOS predictors scoring synthesized speech above ground truth were reported and explained by background noise in the recordings before it: V2SFlow (2024-11) and Faces-to-Voices (2025-03), both read. Audio- versus video-derived speaker embedding at equal WER: V2SFlow Table I."
 }

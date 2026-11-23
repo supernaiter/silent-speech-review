@@ -1,103 +1,127 @@
 # SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis
 
-Yifan Liang, Andong Li, Kang Yang, Guochen Yu, Fangkun Liu, Lingling Dai, Xiaodong Li, Chengshi Zheng  
-arXiv 2026 · [arXiv](https://arxiv.org/abs/2602.11477)
+Liang, Y., Li, A., Yang, K., Yu, G., Liu, F., Dai, L., Li, X., Zheng, C. · arXiv preprint (AAAI 2026 copyright line) · 2026 · [arXiv:2602.11477](https://arxiv.org/abs/2602.11477)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis* (Yifan Liang et al., arXiv 2026) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Lip & face video](../../README.md#lip--face-video)
 
-SLD-L2S, a hierarchical subspace latent diffusion model for lip-to-speech synthesis that improves naturalness, while word accuracy and speaker similarity trail stronger baselines.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Existing RGB video (mouth crops) |
-| Task | Lip-to-speech synthesis |
-| Vocabulary | Continuous speech; size not reported |
-| Speaker | Not stated |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | LRS3 WER 30.22%, UTMOS 4.21; listener naturalness 4.17 vs 3.88 (V2SFlow) |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Needs reference audio for speaker identity; WER worse than baselines; small listener study; no measured runtime or latency.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | LRS3 overt speech | Recorded speech video | 3,882 of 8,995 | ● Standard (Inherited.) |
+| M02 Teacher signal | Codec latents; WavLM, HuBERT losses | Paired-audio targets | 31 of 8,995 | ● Standard (SLM loss trades quality for content (Table 3).) |
+| M03 Train / calibrate | One run; selection unstated | Training records | 1,526 of 8,995 | ● Standard (No seeds or selection rule.) |
+| M04 Use-time act | Overt speech, audio muted | Silent or overt | 5,595 of 8,995 | ● Standard (Inherited.) |
+| M05 Sensing | Mouth crop, AV-HuBERT | Camera video | 7,329 of 8,995 | ● Standard (Inherited.) |
+| M06 Decoding | Flow matching to codec latents | Adversarial training | 54 of 8,995 | ● Standard (Continuous codec latent 1 of 165; effect not isolated.) |
+| M07 Runtime aids | Reference-audio speaker embedding | Lexicon or LM | 119 of 8,995 | ● Standard (Audio-reference speaker embedding named in 21 of 165 video-to-speech studies (pattern match); three of five baselines lack it.) |
+| M08 Output | X-Codec decoder | Waveform or text | 3,268 of 8,995 | ● Standard (See M06.) |
+| M09 Confirmation | Offline | Offline | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | Offline | Offline | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | LRS3, LRS2 references | Corpus references | 234 of 8,995 | ● Standard (Inherited.) |
+| M12 Evaluation | 15 listeners, ASR WER | Listener test | 83 of 8,995 | ● Standard (Unseen speakers not stated.) |
+| M13 Hardware & limits | Training compute; no runtime | Hardware and cost | 6,075 of 8,995 | ✕ Not reported (Efficiency claimed without inference runtime.) |
 
-Improves lip-to-speech naturalness with a structured codec-latent flow model, but word accuracy and speaker similarity trail stronger baselines; reference audio and unmeasured runtime limit broader claims.
+</details>
 
-### Review
+## Verdict
 
-SLD-L2S makes a plausible case for generating continuous neural-codec latents with a structured convolutional flow model. The matched DiT comparison and the LRS2 transfer test are useful, and the strongest outcome is improved perceived naturalness: LRS3 listeners rate the proposed method at 4.17 versus 3.88 for V2SFlow. That gain should not be mistaken for better recovery of the words. WER is 30.22% on LRS3 and 39.54% on LRS2, worse than V2SFlow and substantially worse than LipVoicer; subjective intelligibility and speaker similarity also remain below V2SFlow. Learned quality predictors even rate the generated speech above the original recordings, illustrating why these scores cannot establish faithful reconstruction by themselves. The input boundary also matters: although linguistic content comes from video, a reference audio utterance supplies the speaker embedding, so the evaluated system does not recover voice identity from lip movements alone. The ablations reveal a multi-objective trade-off rather than uniformly beneficial components: removing the SLM loss improves UTMOS, SCOREQ and WER while reducing D-BERT and speaker similarity. Finally, ten flow evaluations are an algorithmic step count, not measured end-to-end latency, and ordinary speech-video benchmarks do not establish transfer to actual silent articulation or speech impairment. This is a worthwhile synthesis-quality result with a concrete architecture contribution, but content fidelity and operational evidence remain the main limitations.
+SLD-L2S [[1]](#ref-1) changes the decoder (M06): flow matching on a convolutional subspace backbone that generates continuous neural-codec latents. That target appears in 1 of 165 video-to-speech studies, this one (pattern match, Appendix), after discrete codec-token generators [[2]](#ref-2), [[3]](#ref-3), but no control separates that target from the backbone or from the pretrained, LibriSpeech-trained X-Codec decoder, an untested source of the predictor-score gain (inference), so M06 is standard. The claimed state of the art in perceptual quality rests on reference-free predictors that score the output above the recordings (UTMOS 4.2096 against 3.5721 for ground truth, Table 1), a gap earlier systems traced to noise in LRS3 audio [[4]](#ref-4), [[5]](#ref-5). Faces-to-Voices, cited but missing from Table 1, reached UTMOS 4.031 at the same 10 steps with a speaker embedding from video [[5]](#ref-5). WER (30.22%) trails V2SFlow (27.55%) and LipVoicer (20.62%), and the second-best speaker similarity rests on a reference-audio embedding (M07) that three of five baselines lack. Evaluation (M12) is standard, but cross-paper WER needs one ASR: V2SFlow scores 27.55% in the target's table and 28.5% in its own paper; the efficiency claim (M13) gives training compute but no inference runtime.
 
-### Why it matters
+## Against the field, component by component
 
-Demonstrates a quality-oriented continuous-codec generation route and exposes the trade-offs among naturalness, lexical accuracy and identity preservation.
+### M06 Decoder: continuous codec latents with flow matching
 
-### Prior state of the art
+**Usual approach:** Of 165 video-to-speech studies (pattern match), 54 use adversarial training, 22 a diffusion and 19 a flow decoder; 8 name neural-codec generation, and the 2 prior video-to-speech systems among them generate discrete tokens [[2]](#ref-2), [[3]](#ref-3). SLD-L2S keeps flow matching and makes continuous X-Codec latents the target.
 
-Lip-to-speech systems already use AV-HuBERT, diffusion/flow models and neural codecs or speech units. Lip movements underdetermine phonetic detail, prosody and speaker voice; generative priors can improve naturalness without guaranteeing intended words.
+**State of the art:** Faces-to-Voices (2025): LRS3 UTMOS 4.031 and 30.45% WER at 10 steps, speaker embedding from video (Table 2) [[5]](#ref-5). SLD-L2S is about 0.18 UTMOS higher with an audio reference and another ASR (inference); the WER gap is not interpretable. The [concurrent] HiCoDiT, a discrete RVQ codec diffusion model, reports 29.41% from video alone at 64 steps without LRS3 training [[6]](#ref-6).
 
-### What changed
+The case for the latent target is argument (Abstract): Table 1 compares whole systems, and no ablation trains DiCB on mel or tokens. The ablations are single LRS3 runs: a parameter-matched DiT (57.7M against 57.8M) drops SECS from 0.804 to 0.618 but moves WER only to 30.70% (Table 3); velocity prediction lowers UTMOS to 3.9540 while WER improves to 29.70%. Verdict: standard.
 
-Generates continuous X-Codec-hubert latents from visual features and a reference speaker embedding using subspace convolutional flow modeling, instead of directly predicting mel features or discrete residual tokens.
+### M12 Evaluation: quality predictors and the speaker reference
 
-### Position in the field
+**Usual approach:** Of 165 video-to-speech studies (pattern match), 83 name a listener test, 38 ASR WER and 51 unseen speakers; 21 use a reference-free MOS predictor and 40 confidence intervals or significance tests (Appendix). SLD-L2S uses 15 listeners, 30 clips and ASR WER, and its Datasets section names the official LRS3 splits but not whether test speakers are unseen.
 
-Non-invasive video-to-speech synthesis with audio-conditioned speaker identity; adjacent to silent-speech interfaces but evaluated on normal speech videos.
+**State of the art:** V2SFlow (arXiv 2024): 28.5% LRS3 WER on unseen speakers with an audio- or a video-derived speaker embedding; SECS 0.851 against 0.664 (Table I) [[4]](#ref-4).
 
-### Practical value
+The target's V2SFlow row (SECS 0.851) is the audio-reference variant, and its own 0.804 also uses a reference utterance (Table 1 caption), while DiffV2S, LipVoicer and NaturalL2S (0.627, 0.588, 0.628) get none; the DiT ablation (0.618) falls to their level (inference). Five of the 165 studies state that output scores exceed ground truth; the target's results discussion does not comment, while its listeners rate it below ground truth (4.17 against 4.36, Table 2). The target scores every system with AUTO-AVSR, and its ground truth reaches 0.71% WER against 2.5% in V2SFlow's own table, so its baseline WERs are re-scored (inference) and not comparable with published ones. Verdict: standard; the overreach is in the conclusions (next section), not the protocol.
 
-A promising high-naturalness synthesis baseline; applications requiring exact communication should prioritize reducing word errors and validating input/reference conditions.
+## The 13 components
 
-### Advanced
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | LRS3 overt speech | Recorded speech video (slot-filled 3,882) | – | standard |
+| M02 Training-only supervision | Codec latents; WavLM, HuBERT losses | Paired-audio targets (slot-filled 31) | – | standard |
+| M03 Training and adaptation | One run; selection unstated | Training records (slot-filled 1,526) | – | standard |
+| M04 Use-time action | Overt speech, audio muted | Silent or overt (slot-filled 5,595) | – | standard |
+| M05 Sensors | Mouth crop, AV-HuBERT | Camera video (slot-filled 7,329) | – | standard |
+| M06 Processing and decoding | Flow matching to codec latents | Adversarial training (pattern match 54) | [[5]](#ref-5) (2025): UTMOS 4.031, 10 steps | standard |
+| M07 Lexicon and LM | Reference-audio speaker embedding | Lexicon or LM (slot-filled 119) | – | standard |
+| M08 Output | X-Codec decoder | Waveform or text (slot-filled 3,268) | – | standard |
+| M09 Confirmation | Offline | Offline (slot-filled 82) | – | not applicable |
+| M10 Correction | Offline | Offline (slot-filled 82) | – | not applicable |
+| M11 Reference construction | LRS3, LRS2 references | Corpus references (slot-filled 234) | – | standard |
+| M12 Evaluation | 15 listeners, ASR WER | Listener test (pattern match 83) | [[4]](#ref-4) (arXiv 2024): 28.5% WER | standard |
+| M13 Device and cost | Training compute; no runtime | Hardware and cost (slot-filled 6,075) | – | not reported |
 
-Higher predicted audio-quality scores on two benchmarks and higher rated naturalness on LRS3; ten flow evaluations rather than thirty for V2SFlow; parameter-matched backbone and loss ablations.
+## Where the claims outrun the evidence
 
-### Unresolved
+- "New state-of-the-art in perceptual quality" (§Comparison) rests on predictors that rank output above real recordings (Table 1) and a 15-listener test with undefined ± (Table 2); listener intelligibility (3.65) and similarity (3.77) stay below V2SFlow (3.69, 3.90).
+- "Higher efficiency than other diffusion-based methods" holds within Table 1 but omits the cited 10-step Faces-to-Voices [[5]](#ref-5); 10 NFE remains ten times the one-step Intelligible and NaturalL2S (Table 1).
+- Table 3 prints "w/o Lsem" twice; the row removing both losses is unlabeled.
+- The authors report the SLM-loss trade-off: without it UTMOS rises to 4.2885 and WER falls to 29.99%, while D-BERT and SECS drop (Table 3).
 
-Actual inference time/energy, reference-speaker utterance selection, silent-articulation/patient transfer, statistical reliability of listener differences, and disentangled contributions of subspace structure versus codec/pretraining.
+## What the field needs next
 
-### Narrowed or regressed
+- M06: one DiCB backbone trained on mel, codec tokens and continuous codec latents, one ASR, the unseen-speaker split of [[4]](#ref-4).
+- M07: rank speaker similarity only among systems with the same speaker source.
+- M13: wall-clock latency at 10 NFE against one-step systems.
 
-WER is worse than V2SFlow and LipVoicer on both datasets, and speaker similarity is below V2SFlow. Some loss removals improve quality predictors and WER while reducing embedding similarity.
+## Questions for the authors
 
-### Evaluation details
+- Are LRS3 test speakers unseen in training, and how many utterances were scored?
+- Is the GE2E reference the target utterance itself?
+- Were baselines retrained, and scored with the same ASR?
+- What does ± in Table 2 denote?
 
-| Item | Details |
-| --- | --- |
-| Task | speech-reconstruction |
-| Input | Mouth-region video for content plus a reference audio-derived speaker embedding for voice identity. |
-| Sensor | Existing RGB video processed into 88 x 88 grayscale mouth crops using facial landmarks; no acquisition hardware or new recording system reported. |
-| Body site | lip;face |
-| Output | speech-audio |
-| Vocabulary type | continuous speech-video corpus synthesis |
-| Vocabulary size | No fixed command vocabulary; exact evaluated lexical size is not reported. |
-| Metrics and results | Table 1: LRS3 UTMOS 4.2096, SCOREQ 4.6075, D-BERT 0.8284, WER 30.22%, SECS 0.804; LRS2 WER 39.54%. V2SFlow WER is 27.55%/34.17%, and LipVoicer 20.62%/24.92%. Table 2 listener naturalness/intelligibility/similarity: proposed 4.17/3.65/3.77, V2SFlow 3.88/3.69/3.90. Proposed uses 10 function evaluations versus V2SFlow 30. No measured inference time or independent reproduction. |
-| Evaluation protocol | Offline LRS3 synthesis and LRS2 transfer; learned quality metrics, recognizer-derived WER, speech/speaker embedding similarities, five-point listener ratings and architecture/loss ablations. |
+## Appendix: literature search
 
-### Limits
+- M06, video-to-speech-one-to-many-decoder (published table, reused). Inclusion rule: video-to-speech studies (speech synthesized from talking-face or lip video, audio muted at test), classified from full text by how the decoder handles the one-to-many mapping; enhancement with noisy audio at test, talking-head generation and video-to-text-to-speech pipelines excluded; a study counts under every design it names; versions count once. Ledger: 7,345 unique studies slot-filled for M06; 165 unique studies pattern match. Usual design: adversarial training 54; diffusion decoder 22, flow decoder 19 (pattern match, published counts). Added for this review (pattern match): any diffusion 36, flow matching 13, neural-codec generation 8 (prior video-to-speech 2: [[2]](#ref-2), [[3]](#ref-3); [concurrent] 3, among them [[6]](#ref-6); enhancement 2; the target), continuous codec-latent target 1 (the target). Read in full: [[5]](#ref-5), [[6]](#ref-6), [[3]](#ref-3), [[2]](#ref-2). Known-item recall 1.0.
+- M12, video-to-speech-output-evaluation (published table, reused). Inclusion rule: the same video-to-speech population, counting the evaluation protocols its full text names. Ledger: 6,960 unique studies slot-filled for M12; 165 unique studies pattern match. Protocols: listener test 83, unseen speakers 51, ASR WER on output 38 (published counts); added: confidence interval or significance 40, reference-free MOS predictor 21, audio-reference speaker embedding 21, output stated to exceed ground truth 5 (pattern match). Read in full: [[4]](#ref-4), [[5]](#ref-5). Known-item recall 1.0.
 
-- **Technical:** Visual ambiguity persists despite perceptual priors. Full generator has 57.7M parameters in the DiCB comparison, excluding unspecified complete-system cost. Speaker identity requires GE2E reference audio. Data-prediction loss weights by 1/(1-t)^2; numerical endpoint handling is not specified. Semantic, quality and word metrics respond differently to loss choices.
-- **Evaluation:** Small subjective evaluation: 15 listeners and 30 synthesized samples, with randomization/blinding and uncertainty definitions not fully described. Baselines have heterogeneous reference-speaker and frontend dependencies. No repeated-seed uncertainty or latency benchmark. Table 3 duplicates a loss-removal label, leaving the final ablation ambiguous.
-- **Deployment:** Large pretrained visual encoder and iterative generator, with speaker identity obtained from reference audio. No measured latency, mobile power, streaming interaction or patient evaluation.
-- **Scope of this review:** Offline English speech-video benchmarks and a small listening study. No actual silent articulation, patient communication, walking or longitudinal user evaluation.
+## References
 
-### Evidence
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
 
-- The model combines AV-HuBERT visual features, parallel subspace decomposition, a convolutional flow backbone and continuous neural-codec latent generation with semantic and SLM auxiliary losses. (Proposed Method; Figure 1; PDF pp. 3-5)
-- Task training uses LRS3 official splits; LRS2 is a transfer test. Speaker identity is supplied by a 256-dimensional GE2E embedding from a reference utterance. Reviewer assessment: the evaluated identity input is not purely visual. (Experimental Setup and Implementation Details; PDF pp. 5-6)
-- Table 1 reports WER 30.22%/39.54% on LRS3/LRS2, versus V2SFlow 27.55%/34.17% and LipVoicer 20.62%/24.92%. Quality gains therefore coexist with worse lexical error rates. (Table 1; PDF p. 5)
-- Fifteen listeners assess 30 synthesized samples. Table 2 gives proposed naturalness 4.17, intelligibility 3.65 and similarity 3.77, versus V2SFlow 3.88, 3.69 and 3.90 respectively. (Table 2 and Evaluation Metrics; PDF p. 6)
-- Table 1 quality predictors score the proposed synthesis above ground-truth recordings on both datasets, while human naturalness remains below ground truth. Reviewer assessment: reference-free quality scores are not measures of exact reconstruction fidelity. (Tables 1-2; PDF pp. 5-6)
-- The DiCB versus DiT ablation approximately matches parameters at 57.7M versus 57.8M. Replacing DiCB reduces SECS from 0.804 to 0.618, with smaller changes in WER and quality metrics. (Table 3; PDF p. 6)
-- Removing SLM loss increases UTMOS from 4.2096 to 4.2885 and SCOREQ from 4.6075 to 4.6958, and lowers WER from 30.22% to 29.99%, while reducing D-BERT and SECS. Reviewer assessment: the loss has metric-specific trade-offs, not uniformly better intelligibility. (Table 3; Auxiliary Losses discussion; PDF pp. 6-7)
-- Table 3 labels two different rows w/o Lsem, while the prose also discusses removing both losses. Reviewer assessment: the final ablation label must be clarified rather than silently reinterpreted. (Table 3; Ablation Study; PDF pp. 6-7)
-- Ten function evaluations are compared with thirty for V2SFlow, but no complete inference-time or energy measurement is reported. Reviewer assessment: fewer steps do not establish a faster end-to-end deployed system. (Table 1; Comparison with State-of-the-Art Methods; PDF pp. 5-7)
-- The experiments use ordinary LRS3/LRS2 speech videos; no new silent-articulation or speech-impaired participant study is presented. (Experimental Setup; Results; PDF pp. 5-7)
+1. <a id="ref-1"></a>Liang, Y., Li, A., Yang, K., Yu, G., Liu, F., Dai, L., et al. “SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis.” *arXiv preprint (AAAI 2026 copyright line)*, 2026. doi:[10.48550/arXiv.2602.11477](https://doi.org/10.48550/arXiv.2602.11477). arXiv:[2602.11477](https://arxiv.org/abs/2602.11477). Target. Read as arXiv v1. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis) [wiki: arxiv-2602.11477](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2602.11477/article.md) [wiki: arxiv-2602.11477-sldl2s](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2602.11477-sldl2s/article.md)
+2. <a id="ref-2"></a>Wang, Y., Zheng, J., Zhang, J., Zhang, X., Liao, H., Wu, Z. “Metis: A Foundation Speech Generation Model with Masked Generative Pre-training.” *arXiv preprint*, 2025. arXiv:[2502.03128](https://arxiv.org/abs/2502.03128). Prior; deciding prior for M06 (discrete codec tokens, lip-to-speech fine-tuning). Read as arXiv v1. [wiki: arxiv-2502.03128](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2502.03128/article.md)
+3. <a id="ref-3"></a>Ye, J., Shan, H. “Shushing! Let's Imagine an Authentic Speech from the Silent Video.” *arXiv preprint*, 2025. arXiv:[2503.14928](https://arxiv.org/abs/2503.14928). Prior; deciding prior for M06 (ImaginTalk, discrete codec features). Read as arXiv v1. [wiki: arxiv-2503.14928](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2503.14928/article.md)
+4. <a id="ref-4"></a>Choi, J., Kim, J., Li, J., Chung, J. S., Liu, S. “V2SFlow: Video-to-Speech Generation with Speech Decomposition and Rectified Flow.” *ICASSP 2025 - IEEE International Conference on Acoustics, Speech and Signal Processing*, 2025. arXiv:[2411.19486](https://arxiv.org/abs/2411.19486). Prior; baseline of the target; state of the art for M12. Read as arXiv v2. [wiki: arxiv-2411.19486](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2411.19486/article.md)
+5. <a id="ref-5"></a>Kim, J., Choi, J., Kim, J., Jung, C., Chung, J. S. “From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech.” *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2025, 15874-15884. arXiv:[2503.16956](https://arxiv.org/abs/2503.16956). Prior; cited by the target but not compared; state of the art for M06. Read as arXiv v1. [wiki: arxiv-2503.16956](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2503.16956/article.md) [wiki: cvf-kim25-facesvoices](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/cvf-kim25-facesvoices/article.md)
+6. <a id="ref-6"></a>Ye, J., Cong, G., Wang, C., Wen, X., Li, Z., Cao, B., et al. “Hierarchical Codec Diffusion for Video-to-Speech Generation.” *arXiv preprint*, 2026. arXiv:[2604.15923](https://arxiv.org/abs/2604.15923). [concurrent]; discrete RVQ codec diffusion for video-to-speech (M06). Read as arXiv v1. [concurrent] [wiki: arxiv-2604.15923](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2604.15923/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`components/M06/video-to-speech-one-to-many-decoder.csv`](../../components/M06/video-to-speech-one-to-many-decoder.csv): M06 topic "video-to-speech-one-to-many-decoder", every candidate paper with its decision (7345 slot-filled, 165 pattern match, usual design in 54, 4 read in full)
+- [`components/M12/video-to-speech-output-evaluation.csv`](../../components/M12/video-to-speech-output-evaluation.csv): M12 topic "video-to-speech-output-evaluation", every candidate paper with its decision (6960 slot-filled, 165 pattern match, usual design in 83, 5 read in full)
+
 
 ## More reviews in Lip & face video
 
