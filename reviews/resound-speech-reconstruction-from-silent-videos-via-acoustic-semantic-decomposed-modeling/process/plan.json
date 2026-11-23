@@ -1,0 +1,52 @@
+{
+ "target": "arxiv-2505.22024",
+ "changed": [
+  "M06",
+  "M07"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "LRS2/LRS3 audiovisual corpus collection protocol; RESOUND uses existing recordings rather than introducing a training-data collection action.",
+  "M03": "AV-HuBERT pretraining lineage; the visual encoder is frozen for LRS3 and fine-tuned for LRS2.",
+  "M04": "LRS2/LRS3 lip-to-speech task lineage, with reference-audio-conditioned synthesis as represented by Intelligible L2S [9]; no new user operation beyond supplying the described inputs is introduced.",
+  "M05": "LRS2/LRS3 optical video input and the established mouth-region crop pipeline; no new sensor or camera layout.",
+  "M08": "The waveform output and multi-input vocoder follow the Intelligible L2S [9] vocoder lineage; mel and speech units are intermediate vocoder inputs.",
+  "M09": "Offline L2S waveform-generation lineage; no presentation, confirmation, or commit interface is described.",
+  "M10": "Offline L2S waveform-generation lineage; no correction or re-entry mechanism is described.",
+  "M11": "LRS2/LRS3 corpus transcript-reference lineage; no new reference-construction procedure is described.",
+  "M02": "Intelligible L2S [9] speech-unit targets (HuBERT-BASE, 200 clusters) and FastSpeech 2 pitch/energy targets (Praat F0, spectrogram energy); no new supervision kind.",
+  "M13": "No device study; RTF reported without hardware (Table 1); kept to the table row."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-one-to-many-decoder",
+   "reuse": "components/M06/video-to-speech-one-to-many-decoder.json",
+   "inclusion_rule": "Include the video-to-speech population of components/M06/video-to-speech-synthesis (speech waveform synthesized from talking-face or lip video, audio muted at test) and classify, from the full text with the reference list removed, how the acoustic decoder handles the one-to-many mapping: explicit pitch or energy (variance) predictors, flow-based decoders (normalizing flow, flow matching, rectified flow), diffusion decoders, adversarial training with a discriminator, and self-supervised speech-unit conditioning. Boundary: a study counts under every design its text names (upper bound; related-work mentions included); audio-visual enhancement with noisy audio at test, talking-head generation and video-to-text-to-TTS pipelines excluded; versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "WER|word error",
+   "better": "lower"
+  },
+  {
+   "slot": "M07",
+   "topic": "reference-speaker-conditioning-at-inference",
+   "reuse": "components/M07/reference-speaker-conditioning-at-inference.json",
+   "inclusion_rule": "Video-to-speech studies (the 165-study population of the M06 video-to-speech-synthesis table), classified by the speaker information supplied at use time: a speaker embedding from reference audio, a speaker embedding derived from the face or lip video, or none. Boundary: embeddings used only in training or only to score speaker similarity are not use-time conditioning; a study counts under every design its full text names (upper bound); versions count once. For this review the bins also note lip-reader text supplied at use time (LipVoicer, Hegde et al.), read from the deciding priors, not counted.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "similar|SECS|speaker",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "inclusion_rule": "Include studies that synthesize a speech waveform from talking-face or lip video (the population of the M06 video-to-speech-synthesis table) and compare how the synthesized speech is evaluated: human listener or opinion tests, ASR word error on the synthesized speech, and tests on speakers unseen in training. Boundary: audio-visual enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS pipelines excluded; a study counts under every protocol its full text names (upper bound, related-work mentions included); versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "wer|word error",
+   "better": "lower"
+  }
+ ],
+ "writer_notes": "Corrected from plan.draft.json: M02 moved to inherited (speech units and variance targets predate the target: Intelligible L2S 2023, LTBS 2023); M13 topic dropped (only an RTF with no hardware; table row); M07 kept as changed because the use-time inputs are a reference audio prompt plus external lip-reader text. Topics reuse the published tables."
+}
