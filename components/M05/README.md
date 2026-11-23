@@ -15,6 +15,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces | 2026 | Abstract, Table 3 |
 | Multimodal Speech Recognition with Ultrasonic Sensors |  | Sec. 5.1, Table 1 |
 
+## body-conducted-sensor-with-air-microphone
+
+- Table: [`body-conducted-sensor-with-air-microphone.csv`](body-conducted-sensor-with-air-microphone.csv) (7329 slot-filled, 123 pattern match, usual design in 71, 2 read in full)
+- Inclusion rule: Speech studies that record a skin-, bone- or tissue-conducted sensor (throat or contact microphone, accelerometer, vibration sensor, NAM microphone) from the talker together with an air microphone; design compared is the body site of the conducted sensor and whether whispered or murmured input is used. Boundary: sensors only listed in related work still match the full-text pattern (upper bound); hearing devices that do not pick up the talker are excluded by reading; versions count once.
+- Used in: [NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction](../../reviews/nasovoce/)
+
 ## ecog-speech-decoding
 
 - Table: [`ecog-speech-decoding.csv`](ecog-speech-decoding.csv) (7329 slot-filled, 253 pattern match, usual design in 233, 3 read in full)
