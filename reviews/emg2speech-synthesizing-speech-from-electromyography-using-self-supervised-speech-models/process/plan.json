@@ -1,0 +1,69 @@
+{
+ "target": "arxiv-2510.23969",
+ "changed": [
+  "M02",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M03": "HuBERT-BASE layer-6 unit targets and the pretrained Tacotron vocoder come from the pretrained speech-model lineage; the target adds no signal-encoder pretraining or adaptation.",
+  "M04": "The use-time path follows the established surface-EMG speech-decoding lineage: articulate, record EMG, decode a sequence, and synthesize audio.",
+  "M05": "The 31-site, 5-kHz surface-EMG setup and preprocessing follow the DATA GENERAL/DATA ALS acquisition protocol; no new sensor design is introduced.",
+  "M07": "Direct EMG2SPEECH has no use-time language model; the 4-gram KenLM/WFST path belongs to the separate EMG2TEXT comparison lineage.",
+  "M08": "Predicted HuBERT units are rendered by a pretrained Tacotron vocoder, following the standard unit-to-waveform synthesis lineage.",
+  "M09": "The offline EMG-to-speech synthesis lineage has no presentation, confirmation, or commit interaction layer.",
+  "M10": "The offline EMG-to-speech synthesis lineage has no correction, re-entry, or action-adjustment mechanism.",
+  "M11": "Reference content follows the sentence-transcript lineage, with transcript-derived targets and sentence-level test references; no new reference-construction method is introduced.",
+  "M01": "Training recordings: vocalized articulation (healthy) and silent articulation (ALS) of cued sentences; no new training-time action.",
+  "M13": "Offline laboratory study with one ALS participant (about 1 hour) and one healthy participant; no session, day or home-use test."
+ },
+ "topics": [
+  {
+   "reuse": "components/M02/synthetic-speech-target.json",
+   "slot": "M02",
+   "topic": "synthetic-speech-target",
+   "inclusion_rule": "Studies that train a decoder of speech acoustics (or speech units) from a non-acoustic signal using target speech that the user did not produce: text-to-speech output, a reference speaker's recording, or a voice-converted or pre-injury voice, because the user cannot produce intelligible audio. Boundary: exclude targets recorded from the same user during the same or a paired vocalized trial (paired audio, DTW target transfer); exclude text-only targets; count versions of one study once.",
+   "pattern": "(text[- ]to[- ]speech|\\bTTS\\b|synthetic (target|speech|audio|voice)|surrogate (target|speech|audio)|reference (speaker|voice)|basis waveform)[^|]{0,150}(target|train|label|align|decod)|(target|train|label|align)[^|]{0,150}(text[- ]to[- ]speech|\\bTTS\\b|synthetic (speech|audio|voice)|reference speaker|basis waveform)",
+   "design_field": null,
+   "metric_pattern": "WER|word error",
+   "better": "lower",
+   "metric": "listener or ASR WER of synthesized speech"
+  },
+  {
+   "reuse": "components/M02/auxiliary-phoneme-loss-in-speech-synthesis.json",
+   "slot": "M02",
+   "topic": "auxiliary-phoneme-loss-in-speech-synthesis",
+   "inclusion_rule": "Speech synthesis from a non-acoustic signal (EMG, ultrasound, articulography, video, neural) whose training adds a phoneme, phone-state, CTC or text classification loss on a shared encoder that is discarded or used only as guidance at synthesis time. Boundary: recognition-only models, cascaded recognize-then-TTS systems, and regression-only auxiliary targets are excluded; versions counted once.",
+   "pattern": "(auxiliary|multi-?task)[^|]{0,150}(phone|CTC|HMM state)|(phone|CTC|HMM state)[^|]{0,150}(auxiliary|multi-?task)",
+   "design_field": null,
+   "metric_pattern": "WER|word error",
+   "better": "lower",
+   "metric": "WER of synthesized speech"
+  },
+  {
+   "reuse": "components/M06/emg-to-speech-intermediate-target.json",
+   "slot": "M06",
+   "topic": "emg-to-speech-intermediate-target",
+   "inclusion_rule": "Surface-EMG speech synthesis or voicing studies (EMG to audible speech), classified by the intermediate target the EMG model predicts before the waveform: spectral acoustic features (mel, MFCC, vocoder parameters), self-supervised speech units, articulatory features (EMA-type trajectories), or text/phonemes. Boundary: EMG recognition to text only, EMG as an auxiliary channel to audio, non-speech EMG and reviews are excluded when read; a study can use several targets; versions count once.",
+   "pattern": "(?is)\\A(?=.*(surface[_ -]?emg|\\bsemg\\b|electromyogra))(?=.*(speech_reconstruction|to[- ]speech|speech synthes|voicing|vocoder|waveform))",
+   "design_field": null,
+   "metric_pattern": "WER|word error",
+   "better": "lower",
+   "metric": "silent-EMG WER of synthesized speech"
+  },
+  {
+   "reuse": "components/M12/emg-text-unseen-sentence-test.json",
+   "slot": "M12",
+   "topic": "emg-text-unseen-sentence-test",
+   "inclusion_rule": "Surface-EMG decoders whose output is scored with WER or CER (recognition, or ASR on synthesized speech); the design compared is whether the headline error is measured on sentences absent from all training data (sentence-disjoint, open vocabulary) or on repeats of training sentences (closed set). Boundary: a paper is counted under each protocol its text names; reviews count as pattern matches only; versions of one study count once.",
+   "pattern": "(?s)(electromyogra|\\bs?EMG\\b).*(word error|\\bWER\\b|character error|\\bCER\\b)|(word error|\\bWER\\b|character error|\\bCER\\b).*(electromyogra|\\bs?EMG\\b)",
+   "design_field": null,
+   "metric_pattern": "WER|word error|CER|character error",
+   "better": "lower",
+   "metric": "WER / CER on unseen sentences"
+  }
+ ],
+ "notes": "Revised from plan.draft.json: the phoneme-guided objective is training-only supervision (M02), not a training-time user action (M01), so the M01 topic is dropped and the published M02 table auxiliary-phoneme-loss-in-speech-synthesis is reused; the M02 synthetic-speech-target topic (skipped by prep) is rebuilt from the published table; the M13 topic is dropped (no usual approach, unrelated sota candidates) and M13 is kept as a table row."
+}

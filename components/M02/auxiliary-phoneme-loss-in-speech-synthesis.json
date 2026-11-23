@@ -622,6 +622,12 @@
    "loc": "Table 1",
    "quote": "Ablation: Remove phoneme loss 51.7",
    "note": "[concurrent] with arxiv-2108.00190 (2021-06 vs 2021-07); comparison only, not counted as prior work for that review"
+  },
+  {
+   "pid": "arxiv-2106.01933",
+   "role": "prior",
+   "loc": "Sec. 2.4",
+   "quote": "introduce an auxiliary loss of predicting phoneme"
   }
  ],
  "known_item_recall": {
@@ -666,7 +672,241 @@
  },
  "used_by": [
   "an-improved-model-for-voicing-silent-speech",
+  "emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models",
   "sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language",
   "vocoder-based-speech-synthesis-from-silent-videos"
- ]
+ ],
+ "ledger_tally_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.13835",
+     "arxiv-2302.08841",
+     "arxiv-2204.01726",
+     "isca-li23l_interspeech",
+     "isca-michelsanti20_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-11207165.v1",
+     "arxiv-2506.13835",
+     "doi-10.20944-preprints202505.0540.v1",
+     "arxiv-2302.08841",
+     "isca-michelsanti20_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2506.13835",
+     "isca-li23l_interspeech",
+     "isca-toth18_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607.08236",
+     "arxiv-2506.13835",
+     "doi-10.20944-preprints202505.0540.v1"
+    ]
+   },
+   {
+    "design": "adaptation=joint",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2506.13835"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=ctc / seq2seq ce / joint ctc-seq2seq; iterations logged as convergence proxy",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1805.11685"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=joint kws similarity + g2p seq loss; keywords held out at train",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1807.08469"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=joint ctc+attention multi-task loss; lrs2 pretrain->train schedule",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1810.00108"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=80 epochs, 8x p40, ~4200s/epoch; adam b1 .9 b2 .98 eps 1e-9 dropout .1",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2004.09347"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=recognition pretrain + joint sep+rec fine-tune; ctc or ctc+a*si-snr",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2005.08571"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": [
+  {
+   "metric": "primary WER (ERP)",
+   "value": 0.671,
+   "unit": "score",
+   "raw": "real-word WER, ERP (LOSO)",
+   "pid": "arxiv-2604.02362",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "4-electrode subset {2,3,4,6}: EMA corr .882, loudness .904, pitch .538, PER 39.7 WER 22.9 SBS 83.2; electrode 4 alone loudness .73 pitch .32",
+   "value": 0.882,
+   "unit": null,
+   "raw": "corr",
+   "pid": "isca-lee25d_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SD PESQ 1.90/ESTOI .455/WER 15.1 (M-VSR); SI ~1.25/.210/WER 69.3 (F-VSR); GAN 1.71/.329",
+   "value": 1.9,
+   "unit": "PESQ",
+   "raw": "SD vid2voc-M-VSR PESQ 1.90/ESTOI 0.455/WER 15.1%; F-VSR 1.88/0.447/14.4%; SI best 1.25/0.210(F); baselines [17] 1.71/0.329 SD, [15] 1.82; WORLD 3.06/0.759",
+   "pid": "isca-michelsanti20_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Text WER",
+   "value": 2.1,
+   "unit": "percent",
+   "raw": "0.021",
+   "pid": "arxiv-2609.04455",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "E2E audio-only WER",
+   "value": 3.7,
+   "unit": "percent",
+   "raw": "3.7%",
+   "pid": "pmc-9370936-reliability-avsr",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Li DCoND-LIFT WER",
+   "value": 5.77,
+   "unit": "percent",
+   "raw": "5.77",
+   "pid": "arxiv-2603.20246",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 av-early wer",
+   "value": 7.0,
+   "unit": "percent",
+   "raw": "7.0",
+   "pid": "arxiv-1810.00108",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best reported WER (1200w)",
+   "value": 7.0,
+   "unit": "percent",
+   "raw": "7.0%",
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "year": 2020,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "non-overlapped WER",
+   "value": 9.77,
+   "unit": "percent",
+   "raw": "AVSR WER on anechoic non-overlapped speech (ASR 11.04)",
+   "pid": "isca-yu20f_avmcs",
+   "year": 2020,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW word-level",
+   "value": 13.86,
+   "unit": "WER_pct",
+   "raw": "LRW proposed vs SVTS 12.53 (PESQ best 1.56)",
+   "pid": "arxiv-2302.08841",
+   "year": 2023,
+   "tier": "ledger only"
+  }
+ ],
+ "known_item_recall_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": {
+  "seeds_in_wiki": 4,
+  "found": 1,
+  "recall": 0.25,
+  "missed": [
+   "arxiv-2510.23969",
+   "doi-10.1038-s41586-023-06443-4",
+   "doi-10.1101-2024.08.14.607690"
+  ]
+ },
+ "tally_emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 34,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "acoustic targets only; an auxiliary phoneme, phone-state or CTC loss appears in a minority of synthesis studies",
+   "n": 10,
+   "tier": "pattern match",
+   "population_unique": 34
+  },
+  "state_of_the_art": {
+   "pid": "isca-lee26v_interspeech",
+   "year": 2026,
+   "metric": "silent-EMG WER, Gaddy test split, Whisper-medium, mean over 10 seeds (training-only silent-voiced alignment loss on top of the target's model)",
+   "value": 25.14,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 6,
+  "read_prior": [
+   "arxiv-2106.01933",
+   "isca-toth18-multitask"
+  ],
+  "unread": 38,
+  "confirmed_unique": 1,
+  "known_item_recall": 0.25
+ }
 }

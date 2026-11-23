@@ -125,7 +125,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`emg-to-speech-intermediate-target.csv`](emg-to-speech-intermediate-target.csv) (7345 slot-filled, 54 pattern match, usual design in 37, 4 read in full)
 - Inclusion rule: Surface-EMG speech synthesis or voicing studies (EMG to audible speech), classified by the intermediate target the EMG model predicts before the waveform: spectral acoustic features (mel, MFCC, vocoder parameters), self-supervised speech units, articulatory features (EMA-type trajectories), or text/phonemes. Boundary: EMG recognition to text only, EMG as an auxiliary channel to audio, non-speech EMG and reviews are excluded when read; a study can use several targets; versions count once.
-- Used in: [Articulatory Feature Prediction from Surface EMG during Speech Production](../../reviews/articulatory-feature-prediction-from-surface-emg-during-speech-production/)
+- Used in: [Articulatory Feature Prediction from Surface EMG during Speech Production](../../reviews/articulatory-feature-prediction-from-surface-emg-during-speech-production/), [emg2speech: Synthesizing speech from electromyography using self-supervised speech models](../../reviews/emg2speech-synthesizing-speech-from-electromyography-using-self-supervised-speech-models/)
 
 ## emg-to-speech-timing-alignment
 
