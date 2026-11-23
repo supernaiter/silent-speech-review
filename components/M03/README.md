@@ -142,6 +142,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Neural speech-decoding studies (intracortical, ECoG, sEEG, EEG) that state how much same-participant calibration or training data the decoder needs, or how it is recalibrated across days. Included: daily supervised recalibration, cumulative multi-day training, unsupervised or no recalibration, cross-participant pretraining. Excluded: non-neural silent-speech sensors; perception-only recalibration studies; cursor or handwriting BCIs unless they decode speech.
 - Used in: [An Accurate and Rapidly Calibrating Speech Neuroprosthesis](../../reviews/an-accurate-and-rapidly-calibrating-speech-neuroprosthesis/)
 
+## speech-signal-verification-enrollment
+
+- Table: [`speech-signal-verification-enrollment.csv`](speech-signal-verification-enrollment.csv) (1526 slot-filled, 75 pattern match, usual design in 27, 3 read in full)
+- Inclusion rule: Studies that verify or identify a user from speech-production signals (voice, whisper, non-audible murmur, lip or face motion, articulatory or active-acoustic sensing, imagined-speech EEG), found by authentication, speaker or user verification/identification, biometric or impostor wording in the ledger; the design compared is how a user is enrolled and how impostor data and the decision threshold are obtained (enrollment session, impostor or background-speaker data, few-shot enrollment, threshold calibration). Boundary: surveys, datasets and studies that only mention biometrics count as pattern matches; attended-speaker detection in EEG is not verification; a study counts under every design its full text names; versions count once.
+- Used in: [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](../../reviews/poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult/)
+
 ## synthetic-biosignal-training-data
 
 - Table: [`synthetic-biosignal-training-data.csv`](synthetic-biosignal-training-data.csv) (1526 slot-filled, 13 pattern match, usual design in 8, 3 read in full)

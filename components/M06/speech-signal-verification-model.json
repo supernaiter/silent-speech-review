@@ -1,0 +1,1156 @@
+{
+ "topic": "speech-signal-verification-model",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "authenticat|(speaker|user|identity|person) (verification|identification)|biometric|impostor|imposter",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Same verification population as the M03 topic; the design compared is the identity model: GMM/HMM classifiers, GMM-UBM or i-/x-vector back-ends, metric-learning embeddings (triplet, contrastive, angular margin, siamese), cross-modal alignment between two streams, and a multi-task or shared encoder that also serves content recognition. Boundary: a study counts under every design its full text names (upper bound); a related-work mention counts as a match.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 78,
+  "string_match_unique": 75,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 30,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.20229",
+     "arxiv-2606.31225",
+     "arxiv-2501.01518",
+     "arxiv-2512.16518",
+     "arxiv-2207.07036"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 27,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2606.31225",
+     "arxiv-2501.01518",
+     "arxiv-2512.16518",
+     "arxiv-2411.11302",
+     "pmc-11143305-recurrenceplot"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 18,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-11143305-recurrenceplot",
+     "arxiv-2010.06363",
+     "doi-10.1609-aaai.v35i18.17933",
+     "doi-10.1109-access.2020.2982359",
+     "doi-10.1016-j.dib.2018.10.043"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 12,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2606.31225",
+     "arxiv-2506.04495",
+     "arxiv-2512.16518",
+     "arxiv-2010.06363",
+     "doi-10.1109-access.2020.2982359"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=postprocess",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.20229",
+     "arxiv-2506.04495",
+     "doi-10.1109-access.2020.2982359",
+     "isca-davis15_avsp",
+     "isca-dean05_avsp"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=select",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2512.16518",
+     "isca-chaloupka10_avsp",
+     "isca-chetty07_avsp",
+     "arxiv-2004.14326",
+     "arxiv-2403.16071"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2010.06363",
+     "doi-10.1109-access.2017.2761539",
+     "arxiv-2005.07074",
+     "isca-naini20_interspeech"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2606.31225",
+     "arxiv-2207.07036",
+     "isca-barbulescu13_avsp",
+     "isca-cohn08_avsp"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=authorize",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2512.16518",
+     "isca-chetty09_avsp",
+     "isca-wang08_avsp",
+     "arxiv-2305.00552"
+    ]
+   },
+   {
+    "design": "model_family=svm",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "naist-msc2008-okamoto-nam-verification",
+     "isca-okamoto07_interspeech",
+     "naist-msc2007-kojima-nam-verification",
+     "asa2006-kojima-nam-speaker-verification"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "hmm_or_gmm_classifier",
+    "n": 37,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-11143305-recurrenceplot",
+     "doi-10.3390-s23125575",
+     "pmc-9101004-eegbcirev2",
+     "arxiv-2010.06363",
+     "doi-10.1109-access.2020.2982359"
+    ]
+   },
+   {
+    "design": "cross_modal_alignment",
+    "n": 13,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2501.01518",
+     "arxiv-2512.16518",
+     "arxiv-2207.07036",
+     "pmc-7283463-eegbcirev",
+     "doi-10.1109-access.2017.2761539"
+    ]
+   },
+   {
+    "design": "gmm_ubm_or_ivector",
+    "n": 11,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604.20229",
+     "pmc-11143305-recurrenceplot",
+     "arxiv-2207.07036",
+     "isca-li13d_interspeech",
+     "isca-mclaughlin11_bimodalid"
+    ]
+   },
+   {
+    "design": "metric_learning_embedding",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604.15718-neurolip",
+     "arxiv-2604.20229",
+     "arxiv-2606.31225",
+     "arxiv-2512.16518",
+     "doi-10.1109-access.2017.2761539"
+    ]
+   },
+   {
+    "design": "multitask_shared_encoder",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2512.16518",
+     "arxiv-2207.07036",
+     "pmc-9101004-eegbcirev2",
+     "pmc-7283463-eegbcirev",
+     "arxiv-2004.14326"
+    ]
+   }
+  ],
+  "metric_pattern": "\\bEER\\b|equal error rate",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "145ms segment EER",
+   "value": 0.0,
+   "unit": "percentage",
+   "raw": "male EER at 145ms segments",
+   "pid": "naist-msc2007-kojima-nam-verification",
+   "year": 2007,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t3 mir eer",
+   "value": 0.021,
+   "unit": null,
+   "raw": "0.021",
+   "pid": "arxiv-2305.00552",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t3 eer mir",
+   "value": 0.023,
+   "unit": "eer",
+   "raw": "0.023",
+   "pid": "arxiv-2012.02515",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "male EER",
+   "value": 0.04,
+   "unit": "percentage",
+   "raw": "equal error rate, male speakers, 145-ms NAM segments",
+   "pid": "asa2006-kojima-nam-speaker-verification",
+   "year": 2006,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "EER (%)",
+   "value": 0.12,
+   "unit": "percent",
+   "raw": "0.12%",
+   "pid": "arxiv-2604.20229",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "female EER 85ms",
+   "value": 0.4,
+   "unit": "percentage",
+   "raw": "female EER at 85ms segments, GA kernel + PLRM",
+   "pid": "naist-msc2008-okamoto-nam-verification",
+   "year": 2008,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 face433",
+   "value": 0.76,
+   "unit": "eer",
+   "raw": "0.76",
+   "pid": "arxiv-2205.14295",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "hybrid fusion (CFA correlated + RWS late fusion of independent MFCC/eigen-lip) achieves EER <2% on VidTIMIT + UCBN",
+   "value": 2,
+   "unit": "percent",
+   "raw": "EER ceiling with correlated-component hybrid fusion",
+   "pid": "isca-chetty07_avsp",
+   "year": 2007,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "DET curves + EER on public AV speech databases",
+   "value": 2,
+   "unit": "count",
+   "raw": "dependency models: linear CCA vs kernel CCA",
+   "pid": "isca-chetty09_avsp",
+   "year": 2009,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "AV-EER best",
+   "value": 2.31,
+   "unit": null,
+   "raw": "2.31",
+   "pid": "arxiv-2207.07036",
+   "year": 2022,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1409.0924",
+   "key": "t:visualpasswordsusingautomaticlipreadingijsbar2014",
+   "title": "Visual Passwords Using Automatic Lip Reading (IJSBAR 2014)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ctive=lip-read visual password (VP): per-speaker Vword signature + threshold verifier; 20 subjects each-as-client vs 19 impostors; Single/Double-VP x known/unknown scenarios; FAR/FRR/AER; + silent (non-voiced) utterance test on 15 students. | extra"
+  },
+  {
+   "pid": "arxiv-1809.06697",
+   "key": "t:eegbasedsubjectsidentificationbasedonbiometricsofimaginedspeechusingemd",
+   "title": "EEG-based Subjects Identification based on Biometrics of Imagined Speech using EMD",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1809.06697 | title=EEG-based Subjects Identification based on Biometrics of Imagined Speech using EMD | venue=conference paper (2018) | Study.research_objective=EMD IMF features (Teager/Insta"
+  },
+  {
+   "pid": "arxiv-2004.14326",
+   "key": "t:seeingvoicesandhearingvoiceslearningdiscriminativeembeddingsusingcrossmodalselfs",
+   "title": "Seeing voices and hearing voices: learning discriminative embeddings using cross-modal self-supervision",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pairs (different timesteps OK, pairs from same video=pos); sync task same-facetrack same-timestep to force phonetic not biometric features; random single-frame face emb to block lipreading leak in identity task. | Cohort.demographics=VoxCeleb2 train"
+  },
+  {
+   "pid": "arxiv-2005.07074",
+   "key": "p:arxiv-2005.07074",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ionProtocol.experimental_design=VoxCeleb2: 1,092,009 train clips / 118 spk x 36,237 test clips; pair mixes; cross-modal biometric train 2M/100k val; eval seen-heard + unseen-unheard each x4 gender pairs x1000; metrics SDR improvement + speaker-isola"
+  },
+  {
+   "pid": "arxiv-2010.06363",
+   "key": "t:threedimensionallipmotionnetworkfortextindependentspeakerrecognition",
+   "title": "Three-Dimensional Lip Motion Network for Text-Independent Speaker Recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "complements RFM; landmark+frame-level merge | system_boundary=3D lip-point sequence -> normalize -> 3LMNet+RFM+prior -> speaker verification (text-dep/indep) | SystemConfiguration.system_lifecycle=implemented_evaluated | EvaluationProtocol.experimental_design="
+  },
+  {
+   "pid": "arxiv-2012.02515",
+   "key": "t:authnetadeeplearningbasedauthenticationmechanismusingtemporalfacialfeaturemoveme",
+   "title": "AuthNet: A Deep Learning based Authentication Mechanism using Temporal Facial Feature Movements",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2012.02515 | title=AuthNet: A Deep Learning based Authentication Mechanism using Temporal Facial Feature Movements | Study.research_objective=Person-password (user-word) authenticat"
+  },
+  {
+   "pid": "arxiv-2105.14787",
+   "key": "t:voiceofyourbraincognitiverepresentationsofimaginedspeechovertspeechandspeechperc",
+   "title": "Voice of Your Brain: Cognitive Representations of Imagined Speech, Overt Speech, and Speech Perception Based on EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Speech, and Speech Perception Based on EEG | venue=conference paper (Interspeech-style 2021) | Study.research_objective=Speaker identification (9-way) from single-channel EEG across 4 conditions (imagined/overt/perception/rest): imagined T7 78.07% best, overt 77"
+  },
+  {
+   "pid": "arxiv-2205.14295",
+   "key": "t:islipregionofinterestsufficientforlipreading",
+   "title": "Is Lip Region-of-Interest Sufficient for Lipreading?",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al_essence=SSL pretrain: mask video 80% / audio 30% pm=pa=0.5; iter5 face-input, iter6 face-targets | technical_essence=speaker verification: 4th-block activations -> 3x512 DNN -> L2-norm cosine EER | technical_essence=6-block transformer decoder -> word WER |"
+  },
+  {
+   "pid": "arxiv-2207.07036",
+   "key": "t:asingleselfsupervisedmodelformanyspeechmodalitiesenableszeroshotmodalitytransfer",
+   "title": "A Single Self-Supervised Model for Many Speech Modalities Enables Zero-Shot Modality Transfer (u-HuBERT)",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uned model serves AV/A/V inputs, zero-shot transfer to modalities never seen in fine-tuning (audio-FT -> V works); also speaker verification | production_labels=ordinary_voiced_speech | Dataset.collection_protocol=pretrain pool: LRS3 433h AV + VoxCeleb2-En 132"
+  },
+  {
+   "pid": "arxiv-2305.00552",
+   "key": "t:deeplearningbasedspatiotemporalfacialfeaturevisualspeechrecognition",
+   "title": "Deep Learning-based Spatio Temporal Facial Feature Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "STM for binary user-password verification from lip motion; MIRACL-VC1+assembled datasets; 0.96 acc / EER 0.021, resists imposter attacks. | task_family=isolated_word_recognition | extra.Task.scope=Visual password / speaker verification via lip moti"
+  },
+  {
+   "pid": "arxiv-2305.02147",
+   "key": "t:improvedvocalefforttransfervectorestimationforvocaleffortrobustspeakerverificati",
+   "title": "Improved Vocal Effort Transfer Vector Estimation for Vocal Effort-Robust Speaker Verification",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2305.02147 | title=Improved Vocal Effort Transfer Vector Estimation for Vocal Effort-Robust Speaker Verification | Study.research_objective=vocal-effort-robust speaker verification: MMSEv estimates the normal-speech embedding from a"
+  },
+  {
+   "pid": "arxiv-2403.16071",
+   "key": "t:landmarkguidedcrossspeakerlipreadingwithmutualinformationregularization",
+   "title": "Landmark-Guided Cross-Speaker Lip Reading with Mutual Information Regularization",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "al LM. | intended_use_cases=assistive_text_entry, noisy_environment, private_communication | extra.Task.scope=Auxiliary speaker identification branch used only in training to drive max-min MI regularization (speaker-invariant content features). | acoustic_mode=n"
+  },
+  {
+   "pid": "arxiv-2408.14777",
+   "key": "t:quarteredchirpspectralenvelopeforwhisperedvsnormalspeechclassification",
+   "title": "Quartered Chirp Spectral Envelope for Whispered vs Normal Speech Classification",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion': '13m'}, 'whisper': {'utterances': 400, 'duration': '13m'}}} | Dataset.collection_protocol=CHAINS was created for speaker identification and is repurposed here because it contains parallel normal and whispered speech. | Representation.feature_dimensions={'"
+  },
+  {
+   "pid": "arxiv-2411.11302",
+   "key": "t:towardspersonalizedbraincomputerinterfaceapplicationbasedonendogenouseegparadigm",
+   "title": "Towards Personalized Brain-Computer Interface Application Based on Endogenous EEG Paradigms",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "assifiers; cross-entropy loss; Adam lr 0.001 weight decay 0.001 batch 64, 100 epochs | extra.Protocol.evaluation_target=user identification: concatenated trials, 70:10:20 split, five-fold CV; intention: train 6 subjects / validate+test 2 subjects, subject-dep"
+  },
+  {
+   "pid": "arxiv-2501-09700-cueless",
+   "key": "t:cuelesseegbasedimaginedspeechbiometricidentificationdatasetandbenchmarks",
+   "title": "Cueless EEG-based imagined speech biometric identification: dataset and benchmarks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501-09700-cueless | title=Cueless EEG-based imagined speech biometric identification: dataset and benchmarks | authors=Ali Derakhshesh, Zahra Dehghanian, Reza Ebrahimpour, Hamid R. Rabiee |"
+  },
+  {
+   "pid": "arxiv-2501.01518",
+   "key": "t:readingtolistenatthecocktailpartymultimodalspeechseparation",
+   "title": "Reading to Listen at the Cocktail Party: Multi-Modal Speech Separation",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cted enhanced waveform and clean target waveform | TrainingRun.personalization_scope=none (speaker-agnostic separation; biometric conditioning excluded in evaluated variants) | reproduction_status=original_report | Reference.reference_kind=verbatim_"
+  },
+  {
+   "pid": "arxiv-2501.09700",
+   "key": "t:cuelesseegimaginedspeechforsubjectidentificationdatasetandbenchmarks",
+   "title": "Cueless EEG imagined speech for subject identification: dataset and benchmarks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ification: dataset and benchmarks | venue=IEEE T-BIOM; v2 (10pp) | Study.research_objective=Cueless imagined-speech EEG biometric dataset (11 Persian speakers x5 sessions x~80 trials = 4350+, 5 words): subject-ID benchmarks — SVM+wavelet 94.17%, EEG"
+  },
+  {
+   "pid": "arxiv-2506.04495",
+   "key": "t:frenchlisteningtestsfortheassessmentofintelligibilityqualityandidentityofbodycon",
+   "title": "French Listening Tests for the Assessment of Intelligibility, Quality, and Identity of Body-Conducted Speech Enhancement",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e, 50 sentences/condition, -36 LUFS, ~30 min/session; 7 conditions; MUSHRA 10 sentences x 8 conditions 0-100 scale; A/B speaker identification; test data released on HuggingFace Cnam-LMSSC/french-mrt(_enhanced) | modalities=contact_microphone, microphone, vibrat"
+  },
+  {
+   "pid": "arxiv-2511-07936-rtlwireless",
+   "key": "t:towardpracticalbciarealtimewirelessimaginedspeecheegdecodingsystem",
+   "title": "Toward practical BCI: a real-time wireless imagined speech EEG decoding system",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "imagined-speech BCI from fixed lab setups toward practical everyday use: real-time wireless personalized decoding with user identification | Study.unit_of_analysis=4-class imagined-command accuracy (wired BrainAmp vs wireless EPOC X) + F1 | task_encoding=ima"
+  },
+  {
+   "pid": "arxiv-2511.07936",
+   "key": "t:towardpracticalbciarealtimewirelessimaginedspeecheegdecodingsystem",
+   "title": "Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| venue=IEEE conf; v1 (4pp) | Study.research_objective=Real-time imagined-speech EEG (4 commands) with LSL streaming + user identification: wired BrainAmp 62.00±3.47%, portable wireless 46.67±0.72% vs 25% chance; 3 Korean participants, 800 trials x2s. | task"
+  },
+  {
+   "pid": "arxiv-2512.16518",
+   "key": "t:posterrecognizinghiddenintheearprivatekeyforreliablesilentspeechinterfaceusingmu",
+   "title": "Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "SI combining in-ear whisper audio and ultrasonic ear-canal dynamic motion (ECDM) features for word spelling and speaker authentication through shared/multi-task learning. | source_coverage={'checked_pages': [1, 2, 3, 4, 5], 'primary_study_references_r"
+  },
+  {
+   "pid": "arxiv-2604.15718-neurolip",
+   "key": "t:neurolipaneventdrivenspatiotemporallearningframeworkforcrossscenelipmotionbasedv",
+   "title": "NeuroLip: An Event-driven Spatiotemporal Learning Framework for Cross-Scene Lip-Motion-based Visual Speaker Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "terns around the lip and chin are subject-specific and consistent across viewpoints — lip motion is a stable behavioral biometric | extra.Limitation.status=acknowledged | extra.Limitation.limitation=No prior event-based cross-scene lip-motion datase"
+  },
+  {
+   "pid": "arxiv-2604.20229",
+   "key": "t:enhancingspeakerverificationwithwhisperedspeechviapostprocessing",
+   "title": "Enhancing Speaker Verification with Whispered Speech via Post-Processing",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arxiv_id=2604.20229v2 | paper_version=2604.20229v2; 6 May 2026 | title=Enhancing Speaker Verification with Whispered Speech via Post-Processing | authors=Magdalena Gołębiowska, Piotr Syga | venue=Accepted for the 18th Asi"
+  },
+  {
+   "pid": "arxiv-2606.31225",
+   "key": "t:afirstexplorationofneuromorphicotcfmformultispeakervsr",
+   "title": "A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "able result transcribed by this review; no independent rerun is represented. Condition: DVS-Lip loss/training ablation; speaker verification metric protocol not reported. | system_name=OT-CFM / Single | system_name=+ Speaker Contrastive / Single | system_name="
+  },
+  {
+   "pid": "arxiv-2609.31402-afa-net",
+   "key": "t:afanetadifferentialattentionapproachforauditoryattentiondetection",
+   "title": "AFA-Net: A Differential Attention Approach for Auditory Attention Detection",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ned SOTA | task_encoding=natural_utterance | task_family=semantic_or_intent_decoding | extra.Task.scope=binary attended-speaker identification from EEG (cocktail-party AAD) | target_population=general_population | tested_population=healthy_volunteers | Cohort.de"
+  },
+  {
+   "pid": "asa2006-kojima-nam-speaker-verification",
+   "key": "t:studyonnonaudiblemurmurspeakerverificationusingmultiplesessiondata",
+   "title": "Study on nonaudible murmur speaker verification using multiple session data",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=asa2006/kojima-nam-speaker-verification | title=Study on nonaudible murmur speaker verification using multiple session data | authors=Mariko Kojima, Hiromichi Kawanami, Hiroshi Saruwatari, Kiyohiro Shikano, Tomoko M"
+  },
+  {
+   "pid": "doi-10.1016-j.dib.2018.10.043",
+   "key": "t:correlatedlipmotionandvoiceaudiodata",
+   "title": "Correlated lip motion and voice audio data",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| Study.research_objective=correlated audio + lip-motion video corpus for training/testing a compound lip-motion+voice biometric system | Study.study_design=dataset_resource | production_labels=ordinary_voiced_speech | elicitation=instructed_conten"
+  },
+  {
+   "pid": "doi-10.1088-1757-899x-1062-1-012055",
+   "key": "p:doi-10.1088-1757-899x-1062-1-012055",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n accuracy across the 5 words vs 52.5-85% for Naïve Bayes | claim=FEMG patterns are subject-specific (unique identity / biometric potential): signals differ for each subject, and several subject-word pairs reach 100% accuracy | claim=FEMG speech rec"
+  },
+  {
+   "pid": "doi-10.1109-access.2017.2761539",
+   "key": "t:3dconvolutionalneuralnetworksforcrossaudiovisualmatchingrecognition",
+   "title": "3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "upled to 64-d embedding | Representation.transformation_definition=dlib face/mouth track->resize->cube; SpeechPy MFECs; impostor pairs via <=0.5s time shift | technical_essence=two non-identical ConvNets fused in final FC; contrastive cost on match"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.2982359",
+   "key": "t:asilentpasswordrecognitionframeworkbasedonlipanalysis",
+   "title": "A Silent Password Recognition Framework Based on Lip Analysis",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "laim_type=generalization | evidence_relation=supported_within_scope | claim=framework is speaker-independent since face authentication precedes lip-word recognition | author_claimed_contribution=dual-security silent password: face auth + digit-sequenc"
+  },
+  {
+   "pid": "doi-10.1609-aaai.v35i18.17933",
+   "key": "t:authnetadeeplearningbasedauthenticationmechanismusingtemporalfacialfeaturemoveme",
+   "title": "AuthNet: A Deep Learning Based Authentication Mechanism Using Temporal Facial Feature Movements (Student Abstract)",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1609-aaai.v35i18.17933 | title=AuthNet: A Deep Learning Based Authentication Mechanism Using Temporal Facial Feature Movements (Student Abstract) | authors=Mohit Raghavendra, Pravan Omprakash,"
+  },
+  {
+   "pid": "doi-10.2991-jcis.2008.61",
+   "key": "t:hitavdbiianewmultiviewandextremefeaturecasescontainedaudiovisualdatabaseforbiome",
+   "title": "HIT-AVDB-II: A New Multi-view and Extreme Feature Cases Contained Audio-Visual Database for Biometrics",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "0.2991-jcis.2008.61 | title=HIT-AVDB-II: A New Multi-view and Extreme Feature Cases Contained Audio-Visual Database for Biometrics | authors=Xiaoxin Lin, Hongxun Yao, Xiaopeng Hong, Qian Wang | venue=11th Joint Conference on Information Sciences (JC"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "deep CNN/RNN/GRU/LSTM/BLSTM/ResNet; RNN-family dominant for neural time series since ~2020; fusion of signature+EEG for biometric applications | extra.Protocol.evaluation_target=surveyed metrics: classification accuracy (words/phonemes/characters),"
+  },
+  {
+   "pid": "ib24-liprtve-ext",
+   "key": "t:extendingliprtvetowardsalargescaleaudiovisualdatasetforcontinuousspanishinthewil",
+   "title": "Extending LIP-RTVE: Towards A Large-Scale Audio-Visual Dataset for Continuous Spanish in the Wild",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "spontaneous game-show/talk formats | Claim.claim_scope=The AnnoTheia assistive workflow (auto pre-annotation + face/lip/speaker verification) lifts annotation productivity ~300% — about 11 hours per month at 5 h/day versus ~8 hours previously, while keeping ma"
+  },
+  {
+   "pid": "isca-barbulescu13_avsp",
+   "key": "t:audiovisualspeakerconversionusingprosodyfeatures",
+   "title": "Audio-visual speaker conversion using prosody features",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "imed_contribution=first joint AV conversion w/ prosodic slope | extra.Protocol.evaluation_target=identity confusion via impostor detection | Dataset.counts_by_unit={'sentences': 1109, 'speakers': 14, 'utter_per_spk': 80, 'fps': 25, 'sr_hz': 16000}"
+  },
+  {
+   "pid": "isca-burlick13_interspeech",
+   "key": "t:ontheimprovementofmultimodalvoiceactivitydetection",
+   "title": "On the improvement of multimodal voice activity detection",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "h/height + deltas | Dataset.content_inventory=CUAVE bi-modal digit corpus (36 videos, 48,409 frames, 17F/19M) and MOBIO biometrics corpus (9 videos, 4,839 frames, 4F/5M); CUAVE limited to spoken digits, normal+moving poses; MOBIO forced-aligned spee"
+  },
+  {
+   "pid": "isca-chaloupka10_avsp",
+   "key": "t:audiovisualtelevisionbroadcastprogramsprocessingtranscriptionindexingandsearchin",
+   "title": "Audio-visual television broadcast programs processing, transcription, indexing and searching",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "omponent_versions={'audio': '39-dim MFCC', 'lm': '350k Czech vocab', 'video': 'shotseg+faceID+who-speaking'} | claim=AV speaker identification exceeds audio-only accuracy | claim=future AV-ASR conditional on SNR to help noisy speech | extra.Limitation.limitation"
+  },
+  {
+   "pid": "isca-chetty05_liveness",
+   "key": "t:livenessdetectionusingcrossmodalcorrelationsinfacevoicepersonauthentication",
+   "title": "Liveness detection using cross-modal correlations in face-voice person authentication",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-chetty05_liveness | title=Liveness detection using cross-modal correlations in face-voice person authentication | authors=Girija Chetty, Michael Wagner | venue=INTERSPEECH 2005, Lisbon | review_state=source_checked | Study.study"
+  },
+  {
+   "pid": "isca-chetty06_speakface",
+   "key": "t:speakingfacesforfacevoicespeakeridentityverification",
+   "title": "Speaking faces for face-voice speaker identity verification",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-chetty06_speakface | title=Speaking faces for face-voice speaker identity verification | authors=Girija Chetty, Michael Wagner | venue=INTERSPEECH 2006, Pittsburgh | review_state=source_checked | Study.stud"
+  },
+  {
+   "pid": "isca-chetty07_avsp",
+   "key": "t:audiovisualspeakeridentityverificationbasedoncrossmodalfusion",
+   "title": "Audiovisual speaker identity verification based on cross modal fusion",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audiovisual speaker identity verification based on cross modal fusion | authors=Girija Chetty; Michael Wagner | venue=Proc. AVSP 2007, Hilvarenbeek, Netherlands"
+  },
+  {
+   "pid": "isca-chetty08-avfusion",
+   "key": "t:audiovisualmultilevelfusionforspeechandspeakerrecognition",
+   "title": "Audio-Visual Multilevel Fusion for Speech and Speaker Recognition",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Chetty, Wagner | venue=Interspeech 2008 | Study.research_objective=audio-visual fusion for digit speech recognition and speaker verification | Study.study_design=controlled_experiment | task_family=isolated_word_recognition | extra.Production.scope_note=audio-"
+  },
+  {
+   "pid": "isca-chetty08_avfusion",
+   "key": "t:audiovisualmultilevelfusionforspeechandspeakerrecognition",
+   "title": "Audio-Visual Multilevel Fusion for Speech and Speaker Recognition",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "udy.unit_of_analysis=AVOZES stereovision speaking-face DB (Module-4 CVC eval / VCV / Module-5 digits); 10 clients + 5+5 impostors (Prot A), 10+10 speakers (Prot B); structure-tensor LITF+LDIF lip features + MFCC; SVM→digit, GMM→speaker+liveness | t"
+  },
+  {
+   "pid": "isca-chetty09_avsp",
+   "key": "t:audiovisualmutualdependencymodelsforbiometriclivenesschecks",
+   "title": "Audio-visual mutual dependency models for biometric liveness checks",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-visual mutual dependency models for biometric liveness checks | authors=Girija Chetty; Roland Göcke; Michael Wagner | venue=Proc. AVSP 2009, Norwich, UK | Study.rese"
+  },
+  {
+   "pid": "isca-cohn08_avsp",
+   "key": "t:facialdynamicsrevealspersonidentityandcommunicativeintentregulatespersonpercepti",
+   "title": "Facial dynamics reveals person identity and communicative intent, regulates person perception and social interaction",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Limitation.limitation=neural-control link asserted not shown | extra.Task.target=dynamics-sensitive measurement for HCI/biometrics | author_claimed_contribution=program-wide evidence for dynamics hypothesis | extra.Protocol.evaluation_target=percept"
+  },
+  {
+   "pid": "isca-davis15_avsp",
+   "key": "t:thestabilityofmouthmovementsformultipletalkersovermultiplesessions",
+   "title": "The stability of mouth movements for multiple talkers over multiple sessions",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ysis=per-utterance gPC mouth trajectory | task_family=inner_experience_analysis | extra.Task.scope=visible-articulation biometric stability | elicitation=instructed_content | production_instruction=recite 10 sentences on 6 occasions | Cohort.demogra"
+  },
+  {
+   "pid": "isca-dean05_avsp",
+   "key": "t:audiovisualspeakeridentificationusingthecuavedatabase",
+   "title": "Audio-visual speaker identification using the CUAVE database",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-visual speaker identification using the CUAVE database | authors=David Dean, Patrick Lucey, Sridha Sridharan | venue=Proc. AVSP 2005, British Columbi"
+  },
+  {
+   "pid": "isca-dean07-mshmm",
+   "key": "t:weightingandnormalisationofsynchronoushmmsforaudiovisualspeechrecognition",
+   "title": "Weighting and Normalisation of Synchronous HMMs for Audio-Visual Speech Recognition",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s=XM2VTS: 295 speakers, four sessions each speaking two sequences of ten-digit sentences; 200 designated clients and 95 impostors; sessions 1-2 train, 3 tuning/evaluation, 4 test | intended_use_cases=noisy_environment | production_labels=ordinary_v"
+  },
+  {
+   "pid": "isca-dean07_avsp",
+   "key": "p:isca-dean07_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion tested but had little effect (not reported) | Cohort.recruitment=295 XM2VTS speakers; 200 clients train models, 95 impostors are the test-only set (speaker-independent) | Dataset.collection_protocol=each speaker has four sessions, each speakin"
+  },
+  {
+   "pid": "isca-dean07_interspeech",
+   "key": "p:isca-dean07_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "esign={'design': 'speaker-independent XM2VTSDB protocol: sessions 1-2 train, 3 tune/eval, 4 test; 200 clients train, 95 imposters test; word-loop decoding with per-system insertion penalties; test audio babble-corrupted 0/6/12/18 dB SNR; baselines"
+  },
+  {
+   "pid": "isca-dean08_avsp",
+   "key": "t:fusedhmmadaptationofsynchronoushmmsforaudiovisualspeakerverification",
+   "title": "Fused HMM adaptation of synchronous HMMs for audio-visual speaker verification",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Fused HMM adaptation of synchronous HMMs for audio-visual speaker verification | authors=David Dean; Sridha Sridharan | venue=Proc. AVSP 2008, Moreton Island, Australia | Study.research_objective=re"
+  },
+  {
+   "pid": "isca-dean08_interspeech",
+   "key": "p:isca-dean08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=evaluate CAB visual speech features for speaker verification stage-by-stage | task_encoding=natural_utterance | ProductionCondition.activity_origin=overt_articulation | elicitation"
+  },
+  {
+   "pid": "isca-drugman10_interspeech",
+   "key": "t:onthepotentialofglottalsignaturesforspeakerrecognition",
+   "title": "On the Potential of Glottal Signatures for Speaker Recognition",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "comparisons to Plumpe 28.64% / Gudnason 5.06% (168spk) and 12.95% / 36.3% on full sets | system_boundary=glottal-source biometrics — excitation-signal extraction techniques directly relevant to laryngeal-signal SSI inputs; output is speaker identity"
+  },
+  {
+   "pid": "isca-eveno05_liveness",
+   "key": "t:aspeakerindependentlivenesstestforaudiovisualbiometrics",
+   "title": "A Speaker independent “Liveness” Test for Audio-Visual Biometrics",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-eveno05_liveness | title=A Speaker independent “Liveness” Test for Audio-Visual Biometrics | authors=Nicolas Eveno, Laurent Besacier | venue=INTERSPEECH 2005, Lisbon | review_state=source_checked | Study.study"
+  },
+  {
+   "pid": "isca-fan08_interspeech",
+   "key": "p:isca-fan08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=whispered-speech speaker identification robust to neutral/whisper mismatch via two-stage frequency warping + score competition | intended_use_cases=private_com"
+  },
+  {
+   "pid": "isca-garnier06_interspeech",
+   "key": "t:anacousticandarticulatorystudyoflombardspeechglobaleffectsontheutterance",
+   "title": "An Acoustic and Articulatory Study of Lombard Speech: Global Effects on the Utterance",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "unteers | modalities=optical_camera, microphone, other | intrusiveness=skin_contact | Acquisition.sensor_geometry=ICP labiometric device: video of lips 25fps (lip spreading A, aperture B, inter-lip area S, pinching types); AKG mic 20cm; EGG EG2; bot"
+  },
+  {
+   "pid": "isca-hu07_avsp",
+   "key": "t:audiovisualpersonidentificationonthexm2vtsdatabase",
+   "title": "Audio-Visual Person Identification on the XM2VTS Database",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Person Identification on the XM2VTS Database | authors=Roland Hu; R. I. Damper | venue=Proc. AVSP 2007, Hilvarenbeek, Netherlands | Study.res"
+  },
+  {
+   "pid": "isca-kim09h_visspeaker",
+   "key": "t:speakerdiscriminabilityforvisualspeechmodes",
+   "title": "Speaker discriminability for visual speech modes",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ility vs quiet speech | Claim.claim_scope=jaw-motion PC1 alone discriminates speakers in noise/whisper — viable bimodal biometric signal | extra.Limitation.limitation=only 4 talkers, 10 sentences; marker-based lab capture, not passive video; speaker"
+  },
+  {
+   "pid": "isca-kojima06_interspeech",
+   "key": "t:speakerverificationwithnonaudiblemurmursegments",
+   "title": "Speaker Verification with Non-Audible Murmur Segments",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/kojima06-interspeech | title=Speaker Verification with Non-Audible Murmur Segments | authors=Mariko Kojima, Tomoko Matsui, Hiromichi Kawanami, Hiroshi Saruwatari, Kiyohi"
+  },
+  {
+   "pid": "isca-labiak11_interspeech",
+   "key": "t:nearestneighborswithlearneddistancesforphoneticframeclassification",
+   "title": "Nearest Neighbors with Learned Distances for Phonetic Frame Classification",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| supervision_kind=phoneme_label | TrainingRun.training_objective=LMNN hinge margin pulls n target neighbors in/pushes impostors out by 1 unit (SDP); LPP minimizes weighted neighbor distances (unsupervised); k tuned 20-70 on dev; ~0.5-1.5h metric"
+  },
+  {
+   "pid": "isca-li13d_interspeech",
+   "key": "t:speakerverificationbasedonfusionofacousticandarticulatoryinformation",
+   "title": "Speaker verification based on fusion of acoustic and articulatory information",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/li13d-interspeech | title=Speaker verification based on fusion of acoustic and articulatory information | authors=Ming Li, Jangwon Kim, Prasanta Ghosh, Vikram Ramanar"
+  },
+  {
+   "pid": "isca-luettin96b_icslp",
+   "key": "t:speakeridentificationbylipreading",
+   "title": "Speaker identification by lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker identification by lipreading | venue=Proc. ICSLP 1996 (Philadelphia) | intended_use_cases=device_control, other | ProductionCondition."
+  },
+  {
+   "pid": "isca-marcheret15_interspeech",
+   "key": "t:detectingaudiovisualsynchronyusingdeepneuralnetworks",
+   "title": "Detecting Audio-Visual Synchrony Using Deep Neural Networks",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tically detect whether audio and visual speech modalities in frontal-pose videos are synchronous, for applications like biometric spoof detection, lip-syncing, speaker detection/diarization and video QA — using DNNs on wide AV contexts or on interna"
+  },
+  {
+   "pid": "isca-mclaughlin11_bimodalid",
+   "key": "t:robustbimodalpersonidentificationusingfaceandspeechwithlimitedtrainingdataandcor",
+   "title": "Robust Bimodal Person Identification using Face and Speech with Limited Training Data and Corruption of Both Modalities",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-mclaughlin11_bimodalid | title=Robust Bimodal Person Identification using Face and Speech with Limited Training Data and Corruption of Both Modalities | authors=Niall McLaughlin, Ji Ming,"
+  },
+  {
+   "pid": "isca-millar04_speakingface",
+   "key": "t:aspectsofspeakingfacedatacorpusdesignmethodology",
+   "title": "Aspects of Speaking-Face Data Corpus Design Methodology",
+   "year": 2004,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "corpora + analysis of data specification/description/statistical-representation principles, application-driven (AV ASR, authentication, synthesis) vs scientifically motivated + targeted vs opportunistic collection (e.g. news broadcasts) | task_encodin"
+  },
+  {
+   "pid": "isca-naini19_interspeech",
+   "key": "t:whispertoneutralmappingusingcosinesimilaritymaximizationinivectorspaceforspeaker",
+   "title": "Whisper to neutral mapping using cosine similarity maximization in i-vector space for speaker verification",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Whisper to neutral mapping using cosine similarity maximization in i-vector space for speaker verification | system_name=39-dim MFCC → GMM-UBM + T-matrix i-vector front end (d=400) + cosine-similarity-maximizing feature map (l"
+  },
+  {
+   "pid": "isca-naini20_interspeech",
+   "key": "t:whisperactivitydetectionusingcnnlstmbasedattentionpoolingnetworktrainedforaspeak",
+   "title": "Whisper activity detection using CNN-LSTM based attention pooling network trained for a speaker identification task",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Whisper activity detection using CNN-LSTM based attention pooling network trained for a speaker identification task | system_name=CNN (trained for speaker identification) + LSTM attention-pooling → per-frame attention weights → me"
+  },
+  {
+   "pid": "isca-okamoto07_interspeech",
+   "key": "t:studyonspeakerverificationwithnonaudiblemurmursegments",
+   "title": "Study on Speaker Verification with Non-Audible Murmur Segments",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/okamoto07-interspeech | title=Study on Speaker Verification with Non-Audible Murmur Segments | authors=Hideki Okamoto, Mariko Kojima, Tomoko Matsui, Hiromichi Kawanami, Hiroshi Sa"
+  },
+  {
+   "pid": "isca-okamoto08_interspeech",
+   "key": "p:isca-okamoto08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=speaker verification from NAM segments via GA kernel + PLRM, secure text-dependent keyword authentication | intended_use_cases=private_commu"
+  },
+  {
+   "pid": "isca-wang08_avsp",
+   "key": "t:staticanddynamiclipfeatureanalysisforspeakerverification",
+   "title": "Static and dynamic lip feature analysis for speaker verification",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Static and dynamic lip feature analysis for speaker verification | authors=S.L. Wang; A.W.C. Liew | venue=Proc. AVSP 2008, Moreton Island, Australia | Study.research_objective=compare"
+  },
+  {
+   "pid": "isca-wark98_icslp",
+   "key": "t:improvingspeakeridentificationperformanceinreverberantconditionsusinglipinformat",
+   "title": "Improving speaker identification performance in reverberant conditions using lip information",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improving speaker identification performance in reverberant conditions using lip information | authors=T. Wark, S. Sridharan | venue=Proc. ICSLP 1998, S"
+  },
+  {
+   "pid": "naist-msc2007-kojima-nam-verification",
+   "key": "t:speakerverificationusingnonaudiblemurmur",
+   "title": "Speaker Verification using Non-Audible Murmur",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=naist-msc2007/kojima-nam-verification | title=Speaker Verification using Non-Audible Murmur | authors=Mariko Kojima | venue=NAIST MSc thesis MT0551049 | review_state=source_checked | Stu"
+  },
+  {
+   "pid": "naist-msc2008-okamoto-nam-verification",
+   "key": "t:accuracyimprovementofpersonalauthenticationusingnonaudiblemurmur",
+   "title": "Accuracy Improvement of Personal Authentication Using Non-audible Murmur",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=naist-msc2008/okamoto-nam-verification | title=Accuracy Improvement of Personal Authentication Using Non-audible Murmur | authors=Hideki Okamoto | venue=NAIST MSc thesis MT0651026 | review_state=source_checked |"
+  },
+  {
+   "pid": "pmc-11124924-csteng-mask",
+   "key": "t:flexibleselfpoweredlowdecibelvoicerecognitionmask",
+   "title": "Flexible Self-Powered Low-Decibel Voice Recognition Mask",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "de a mask that converts whispered-speech airflow vibrations into electrical signals for content recognition and speaker identity verification | Study.unit_of_analysis=CS-TENG mask prototype evaluated on 3 word categories (commands, functions, home; 29 terms com"
+  },
+  {
+   "pid": "pmc-11143305-recurrenceplot",
+   "key": "t:recurrenceplotembeddingsasshortsegmentnonlinearfeaturesformultimodalspeakerident",
+   "title": "Recurrence plot embeddings as short segment nonlinear features for multimodal speaker identification using air, bone and throat microphones",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Recurrence plot embeddings as short segment nonlinear features for multimodal speaker identification using air, bone and throat microphones | authors=Nawas KK, Shahina A, Balachandar K | venue=Scientific reports | Study."
+  },
+  {
+   "pid": "pmc-13634861-voicecloning",
+   "key": "t:thetonguemaynotmovebutthevoicewillpreoperativeaivoicecloningforidentitypreservat",
+   "title": "The tongue may not move, but the voice will: preoperative AI voice cloning for identity preservation in major glossectomy — a prospective feasibility study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dicF5 flow-matching TTS', 'synthesize reading-passage + patient-transcript outputs', 'score embeddings vs intra-speaker/impostor calibration', 'mel-cepstral + prosodic fidelity', 'PSV-AQ patient/family acceptance']} | EvaluationProtocol.experimenta"
+  },
+  {
+   "pid": "pmc-7283463-eegbcirev",
+   "key": "t:currentstatuschallengesandpossiblesolutionsofeegbasedbraincomputerinterfaceacomp",
+   "title": "Current status, challenges, and possible solutions of EEG-based brain-computer interface: a comprehensive review",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ces; (iv) processing stages and classifiers; (v) applications — spellers, wheelchairs, rehabilitation, gaming, fatigue, biometrics, emotion | task_encoding=task_evoked_inner | task_family=command_selection | Cohort.demographics=Both healthy subjects"
+  },
+  {
+   "pid": "pmc-9101004-eegbcirev2",
+   "key": "t:pastpresentandfutureofeegbasedbciapplications",
+   "title": "Past, present, and future of EEG-based BCI applications",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| Cohort.demographics=Patient users (assistive/rehabilitation/assessment) and healthy users (monitoring, entertainment, authentication, device control) — non-medical now exceeds medical (58 vs 31%) | intended_use_cases=assistive_text_entry, device_con"
+  },
+  {
+   "pid": "rosenblum-2002-visspeech",
+   "key": "t:visualspeechinformationforfacerecognition",
+   "title": "Visual speech information for face recognition",
+   "year": 2002,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "point-light visual speech | Study.study_design=controlled_experiment | extra.Production.scope_note=dynamic point-light speaker identification from visible speech | modalities=optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | Processi"
+  }
+ ],
+ "usual_approach": {
+  "design": "HMM or Gaussian-mixture identity model",
+  "n": 37,
+  "tier": "pattern match",
+  "pids": [
+   "pmc-11143305-recurrenceplot",
+   "arxiv-2010.06363",
+   "doi-10.1109-access.2020.2982359"
+  ],
+  "population_unique": 75,
+  "note": "full-text pattern counts over 75 unique studies: HMM/GMM 37, cross-modal alignment 13, GMM-UBM or i-/x-vector 11, metric-learning embedding 8, multi-task or shared encoder 6 (upper bounds)"
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-okamoto07_interspeech",
+   "role": "sota",
+   "loc": "Sec. 4",
+   "quote": "the EER was 0.2%"
+  },
+  {
+   "pid": "isca-chetty08_avfusion",
+   "role": "prior",
+   "loc": "Sec. 4",
+   "quote": "0.9-1.2% for fused audio and lip motion features (fmfcc + flitf + fldtf)"
+  },
+  {
+   "pid": "arxiv-2512.16518",
+   "role": "target",
+   "loc": "Sec. 3.2",
+   "quote": "CLWUM exploits this intrinsic link by mapping paired whisper and ultrasonic signals into a shared embedding space, effectively acting as a “private key” that aligns only genuine-user embeddings."
+  },
+  {
+   "pid": "arxiv-2604.20229",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "In tests comparing whispered to whispered, our model attains an EER of 1.88%"
+  }
+ ],
+ "state_of_the_art": {
+  "pid": "isca-okamoto07_interspeech",
+  "year": 2007,
+  "metric": "speaker-verification EER from non-audible murmur, per-speaker SVM, disjoint imposters, held-out session",
+  "value": "0.2",
+  "unit": "% EER",
+  "timing": "prior"
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 75,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "HMM or Gaussian-mixture identity model",
+   "n": 37,
+   "tier": "pattern match",
+   "population_unique": 75
+  },
+  "state_of_the_art": {
+   "pid": "isca-okamoto07_interspeech",
+   "year": 2007,
+   "metric": "speaker-verification EER from non-audible murmur, per-speaker SVM, disjoint imposters, held-out session",
+   "value": "0.2",
+   "unit": "% EER",
+   "timing": "prior"
+  },
+  "read": 4,
+  "read_prior": [
+   "isca-chetty08_avfusion"
+  ],
+  "unread": 78,
+  "confirmed_unique": 0,
+  "known_item_recall": null
+ },
+ "used_by": [
+  "poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult"
+ ]
+}
