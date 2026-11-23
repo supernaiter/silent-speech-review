@@ -1,0 +1,1637 @@
+{
+ "topic": "open-vocabulary-silent-speech-corpus",
+ "slot": "M11",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "^(?=[\\s\\S]*\\b(silent(ly)?[ _-](speech|articulat|mouth|read)|mouthed|unvoiced|silent_articulation))(?=[\\s\\S]*(open[- _]vocabulary|large[- _]vocabulary|continuous[- _]speech|sentence))(?=[\\s\\S]*\\b(WER|word error))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies whose ledger names silent (mouthed, silently articulated or unvoiced) speech, sentence-level or open- or large-vocabulary material, and a word error rate, with any signal (EMG, ultrasound, video, EEG, intracranial, acoustic sensing); the design compared is the recording signal and whether the corpus comes from a single speaker, counted by full-text pattern. Boundary: imagined or inner speech and silent reading match the ledger pattern and stay in the count (upper bound); closed command sets without sentences are excluded by the pattern; reviews count as pattern matches only; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 239,
+  "slot_filled_unique": 234,
+  "string_match_folders": 125,
+  "string_match_unique": 110,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M11",
+  "design_slot_fill": 0.027,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "Reference.reference_kind=verbatim_transcript",
+    "n": 10,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2607.29112",
+     "arxiv-2609.28988",
+     "isca-zhang26y-sonispeech",
+     "arxiv-2602.01879"
+    ]
+   },
+   {
+    "design": "reference_construction=other",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2609.21288",
+     "arxiv-2609.28988",
+     "arxiv-2602.01879",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "reference_construction=cue",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2603.02847",
+     "doi-10.1109-tnsre.2023.3266299"
+    ]
+   },
+   {
+    "design": "Reference.reference_kind=prompt",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2608.18114"
+    ]
+   },
+   {
+    "design": "InformationUse.access_class=reference_only",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.13835",
+     "arxiv-2607.09001"
+    ]
+   },
+   {
+    "design": "InformationUse.use_stage=training",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.13835",
+     "arxiv-2607.09001"
+    ]
+   },
+   {
+    "design": "Reference.reference_kind=reconstructed_signal",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21437-odyssey.2026-19",
+     "arxiv-2602.01879"
+    ]
+   },
+   {
+    "design": "information_availability=training_only",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.13835"
+    ]
+   },
+   {
+    "design": "InformationUse.information_consumer=latent mse between eeg/emg and wav2vec 2.0 audio latents.",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.13835"
+    ]
+   },
+   {
+    "design": "target_relation=supervision_target",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.13835"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "surface_emg",
+    "n": 62,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2510.23969",
+     "arxiv-2601-18177-lipsiri",
+     "arxiv-2603.02847",
+     "arxiv-2609.21288"
+    ]
+   },
+   {
+    "design": "lip_or_face_video",
+    "n": 54,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2601-18177-lipsiri",
+     "arxiv-2607.06892",
+     "arxiv-2607.29112",
+     "arxiv-2609.20839",
+     "arxiv-2609.28988"
+    ]
+   },
+   {
+    "design": "single_speaker",
+    "n": 36,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2510.23969",
+     "arxiv-2609.28988",
+     "pmc-13383455-b2s",
+     "arxiv-2511.10935"
+    ]
+   },
+   {
+    "design": "scalp_eeg",
+    "n": 33,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2603.02847",
+     "arxiv-2609.21288",
+     "arxiv-2609.36736",
+     "isca-wen26d_interspeech"
+    ]
+   },
+   {
+    "design": "ultrasound_tongue",
+    "n": 21,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.21437-odyssey.2026-19",
+     "isca-wen26d_interspeech",
+     "pmc-13383455-b2s",
+     "arxiv-2506.13835",
+     "arxiv-2511.10935"
+    ]
+   },
+   {
+    "design": "intracranial",
+    "n": 21,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609.21288",
+     "arxiv-2609.36736",
+     "doi-10.64898-2026.02.19.26346583",
+     "pmc-13383455-b2s",
+     "pmc-13537912-laryngsemg"
+    ]
+   },
+   {
+    "design": "active_acoustic_sensing",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1145-3613904.3642092",
+     "arxiv-1709.06818",
+     "arxiv-2011.11315",
+     "arxiv-2608.00803"
+    ]
+   }
+  ],
+  "metric_pattern": "\\bWER\\b|word error rate",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "WER% (Table 2)",
+   "value": 0.12,
+   "unit": "percent",
+   "raw": "0.12",
+   "pid": "arxiv-2506.16969",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 0.3,
+   "unit": "percent",
+   "raw": "0.3",
+   "pid": "arxiv-2609.24391",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 0.65,
+   "unit": "percent",
+   "raw": "0.65",
+   "pid": "arxiv-2606.05763",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (lower is better; source Table 1)",
+   "value": 0.68,
+   "unit": "percent",
+   "raw": "0.68%",
+   "pid": "arxiv-2607.29112",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 0.71,
+   "unit": "percent",
+   "raw": "0.71",
+   "pid": "arxiv-2607.09001",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (fraction in table)",
+   "value": 0.81,
+   "unit": "percent",
+   "raw": "0.0081",
+   "pid": "arxiv-2608.26213",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SGMM WER subject1 mean 1.4% (S/C/T/D)",
+   "value": 1.4,
+   "unit": "%",
+   "raw": "best subject (S1) mean WER across 4 subtasks with SGMM on triphone+HLDA+MLLT (2.0/0.0/0.9/2.7% on S/C/T/D); SGMM −18.5% rel vs triphone, triphone −31.5% rel vs ",
+   "pid": "isca-deng14b_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "1.5%->69% WER under cocktail noise",
+   "value": 1.5,
+   "unit": "% WER",
+   "raw": "prior SOTA on clean LRS2; rises to 69% with background speech",
+   "pid": "isca-nguyen25b_interspeech",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LKL WER decrease vs baseline",
+   "value": 1.85,
+   "unit": "%",
+   "raw": "1.85",
+   "pid": "arxiv-2305.14203",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 2.1,
+   "unit": "percent",
+   "raw": "2.1",
+   "pid": "arxiv-2607.06892",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1709.06818",
+   "key": "t:updatingthesilentspeechchallengebenchmarkwithdeeplearning",
+   "title": "Updating the silent speech challenge benchmark with deep learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1709.06818 | title=Updating the silent speech challenge benchmark with deep learning | venue=INTERSPEECH"
+  },
+  {
+   "pid": "arxiv-2002.03851",
+   "key": "t:continuoussilentspeechrecognitionusingeeg",
+   "title": "Continuous Silent Speech Recognition using EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2002.03851 | title=Continuous Silent Speech Recognition using EEG | venue=arXiv 2020; v7 | Study.research"
+  },
+  {
+   "pid": "arxiv-2010.02960",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2010.02960 | title=Digital Voicing of Silent Speech | venue=EMNLP 2020; v1 | Study.research_objective=Gen"
+  },
+  {
+   "pid": "arxiv-2011.11315",
+   "key": "t:endtoendsilentspeechrecognitionwithacousticsensing",
+   "title": "End-to-end Silent Speech Recognition with Acoustic Sensing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2011.11315 | title=End-to-end Silent Speech Recognition with Acoustic Sensing | venue=IEEE IoT Journal; v"
+  },
+  {
+   "pid": "arxiv-2103.00333",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus modal multi-speaker speech recognition from ultrasound and video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2103.00333 | title=Silent versus modal multi-speaker speech recognition from ultrasound and video | venue"
+  },
+  {
+   "pid": "arxiv-2104.14467",
+   "key": "t:towardsapracticalliptospeechconversionsystemusingdeepneuralnetworksandmobileappl",
+   "title": "Towards a practical lip-to-speech conversion system using deep neural networks and mobile application frontend",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2104.14467 | doi=10.48550/arxiv.2104.14467 | title=Towards a practical lip-to-speech conversion system us"
+  },
+  {
+   "pid": "arxiv-2106.08706",
+   "key": "t:silentspeechandemotionrecognitionfromvocaltractshapedynamicsinrealtimemri",
+   "title": "Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2106.08706 | title=Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI"
+  },
+  {
+   "pid": "arxiv-2212.01083-cmlcsr",
+   "key": "t:crossmodalmutuallearningforcuedspeechrecognition",
+   "title": "Cross-Modal Mutual Learning for Cued Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2212.01083-cmlcsr | title=Cross-Modal Mutual Learning for Cued Speech Recognition | authors=L. Liu, L. Li"
+  },
+  {
+   "pid": "arxiv-2305.14203",
+   "key": "t:improvingthegapinvisualspeechrecognitionbetweennormalandsilentspeechbasedonmetri",
+   "title": "Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2305.14203 | title=Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based"
+  },
+  {
+   "pid": "arxiv-2306.06514",
+   "key": "t:vocoderfreenonparallelconversionofwhisperedspeechwithmaskedcycleconsistentgenera",
+   "title": "Vocoder-Free Non-Parallel Conversion of Whispered Speech With Masked Cycle-Consistent Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2306.06514v2 | title=Vocoder-Free Non-Parallel Conversion of Whispered Speech With Masked Cycle-Consistent"
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "key": "t:largescaleunsupervisedaudiopretrainingforvideotospeechsynthesis",
+   "title": "Large-scale unsupervised audio pre-training for video-to-speech synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.15464-v2apretrain | title=Large-scale unsupervised audio pre-training for video-to-speech synthesis"
+  },
+  {
+   "pid": "arxiv-2307.16584-av2acascade",
+   "key": "t:audiovisualvideotospeechsynthesiswithsynthesizedinputaudio",
+   "title": "Audio-visual video-to-speech synthesis with synthesized input audio",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307.16584-av2acascade | title=Audio-visual video-to-speech synthesis with synthesized input audio | auth"
+  },
+  {
+   "pid": "arxiv-2308.07787-diffv2s",
+   "key": "t:diffv2sdiffusionbasedvideotospeechsynthesiswithvisionguidedspeakerembedding",
+   "title": "DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2308.07787-diffv2s | title=DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker"
+  },
+  {
+   "pid": "arxiv-2311.05179",
+   "key": "t:improvingwhisperedspeechrecognitionperformanceusingpseudowhisperedbaseddataaugme",
+   "title": "IMPROVING WHISPERED SPEECH RECOGNITION PERFORMANCE USING PSEUDO-WHISPERED BASED DATA AUGMENTATION",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2311.05179v1 | source_url=https://arxiv.org/pdf/2311.05179v1 | title=IMPROVING WHISPERED SPEECH RECOGNITIO"
+  },
+  {
+   "pid": "arxiv-2403.05583",
+   "key": "t:acrossmodalapproachtosilentspeechwithllmenhancedrecognition",
+   "title": "A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.05583 | title=A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition | authors=Tyler"
+  },
+  {
+   "pid": "arxiv-2405.08021",
+   "key": "t:diffetslearningadiffusionprobabilisticmodelforelectromyographytospeechconversion",
+   "title": "Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2405.08021 | title=Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conv"
+  },
+  {
+   "pid": "arxiv-2406.11568",
+   "key": "t:towardsanendtoendframeworkforinvasivebrainsignaldecodingwithlargelanguagemodels",
+   "title": "Towards an End-to-End Framework for Invasive Brain Signal Decoding with Large Language Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2406.11568 | paper_version=2406.11568v1 | title=Towards an End-to-End Framework for Invasive Brain Signal"
+  },
+  {
+   "pid": "arxiv-2407.21211",
+   "key": "t:leveragingselfsupervisedmodelsforautomaticwhisperedspeechrecognition",
+   "title": "Leveraging Self-Supervised Models for Automatic Whispered Speech Recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "arxiv_id=2407.21211v2 | paper_version=arXiv v2; 3 Nov 2024 | title=Leveraging Self-Supervised Models for Automatic Whisp"
+  },
+  {
+   "pid": "arxiv-2411.18266",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411.18266 | title=Wearable intelligent throat enables natural speech in stroke patients with dysarthria"
+  },
+  {
+   "pid": "arxiv-2412.13387",
+   "key": "t:deepspeechsynthesisfrommultimodalarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from Multimodal Articulatory Representations",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.13387 | doi=10.48550/arxiv.2412.13387 | title=Deep Speech Synthesis from Multimodal Articulatory Rep"
+  },
+  {
+   "pid": "arxiv-2502.05762",
+   "key": "t:noninvasiveelectromyographicspeechneuroprosthesisageometricperspective",
+   "title": "Non-invasive electromyographic speech neuroprosthesis: a geometric perspective",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.05762 | paper_version=2502.05762v3 | title=Non-invasive electromyographic speech neuroprosthesis: a"
+  },
+  {
+   "pid": "arxiv-2506.13835",
+   "key": "t:asilentspeechdecodingsystemfromeegandemgwithheterogenouselectrodeconfigurations",
+   "title": "A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2506.13835 | paper_version=2506.13835v1 | title=A Silent Speech Decoding System from EEG and EMG with Het"
+  },
+  {
+   "pid": "arxiv-2506.16969",
+   "key": "t:statespacemodelsinefficientwhisperedandmultidialectspeechrecognition",
+   "title": "State-Space Models in Efficient Whispered and Multi-dialect Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2506.16969v2 | title=State-Space Models in Efficient Whispered and Multi-dialect Speech Recognition | auth"
+  },
+  {
+   "pid": "arxiv-2509.04507",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.04507 | arxiv_id=2509.04507v1 | source_url=https://arxiv.org/pdf/2509.04507v1 | title=From Silent Si"
+  },
+  {
+   "pid": "arxiv-2509.04507-dualstg",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach | authors=Nithyashree Sivasubramani"
+  },
+  {
+   "pid": "arxiv-2510.23969",
+   "key": "t:emg2speechsynthesizingspeechfromelectromyographyusingselfsupervisedspeechmodels",
+   "title": "emg2speech: synthesizing speech from electromyography using self-supervised speech models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.23969 | title=emg2speech: synthesizing speech from electromyography using self-supervised speech mod"
+  },
+  {
+   "pid": "arxiv-2511.10935",
+   "key": "t:catnetacrossattentiontonenetworkforcrosssubjecteegemgfusiontonedecoding",
+   "title": "CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2511.10935 | paper_version=2511.10935v1 | title=CAT-Net: A Cross-Attention Tone Network for Cross-Subject"
+  },
+  {
+   "pid": "arxiv-2601-18177-lipsiri",
+   "key": "t:lipsiricontactlessopensentencesilentspeechwithwifibackscatter",
+   "title": "Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter | authors=Tian, Du, Gu, Zhang, Wang, Zhou"
+  },
+  {
+   "pid": "arxiv-2601.18177",
+   "key": "t:lipsiricontactlessopensentencesilentspeechwithwifibackscatter",
+   "title": "Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2601.18177 | paper_version=2601.18177v1 | title=Lip-Siri: Contactless Open-Sentence Silent Speech with Wi"
+  },
+  {
+   "pid": "arxiv-2602.01879",
+   "key": "t:speakingwithoutsoundmultispeakersilentspeechvoicingwithfacialinputsonly",
+   "title": "Speaking Without Sound: Multi-speaker Silent Speech Voicing with Facial Inputs Only",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01879 | arxiv_id=2602.01879v1 | source_url=https://arxiv.org/pdf/2602.01879v1 | title=Speaking Witho"
+  },
+  {
+   "pid": "arxiv-2602.06460",
+   "key": "t:emgtospeechwithfewerchannels",
+   "title": "EMG-to-Speech with Fewer Channels",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.06460 | paper_version=arXiv 2602.06460v1; 5 pages | title=EMG-to-Speech with Fewer Channels | author"
+  },
+  {
+   "pid": "arxiv-2603.02847",
+   "key": "t:silentwearanultralowpowerwearablesystemforemgbasedsilentspeechrecognition",
+   "title": "SilentWear: an Ultra-Low Power Wearable System for EMG-based Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.02847 | arxiv_id=2603.02847v2 | source_url=https://arxiv.org/pdf/2603.02847v2 | title=SilentWear: an"
+  },
+  {
+   "pid": "arxiv-2603.11715",
+   "key": "t:affectdecodinginphonatedandsilentspeechproductionfromsurfaceemg",
+   "title": "Affect Decoding in Phonated and Silent Speech Production from Surface EMG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.11715 | paper_version=arXiv 2603.11715v2; 10 pages | title=Affect Decoding in Phonated and Silent Sp"
+  },
+  {
+   "pid": "arxiv-2603.14853",
+   "key": "t:whispsynthscalingmultilingualwhispercorpusthroughrealdatacurationandanovelpitchf",
+   "title": "WhispSynth: Scaling Multilingual Whisper Corpus through Real Data Curation and A Novel Pitch-free Generative Framework",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=WhispSynth: Scaling Multilingual Whisper Corpus through Real Data Curation and A Novel Pitch-free Generative Frame"
+  },
+  {
+   "pid": "arxiv-2606.05763",
+   "key": "t:m2savsrmodalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspe",
+   "title": "M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2606.05763v2 | title=M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-V"
+  },
+  {
+   "pid": "arxiv-2606.09667",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2606.09667 | paper_version=2606.09667v1 | source_url=https://arxiv.org/pdf/2606.09667v1 | title=Cross-Mod"
+  },
+  {
+   "pid": "arxiv-2607.06892",
+   "key": "t:ubgnetanuncertaintyawarebayesiangatingnetworkforrobustaudiovisualspeechrecogniti",
+   "title": "UBG-Net: An Uncertainty-aware Bayesian Gating Network for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2607.06892 | paper_version=2607.06892v1 | title=UBG-Net: An Uncertainty-aware Bayesian Gating Network for"
+  },
+  {
+   "pid": "arxiv-2607.09001",
+   "key": "t:optimaltransportbasedsemanticalignmentforllmbasedaudiovisualspeechrecognition",
+   "title": "Optimal Transport-based Semantic Alignment for LLM-based Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "extra.Production.scope_note=Additive-noise test condition at SNR -5 dB; paper reports noisy test levels −5, 0, and 5 dB."
+  },
+  {
+   "pid": "arxiv-2607.29112",
+   "key": "t:doublehelixstructuredcrossmodalfusionforaudiovisualspeechrecognitionwithllms",
+   "title": "DoubleHelix: Structured Cross-Modal Fusion for Audio-Visual Speech Recognition with LLMs",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2607.29112v1 | source_url=https://arxiv.org/pdf/2607.29112v1 | title=DoubleHelix: Structured Cross-Modal F"
+  },
+  {
+   "pid": "arxiv-2608.00803",
+   "key": "t:sonispeechalargescaleopenvocabularytrimodaldatasetforwearablesilentspeechinterfa",
+   "title": "SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.00803 | paper_version=arXiv 2608.00803v1; six-page PDF | title=SoniSpeech: A Large-Scale Open-Vocabu"
+  },
+  {
+   "pid": "arxiv-2608.18114",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings | arxiv_id=2608.18114v1 | paper_version="
+  },
+  {
+   "pid": "arxiv-2608.20186",
+   "key": "t:decodingsilentreadingfromnoninvasiveeeg",
+   "title": "Decoding silent reading from non-invasive EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "question=Is open-vocabulary word-level information decodable from EEG during silent reading? | question=How much apparen"
+  },
+  {
+   "pid": "arxiv-2608.26213",
+   "key": "t:attentionguidedreliabilityscalingforcontrastivedecodinginrobustaudiovisualspeech",
+   "title": "Attention-Guided Reliability Scaling for Contrastive Decoding in Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Llama-AVSR (Llama-3.1-8B) — full audio-video Expert | SystemConfiguration.component_versions={'llm': 'Llama-"
+  },
+  {
+   "pid": "arxiv-2609.20839",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2609.20839 | paper_version=arXiv:2609.20839v1 | title=Curriculum-Based Noise Adaptation for Phoneme-to-Te"
+  },
+  {
+   "pid": "arxiv-2609.21288",
+   "key": "t:multisubjectpretrainingenablesshortcalibrationpersonalizationforclosedcorpussurf",
+   "title": "Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.21288 | paper_version=arXiv:2609.21288v1 [cs.LG], 18 Sep 2026, 20-page PDF | title=Multi-Subject Pre"
+  },
+  {
+   "pid": "arxiv-2609.24391",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human–Robot Interaction on Edge Hardware",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=NAVIR GRID float clean audio | system_name=NAVIR GRID float noisy audio | system_name=NAVIR GRID float video"
+  },
+  {
+   "pid": "arxiv-2609.28988",
+   "key": "t:personalizedkoreanlipreadingasvisualspeechrecognitiontransfercensusandadaptation",
+   "title": "Personalized Korean Lipreading as Visual Speech Recognition: Transfer, Census and Adaptation on OLKAVS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.28988 | paper_version=arXiv 2609.28988v1; five-page PDF dated 24 Sep 2026 | title=Personalized Korea"
+  },
+  {
+   "pid": "arxiv-2609.36736",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.36736 | doi=10.48550/arxiv.2609.36736 | title=From Neurons to Conversation: Speech Brain-Computer In"
+  },
+  {
+   "pid": "cvf-hong23-avrelscore",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-hong23-avrelscore | title=Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Mo"
+  },
+  {
+   "pid": "cvf-kim23-lowresource-lipread",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-kim23-lowresource-lipread | title=Lip Reading for Low-resource Languages by Learning and Combining General"
+  },
+  {
+   "pid": "cvf-niu23-slts-avsync",
+   "key": "t:ontheaudiovisualsynchronizationforliptospeechsynthesis",
+   "title": "On the Audio-visual Synchronization for Lip-to-Speech Synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-niu23-slts-avsync | title=On the Audio-visual Synchronization for Lip-to-Speech Synthesis | authors=Z. Niu,"
+  },
+  {
+   "pid": "cvf-prajwal22-subword-vtp",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-prajwal22-subword-vtp | title=Sub-word Level Lip Reading With Visual Attention | authors=K. R. Prajwal, T."
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-ren21-master-kd | title=Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading"
+  },
+  {
+   "pid": "cvf23-choi_diffv2s",
+   "key": "t:diffv2sdiffusionbasedvideotospeechsynthesiswithvisionguidedspeakerembedding",
+   "title": "DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf23-choi_diffv2s | title=DiffV2S: Diffusion-based Video-to-Speech Synthesis with Vision-guided Speaker Embedd"
+  },
+  {
+   "pid": "cvf23-djilali_lip2vec",
+   "key": "t:lip2vecefficientandrobustvisualspeechrecognitionvialatenttolatentvisualtoaudiore",
+   "title": "Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visual to Audio Representation Mapping",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf23-djilali_lip2vec | title=Lip2Vec: Efficient and Robust Visual Speech Recognition via Latent-to-Latent Visu"
+  },
+  {
+   "pid": "doi-10-1109-icassp-2018-8461732",
+   "key": "t:f0estimationfordnnbasedultrasoundsilentspeechinterfaces",
+   "title": "F0 Estimation for DNN-Based Ultrasound Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10-1109-icassp-2018-8461732 | title=F0 Estimation for DNN-Based Ultrasound Silent Speech Interfaces | autho"
+  },
+  {
+   "pid": "doi-10.1007-s00521-024-10456-z",
+   "key": "t:decodingsilentspeechamachinelearningperspectiveondatamethodsandframeworks",
+   "title": "Decoding silent speech: a machine learning perspective on data, methods, and frameworks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1007/s00521-024-10456-z | title=Decoding silent speech: a machine learning perspective on data, methods,"
+  },
+  {
+   "pid": "doi-10.1007-s13311-022-01190-2",
+   "key": "t:braincomputerinterfaceapplicationstospeechdecodingandsynthesistoaugmentcommunica",
+   "title": "Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1007-s13311-022-01190-2 | title=Brain-Computer Interface: Applications to Speech Decoding and Synthesis"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2018.02.002",
+   "key": "t:updatingthesilentspeechchallengebenchmarkwithdeeplearning",
+   "title": "Updating the Silent Speech Challenge benchmark with deep learning",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Updating the Silent Speech Challenge benchmark with deep learning | authors=Yan Ji; Licheng Liu; Hongcui Wang; Zhi"
+  },
+  {
+   "pid": "doi-10.1038-s41467-022-33611-3",
+   "key": "t:generalizablespellingusingaspeechneuroprosthesisinanindividualwithseverelimbandv",
+   "title": "Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41467-022-33611-3 | doi=10.1038/s41467-022-33611-3 | title=Generalizable spelling using a speech n"
+  },
+  {
+   "pid": "doi-10.1038-s41467-025-68228-9",
+   "key": "p:doi-10.1038-s41467-025-68228-9",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=intelligent throat (IT): graphene-textile throat+ carotid-pulse strain sensing → token-level decoder → LLM c"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2007.366934",
+   "key": "t:continuouselectromyographicspeechrecognitionwithamultistreamdecodingarchitecture",
+   "title": "Continuous Electromyographic Speech Recognition with a Multi-Stream Decoding Architecture",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Continuous Electromyographic Speech Recognition with a Multi-Stream Decoding Architecture | authors=Szu-Chen Stan"
+  },
+  {
+   "pid": "doi-10.1109-slt48900.2021.9383619",
+   "key": "t:talasynchronisedmultispeakercorpusofultrasoundtongueimagingaudioandlipvideos",
+   "title": "TaL: A Synchronised Multi-Speaker Corpus of Ultrasound Tongue Imaging, Audio, and Lip Videos",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1109/SLT48900.2021.9383619 | title=TaL: A Synchronised Multi-Speaker Corpus of Ultrasound Tongue Imaging"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "key": "t:silentspeechrecognitionasanalternativecommunicationdeviceforpersonswithlaryngect",
+   "title": "Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy | authors=Geoffrey"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2023.3266299",
+   "key": "p:doi-10.1109-tnsre.2023.3266299",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=healthy_volunteers | task_family=sentence_recognition | int"
+  },
+  {
+   "pid": "doi-10.1145-3613904.3642092",
+   "key": "t:watchyourmouthsilentspeechrecognitionwithdepthsensing",
+   "title": "Watch Your Mouth: Silent Speech Recognition with Depth Sensing",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.1145/3613904.3642092 | title=Watch Your Mouth: Silent Speech Recognition with Depth Sensing | authors=Xu"
+  },
+  {
+   "pid": "doi-10.1186-s13636-025-00403-8",
+   "key": "t:silentspeechrecognitionusingvisualcascadingfusionoftonguelipmovementsbasedonpret",
+   "title": "Silent speech recognition using visual cascading fusion of tongue-lip movements based on pre-trained and fine-tuned model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1186-s13636-025-00403-8 | doi=10.1186/s13636-025-00403-8 | title=Silent speech recognition using visual"
+  },
+  {
+   "pid": "doi-10.18653-v1-2020.emnlp-main.445",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Digital Voicing of Silent Speech | intended_use_cases=noisy_environment, private_communication, speech_restoration"
+  },
+  {
+   "pid": "doi-10.18653-v1-2021.acl-short.23",
+   "key": "t:animprovedmodelforvoicingsilentspeech",
+   "title": "An Improved Model for Voicing Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Improved Model for Voicing Silent Speech | intended_use_cases=speech_restoration, private_communication, noisy_"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-5443479-v1",
+   "key": "t:integratinggraywolfoptimizationwithdeeplearningforenhancingnamtospeechconversion",
+   "title": "Integrating Gray Wolf Optimization with Deep Learning for Enhancing NAM-to-Speech Conversion",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-5443479-v1 | doi=10.21203/rs.3.rs-5443479/v1 | title=Integrating Gray Wolf Optimization wi"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2021-23",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus Modal Multi-Speaker Speech Recognition from Ultrasound and Video",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2021-23 | title=Silent versus Modal Multi-Speaker Speech Recognition from Ultrasound a"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2023-1966",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video | intended_use"
+  },
+  {
+   "pid": "doi-10.21437-odyssey.2026-19",
+   "key": "t:adaptivephonewiseweightedlossforsilentspeechrestorationincontinuousspanish",
+   "title": "Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish | needs_manual_check=per-spe"
+  },
+  {
+   "pid": "doi-10.3390-brainsci15040336",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain-Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-brainsci15040336 | doi=10.3390/brainsci15040336 | title=Invasive Brain-Computer Interface for Commu"
+  },
+  {
+   "pid": "doi-10.3390-s21041399",
+   "key": "t:biosignalsensorsanddeeplearningbasedspeechrecognitionareview",
+   "title": "Biosignal Sensors and Deep Learning-Based Speech Recognition: A Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s21041399 | doi=10.3390/s21041399 | title=Biosignal Sensors and Deep Learning-Based Speech Recognit"
+  },
+  {
+   "pid": "doi-10.5220-0001549601550162",
+   "key": "t:towardsspeakeradaptivespeechrecognitionbasedonsurfaceelectromyography",
+   "title": "Towards Speaker-Adaptive Speech Recognition Based on Surface Electromyography",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Speaker-Adaptive Speech Recognition Based on Surface Electromyography | authors=Michael Wand; Tanja Schult"
+  },
+  {
+   "pid": "doi-10.5220-0002814100220031",
+   "key": "t:aspectralmappingmethodforemgbasedrecognitionofsilentspeech",
+   "title": "A Spectral Mapping Method for EMG-based Recognition of Silent Speech",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Spectral Mapping Method for EMG-based Recognition of Silent Speech | authors=Matthias Janke; Michael Wand; Tanja"
+  },
+  {
+   "pid": "doi-10.5220-0003169702950300",
+   "key": "t:sessionindependentemgbasedspeechrecognition",
+   "title": "Session-Independent EMG-Based Speech Recognition",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Session-Independent EMG-Based Speech Recognition | authors=M. Wand; T. Schultz | venue=Proc. BIOSIGNALS 2011 | Stu"
+  },
+  {
+   "pid": "doi-10.5220-0004252400890096",
+   "key": "p:doi-10.5220-0004252400890096",
+   "title": null,
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=BIOSIGNALS 2013, pp. 89-96 | needs_manual_check=per-session WER table cells, electrode placement figures, individu"
+  },
+  {
+   "pid": "doi-10.63317-2b659u3p6oeh",
+   "key": "t:ssr7000asynchronizedcorpusofultrasoundtongueimagingforendtoendsilentspeechrecogn",
+   "title": "SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition | intended_us"
+  },
+  {
+   "pid": "doi-10.64388-irev9i6-1713196",
+   "key": "t:visionbasedsilentspeechrecognitionusinghybrid3dcnnandbilstmarchitecture",
+   "title": "Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Architecture",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.64388/IREV9I6-1713196 | title=Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Archite"
+  },
+  {
+   "pid": "doi-10.64898-2026.02.19.26346583",
+   "key": "t:restoringbraintotextcommunicationinapersonwithdysarthriafrompontinestrokeusingan",
+   "title": "Restoring brain-to-text communication in a person with dysarthria from pontine stroke using an intracortical brain-computer interface",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.64898/2026.02.19.26346583 | title=Restoring brain-to-text communication in a person with dysarthria from"
+  },
+  {
+   "pid": "doi-10.7507-1001-5515.202107018",
+   "key": "t:keytechnologyofbraincomputerinteractionbasedonspeechimagery",
+   "title": "(ledger summary not in English; omitted)",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.7507-1001-5515.202107018 | doi=10.7507/1001-5515.202107018 | title=[Key technology of brain-computer int"
+  },
+  {
+   "pid": "iccv25-yuan-notonlyvision",
+   "key": "t:notonlyvisionevolvevisualspeechrecognitionviaperipheralinformation",
+   "title": "Not Only Vision: Evolve Visual Speech Recognition via Peripheral Information",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=iccv25-yuan-notonlyvision | title=Not Only Vision: Evolve Visual Speech Recognition via Peripheral Information"
+  },
+  {
+   "pid": "ijfmr-62938-lip-reading-ai",
+   "key": "t:aiforsilentspeechrecognitionlipreadingai",
+   "title": "AI for Silent Speech Recognition ( Lip Reading AI )",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ijfmr-62938-lip-reading-ai | title=AI for Silent Speech Recognition ( Lip Reading AI ) | authors=Dhvaneeth P Ba"
+  },
+  {
+   "pid": "irej-1713196-hybrid",
+   "key": "t:visionbasedsilentspeechrecognitionusinghybrid3dcnnandbilstmarchitecture",
+   "title": "Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Architecture",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Architecture | authors=Kumar, Gokul, Bharad"
+  },
+  {
+   "pid": "isca-afouras18b_deeplipread",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: A Comparison of Models and an Online Application",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-afouras18b_deeplipread | title=Deep Lip Reading: A Comparison of Models and an Online Application | author"
+  },
+  {
+   "pid": "isca-beeson23_interspeech",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video | system_name="
+  },
+  {
+   "pid": "isca-blanco26-phonewise",
+   "key": "t:adaptivephonewiseweightedlossforsilentspeechrestorationincontinuousspanish",
+   "title": "Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Adaptive Phone-Wise Weighted Loss for Silent Speech Restoration in Continuous Spanish | authors=del Blanco, Gimeno"
+  },
+  {
+   "pid": "isca-choi23_interspeech",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-choi23_interspeech | title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Jeongsoo Choi,"
+  },
+  {
+   "pid": "isca-deng14b_interspeech",
+   "key": "t:towardsapracticalsilentspeechrecognitionsystem",
+   "title": "Towards a Practical Silent Speech Recognition System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards a Practical Silent Speech Recognition System | system_name=BAE sEMG silent speech interface: 8 sEMG channe"
+  },
+  {
+   "pid": "isca-herff11_interspeech",
+   "key": "t:impactofdifferentfeedbackmechanismsinemgbasedspeechrecognition",
+   "title": "Impact of Different Feedback Mechanisms in EMG-based Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Impact of Different Feedback Mechanisms in EMG-based Speech Recognition | system_name=surface-EMG silent-speech re"
+  },
+  {
+   "pid": "isca-jain26_interspeech",
+   "key": "t:thelipreadinggapdovsrmodelsperceivevisualspeechlikehumanlipreaders",
+   "title": "The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-jain26_interspeech | title=The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?"
+  },
+  {
+   "pid": "isca-janke10",
+   "key": "p:isca-janke10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=KIT EMG silent speech recognizer (3-state bundled-phonetic-feature HMM, TD15+LDA front-end, phoneme-class sp"
+  },
+  {
+   "pid": "isca-janke10_interspeech",
+   "key": "t:impactoflackofacousticfeedbackinemgbasedsilentspeechrecognition",
+   "title": "Impact of Lack of Acoustic Feedback in EMG-based Silent Speech Recognition",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:janke10_interspeech | title=Impact of Lack of Acoustic Feedback in EMG-based Silent Speech Recognition | a"
+  },
+  {
+   "pid": "isca-jou06_interspeech",
+   "key": "t:towardscontinuousspeechrecognitionusingsurfaceelectromyography",
+   "title": "Towards Continuous Speech Recognition Using Surface Electromyography",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Continuous Speech Recognition Using Surface Electromyography | authors=Szu-Chen Jou; Tanja Schultz; Matthi"
+  },
+  {
+   "pid": "isca-kashiwagi23_interspeech",
+   "key": "t:improvingthegapinvisualspeechrecognitionbetweennormalandsilentspeechbasedonmetri",
+   "title": "Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning | system_"
+  },
+  {
+   "pid": "isca-kimura20_interspeech",
+   "key": "t:endtoenddeeplearningspeechrecognitionmodelforsilentspeechchallenge",
+   "title": "End-to-End Deep Learning Speech Recognition Model for Silent Speech Challenge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-End Deep Learning Speech Recognition Model for Silent Speech Challenge | system_name=ESPnet hybrid CTC/atte"
+  },
+  {
+   "pid": "isca-li23l_interspeech",
+   "key": "t:hybridsilentspeechinterfacethroughfusionofelectroencephalographyandelectromyogra",
+   "title": "Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography | system_name=bimodal"
+  },
+  {
+   "pid": "isca-meltzner13_interspeech",
+   "key": "t:themutesilentspeechrecognitionsystem",
+   "title": "The MUTE Silent Speech Recognition System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The MUTE Silent Speech Recognition System | system_name=MUTE (Mouthed-speech Understanding and Transcription Engin"
+  },
+  {
+   "pid": "isca-nguyen25b_interspeech",
+   "key": "t:cocktailpartyaudiovisualspeechrecognition",
+   "title": "Cocktail-Party Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-nguyen25b_interspeech | title=Cocktail-Party Audio-Visual Speech Recognition | authors=Thai-Binh Nguyen, N"
+  },
+  {
+   "pid": "isca-pham25_interspeech",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-pham25_interspeech | title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decompo"
+  },
+  {
+   "pid": "isca-potamianos01_eurospeech",
+   "key": "t:largevocabularyaudiovisualspeechrecognitionbymachinesandhumans",
+   "title": "Large-Vocabulary Audio-Visual Speech Recognition by Machines and Humans",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Large-Vocabulary Audio-Visual Speech Recognition by Machines and Humans | venue=Eurospeech 2001 | intended_use_cas"
+  },
+  {
+   "pid": "isca-ribeiro21_interspeech",
+   "key": "p:isca-ribeiro21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2021 | task_family=sentence_recognition | vocabulary_regime=closed_lexicon | scope_limits=feature extr"
+  },
+  {
+   "pid": "isca-shah18b_interspeech",
+   "key": "t:effectivenessofgenerativeadversarialnetworkfornonaudiblemurmurtowhisperspeechcon",
+   "title": "Effectiveness of Generative Adversarial Network for Non-Audible Murmur-to-Whisper Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Effectiveness of Generative Adversarial Network for Non-Audible Murmur-to-Whisper Speech Conversion | task_family="
+  },
+  {
+   "pid": "isca-taguchi18_interspeech",
+   "key": "p:isca-taguchi18_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2018 | task_family=speech_reconstruction | vocabulary_regime=open_vocabulary | scope_limits=English re"
+  },
+  {
+   "pid": "isca-telaar14_interspeech",
+   "key": "t:biokitrealtimedecoderforbiosignalprocessing",
+   "title": "BioKIT - real-time decoder for biosignal processing",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/telaar14-interspeech | title=BioKIT - real-time decoder for biosignal processing | authors=Dominic Telaar,"
+  },
+  {
+   "pid": "isca-wand09_interspeech",
+   "key": "p:isca-wand09_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=quantify how audible-vs-silent articulation differen"
+  },
+  {
+   "pid": "isca-wen26d_interspeech",
+   "key": "t:towardsrobustultrasoundbasedsilentspeechrecognitionlearningphysicsawareandcontex",
+   "title": "Towards Robust Ultrasound-based Silent Speech Recognition: Learning Physics-Aware and Context-Rich Representations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wen26d_interspeech | title=Towards Robust Ultrasound-based Silent Speech Recognition: Learning Physics-Awa"
+  },
+  {
+   "pid": "isca-zhang26y-sonispeech",
+   "key": "t:sonispeechalargescaleopenvocabularytrimodaldatasetforwearablesilentspeechinterfa",
+   "title": "SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces | authors=Ruidon"
+  },
+  {
+   "pid": "lrec22-ssr7000",
+   "key": "t:ssr7000asynchronizedcorpusofultrasoundtongueimagingforendtoendsilentspeechrecogn",
+   "title": "SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=lrec22-ssr7000 | title=SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech"
+  },
+  {
+   "pid": "oa-W2992647453",
+   "key": "t:acontinuoussilentspeechrecognitionsystemforalteregoasilentspeechinterface",
+   "title": "A Continuous Silent Speech Recognition System for AlterEgo, a Silent Speech Interface",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W2992647453 | title=A Continuous Silent Speech Recognition System for AlterEgo, a Silent Speech Interface |"
+  },
+  {
+   "pid": "pmc-10894270-fagan-lts",
+   "key": "t:integratedvisualtransformerandflashattentionforliptospeechgenerationgan",
+   "title": "Integrated visual transformer and flash attention for lip-to-speech generation GAN",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10894270-fagan-lts | title=Integrated visual transformer and flash attention for lip-to-speech generation G"
+  },
+  {
+   "pid": "pmc-12026362-invasive-bci-communication",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain–Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12026362-invasive-bci-communication | title=Invasive Brain–Computer Interface for Communication: A Scoping"
+  },
+  {
+   "pid": "pmc-12816716-intelligent-throat",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12816716-intelligent-throat | title=Wearable intelligent throat enables natural speech in stroke patients w"
+  },
+  {
+   "pid": "pmc-13383455-b2s",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13383455-b2s | title=Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review"
+  },
+  {
+   "pid": "pmc-13537912-laryngsemg",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study | authors=UC D"
+  },
+  {
+   "pid": "pmc-13537912-semg_laryngectomy",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semg_laryngectomy | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface El"
+  },
+  {
+   "pid": "pmc-4000028-bilatsm",
+   "key": "t:sensorymotortransformationsforspeechoccurbilaterally",
+   "title": "Sensory-motor transformations for speech occur bilaterally",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4000028-bilatsm | title=Sensory-motor transformations for speech occur bilaterally | authors=G. B. Cogan, T"
+  },
+  {
+   "pid": "pmc-5350153-vspitg",
+   "key": "t:activationandfunctionalconnectivityoftheleftinferiortemporalgyrusduringvisualspe",
+   "title": "Activation and Functional Connectivity of the Left Inferior Temporal Gyrus during Visual Speech Priming in Healthy Listeners and Listeners with Schizophrenia",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5350153-vspitg | title=Activation and Functional Connectivity of the Left Inferior Temporal Gyrus during Vi"
+  },
+  {
+   "pid": "pmc-8747278-mcnnlip",
+   "key": "t:lipreadingarchitecturebasedonmultipleconvolutionalneuralnetworksforsentencelevel",
+   "title": "Lipreading Architecture Based on Multiple Convolutional Neural Networks for Sentence-Level Visual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lipreading Architecture Based on Multiple Convolutional Neural Networks for Sentence-Level Visual Speech Recogniti"
+  },
+  {
+   "pid": "pmc-9587996-cicrossmodal",
+   "key": "t:evidenceofvisualcrossmodalreorganizationpositivelyrelatestospeechoutcomesincochl",
+   "title": "Evidence of visual crossmodal reorganization positively relates to speech outcomes in cochlear implant users",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9587996-cicrossmodal | title=Evidence of visual crossmodal reorganization positively relates to speech outc"
+  },
+  {
+   "pid": "pmc-9844948-vsricu",
+   "key": "t:twostagevisualspeechrecognitionforintensivecarepatients",
+   "title": "Two-stage visual speech recognition for intensive care patients",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9844948-vsricu | title=Two-stage visual speech recognition for intensive care patients | authors=H. Laux, A"
+  },
+  {
+   "pid": "pmc13270037-vpcgloud",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13270037-vpcgloud | title=Encoding of speech modes and loudness in ventral precentral gyrus | authors=Aparna"
+  }
+ ],
+ "usual_approach": {
+  "design": "surface_emg",
+  "n": 62,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2502.05762",
+   "arxiv-2510.23969",
+   "arxiv-2601-18177-lipsiri",
+   "arxiv-2603.02847",
+   "arxiv-2609.21288"
+  ],
+  "population_unique": 110
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2608.00803",
+   "role": "target",
+   "loc": "Sec. 1, contribution 3",
+   "quote": "26.3% WER on silent speech, demonstrating that the task is"
+  },
+  {
+   "pid": "arxiv-2403.05583",
+   "role": "sota",
+   "loc": "Abstract; Table 3",
+   "quote": "28.8% to 12.2% in the Gaddy (2020) benchmark"
+  },
+  {
+   "pid": "arxiv-2010.02960",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "3.6 hours silent / 3.9 hours vocalized"
+  },
+  {
+   "pid": "lrec22-ssr7000",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "utterances by a single speaker. It contains more utterances per person than any other SSR corpus based on ultrasound imaging."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 3,
+  "recall": 0.75,
+  "missed": [
+   "arxiv-2011.09804"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2403.05583",
+  "year": 2024,
+  "metric": "open-vocabulary silent-EMG WER, one speaker, Gaddy (2020) test set; 22.2% with a 4-gram LM beam search, 12.2% with LLM rescoring of an ensemble",
+  "value": "12.2",
+  "unit": "% WER",
+  "timing": "prior"
+ },
+ "tally": {
+  "slot_filled_unique": 234,
+  "string_match_unique": 110,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "surface_emg",
+   "n": 62,
+   "tier": "pattern match",
+   "population_unique": 110
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2403.05583",
+   "year": 2024,
+   "metric": "open-vocabulary silent-EMG WER, one speaker, Gaddy (2020) test set; 22.2% with a 4-gram LM beam search, 12.2% with LLM rescoring of an ensemble",
+   "value": "12.2",
+   "unit": "% WER",
+   "timing": "prior"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2010.02960",
+   "lrec22-ssr7000"
+  ],
+  "unread": 125,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.75
+ },
+ "used_by": [
+  "sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces"
+ ]
+}

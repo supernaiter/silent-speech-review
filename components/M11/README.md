@@ -28,6 +28,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies or corpora that record the same speech material in normal (audible), whispered and silent (mouthed) modes with any non-acoustic or visual channel (EMG, EMA, ultrasound, lip or face video, neural recordings), and use or release the recordings. Boundary: acoustic-only whisper corpora, two-mode corpora without whisper and reviews are pattern matches only; versions of one study count once.
 - Used in: [Visual-Only Recognition of Normal, Whispered and Silent Speech](../../reviews/visual-only-recognition-of-normal-whispered-and-silent-speech/)
 
+## open-vocabulary-silent-speech-corpus
+
+- Table: [`open-vocabulary-silent-speech-corpus.csv`](open-vocabulary-silent-speech-corpus.csv) (234 slot-filled, 110 pattern match, usual design in 62, 4 read in full)
+- Inclusion rule: Studies whose ledger names silent (mouthed, silently articulated or unvoiced) speech, sentence-level or open- or large-vocabulary material, and a word error rate, with any signal (EMG, ultrasound, video, EEG, intracranial, acoustic sensing); the design compared is the recording signal and whether the corpus comes from a single speaker, counted by full-text pattern. Boundary: imagined or inner speech and silent reading match the ledger pattern and stay in the count (upper bound); closed command sets without sentences are excluded by the pattern; reviews count as pattern matches only; versions of one study count once.
+- Used in: [SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces](../../reviews/sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces/)
+
 ## paired-imagery-perception-neural-recordings
 
 - Table: [`paired-imagery-perception-neural-recordings.csv`](paired-imagery-perception-neural-recordings.csv) (234 slot-filled, 112 pattern match, usual design in 83, 3 read in full)

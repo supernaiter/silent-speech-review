@@ -6,7 +6,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`acoustic-sensing-test-split.csv`](acoustic-sensing-test-split.csv) (6960 slot-filled, 22 pattern match, usual design in 7, 3 read in full)
 - Inclusion rule: Same population as active-acoustic-speech-sensing; the design compared is how the reported test set is separated from training: user-held-out (leave-one-user-out or cross-user), session- or day-held-out, or a random sample split. Boundary: a paper counts under every protocol its text names; reviews count as pattern matches only.
-- Used in: [End-to-End Silent Speech Recognition with Acoustic Sensing](../../reviews/end-to-end-silent-speech-recognition-with-acoustic-sensing/)
+- Used in: [End-to-End Silent Speech Recognition with Acoustic Sensing](../../reviews/end-to-end-silent-speech-recognition-with-acoustic-sensing/), [SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces](../../reviews/sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |
