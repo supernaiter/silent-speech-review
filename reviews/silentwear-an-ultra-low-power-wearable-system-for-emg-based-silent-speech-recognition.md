@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/silentwear-an-ultra-low-power-wearable-system-for-emg-based-silent-speech-recognition/](silentwear-an-ultra-low-power-wearable-system-for-emg-based-silent-speech-recognition/).**
 
-SilentWear, an ultra-low-power dry textile neckband with embedded CNN for EMG command recognition; silent balanced accuracy is 77.5% on pooled-day batches but drops to 59.3% on a new day.
+Neckband EMG with on-body inference at 20.5 mW (M13) but no on-device accuracy; repositioning recovery by labeled fine-tuning is standard (M03); sensor reused from 2025.
 
 [Read the full review](silentwear-an-ultra-low-power-wearable-system-for-emg-based-silent-speech-recognition/) · [All reviews](../README.md)
