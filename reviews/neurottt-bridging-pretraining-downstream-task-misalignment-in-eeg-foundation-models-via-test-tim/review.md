@@ -4,7 +4,7 @@ Wang S, Deng Y, Bao Z, Zhan X, Duan Y. arXiv, 2025. [arXiv:2509.26301](https://a
 
 ## Verdict
 
-NeuroTTT [[1]](#ref-1) changes two components of EEG foundation-model fine-tuning: self-supervised losses added during training (M02) and unlabeled test-time updates (M03). Both are standard. The M02 design is rare in the ledger (Appendix), but its effect appears only in a CBraMod figure without numbers in the text (Fig. 3). The proposed self-supervised test-time step never beats off-the-shelf Tent on balanced accuracy (Tables 1–3). The state-of-the-art claim rests on internal baselines: on imagined speech the best balanced accuracy, 0.5898, is 23.6 points below the 82.6% competition winner on the same corpus [[2]](#ref-2) (inference). Test-time cost is not reported (M13).
+NeuroTTT [[1]](#ref-1) adds self-supervised losses to EEG foundation-model fine-tuning (M02) and unlabeled test-time updates (M03); both are standard. The M02 design is rare (Appendix), but its effect appears only in a CBraMod figure (Fig. 3). The proposed self-supervised test-time step never beats off-the-shelf Tent on balanced accuracy (Tables 1–3). The state-of-the-art claim rests on internal baselines: if its imagined-speech test trials are the competition's released test set, as Appendix B.1 implies, its best balanced accuracy, 0.5898, is 23.6 points below the 82.6% winner [[2]](#ref-2) (inference). Test-time cost is not reported (M13).
 
 ## Against the field, component by component
 
@@ -12,31 +12,31 @@ NeuroTTT [[1]](#ref-1) changes two components of EEG foundation-model fine-tunin
 
 **Usual approach:** Of 40 unique ledger studies that fine-tune a neural foundation model (pattern match, Appendix), 37 show no added self-supervised loss, and the band, jigsaw and flip pretext tasks match only the target. The paper trains stopped-band prediction plus one task transform jointly with the task loss (Sec. 3.1).
 
-**State of the art:** The two other studies with an added loss are [later] (2026; Appendix); the reference point is the paper's own MLP-head row, 0.4733 balanced accuracy on BCIC2020-III (Table 1).
+**State of the art:** The two other studies with an added loss are [later] (2026; Appendix); the reference is the paper's MLP-head row, 0.4733 on BCIC2020-III (Table 1).
 
-Every "TTT" row is Stage I plus a test-time method (Sec. 4.1); Stage I alone appears only in Fig. 3. Imagined-speech runs with the added losses train 150 epochs against 100 for supervised runs (Sec. 4.1), so length and objective are confounded. Verdict: standard.
+Every "TTT" row is Stage I plus a test-time method (Sec. 4.1). Imagined-speech runs with the added losses train 150 epochs against 100 for supervised runs (Sec. 4.1), so length and objective are confounded. Verdict: standard, because the effect is not shown in numbers and the ledger holds no prior comparator (Appendix).
 
 ### M03 Adaptation: self-supervised test-time training and Tent
 
-**Usual approach:** Among 38 unique studies of unlabeled use-time adaptation (pattern match, Appendix), pseudo-label self-training is named in 11, entropy minimization in 6 and self-supervised test-time training in 6, both counts including the target and a [concurrent] sEEG decoder using entropy minimization [[3]](#ref-3).
+**Usual approach:** Among 26 unique ledger studies of unlabeled use-time adaptation (pattern match; 38 with full-text hits, upper bound; Appendix), pseudo-label self-training is named in 11, entropy minimization in 6 and self-supervised test-time training in 6; the last two full-text counts include the target and a [concurrent] sEEG decoder whose design is entropy minimization [[3]](#ref-3).
 
-**State of the art:** On the same corpus a [later] benchmark (2026) fine-tunes LaBraM-Base to 27.7% balanced accuracy, 30.2% at best, on the official validation split [[4]](#ref-4), level with the paper's LaBraM rows (0.2720, 0.2742; Table 1).
+**State of the art:** On this corpus the reference is fine-tuning without adaptation: a [later] benchmark (2026) reaches 27.7% balanced accuracy with LaBraM-Base and 30.2% with EEGConformer, on the official validation split [[4]](#ref-4); the paper's LaBraM rows are level (0.2720, 0.2742; Table 1).
 
-With the same Stage-I model, Tent exceeds the self-supervised step on CBraMod (0.5898 vs 0.5887 speech, 0.7280 vs 0.7196 stress, 0.5674 vs 0.5435 motor imagery) and on LaBraM (0.2742 vs 0.2720, 0.7269 vs 0.7161, 0.45110 vs 0.43835; Tables 1–3), as the authors note (Sec. 4.2). On speech the authors call the TTT effect modest (Sec. 4.3), so most of the 11.7-point lead over the MLP row is Stage I (inference). SHOT starts from a classifier trained on a fixed backbone (Appendix B.4). Verdict: standard.
+With the same Stage-I model, Tent exceeds the self-supervised step on CBraMod (0.5898 vs 0.5887 speech, 0.7280 vs 0.7196 stress, 0.5674 vs 0.5435 motor imagery) and on LaBraM (0.2742 vs 0.2720, 0.7269 vs 0.7161, 0.45110 vs 0.43835; Tables 1–3), as the authors note (Sec. 4.2); five of the six gaps are smaller than the reported ±, and none is tested (inference). On speech the authors call the TTT effect modest (Sec. 4.3), so most of the 11.7-point lead over the MLP row comes from the Stage-I objective plus 50 extra epochs (inference). SHOT starts from a classifier trained on a fixed backbone (Appendix B.4). Verdict: standard.
 
 ### M12 Evaluation: BCIC2020-III and external comparison
 
-**Usual approach:** Of 16 unique ledger studies on this corpus (pattern match, Appendix), 10 use a subject-independent term and 4 cross-validation. The paper tests within subject on the competition split, cross-subject runs being at chance (Appendix B.1).
+**Usual approach:** Of 16 unique ledger studies on this corpus (pattern match, Appendix), 10 mention a subject-independent or cross-subject term and 4 cross-validation (term counts, not designs). The paper tests within subject on the competition's per-subject split (Appendix B.1).
 
-**State of the art:** The 2020 competition winner (2022) reached 82.6% on the released test data, 10 trials per class [[2]](#ref-2); with balanced classes, accuracy equals balanced accuracy, so the paper's best is 23.6 points (29% relative) lower (inference).
+**State of the art:** The 2020 competition winner (2022) reached 82.6% on the released test data, 10 trials per class [[2]](#ref-2). A [later] study says the official test labels are not public [[4]](#ref-4), and the paper does not name its test trials; if they are the released set, accuracy equals balanced accuracy and the paper's best is 23.6 points (29% relative) lower (inference).
 
-The paper keeps the competition splits "for consistency with prior work" (Appendix B.1) but tabulates no prior result. Cross-subject gains rest on test subjects 8–9 (motor imagery) and 33–36 (stress), with no seed count, no definition of ± and no significance test (Secs. 4.1–4.2). Verdict: standard.
+The paper tabulates no prior result (Tables 1–3). Cross-subject gains rest on test subjects 8–9 (motor imagery) and 33–36 (stress), with no seed count, no definition of ± and no significance test (Secs. 4.1–4.2). Verdict: standard.
 
 ### M13 Operating cost: per-sample updates of a full backbone
 
-**Usual approach:** Of 64 unique ledger studies tying use-time adaptation or inference to cost (pattern match, Appendix), 22 report memory or FLOPs and 19 a latency in ms. The paper calls Stage I free at deployment (Sec. 1) but gives no figure for one Adam step per test sample through the whole model (Table 7).
+**Usual approach:** Of 64 unique ledger studies tying use-time adaptation or inference to cost (pattern match, Appendix), 22 report memory or FLOPs and 19 a latency in ms. The paper calls Stage I free at deployment (Sec. 1) but gives no cost for one Adam step per test sample (Table 7).
 
-**State of the art:** A [concurrent] decoder (2025) adapts to a new session by updating under 1% of its parameters and infers at about 2.44 ms per chunk on a CPU [[5]](#ref-5). Verdict: not reported.
+**State of the art:** A [concurrent] intracortical decoder (2025) adapts to a new session by training under 1% of its parameters on that session's data and infers at about 2.44 ms per chunk on a CPU [[5]](#ref-5) Verdict: not reported.
 
 ## The 13 components
 
@@ -44,7 +44,7 @@ The paper keeps the competition splits "for consistency with prior work" (Append
 |---|---|---|---|---|
 | M01 Training-time action | Benchmark task recordings | Recorded task protocol (slot-filled 3,882) | – | standard |
 | M02 Training-only supervision | Band-stop and task SSL losses in fine-tuning | Task-label loss only (pattern match 37) | – | standard |
-| M03 Training and adaptation | SSL test-time step per sample, or Tent | Pseudo-label self-training (pattern match 11) | [[4]](#ref-4) (2026): 30.2% BAcc, same corpus | standard |
+| M03 Training and adaptation | SSL test-time step per sample, or Tent | Pseudo-label self-training (pattern match 11) | [[4]](#ref-4) (2026): 30.2% BAcc, fine-tuning, no adaptation | standard |
 | M04 Use-time action | Offline benchmark trials | Overt or silent production (slot-filled 5,595) | – | standard |
 | M05 Sensors | Existing scalp EEG | Scalp EEG (slot-filled 7,329) | – | standard |
 | M06 Processing and decoding | CBraMod, LaBraM-Base, linear/MLP head | Model per task (slot-filled 7,345) | – | standard |
@@ -58,15 +58,14 @@ The paper keeps the competition splits "for consistency with prior work" (Append
 
 ## Where the claims outrun the evidence
 
-- "State-of-the-art performance" (Abstract; Sec. 5) is internal; 82.6% on the same data predates it [[2]](#ref-2).
-- "Markedly higher" (Abstract) fails for LaBraM on speech: 0.2742 against 20% chance (Table 1; chance from [[4]](#ref-4)).
-- The public motor-imagery loader builds validation from the test subjects while checkpoints are selected on validation kappa, and the test-time script uses SGD and five steps where Table 7 states Adam and one step (code).
+- "State-of-the-art performance" (Sec. 5) is internal; 82.6% on the same data predates it [[2]](#ref-2).
+- "Markedly higher" (Abstract) fails for LaBraM on speech: 0.2742 against 0.2529 for its own linear row (Table 1), with chance at 20% [[4]](#ref-4).
 
 ## What the field needs next
 
-- M03: Tent, self-supervised TTT and pseudo-labels on one fixed Stage-I model, with seeds and per-subject paired tests.
+- M03: Tent, self-supervised TTT and pseudo-labels on one Stage-I model, with seeds and paired tests.
 - M02: Stage I against supervised fine-tuning at matched epochs, both backbones, with numbers.
-- M12: BCIC2020-III results beside the competition's; leave-one-subject-out for stress and motor imagery.
+- M12: BCIC2020-III released test trials beside the competition results.
 - M13: per-sample adaptation latency and memory on wearable-class hardware.
 
 ## Questions for the authors
@@ -74,7 +73,6 @@ The paper keeps the competition splits "for consistency with prior work" (Append
 - How many seeds underlie Tables 1–3, and what does ± denote?
 - Which BCIC2020-III trials are validation and test, and whose test labels were used?
 - Was the Table 3 checkpoint selected on subjects 6–7 or on the test subjects?
-- What are the Fig. 3 values without test-time adaptation, and for LaBraM?
 
 ## Appendix: literature search
 

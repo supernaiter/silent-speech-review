@@ -42,6 +42,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Text or speech-unit decoders from a non-acoustic signal (neural, EMG, articulography, ultrasound, video) whose training adds a loss that regresses acoustic or articulatory features of the paired produced speech (MFCC, mel spectrogram, kinematic trajectories) from an intermediate layer, discarded at use time. Boundary: exclude decoders whose output is the acoustic feature (synthesis); exclude targets taken from a pretrained speech encoder (counted under auxiliary-representation-prediction); count versions once.
 - Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
 
+## auxiliary-ssl-loss-in-neural-fine-tuning
+
+- Table: [`auxiliary-ssl-loss-in-neural-fine-tuning.csv`](auxiliary-ssl-loss-in-neural-fine-tuning.csv) (31 slot-filled, 40 pattern match, usual design in 37, 0 read in full)
+- Inclusion rule: Neural-signal decoders (EEG, MEG, intracranial) that start from a checkpoint pretrained on large neural corpora (the 40-study neural foundation-model population) and, during supervised fine-tuning, add a training-only self-supervised loss (signal-transformation prediction, reconstruction, contrastive or pretext targets) to the task loss. Boundary: pretraining objectives used only before fine-tuning are excluded; use-time updates are M03; versions of one study count once; full-text pattern hits are an upper bound.
+- Used in: [NeuroTTT: Bridging Pretrain–Downstream Task Misalignment in EEG Foundation Models via Test-Time Training](../../reviews/neurottt-bridging-pretraining-downstream-task-misalignment-in-eeg-foundation-models-via-test-tim/)
+
 ## silent-articulation-text-label-supervision
 
 - Table: [`silent-articulation-text-label-supervision.csv`](silent-articulation-text-label-supervision.csv) (31 slot-filled, 195 pattern match, usual design in 46, 3 read in full)

@@ -1,0 +1,808 @@
+{
+ "topic": "unlabeled-test-time-adaptation",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)test[- ]time (adaptation|training|adapt)|\\bTent\\b|entropy minimi[sz]|source[- ]free (domain )?adaptation|\\bTTA\\b|\\bTTT\\b|unsupervised (online |test[- ]time )?(domain )?adaptation|self[- ]?calibrat|pseudo[- ]label[^|]{0,60}(test|adapt|unlabel)",
+ "scope": "ledger",
+ "fulltext_pattern": "(?i)test[- ]time (adaptation|training)|entropy minimi[sz]ation[^.]{0,80}test",
+ "inclusion_rule": "Decoders of speech-related or neural signals (any modality: EEG, intracranial, EMG, ultrasound, video) that update model weights or normalization state from unlabeled test data at use time (self-supervised test-time training, entropy minimization such as Tent, pseudo-label self-training, source-free adaptation). Boundary: training-only auxiliary losses are M02; supervised recalibration on labeled target data is excluded; flip or crop test-time augmentation without parameter updates is a pattern match only; citing-only mentions count as full-text hits; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 31,
+  "string_match_unique": 26,
+  "fulltext_only_folders": 18
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "adaptation=machine_finetuning",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2608.17983",
+     "arxiv-2609.20839",
+     "arxiv-2509.24700",
+     "doi-10.21437-interspeech.2021-23",
+     "arxiv-2603.18299"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.20839",
+     "arxiv-2509.24700",
+     "cvpr22-prajwal",
+     "doi-10.21437-interspeech.2021-23"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2608.17983",
+     "arxiv-2603.18299",
+     "isca-dash19_interspeech",
+     "isca-wand18_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.20839",
+     "arxiv-2603.18299"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=seq2seq ce; noam 50ep + plateau/5; stage2 5e-5; 14d x4 v100 + 1.5d x1",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2110.07603"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=vsr w/ triplet losses (id/enhance/suppress)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2310.05058"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=unreported",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2310.05058"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=8x nvidia rtx 3090",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2409.00986"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=max 1800 frames",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2409.00986"
+    ]
+   },
+   {
+    "design": "adaptation=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2509.24700"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "pseudo-label self-training",
+    "n": 11,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603-18299-align",
+     "arxiv-2606.07259",
+     "arxiv-2608.17983",
+     "arxiv-2609-36736-bcreview",
+     "arxiv-2609.20839"
+    ]
+   },
+   {
+    "design": "entropy minimization (Tent)",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2509-26301-neurottt",
+     "arxiv-2509.24700",
+     "doi-10.1523-jneurosci.2605-11.2011",
+     "arxiv-2310.05058",
+     "arxiv-2509.26301"
+    ]
+   },
+   {
+    "design": "self-supervised test-time training",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2509-26301-neurottt",
+     "arxiv-2509.24700",
+     "pmc-12252171-llmbci",
+     "pmc-11086983-plugplay",
+     "pmc-pmc11086983"
+    ]
+   },
+   {
+    "design": "unsupervised alignment or recentering (no gradient)",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2610.00397"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)accuracy|bacc|balanced",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "command accuracy",
+   "value": 98.6,
+   "unit": "percent",
+   "raw": "Industrial command accuracy",
+   "pid": "arxiv-2609.24391-navir",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "visual target accuracy",
+   "value": 94,
+   "unit": "percent",
+   "raw": "94%",
+   "pid": "doi-10.1523-jneurosci.2605-11.2011",
+   "year": 2011,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "93.84% stable accuracy",
+   "value": 93.84,
+   "unit": "% accuracy",
+   "raw": "stable online handwriting iBCI decoding accuracy",
+   "pid": "pmc-pmc11086983",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "VAD accuracy 91.7–96.5% across 5 noises (Babble worst)",
+   "value": 91.7,
+   "unit": "%",
+   "raw": "worst-case accuracy Babble 91.7% (1.8% false); best Car 96.5% (2.1%); music 94.2/1.1, speech 94.1/1.6, office 94.2/1.7",
+   "pid": "isca-mcloughlin14_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "top-1 accuracy subj-01 (%)",
+   "value": 76.24,
+   "unit": "percent",
+   "raw": "subj-01 76.24±2.62%",
+   "pid": "arxiv-2509.24700",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ma ttttent c-bacc",
+   "value": 0.728,
+   "unit": "ratio",
+   "raw": "0.728",
+   "pid": "arxiv-2509.26301",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [
+  "doi-10.1016-j.bspc.2026.109475",
+  "arxiv-2609-36736-bcreview",
+  "pmc-12252171-predcomm",
+  "pmc-pmc11086983",
+  "arxiv-2610.00397-neurotoken-aad",
+  "arxiv-2201.05845",
+  "pmc-12252171-llmbci",
+  "pmc-11086983-plugplay",
+  "arxiv-2603.20246",
+  "arxiv-2609-36736-speechbcirev",
+  "doi-10.64898-2026.04.02.715749-cocontrol",
+  "isca-feghhi26_interspeech",
+  "doi-10.64898-2026.06.02.729705",
+  "arxiv-2609.24391-navir",
+  "arxiv-2603.14002",
+  "arxiv-2610.00397",
+  "arxiv-2603.14002-lightbeam",
+  "arxiv-2608.18114-brain2qwerty2"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1904.04817",
+   "key": "t:learningfromvideoswithdeepconvolutionallstmnetworks",
+   "title": "Learning from Videos with Deep Convolutional LSTM Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ences, 17,428 vocab, word-boundary labels for curriculum | representation_kind=48-68px mouth crop -> 48x48; 6-transform TTA at inference | representation_kind=VGG-M or ResNet34 interleaved w/ ConvLSTM; bidirectional = separate reverse net; CTC"
+  },
+  {
+   "pid": "arxiv-2103.00333",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus modal multi-speaker speech recognition from ultrasound and video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ER much higher than modal in all scenarios (train-modal->test-silent mismatch); silent utterances have longer duration; unsupervised adaptation gives small gains, hurts modal in multi-speaker. | T1 WER ms80-mod baseline raw | T1 WER ms80-mod baseline fMLLR | T1 W"
+  },
+  {
+   "pid": "arxiv-2110.07603",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "peaker. | task_family=sentence_recognition | extra.Task.scope=LRS2/LRS3 WER vs hours; module ablation (WordPiece/VTP/LM/TTA); VTP resolution; VSD mAP on AVA. | intended_use_cases=assistive_text_entry | Cohort.demographics=LRS2/LRS3 (+MV-LRS/TE"
+  },
+  {
+   "pid": "arxiv-2201.05845",
+   "key": "t:recentprogressinthecuhkdysarthricspeechrecognitionsystem",
+   "title": "Recent Progress in the CUHK Dysarthric Speech Recognition System",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2310.05058",
+   "key": "t:learningseparablehiddenunitcontributionsforspeakeradaptivelipreading",
+   "title": "Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ive=Speaker-adaptive VSR: separable hidden-unit enhance/suppress weights w/ triplet losses on LRW-ID/GRID/CAS-VSR-S68; +unsupervised adaptation 0-5min; 90.45% acc / 3.59 WER w/ 5min. | task_family=sentence_recognition | extra.Task.scope=Speaker-adaptive VSR Acc/W"
+  },
+  {
+   "pid": "arxiv-2409.00986",
+   "key": "t:personalizedlipreadingadaptingtoyouruniquelipmovementswithvisionandlanguage",
+   "title": "Personalized Lip Reading: Adapting to Your Unique Lip Movements with Vision and Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "aker-adaptive lip reading on new VoxLRS-SA (baseline 1.7Kh/~9K spk from LRS3+VoxCeleb2 via Facenet speaker-ID + Whisper pseudo-labels; 20 adapt speakers ~45min). Vision-level: padding prompts+LoRA on spatial+temporal conformer stages; language-level: input prompt"
+  },
+  {
+   "pid": "arxiv-2411.02256",
+   "key": "t:unifiedspeechrecognitionasinglemodelforauditoryvisualandaudiovisualinputs",
+   "title": "Unified Speech Recognition: A Single Model for Auditory, Visual, and Audiovisual Inputs",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "le shared Transformer encoder-decoder performs ASR, VSR (lipreading), and AVSR on LRS3/LRS2/WildVSR; greedy EMA-teacher pseudo-labelling over unlabelled samples; optional self-supervised pre-training | production_labels=ordinary_voiced_speech | Cohort.demographics=no h"
+  },
+  {
+   "pid": "arxiv-2507.02800",
+   "key": "t:timemaskedtransformerswithlightweighttesttimeadaptationforneuralspeechdecoding",
+   "title": "Time-Masked Transformers with Lightweight Test-Time Adaptation for Neural Speech Decoding",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2507.02800 | title=Time-Masked Transformers with Lightweight Test-Time Adaptation for Neural Speech Decoding | venue=arXiv 2025; v2 | Study.research_objective=Causal time-masked Transformer for B2T24 s"
+  },
+  {
+   "pid": "arxiv-2509-26301-neurottt",
+   "key": "t:neurotttbridgingthegapfrompretrainingtodownstreamtasksforeegfoundationmodels",
+   "title": "NeuroTTT: bridging the gap from pretraining to downstream tasks for EEG foundation models",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "c EEG-foundation pretraining and task-specific decoding under cross-subject shift via domain-specific SSL fine-tuning + test-time training | Study.unit_of_analysis=Balanced Accuracy, Cohen’s Kappa (monitoring score), Weighted F1 per backbone × adaptation str"
+  },
+  {
+   "pid": "arxiv-2509.24700",
+   "key": "t:arobustmultiscaleframeworkwithtesttimeadaptationforseegbasedspeechdecoding",
+   "title": "A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decoding",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv:2509.24700v1 | title=A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decoding | authors=Suli Wang, Yang-yang Li, Siqi Cai, Haizhou Li | venue=arXiv preprint (eess.AS)"
+  },
+  {
+   "pid": "arxiv-2509.26301",
+   "key": "t:neurotttbridgingpretrainingdownstreamtaskmisalignmentineegfoundationmodelsviates",
+   "title": "NeuroTTT: Bridging Pretraining-Downstream Task Misalignment in EEG Foundation Models via Test-Time Training",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "er_id=arxiv-2509.26301 | title=NeuroTTT: Bridging Pretraining-Downstream Task Misalignment in EEG Foundation Models via Test-Time Training | venue=ICLR 2026 submission? v2 (17pp) | Study.research_objective=NeuroTTT: domain-specific SSL fine-tune (Stage I) +"
+  },
+  {
+   "pid": "arxiv-2511.21740",
+   "key": "t:acrossspeciesneuralfoundationmodelforendtoendspeechdecoding",
+   "title": "A cross-species neural foundation model for end-to-end speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Feghhi2025+Ens | extra.Configuration.configuration_scope=BIT Cascaded+Ens | extra.Configuration.configuration_scope=RNN-TTA+Pseudo-Ens | EvaluationProtocol.statistical_plan={'metrics': 'WER% on B2T24/25 competition holdouts (hidden GT via subm"
+  },
+  {
+   "pid": "arxiv-2603-18299-align",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ical speech neuroprosthesis on T15: gradient-reversal layer forces encoder to learn session-invariant features; without TTA, held-out-session WER 46.50+-0.46% vs GRU 65.93+-0.28 and Transformer 60.01+-1.44; ~9% validation-PER gain over transfo"
+  },
+  {
+   "pid": "arxiv-2603.14002",
+   "key": "t:lightbeamanaccurateandmemoryefficientctcdecoderforspeechneuroprostheses",
+   "title": "LightBeam: An Accurate and Memory-Efficient CTC Decoder for Speech Neuroprostheses",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2603.14002-lightbeam",
+   "key": "t:lightbeamanaccurateandmemoryefficientctcdecoderforspeechneuroprostheses",
+   "title": "LightBeam: An Accurate and Memory-Efficient CTC Decoder for Speech Neuroprostheses",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2603.18299",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "session alignment and temporal stretch augmentation improve cross-session intracortical speech decoding, with optional pseudo-label test-time adaptation. | Study.unit_of_analysis=Sentence-level attempted-speech trials nested within recording sessions for two particip"
+  },
+  {
+   "pid": "arxiv-2603.18299-align",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "a; per-session splits (12-8-3, 15-5-3, 12-4-7 / 5-13-4); PER+WER vs transformer/GRU baselines with and without DietCORP TTA | task_encoding=attempted_utterance | task_family=sentence_recognition | tested_population=target_users | Cohort.demogr"
+  },
+  {
+   "pid": "arxiv-2603.20246",
+   "key": "t:decodingthedecodercontextualsequencetosequencemodelingforintracorticalspeechdeco",
+   "title": "Decoding the decoder: Contextual sequence-to-sequence modeling for intracortical speech decoding",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606.07259",
+   "key": "t:assessingtruegeneralisabilityofaudiovisualspeechrecognisers",
+   "title": "Assessing True Generalisability of Audio-Visual Speech Recognisers",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ing on LRS3.'} | SystemConfiguration.component_versions={'description': 'Fully supervised end-to-end AVSR; uses Whisper pseudo-labels for unlabelled corpora including AVSpeech and VoxCeleb2.'} | SystemConfiguration.component_versions={'description': 'Unified teache"
+  },
+  {
+   "pid": "arxiv-2608.17983",
+   "key": "t:dualcotraincrossdatasetultrasoundtonguesegmentationunderextremedatascarcity",
+   "title": "DUALCO-TRAIN: CROSS-DATASET ULTRASOUND TONGUE SEGMENTATION UNDER EXTREME DATA SCARCITY",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g; Yihao Zhou; Yongping Zheng | venue=arXiv preprint [cs.CV] | source_url=https://arxiv.org/pdf/2608.17983v1 | abstract=Source-free domain adaptation for ultrasound tongue contour segmentation: UltraUNet pretrained on 5 labeled source images is adapted to unlabeled tar"
+  },
+  {
+   "pid": "arxiv-2608.18114-brain2qwerty2",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2609-36736-bcreview",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2609-36736-speechbcirev",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2609.20839",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cle=implemented_evaluated | SystemConfiguration.component_versions={'stage_1': 'HP-VSR-ResFiLM for generating five-fold pseudo-labels; test-time comparisons include V-ASR, PV-ASR, and HP-VSR variants', 'stage_2': 'NLLB Transformer encoder–decoder; table 1 ide"
+  },
+  {
+   "pid": "arxiv-2609.24391-navir",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Interaction on Edge Hardware",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2610.00397",
+   "key": "t:neurotokenjointsourceanddirectionalaadwithenvelopedecodingviaconditionalflowmatc",
+   "title": "NEUROTOKEN: Joint Source and Directional AAD with Envelope Decoding via Conditional Flow Matching",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2610.00397-neurotoken-aad",
+   "key": "t:neurotokenjointsourceanddirectionalaadwithenvelopedecodingviaconditionalflowmatc",
+   "title": "NEUROTOKEN: Joint Source and Directional AAD with Envelope Decoding via Conditional Flow Matching",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-prajwal22-subword-vtp",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "der public-only (698h) and public+MV-LRS+TEDxext (2,676h) training; ablations of VTP resolution/depth, n-gram protocol, TTA; VSD mAP on AVA-ActiveSpeaker val/test vs video-only and AV baselines | EvaluationRun.execution_artifacts=Public-only 2"
+  },
+  {
+   "pid": "cvpr22-prajwal",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "racter/phoneme', 'WordPiece'], 'pooling': ['GAP', 'VTP@H/16', 'VTP@H/8', 'VTP@H/4'], 'rescore': ['none', 'GPT2 beam'], 'tta': ['none', 'hflip'], 'train_data': ['LRS2+LRS3', '+MV-LRS+TEDxext']} | target_relation=supervision_target | information"
+  },
+  {
+   "pid": "doi-10.1016-j.bspc.2026.109475",
+   "key": "t:progressivetransferlearningunifiesmulticorpuseegforrobustandscalableimaginedspee",
+   "title": "Progressive transfer learning Unifies Multi-Corpus EEG for robust and scalable Imagined-Speech decoding",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1523-jneurosci.2605-11.2011",
+   "key": "t:neuralcorrelatesofinterindividualdifferencesinchildrensaudiovisualspeechpercepti",
+   "title": "Neural Correlates of Interindividual Differences in Children’s Audiovisual Speech Perception",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "7, KF >80) + silent face videos 2.5s 11 models 4 expressions | Representation.windowing=BOLD % signal change; HRF via 9 tent functions spanning 16s post-onset; HRF integral in 2-10s window; STS ROI = conjunction auditory-words ∩ visual-faces T>"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2021-23",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus Modal Multi-Speaker Speech Recognition from Ultrasound and Video",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "modal multi-speaker ASR from tongue ultrasound+lip video; quantify speaking-mode mismatch and its mitigation via fMLLR/unsupervised adaptation | Study.unit_of_analysis=WER on matched silent/modal test sets per speaker | task_family=sentence_recognition | task_en"
+  },
+  {
+   "pid": "doi-10.64898-2026.04.02.715749-cocontrol",
+   "key": "t:probabilisticcocontrolinbraincomputerinterfacesuncertaintyasacontrolsignalinbrai",
+   "title": "Probabilistic Co-Control in Brain-Computer Interfaces: Uncertainty as a Control Signal in Brain-to-Text Decoding",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.64898-2026.06.02.729705",
+   "key": "t:neuraldecodingofspeechusingdeepneuralensembles",
+   "title": "Neural decoding of speech using deep neural ensembles",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-dash19_interspeech",
+   "key": "t:towardsaspeakerindependentspeechbciusingspeakeradaptation",
+   "title": "Towards a Speaker Independent Speech-BCI Using Speaker Adaptation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t denoise ≤high-gamma → normalized RMS → shallow ANN (256 hidden) 5-phrase classifier + supervised knowledge-transfer / unsupervised domain adaptation | task_family=sentence_recognition | task_encoding=task_evoked_inner | intended_use_cases=speech_restoration, assistive"
+  },
+  {
+   "pid": "isca-feghhi26_interspeech",
+   "key": "t:lightbeamanaccurateandmemoryefficientctcdecoderforspeechneuroprostheses",
+   "title": "LightBeam: An Accurate and Memory-Efficient CTC Decoder for Speech Neuroprostheses",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-li24ia_interspeech",
+   "key": "t:improvingwhispersrecognitionperformanceforunderrepresentedlanguagekazakhleveragi",
+   "title": "Improving Whisper's Recognition Performance for Under-Represented Language Kazakh Leveraging Unpaired Speech and Text",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rom Leipzig + Uzbek-Kazakh parallel corpora ~1.7M entries | DataPartition.split_axes=Fleurs-test and KSC-test held out; pseudo-label fine-tune on unlabeled KSC-train (500h) / Fleurs-train (10h) subsets selected by ALP proportion | ProductionCondition.activity_origin=overt_"
+  },
+  {
+   "pid": "isca-mcloughlin14_interspeech",
+   "key": "t:theuseoflowfrequencyultrasoundforvoiceactivitydetection",
+   "title": "The Use of Low-Frequency Ultrasound for Voice Activity Detection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d chirp train (14–21kHz, ~100/s rep), co-located mic + Zoom H4n @44.1kHz → down-convert + adaptive spectral subtraction self-calibration → frame-wise mouth-state (open/closed/between) → voice-activity decision incl. unvoiced/whisper/mimed speech | task_"
+  },
+  {
+   "pid": "isca-prajwal24_interspeech",
+   "key": "t:speechrecognitionmodelsarestronglipreaders",
+   "title": "Speech Recognition Models are Strong Lip-readers",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Whisper audio space; h_enc fed directly at start of frozen Whisper-medium-English encoder; BPE decoding, beam 40, no LM/TTA; Whisper decoder cross-attention over mapped visual features mirrors audio attention | TrainingRun.selection_data=LRS3-"
+  },
+  {
+   "pid": "isca-ribeiro21_interspeech",
+   "key": "p:isca-ribeiro21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uation_target=WER per test set (modal/silent/whispered) per system (multi-speaker & speaker-dependent, raw vs fMLLR, +/-unsupervised adaptation) | EvaluationProtocol.experimental_design=same sentences across modes; multi-speaker vs TaL1 speaker-dependent; unsuper"
+  },
+  {
+   "pid": "isca-wand14_interspeech",
+   "key": "t:towardsreallifeapplicationofemgbasedspeechrecognitionbyusingunsupervisedadaptati",
+   "title": "Towards Real-life Application of EMG-based Speech Recognition by using Unsupervised Adaptation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Real-life Application of EMG-based Speech Recognition by using Unsupervised Adaptation | system_name=EMG-UKA continuous SSR: 6-ch facial sEMG (Varioport, 600Hz; ch5 discarded → 5 used) → time-domain frame f"
+  },
+  {
+   "pid": "isca-wand18_interspeech",
+   "key": "t:domainadversarialtrainingforsessionindependentemgbasedspeechrecognition",
+   "title": "Domain-Adversarial Training for Session Independent EMG-based Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "0% dropout, GRL session-discriminator head) per BDPF tree → HMM decode, trigram BN LM (ppl 24.24), 108-word test vocab; unsupervised adaptation to target session | task_family=sentence_recognition | task_encoding=natural_utterance | intended_use_cases=private_com"
+  },
+  {
+   "pid": "pmc-11086983-plugplay",
+   "key": "t:plugandplaystabilityforintracorticalbraincomputerinterfacesa",
+   "title": "Plug-and-Play Stability for Intracortical Brain-Computer Interfaces: A",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-12252171-llmbci",
+   "key": "t:towardspredictivecommunicationthefusionoflargelanguagemodelsandbraincomputerinte",
+   "title": "Towards Predictive Communication: The Fusion of Large Language Models and Brain-Computer Interfaces",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-12252171-predcomm",
+   "key": "t:towardspredictivecommunicationthefusionoflargelanguagemodelsandbraincomputerinte",
+   "title": "Towards Predictive Communication: The Fusion of Large Language Models and Brain–Computer Interface",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-13251988-deepems",
+   "key": "t:neuraldecodingofspeechusingdeepneuralensembles",
+   "title": "Neural decoding of speech using deep neural ensembles",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "p brain-to-text decoding in participant with bilateral intracortical arrays; ensemble size/dataset/baseline ablations + TTA pseudoensembling | Dataset.counts_by_unit=1 closed-loop participant plus 3 additional for ensemble analyses | tested_po"
+  },
+  {
+   "pid": "pmc-5591042-clickcal",
+   "key": "t:retrospectivelysupervisedclickdecodercalibrationforselfcalibratingpointandclickb",
+   "title": "Retrospectively supervised click decoder calibration for self-calibrating point-and-click brain-computer interfaces.",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Retrospectively supervised click decoder calibration for self-calibrating point-and-click brain-computer interfaces. | authors=Jarosiewicz B, Sarma AA, Saab J, Franco B, Cash SS, Eskandar EN"
+  },
+  {
+   "pid": "pmc-9734147-unsupecog",
+   "key": "t:unsupervisedadaptationofanecogbasedbraincomputerinterfaceusingneuralcorrelatesof",
+   "title": "Unsupervised adaptation of an ECoG based brain–computer interface using neural correlates of task performance",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Unsupervised adaptation of an ECoG based brain–computer interface using neural correlates of task performance | authors=Rouanne V, Costecalde T"
+  },
+  {
+   "pid": "pmc-pmc11086983",
+   "key": "t:plugandplaystabilityforintracorticalbraincomputerinterfacesaoneyeardemonstration",
+   "title": "Plug-and-Play Stability for Intracortical Brain-Computer Interfaces: A One-Year Demonstration of Seamless Brain-to-Text Communication",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  }
+ ],
+ "usual_approach": {
+  "design": "pseudo-label self-training",
+  "n": 11,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2603-18299-align",
+   "arxiv-2606.07259",
+   "arxiv-2608.17983",
+   "arxiv-2609-36736-bcreview",
+   "arxiv-2609.20839"
+  ],
+  "population_unique": 38,
+  "note": "full-text pattern counts over 38 unique candidate studies with text (26 ledger matches plus full-text-only hits): pseudo-label self-training 11, entropy minimization (Tent) 6, self-supervised test-time training 6, unsupervised re-centering 1; the entropy and SSL-TTT counts include the target (two wiki versions) and the [concurrent] arxiv-2509.24700."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2509.24700",
+   "role": "prior",
+   "loc": "Sec. 2.3",
+   "quote": "The adaptation objective is the minimization of Shannon\nentropy for predictions on each test batch.",
+   "note": "[concurrent] (2025-09); closest neural-speech Tent design"
+  },
+  {
+   "pid": "arxiv-2607-27268-eegfm",
+   "role": "sota",
+   "loc": "Table 3; Sec. 2.1",
+   "quote": "LaBraM-Base 5.8M 27.7±2.7 0.096±0.034 0.228±0.038 20.2±1.2 0.002±0.014 0.109±0.038",
+   "note": "[later] (2026-07) benchmark of neural checkpoints on the same BCIC2020-T3 data"
+  }
+ ],
+ "state_of_the_art": {
+  "pid": "arxiv-2607-27268-eegfm",
+  "year": 2026,
+  "metric": "BCIC2020-T3 five-class imagined speech, within-subject, official validation split as test; best model EEGConformer 30.2%, fine-tuned LaBraM-Base 27.7% (no test-time adaptation); the best neural-checkpoint result on this corpus remains the target's own CBraMod rows",
+  "value": 30.2,
+  "unit": "% balanced accuracy",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 26,
+  "fulltext_only_folders": 18,
+  "usual_approach": {
+   "design": "pseudo-label self-training",
+   "n": 11,
+   "tier": "pattern match",
+   "population_unique": 38
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2607-27268-eegfm",
+   "year": 2026,
+   "metric": "BCIC2020-T3 five-class imagined speech, within-subject, official validation split as test; best model EEGConformer 30.2%, fine-tuned LaBraM-Base 27.7% (no test-time adaptation); the best neural-checkpoint result on this corpus remains the target's own CBraMod rows",
+   "value": 30.2,
+   "unit": "% balanced accuracy",
+   "timing": "later"
+  },
+  "read": 2,
+  "read_prior": [
+   "arxiv-2509.24700"
+  ],
+  "unread": 49,
+  "confirmed_unique": 0,
+  "known_item_recall": null
+ },
+ "used_by": [
+  "neurottt-bridging-pretraining-downstream-task-misalignment-in-eeg-foundation-models-via-test-tim"
+ ]
+}

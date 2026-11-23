@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same population as the M06 imagined-speech EEG table); the design compared is whether decoding is run online with feedback (real-time, closed-loop) and its accuracy reported, or offline on recorded trials. Boundary: a mention of real-time use as future work or in related work is a pattern match only, not an online study; reviews excluded as deciding priors; versions count once.
 - Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/), [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/), [Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System](../../reviews/toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system/)
 
+## use-time-adaptation-cost
+
+- Table: [`use-time-adaptation-cost.csv`](use-time-adaptation-cost.csv) (6075 slot-filled, 64 pattern match, usual design in 22, 2 read in full)
+- Inclusion rule: Speech-related or neural-signal decoders (any modality) whose text ties test-time or online adaptation, or inference, to latency, runtime, memory, compute, power or wearability. Boundary: training-only cost is excluded; privacy or edge-suitability claims without a measurement count as pattern matches only; versions count once.
+- Used in: [NeuroTTT: Bridging Pretrain–Downstream Task Misalignment in EEG Foundation Models via Test-Time Training](../../reviews/neurottt-bridging-pretraining-downstream-task-misalignment-in-eeg-foundation-models-via-test-tim/)
+
 ## wearable-speech-sensor-on-device-inference
 
 - Table: [`wearable-speech-sensor-on-device-inference.csv`](wearable-speech-sensor-on-device-inference.csv) (6075 slot-filled, 30 pattern match, usual design in 24, 5 read in full)
