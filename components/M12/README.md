@@ -78,6 +78,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same ledger population as the M13 online-imagined-speech-eeg table); the design compared is whether reported accuracy is referenced against chance: a stated chance level or above-chance test, or an empirical permutation null. Boundary: full-text pattern counts are upper bounds (a chance mention in related work counts); a study whose full text never uses the word 'chance' is counted as giving no chance reference; versions count once.
 - Used in: [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/)
 
+## intracranial-speech-test-partition
+
+- Table: [`intracranial-speech-test-partition.csv`](intracranial-speech-test-partition.csv) (6960 slot-filled, 618 pattern match, usual design in 132, 2 read in full)
+- Inclusion rule: Speech or language decoding studies from intracranial recordings (sEEG, ECoG, intracortical arrays) whose ledger text names the signal and a speech unit; the design of interest is how test data are separated from training data: random trial split, k-fold cross-validation, held-out session or day, or held-out subject. Boundary: the ledger pattern also admits reviews, listening studies and non-intracranial papers that mention intracranial work, so counts are upper bounds; versions of one study count once.
+- Used in: [Towards Unified Neural Decoding with Brain Functional Network Modeling](../../reviews/towards-unified-neural-decoding-with-brain-functional-network-modeling/)
+
 ## listener-intelligibility-test
 
 - Table: [`listener-intelligibility-test.csv`](listener-intelligibility-test.csv) (6960 slot-filled, 37 pattern match, usual design in 15, 5 read in full)
