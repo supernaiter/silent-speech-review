@@ -440,6 +440,9 @@ def has_component_review(p):
     return (paper_dir(p) / "review.md").exists()
 
 
+LATEST_N = 12
+
+
 def component_list(papers, prefix):
     rows = sorted((p for p in papers if has_component_review(p)), key=lambda p: (-int(p["year"]), p["title"]))
     return [f"- [{p['title']}]({prefix}{p['slug']}/) ({p['year']}). {blurb(p)}" for p in rows]
@@ -481,18 +484,6 @@ def readme(papers):
         "",
         f"**Sections:** {nav}",
         "",
-        "## Component reviews",
-        "",
-        "Each paper judged component by component against the usual approach and the current state of the art. "
-        "The remaining papers have itemized summaries in the earlier format ([all reviews](reviews/README.md)).",
-        "",
-        *component_list(papers, "reviews/"),
-        "",
-        "## The field in 13 components",
-        "",
-        *field_figures(""),
-        F.picture("figures/field-map", "Reviewed papers by sensor and year"),
-        "",
         "## Start here",
         "",
     ]
@@ -500,6 +491,22 @@ def readme(papers):
         p = by_slug.get(slug)
         if p:
             out.append(f"{i}. [{p['title']}](reviews/{slug}/) ({p['year']}). {blurb(p)}")
+    comp = component_list(papers, "reviews/")
+    out += [
+        "",
+        "## Latest component reviews",
+        "",
+        "Each paper judged component by component against the usual approach and the current state of the art. "
+        f"Newest {min(LATEST_N, len(comp))} of {len(comp)}; see [all component reviews](reviews/README.md#component-reviews). "
+        "The remaining papers have itemized summaries in the earlier format.",
+        "",
+        *comp[:LATEST_N],
+        "",
+        "## The field in 13 components",
+        "",
+        *field_figures(""),
+        F.picture("figures/field-map", "Reviewed papers by sensor and year"),
+    ]
     datasets = [p for p in papers if any(w in p["title"].lower() for w in ("dataset", "corpus", "benchmark")) and "closed-corpus" not in p["title"].lower()]
     if datasets:
         out += ["", "## Datasets and benchmarks", ""]
