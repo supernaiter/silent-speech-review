@@ -1,0 +1,50 @@
+{
+ "target": "arxiv-2511.07920",
+ "changed": [
+  "M06",
+  "M13"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Cued imagined speech of the target words, text plus audio cue (imagined-speech EEG paradigm)",
+  "M02": "Cue-derived class labels",
+  "M03": "Subject-specific calibration from about 30 minutes of offline trials (per-subject model lineage); heuristic dual-criterion early stopping",
+  "M04": "Imagined speech at use time",
+  "M05": "64-channel wet scalp EEG at 500 Hz, common average reference",
+  "M07": "Closed four-class set, no language model",
+  "M08": "Ranked four-class label",
+  "M09": "Confidence-scaled visual and auditory feedback, cited by the target to its references 16 and 18",
+  "M10": "No correction or undo step described",
+  "M11": "Cue-defined classes, one participant"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "diffusion-model-eeg-decoding",
+   "reuse": "components/M06/diffusion-model-eeg-decoding.json",
+   "inclusion_rule": "EEG decoding studies (classification, text or speech decoding) that train a denoising diffusion model as part of the decoder, either jointly with a classifier, as a feature learner, or to generate training samples. Boundary: diffusion used only to synthesize EEG with no decoding result, reviews, and 'diffusion' in a non-generative sense (drift-diffusion, diffusion MRI) are excluded; versions of one study count once.",
+   "pattern": "published table pattern",
+   "design_field": "published full-text pattern counts (Diff-E lineage)",
+   "metric": "within-subject imagined-speech accuracy; parameter count; effect of removing the diffusion model"
+  },
+  {
+   "slot": "M13",
+   "topic": "online-imagined-speech-eeg",
+   "reuse": "components/M13/online-imagined-speech-eeg.json",
+   "inclusion_rule": "Studies that classify imagined, covert or inner speech from scalp EEG (same population as the M06 imagined-speech EEG table); the design compared is whether decoding is run online with feedback (real-time, closed-loop) and its accuracy reported, or offline on recorded trials. Boundary: a mention of real-time use as future work or in related work is a pattern match only, not an online study; reviews excluded as deciding priors; versions count once.",
+   "pattern": "published table pattern",
+   "design_field": "published full-text pattern counts (online, real-time, closed-loop terms)",
+   "metric": "online accuracy with cohort size, sessions and chance level"
+  },
+  {
+   "slot": "M12",
+   "topic": "imagined-speech-eeg-chance-reference",
+   "inclusion_rule": "Studies that classify imagined, covert or inner speech from scalp EEG (same ledger population as the M13 online-imagined-speech-eeg table); the design compared is whether reported accuracy is referenced against chance: a stated chance level or above-chance test, or an empirical permutation null. Boundary: full-text pattern counts are upper bounds (a chance mention in related work counts); a study whose full text never uses the word 'chance' is counted as giving no chance reference; versions count once.",
+   "pattern": "(?i)((imagined|covert|inner) speech|speech imagery)[^|]{0,120}(EEG|electroenceph)|(EEG|electroenceph)[^|]{0,120}((imagined|covert|inner) speech|speech imagery)",
+   "design_field": "full-text design regexes: chance_reference, permutation_null, no_chance_term",
+   "metric": "whether accuracy is referenced to chance; per-class trial denominators"
+  }
+ ]
+}

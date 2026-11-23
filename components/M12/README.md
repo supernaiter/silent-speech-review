@@ -72,6 +72,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | isca-hilder09_avsp |  | Abstract, §3.3 Table 1 |
 | Human Audio-Visual Consonant Recognition Analyzed with Three Bimodal Integration Models | 2009 | §4, Fig. 3 |
 
+## imagined-speech-eeg-chance-reference
+
+- Table: [`imagined-speech-eeg-chance-reference.csv`](imagined-speech-eeg-chance-reference.csv) (6960 slot-filled, 167 pattern match, usual design in 95, 2 read in full)
+- Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same ledger population as the M13 online-imagined-speech-eeg table); the design compared is whether reported accuracy is referenced against chance: a stated chance level or above-chance test, or an empirical permutation null. Boundary: full-text pattern counts are upper bounds (a chance mention in related work counts); a study whose full text never uses the word 'chance' is counted as giving no chance reference; versions count once.
+- Used in: [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/)
+
 ## listener-intelligibility-test
 
 - Table: [`listener-intelligibility-test.csv`](listener-intelligibility-test.csv) (6960 slot-filled, 37 pattern match, usual design in 15, 5 read in full)

@@ -333,6 +333,12 @@
    "role": "target",
    "loc": "Sec. 2; Tables 13, 17",
    "quote": "Diff-E [17] extended diffusion to imagined-speech decoding via joint reconstruction and classification"
+  },
+  {
+   "pid": "arxiv-2501.14790",
+   "role": "prior",
+   "loc": "Sec. II-B",
+   "quote": "Only Eϕ and Cρ are employed to classify the"
   }
  ],
  "known_item_recall": {
@@ -378,6 +384,109 @@
   "known_item_recall": 1.0
  },
  "used_by": [
+  "lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia",
   "multidiffnet-a-multi-objective-diffusion-framework-for-generalizable-brain-decoding"
- ]
+ ],
+ "ledger_tally_lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "representation_kind=cae latent z (dim 256) from adapool of forward-diffused signal features",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2307-14389-diffe"
+    ]
+   },
+   {
+    "design": "representation_kind=high-gamma 2s eeg epochs",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2307.14389"
+    ]
+   },
+   {
+    "design": "representation_kind=multichannel eeg time series",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2501.14790"
+    ]
+   },
+   {
+    "design": "representation_kind=2s eeg windows",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2511.07920"
+    ]
+   },
+   {
+    "design": "representation_kind=denoised latent",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2511.07920"
+    ]
+   },
+   {
+    "design": "representation_kind=ddpm latent z (subject-wise normalized) + denoised xhat; label-aligned clusters",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2511.18294"
+    ]
+   },
+   {
+    "design": "representation_kind=rvq multi-layer discrete eeg tokens summed across m codebooks",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2511.21746"
+    ]
+   },
+   {
+    "design": "representation_kind=neural_features",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1371-journal.pbio.3002239"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": null,
+  "better": "lower"
+ },
+ "tally_lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 13,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "DDPM trained jointly with a conditional autoencoder whose pooled latent feeds a classifier (Diff-E lineage)",
+   "n": 3,
+   "tier": "pattern match",
+   "population_unique": 13
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2307.14389",
+   "year": 2023,
+   "metric": "13-class imagined-speech EEG accuracy, 22 subjects, within-subject 20% held-out test, one seed",
+   "value": 60.63,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2307.14389",
+   "arxiv-2411.09302",
+   "arxiv-2501.14790"
+  ],
+  "unread": 17,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
 }
