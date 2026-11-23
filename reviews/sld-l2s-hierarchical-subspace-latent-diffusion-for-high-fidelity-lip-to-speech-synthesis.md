@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis/](sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis/).**
 
-SLD-L2S, a hierarchical subspace latent diffusion model for lip-to-speech synthesis that improves naturalness, while word accuracy and speaker similarity trail stronger baselines.
+Codec-latent flow decoder (M06) is standard: quality lead rests on predictors that rate output above ground truth; WER trails V2SFlow; speaker similarity uses reference audio.
 
 [Read the full review](sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis/) · [All reviews](../README.md)

@@ -2279,6 +2279,24 @@
    "loc": "Sec. 1",
    "quote": "a pitch predictor inferring the fundamental frequency",
    "added_by": "lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency"
+  },
+  {
+   "pid": "arxiv-2604.15923",
+   "role": "sota",
+   "loc": "Table 1; Sec. 4.4",
+   "quote": "29.41 3.50 3.84"
+  },
+  {
+   "pid": "arxiv-2503.14928",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "masked speech features are obtained via the codec encoder and forward diffusion process"
+  },
+  {
+   "pid": "arxiv-2502.03128",
+   "role": "prior",
+   "loc": "Sec. 1-2",
+   "quote": "generate acoustic tokens from a neural audio codec"
   }
  ],
  "known_item_recall": {
@@ -2325,7 +2343,8 @@
  "used_by": [
   "let-there-be-sound-reconstructing-high-quality-speech-from-silent-videos",
   "lip-to-speech-synthesis-for-arbitrary-speakers-in-the-wild",
-  "lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency"
+  "lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency",
+  "sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis"
  ],
  "fulltext_pattern_lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency": {
   "pitch_energy_predictor": "(pitch|f0|energy|variance|prosody) (predictor|adaptor|adapter|encoder)|predict(s|ed|ing)? (the )?(pitch|f0|fundamental frequency|energy)",
@@ -2380,5 +2399,101 @@
   ],
   "note": "Full-text pattern counts over the 165 unique video-to-speech studies (reference list removed): pitch, energy or prosody predictor or encoder named 15 (upper bound; includes 2 pre-2011 non-video hits), of which 8 video-to-speech studies are prior to the target (2026-02); face-derived emotion or expression cue for prosody 5, of which 2 prior, 2 [concurrent] and the target."
  },
- "deciding_priors_note_lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency": "Target first public 2026-02. Explicit pitch and energy predictors in video-to-speech before it: VCVTS 2022 (pitch), Let There Be Sound 2023 (pitch and energy), Faces-to-Voices 2025-03 (pitch and energy predicted from a facial-expression encoder alongside lips and face identity); ImaginTalk 2025-03 aligns speech with content, identity and emotional expression from face video. All read; none is cited by the target."
+ "deciding_priors_note_lipsody-lip-to-speech-synthesis-with-enhanced-prosody-consistency": "Target first public 2026-02. Explicit pitch and energy predictors in video-to-speech before it: VCVTS 2022 (pitch), Let There Be Sound 2023 (pitch and energy), Faces-to-Voices 2025-03 (pitch and energy predicted from a facial-expression encoder alongside lips and face identity); ImaginTalk 2025-03 aligns speech with content, identity and emotional expression from face video. All read; none is cited by the target.",
+ "fulltext_pattern_sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis": {
+  "neural_codec_generation": "neural (audio |speech )?codec|codec[^.]{0,80}(tokens?|RVQ|residual vector quanti)|(RVQ|residual vector quanti[sz]ation)[^.]{0,80}codec",
+  "codec_continuous_latent": "(continuous|pre-quanti[sz]ation|unquanti[sz]ed) (codec )?latent|codec latent (vector|space|representation)|latent (vector|space)s? of (a |the )?(pre-?trained )?(neural )?(audio )?codec",
+  "flow_matching": "flow[- ]matching|rectified flow",
+  "diffusion_any": "diffusion"
+ },
+ "tally_sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis": {
+  "population_unique": 165,
+  "slot_filled_unique": 7345,
+  "tier": "pattern match",
+  "pattern_counts": [
+   {
+    "design": "diffusion_any",
+    "n": 36,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2505.22024",
+     "arxiv-2508.13576",
+     "arxiv-2509.25670",
+     "arxiv-2601.14777",
+     "arxiv-2602.01908"
+    ]
+   },
+   {
+    "design": "flow_matching",
+    "n": 13,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2509.25670",
+     "arxiv-2601.14777",
+     "arxiv-2602.01908",
+     "arxiv-2602.11477",
+     "arxiv-2603.14267"
+    ]
+   },
+   {
+    "design": "neural_codec_generation",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.11477",
+     "arxiv-2603.14267",
+     "arxiv-2604.15923",
+     "arxiv-2502.03128",
+     "arxiv-2503.14928"
+    ]
+   },
+   {
+    "design": "codec_continuous_latent",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.11477"
+    ]
+   }
+  ],
+  "known_item_recall": {
+   "seeds_in_wiki": 3,
+   "found": 3,
+   "recall": 1.0,
+   "missed": []
+  },
+  "read": [
+   "arxiv-2502.03128",
+   "arxiv-2503.14928",
+   "arxiv-2503.16956",
+   "arxiv-2604.15923"
+  ],
+  "neural_codec_generation_by_timing": {
+   "prior video-to-speech": [
+    "arxiv-2502.03128 (2025-02, discrete acoustic tokens)",
+    "arxiv-2503.14928 (2025-03, discrete codec features, masked diffusion)"
+   ],
+   "concurrent": [
+    "arxiv-2511.22229 (2025-11, visual text-to-speech, text input)",
+    "arxiv-2603.14267 (2026-03, dubbing with text)",
+    "arxiv-2604.15923 (2026-04, discrete RVQ tokens)"
+   ],
+   "target": [
+    "arxiv-2602.11477"
+   ],
+   "outside boundary": [
+    "arxiv-2203.17263 (enhancement, noisy audio input)",
+    "arxiv-2306.01432 (enhancement, mention only)"
+   ]
+  }
+ },
+ "state_of_the_art_sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis": {
+  "pid": "arxiv-2503.16956",
+  "year": 2025,
+  "metric": "LRS3 UTMOS at 10 sampling steps, video-derived speaker embedding (WER 30.45%, Whisper Medium)",
+  "value": 4.031,
+  "unit": "UTMOS",
+  "timing": "prior"
+ },
+ "deciding_priors_note_sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis": "Target first public 2026-02. Codec-based video-to-speech before it: Metis (2025-02) and ImaginTalk (2025-03), both discrete tokens, read; Uni-Dubbing (2024), cited by the target, is not in the wiki. Continuous codec-latent target: the target only (1 of 165, pattern match). Flow matching at 10 steps on LRS3 before it: Faces-to-Voices (2025-03), read. HiCoDiT (2026-04, discrete RVQ codec diffusion) is concurrent."
 }
