@@ -14,7 +14,7 @@ The paper [[1]](#ref-1) changes the decoder (M06) and runs it online with one pe
 
 **State of the art:** Diff-E (2023) reports 60.63% on 13 imagined-speech classes, 22 healthy participants, within-subject [[2]](#ref-2); the target's 65% top-1 (4 classes, one participant, 20 online trials) is not comparable.
 
-Skipping reverse sampling at test time is inherited: the lineage already classifies without it [[2]](#ref-2), [[4]](#ref-4), [[3]](#ref-3). Diff-E has about 300,000 plus 400,000 parameters [[2]](#ref-2); 14.11 M is about 20 times more (inference). Both lineage studies ablated the diffusion model: Diff-E fell from 60.63% to 46.59% [[2]](#ref-2), the ensemble from 85.47% to 68.12% on spoken-speech EEG [[3]](#ref-3). The target reports neither (Table I). Verdict: standard.
+Skipping reverse sampling at test time is inherited: the lineage already classifies without it [[2]](#ref-2), [[4]](#ref-4), [[3]](#ref-3). Diff-E has about 300,000 plus 400,000 parameters [[2]](#ref-2); 14.11 M is about 20 times more (inference). Two of the three lineage studies ablated the diffusion model: Diff-E fell from 60.63% to 46.59% [[2]](#ref-2), the ensemble from 85.47% to 68.12% on spoken-speech EEG [[3]](#ref-3); the viseme decoder compares only with non-diffusion networks such as EEGNet [[4]](#ref-4). The target reports neither an ablation nor a baseline (Table I). Verdict: standard.
 
 ### M13 Operation: online closed-loop decoding
 
@@ -30,25 +30,25 @@ The online evidence is 20 trials, about 5 minutes (§III-B). The 2 ms figure is 
 
 **State of the art:** Wu et al. (2024) score trials against a stated 50% chance level and report their effect in 15 of 20 participants [[5]](#ref-5).
 
-Per-class top-2 gains in Table I are 20, 60, 20 and 20 points, so any split of the 20 trials gives an overall gain of at least 20 points, yet the All row shows 5; with five trials per class the rows give 50% top-1 and 80% top-2 (inference). Class counts and the computed confusion matrices are not shown (§II-A.2, §II-D.2). Against 25% chance, 10 of 20 correct gives a one-sided binomial p of about 0.014 (inference), so above-chance decoding holds; the 65% does not. Verdict: not reported (class counts).
+Per-class top-2 gains in Table I are 20, 60, 20 and 20 points, so any split of the 20 trials gives an overall gain of at least 20 points, yet the All row shows 5. Each class percentage needs a class size that is a multiple of 5, so the four classes hold five trials each and the class rows give 50% top-1 and 80% top-2 (inference). Class counts and the computed confusion matrices are not shown (§II-A.2, §II-D.2). Against 25% chance, 10 of 20 correct gives a one-sided binomial p of about 0.014 (inference), so above-chance decoding holds; the 65% does not. Verdict: not reported (class counts).
 
 ## The 13 components
 
 | Component | This paper | Usual approach (count) | State of the art | Verdict |
 |---|---|---|---|---|
 | M01 Training-time action | Cued imagined speech, 400 trials | Recorded training action (slot-filled 3,882) | – | standard |
-| M02 Training-only supervision | Cue class labels | Text or audio targets (slot-filled 31) | – | standard |
+| M02 Training-only supervision | Cue class labels | Mostly not recorded (slot-filled 31) | – | standard |
 | M03 Training and adaptation | Per-subject fit, about 20 s | Per-subject calibration (slot-filled 1,526) | – | standard |
 | M04 Use-time action | Imagined speech | Recorded use-time action (slot-filled 5,595) | – | standard |
 | M05 Sensors | 64-channel scalp EEG, 500 Hz | Recorded sensor (slot-filled 7,329) | – | standard |
 | M06 Processing and decoding | U-Net diffusion encoder, one pass | Diff-E lineage (pattern match 3) | 60.63%, 13 classes [[2]](#ref-2) | standard |
-| M07 Lexicon and LM | No language model | Language model (slot-filled 119) | – | standard |
+| M07 Lexicon and LM | No language model | Mostly not recorded (slot-filled 119) | – | standard |
 | M08 Output | Ranked four-class label | Recorded output (slot-filled 3,268) | – | standard |
 | M09 Confirmation | Confidence-scaled feedback | Mostly not recorded (slot-filled 82) | – | standard |
 | M10 Correction | Not described | Mostly not recorded (slot-filled 82) | – | not reported |
 | M11 Reference construction | Cue-defined classes | Recorded reference (slot-filled 234) | – | standard |
 | M12 Evaluation | Top-1/top-2, 20 trials, no class counts | No chance term (pattern match 95) | 50% chance stated [[5]](#ref-5) | not reported |
-| M13 Device and cost | Online, clinic, Titan XP | Offline analysis (pattern match 112) | 55.7% vs 52.3%, 20 participants [[5]](#ref-5) | standard |
+| M13 Operation | Online, clinic, Titan XP | Offline analysis (pattern match 112) | 55.7% vs 52.3%, 20 participants [[5]](#ref-5) | standard |
 
 ## Where the claims outrun the evidence
 
@@ -60,7 +60,7 @@ Per-class top-2 gains in Table I are 20, 60, 20 and 20 points, so any split of t
 
 - M12: per-class trial counts, confusion matrix and chance bound per online session.
 - M06: the same U-Net without the diffusion objective, and a compact non-diffusion classifier.
-- M03: pretraining on the 22-participant Diff-E dataset, whose 13 classes include the three target words [[2]](#ref-2), to cut patient calibration.
+- M03: pretraining on the 22-participant Diff-E dataset, whose 13 classes name clock, toilet and water in English [[2]](#ref-2) while the target's words are Korean (§II-A.1), to test whether cross-language pretraining cuts patient calibration.
 - M13: online sessions on separate days [[5]](#ref-5), with end-to-end latency.
 
 ## Questions for the authors

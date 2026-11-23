@@ -12,7 +12,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`online-imagined-speech-eeg.csv`](online-imagined-speech-eeg.csv) (6075 slot-filled, 167 pattern match, usual design in 112, 3 read in full)
 - Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same population as the M06 imagined-speech EEG table); the design compared is whether decoding is run online with feedback (real-time, closed-loop) and its accuracy reported, or offline on recorded trials. Boundary: a mention of real-time use as future work or in related work is a pattern match only, not an online study; reviews excluded as deciding priors; versions count once.
-- Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/), [Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System](../../reviews/toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system/)
+- Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/), [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/), [Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System](../../reviews/toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system/)
 
 ## wearable-speech-sensor-on-device-inference
 
