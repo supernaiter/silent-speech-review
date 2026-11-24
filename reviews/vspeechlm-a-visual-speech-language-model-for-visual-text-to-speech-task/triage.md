@@ -1,0 +1,19 @@
+# Triage of the independent evaluation (round 1)
+
+Source checks: target sc_text.txt (Sec. 1, 2.1, 3.5, 4.1-4.3, Table 1 footnote 2, Fig. 3 caption) and DiFlowDubber sc_text.txt (Tables 1-2, lines with every baseline row).
+
+| # | Verdict | Evidence | Where applied |
+|---|---|---|---|
+| 1 | applied | DiFlowDubber Table 1 Setting 2.0 (non-ground-truth reference): HPMDubbing 29.82, StyleDubber 14.18, EmoDubber 12.81 (Chem); Table 2: 44.15, 19.58, 19.75 (GRID). VSpeechLM Table 1 copies 29.8, 14.2, 12.8 and 44.2, 19.6, 19.8. The review had paired these with Setting 1.0 values (9.65/11.72, 16.79/18.53). Notes d1, d3, d8, d9. | Verdict; M06 State of the art (11.12 vs 12.81, 16.21 vs 19.75, 13.2% vs 2.3% relative); slots M06 sota; claims-outrun bullet on provenance now states the reference confound; audit M06 state_of_the_art; extra.json |
+| 2 | applied (verdict kept) | DiFlowDubber Table 1 rows give LSE-C/LSE-D for V2C-Net (CVPR'22), HPMDubbing (CVPR'23), StyleDubber (ACL'24), Speaker2Dubber (ACM MM'24), ProDubber (CVPR'25), EmoDubber (notes d1, d8-d12). These are values scored in DiFlowDubber's tables; none of these systems is a wiki ledger paper, so the `behind` rule (at least 3 earlier ledger papers, best one read) cannot fire. The verdict stays `standard` by the rule, and the text now says the protocol is weaker than that of the dubbing systems it compares with, citing the table. | M12 Usual approach; M12 verdict sentence; Verdict last sentence; slots M12 note |
+| 3 | applied | Population counts are full-text pattern counts over the 7 wiki studies; the target's own Sec. 2.1 puts earlier VisualTTS on FastSpeech2 or flow-matching backbones (t48). Usual approach now leads with that statement and keeps "upper bound". | M06 Usual approach |
+| 4 | applied (scoped) | VoiceCraft-Dub is not in the wiki and was not read; not cited. The codec-LM count is now scoped to the Appendix population ("only this paper and FunCineForge" among the 7). The Verdict's "standard" for the codec-LM half rests on DubWise as cited by the authors (Sec. 1). | M06 Usual approach |
+| 5 | applied | Fig. 3 caption: "win-tie-loss ratios"; Sec. 4.3 discusses many ties on GRID (t50). "No tie rates" removed; 10 experts and 50 clips added (t14). | Claims-outrun human-study bullet |
+| 6 | applied | Table 1 footnote 2 attributes suboptimal GRID WER on ground truth to ASR errors (t49). | Claims-outrun GRID WER bullet ("as the authors note") |
+| 7 | applied | DubWise sentence is in Sec. 1 (Introduction), line 105 of the text; t38 loc corrected. | Verdict |
+| 8 | applied (partly) | ProDubber (CVPR'25) Chem Setting 2.0 WER 11.69 (d10); VSpeechLM compares DSU, HPMDubbing, StyleDubber, EmoDubber only (Sec. 4.1). The Setting 1.0 value 9.45 is not used because the matched setting is 2.0. Not added to the SOTA line (DiFlowDubber is lower in the matched setting: 11.12). | Claims-outrun provenance bullet |
+| 9 | rejected | EmoDubber is not in the wiki and was not read; it is named only as the paper's baseline with values from the target's Table 1 and DiFlowDubber's tables. The venue discrepancy (CVPR2024 vs CVPR'25) does not affect any claim. | - |
+| 10 | applied | Baseline rows match across the two papers to rounding, so "different ASR systems" was unsupported; sentence removed and replaced by the matching-row statement. | M06 State of the art |
+| 11 | applied (partly) | Train on ground-truth expansion / infer on predicted (t51, Sec. 3.5) added to the aligner sentence. Table 4 Spk Sim scale and the GRID clip total not added (length limit; the GRID split inconsistency is already stated). | M06 evidence paragraph |
+
+Counts: 10 applied (3 of them partly or with the verdict kept), 1 rejected, 0 unverified. Gates after triage: verify_quotes 59 found / 0 missing; audit_tally ok (2 audits); check_review 0 FAIL, 0 WARN, body 6,998 characters.

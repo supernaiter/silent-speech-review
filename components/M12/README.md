@@ -197,6 +197,24 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that report recognition or reconstruction results on the Silent Speech Challenge archive (single speaker, silent TIMIT training, 100 WSJ0 5k test sentences) or that test on the same 100 SSC sentences with a new recording. Boundary: exclude studies that only cite the SSC, surveys that restate its numbers (kept in the pattern match), and studies on other ultrasound corpora; count versions once.
 - Used in: [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
 
+## text-and-video-to-speech-evaluation
+
+- Table: [`text-and-video-to-speech-evaluation.csv`](text-and-video-to-speech-evaluation.csv) (6960 slot-filled, 9 pattern match, usual design in 6, 4 read in full)
+- Inclusion rule: Same population as M06 text-and-video-to-speech-decoder; classify from the full text how synthesized speech is evaluated: SyncNet lip-sync scores (LSE-C/LSE-D), length-weighted mel-cepstral distortion (MCD-DTW-SL), listener or opinion tests, ASR WER and speaker similarity. Boundary: a study counts under every protocol its text names (upper bound); versions once.
+- Used in: [VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task](../../reviews/vspeechlm-a-visual-speech-language-model-for-visual-text-to-speech-task/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading |  |  |
+| Towards Accurate Lip-to-Speech Synthesis in-the-Wild | 2023 |  |
+| VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task | 2025 |  |
+| FunCineForge: A Unified Dataset Toolkit and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes | 2026 |  |
+| DiFlowDubber: Discrete Flow Matching for Automated Video Dubbing via Cross-Modal Alignment and Synchronization | 2026 |  |
+| Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning | 2026 |  |
+| Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning | 2026 |  |
+| LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | 2026 |  |
+| LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | 2026 |  |
+
 ## ultrasound-to-speech-output-evaluation
 
 - Table: [`ultrasound-to-speech-output-evaluation.csv`](ultrasound-to-speech-output-evaluation.csv) (6960 slot-filled, 51 pattern match, usual design in 21, 3 read in full)

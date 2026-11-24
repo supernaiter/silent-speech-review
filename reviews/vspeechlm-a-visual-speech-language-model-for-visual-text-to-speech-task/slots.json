@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Recorded voiced speech (Chem, GRID, LRS2)"
+  ],
+  "field": "Recorded speech video",
+  "n": 7388,
+  "matched": 3882,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "MFA phoneme durations as aligner labels"
+  ],
+  "field": "Paired-audio targets",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited from duration-based dubbing.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "ESPnet SpeechLM init, joint fine-tuning"
+  ],
+  "field": "Pretrain then adapt",
+  "n": 7388,
+  "matched": 1526,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Pretraining corpus not named; WER 151% without it.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Script, lip video, reference voice"
+  ],
+  "field": "Visual TTS task",
+  "n": 7388,
+  "matched": 5595,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited task definition.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "AV-HuBERT lip features, 25 fps"
+  ],
+  "field": "Camera video",
+  "n": 7388,
+  "matched": 7329,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited front end.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Per-frame phoneme argmax into codec LM"
+  ],
+  "field": "Lip-derived timing, diffusion/flow/mel decoder",
+  "n": 7,
+  "matched": 5,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Lip-set durations predate it; no monotonic constraint.",
+  "sota": "[@nguyen2026diflowdubber] (2026): Chem WER 11.12% vs EmoDubber 12.81% (non-GT reference)"
+ },
+ "M07": {
+  "choice": [
+   "Reference speech prompt"
+  ],
+  "field": "Reference voice",
+  "n": 7388,
+  "matched": 119,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited; test-time reference utterance not stated.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "EnCodec 8 codebooks, 16 kHz"
+  ],
+  "field": "Waveform",
+  "n": 7388,
+  "matched": 3268,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Codec caps UTMOS (3.77 resynthesis vs 4.19 GT, Chem).",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "Offline"
+  ],
+  "field": "Offline",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline synthesis.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline synthesis.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Chem, GRID, LRS2 recordings"
+  ],
+  "field": "Recorded reference",
+  "n": 7388,
+  "matched": 234,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "GRID split counts inconsistent.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "WER, Spk Sim, UTMOS, MCD-DTW-SL, A/B test"
+  ],
+  "field": "WER + listener test + SyncNet LSE",
+  "n": 7,
+  "matched": 6,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "No SyncNet LSE, unlike its dubbing baselines; mixed baseline provenance.",
+  "sota": "[@nguyen2026diflowdubber] (2026): Chem LSE-C 8.31, LSE-D 6.73"
+ },
+ "M13": {
+  "choice": [
+   "Not reported"
+  ],
+  "field": "Research code",
+  "n": 7388,
+  "matched": 6075,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_reported",
+  "note": "No speed, size or compute.",
+  "sota": "–"
+ }
+}

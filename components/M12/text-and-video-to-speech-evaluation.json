@@ -1,0 +1,404 @@
+{
+ "topic": "text-and-video-to-speech-evaluation",
+ "slot": "M12",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "movie dubbing|video dubbing|automated video dubbing|visual text-to-speech|Visual TTS mel|text-to-video alignment|text-aware video-to-speech|title=LipVoicer|VTP text|guided by lip reading",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Same population as M06 text-and-video-to-speech-decoder; classify from the full text how synthesized speech is evaluated: SyncNet lip-sync scores (LSE-C/LSE-D), length-weighted mel-cepstral distortion (MCD-DTW-SL), listener or opinion tests, ASR WER and speaker similarity. Boundary: a study counts under every protocol its text names (upper bound); versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8381,
+  "slot_filled_unique": 6960,
+  "string_match_folders": 11,
+  "string_match_unique": 9,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M12",
+  "design_slot_fill": 0.932,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "EvaluationRun.execution_stage=executed",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.11477",
+     "arxiv-2610.01012-wys",
+     "isca-ghosh26b_interspeech"
+    ]
+   },
+   {
+    "design": "metric_value=8",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2601.14777",
+     "isca-mattheyses10_avsp"
+    ]
+   },
+   {
+    "design": "evaluation_mode=offline",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.11477",
+     "isca-mattheyses10_avsp"
+    ]
+   },
+   {
+    "design": "demonstrated_use_cases=speech_restoration",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2610.01012-wys",
+     "isca-ghosh26b_interspeech"
+    ]
+   },
+   {
+    "design": "metric_value=1.5",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.03258"
+    ]
+   },
+   {
+    "design": "metric_value=16",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.03258"
+    ]
+   },
+   {
+    "design": "metric_value=19.1",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.03258"
+    ]
+   },
+   {
+    "design": "metric_value=2",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.03258"
+    ]
+   },
+   {
+    "design": "metric_value=32.3",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.03258"
+    ]
+   },
+   {
+    "design": "metric_value=4",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.03258"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "listener_test",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2306.03258",
+     "arxiv-2403.01087",
+     "arxiv-2511.22229",
+     "arxiv-2601.14777",
+     "arxiv-2603.14267",
+     "arxiv-2610.01012-wys",
+     "isca-ghosh26b-lipadapt"
+    ],
+    "regex": "\\bMOS\\b|mean opinion|listening test|subjective evaluation|preference test|human evaluation"
+   },
+   {
+    "design": "asr_wer",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2306.03258",
+     "arxiv-2403.01087",
+     "arxiv-2511.22229",
+     "arxiv-2601.14777",
+     "arxiv-2603.14267",
+     "arxiv-2610.01012-wys",
+     "isca-ghosh26b-lipadapt"
+    ],
+    "regex": "\\bWER\\b|word error rate"
+   },
+   {
+    "design": "lse_sync",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2306.03258",
+     "arxiv-2403.01087",
+     "arxiv-2601.14777",
+     "arxiv-2603.14267",
+     "arxiv-2610.01012-wys",
+     "isca-ghosh26b-lipadapt"
+    ],
+    "regex": "LSE-C|LSE-D|LSE C|SyncNet"
+   },
+   {
+    "design": "speaker_similarity",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2511.22229",
+     "arxiv-2601.14777",
+     "arxiv-2603.14267",
+     "arxiv-2610.01012-wys"
+    ],
+    "regex": "speaker similarity|SECS|Spk ?Sim"
+   },
+   {
+    "design": "mcd_dtw_sl",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2511.22229",
+     "arxiv-2601.14777"
+    ],
+    "regex": "MCD-DTW-SL|MCD-SL"
+   }
+  ],
+  "metric_pattern": "LSE|sync",
+  "better": "higher",
+  "pattern_scope": "7 unique included studies (full text, references removed)"
+ },
+ "sota_candidates": [],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2306.03258",
+   "key": "t:lipvoicergeneratingspeechfromsilentvideosguidedbylipreading",
+   "title": "LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.03258 | title=LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading | Study.research_objective=Diffusion lip-to-speech w/ pre-t",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2403.01087",
+   "key": "t:towardsaccurateliptospeechsynthesisinthewild",
+   "title": "Towards Accurate Lip-to-Speech Synthesis in-the-Wild",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vs VCA-GAN/SVTS/Multi-task L2S/Lip2Wav/Lip-to-Text+TTS baseline; GT-text ceiling | system_boundary=silent lip video -> VTP text + visual feats -> Visual TTS mel -> BigVGAN waveform; no text needed at inference; speaker voice cloned from short refe",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2511.22229",
+   "key": "t:vspeechlmavisualspeechlanguagemodelforvisualtexttospeechtask",
+   "title": "VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1145/3743093.3771012 | title=VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task | authors=Yuyue Wang, Xin Cheng, Yihan Wu, Xihua Wang, Jinchuan Tian | venue=ACM MMAsia 2025 (arXiv 2511.22229) |",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2601.14777",
+   "key": "t:funcineforgeaunifieddatasettoolkitandmodelforzeroshotmoviedubbingindiversecinema",
+   "title": "FunCineForge: A Unified Dataset Toolkit and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2601.14777 | title=FunCineForge: A Unified Dataset Toolkit and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes | authors=Jiaxuan Liu, Yang, et al. | venue=arXiv 2601.14777 | review_state=source_checked",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2602.11477",
+   "key": "t:sldl2shierarchicalsubspacelatentdiffusionforhighfidelityliptospeechsynthesis",
+   "title": "SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "of mel/SSL-token intermediates; latent semantic loss enforces content consistency at latent level | claim=L2S supports video dubbing, robust communication in challenging acoustic environments, and assistive technology for dysphonia/aphonia | technical_",
+   "decision": "exclude",
+   "reason": "video-to-speech without text conditioning; ledger mentions dubbing only as an application"
+  },
+  {
+   "pid": "arxiv-2603.14267",
+   "key": "t:diflowdubberdiscreteflowmatchingforautomatedvideodubbingviacrossmodalalignmentan",
+   "title": "DiFlowDubber: Discrete Flow Matching for Automated Video Dubbing via Cross-Modal Alignment and Synchronization",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2603.14267 | title=DiFlowDubber: Discrete Flow Matching for Automated Video Dubbing via Cross-Modal Alignment and Synchronization | authors=Ngoc-Son Nguyen, Thanh V. T. Tran, Jeongsoo Choi, Hieu-Nghia Hu",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2610.01012",
+   "key": "t:watchyourspeechtextawarevideotospeechsynthesiswithtextualconditioning",
+   "title": "Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv/2610.01012 | title=Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning | authors=Gunwoo Lee, Yoori Oh, Yoseob Han | venue=arXiv 2610.01012v1 | review_stat",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2610.01012-wys",
+   "key": "t:watchyourspeechtextawarevideotospeechsynthesiswithtextualconditioning",
+   "title": "Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2610.01012-wys | title=Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning | authors=Gunwoo Lee, Yoori Oh, Yoseob Han | venue=arXiv:2610.01012 | review_state=",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "isca-ghosh26b-lipadapt",
+   "key": "t:lipadaptertexttovideoalignmentisallyouneedforliptospeech",
+   "title": "LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | authors=Souvik Ghosh, C. V. Jawahar (IIIT Hyderabad), Vinay Namboodiri (U. Bath) |",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "isca-ghosh26b_interspeech",
+   "key": "t:lipadaptertexttovideoalignmentisallyouneedforliptospeech",
+   "title": "LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ghosh26b_interspeech | title=LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | authors=Souvik Ghosh, C. V. Jawahar, Vinay Namboodiri | venue=Interspeech 2026 | re",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "isca-mattheyses10_avsp",
+   "key": "t:optimizedphotorealisticaudiovisualspeechsynthesisusingactiveappearancemodeling",
+   "title": "Optimized photorealistic audiovisual speech synthesis using active appearance modeling",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "parameter trajectory / phoneme segment in synthesized video | task_family=speech_reconstruction | extra.Task.scope=audiovisual text-to-speech: synthesize synchronized audio+video of talking mouth from text via unit selection | elicitation=self_chosen_content |",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  }
+ ],
+ "usual_approach": {
+  "design": "ASR WER plus listener test plus SyncNet lip-sync scores (LSE-C/LSE-D) on the synthesized speech (asr_wer 7, listener_test 7, lse_sync 6, speaker_similarity 4, mcd_dtw_sl 2 of 7)",
+  "n": 6,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2306.03258",
+   "arxiv-2403.01087",
+   "arxiv-2601.14777",
+   "arxiv-2603.14267",
+   "arxiv-2610.01012-wys",
+   "isca-ghosh26b-lipadapt"
+  ],
+  "population_unique": 7
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2511.22229",
+   "role": "target",
+   "loc": "Sec. 4.1",
+   "quote": "and MCD-DTW weighted by speech length\n(MCD-DTW-SL)[3] to assess duration synchronization."
+  },
+  {
+   "pid": "arxiv-2603.14267",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "EmoDubber [13] CVPR’25 8.11 6.92 11.7290.623.82 8.09 6.96 12.8185.064.14±0.23 3.75\nDiFlowDubber (Ours) 8.31 6.73 9.65 84.59 4.02 8.37 6.70 11.12 73.93 4.18±0.18 4.03"
+  },
+  {
+   "pid": "arxiv-2603.14267",
+   "role": "sota",
+   "loc": "Table 2",
+   "quote": "EmoDubber [13] CVPR’25 7.12 6.82 18.53 92.22 3.83 7.10 6.89 19.75 86.02 4.33±0.17 3.81\nDiFlowDubber (Ours) 7.32 6.73 16.79 82.52 3.95 7.28 6.78 16.21 71.63 4.38±0.18 3.93"
+  },
+  {
+   "pid": "arxiv-2403.01087",
+   "role": "prior",
+   "loc": "Table 3",
+   "quote": "VTP (Ours) 22.6 1.47 0.65 0.47 8.083 6.586\nGT text - 1.51 0.69 0.50 8.781 6.106"
+  },
+  {
+   "pid": "isca-ghosh26b_interspeech",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "V2SFlow [1]\n430\n28.5%\n0.948\n3.24\n7.752\n7.015\nAccurate L2S [5]\nV+T\n660\n23.1%\n0.77\n2.79\n7.886\n6.850\nLipVoicer [4]\n430\n21.4%\n0.92\n3.11\n5.803\n8.637\nLipAdapter (Ours)\n30\n21.2%\n0.944\n3.13\n6.165\n8.250"
+  }
+ ],
+ "population_note": "included unique studies: arxiv-2306.03258, arxiv-2403.01087, arxiv-2511.22229, arxiv-2601.14777, arxiv-2603.14267, arxiv-2610.01012-wys, isca-ghosh26b-lipadapt",
+ "state_of_the_art": {
+  "pid": "arxiv-2603.14267",
+  "year": 2026,
+  "metric": "Chem test lip sync LSE-C (SyncNet), Setting 1.0; LSE-D 6.73, WER 9.65",
+  "value": 8.31,
+  "unit": "LSE-C",
+  "timing": "concurrent"
+ },
+ "deciding_priors_note": "Priors with SyncNet lip-sync scores: LipVoicer (2023) and Hegde et al. (2023); concurrent DiFlowDubber and FunCineForge; later Watch Your Speech and LipAdapter.",
+ "tally": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 9,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "ASR WER plus listener test plus SyncNet lip-sync scores (LSE-C/LSE-D) on the synthesized speech (asr_wer 7, listener_test 7, lse_sync 6, speaker_similarity 4, mcd_dtw_sl 2 of 7)",
+   "n": 6,
+   "tier": "pattern match",
+   "population_unique": 7
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2603.14267",
+   "year": 2026,
+   "metric": "Chem test lip sync LSE-C (SyncNet), Setting 1.0; LSE-D 6.73, WER 9.65",
+   "value": 8.31,
+   "unit": "LSE-C",
+   "timing": "concurrent"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2403.01087",
+   "isca-ghosh26b_interspeech"
+  ],
+  "unread": 0,
+  "confirmed_unique": 7,
+  "known_item_recall": null
+ },
+ "used_by": [
+  "vspeechlm-a-visual-speech-language-model-for-visual-text-to-speech-task"
+ ]
+}

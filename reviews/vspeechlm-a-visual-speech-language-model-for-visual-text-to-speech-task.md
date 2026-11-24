@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/vspeechlm-a-visual-speech-language-model-for-visual-text-to-speech-task/](vspeechlm-a-visual-speech-language-model-for-visual-text-to-speech-task/).**
 
-VSpeechLM generates lip-synchronized speech from text, a reference voice and lip video by converting lip timing into phoneme sequences; WER is 12.5% on Chem and 18.3% on GRID.
+Lip-timed phonemes into a codec LM (M06) are standard; Chem WER edges EmoDubber 12.5% vs 12.8%, no SyncNet scores, and the stated sync gains do not follow from Table 1.
 
 [Read the full review](vspeechlm-a-visual-speech-language-model-for-visual-text-to-speech-task/) · [All reviews](../README.md)

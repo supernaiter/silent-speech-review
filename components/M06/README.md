@@ -241,6 +241,24 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that decode speech, language or other neural or articulatory signals with a spiking neural network (leaky integrate-and-fire, Izhikevich or other spiking units, in software or on neuromorphic hardware) as the classifier or encoder. Boundary: 'SNN' meaning Siamese network and the SNNS simulator are pattern matches only; reviews, editorials and neuromorphic sensing without a spiking decoder are excluded; versions of one study count once.
 - Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/)
 
+## text-and-video-to-speech-decoder
+
+- Table: [`text-and-video-to-speech-decoder.csv`](text-and-video-to-speech-decoder.csv) (7345 slot-filled, 9 pattern match, usual design in 5, 4 read in full)
+- Inclusion rule: Studies that synthesize a speech waveform from talking-face or lip video together with text: the script given as input (visual TTS, automated video or movie dubbing) or text predicted by a lip reader and used to condition synthesis (text-aware video-to-speech). Boundary: plain video-to-speech without any text conditioning, talking-head generation (speech or text to face video), audio-visual recognition, and cascades that only run an off-the-shelf TTS on lip-read text without using the video in synthesis are excluded; versions of one study count once; design counts are full-text pattern counts (upper bound, related-work mentions included).
+- Used in: [VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task](../../reviews/vspeechlm-a-visual-speech-language-model-for-visual-text-to-speech-task/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading |  |  |
+| Towards Accurate Lip-to-Speech Synthesis in-the-Wild | 2023 |  |
+| VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task | 2025 |  |
+| FunCineForge: A Unified Dataset Toolkit and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes | 2026 |  |
+| DiFlowDubber: Discrete Flow Matching for Automated Video Dubbing via Cross-Modal Alignment and Synchronization | 2026 |  |
+| Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning | 2026 |  |
+| Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning | 2026 |  |
+| LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | 2026 |  |
+| LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | 2026 |  |
+
 ## ultrasound-to-speech-network-architecture
 
 - Table: [`ultrasound-to-speech-network-architecture.csv`](ultrasound-to-speech-network-architecture.csv) (7345 slot-filled, 51 pattern match, usual design in 37, 4 read in full)

@@ -1,0 +1,55 @@
+{
+ "target": "arxiv-2511.22229",
+ "rebuilt_from": "prep/plan.draft.json (its topics used the video-to-speech population, which excludes text-conditioned synthesis; M02 silent-target-transfer and M07 V2S speaker conditioning do not apply to this task)",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Recorded voiced speech in existing corpora (Chem lectures, GRID, LRS2); no new training-time user action.",
+  "M02": "Montreal Forced Aligner phoneme durations as training-only targets for the aligner, as in FastSpeech2-style dubbing systems.",
+  "M03": "Decoder initialised from a pretrained ESPnet SpeechLM and fine-tuned jointly with the aligner; standard pretrain-then-adapt.",
+  "M04": "Offline synthesis from given script text, lip video and a reference utterance; V2C/visual TTS task definition.",
+  "M05": "AV-HuBERT lip embeddings at 25 fps from existing video.",
+  "M07": "Reference speech prompt for voice cloning at use time; part of the V2C/visual TTS task definition.",
+  "M08": "EnCodec 8-codebook 16 kHz tokens decoded to waveform, as in codec language models.",
+  "M09": "Not applicable: offline synthesis.",
+  "M10": "Not applicable: offline synthesis.",
+  "M11": "Ground-truth recordings of Chem, GRID and LRS2 as references.",
+  "M13": "Research implementation; no latency, size or cost reported."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "text-and-video-to-speech-decoder",
+   "inclusion_rule": "Studies that synthesize a speech waveform from talking-face or lip video together with text: the script given as input (visual TTS, automated video or movie dubbing) or text predicted by a lip reader and used to condition synthesis (text-aware video-to-speech). Boundary: plain video-to-speech without any text conditioning, talking-head generation (speech or text to face video), audio-visual recognition, and cascades that only run an off-the-shelf TTS on lip-read text without using the video in synthesis are excluded; versions of one study count once; design counts are full-text pattern counts (upper bound, related-work mentions included).",
+   "pattern": "movie dubbing|video dubbing|automated video dubbing|visual text-to-speech|Visual TTS mel|text-to-video alignment|text-aware video-to-speech|title=LipVoicer|VTP text|guided by lip reading",
+   "design_regex": [
+    "codec_token_lm",
+    "flow_matching",
+    "diffusion",
+    "nar_duration_mel",
+    "lip_text_alignment"
+   ],
+   "metric": "ASR WER of the synthesized speech",
+   "better": "lower"
+  },
+  {
+   "slot": "M12",
+   "topic": "text-and-video-to-speech-evaluation",
+   "inclusion_rule": "Same population as M06 text-and-video-to-speech-decoder; classify from the full text how synthesized speech is evaluated: SyncNet lip-sync scores (LSE-C/LSE-D), length-weighted mel-cepstral distortion (MCD-DTW-SL), listener or opinion tests, ASR WER and speaker similarity. Boundary: a study counts under every protocol its text names (upper bound); versions once.",
+   "pattern": "same as M06 topic",
+   "design_regex": [
+    "lse_sync",
+    "mcd_dtw_sl",
+    "listener_test",
+    "asr_wer",
+    "speaker_similarity"
+   ],
+   "metric": "lip-sync LSE-C/LSE-D and WER",
+   "better": "lower"
+  }
+ ]
+}
