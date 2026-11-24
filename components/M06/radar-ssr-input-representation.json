@@ -653,6 +653,12 @@
    "role": "prior",
    "loc": "Abstract; Methods; Table 3",
    "quote": "A dataset comprising of vowels A, E, I, O, U and empty (static/closed lips) is collected using both technologies, with a face mask"
+  },
+  {
+   "pid": "arxiv-2209.01762",
+   "role": "target",
+   "loc": "Sec. II-B",
+   "quote": "To detect the envelope, we generated a 400-length sliding window on the concatenated data and calculated a root mean square (RMS) value of the data within each window."
   }
  ],
  "known_item_recall": {
@@ -699,6 +705,220 @@
   "known_item_recall": 1.0
  },
  "used_by": [
-  "ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases"
+  "ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases",
+  "movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar"
+ ],
+ "ledger_tally_movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2601-18177-lipsiri",
+     "isca-zhang26y-sonispeech",
+     "pmc-13119776-radspeech",
+     "isca-menezes25-radaropg",
+     "doi-10.1109-access.2023.3344177"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-13119776-radspeech",
+     "isca-menezes25-radaropg",
+     "doi-10.1038-s41598-024-81904-y",
+     "doi-10.1038-s41597-023-02793-w",
+     "doi-10.1109-access.2023.3344177"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-access.2023.3344177",
+     "doi-10.1038-s41467-022-32231-1",
+     "arxiv-2509.26409",
+     "arxiv-2608.00803",
+     "doi-10.1145-3594738.3611365"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-vitormenezes22-sfcwradar",
+     "doi-10.3390-s16111812",
+     "isca-graciarena04_interspeech",
+     "arxiv-2209.01762",
+     "arxiv-2303.08295"
+    ]
+   },
+   {
+    "design": "model_family=svm",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s41598-024-81904-y",
+     "doi-10.1016-j.specom.2009.08.002",
+     "doi-10.3390-s22020649",
+     "isca-menezes25_interspeech",
+     "isca-vitormenezes22_interspeech"
+    ]
+   },
+   {
+    "design": "decoder_route=closed_set_classification",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1016-j.specom.2009.08.002",
+     "isca-aminidigehsara22_interspeech",
+     "isca-holzrichter09_interspeech",
+     "isca-vitormenezes22_interspeech"
+    ]
+   },
+   {
+    "design": "model_family=hmm",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-access.2023.3344177",
+     "doi-10.1016-j.specom.2009.08.002",
+     "isca-graciarena04_interspeech",
+     "isca-holzrichter09_interspeech"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-holzrichter09-radar",
+     "arxiv-2303.08295",
+     "arxiv-2312.09572"
+    ]
+   },
+   {
+    "design": "model_family=linear_model",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s41467-022-32231-1",
+     "doi-10.3390-s22020649",
+     "isca-vitormenezes22_interspeech"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=segment",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.3390-s16111812",
+     "arxiv-2312.09572"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "accura",
+  "better": "higher"
+ },
+ "sota_candidates_movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar": [
+  {
+   "metric": "Radar Doppler spectrogram VGG16 accuracy similar to Wi-Fi NN (~95%)",
+   "value": 1800,
+   "unit": "samples",
+   "raw": "In each experiment, a total of 1800 data samples were collected",
+   "pid": "doi-10.1038-s41467-022-32231-1",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table1 prop P1 accuracy",
+   "value": 100,
+   "unit": "%",
+   "raw": "100",
+   "pid": "arxiv-2209.01762",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word accuracy (%)",
+   "value": 98.0,
+   "unit": "percent",
+   "raw": "98.0",
+   "pid": "arxiv-2601.18177",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "phrase accuracy",
+   "value": 96.88,
+   "unit": "%",
+   "raw": "phrase accuracy 96.88%",
+   "pid": "doi-10.1109-access.2023.3344177",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "confusion /i/ accuracy (373/400)",
+   "value": 93.2,
+   "unit": "percent",
+   "raw": "93.2",
+   "pid": "arxiv-2312.09572",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Word classification accuracy (5 classes)",
+   "value": 93.0,
+   "unit": "percent",
+   "raw": "93.0% for word datasets",
+   "pid": "doi-10.1038-s41598-024-81904-y",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "proposed TCN mean LOSO-CV word accuracy",
+   "value": 91.1,
+   "unit": "%",
+   "raw": "proposed TCN mean LOSO-CV word accuracy = 91.1",
+   "pid": "arxiv-2509.26409",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "concat consonant accuracy 90.08% (radar 88.04, OPG 67.50); /t/+/S/ mean acc 77.60->85.40, mutual confusion 12.75->5.80",
+   "value": 90.08,
+   "unit": null,
+   "raw": "%",
+   "pid": "isca-menezes25_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word accuracy, 10 isolated words (average over speakers, short-template CLEAN)",
+   "value": 85.0,
+   "unit": "percent",
+   "raw": "85%",
+   "pid": "doi-10.3390-s16111812",
+   "year": 2016,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "data-scaling: 80.0% accuracy with only 4 sessions (8 min) of user training data; LOPO user-independent model also reported",
+   "value": 80.0,
+   "unit": null,
+   "raw": "%",
+   "pid": "doi-10.1145-3594738.3611365",
+   "year": null,
+   "tier": "ledger only"
+  }
  ]
 }
