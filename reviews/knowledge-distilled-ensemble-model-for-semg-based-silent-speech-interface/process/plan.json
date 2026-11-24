@@ -1,0 +1,77 @@
+{
+ "target": "arxiv-2308.06533",
+ "changed": [
+  "M02",
+  "M06",
+  "M13"
+ ],
+ "incidental": [
+  "M05",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Prompted closed-vocabulary silent-mouthing collection lineage: participants mouth the prompted NATO codewords; no new user training action is introduced.",
+  "M03": "Offline ResNet1D supervised-classifier lineage: models are trained on the dataset split, with no per-user enrollment, calibration, or adaptation procedure.",
+  "M04": "Closed-vocabulary silent-mouthing recognition lineage: use-time input is a prompted word segment, with no naturalistic continuous-use protocol.",
+  "M07": "Isolated closed-set classification lineage: no use-time language model, lexicon or spelling prior; the NATO spelling use is conceptual.",
+  "M08": "Closed-set word-classification lineage: the evaluated output is one of 26 NATO-codeword class labels, with no character or free-text sequence decoder.",
+  "M09": "Offline classifier-only SSI lineage: no presentation, confirmation, or commit interaction is part of the evaluated system.",
+  "M10": "Offline classifier-only SSI lineage: no correction or re-entry mechanism is evaluated; fuzzy matching is future work only.",
+  "M11": "Prompted NATO-codeword classification lineage: prompt identities provide the 26 class labels; no external reference corpus is used."
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "knowledge-distillation-in-speech-decoding",
+   "rebuilt": "prep topic emg-silent-speech-knowledge-distillation matched only the target (n=1); rebuilt across all signal types",
+   "inclusion_rule": "Speech, word or language decoding studies from any non-acoustic or audio-visual signal (EMG, EEG, ECoG, intracortical, lip video, ultrasound, wearable strain or inertial sensors) that train a student model on teacher outputs or representations (knowledge distillation, teacher-student, self-distillation), found by ledger text or full text; design compared: where the teacher comes from (audio/ASR or cross-modal teacher, an ensemble of teachers, a larger same-modality model) and whether distillation is used for model compression. Boundary: full-text counts are pattern matches and include mentions in related work; acoustic-only ASR distillation is out of scope when read; versions count once.",
+   "pattern": "(?i)knowledge[- ]distill|teacher[- ]student|distilled (student|model)|self[- ]distill",
+   "fulltext_pattern": "(?i)knowledge distillation|teacher[- ]student (model|framework|training|network|distillation|learning)",
+   "design_regex": [
+    "audio_or_asr_teacher",
+    "ensemble_teacher",
+    "compression_student",
+    "emg_or_neural_signal"
+   ],
+   "metric": "26-class accuracy of the distilled student against its teacher; higher is better."
+  },
+  {
+   "slot": "M06",
+   "topic": "closed-vocabulary-word-classification",
+   "reuse": "components/M06/closed-vocabulary-word-classification.json",
+   "inclusion_rule": "Studies that decode words or utterances from non-acoustic signals (neural, EMG, articulatory, video) by classifying each detected segment into a closed set of at most a few hundred words or utterances, with or without a language-model or context prior over the sequence. Boundary: open-vocabulary phoneme or character decoders are excluded unless they also report a closed-set word test; acoustic-only ASR is excluded.",
+   "pattern": "(?i)(word classif|closed[- ]?(set|vocabular)|isolated[- ]word|\\b(\\d+|ten|fifty)[- ]word (vocabular|set|classif|lexicon)|utterance classif)",
+   "metric_pattern": "(?i)accura",
+   "better": "higher"
+  },
+  {
+   "slot": "M05",
+   "topic": "facial-emg-channel-layout",
+   "inclusion_rule": "Include silent-speech recognition studies using facial surface EMG that specify or compare electrode, channel, or muscle placement and relate the configuration to word-recognition performance. Boundary: exclude EMG studies without placement or muscle details and studies that change only the decoder or signal-processing method.",
+   "pattern": "(?:silent[- ]speech|subvocal|mouthed).{0,120}(?:sEMG|surface EMG).{0,140}(?:muscle|channel|electrode|sensor)|(?:sEMG|surface EMG).{0,120}(?:silent[- ]speech|subvocal|mouthed).{0,140}(?:muscle|channel|electrode|sensor)",
+   "design_field": "channel_count|sensor_geometry|electrode_placement|muscle|sensor_count",
+   "design_slot": "M05",
+   "metric_pattern": "\\baccuracy\\b|\\bF1\\b|word error rate|\\bWER\\b",
+   "unit_pattern": "%|percent",
+   "better": "higher",
+   "metric": "26-class word-recognition accuracy (%) across facial-EMG channel or muscle configurations; higher is better."
+  },
+  {
+   "slot": "M12",
+   "topic": "wearable-sensor-word-test-split",
+   "reuse": "components/M12/wearable-sensor-word-test-split.json",
+   "inclusion_rule": "Word or command classification studies whose ledger names a wearable non-acoustic sensor on the face or neck (strain, piezo or triboelectric sensor, surface EMG, accelerometer); the design compared is how test samples are separated from training samples: speaker-disjoint, session- or day-disjoint, or a random or per-class sample split. Boundary: a paper counts under every split it reports; reviews and acoustic-only studies are excluded when read.",
+   "pattern": "(?is)\\A(?=.*(strain[_ -]?(sensor|gauge)|triboelectric|piezoresistiv|surface_emg|semg|accelerometer))(?=.*\\b(word|command|vocabular))",
+   "metric_pattern": "(accura)",
+   "better": "higher"
+  },
+  {
+   "slot": "M13",
+   "topic": "wearable-speech-sensor-on-device-inference",
+   "reuse": "components/M13/wearable-speech-sensor-on-device-inference.json",
+   "rebuilt": "prep topic silent-speech-model-latency-footprint had no usual approach (audit_tally FAIL); replaced by the published on-device inference table",
+   "inclusion_rule": "Non-acoustic silent-speech or speech-recognition wearables (EMG, strain, accelerometer, ultrasound, EEG) whose decoder runs on an embedded processor or microcontroller on or near the body, rather than on a PC, phone or cloud; design compared: whether inference latency, energy per inference and total system power are measured. Boundary: neural implants with external rack processing, acoustic-only keyword spotting and PC-tethered real-time demos are excluded when read; versions once.",
+   "metric": "inference latency, model size and system power measured on the wearable's own processor; lower is better."
+  }
+ ]
+}
