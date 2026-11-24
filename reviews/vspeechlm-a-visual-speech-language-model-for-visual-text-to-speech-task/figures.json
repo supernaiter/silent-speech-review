@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Recorded voiced speech (Chem, GRID, LRS2)"
+     ],
+     "field": "Recorded speech video",
+     "n": 8995,
+     "matched": 3882,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M02": {
+     "choice": [
+      "MFA phoneme durations as aligner labels"
+     ],
+     "field": "Paired-audio targets",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Inherited from duration-based dubbing."
+    },
+    "M03": {
+     "choice": [
+      "ESPnet SpeechLM init, joint fine-tuning"
+     ],
+     "field": "Pretrain then adapt",
+     "n": 8995,
+     "matched": 1526,
+     "verdict": "standard",
+     "note": "Pretraining corpus not named; WER 151% without it."
+    },
+    "M04": {
+     "choice": [
+      "Script, lip video, reference voice"
+     ],
+     "field": "Visual TTS task",
+     "n": 8995,
+     "matched": 5595,
+     "verdict": "standard",
+     "note": "Inherited task definition."
+    },
+    "M05": {
+     "choice": [
+      "AV-HuBERT lip features, 25 fps"
+     ],
+     "field": "Camera video",
+     "n": 8995,
+     "matched": 7329,
+     "verdict": "standard",
+     "note": "Inherited front end."
+    },
+    "M06": {
+     "choice": [
+      "Per-frame phoneme argmax into codec LM"
+     ],
+     "field": "Lip-derived timing, diffusion/flow/mel decoder",
+     "n": 8995,
+     "matched": 5,
+     "verdict": "standard",
+     "note": "Lip-set durations predate it; no monotonic constraint."
+    },
+    "M07": {
+     "choice": [
+      "Reference speech prompt"
+     ],
+     "field": "Reference voice",
+     "n": 8995,
+     "matched": 119,
+     "verdict": "standard",
+     "note": "Inherited; test-time reference utterance not stated."
+    },
+    "M08": {
+     "choice": [
+      "EnCodec 8 codebooks, 16 kHz"
+     ],
+     "field": "Waveform",
+     "n": 8995,
+     "matched": 3268,
+     "verdict": "standard",
+     "note": "Codec caps UTMOS (3.77 resynthesis vs 4.19 GT, Chem)."
+    },
+    "M09": {
+     "choice": [
+      "Offline"
+     ],
+     "field": "Offline",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline synthesis."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline synthesis."
+    },
+    "M11": {
+     "choice": [
+      "Chem, GRID, LRS2 recordings"
+     ],
+     "field": "Recorded reference",
+     "n": 8995,
+     "matched": 234,
+     "verdict": "standard",
+     "note": "GRID split counts inconsistent."
+    },
+    "M12": {
+     "choice": [
+      "WER, Spk Sim, UTMOS, MCD-DTW-SL, A/B test"
+     ],
+     "field": "WER + listener test + SyncNet LSE",
+     "n": 8995,
+     "matched": 6,
+     "verdict": "standard",
+     "note": "No SyncNet LSE, unlike its dubbing baselines; mixed baseline provenance."
+    },
+    "M13": {
+     "choice": [
+      "Not reported"
+     ],
+     "field": "Research code",
+     "n": 8995,
+     "matched": 6075,
+     "verdict": "missing",
+     "note": "No speed, size or compute."
+    }
+   }
+  }
+ ]
+}

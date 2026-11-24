@@ -1,0 +1,867 @@
+{
+ "topic": "text-and-video-to-speech-decoder",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "movie dubbing|video dubbing|automated video dubbing|visual text-to-speech|Visual TTS mel|text-to-video alignment|text-aware video-to-speech|title=LipVoicer|VTP text|guided by lip reading",
+ "scope": "ledger",
+ "fulltext_pattern": "HPMDubbing|StyleDubber|EmoDubber|movie dubbing|visual text-to-speech|VisualTTS",
+ "inclusion_rule": "Studies that synthesize a speech waveform from talking-face or lip video together with text: the script given as input (visual TTS, automated video or movie dubbing) or text predicted by a lip reader and used to condition synthesis (text-aware video-to-speech). Boundary: plain video-to-speech without any text conditioning, talking-head generation (speech or text to face video), audio-visual recognition, and cascades that only run an off-the-shelf TTS on lip-read text without using the video in synthesis are excluded; versions of one study count once; design counts are full-text pattern counts (upper bound, related-work mentions included).",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 11,
+  "string_match_unique": 9,
+  "fulltext_only_folders": 27
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2601.14777",
+     "arxiv-2602.11477",
+     "arxiv-2603.14267",
+     "arxiv-2610.01012",
+     "arxiv-2511.22229"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2601.14777",
+     "arxiv-2603.14267",
+     "isca-ghosh26b-lipadapt",
+     "arxiv-2511.22229",
+     "arxiv-2403.01087"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.11477",
+     "isca-mattheyses10_avsp",
+     "arxiv-2306.03258"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.11477",
+     "isca-ghosh26b-lipadapt",
+     "arxiv-2306.03258"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2610.01012",
+     "arxiv-2403.01087"
+    ]
+   },
+   {
+    "design": "model_family=llm",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2601.14777",
+     "arxiv-2511.22229"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=postprocess",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.11477",
+     "isca-mattheyses10_avsp"
+    ]
+   },
+   {
+    "design": "representation_kind=mel/audio latent diffusion trajectory",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.03258"
+    ]
+   },
+   {
+    "design": "representation_kind=predicted text from pre-trained lip-reader",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.03258"
+    ]
+   },
+   {
+    "design": "representation_kind=silent video frames -> lip feats",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.03258"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "diffusion",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2306.03258",
+     "arxiv-2601.14777",
+     "arxiv-2603.14267",
+     "arxiv-2610.01012-wys",
+     "isca-ghosh26b-lipadapt"
+    ],
+    "regex": "\\bdiffusion\\b|DDPM"
+   },
+   {
+    "design": "lip_text_alignment",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2403.01087",
+     "arxiv-2511.22229",
+     "arxiv-2601.14777",
+     "arxiv-2610.01012-wys",
+     "isca-ghosh26b-lipadapt"
+    ],
+    "regex": "(phoneme|text)[^.]{0,60}(lip|visual|video)[^.]{0,60}(alignment|aligner|duration)|text-to-video alignment"
+   },
+   {
+    "design": "flow_matching",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2511.22229",
+     "arxiv-2601.14777",
+     "arxiv-2603.14267",
+     "arxiv-2610.01012-wys"
+    ],
+    "regex": "flow[- ]matching"
+   },
+   {
+    "design": "nar_duration_mel",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2403.01087",
+     "arxiv-2511.22229",
+     "arxiv-2603.14267",
+     "isca-ghosh26b-lipadapt"
+    ],
+    "regex": "FastSpeech|variance adaptor|duration predictor"
+   },
+   {
+    "design": "codec_token_lm",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2511.22229",
+     "arxiv-2601.14777"
+    ],
+    "regex": "(codec|EnCodec|SoundStream|discrete (speech|acoustic|audio) tokens?|speech tokens?)[^.]{0,120}(language model|autoregressive|LLM)|(language model|autoregressive|LLM)[^.]{0,120}(codec|EnCodec|acoustic tokens|speech tokens)"
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower",
+  "pattern_scope": "7 unique included studies (full text, references removed)"
+ },
+ "sota_candidates": [
+  {
+   "metric": "t42 avhub-large.cwer",
+   "value": 1.4,
+   "unit": "percent",
+   "raw": "1.4",
+   "pid": "arxiv-2512.14083",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "quantitative LRS2 + L2T-WER",
+   "value": 1.61,
+   "unit": "PESQ",
+   "raw": "LRS2 Ours vs Multi-task L2S 1.36 / SVTS 1.34 / VCA-GAN 1.24",
+   "pid": "arxiv-2403.01087",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Chem WER pct",
+   "value": 12.5,
+   "unit": "percent",
+   "raw": "Chem WER",
+   "pid": "arxiv-2511.22229",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "lipvoicer",
+   "value": 18.8991,
+   "unit": "wer",
+   "raw": "LipVoicer WER LRS2 (marginal lead)",
+   "pid": "arxiv-2610.01012-wys",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "impl lr wer",
+   "value": 19.1,
+   "unit": "percent",
+   "raw": "19.1%",
+   "pid": "arxiv-2306.03258",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS3 WER @30h",
+   "value": 21.2,
+   "unit": "percent",
+   "raw": "WER 21.2% @30h vs LipVoicer 21.4% @430h; MOS 4.3; MultiVSR V+T 34.44%",
+   "pid": "isca-ghosh26b-lipadapt",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GRID LipNet WER % (GT 21.76)",
+   "value": 23.1,
+   "unit": null,
+   "raw": "23.1%",
+   "pid": "arxiv-1906.06337",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GRID LipNet WER % (GT 21.4)",
+   "value": 25.45,
+   "unit": null,
+   "raw": "25.45%",
+   "pid": "arxiv-1805.09313",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS3 WER video-only",
+   "value": 29.41,
+   "unit": "percent",
+   "raw": "LRS3 WER video-only",
+   "pid": "arxiv-2604.15923",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "intelligibility WER",
+   "value": 30.22,
+   "unit": "percent",
+   "raw": "WER LRS3-TED (AUTO-AVSR), speaker-emb row",
+   "pid": "arxiv-2602.11477",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [
+  "isca-terissi18_frescorpus",
+  "isca-wang10d_interspeech",
+  "isca-karpov09_avasync",
+  "isca-fagel04_massy",
+  "isca-taylor16_interspeech",
+  "arxiv-1906.06337",
+  "arxiv-2512.14083-scalableavsr",
+  "oa-W2257285929",
+  "isca-robert07_interspeech",
+  "isca-liu09_avsp",
+  "isca-elisei01-vidtalkhead",
+  "isca-menezes25_interspeech",
+  "isca-menezes25-radaropg",
+  "arxiv-1805.09313",
+  "isca-agelfors98_icslp",
+  "isca-tamura99_eurospeech",
+  "arxiv-2604.15923",
+  "isca-karpov09_interspeech",
+  "isca-schabus12_interspeech",
+  "isca-mattheyses10_interspeech",
+  "isca-mattheyses11_avsp",
+  "arxiv-2312.06613",
+  "isca-beskow06_visprosody",
+  "arxiv-2307.01233",
+  "isca-thangthai15_avsp",
+  "isca-musti11_avsp",
+  "arxiv-2512.14083"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1805.09313",
+   "key": "p:arxiv-1805.09313",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "arxiv-1906.06337",
+   "key": "p:arxiv-1906.06337",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "arxiv-2306.03258",
+   "key": "t:lipvoicergeneratingspeechfromsilentvideosguidedbylipreading",
+   "title": "LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.03258 | title=LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading | Study.research_objective=Diffusion lip-to-speech w/ pre-t",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2307.01233",
+   "key": "t:robustl2sspeakerspecificliptospeechsynthesisexploitingselfsupervisedrepresentati",
+   "title": "RobustL2S: Speaker-Specific Lip-to-Speech Synthesis exploiting Self-Supervised Representations",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "arxiv-2312.06613",
+   "key": "p:arxiv-2312.06613",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "arxiv-2403.01087",
+   "key": "t:towardsaccurateliptospeechsynthesisinthewild",
+   "title": "Towards Accurate Lip-to-Speech Synthesis in-the-Wild",
+   "year": 2023,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "vs VCA-GAN/SVTS/Multi-task L2S/Lip2Wav/Lip-to-Text+TTS baseline; GT-text ceiling | system_boundary=silent lip video -> VTP text + visual feats -> Visual TTS mel -> BigVGAN waveform; no text needed at inference; speaker voice cloned from short refe",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2511.22229",
+   "key": "t:vspeechlmavisualspeechlanguagemodelforvisualtexttospeechtask",
+   "title": "VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=10.1145/3743093.3771012 | title=VSpeechLM: A Visual Speech Language Model for Visual Text-to-Speech Task | authors=Yuyue Wang, Xin Cheng, Yihan Wu, Xihua Wang, Jinchuan Tian | venue=ACM MMAsia 2025 (arXiv 2511.22229) |",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2512.14083",
+   "key": "t:scalableframeworksforrealworldaudiovisualspeechrecognition",
+   "title": "Scalable Frameworks for Real-World Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "arxiv-2512.14083-scalableavsr",
+   "key": "t:scalableframeworksforrealworldaudiovisualspeechrecognition",
+   "title": "Scalable Frameworks for Real-World Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "arxiv-2601.14777",
+   "key": "t:funcineforgeaunifieddatasettoolkitandmodelforzeroshotmoviedubbingindiversecinema",
+   "title": "FunCineForge: A Unified Dataset Toolkit and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arXiv:2601.14777 | title=FunCineForge: A Unified Dataset Toolkit and Model for Zero-Shot Movie Dubbing in Diverse Cinematic Scenes | authors=Jiaxuan Liu, Yang, et al. | venue=arXiv 2601.14777 | review_state=source_checked",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2602.11477",
+   "key": "t:sldl2shierarchicalsubspacelatentdiffusionforhighfidelityliptospeechsynthesis",
+   "title": "SLD-L2S: Hierarchical Subspace Latent Diffusion for High-Fidelity Lip to Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "of mel/SSL-token intermediates; latent semantic loss enforces content consistency at latent level | claim=L2S supports video dubbing, robust communication in challenging acoustic environments, and assistive technology for dysphonia/aphonia | technical_",
+   "decision": "exclude",
+   "reason": "video-to-speech without text conditioning; ledger mentions dubbing only as an application"
+  },
+  {
+   "pid": "arxiv-2603.14267",
+   "key": "t:diflowdubberdiscreteflowmatchingforautomatedvideodubbingviacrossmodalalignmentan",
+   "title": "DiFlowDubber: Discrete Flow Matching for Automated Video Dubbing via Cross-Modal Alignment and Synchronization",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arXiv:2603.14267 | title=DiFlowDubber: Discrete Flow Matching for Automated Video Dubbing via Cross-Modal Alignment and Synchronization | authors=Ngoc-Son Nguyen, Thanh V. T. Tran, Jeongsoo Choi, Hieu-Nghia Hu",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2604.15923",
+   "key": "t:hierarchicalcodecdiffusionforvideotospeechgeneration",
+   "title": "Hierarchical Codec Diffusion for Video-to-Speech Generation",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "arxiv-2610.01012",
+   "key": "t:watchyourspeechtextawarevideotospeechsynthesiswithtextualconditioning",
+   "title": "Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv/2610.01012 | title=Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning | authors=Gunwoo Lee, Yoori Oh, Yoseob Han | venue=arXiv 2610.01012v1 | review_stat",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "arxiv-2610.01012-wys",
+   "key": "t:watchyourspeechtextawarevideotospeechsynthesiswithtextualconditioning",
+   "title": "Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2610.01012-wys | title=Watch Your Speech: Text-aware Video-to-Speech Synthesis with Textual Conditioning | authors=Gunwoo Lee, Yoori Oh, Yoseob Han | venue=arXiv:2610.01012 | review_state=",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "isca-agelfors98_icslp",
+   "key": "t:syntheticfacesasalipreadingsupport",
+   "title": "Synthetic faces as a lipreading support",
+   "year": 1998,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-beskow06_visprosody",
+   "key": "t:visualcorrelatestoprominenceinseveralexpressivemodes",
+   "title": "Visual correlates to prominence in several expressive modes",
+   "year": 2006,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-elisei01-vidtalkhead",
+   "key": "t:creatingandcontrollingvideorealistictalkingheads",
+   "title": "Creating and controlling video-realistic talking heads",
+   "year": 2001,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-fagel04_massy",
+   "key": "t:videorealisticsyntheticspeechwithaparametricvisualspeechsynthesizer",
+   "title": "Video-realistic synthetic speech with a parametric visual speech synthesizer",
+   "year": 2004,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-ghosh26b-lipadapt",
+   "key": "t:lipadaptertexttovideoalignmentisallyouneedforliptospeech",
+   "title": "LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | authors=Souvik Ghosh, C. V. Jawahar (IIIT Hyderabad), Vinay Namboodiri (U. Bath) |",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "isca-ghosh26b_interspeech",
+   "key": "t:lipadaptertexttovideoalignmentisallyouneedforliptospeech",
+   "title": "LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ghosh26b_interspeech | title=LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | authors=Souvik Ghosh, C. V. Jawahar, Vinay Namboodiri | venue=Interspeech 2026 | re",
+   "decision": "include",
+   "reason": "text and video both condition speech synthesis"
+  },
+  {
+   "pid": "isca-karpov09_avasync",
+   "key": "t:audiovisualspeechasynchronymodelinginatalkinghead",
+   "title": "Audio-Visual Speech Asynchrony Modeling in a Talking Head",
+   "year": 2009,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-karpov09_interspeech",
+   "key": "t:audiovisualspeechasynchronymodelinginatalkinghead",
+   "title": "Audio-Visual Speech Asynchrony Modeling in a Talking Head",
+   "year": 2009,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-liu09_avsp",
+   "key": "t:animagebasedtalkingheadsystem",
+   "title": "An image-based talking head system",
+   "year": 2009,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-mattheyses10_avsp",
+   "key": "t:optimizedphotorealisticaudiovisualspeechsynthesisusingactiveappearancemodeling",
+   "title": "Optimized photorealistic audiovisual speech synthesis using active appearance modeling",
+   "year": 2010,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "parameter trajectory / phoneme segment in synthesized video | task_family=speech_reconstruction | extra.Task.scope=audiovisual text-to-speech: synthesize synchronized audio+video of talking mouth from text via unit selection | elicitation=self_chosen_content |",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-mattheyses10_interspeech",
+   "key": "t:activeappearancemodelsforphotorealisticvisualspeechsynthesis",
+   "title": "Active Appearance Models for Photorealistic Visual Speech Synthesis",
+   "year": 2010,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-mattheyses11_avsp",
+   "key": "t:auditoryandphotorealisticaudiovisualspeechsynthesisfordutch",
+   "title": "Auditory and photo-realistic audiovisual speech synthesis for Dutch",
+   "year": 2011,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-menezes25-radaropg",
+   "key": "t:multimodalsilentrecognitionofphonemesusingradarandoptopalatographicsilentspeechi",
+   "title": "Multimodal Silent Recognition of Phonemes Using Radar and Optopalatographic Silent Speech Interface",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-menezes25_interspeech",
+   "key": "t:multimodalsilentrecognitionofphonemesusingradarandoptopalatographicsilentspeechi",
+   "title": "Multimodal Silent Recognition of Phonemes Using Radar and Optopalatographic Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-musti11_avsp",
+   "key": "t:introducingvisualtargetcostwithinanacousticvisualunitselectionspeechsynthesizer",
+   "title": "Introducing visual target cost within an acoustic-visual unit-selection speech synthesizer",
+   "year": 2011,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-robert07_interspeech",
+   "key": "t:aphoneticconcatenativeapproachoflabialcoarticulation",
+   "title": "A phonetic concatenative approach of labial coarticulation",
+   "year": 2007,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-schabus12_interspeech",
+   "key": "t:speakeradaptivevisualspeechsynthesisinthehmmframework",
+   "title": "Speaker-adaptive visual speech synthesis in the HMM-framework",
+   "year": 2012,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-tamura99_eurospeech",
+   "key": "t:texttoaudiovisualspeechsynthesisbasedonparametergenerationfromhmm",
+   "title": "Text-to-audio-visual speech synthesis based on parameter generation from HMM",
+   "year": 1999,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-taylor16_interspeech",
+   "key": "p:isca-taylor16_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-terissi18_frescorpus",
+   "key": "t:afrenchspanishmultimodalspeechcommunicationcorpusincorporatingacousticdatafacial",
+   "title": "A French-Spanish Multimodal Speech Communication Corpus Incorporating Acoustic Data, Facial, Hands and Arms Gestures Information",
+   "year": 2018,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-thangthai15_avsp",
+   "key": "t:hmmbasedvisualspeechsynthesisusingdynamicvisemes",
+   "title": "HMM-based visual speech synthesis using dynamic visemes",
+   "year": 2015,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "isca-wang10d_interspeech",
+   "key": "t:synthesizingphotorealtalkingheadviatrajectoryguidedsampleselection",
+   "title": "Synthesizing Photo-Real Talking Head via Trajectory-Guided Sample Selection",
+   "year": 2010,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  },
+  {
+   "pid": "oa-W2257285929",
+   "key": "t:amultimodalsensorfusionarchitectureforaudiovisualspeechrecognition",
+   "title": "A Multimodal Sensor Fusion Architecture for Audio-Visual Speech Recognition",
+   "year": 2007,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "talking-head synthesis, recognition, or dubbing mentioned only as an application"
+  }
+ ],
+ "usual_approach": {
+  "design": "non-autoregressive or diffusion/flow decoder with phoneme durations from the lips or attention to the video (pattern counts: diffusion 5, lip_text_alignment 5, flow_matching 4, nar_duration_mel 4, codec_token_lm 2 of 7)",
+  "n": 5,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2403.01087",
+   "arxiv-2511.22229",
+   "arxiv-2601.14777",
+   "arxiv-2610.01012-wys",
+   "isca-ghosh26b-lipadapt"
+  ],
+  "population_unique": 7
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2511.22229",
+   "role": "target",
+   "loc": "Secs. 3.3.2, 3.5",
+   "quote": "where each lip movement corresponds to a ground-truth phoneme\nin the dataset."
+  },
+  {
+   "pid": "arxiv-2603.14267",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "EmoDubber [13] CVPR’25 8.11 6.92 11.7290.623.82 8.09 6.96 12.8185.064.14±0.23 3.75\nDiFlowDubber (Ours) 8.31 6.73 9.65 84.59 4.02 8.37 6.70 11.12 73.93 4.18±0.18 4.03"
+  },
+  {
+   "pid": "arxiv-2603.14267",
+   "role": "sota",
+   "loc": "Sec. 3.4.2",
+   "quote": "It enhances video-\nspeech alignment through the dual-alignment mechanism:\nvideo-text alignment, and speech-text alignment, which to-\ngether enforce robust cross-modal synchronization."
+  },
+  {
+   "pid": "arxiv-2403.01087",
+   "role": "prior",
+   "loc": "Sec. 3.2.2",
+   "quote": "using this attention\nmechanism. After adding the speaker identity embedding, these are then upsampled and decoded into melspectrograms."
+  },
+  {
+   "pid": "arxiv-2403.01087",
+   "role": "prior",
+   "loc": "Sec. 3.2.2",
+   "quote": "neural vocoder model BigVGAN [14], to synthesize the speech from\nthe melspectrogram output."
+  },
+  {
+   "pid": "isca-ghosh26b_interspeech",
+   "role": "prior",
+   "loc": "Sec. 2",
+   "quote": "Monotonic Alignment Search is applied to soft alignment to derive hard phoneme\ndurations aligned with video frames."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 5,
+  "found": 5,
+  "recall": 1.0,
+  "missed": []
+ },
+ "population_note": "included unique studies: arxiv-2306.03258, arxiv-2403.01087, arxiv-2511.22229, arxiv-2601.14777, arxiv-2603.14267, arxiv-2610.01012-wys, isca-ghosh26b-lipadapt",
+ "state_of_the_art": {
+  "pid": "arxiv-2603.14267",
+  "year": 2026,
+  "metric": "Chem test WER, Whisper-V3, non-ground-truth reference (Setting 2.0); EmoDubber 12.81 in the same table",
+  "value": 11.12,
+  "unit": "%",
+  "timing": "concurrent"
+ },
+ "deciding_priors_note": "Deciding prior for the aligner: Hegde et al. 2023 (visual queries attend over phonemes; video-text alignment sets durations, no duration predictor). Later: LipAdapter (MAS durations into a frozen TTS). Concurrent: DiFlowDubber (cross-attention + MAS).",
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 9,
+  "fulltext_only_folders": 27,
+  "usual_approach": {
+   "design": "non-autoregressive or diffusion/flow decoder with phoneme durations from the lips or attention to the video (pattern counts: diffusion 5, lip_text_alignment 5, flow_matching 4, nar_duration_mel 4, codec_token_lm 2 of 7)",
+   "n": 5,
+   "tier": "pattern match",
+   "population_unique": 7
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2603.14267",
+   "year": 2026,
+   "metric": "Chem test WER, Whisper-V3, non-ground-truth reference (Setting 2.0); EmoDubber 12.81 in the same table",
+   "value": 11.12,
+   "unit": "%",
+   "timing": "concurrent"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2403.01087",
+   "isca-ghosh26b_interspeech"
+  ],
+  "unread": 0,
+  "confirmed_unique": 7,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "vspeechlm-a-visual-speech-language-model-for-visual-text-to-speech-task"
+ ]
+}

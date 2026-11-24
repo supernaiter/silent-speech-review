@@ -4,25 +4,25 @@ Yuyue Wang, Xin Cheng, Yihan Wu, Xihua Wang, Jinchuan Tian, Ruihua Song. ACM Mul
 
 ## Verdict
 
-VSpeechLM [[1]](#ref-1) changes one component, synthesis (M06): a per-frame phoneme aligner feeds a pretrained codec language model instead of a duration-based, diffusion or flow decoder. Both halves are standard: lip-set phoneme durations without a duration predictor appear in Hegde et al. [[2]](#ref-2) (§3.2.2), and the authors themselves cite an earlier speech-LLM dubbing system (§2.1). The content gain over the strongest baseline is small, 12.5% against 12.8% WER on Chem (Table 1), while the [concurrent] DiFlowDubber reports 9.65% against 11.72% for the same baseline [[3]](#ref-3). The synchronization claim is the weakest: it rests on a length-weighted spectral distance alone (§4.1), its headline reductions do not follow from Table 1, and on GRID the method ties EmoDubber on that metric. On lip sync the evaluation (M12) is weaker than every other text-and-video study in the Appendix population.
+VSpeechLM [[1]](#ref-1) changes one component, synthesis (M06): a per-frame phoneme aligner feeds a pretrained codec language model instead of a duration-based, diffusion or flow decoder. Both halves are standard: lip-set phoneme durations without a duration predictor appear in Hegde et al. [[2]](#ref-2) (§3.2.2), and the authors cite an earlier speech-LLM dubbing system, DubWise, with global duration control only (§1). The content gain over the strongest baseline is small, 12.5% against 12.8% WER on Chem (Table 1); the baseline value is the non-ground-truth-reference row of the [concurrent] DiFlowDubber, which reports 11.12% against 12.81% in the same setting [[3]](#ref-3). The synchronization claim is the weakest: it rests on a length-weighted spectral distance (§4.1), and its headline reductions do not follow from Table 1. The evaluation (M12) omits the SyncNet scores that DiFlowDubber's tables give for six earlier dubbing systems, four of them this paper's baselines.
 
 ## Against the field, component by component
 
 ### M06 Synthesis: lip-timed phonemes into a codec language model
 
-**Usual approach:** of the 7 studies that synthesize speech from lip video plus text (pattern match, unique studies, Appendix), 5 take phoneme timing from the lips or from attention to the video, with diffusion (5), flow-matching (4) or duration-based mel (4) decoders; 2 mention a codec-token language model, this paper and the [concurrent] FunCineForge [[4]](#ref-4). VSpeechLM keeps lip-derived timing and swaps in an autoregressive EnCodec language model initialised from ESPnet (§4.1).
+**Usual approach:** the authors put earlier visual TTS on FastSpeech2-style or flow-matching backbones (§2.1); in the Appendix population, 5 of the 7 studies that synthesize speech from lip video plus text take phoneme timing from the lips or from attention to the video (pattern match, upper bound, Appendix), and only this paper and the [concurrent] FunCineForge [[4]](#ref-4) mention a codec-token language model. VSpeechLM swaps in an ESPnet-initialised EnCodec language model (§4.1).
 
-**State of the art:** the [concurrent] DiFlowDubber (2026) [[3]](#ref-3) reports Chem WER 9.65% against 11.72% for EmoDubber in its Table 1 (ground-truth reference, Whisper-V3), and GRID 16.79% against 18.53% (Table 2): a 17.7% relative reduction on Chem, against 2.3% for VSpeechLM over EmoDubber (12.5% vs 12.8%) (inference). Absolute values use different ASR systems.
+**State of the art:** the [concurrent] DiFlowDubber (2026) [[3]](#ref-3) reports, with a non-ground-truth reference, Chem WER 11.12% against 12.81% for EmoDubber and GRID 16.21% against 19.75% (Tables 1–2). VSpeechLM's EmoDubber values (12.8%, 19.8%) equal these rows to rounding, so the gap to the shared baseline is 13.2% relative on Chem for DiFlowDubber against 2.3% for VSpeechLM (inference).
 
-Each lip frame takes its most similar phoneme, trained by cross-entropy on forced-alignment labels, with no monotonic constraint (§3.3.2, §3.5). Hegde et al. [[2]](#ref-2) (prior) let visual queries attend over phonemes and upsampled the result, so video-text alignment set durations (§3.2.2). DiFlowDubber and the [later] LipAdapter [[5]](#ref-5) add monotonic alignment search; per-frame argmax can reorder or skip phonemes, and the paper does not measure how often. The visual timing helps (Chem WER 12.48% vs 15.02% without video, Table 2), but the decoder carries the system: without pretraining WER is 151% (Table 3). Verdict: standard.
+Each lip frame takes its most similar phoneme, trained by cross-entropy on forced-alignment labels, with no monotonic constraint, and the decoder trains on ground-truth expansions but runs on predicted ones (§3.3.2, §3.5). Hegde et al. [[2]](#ref-2) (prior) let visual queries attend over phonemes and upsampled the result, so video-text alignment set durations (§3.2.2). DiFlowDubber and the [later] LipAdapter [[5]](#ref-5) add monotonic alignment search; argmax can reorder or skip phonemes, unmeasured. Visual timing helps (Chem WER 12.48% vs 15.02% without video, Table 2); without decoder pretraining WER is 151% (Table 3). Verdict: standard.
 
 ### M12 Evaluation: synchronization without a lip-sync score
 
-**Usual approach:** 6 of the 7 text-and-video studies report SyncNet scores (LSE-C/LSE-D), including both priors, LipVoicer [[6]](#ref-6) and Hegde et al. [[2]](#ref-2), and the [later] Watch Your Speech [[7]](#ref-7); all 7 report ASR WER and a listener test (pattern match, Appendix). VSpeechLM is the exception and measures "duration synchronization" with MCD-DTW-SL alone (§4.1).
+**Usual approach:** 6 of the 7 text-and-video studies in the Appendix report SyncNet scores (LSE-C/LSE-D), including both priors, LipVoicer [[6]](#ref-6) and Hegde et al. [[2]](#ref-2), and the [later] Watch Your Speech [[7]](#ref-7) (pattern match, Appendix). DiFlowDubber's Table 1 also gives LSE-C/LSE-D for V2C-Net (2022), HPMDubbing (2023), StyleDubber and Speaker2Dubber (2024) and ProDubber (2025). VSpeechLM measures "duration synchronization" with MCD-DTW-SL alone (§4.1).
 
-**State of the art:** DiFlowDubber (2026) [[3]](#ref-3) reports Chem LSE-C 8.31 and LSE-D 6.73 (Table 1) and separates a ground-truth reference from another utterance of the same speaker. VSpeechLM has neither, and does not state which utterance is the test reference (§3.2).
+**State of the art:** DiFlowDubber (2026) [[3]](#ref-3) reports Chem LSE-C 8.31 and LSE-D 6.73 with a ground-truth reference (Table 1).
 
-MCD-DTW-SL rewards matching the recording's duration, not the visible lips. Verdict: standard, since only two of the six are prior; the protocol is still weaker on the paper's central claim.
+MCD-DTW-SL rewards matching the recording's duration, not the visible lips. Verdict: standard by the ledger rule (two prior studies in the Appendix); against the dubbing systems it compares with, the protocol is weaker on its own central claim.
 
 ## The 13 components
 
@@ -33,7 +33,7 @@ MCD-DTW-SL rewards matching the recording's duration, not the visible lips. Verd
 | M03 Training and adaptation | ESPnet SpeechLM init, joint fine-tuning | Pretrain then adapt (slot-filled 1,526) | – | standard |
 | M04 Use-time action | Script, lip video, reference voice | Visual TTS task (slot-filled 5,595) | – | standard |
 | M05 Sensors | AV-HuBERT lip features, 25 fps | Camera video (slot-filled 7,329) | – | standard |
-| M06 Processing and decoding | Per-frame phoneme argmax into codec LM | Lip-derived timing, diffusion/flow/mel decoder (pattern match 5) | [[3]](#ref-3) (2026): Chem WER 9.65% vs EmoDubber 11.72% | standard |
+| M06 Processing and decoding | Per-frame phoneme argmax into codec LM | Lip-derived timing, diffusion/flow/mel decoder (pattern match 5) | [[3]](#ref-3) (2026): Chem WER 11.12% vs EmoDubber 12.81% (non-GT reference) | standard |
 | M07 Lexicon and LM | Reference speech prompt | Reference voice (slot-filled 119) | – | standard |
 | M08 Output | EnCodec 8 codebooks, 16 kHz | Waveform (slot-filled 3,268) | – | standard |
 | M09 Confirmation | Offline | Offline (slot-filled 82) | – | not applicable |
@@ -45,28 +45,25 @@ MCD-DTW-SL rewards matching the recording's duration, not the visible lips. Verd
 ## Where the claims outrun the evidence
 
 - §4.2 claims MCD-DTW-SL reductions of 17.6% on Chem and 60.9% on GRID. Table 1 gives 6.51 to 5.28 against EmoDubber, 18.9%, and 6.42 to 3.90 against StyleDubber, 39.3% (inference); EmoDubber, the stronger GRID baseline, scores 3.92 against 3.90.
-- Baseline WER and MCD are copied from earlier papers, while UTMOS and Spk Sim are regenerated (Table 1 caption), so WER rests on other papers' ASR setups.
-- Chem UTMOS of the full model is 3.73 in Tables 1–2 but 3.87 in Table 3, unexplained.
+- Baseline WER and MCD are copied from earlier papers, while UTMOS and Spk Sim are regenerated (Table 1 caption). The copied WERs match DiFlowDubber's non-ground-truth-reference rows (StyleDubber 14.2 vs 14.18, Chem); if VSpeechLM used the target recording as reference (§3.2 does not say), the comparison favours it. ProDubber (2025), at 11.69% in that setting, is not compared.
+- Chem UTMOS is 3.73 in Tables 1–2 but 3.87 in Table 3.
 - The GRID split does not add up: 100 test clips per speaker for 33 speakers cannot give 900 test samples (§4.1).
-- On GRID, ground truth scores 22.5% WER and VSpeechLM 18.3% (Table 1): the ASR bounds that column.
-- The human study uses EmoDubber on Chem but StyleDubber on GRID (§4.3), and reports no tie rates, blinding or uncertainty.
-- The LRS2 lead (16.1% vs 91.4–198% WER, Table 4) does not say how baselines were trained, and the decoder's pretraining corpus is not named (§4.1).
+- On GRID, ground truth scores 22.5% WER and VSpeechLM 18.3% (Table 1); as the authors note (footnote 2), the ASR bounds that column.
+- The human study (10 experts, 50 clips per dataset) uses EmoDubber on Chem but StyleDubber on GRID (§4.3); Fig. 3 gives win-tie-loss ratios but no blinding or uncertainty.
+- The LRS2 lead (16.1% vs 91.4–198% WER, Table 4) omits how baselines were trained and the decoder's pretraining corpus.
 
 ## What the field needs next
 
-- M12: LSE-C/LSE-D with ground-truth and non-ground-truth references, and all baselines rescored with one ASR and one speaker model.
+- M12: LSE-C/LSE-D in both reference settings, all baselines rescored with one ASR.
 - M06: per-frame argmax against monotonic alignment search on the same decoder, with phoneme order errors.
-- M06: the codec-language-model decoder against a flow-matching dubbing decoder at equal data, separating decoder from pretraining.
-- M03: the pretraining corpus, and LRS2 baselines trained on the same data.
+- M03: the pretraining corpus, and LRS2 baselines on the same data.
 
 ## Questions for the authors
 
 - Is the test reference the target recording or another utterance of the speaker?
 - How are 900 GRID test samples obtained from 100 clips for each of 33 speakers?
-- Which models compute WER and Spk Sim?
 - Why is Chem UTMOS 3.87 in Table 3 but 3.73 in Tables 1 and 2?
-- On which data were the LRS2 baselines trained?
-- How many runs or seeds stand behind each table, and is the validation split used for checkpoint selection?
+- How many seeds stand behind each table?
 
 ## Appendix: literature search
 
