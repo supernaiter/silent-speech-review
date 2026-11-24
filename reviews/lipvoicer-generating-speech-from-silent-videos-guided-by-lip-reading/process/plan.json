@@ -1,0 +1,67 @@
+{
+ "target": "arxiv-2306.03258",
+ "changed": [
+  "M07",
+  "M02",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "LRS2, LRS3 and GRID overt audio-visual recordings; no new user training action",
+  "M03": "One training run per dataset; guidance weights and t_ASR chosen per dataset by grid search and listening tests (selection data not stated)",
+  "M04": "Overt speech video with the audio removed at test",
+  "M05": "Full-face frame plus 88x88 grayscale mouth crop (Lip2Speech / VCA-GAN lineage)",
+  "M08": "16 kHz waveform from DiffWave on the generated mel (HiFi-GAN gives the same WER, Table 15)",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "LRS2, LRS3 transcripts and original splits; GRID four-speaker unseen split",
+  "M13": "Offline, four RTX 2080 Ti for training; authors name misuse through injected text and leave mitigation out of scope (Sec. 6)"
+ },
+ "topics": [
+  {
+   "slot": "M07",
+   "topic": "lip-reader-text-guidance-for-video-to-speech",
+   "inclusion_rule": "The 165-study video-to-speech population (pattern of components/M06/video-to-speech-one-to-many-decoder), classified from the full text (reference list removed) by whether text predicted from the video by a lip reader is used at inference to condition or guide speech synthesis, whether a classifier or ASR guides a diffusion sampler, and whether a lip-reader-to-TTS cascade is named. Boundary: a study counts under every design its text names (upper bound, related-work mentions included); text used only as a training loss or as an evaluation reference does not count as use-time text; versions once.",
+   "pattern": "M06 video-to-speech population pattern",
+   "design_regex": [
+    "lipreader_text_condition",
+    "classifier_or_asr_guidance",
+    "vsr_then_tts_cascade"
+   ],
+   "metric": "LRS3 ASR WER of the generated speech"
+  },
+  {
+   "slot": "M02",
+   "topic": "text-supervision-in-video-to-speech-training",
+   "inclusion_rule": "The same 165-study population, classified by training-only text supervision: a CTC or ASR/text loss on the speech generator or its features, and a recognizer trained on noised or diffusion-time-conditioned spectrograms to act as a guidance classifier. Boundary: text used at inference is M07; a pretrained evaluation ASR is not supervision; full-text pattern counts, upper bound; versions once.",
+   "pattern": "M06 video-to-speech population pattern",
+   "design_slot": "M03 supervision_kind",
+   "design_regex": [
+    "ctc_text_loss",
+    "asr_or_text_loss_on_output",
+    "noise_conditioned_recognizer"
+   ],
+   "metric": "presence of the design"
+  },
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-one-to-many-decoder",
+   "reuse": "components/M06/video-to-speech-one-to-many-decoder.json",
+   "inclusion_rule": "Reused published table (inclusion rule unchanged).",
+   "metric": "LRS3 ASR WER"
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "inclusion_rule": "Reused published table (inclusion rule unchanged).",
+   "metric": "evaluation protocol"
+  }
+ ],
+ "dropped_prep_topics": {
+  "M02/ctc-asr-guidance-supervision-for-video-to-speech": "pattern spanned audio-visual ASR outside the video-to-speech population (17 matches, recall 0); rebuilt on the 165-study population",
+  "M13/misrepresentation-safeguards-in-video-to-speech": "4-study population, no field practice; M13 kept inherited"
+ }
+}
