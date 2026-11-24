@@ -1,0 +1,56 @@
+{
+ "target": "arxiv-2304.05574",
+ "changed": [
+  "M02",
+  "M03"
+ ],
+ "incidental": [
+  "M11",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "TaL corpus: each speaker reads the same prompts silently and aloud; the paper does not change the recording action.",
+  "M04": "TaLNet inference lineage: articulatory input is decoded without speaker-dependent fine-tuning.",
+  "M05": "TaL corpus/TaLNet lineage: synchronized ultrasound tongue images and lip video are the input sensors.",
+  "M06": "TaLNet baseline lineage: parallel 3D-CNN articulatory encoders and the Tacotron2-derived acoustic decoder are retained.",
+  "M07": "TaLNet articulatory-to-speech inference lineage: no use-time lexicon, language model, or other auxiliary information is reported.",
+  "M08": "TaLNet reconstruction lineage: predicted acoustic features are converted to a waveform with Parallel WaveGAN.",
+  "M09": "TaLNet offline reconstruction lineage: no interactive presentation, confirmation, or commit stage is introduced.",
+  "M10": "TaLNet offline reconstruction lineage: no correction or re-entry loop is introduced.",
+  "M13": "TaLNet corpus-evaluation lineage: this remains an offline experiment and introduces no device or deployment operating constraints."
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "silent-target-transfer",
+   "reuse": "components/M02/silent-target-transfer.json",
+   "inclusion_rule": "Include studies that train a decoder or synthesizer on silently articulated (mimed, mouthed) non-acoustic signals using acoustic or label targets transferred from a separate vocalized recording of the same utterance by time alignment (DTW, forced alignment or a learned alignment). Any signal qualifies. Boundary: exclude studies that train only on vocalized data and test on silent data (M04 overt-to-silent transfer), alignment used only to score outputs, whisper or NAM acoustic conversion, and imagined speech; count versions once.",
+   "pattern": "published pattern",
+   "design_field": "confirmed include decisions",
+   "metric": "silent-mode WER on synthesized speech"
+  },
+  {
+   "slot": "M03",
+   "topic": "overt-silent-joint-training",
+   "reuse": "components/M03/overt-silent-joint-training.json",
+   "inclusion_rule": "Studies with any signal (video, ultrasound, EMG, neural, other) whose ledger mentions both overt (normal, vocalized, voiced, audible, modal) and silent (mouthed, silently articulated, unvoiced) speech production. The design compared is how overt recordings enter the training of a silent-speech decoder: pooled training without a cross-mode term, fine-tuning from an overt model, time-aligned target transfer (DTW / CCA from vocalized to silent), domain-adversarial invariance, or an explicit distance or divergence between paired overt and silent representations or outputs (metric learning, KL, contrastive, triplet). Boundary: overt-only training applied to silent test data belongs to M04 overt-to-silent-transfer; whisper-to-normal acoustic conversion and perception-versus-production comparisons are excluded; a study counts under every design its full text names (upper bound, related-work mentions included); reviews count as pattern matches only; versions of one study count once.",
+   "pattern": "published pattern",
+   "design_field": "M03 supervision_kind; full-text design counts (target transfer, domain-adversarial, fine-tuning, divergence)",
+   "metric": "silent-mode WER"
+  },
+  {
+   "slot": "M12",
+   "topic": "ultrasound-to-speech-output-evaluation",
+   "reuse": "components/M12/ultrasound-to-speech-output-evaluation.json",
+   "inclusion_rule": "Include studies that synthesize speech or acoustic features from ultrasound tongue images (with or without lip video) and evaluate the output; classify the output measures used (MCD or other spectral distance, MUSHRA or MOS ratings, listener transcription or identification, ASR on the synthesized speech). Boundary: exclude recognition-only studies, contour tracking and reviews (they inflate the pattern match, an upper bound); count versions once by key.",
+   "pattern": "published pattern",
+   "design_field": "full-text output-measure counts",
+   "metric": "ASR WER, MCD, MOS/MUSHRA"
+  }
+ ],
+ "dropped_topics": {
+  "M02/adversarial-loss-non-acoustic-to-speech": "Not this paper's design: its adversary is a domain discriminator on the encoder (M03), not a critic on the generated speech.",
+  "M11/silent-articulation-pseudo-reference-evaluation": "Prep pattern matched 2 studies with recall 0; M11 is unrecorded in most ledgers, so the M11 point is argued from the target's own protocol and the read prior (Gaddy and Klein 2020) without a field count."
+ },
+ "note": "Built from prep/plan.draft.json; prep comparators.json not used (lip-reading picks unrelated to the deciding designs); deciding priors taken from the published topic tables."
+}
