@@ -566,6 +566,18 @@
     "ledger"
    ],
    "snippet": "paper_id=uef-kapoor26_thesis | title=Decoding Listened Speech From Raw EEG Signals Using Subject-Independent Embeddings"
+  },
+  {
+   "pid": "arxiv-2202.09081-vcvts",
+   "key": "t:vcvtsmultispeakervideotospeechsynthesisviacrossmodalknowledgetransferfromvoiceco",
+   "title": "VCVTS: Multi-Speaker Video-to-Speech Synthesis via Cross-Modal Knowledge Transfer from Voice Conversion",
+   "year": 2022,
+   "via": [
+    "reviewer"
+   ],
+   "snippet": "",
+   "added_by": "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion",
+   "note": "not matched by the published pattern (the text says \"acoustic units\"); added by the reviewer"
   }
  ],
  "usual_approach": {
@@ -606,6 +618,20 @@
    "role": "target",
    "loc": "Tables IV, V, VII, VIII",
    "quote": "V2A-WaveGAN-SP 1.43 0.589 0.316 19.88 + basic fine-tuning 1.41 0.595 0.325 17.08"
+  },
+  {
+   "pid": "arxiv-2202.09081-vcvts",
+   "role": "target",
+   "loc": "Sec. 3",
+   "quote": "The speech streams of GRID and LRW are separately used to train different VC systems",
+   "added_by": "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion"
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "then use the pre- trained decoders to initialize the audio decoders",
+   "added_by": "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion"
   }
  ],
  "known_item_recall": {
@@ -626,7 +652,8 @@
  },
  "deciding_priors_note": "Target first public 2023-06. Deciding priors read: TaLNet (AAAI 2021) transfers a Tacotron 2 decoder trained on 460 h of LibriTTS into a tongue-and-lip-to-speech model; LipSound2 (arXiv 2021-12) pre-trains on about 2400 h of paired audio-visual VoxCeleb2. The audio-only decoder hits other than the target are 2023 or later.",
  "used_by": [
-  "large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis"
+  "large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis",
+  "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion"
  ],
  "tally": {
   "slot_filled_unique": 1526,
@@ -652,6 +679,240 @@
    "doi-10.1609-aaai.v35i16.17693"
   ],
   "unread": 34,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.67
+ },
+ "ledger_tally_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2506.11862",
+     "arxiv-2307.01233",
+     "arxiv-2511.01056",
+     "isca-lee24c_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2406.11568",
+     "arxiv-2511.01056"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2412.18839",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "adaptation=machine_finetuning",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.04455",
+     "arxiv-2412.18839",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "adaptation=none",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=80 epochs, 8x p40, ~4200s/epoch; adam b1 .9 b2 .98 eps 1e-9 dropout .1",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2004.09347"
+    ]
+   },
+   {
+    "design": "TrainingRun.optimization={'zero_shot': 'no per-user fine-tune; unpaired corpora only'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2303.01639"
+    ]
+   },
+   {
+    "design": "TrainingRun.optimization=50,000 iterations per experiment; person-specific fine-tune few epochs",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2312.06613"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=training without latent feature loss llf.",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2312.13600"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": [
+  {
+   "metric": "lm4 gt-wer",
+   "value": 0.2327,
+   "unit": "ratio",
+   "raw": "0.2327",
+   "pid": "arxiv-2512.22146",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (Word Error Rate)",
+   "value": 1.07,
+   "unit": "percent",
+   "raw": "1.07",
+   "pid": "arxiv-2412.18839",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Text WER",
+   "value": 2.1,
+   "unit": "percent",
+   "raw": "0.021",
+   "pid": "arxiv-2609.04455",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table2 wtn wer",
+   "value": 11.55,
+   "unit": "%",
+   "raw": "11.55",
+   "pid": "arxiv-2303.01639",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best WER",
+   "value": 15.2,
+   "unit": "%",
+   "raw": "best speaker WER",
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word error rate at ~16h mixed training (%)",
+   "value": 18.03,
+   "unit": "percent",
+   "raw": "18.03%",
+   "pid": "arxiv-2506.11862",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "EMG WER tri-modal+DFL (best)",
+   "value": 18.091,
+   "unit": "percent",
+   "raw": "18.091",
+   "pid": "arxiv-2412.13387",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)↓",
+   "value": 23.8,
+   "unit": "percent",
+   "raw": "23.8",
+   "pid": "arxiv-2406.11568",
+   "year": 2024,
+   "tier": "ledger only"
+  }
+ ],
+ "usual_approach_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "design": "supervision_kind=paired_audio",
+  "n": 5,
+  "tier": "slot-filled",
+  "pids": [
+   "arxiv-2412.18839",
+   "arxiv-2506.11862",
+   "arxiv-2307.01233",
+   "arxiv-2511.01056",
+   "isca-lee24c_interspeech"
+  ],
+  "population_unique": 16
+ },
+ "known_item_recall_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "seeds_in_wiki": 3,
+  "found": 2,
+  "recall": 0.67,
+  "missed": [
+   "arxiv-2202.09081-vcvts"
+  ]
+ },
+ "state_of_the_art_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "pid": "doi-10.1609-aaai.v35i16.17693",
+  "year": 2021,
+  "metric": "ASR WER of speech synthesized from ultrasound tongue and lip video with TTS decoder transfer (55.9% without, Table 1)",
+  "value": 36.5,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "deciding_priors_note_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": "Target first public 2022-02. Deciding prior read: TaLNet (AAAI 2021) transfers a Tacotron 2 decoder into a tongue-and-lip-to-speech model and ablates it (WER 55.9% to 36.5%). VCVTS trains its VC decoder on the corpus speech alone and reuses it behind Lip2Ind; it is not matched by the published pattern; no ablation of the transfer. The 2023 audio-only pre-training study is [later].",
+ "tally_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 30,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "off-the-shelf pretrained vocoder only; no transfer of a pre-trained decoder",
+   "n": 9,
+   "tier": "pattern match",
+   "population_unique": 30
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "year": 2021,
+   "metric": "ASR WER of speech synthesized from ultrasound tongue and lip video, all test speakers, with TTS decoder transfer (55.9% without transfer, Table 1)",
+   "value": 36.5,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2112.04748",
+   "arxiv-2306.15464-v2apretrain",
+   "doi-10.1609-aaai.v35i16.17693"
+  ],
+  "unread": 35,
   "confirmed_unique": 0,
   "known_item_recall": 0.67
  }

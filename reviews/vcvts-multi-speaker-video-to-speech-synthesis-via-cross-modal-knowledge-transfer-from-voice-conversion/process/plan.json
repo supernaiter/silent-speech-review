@@ -1,0 +1,75 @@
+{
+ "target": "arxiv-2202.09081-vcvts",
+ "changed": [
+  "M02",
+  "M03",
+  "M06"
+ ],
+ "incidental": [
+  "M07",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "GRID and LRW overt speech video with paired audio; no new user action",
+  "M04": "Overt speech video, audio muted at test",
+  "M05": "Dlib-cropped 96x96 lip region at 25 fps; 80-bin mel at 10 ms",
+  "M08": "Waveform via Griffin-Lim or a LibriTTS-trained Parallel WaveGAN",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "GRID recordings (test speakers s1, s2, s4, s29; random 80/10/10 within speaker) and LRW default splits with speaker disjointness assumed",
+  "M13": "No runtime, model size or VCVTS code; offline benchmark only"
+ },
+ "prep_used": "prep/plan.draft.json corrected: M02 topic moved from audio-knowledge-transfer-to-video (distillation and memory recall into lip readers) to ssl-speech-unit-target (discrete speech-unit targets for synthesis), the design VCVTS actually uses; M03 speaker-embedding-conditioning replaced by audio-only-decoder-pretraining (the VC decoder is trained on speech alone and transferred); M07 audit built (prep skipped it); M06 and M12 prep audits reused.",
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "ssl-speech-unit-target",
+   "reuse": "components/M02/ssl-speech-unit-target.json",
+   "inclusion_rule": "Reused published table: studies that synthesize speech from a non-acoustic signal and train the signal encoder to predict self-supervised speech representations (units or features) derived from paired audio; recognition-only studies, self-generated targets and acoustic-input conversion excluded; versions once. VCVTS (VQCPC unit indices) is not matched by the published pattern and is added as a reviewer candidate.",
+   "pattern": "published pattern",
+   "design_field": "M03 supervision_kind; full-text regexes discrete_unit_target, video_input",
+   "metric": "LRS3 ASR WER",
+   "better": "lower"
+  },
+  {
+   "slot": "M03",
+   "topic": "audio-only-decoder-pretraining",
+   "reuse": "components/M03/audio-only-decoder-pretraining.json",
+   "inclusion_rule": "Reused published table: studies that pre-train the speech-generating part on speech without the non-acoustic signal and transfer it into the signal-to-speech model; an off-the-shelf vocoder alone is counted separately; versions once. VCVTS (VC decoder trained on GRID or LRW speech, reused unchanged behind Lip2Ind) is not matched by the published pattern and is added as a reviewer candidate.",
+   "pattern": "published pattern",
+   "design_field": "published full-text design counts",
+   "metric": "ASR WER with and without transfer",
+   "better": "lower"
+  },
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-one-to-many-decoder",
+   "reuse": "components/M06/video-to-speech-one-to-many-decoder.json",
+   "inclusion_rule": "Reused published table: the 165-study video-to-speech population classified by how the acoustic decoder handles the one-to-many mapping (pitch or energy predictors, flow, diffusion, adversarial training, SSL-unit conditioning); every design a text names counts (upper bound); versions once.",
+   "pattern": "published pattern",
+   "design_field": "published full-text design counts",
+   "metric": "LRS3 ASR WER",
+   "better": "lower"
+  },
+  {
+   "slot": "M07",
+   "topic": "reference-speaker-conditioning-at-inference",
+   "reuse": "components/M07/reference-speaker-conditioning-at-inference.json",
+   "inclusion_rule": "Reused published table: the 165-study video-to-speech population classified by use-time speaker information (reference-audio embedding, face- or video-derived embedding, none); training-only or scoring-only embeddings excluded; upper bound.",
+   "pattern": "published pattern",
+   "design_field": "published full-text design counts",
+   "metric": "SECS at equal WER",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "inclusion_rule": "Reused published table: the 165-study video-to-speech population, counting evaluation protocols its full text names (listener test, ASR WER on output, unseen speakers, GRID unseen split); upper bound; versions once.",
+   "pattern": "published pattern",
+   "design_field": "published protocol counts",
+   "metric": "GRID unseen-speaker ASR WER",
+   "better": "lower"
+  }
+ ]
+}
