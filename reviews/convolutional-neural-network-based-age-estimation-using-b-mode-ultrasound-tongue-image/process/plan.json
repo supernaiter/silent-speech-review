@@ -1,0 +1,61 @@
+{
+ "target": "arxiv-2101.11245",
+ "changed": [
+  "M08"
+ ],
+ "incidental": [
+  "M06",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "UPX/UXTD corpus recording actions, where participants produced speech while ultrasound frames were collected; no new collection action is introduced.",
+  "M03": "UPX/UXTD age-regression workflow; no participant- or session-level calibration or adaptation is added.",
+  "M04": "UPX/UXTD single-frame ultrasound acquisition workflow; no distinct inference-time user action is specified.",
+  "M05": "B-mode tongue-ultrasound setup and 63×412 image format inherited from the UPX and UXTD data.",
+  "M07": "The inherited age-regression workflow uses no lexicon, language model, or other use-time linguistic aid.",
+  "M09": "The offline UPX/UXTD research-prediction workflow has no interactive presentation or confirmation stage.",
+  "M10": "The offline UPX/UXTD research-prediction workflow has no correction or re-entry stage.",
+  "M02": "Age labels from cohort metadata are the regression target; no training-only signal is added.",
+  "M13": "Offline study; training hardware reported; no device or clinical operating evaluation.",
+  "M11": "UPX/UXTD cohort metadata provide the participant-age reference lineage."
+ },
+ "prep_corrections": "plan.draft.json topics (M02, M06, M08, M12, M13) all had populations of 0-2 studies built around the target's own keywords (prep.done warnings); rebuilt: M08 and M06 reuse published topic tables, M12 is a new topic over all ultrasound studies. M02 and M13 dropped as topics (M02 is the age label itself; the M13 therapy-tool claim is handled as an overreach).",
+ "topics": [
+  {
+   "slot": "M08",
+   "topic": "paralinguistic-output-from-production-signals",
+   "reused": "components/M08/paralinguistic-output-from-production-signals.json",
+   "inclusion_rule": "Include studies that infer a paralinguistic property of the speaker or utterance (affect or emotion, speaker identity, speaking mode, prosody, intonation or pitch) from a non-acoustic speech-production signal recorded while speaking (EMG, EMA, ultrasound, real-time MRI, electropalatography, strain sensors, ECoG or intracortical recordings). Boundary: acoustic-only and face-video audiovisual emotion recognition are excluded; facial EMG or EEG emotion recognition without speech production is excluded; F0 or prosody counts only when reported as an output; surveys are pattern matches only; versions of one study count once.",
+   "pattern": "^(?=.*(modalities=[^|]*(surface_emg|intramuscular_emg|magnetic_tracking|ultrasound_imaging|electropalatography|strain_sensor|ecog|intracortical_microelectrode)|\\bs?EMG\\b|electromyograph|\\bEMA\\b|articulograph|ultrasound|real[- ]time MRI|rtMRI|\\bECoG\\b|electrocorticograph|intracortical|electropalatograph|strain sensor))(?=.*\\b(emotion\\w*|affect(ive)?\\b|paralinguistic\\w*|speaking[- ]modes?\\b|speaker (id|identi\\w*)|prosod\\w*|intonation))",
+   "design_field": "output_types",
+   "design_regex": [
+    "age_estimation",
+    "speaker_identity",
+    "emotion"
+   ],
+   "metric": "speaker-trait decoding accuracy / UAR or age error"
+  },
+  {
+   "slot": "M06",
+   "topic": "ultrasound-image-sequence-temporal-layer",
+   "reused": "components/M06/ultrasound-image-sequence-temporal-layer.json",
+   "inclusion_rule": "Include studies whose ledger lists ultrasound imaging as an input modality and classify, by full-text pattern (reference list removed), how the network integrates a sequence of ultrasound frames over time: 3D (spatiotemporal) convolution, a CNN followed by a recurrent layer, ConvLSTM, or Transformer/Conformer attention. Boundary: mentions in related work, reviews, theses and tasks other than speech output (contour tracking, image prediction, recognition) still count as pattern matches, an upper bound; ConvLSTM hits were classified by snippet; versions count once by key.",
+   "pattern": "ultrasound_imaging",
+   "design_field": "model_family",
+   "metric": "temporal integration design of ultrasound networks"
+  },
+  {
+   "slot": "M12",
+   "topic": "ultrasound-tongue-speaker-split",
+   "inclusion_rule": "Include studies whose ledger lists ultrasound imaging as an input modality and classify by full-text pattern (reference list removed where the script detects it) whether evaluation holds out speakers (speaker-independent, unseen or held-out speakers, leave-one-speaker-out, cross-speaker) or trains and tests within the same speakers (speaker-dependent, single-speaker). Boundary: mentions in related work and reviews count as pattern matches (upper bound); a study counts under every split it reports; versions count once by key.",
+   "pattern": "ultrasound_imaging",
+   "design_field": "split|speaker|protocol",
+   "design_regex": [
+    "speaker_independent",
+    "speaker_dependent",
+    "random_frame_split"
+   ],
+   "metric": "whether test speakers are disjoint from training speakers"
+  }
+ ]
+}

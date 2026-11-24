@@ -263,7 +263,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`ultrasound-image-sequence-temporal-layer.csv`](ultrasound-image-sequence-temporal-layer.csv) (7345 slot-filled, 148 pattern match, usual design in 27, 4 read in full)
 - Inclusion rule: Include studies whose ledger lists ultrasound imaging as an input modality and classify, by full-text pattern (reference list removed), how the network integrates a sequence of ultrasound frames over time: 3D (spatiotemporal) convolution, a CNN followed by a recurrent layer, ConvLSTM, or Transformer/Conformer attention. Boundary: mentions in related work, reviews, theses and tasks other than speech output (contour tracking, image prediction, recognition) still count as pattern matches, an upper bound; ConvLSTM hits were classified by snippet; versions count once by key.
-- Used in: [Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convolutional Networks](../../reviews/improved-processing-of-ultrasound-tongue-videos-by-combining-convlstm-and-3d-convolutional-networks/)
+- Used in: [Convolutional Neural Network-Based Age Estimation Using B-Mode Ultrasound Tongue Image](../../reviews/convolutional-neural-network-based-age-estimation-using-b-mode-ultrasound-tongue-image/), [Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convolutional Networks](../../reviews/improved-processing-of-ultrasound-tongue-videos-by-combining-convlstm-and-3d-convolutional-networks/)
 
 ## ultrasound-to-speech-network-architecture
 
