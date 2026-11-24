@@ -123,7 +123,7 @@ Data behind this review. Full texts of the papers are not included.
 - [`figures.json`](figures.json): figure definitions
 - [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
 - [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
-- [`components/M04/overt-to-silent-transfer.csv`](../../components/M04/overt-to-silent-transfer.csv): M04 topic "overt-to-silent-transfer", every candidate paper with its decision (23 confirmed, 104 candidates read, 0 unread)
+- [`components/M04/overt-to-silent-transfer.csv`](../../components/M04/overt-to-silent-transfer.csv): M04 topic "overt-to-silent-transfer", every candidate paper with its decision (5595 slot-filled, 33 pattern match, usual design in 23, 104 read in full)
 - [`components/M11/multi-mode-speech-corpus.csv`](../../components/M11/multi-mode-speech-corpus.csv): M11 topic "multi-mode-speech-corpus", every candidate paper with its decision (234 slot-filled, 24 pattern match, usual design in 14, 3 read in full)
 
 

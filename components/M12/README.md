@@ -76,7 +76,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`imagined-speech-eeg-chance-reference.csv`](imagined-speech-eeg-chance-reference.csv) (6960 slot-filled, 167 pattern match, usual design in 95, 2 read in full)
 - Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same ledger population as the M13 online-imagined-speech-eeg table); the design compared is whether reported accuracy is referenced against chance: a stated chance level or above-chance test, or an empirical permutation null. Boundary: full-text pattern counts are upper bounds (a chance mention in related work counts); a study whose full text never uses the word 'chance' is counted as giving no chance reference; versions count once.
-- Used in: [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/)
+- Used in: [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/), [Towards Neural Decoding of Imagined Speech based on Spoken Speech](../../reviews/towards-neural-decoding-of-imagined-speech-based-on-spoken-speech/)
 
 ## intracranial-speech-test-partition
 
