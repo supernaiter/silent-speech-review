@@ -1,0 +1,73 @@
+{
+ "target": "arxiv-2305.14359",
+ "changed": [
+  "M03",
+  "M07"
+ ],
+ "incidental": [
+  "M06",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "GRID paired video/audio collection protocol; no new user training-time action is described.",
+  "M04": "Overt GRID speech video with the audio removed at test (Lip2Speech lineage); the face image that sets the voice is use-time auxiliary information (M07).",
+  "M05": "GRID talking-face video acquisition lineage, including its camera stream and visual inputs; no sensor or channel redesign is claimed.",
+  "M08": "Synthesized speech waveform (Lip2Speech lineage).",
+  "M09": "Offline Lip2Speech synthesis lineage; no presentation, confirmation, or commit interaction is described.",
+  "M10": "Offline Lip2Speech synthesis lineage; no correction or re-entry mechanism is described.",
+  "M11": "GRID recorded-audio/spectrogram ground-truth reference lineage; identity overlap and test-split implications are addressed under M12.",
+  "M13": "Offline GRID research pipeline lineage; no new device, cost, safety, latency, power, or wearability constraint is reported.",
+  "M02": "Paired GRID audio gives mel and linear spectrogram targets (Lip2Speech lineage); the speech-embedding teacher and gender labels that train the face encoder are treated under M03."
+ },
+ "topics": [
+  {
+   "reuse": "components/M03/adversarial-speaker-removal-from-signal-encoder.json",
+   "slot": "M03",
+   "topic": "adversarial-speaker-removal-from-signal-encoder",
+   "inclusion_rule": "Studies that decode speech or text from a non-acoustic speech signal (lip or face video, articulatory imaging, EMG, EEG/ECoG/intracortical) and train the signal encoder against a speaker, subject or session classifier (gradient reversal, entropy-maximising or confusion loss, mutual-information penalty, or a VAE split of identity and content) to remove identity from the content representation. Boundary: GAN discriminators on the generated audio, plain multi-speaker training, and speaker classifiers used only for evaluation are excluded; versions count once; the pattern match is an upper bound.",
+   "pattern": "(?s)^(?=.*modalities=[^|]*(ultrasound_imaging|optical_camera|surface_emg|magnetic_tracking|scalp_eeg|ecog|meg|intracortical|permanent_magnet))(?=.*(gradient reversal|reverse[d]? gradient|domain[- ]adversarial|adversarial (speaker|subject|identity|domain)|(speaker|subject|identity)[- ](adversarial|invariant|disentangl)|disentangl\\w* (speaker|subject|identity)))",
+   "metric_pattern": "WER|word error|EER|accuracy",
+   "better": "lower",
+   "design_field": "published full-text counts: gradient_reversal, content_identity_disentanglement, speaker_or_subject_adversary, mutual_information_penalty",
+   "metric": "speaker EER on unseen speakers; SECS",
+   "note": "Reused published table (prep audit, keep_published). The published state_of_the_art is this target itself; for this review the state of the art is recorded under state_of_the_art_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control."
+  },
+  {
+   "reuse": "components/M06/video-to-speech-synthesis.json",
+   "slot": "M06",
+   "topic": "video-to-speech-synthesis",
+   "inclusion_rule": "Include studies that synthesize a speech waveform from video of the talking face or lips (silent or with audio muted at test) and report the acoustic representation and how it is turned into a waveform. Boundary: exclude audio-visual speech enhancement or separation that takes noisy audio at test, talking-head generation (speech to video), text-only lip reading and video-to-text-to-TTS pipelines; count versions of one study once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "ESTOI|STOI",
+   "better": "higher",
+   "design_field": "published full-text counts: neural_vocoder, parametric_vocoder, griffin_lim",
+   "metric": "GRID unseen-speaker ESTOI and ASR WER"
+  },
+  {
+   "reuse": "components/M07/reference-speaker-conditioning-at-inference.json",
+   "slot": "M07",
+   "topic": "reference-speaker-conditioning-at-inference",
+   "inclusion_rule": "Reused published table: the 165-study video-to-speech population, classified by the speaker information supplied at use time: an embedding from reference audio, an embedding derived from the face or lip video, or none; training-only or scoring-only embeddings do not count; a study counts under every design its full text names (upper bound); versions once.",
+   "pattern": "published pattern (M06 video-to-speech population)",
+   "metric_pattern": "similar|SECS|speaker",
+   "better": "higher",
+   "design_field": "published full-text counts: audio_reference_speaker_embedding, visual_speaker_embedding, no_speaker_embedding_claimed",
+   "metric": "speaker similarity (SECS, EER, voice-matching MOS) with no reference audio",
+   "note": "prep did not build this audit; copied from the published table and appended."
+  },
+  {
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "inclusion_rule": "Include studies that synthesize a speech waveform from talking-face or lip video (the population of the M06 video-to-speech-synthesis table) and compare how the synthesized speech is evaluated: human listener or opinion tests, ASR word error on the synthesized speech, and tests on speakers unseen in training. Boundary: audio-visual enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS pipelines excluded; a study counts under every protocol its full text names (upper bound, related-work mentions included); versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "wer|word error",
+   "better": "lower",
+   "design_field": "published full-text counts: listener_test, unseen_speaker_test, asr_wer_on_output, grid_unseen_split",
+   "metric": "GRID unseen-speaker ASR WER"
+  }
+ ],
+ "dropped_from_draft": {
+  "M02/audio-knowledge-transfer-to-video": "lip-reading content distillation population; the target transfers speaker identity from speech to a face encoder, not audio content to a lip encoder."
+ }
+}
