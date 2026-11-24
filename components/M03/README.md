@@ -67,6 +67,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | A novel silent speech recognition approach based on parallel inception convolutional neural network and Mel frequency spectral coefficient |  | Sec. 5 |
 | Towards Speaker-Adaptive Speech Recognition Based on Surface Electromyography | 2008 | Sec. 3.4 |
 
+## few-shot-user-vocabulary-enrollment
+
+- Table: [`few-shot-user-vocabulary-enrollment.csv`](few-shot-user-vocabulary-enrollment.csv) (1526 slot-filled, 30 pattern match, usual design in 7, 3 read in full)
+- Inclusion rule: Silent-speech, lip-reading and other non-acoustic speech or command decoders (any signal) whose ledger names few-shot, one-shot or N-shot learning, user-defined or customized vocabularies, vocabulary registration or personalized lip models; the design compared is how a user's new examples enter the model: a frozen pretrained encoder with a linear or logistic classifier, metric or prototype matching (Siamese, prototypical, triplet, nearest neighbour), fine-tuning network weights on the user, or user-dependent training from scratch. Boundary: a study counts under every design its full text (reference list removed) names, so counts are upper bounds; zero-shot speaker conditioning for synthesis, pruning 'one-shot' and BCI competitions are pattern hits that do not register a vocabulary; versions count once.
+- Used in: [LipLearner: Customizable Silent Speech Interactions on Mobile Devices](../../reviews/liplearner-customizable-silent-speech-interactions-on-mobile-devices/)
+
 ## imagenet-pretrained-vision-backbone-neural-speech
 
 - Table: [`imagenet-pretrained-vision-backbone-neural-speech.csv`](imagenet-pretrained-vision-backbone-neural-speech.csv) (1526 slot-filled, 8 pattern match, usual design in 5, 3 read in full)
@@ -128,7 +134,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`overt-silent-joint-training.csv`](overt-silent-joint-training.csv) (1526 slot-filled, 354 pattern match, usual design in 31, 5 read in full)
 - Inclusion rule: Studies with any signal (video, ultrasound, EMG, neural, other) whose ledger mentions both overt (normal, vocalized, voiced, audible, modal) and silent (mouthed, silently articulated, unvoiced) speech production. The design compared is how overt recordings enter the training of a silent-speech decoder: pooled training without a cross-mode term, fine-tuning from an overt model, time-aligned target transfer (DTW / CCA from vocalized to silent), domain-adversarial invariance, or an explicit distance or divergence between paired overt and silent representations or outputs (metric learning, KL, contrastive, triplet). Boundary: overt-only training applied to silent test data belongs to M04 overt-to-silent-transfer; whisper-to-normal acoustic conversion and perception-versus-production comparisons are excluded; a study counts under every design its full text names (upper bound, related-work mentions included); reviews count as pattern matches only; versions of one study count once.
-- Used in: [Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning](../../reviews/improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning/), [SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces](../../reviews/sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces/)
+- Used in: [Improving the Gap in Visual Speech Recognition Between Normal and Silent Speech Based on Metric Learning](../../reviews/improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning/), [LipLearner: Customizable Silent Speech Interactions on Mobile Devices](../../reviews/liplearner-customizable-silent-speech-interactions-on-mobile-devices/), [SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces](../../reviews/sonispeech-a-large-scale-open-vocabulary-tri-modal-dataset-for-wearable-silent-speech-interfaces/)
 
 ## self-supervised-pretraining
 

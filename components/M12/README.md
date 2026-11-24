@@ -84,6 +84,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Speech or language decoding studies from intracranial recordings (sEEG, ECoG, intracortical arrays) whose ledger text names the signal and a speech unit; the design of interest is how test data are separated from training data: random trial split, k-fold cross-validation, held-out session or day, or held-out subject. Boundary: the ledger pattern also admits reviews, listening studies and non-intracranial papers that mention intracranial work, so counts are upper bounds; versions of one study count once.
 - Used in: [Towards Unified Neural Decoding with Brain Functional Network Modeling](../../reviews/towards-unified-neural-decoding-with-brain-functional-network-modeling/)
 
+## lip-command-recognition-test-split
+
+- Table: [`lip-command-recognition-test-split.csv`](lip-command-recognition-test-split.csv) (6960 slot-filled, 402 pattern match, usual design in 163, 2 read in full)
+- Inclusion rule: Camera-based lip-reading or silent-speech studies whose ledger names word, phrase or command classification (closed lexicon); the design compared is how test data are separated from enrollment or training data (speaker-disjoint, within-speaker, session- or condition-disjoint) and whether chance level is reported. Boundary: a study counts under every split its full text (reference list removed) names (upper bound); human lipreading perception studies are pattern hits only; versions count once.
+- Used in: [LipLearner: Customizable Silent Speech Interactions on Mobile Devices](../../reviews/liplearner-customizable-silent-speech-interactions-on-mobile-devices/)
+
 ## listener-intelligibility-test
 
 - Table: [`listener-intelligibility-test.csv`](listener-intelligibility-test.csv) (6960 slot-filled, 37 pattern match, usual design in 15, 5 read in full)
