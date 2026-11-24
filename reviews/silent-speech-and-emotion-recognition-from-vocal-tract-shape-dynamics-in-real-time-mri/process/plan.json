@@ -1,0 +1,57 @@
+{
+ "target": "arxiv-2106.08706",
+ "changed": [
+  "M06",
+  "M08"
+ ],
+ "incidental": [
+  "M05",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "USC-TIMIT recording protocol; no new user-performed training-data collection action is introduced, and horizontal mirroring is offline augmentation.",
+  "M02": "Standard CTC sequence-labeling lineage applied to USC-TIMIT's synchronized word-level transcripts; no distinct auxiliary training target is introduced.",
+  "M03": "Ordinary supervised model-training workflow on the USC-TIMIT training data; no speaker/session calibration or adaptation phase is introduced.",
+  "M04": "USC-TIMIT overt read speech recorded with synchronized audio; no silent or mouthed condition despite the title.",
+  "M09": "Offline USC-TIMIT transcript-decoding workflow; no presentation, confirmation, or commit stage is introduced.",
+  "M10": "Offline USC-TIMIT transcript-decoding workflow; no correction, re-entry, or action-adjustment loop is introduced.",
+  "M11": "USC-TIMIT's synchronized word-level transcript references are inherited as the labels/reference source.",
+  "M13": "Laboratory USC-TIMIT rtMRI acquisition context; no deployed assistive device or operating workflow is introduced.",
+  "M07": "LipNet lineage: CTC beam search with a character 5-gram language model (wording copied from LipNet); description internally inconsistent (Sec. 3.2 vs 4.2)."
+ },
+ "topics": [
+  {
+   "slot": "M05",
+   "topic": "emotion-related-vocal-tract-shape-deviation",
+   "inclusion_rule": "Same vocal-tract MRI population (88 unique ledger studies whose ledger text names rtMRI, real-time or dynamic MRI, MRI-TIMIT, USC-TIMIT or the Vocal Tract Morphology MRI database), counting studies whose full text names emotional speech and studies that compare vocal-tract boundary distances, apertures or constrictions against a neutral reference. Boundary: emotion classifiers without vocal-tract geometry and geometry analyses without an emotion condition fall outside the design; related-work mentions match the pattern (upper bound).",
+   "pattern": "(?i)(rt.?MRI|real.?time (MRI|magnetic resonance)|dynamic MRI|MRI-TIMIT|USC-TIMIT|vocal tract morphology MRI|midsagittal MRI|cine.?MRI)",
+   "audit": "silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri.audit/M05-emotion-related-vocal-tract-shape-deviation.audit.json",
+   "source": "rebuilt by the writer: prep topic patterns matched 1-7 studies; population widened to all 88 vocal-tract MRI ledger studies with full-text design patterns"
+  },
+  {
+   "slot": "M06",
+   "topic": "articulator-video-spatiotemporal-front-end",
+   "inclusion_rule": "Include studies that decode text, speech or acoustic features from video of the articulators (lip or face camera, ultrasound tongue imaging) with a trained network, and classify how temporal context enters the image front end: 3D (spatiotemporal) convolution over a frame stack, factorized (2+1)D convolution, a frame-wise 2D CNN followed by a recurrent layer, a temporal convolution network, or ConvLSTM. Boundary: hand-crafted features without a learned front end, audio-only models, contour tracking without speech output and reviews still count as pattern matches (an upper bound); a study can match several designs; versions count once by key.",
+   "pattern": "(?s)^(?=.*modalities=[^|]*(optical_camera|ultrasound_imaging))(?=.*(lip[- ]?read|visual speech recognition|\\bvsr\\b|\\bavsr\\b|\\blrs ?[23]\\b|\\blrw\\b|video[- ]to[- ]speech|lip[- ]to[- ]speech|speech_reconstruction|silent speech|tongue))",
+   "audit": "silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri.audit/M06-articulator-video-spatiotemporal-front-end.audit.json",
+   "source": "published table components/M06/articulator-video-spatiotemporal-front-end.json (reused unchanged)"
+  },
+  {
+   "slot": "M08",
+   "topic": "rtmri-decoder-output",
+   "inclusion_rule": "Vocal-tract MRI studies (real-time, dynamic or cine MRI; 88 unique ledger studies whose ledger text names rtMRI, real-time or dynamic MRI, MRI-TIMIT, USC-TIMIT or the Vocal Tract Morphology MRI database), classified by what the study outputs: a descriptive analysis, an intermediate signal (contours, parameters), a phone/VCV/articulation-class label or class sequence, synthesized speech, or text scored by WER/CER/PER. Boundary: fMRI and structural-only MRI are outside unless the ledger names one of the rtMRI terms; synthesized speech scored by ASR WER counts as speech output, not text; a study can match several designs (full-text pattern counts, upper bounds); versions count once.",
+   "pattern": "(?i)(rt.?MRI|real.?time (MRI|magnetic resonance)|dynamic MRI|MRI-TIMIT|USC-TIMIT|vocal tract morphology MRI|midsagittal MRI|cine.?MRI)",
+   "audit": "silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri.audit/M08-rtmri-decoder-output.audit.json",
+   "source": "rebuilt by the writer: prep topic patterns matched 1-7 studies; population widened to all 88 vocal-tract MRI ledger studies with full-text design patterns"
+  },
+  {
+   "slot": "M12",
+   "topic": "rtmri-decoding-test-split",
+   "inclusion_rule": "Same population as M08 rtmri-decoder-output (88 unique ledger studies whose ledger text names rtMRI, real-time or dynamic MRI, MRI-TIMIT, USC-TIMIT or the Vocal Tract Morphology MRI database). The design compared is the test protocol of studies that train a decoder or classifier on vocal-tract MRI: held-out (unseen) test speakers, sentence-disjoint test material, and repeated splits, folds or seeds. Boundary: a study counts under every protocol its full text names (upper bound, related-work mentions included); analysis-only studies without a trained model fall outside the comparison even when matched.",
+   "pattern": "(?i)(rt.?MRI|real.?time (MRI|magnetic resonance)|dynamic MRI|MRI-TIMIT|USC-TIMIT|vocal tract morphology MRI|midsagittal MRI|cine.?MRI)",
+   "audit": "silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri.audit/M12-rtmri-decoding-test-split.audit.json",
+   "source": "rebuilt by the writer: prep topic patterns matched 1-7 studies; population widened to all 88 vocal-tract MRI ledger studies with full-text design patterns"
+  }
+ ],
+ "prep_used": "notes.merged.json (sha matched) as notes.json base; plan.draft.json corrected (M05 moved to incidental, M07 to inherited, prep M06/M12 topics replaced, M07 topic dropped as invalid); prep M05/M08 audits rebuilt on a wider population; comparator Lee 2006 reused."
+}

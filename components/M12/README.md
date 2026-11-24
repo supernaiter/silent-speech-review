@@ -185,6 +185,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Speech or silent-speech recognition studies on radar or RF sensing of the articulators (same population as radar-ssr-input-representation); the design compared is whether test speakers are held out from training (speaker-independent, cross-user or new-user test) or every model is trained and tested within one speaker (speaker-dependent, per-participant cross-validation). Boundary: a paper counts under every split it reports; pooling several speakers' data without holding any speaker out counts as speaker-dependent; full-text pattern hits include mentions in related-work sections, so counts are upper bounds.
 - Used in: [IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases](../../reviews/ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases/), [Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter](../../reviews/lip-siri-contactless-open-sentence-silent-speech-with-wi-fi-backscatter/), [Movement Detection of Tongue and Related Body Parts Using IR-UWB Radar](../../reviews/movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar/)
 
+## rtmri-decoding-test-split
+
+- Table: [`rtmri-decoding-test-split.csv`](rtmri-decoding-test-split.csv) (6960 slot-filled, 88 pattern match, usual design in 11, 5 read in full)
+- Inclusion rule: Same population as M08 rtmri-decoder-output (88 unique ledger studies whose ledger text names rtMRI, real-time or dynamic MRI, MRI-TIMIT, USC-TIMIT or the Vocal Tract Morphology MRI database). The design compared is the test protocol of studies that train a decoder or classifier on vocal-tract MRI: held-out (unseen) test speakers, sentence-disjoint test material, and repeated splits, folds or seeds. Boundary: a study counts under every protocol its full text names (upper bound, related-work mentions included); analysis-only studies without a trained model fall outside the comparison even when matched.
+- Used in: [Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI](../../reviews/silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri/)
+
 ## silent-emg-voicing-benchmark
 
 - Table: [`silent-emg-voicing-benchmark.csv`](silent-emg-voicing-benchmark.csv) (6960 slot-filled, 16 pattern match, usual design in 9, 4 read in full)

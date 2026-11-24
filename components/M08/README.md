@@ -84,6 +84,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Radar or RF silent-speech and speech recognition studies (same population as M05 rf-articulator-sensing-placement, plus papers whose text mentions RF or FMCW sensing); the design compared is the output: a class label from a closed list of vowels, words, commands or sentences, versus a variable-length token sequence decoded into words and scored by WER. Boundary: a paper counts under every output it reports; classification over a fixed list of sentences counts as closed set; pattern counts include related-work mentions, so they are upper bounds.
 - Used in: [Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter](../../reviews/lip-siri-contactless-open-sentence-silent-speech-with-wi-fi-backscatter/)
 
+## rtmri-decoder-output
+
+- Table: [`rtmri-decoder-output.csv`](rtmri-decoder-output.csv) (3268 slot-filled, 88 pattern match, usual design in 16, 3 read in full)
+- Inclusion rule: Vocal-tract MRI studies (real-time, dynamic or cine MRI; 88 unique ledger studies whose ledger text names rtMRI, real-time or dynamic MRI, MRI-TIMIT, USC-TIMIT or the Vocal Tract Morphology MRI database), classified by what the study outputs: a descriptive analysis, an intermediate signal (contours, parameters), a phone/VCV/articulation-class label or class sequence, synthesized speech, or text scored by WER/CER/PER. Boundary: fMRI and structural-only MRI are outside unless the ledger names one of the rtMRI terms; synthesized speech scored by ASR WER counts as speech output, not text; a study can match several designs (full-text pattern counts, upper bounds); versions count once.
+- Used in: [Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI](../../reviews/silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri/)
+
 ## vsr-output-token-unit
 
 - Table: [`vsr-output-token-unit.csv`](vsr-output-token-unit.csv) (3268 slot-filled, 633 pattern match, usual design in 120, 5 read in full)
