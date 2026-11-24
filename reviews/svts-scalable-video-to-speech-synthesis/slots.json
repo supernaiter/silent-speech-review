@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "GRID, LRW, LRS3 overt speech"
+  ],
+  "field": "Recorded speech video",
+  "n": 7388,
+  "matched": 3882,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Real-audio log-mel targets, no text"
+  ],
+  "field": "Paired-audio targets",
+  "n": 7388,
+  "matched": 31,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "LRS3 + VoxCeleb2, 1,556 h"
+  ],
+  "field": "One benchmark corpus (GRID)",
+  "n": 165,
+  "matched": 59,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "VoxCeleb2 in LipSound2 [concurrent]; one run.",
+  "sota": "V2SFlow, LRS3 only, 28.5% WER [@choi2024v2sflow]"
+ },
+ "M04": {
+  "choice": [
+   "Overt speech, audio muted"
+  ],
+  "field": "Silent or overt",
+  "n": 7388,
+  "matched": 5595,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "96x96 mouth crop, 20 fps"
+  ],
+  "field": "Camera video",
+  "n": 7388,
+  "matched": 7329,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Conformer mel, frozen Parallel WaveGAN"
+  ],
+  "field": "Neural vocoder on features",
+  "n": 165,
+  "matched": 49,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Same vocoder in VCVTS [concurrent].",
+  "sota": "V2SFlow-A 28.5% LRS3 WER [@choi2024v2sflow]"
+ },
+ "M07": {
+  "choice": [
+   "Audio embedding; LRW uses own clip"
+  ],
+  "field": "Reference-audio embedding",
+  "n": 165,
+  "matched": 21,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "LRW embedding from the test audio.",
+  "sota": "Video-derived embedding [@choi2024v2sflow]"
+ },
+ "M08": {
+  "choice": [
+   "Waveform via vocoder"
+  ],
+  "field": "Speech output",
+  "n": 7388,
+  "matched": 3760,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited (folded into M06).",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Presentation step",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Correction step",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Real-audio ASR transcript as reference"
+  ],
+  "field": "Real-audio ASR error reported",
+  "n": 165,
+  "matched": 20,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "No LRS3 recognizer.",
+  "sota": "Real-audio WER per row [@choi2024v2sflow]"
+ },
+ "M12": {
+  "choice": [
+   "Objective metrics; no listener test"
+  ],
+  "field": "Listener test",
+  "n": 165,
+  "matched": 83,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "behind",
+  "note": "No LRS3 WER, no seeds.",
+  "sota": "WER plus MOS on SVTS split [@choi2024v2sflow]"
+ },
+ "M13": {
+  "choice": [
+   "Vocoder speed on one RTX 2080 Ti"
+  ],
+  "field": "Device constraints",
+  "n": 7388,
+  "matched": 6721,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ }
+}
