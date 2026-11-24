@@ -1,6 +1,6 @@
 {
  "slug": "silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,30 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-24T17:55:16+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-24T17:57:05+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-24T17:59:26+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 128 found, 0 missing, 15 unchecked (unstated, figure-only or no source)",
+  "topic counts M05-emotion-related-vocal-tract-shape-deviation": "ok",
+  "topic counts M06-articulator-video-spatiotemporal-front-end": "ok",
+  "topic counts M08-rtmri-decoder-output": "ok",
+  "topic counts M12-rtmri-decoding-test-split": "ok"
+ },
  "inputs": {
   "notes_sha256": "7f2158cc4cbfad73bf3f7c0a51643cc9e87a0428ce96eb8cfb20253da9650c61",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +61,6 @@
  },
  "body_chars": {
   "draft": 15851,
-  "final": null
+  "final": 16554
  }
 }

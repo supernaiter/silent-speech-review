@@ -71,6 +71,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Towards optimizing electrode configurations for silent speech recognition based on high-density surface electromyography | 2021 | Abstract |
 | Mutual Information Analysis for Feature and Sensor Subset Selection in Surface Electromyography Based Speech Recognition | 2010 | Abstract |
 
+## emotion-related-vocal-tract-shape-deviation
+
+- Table: [`emotion-related-vocal-tract-shape-deviation.csv`](emotion-related-vocal-tract-shape-deviation.csv) (7329 slot-filled, 88 pattern match, usual design in 14, 1 read in full)
+- Inclusion rule: Same vocal-tract MRI population (88 unique ledger studies whose ledger text names rtMRI, real-time or dynamic MRI, MRI-TIMIT, USC-TIMIT or the Vocal Tract Morphology MRI database), counting studies whose full text names emotional speech and studies that compare vocal-tract boundary distances, apertures or constrictions against a neutral reference. Boundary: emotion classifiers without vocal-tract geometry and geometry analyses without an emotion condition fall outside the design; related-work mentions match the pattern (upper bound).
+- Used in: [Silent Speech and Emotion Recognition from Vocal Tract Shape Dynamics in Real-Time MRI](../../reviews/silent-speech-and-emotion-recognition-from-vocal-tract-shape-dynamics-in-real-time-mri/)
+
 ## event-camera-lip-reading
 
 - Table: [`event-camera-lip-reading.csv`](event-camera-lip-reading.csv) (7329 slot-filled, 11 pattern match, usual design in 7, 4 read in full)
