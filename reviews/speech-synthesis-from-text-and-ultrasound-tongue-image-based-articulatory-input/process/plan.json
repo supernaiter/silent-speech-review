@@ -1,0 +1,48 @@
+{
+ "target": "arxiv-2107.02003",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M05",
+  "M12",
+  "M13"
+ ],
+ "inherited": {
+  "M01": "UltraSuite-TaL80 read-speech acquisition and synchronized recording protocol; no new user training action.",
+  "M02": "Merlin DNN-TTS paired recorded-speech acoustic-feature targets; training-only supervision, not a user training action.",
+  "M03": "Speaker-dependent Merlin acoustic-model training; no speaker/session adaptation is introduced.",
+  "M07": "Merlin text-to-linguistic-feature front end; no external use-time language model or search aid.",
+  "M08": "Merlin/WORLD parametric TTS acoustic-feature and waveform output.",
+  "M09": "Offline Merlin/WORLD waveform generation; no interactive presentation or confirmation layer.",
+  "M10": "Offline Merlin/WORLD synthesis; no correction or re-entry loop.",
+  "M11": "UltraSuite-TaL80 parallel speech recordings provide the acoustic reference for the paired ultrasound data.",
+  "M04": "Read, audible speech of UltraSuite-TaL80 recorded with synchronous ultrasound; text and the articulation of the same utterance are both supplied at synthesis."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "ultrasound-to-speech-network-architecture",
+   "reuse": "components/M06/ultrasound-to-speech-network-architecture.json",
+   "inclusion_rule": "Include studies that map ultrasound tongue images (with or without lip video) to acoustic features or a waveform with a trained network, and name the mapping architecture. Boundary: exclude ultrasound-to-text recognition without synthesis, contour tracking, ultrasound prediction from other signals and reviews (they inflate the pattern match, an upper bound); spatial transformer networks count as CNNs, not as attention models; count versions once by key.",
+   "pattern": "(?s)^(?=.*ultrasound_imaging)(?=.*(speech_reconstruction|to-speech|vocoder|speech synthesis|synthesi[sz]ed speech|articulatory-to-acoustic|waveform|mel-spectrogram|spectrogram))",
+   "metric_pattern": "MCD|cepstral distortion",
+   "better": "lower"
+  },
+  {
+   "slot": "M12",
+   "topic": "ultrasound-to-speech-output-evaluation",
+   "reuse": "components/M12/ultrasound-to-speech-output-evaluation.json",
+   "inclusion_rule": "Include studies that synthesize speech or acoustic features from ultrasound tongue images (with or without lip video) and evaluate the output; classify the output measures used (MCD or other spectral distance, MUSHRA or MOS ratings, listener transcription or identification, ASR on the synthesized speech). Boundary: exclude recognition-only studies, contour tracking and reviews (they inflate the pattern match, an upper bound); count versions once by key.",
+   "pattern": "(?s)^(?=.*ultrasound_imaging)(?=.*(speech_reconstruction|to-speech|vocoder|speech synthesis|synthesi[sz]ed speech|articulatory-to-acoustic|waveform|mel-spectrogram|spectrogram))",
+   "metric_pattern": "MUSHRA|MOS|naturalness",
+   "better": "higher"
+  }
+ ],
+ "dropped_topics": {
+  "M04/ultrasound-synthesis-use-time-user-action": "prep audit had no usual approach (warning in prep.done); the both-inputs point is a single-paper fact (authors concede, Sec. 5) and is carried in M13 without a field count.",
+  "M05/ultrasound-sensor-input-for-articulatory-speech-synthesis": "prep usual approach was audio sampling rate (sampling_rate_hz=16000), not an ultrasound acquisition design; the sensor is inherited from UltraSuite-TaL80, so M05 is incidental without a tally (misalignment prior read instead).",
+  "M13/ultrasound-speech-synthesis-operating-requirements": "prep usual approach device_form_factor=other (n=6) carries no design; M13 kept incidental, not_applicable."
+ },
+ "notes": "Corrected from prep/plan.draft.json by the writer: M04 and M05 are not changed (sensor and use-time action come from UltraSuite-TaL80); the change is input fusion in the acoustic model (M06). Topics kept: the two published topic tables (reused, append-only)."
+}
