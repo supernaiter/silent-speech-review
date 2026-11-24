@@ -1,6 +1,6 @@
 {
  "slug": "speech-synthesis-from-text-and-ultrasound-tongue-image-based-articulatory-input",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,28 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-24T21:58:29+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-24T22:00:58+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "16 findings: 14 applied, 2 partly applied (#2: the concession is the authors own, wording aligned; #11: the 2020 listener count has no quote and was dropped), 0 rejected; the Cao/Ling part of #6 stays unverified (not in the wiki). Coordinator item 6 applied (M12 behind -> standard).",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-24T22:04:21+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 108 found, 0 missing, 20 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-ultrasound-to-speech-network-architecture": "ok",
+  "topic counts M12-ultrasound-to-speech-output-evaluation": "ok"
+ },
  "inputs": {
   "notes_sha256": "332a5bd500347b95f54e4db30de5790e2e53b241c06d5751de9db3cbafb88b0a",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +59,6 @@
  },
  "body_chars": {
   "draft": 14803,
-  "final": null
+  "final": 14775
  }
 }

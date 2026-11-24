@@ -22,7 +22,7 @@ Topics covered: silent speech recognition, lip reading and visual speech recogni
 
 ## Latest component reviews
 
-Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 115; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
+Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 116; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
 
 - [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/) (2026). Event input and a two-step OT-CFM decoder are standard; the DVS-Lip evaluation is behind: WER on an isolated-word set with no split details or seeds, and baselines that do not match their sources.
 - [A cross-species neural foundation model for end-to-end speech decoding](reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/) (2026). Cascaded decoding with the pretrained encoder is a strong standard result; the end-to-end audio-LLM path beats the prior end-to-end entry but trails RNN cascades, and the cross-species gain is small.

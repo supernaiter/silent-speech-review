@@ -4,33 +4,33 @@ Csapó, T. G., Tóth, L., Gosztolya, G., Markó, A. · arXiv preprint · 2021 ·
 
 ## Verdict
 
-The paper changes one component: the acoustic model of a Merlin DNN-TTS receives 128 PCA coefficients of the ultrasound tongue image next to the linguistic features (M06) [[1]](#ref-1). The network is the field's usual frame-wise fully connected regression, so M06 is standard; the pairing is new only in its sensor, as the paper's own Sec. 1.3 scopes it after EMA-based articulatory TTS. Test MCD falls for all 8 speakers, but by 0.015 to 0.229 dB, about 2% on average, from one run per speaker on roughly 10 test sentences (Table 1, Sec. 2.1; inference). On the test set BAP error rises for 6 of 8 speakers and voicing error for all 8 (Tables 2, 5; inference), so the excitation claim fails. Naturalness is claimed (Abstract, Sec. 5) without the listening test the same group ran in at least 4 earlier ultrasound-to-speech studies (M12, behind). The ultrasound input is a recording of the very utterance being scored, and the system needs text and articulation together, which the authors concede rules out TTS or silent-speech use (Sec. 5).
+The paper changes one component: the acoustic model of a Merlin DNN-TTS receives 128 PCA coefficients of the ultrasound tongue image next to the linguistic features (M06) [[1]](#ref-1). The network is the usual frame-wise fully connected regression, and by the paper's own account EMA served earlier as input to articulatory TTS (Sec. 5), so M06 is standard and new only in its sensor. Test MCD falls for all 8 speakers, by 0.015 to 0.229 dB, about 2% on average (Table 1; inference), on roughly 10 test sentences each (inference), runs not reported. Excitation is mixed: test F0 correlation rises for 6 of 8 speakers (Table 4), BAP error rises for 6 of 8 by at most 0.014 (Table 2) and voicing error rises for all 8 (Table 5; inference). The paper reports no listening test, yet concludes the input "may increase the naturalness" (Sec. 5). The ultrasound comes from the very utterance being scored, and the authors state that needing both inputs makes the system unsuitable for direct TTS or a Silent Speech Interface (Sec. 5).
 
 ## Against the field, component by component
 
 ### M06 Acoustic model: text plus ultrasound input
 
-**Usual approach:** Of 51 ultrasound-to-speech studies (pattern match, Appendix), 37 name a fully connected DNN and 31 a CNN regressing vocoder or mel features frame by frame [[2]](#ref-2), [[3]](#ref-3). The paper keeps that design, six hidden layers of 1,024 units predicting WORLD features at 5 ms steps (Sec. 2.3), and only adds one PCA-compressed ultrasound frame per step to the text input.
+**Usual approach:** The comparison set is ultrasound-to-speech mapping networks, which covers the paper's ultrasound branch, not the fusion. Of 51 such studies (pattern match, Appendix), 37 name a fully connected DNN, 31 a CNN [[2]](#ref-2), [[3]](#ref-3). The paper keeps that design, six hidden layers of 1,024 units (Sec. 2.3), and adds the ultrasound PCA stream, resampled to 200 Hz, to the text input (Sec. 2.2).
 
-**State of the art:** Tongue2Speech [later] (2026) reaches 15.93% ASR WER on single-speaker TaL1 with a spatio-temporal CNN and Transformer [[4]](#ref-4). The paper reports no intelligibility, so no common metric exists; by design it trails on temporal context and vocoder.
+**State of the art:** The Appendix tallies hold no text-plus-ultrasound comparator. For the ultrasound-only task, Tongue2Speech [later] (2026) reaches 15.93% ASR WER on single-speaker TaL1 [[4]](#ref-4); the paper reports no intelligibility to compare.
 
-Multi-frame input was already established: the group's 2017 DNN took 5 images [[2]](#ref-2), and a 3D CNN reported about 21% lower test MSE in a relative sense [[5]](#ref-5). Here a single resampled frame enters (Sec. 2.2). By the paper's account, Cao et al. used EMA as training targets or through a separate articulatory-to-acoustic network (Sec. 1.3); feeding measured articulation of the test utterance at synthesis is this paper's choice. Text carries almost all of the result: test MCD is 5.447 to 6.566 dB from text alone against 7.050 to 8.396 dB from ultrasound alone (Table 1). Verdict: standard; the gain is shown for the spectrum only.
+The paper's EMA predecessors used articulatory data as input, target or internal representation (Sec. 5). Within the ultrasound branch, multi-frame input was established: the group's 2017 DNN took 5 images [[2]](#ref-2), and a 3D CNN cut test MSE by about 21% relative to a 2D CNN [[5]](#ref-5); the paper describes no context window (inference). Text carries most of the result: test MCD is 5.447 to 6.566 dB from text alone, 7.050 to 8.396 dB from ultrasound alone (Table 1). Verdict: standard.
 
 ### M05 Sensor: probe position (incidental)
 
-**Usual approach:** Inherited: midsagittal Micro ultrasound at 81.5 fps from UltraSuite-TaL80 (Sec. 2.1), as in the group's earlier data at 81.67 fps [[6]](#ref-6).
+**Usual approach:** Inherited: midsagittal Micro ultrasound at 81.5 fps from UltraSuite-TaL80 (Sec. 2.1), the same system the group used at 81.67 fps [[6]](#ref-6).
 
-**State of the art:** The misalignment measure, MSE between per-utterance mean images, comes from 2020 work that tied it to no recognition or synthesis outcome [[7]](#ref-7); this paper adds a qualitative link to synthesis error.
+**State of the art:** The misalignment measure, MSE between per-utterance mean images, comes from 2020 work that used it to flag recordings corrupted by misalignment or lack of gel [[7]](#ref-7); this paper relates it to synthesis error.
 
-Speakers whose test images differ from training show higher MCD (Fig. 2), a visual association the authors concede is unquantified (Sec. 4.2). The combined-system gain does not follow it: 04me, flagged as misaligned, has the largest test-MCD gain, 0.229 dB (Table 1; inference). Verdict: standard.
+Speakers whose test images differ from training (01fi, 04me, 05ms, 07me) show higher MCD (Fig. 2), an association the authors concede is unquantified (Sec. 4.2). The combined-system gain averages 0.099 dB for these four and 0.152 dB for the other four, which 4 speakers per group cannot decide (inference). Verdict: standard.
 
 ### M12 Evaluation: objective errors only (incidental)
 
-**Usual approach:** Of the 51 studies, 21 report MCD and 14 a MUSHRA test (pattern match, Appendix). The paper reports MCD, BAP and three F0 errors (Sec. 3), no listener test, yet concludes that combined input "may increase the naturalness" (Abstract, Sec. 5).
+**Usual approach:** Of the 51 ultrasound-to-speech studies, 21 report MCD and 14 a MUSHRA test (pattern match, Appendix).
 
-**State of the art:** Tongue2Speech [later] (2026) scores its output with ASR, 31.64% WER on TaL80 [[4]](#ref-4); this paper has no intelligibility measure to compare.
+**State of the art:** The Appendix tallies hold no text-plus-ultrasound comparator; for ultrasound-only synthesis, Tongue2Speech [later] (2026) reports 31.64% ASR WER on TaL80 [[4]](#ref-4).
 
-Against the best comparable work, the authors' own, it is behind: listening tests with 23 listeners in 2017 [[2]](#ref-2), 24 in 2018 [[8]](#ref-8), 23 in 2019 [[6]](#ref-6) and 22 in 2020 [[3]](#ref-3). Published samples (Sec. 3) were not rated.
+The protocol matches usual MCD practice (standard), but the naturalness conclusion outruns it: the same group ran listening tests on ultrasound-to-speech with 23 listeners in 2017 [[2]](#ref-2), 24 in 2018 [[8]](#ref-8) and 23 in 2019 [[6]](#ref-6), and the published samples (Sec. 3) went unrated.
 
 ## The 13 components
 
@@ -38,37 +38,36 @@ Against the best comparable work, the authors' own, it is behind: listening test
 |---|---|---|---|---|
 | M01 Training-time action | Read sentences, TaL80 | Recorded read or overt speech (slot-filled 3,882) | – | standard |
 | M02 Training-only supervision | WORLD features of paired audio | Paired-audio targets (slot-filled 31) | – | standard |
-| M03 Training and adaptation | Per-speaker DNN, one run | Training records (slot-filled 1,526) | – | standard |
+| M03 Training and adaptation | Per-speaker DNN, runs not stated | Training records (slot-filled 1,526) | – | standard |
 | M04 Use-time action | Audible reading, text supplied | Silent or overt (slot-filled 5,595) | – | standard |
 | M05 Sensors | Micro probe, 81.5 fps, PCA 128 | Midsagittal ultrasound (slot-filled 7,329) | – | standard |
-| M06 Processing and decoding | Text + 1 UTI frame, 6x1024 MLP | Frame-wise DNN or CNN (pattern match 37) | [[4]](#ref-4) (2026): WER 15.93% TaL1 | standard |
+| M06 Processing and decoding | Text + 1 UTI frame, 6x1024 MLP | Frame-wise DNN or CNN (ultrasound-only set) (pattern match 37) | [[4]](#ref-4) (2026, ultrasound-only): WER 15.93% TaL1 | standard |
 | M07 Lexicon and LM | Merlin text front end | No use-time aid (slot-filled 119) | – | not applicable |
 | M08 Output | WORLD waveform | Waveform (slot-filled 3,268) | – | standard |
 | M09 Confirmation | Offline | Offline (slot-filled 82) | – | not applicable |
 | M10 Correction | Offline | Offline (slot-filled 82) | – | not applicable |
 | M11 Reference construction | Synchronous TaL80 audio | Parallel recordings (slot-filled 234) | – | standard |
-| M12 Evaluation | MCD, BAP, F0 errors only | MCD with MUSHRA (pattern match 21) | [[4]](#ref-4) (2026): WER 31.64% TaL80 | behind |
+| M12 Evaluation | MCD, BAP, F0 errors only | MCD 21; MUSHRA 14 (pattern match 21) | [[4]](#ref-4) (2026, ultrasound-only): WER 31.64% TaL80 | standard |
 | M13 Device and cost | Needs text and ultrasound | Operating constraints (slot-filled 6,075) | – | not applicable |
 
 ## Where the claims outrun the evidence
 
-- "Useful for the spectral and BAP prediction" (Sec. 3) holds for BAP only on the development set; on test, BAP error is higher than text-only for 6 of 8 speakers, for example 0.450 to 0.464 for 07me (Table 2; inference).
-- The authors say ultrasound "did not help" voicing (Sec. 3); test voicing error in fact rises for all 8 speakers, for example 6.828 to 7.674 for 03mn (Table 5; inference).
-- The ultrasound is recorded in sync with the reference utterance (Sec. 2.1) and carries its articulation and timing. With no control using another repetition, a mismatched utterance or 128 dimensions of noise, the MCD gain is not attributable to articulatory knowledge (Table 1).
-- Durations are not modelled (Sec. 2.3), so all systems use reference timing (inference).
+- The authors find articulatory input "useful for the spectral and BAP prediction, and in some of the F0 measures" (Sec. 3). The BAP part holds on the development set for 6 of 8 speakers but reverses on test for 6 of 8 (Table 2; inference); the F0 part holds for correlation, 6 of 8 on test (Table 4; inference).
+- Small differences cut both ways (Table 2): with about 10 test sentences and no reported repetitions, test-BAP rises of 0.001 to 0.014 and MCD falls of 0.015 to 0.080 dB are equally unresolved (inference); the MCD claim rests on sign consistency across 8 speakers.
+- The authors say the articulatory input "did not help" voicing (Sec. 3); test voicing error is higher for all 8 speakers (Table 5; inference), so it hurt.
+- Durations are not modelled (Sec. 2.3), so text-only and combined systems share the reference timing (inference). What the ultrasound adds is the within-frame articulation of the scored token; no mismatched-utterance or noise control separates that from articulatory knowledge or extra input capacity.
 
 ## What the field needs next
 
-- M06: a mismatched-token control (ultrasound of another repetition, or ultrasound predicted from text) to separate articulatory knowledge from leakage.
-- M06: a multi-frame ultrasound encoder in the fusion, plus a duration model.
-- M12: MUSHRA or MOS and ASR WER on TaL80 output, with significance across speakers, on the scale of [[4]](#ref-4).
-- M05: re-mount the probe between sessions and regress synthesis error on the measures of [[7]](#ref-7).
+- M06: a mismatched-token control (ultrasound of another repetition, or predicted from text).
+- M06: a multi-frame ultrasound encoder and a duration model.
+- M12: MUSHRA or MOS and ASR WER on TaL80 output, with significance across speakers.
+- M05: re-mount the probe between sessions and regress synthesis error on misalignment [[7]](#ref-7).
 
 ## Questions for the authors
 
-- Which durations drive the systems at test time: forced-aligned natural durations?
-- How many utterances are in each test set?
-- How many runs and which seeds stand behind each cell, and what test supports "significantly lower"?
+- Which durations drive the systems at test time?
+- How many runs and which seeds stand behind each cell, and what test supports "significantly lower" MCD (Sec. 3)?
 - What are the units of BAP, F0-RMSE and voicing error in Tables 2 to 5?
 
 ## Appendix: literature search
