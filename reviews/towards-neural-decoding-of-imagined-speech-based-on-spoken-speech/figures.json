@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Spoken-speech EEG of the same words and participants"
+     ],
+     "field": "Overt-speech training data for a silent-mode decoder",
+     "n": 8995,
+     "matched": 25,
+     "verdict": "standard",
+     "note": "Same design as M04; spoken data argued to be easier to acquire (§III.A)."
+    },
+    "M02": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "na",
+     "note": "Class labels only; no auxiliary training target."
+    },
+    "M03": {
+     "choice": [
+      "Within-subject; all or 10 spoken trials per class; no fine-tuning"
+     ],
+     "field": "Within-subject training",
+     "n": 8995,
+     "matched": 25,
+     "verdict": "standard",
+     "note": "10-trial model averages 28.0% vs 26.8% with all trials (Table I, untested); fine-tuning left to future work."
+    },
+    "M04": {
+     "choice": [
+      "Imagined speech decoded by a spoken-trained model"
+     ],
+     "field": "Overt-trained decoder applied to silent or covert speech without retraining",
+     "n": 8995,
+     "matched": 25,
+     "verdict": "standard",
+     "note": "26.8% vs 30.5% imagined baseline; prior: [@martin2014]; EEG [concurrent]: [@rekrut2022improving]."
+    },
+    "M05": {
+     "choice": [
+      "64-channel active-electrode EEG, 10-10 system"
+     ],
+     "field": "Scalp EEG",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "Dataset of earlier studies by the same group (§II.B)."
+    },
+    "M06": {
+     "choice": [
+      "CSP filters + SVM"
+     ],
+     "field": "Imagined-speech EEG word classification",
+     "n": 8995,
+     "matched": 167,
+     "verdict": "standard",
+     "note": "No preprocessing or classifier settings reported."
+    },
+    "M07": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "na",
+     "note": "Closed five-class classification."
+    },
+    "M08": {
+     "choice": [
+      "One of 5 word classes"
+     ],
+     "field": "Class label",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": "No speech output despite the vocalization claim (§IV)."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Instructed imagery labels; session arrangement not stated"
+     ],
+     "field": "Instructed paradigm labels",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Authors concede imagined content cannot be verified (§I)."
+    },
+    "M12": {
+     "choice": [
+      "Random 90/10 10-fold CV baseline; one Kruskal-Wallis test over 3 conditions; no chance level"
+     ],
+     "field": "No chance reference",
+     "n": 8995,
+     "matched": 95,
+     "verdict": "standard",
+     "note": "Omnibus p = 0.0983 read as \"comparable\"; no pairwise or equivalence test."
+    },
+    "M13": {
+     "choice": [
+      "Offline; application to impaired users proposed"
+     ],
+     "field": "Offline evaluation",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "standard",
+     "note": "No online use, latency or user study."
+    }
+   }
+  }
+ ]
+}

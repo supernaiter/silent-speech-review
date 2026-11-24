@@ -1,0 +1,57 @@
+{
+ "target": "arxiv-2212.02047",
+ "gate": "component paper: proposes and evaluates a decoder design (spoken-speech-trained CSP+SVM applied to imagined-speech EEG)",
+ "prep": "no prep/ directory and no prep.done; plan, audits and comparators built by the writer from published topic tables",
+ "changed": [
+  "M04"
+ ],
+ "changed_note": "M04 carries the contribution: imagined speech decoded at use time by a classifier trained on spoken-speech EEG; M01 (spoken speech as training-time action) and M03 (10 spoken trials per class) are the same design seen from training and are folded into the M04 section.",
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Spoken-speech EEG of the same words (folded into M04)",
+  "M02": "None: class labels only",
+  "M03": "Within-subject training; full or 10 spoken trials per class; no fine-tuning (folded into M04)",
+  "M05": "64-channel active-electrode EEG, 10-10 system (Korea University imagined-speech / visual-imagery datasets, ref. [1])",
+  "M06": "CSP filters + SVM (classic EEG BCI lineage)",
+  "M07": "None",
+  "M08": "One of 5 word classes",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Instructed paradigm labels; imagery cannot be verified (authors' caveat)",
+  "M13": "Offline; future application stated"
+ },
+ "topics": [
+  {
+   "slot": "M04",
+   "topic": "overt-to-silent-transfer",
+   "reuse": "components/M04/overt-to-silent-transfer.json",
+   "inclusion_rule": "Reused published table: studies that apply a decoder trained only on overt (or attempted overt) speech to mouthed, silently articulated, inner or imagined speech without retraining, any signal; studies that also train on silent data count when they report an overt-only condition; alignment-only use, whisper conversion and perception-to-inner transfer excluded; versions once.",
+   "pattern": "published ledger pattern",
+   "design_field": "published confirmed decisions",
+   "metric": "transfer accuracy against within-mode training and against chance"
+  },
+  {
+   "slot": "M12",
+   "topic": "imagined-speech-eeg-chance-reference",
+   "reuse": "components/M12/imagined-speech-eeg-chance-reference.json",
+   "inclusion_rule": "Reused published table: studies that classify imagined, covert or inner speech from scalp EEG; design compared is whether accuracy is referenced against chance (stated chance level, above-chance test, or permutation null); full-text pattern counts are upper bounds; versions once.",
+   "pattern": "published ledger pattern",
+   "design_field": "published full-text pattern counts",
+   "metric": "presence of a chance reference"
+  }
+ ],
+ "comparators": {
+  "deciding_prior": [
+   "pmc-4034498-overtcovert (Martin et al. 2014, ECoG overt-trained model applied to covert speech with resting-state null)"
+  ],
+  "concurrent": [
+   "Rekrut et al. 2022 SMC (not in wiki; abstract entries reused from the Duraisamy review notes)"
+  ],
+  "sota": [
+   "zenodo-22441724-leakctrl (2026, later): held-out-session spoken-to-imagined EEG transfer",
+   "doi-10.3390-brainsci14030196 (2024, later): chance-referenced imagined-syllable EEG BCI (published M12 table)"
+  ]
+ }
+}

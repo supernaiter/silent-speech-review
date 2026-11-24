@@ -127,7 +127,7 @@ Data behind this review. Full texts of the papers are not included.
 - [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
 - [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
 - [`components/M03/articulatory-recognizer-speaker-adaptation.csv`](../../components/M03/articulatory-recognizer-speaker-adaptation.csv): M03 topic "articulatory-recognizer-speaker-adaptation", every candidate paper with its decision (1526 slot-filled, 48 pattern match, usual design in 27, 4 read in full)
-- [`components/M04/overt-to-silent-transfer.csv`](../../components/M04/overt-to-silent-transfer.csv): M04 topic "overt-to-silent-transfer", every candidate paper with its decision (23 confirmed, 104 candidates read, 0 unread)
+- [`components/M04/overt-to-silent-transfer.csv`](../../components/M04/overt-to-silent-transfer.csv): M04 topic "overt-to-silent-transfer", every candidate paper with its decision (5595 slot-filled, 33 pattern match, usual design in 23, 104 read in full)
 - [`components/M06/ultrasound-tongue-speech-recognition.csv`](../../components/M06/ultrasound-tongue-speech-recognition.csv): M06 topic "ultrasound-tongue-speech-recognition", every candidate paper with its decision (7345 slot-filled, 38 pattern match, usual design in 15, 5 read in full)
 
 

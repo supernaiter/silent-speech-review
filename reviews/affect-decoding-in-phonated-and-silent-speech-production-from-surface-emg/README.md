@@ -124,7 +124,7 @@ Data behind this review. Full texts of the papers are not included.
 - [`figures.json`](figures.json): figure definitions
 - [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
 - [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
-- [`components/M04/overt-to-silent-transfer.csv`](../../components/M04/overt-to-silent-transfer.csv): M04 topic "overt-to-silent-transfer", every candidate paper with its decision (23 confirmed, 104 candidates read, 0 unread)
+- [`components/M04/overt-to-silent-transfer.csv`](../../components/M04/overt-to-silent-transfer.csv): M04 topic "overt-to-silent-transfer", every candidate paper with its decision (5595 slot-filled, 33 pattern match, usual design in 23, 104 read in full)
 - [`components/M08/paralinguistic-output-from-production-signals.csv`](../../components/M08/paralinguistic-output-from-production-signals.csv): M08 topic "paralinguistic-output-from-production-signals", every candidate paper with its decision (3268 slot-filled, 99 pattern match, usual design in 12, 4 read in full)
 
 
