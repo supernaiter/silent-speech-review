@@ -2093,6 +2093,13 @@
    "loc": "Sec. 2.3",
    "quote": "which is produced by the speaker encoder from a reference utterance",
    "added_by": "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
+  },
+  {
+   "pid": "arxiv-2411.19486",
+   "role": "sota",
+   "loc": "Table I",
+   "quote": "SVTS [11] 1.256 78.0 0.557 0.389 6.04",
+   "added_by": "svts-scalable-video-to-speech-synthesis"
   }
  ],
  "known_item_recall": {
@@ -2142,6 +2149,7 @@
  "used_by": [
   "naturall2s-end-to-end-high-quality-multispeaker-lip-to-speech-synthesis-with-differential-digita",
   "resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling",
+  "svts-scalable-video-to-speech-synthesis",
   "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
  ],
  "state_of_the_art_resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling": {
@@ -2190,6 +2198,43 @@
  },
  "deciding_priors_note_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": "Target first public 2023-05. Face-derived speaker features with no reference audio, tested on held-out GRID speakers, predate it: Facetron (2021-07, read; face encoder trained by cosine similarity to a pre-trained prosody embedding; 4 unseen speakers, WER 14.7%). VCVTS (2022-02, read, cited by the target) uses a reference-utterance speaker encoder. DiffV2S (2023-08) is [concurrent]. No ahead verdict.",
  "tally_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": {
+  "slot_filled_unique": 119,
+  "string_match_unique": 165,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "audio_reference_speaker_embedding",
+   "n": 21,
+   "tier": "pattern match",
+   "population_unique": 165
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2411.19486",
+   "year": 2024,
+   "metric": "LRS3 SECS on unseen speakers with a video-derived speaker embedding (0.851 with an audio-derived one), WER 28.5% in both cases",
+   "value": 0.664,
+   "unit": "SECS",
+   "timing": "concurrent"
+  },
+  "read": 5,
+  "read_prior": [
+   "arxiv-2107.12003",
+   "arxiv-2202.09081-vcvts",
+   "arxiv-2306.03258",
+   "arxiv-2308.07787-diffv2s"
+  ],
+  "unread": 187,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "state_of_the_art_svts-scalable-video-to-speech-synthesis": {
+  "pid": "arxiv-2411.19486",
+  "year": 2024,
+  "metric": "LRS3 SECS on the SVTS unseen-speaker split with an audio-derived speaker embedding (V2SFlow-A); SVTS 0.557 in the same table",
+  "value": 0.851,
+  "unit": "SECS",
+  "timing": "later"
+ },
+ "tally_svts-scalable-video-to-speech-synthesis": {
   "slot_filled_unique": 119,
   "string_match_unique": 165,
   "fulltext_only_folders": 0,
