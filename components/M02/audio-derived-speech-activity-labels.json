@@ -1,0 +1,1673 @@
+{
+ "topic": "audio-derived-speech-activity-labels",
+ "slot": "M02",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*(?:voice[- ]activity|speech[- ]activity detect|\\bVAD\\b|speech/silence|speech/non-?speech|speech detection|silence detection|end ?point detect))(?=.*(?:ultrasound_imaging|optical_camera|surface_emg|radar|active_acoustic_sensing|\\bmeg\\b|ecog|scalp_eeg|magnetic_tracking|intracortical))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Same population as M06/non-acoustic-speech-activity-detection; classify where the speech/non-speech training labels come from: an acoustic VAD or energy on the synchronized audio, forced alignment of the audio, or manual annotation. Boundary: papers that only use audio VAD for preprocessing match the pattern (upper bound).",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 31,
+  "slot_filled_unique": 31,
+  "string_match_folders": 142,
+  "string_match_unique": 119,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M02",
+  "design_slot_fill": 0.003,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "information_availability=training_only",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "cvpr22-prajwal"
+    ]
+   },
+   {
+    "design": "target_relation=supervision_target",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "cvpr22-prajwal"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "manual_labels",
+    "n": 22,
+    "tier": "pattern match",
+    "pids": [
+     "sut-warren26_thesis",
+     "arxiv-2506.02098",
+     "doi-10.1016-j.xpro.2025.103650",
+     "doi-10.1044-2024-jslhr-24-00046",
+     "pmc-12337102-sharedpercept"
+    ]
+   },
+   {
+    "design": "forced_alignment",
+    "n": 17,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2608.25204",
+     "arxiv-2506.02098",
+     "pmc-12106081-whisperecog",
+     "doi-10.9766-kimst.2024.27.2.167",
+     "pmc-11226700-imagineddetect"
+    ]
+   },
+   {
+    "design": "audio_vad_labels",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1088-1741-2552-ae0965",
+     "pmc-12498269-rtspoken",
+     "isca-hou21-avvad",
+     "isca-ishi10_avsp",
+     "isca-lee07b_lipvad"
+    ]
+   }
+  ],
+  "metric_pattern": "accuracy|\\bAUC\\b|F1|F-score",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "accuracy plateaus at ~5 sensors",
+   "value": 2500,
+   "unit": "word",
+   "raw": "training vocabulary size",
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "year": 2017,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "TS-FBP AUC %",
+   "value": 99.16,
+   "unit": null,
+   "raw": "99.16",
+   "pid": "isca-zhou21_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GRID SiA accuracy",
+   "value": 99,
+   "unit": "percent",
+   "raw": "CNN-LSTM SiA frame accuracy on GRID",
+   "pid": "isca-sharma19b_vvad",
+   "year": 2019,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "speech command accuracy",
+   "value": 96.5,
+   "unit": "%",
+   "raw": "speech-command recognition accuracy",
+   "pid": "isca-karpov14_interspeech",
+   "year": 2014,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "noisy ideal F1 %",
+   "value": 94.38,
+   "unit": null,
+   "raw": "94.38",
+   "pid": "isca-tao17_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "global-scale accuracy maximum (all contacts)",
+   "value": 93.79,
+   "unit": "percent",
+   "raw": "between 60.13% and 93.79%",
+   "pid": "doi-10.1016-j.celrep.2025.116241",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "93.4",
+   "value": 93.4,
+   "unit": "accuracy",
+   "raw": "nVAD frame-wise held-out accuracy %",
+   "pid": "pmc-11053081-als-ecog-synth",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "VAD accuracy 91.7–96.5% across 5 noises (Babble worst)",
+   "value": 91.7,
+   "unit": "%",
+   "raw": "worst-case accuracy Babble 91.7% (1.8% false); best Car 96.5% (2.1%); music 94.2/1.1, speech 94.1/1.6, office 94.2/1.7",
+   "pid": "isca-mcloughlin14_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "voice-activity tracking (speech vs silence) up to 91% accuracy, chance 50%, binary SVM on correlation-ranked narrow-band features",
+   "value": 91,
+   "unit": null,
+   "raw": "voice activity accuracy %",
+   "pid": "isca-meng22d_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CNN accuracy",
+   "value": 90.4,
+   "unit": "%",
+   "raw": "90.40",
+   "pid": "doi-10.1044-2024-jslhr-24-00046",
+   "year": 2025,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1604.02946",
+   "key": "p:arxiv-1604.02946",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=kernel (alternating diffusion maps) sensor fusion +"
+  },
+  {
+   "pid": "arxiv-1808.00046",
+   "key": "t:lipreadingdrivendeeplearningapproachforspeechenhancement",
+   "title": "Lip-Reading Driven Deep Learning Approach for Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1808.00046 | title=Lip-Reading Driven Deep Learning Approach for Speech Enhancement | Study.research_obje"
+  },
+  {
+   "pid": "arxiv-1907.00818",
+   "key": "t:ultrasoundtongueimagingfordiarizationandalignmentofchildspeechtherapysessions",
+   "title": "Ultrasound tongue imaging for diarization and alignment of child speech therapy sessions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1907.00818 | title=Ultrasound tongue imaging for diarization and alignment of child speech therapy sessio"
+  },
+  {
+   "pid": "arxiv-2007.14223",
+   "key": "t:multimodalintegrationforlargevocabularyaudiovisualspeechrecognition",
+   "title": "Multimodal Integration for Large-Vocabulary Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2007.14223 | title=Multimodal Integration for Large-Vocabulary Audio-Visual Speech Recognition | Study.re"
+  },
+  {
+   "pid": "arxiv-2105.08970",
+   "key": "p:arxiv-2105.08970",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=CVAE + Ladv-VAE disentangled AVSE (Carbajal/Richter/Gerkmann — U Hamburg, WASPAA 2021) | Study.study_design="
+  },
+  {
+   "pid": "arxiv-2105.13718",
+   "key": "t:voiceactivitydetectionforultrasoundbasedsilentspeechinterfacesusingconvolutional",
+   "title": "Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convolutional Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2105.13718 | title=Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convoluti"
+  },
+  {
+   "pid": "arxiv-2203.17072",
+   "key": "t:manipulationoforalcancerspeechusingneuralarticulatorysynthesis",
+   "title": "Manipulation of oral cancer speech using neural articulatory synthesis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2203.17072 | title=Manipulation of oral cancer speech using neural articulatory synthesis | authors=Bence"
+  },
+  {
+   "pid": "arxiv-2305.15403",
+   "key": "t:avtranspeechaudiovisualrobustspeechtospeechtranslation",
+   "title": "AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2305.15403 | title=AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation | authors=Huang R, Liu"
+  },
+  {
+   "pid": "arxiv-2306.06495",
+   "key": "t:audiovisualspeechenhancementwithselectiveoffscreenspeechextraction",
+   "title": "Audio-Visual Speech Enhancement With Selective Off-Screen Speech Extraction",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.06495 | title=Audio-Visual Speech Enhancement With Selective Off-Screen Speech Extraction | authors="
+  },
+  {
+   "pid": "arxiv-2407.07595",
+   "key": "t:scalinglawinneuraldatanoninvasivespeechdecodingwith175hoursofeegdata",
+   "title": "Scaling Law in Neural Data: Non-Invasive Speech Decoding with 175 Hours of EEG Data",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2407.07595 | doi=10.48550/arxiv.2407.07595 | title=Scaling Law in Neural Data: Non-Invasive Speech Decodi"
+  },
+  {
+   "pid": "arxiv-2501.01636",
+   "key": "t:whisphonewhisperinginputearbuds",
+   "title": "Whisphone: Whispering Input Earbuds",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.01636 | title=Whisphone: Whispering Input Earbuds | venue=arXiv:2501.01636 (Fukumoto, Dentsu Science"
+  },
+  {
+   "pid": "arxiv-2505.13971",
+   "key": "t:themultimodalinformationbasedspeechprocessingmisp2025challengeaudiovisualdiariza",
+   "title": "The Multimodal Information Based Speech Processing (MISP) 2025 Challenge: Audio-Visual Diarization and Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.13971 | title=The Multimodal Information Based Speech Processing (MISP) 2025 Challenge: Audio-Visual"
+  },
+  {
+   "pid": "arxiv-2506.02098",
+   "key": "t:libribrainover50hoursofwithinsubjectmegtoimprovespeechdecodingmethodsatscale",
+   "title": "LibriBrain: Over 50 Hours of Within-Subject MEG to Improve Speech Decoding Methods at Scale",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2506.02098 | title=LibriBrain: Over 50 Hours of Within-Subject MEG to Improve Speech Decoding Methods at"
+  },
+  {
+   "pid": "arxiv-2506.10165",
+   "key": "t:the2025pnplcompetitionspeechdetectionandphonemeclassificationinthelibribraindata",
+   "title": "The 2025 PNPL Competition: Speech Detection and Phoneme Classification in the LibriBrain Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2506.10165 | title=The 2025 PNPL Competition: Speech Detection and Phoneme Classification in the LibriBra"
+  },
+  {
+   "pid": "arxiv-2508.13624",
+   "key": "t:leveragingmambawithfullfacevisionforaudiovisualspeechenhancement",
+   "title": "Leveraging Mamba with Full-Face Vision for Audio-Visual Speech Enhancement",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2508.13624 | doi=10.48550/arxiv.2508.13624 | title=Leveraging Mamba with Full-Face Vision for Audio-Visua"
+  },
+  {
+   "pid": "arxiv-2512-22146-eeg2voice",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512-22146-eeg2voice | title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG |"
+  },
+  {
+   "pid": "arxiv-2512.15830",
+   "key": "t:fromminutestodaysscalingintracranialspeechdecodingwithsupervisedpretraining",
+   "title": "From Minutes to Days: Scaling Intracranial Speech Decoding with Supervised Pretraining",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2512.15830 | title=From Minutes to Days: Scaling Intracranial Speech Decoding with Supervised Pretraining"
+  },
+  {
+   "pid": "arxiv-2602.18253",
+   "key": "t:megtomegtransferlearningandcrosstaskspeechsilencedetectionwithlimiteddata",
+   "title": "MEG-to-MEG Transfer Learning and Cross-Task Speech/Silence Detection with Limited Data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2602.18253 | title=MEG-to-MEG Transfer Learning and Cross-Task Speech/Silence Detection with Limited Data"
+  },
+  {
+   "pid": "arxiv-2603-02255-mebm",
+   "key": "t:mebmspeechmultiscaleenhancedbrainmagicforrobustmegspeechdetection",
+   "title": "MEBM-Speech: Multi-scale Enhanced BrainMagic for Robust MEG Speech Detection",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603-02255-mebm | title=MEBM-Speech: Multi-scale Enhanced BrainMagic for Robust MEG Speech Detection | au"
+  },
+  {
+   "pid": "arxiv-2606.01264",
+   "key": "t:a1000houreegemgaudiodatasetofjapanesespeechproduction",
+   "title": "A 1000-hour EEG–EMG–audio dataset of Japanese speech production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A 1000-hour EEG–EMG–audio dataset of Japanese speech production | arxiv_id=2606.01264v1 | paper_version=arXiv v1,"
+  },
+  {
+   "pid": "arxiv-2608.25204",
+   "key": "t:libribrain100onehundredhoursofbroadanddeepmegdataforneuralspeechdecodingatscale",
+   "title": "LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.25204 | paper_version=arXiv 2608.25204v1 [cs.LG], 25 Aug 2026 | title=LibriBrain100: One Hundred Hou"
+  },
+  {
+   "pid": "arxiv-2608.25204-libribrain100",
+   "key": "t:libribrain100onehundredhoursofbroadanddeepmegdataforneuralspeechdecodingatscale",
+   "title": "LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.25204-libribrain100 | title=LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural S"
+  },
+  {
+   "pid": "cvpr22-prajwal",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvpr22-prajwal | title=Sub-word Level Lip Reading With Visual Attention | authors=K R Prajwal, Triantafyllos Af"
+  },
+  {
+   "pid": "doi-10.1016-j.celrep.2025.116241",
+   "key": "t:movingbeyondthemotorcortexabrainwideevaluationoftargetlocationsforintracranialsp",
+   "title": "Moving beyond the motor cortex: A brain-wide evaluation of target locations for intracranial speech neuroprostheses",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.celrep.2025.116241 | doi=10.1016/j.celrep.2025.116241 | title=Moving beyond the motor cortex: A b"
+  },
+  {
+   "pid": "doi-10.1016-j.jphysparis.2017.07.002",
+   "key": "t:keyconsiderationsindesigningaspeechbraincomputerinterface",
+   "title": "Key considerations in designing a speech brain-computer interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.jphysparis.2017.07.002 | doi=10.1016/j.jphysparis.2017.07.002 | title=Key considerations in desig"
+  },
+  {
+   "pid": "doi-10.1016-j.xpro.2025.103650",
+   "key": "t:protocoltoperformofflineecogbraintotextdecodingfornaturaltonalsentences",
+   "title": "Protocol to perform offline ECoG brain-to-text decoding for natural tonal sentences",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.xpro.2025.103650 | title=Protocol to perform offline ECoG brain-to-text decoding for natural tona"
+  },
+  {
+   "pid": "doi-10.1038-s41467-022-33611-3",
+   "key": "t:generalizablespellingusingaspeechneuroprosthesisinanindividualwithseverelimbandv",
+   "title": "Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41467-022-33611-3 | doi=10.1038/s41467-022-33611-3 | title=Generalizable spelling using a speech n"
+  },
+  {
+   "pid": "doi-10.1044-2016-jslhr-h-15-0375",
+   "key": "t:ageneralaudiovisualtemporalprocessingdeficitinadultreaderswithdyslexia",
+   "title": "A General Audiovisual Temporal Processing Deficit in Adult Readers With Dyslexia",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1044-2016-jslhr-h-15-0375 | doi=10.1044/2016_JSLHR-H-15-0375 | title=A General Audiovisual Temporal Proc"
+  },
+  {
+   "pid": "doi-10.1044-2024-jslhr-24-00046",
+   "key": "t:neuraldecodingofspontaneousovertandintendedspeech",
+   "title": "Neural Decoding of Spontaneous Overt and Intended Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1044-2024-jslhr-24-00046 | doi=10.1044/2024_JSLHR-24-00046 | title=Neural Decoding of Spontaneous Overt"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ace8be",
+   "key": "t:directspeechreconstructionfromsensorimotorbrainactivitywithoptimizeddeeplearning",
+   "title": "Direct speech reconstruction from sensorimotor brain activity with optimized deep learning models",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-ace8be | doi=10.1088/1741-2552/ace8be | title=Direct speech reconstruction from sensorimo"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ad663c",
+   "key": "t:iterativealignmentdiscoveryofspeechassociatedneuralactivity",
+   "title": "Iterative alignment discovery of speech-associated neural activity",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-ad663c | doi=10.1088/1741-2552/ad663c | title=Iterative alignment discovery of speech-ass"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ae0965",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-ae0965 | title=Real-time detection of spoken speech from unlabeled ECoG signals: a pilot"
+  },
+  {
+   "pid": "doi-10.1101-2022.08.04.502829",
+   "key": "t:thenestedhierarchyofovertmouthedandimaginedspeechactivityevidentinintracranialre",
+   "title": "The Nested Hierarchy of Overt, Mouthed, and Imagined Speech Activity Evident in Intracranial Recordings",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2022.08.04.502829 | doi=10.1101/2022.08.04.502829 | title=The Nested Hierarchy of Overt, Mouthed, a"
+  },
+  {
+   "pid": "doi-10.1101-2024.10.04.616375",
+   "key": "t:representationofverbalthoughtinmotorcortexandimplicationsforspeechneuroprosthese",
+   "title": "Representation of verbal thought in motor cortex and implications for speech neuroprostheses",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.10.04.616375 | doi=10.1101/2024.10.04.616375 | title=Representation of verbal thought in motor"
+  },
+  {
+   "pid": "doi-10.1109-msp.2013.2296173",
+   "key": "t:audiovisualspeechsourceseparationanoverviewofkeymethodologies",
+   "title": "Audiovisual Speech Source Separation: An overview of key methodologies",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-msp.2013.2296173 | title=Audiovisual Speech Source Separation: An overview of key methodologies | a"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "key": "t:silentspeechrecognitionasanalternativecommunicationdeviceforpersonswithlaryngect",
+   "title": "Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy | authors=Geoffrey"
+  },
+  {
+   "pid": "doi-10.14232-phd.11818",
+   "key": "p:doi-10.14232-phd.11818",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=University of Szeged, Doctoral School of Computer Science | needs_manual_check=thesis aggregates six previously pu"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2019.00060",
+   "key": "t:keywordspottingusinghumanelectrocorticographicrecordings",
+   "title": "Keyword Spotting Using Human Electrocorticographic Recordings",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2019.00060 | title=Keyword Spotting Using Human Electrocorticographic Recordings | authors=Gr"
+  },
+  {
+   "pid": "doi-10.3390-s16111812",
+   "key": "t:towardscontactlesssilentspeechrecognitionbasedondetectionofactiveandvisibleartic",
+   "title": "Towards Contactless Silent Speech Recognition Based on Detection of Active and Visible Articulators Using IR-UWB Radar",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s16111812 | doi=10.3390/s16111812 | title=Towards Contactless Silent Speech Recognition Based on De"
+  },
+  {
+   "pid": "doi-10.5281-zenodo.40178",
+   "key": "t:visualspeechdetectionusingmouthregionintensities",
+   "title": "Visual Speech Detection Using Mouth Region Intensities",
+   "year": 2006,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.5281-zenodo.40178 | title=Visual Speech Detection Using Mouth Region Intensities | authors=Spyridon Siat"
+  },
+  {
+   "pid": "doi-10.9766-kimst.2024.27.2.167",
+   "key": "t:koreanlipreadingdataconstructionandsentencelevellipreading",
+   "title": "Korean Lip-Reading: Data Construction and Sentence-Level Lip-Reading",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.9766-kimst.2024.27.2.167 | doi=10.9766/kimst.2024.27.2.167 | title=Korean Lip-Reading: Data Construction"
+  },
+  {
+   "pid": "isca-abdelaziz14_interspeech",
+   "key": "t:dynamicstreamweightestimationincoupledhmmbasedaudiovisualspeechrecognitionusingm",
+   "title": "Dynamic Stream Weight Estimation in Coupled-HMM-based Audio-visual Speech Recognition Using Multilayer Perceptrons",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Dynamic Stream Weight Estimation in Coupled-HMM-based Audio-visual Speech Recognition Using Multilayer Perceptrons"
+  },
+  {
+   "pid": "isca-akinrintoyo25_interspeech",
+   "key": "t:whisperddementiaspeechrecognitionandfillerworddetectionwithwhisper",
+   "title": "WhisperD: Dementia Speech Recognition and Filler Word Detection with Whisper",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=WhisperD: Dementia Speech Recognition and Filler Word Detection with Whisper | venue=Proc. Interspeech 2025 | task"
+  },
+  {
+   "pid": "isca-almajai09_avsp",
+   "key": "p:isca-almajai09_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=intermediate_signal_processing | scope_limits=277 utterances of one UK male speaker; not a word-recognition"
+  },
+  {
+   "pid": "isca-almajai09_interspeech",
+   "key": "t:enhancingaudiospeechusingvisualspeechfeatures",
+   "title": "Enhancing Audio Speech using Visual Speech Features",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/almajai09-interspeech | title=Enhancing Audio Speech using Visual Speech Features | authors=Ibrahim Almaja"
+  },
+  {
+   "pid": "isca-almajai09_viswiener",
+   "key": "t:enhancingaudiospeechusingvisualspeechfeatures",
+   "title": "Enhancing Audio Speech using Visual Speech Features",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-almajai09_viswiener | title=Enhancing Audio Speech using Visual Speech Features | authors=Ibrahim Almajai,"
+  },
+  {
+   "pid": "isca-botelho21_interspeech",
+   "key": "t:visualspeechforobstructivesleepapneadetection",
+   "title": "Visual Speech for Obstructive Sleep Apnea Detection",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-botelho21_interspeech | title=Visual Speech for Obstructive Sleep Apnea Detection | authors=Catarina Botel"
+  },
+  {
+   "pid": "isca-bras24_interspeech",
+   "key": "t:usingarticulatedspeecheegsignalsforimaginedspeechdecoding",
+   "title": "Using articulated speech EEG signals for imagined speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Using articulated speech EEG signals for imagined speech decoding | system_name=two CNN pipelines over scalp EEG:"
+  },
+  {
+   "pid": "isca-burlick13_interspeech",
+   "key": "t:ontheimprovementofmultimodalvoiceactivitydetection",
+   "title": "On the improvement of multimodal voice activity detection",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/burlick13-interspeech | title=On the improvement of multimodal voice activity detection | authors=Matt Bur"
+  },
+  {
+   "pid": "isca-clayton20_interspeech",
+   "key": "t:decodingimaginedheardandspokenspeechclassificationandregressionofeegusinga14chan",
+   "title": "Decoding imagined, heard, and spoken speech: classification and regression of EEG using a 14-channel dry-contact mobile headset",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding imagined, heard, and spoken speech: classification and regression of EEG using a 14-channel dry-contact m"
+  },
+  {
+   "pid": "isca-cornu15_avsp",
+   "key": "t:voicingclassificationofvisualspeechusingconvolutionalneuralnetworks",
+   "title": "Voicing classification of visual speech using convolutional neural networks",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Voicing classification of visual speech using convolutional neural networks | authors=Thomas Le Cornu; Ben Milner"
+  },
+  {
+   "pid": "isca-davis07_avsp",
+   "key": "t:makingathinkingtalkinghead",
+   "title": "Making a Thinking-Talking Head",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Making a Thinking-Talking Head | authors=C. Davis, J. Kim, T. Kuratate, J. Chen, Stelarc, D. Burnham | venue=Proc."
+  },
+  {
+   "pid": "isca-davis13_interspeech",
+   "key": "t:theeffectofvisualspeechtimingandformcuesontheprocessingofspeechandnonspeech",
+   "title": "The effect of visual speech timing and form cues on the processing of speech and nonspeech",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/davis13-interspeech | title=The effect of visual speech timing and form cues on the processing of speech a"
+  },
+  {
+   "pid": "isca-deng14b_interspeech",
+   "key": "t:towardsapracticalsilentspeechrecognitionsystem",
+   "title": "Towards a Practical Silent Speech Recognition System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards a Practical Silent Speech Recognition System | system_name=BAE sEMG silent speech interface: 8 sEMG channe"
+  },
+  {
+   "pid": "isca-gabeur22_interspeech",
+   "key": "t:avatarunconstrainedaudiovisualspeechrecognition",
+   "title": "AVATAR: Unconstrained Audiovisual Speech Recognition",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-gabeur22_interspeech | title=AVATAR: Unconstrained Audiovisual Speech Recognition | authors=Valentin Gabeu"
+  },
+  {
+   "pid": "isca-gemello05_interspeech",
+   "key": "p:isca-gemello05_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Proc. Interspeech 2005 (Lisbon); DOI 10.21437/Interspeech.2005-243; Gemello/Mana LOQUENDO Torino, De Mori LIA-CNRS"
+  },
+  {
+   "pid": "isca-ghaemmaghami15-clvad",
+   "key": "t:completelinkageclusteringforvoiceactivitydetectioninaudioandvisualspeech",
+   "title": "Complete-Linkage Clustering for Voice Activity Detection in Audio and Visual Speech",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Complete-Linkage Clustering for Voice Activity Detection in Audio and Visual Speech | authors=Ghaemmaghami, Moncri"
+  },
+  {
+   "pid": "isca-ghaemmaghami15_interspeech",
+   "key": "t:completelinkageclusteringforvoiceactivitydetectioninaudioandvisualspeech",
+   "title": "Complete-Linkage Clustering for Voice Activity Detection in Audio and Visual Speech",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/ghaemmaghami15-interspeech | title=Complete-Linkage Clustering for Voice Activity Detection in Audio and V"
+  },
+  {
+   "pid": "isca-haider18b_visprosody",
+   "key": "t:improvingresponsetimeofactivespeakerdetectionusingvisualprosodyinformationpriort",
+   "title": "Improving Response Time of Active Speaker Detection Using Visual Prosody Information Prior to Articulation",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-haider18b_visprosody | title=Improving Response Time of Active Speaker Detection Using Visual Prosody Info"
+  },
+  {
+   "pid": "isca-heckmann01_eurospeech",
+   "key": "t:comparingaudioandaposterioriprobabilitybasedstreamconfidencemeasuresforaudiovisu",
+   "title": "Comparing Audio- and A-Posteriori-Probability-Based Stream Confidence Measures for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Comparing Audio- and A-Posteriori-Probability-Based Stream Confidence Measures for Audio-Visual Speech Recognition"
+  },
+  {
+   "pid": "isca-hou21-avvad",
+   "key": "t:attentionbasedcrossmodalfusionforaudiovisualvoiceactivitydetectioninmusicalvideo",
+   "title": "Attention-based cross-modal fusion for audio-visual voice activity detection in musical video streams",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Attention-based cross-modal fusion for audio-visual voice activity detection in musical video streams | authors=Ho"
+  },
+  {
+   "pid": "isca-ishi10_avsp",
+   "key": "t:realtimeaudiovisualvoiceactivitydetectionforspeechrecognitioninnoisyenvironments",
+   "title": "Real-time audio-visual voice activity detection for speech recognition in noisy environments",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time audio-visual voice activity detection for speech recognition in noisy environments | authors=Carlos T. I"
+  },
+  {
+   "pid": "isca-ivanko22_interspeech",
+   "key": "t:davisdriversaudiovisualspeechrecognition",
+   "title": "DAVIS: Driver’s Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DAVIS: Driver’s Audio-Visual Speech Recognition | venue=Proc. Interspeech 2022 Show and Tell:1141-1142 | intended_"
+  },
+  {
+   "pid": "isca-joosten13_avsp",
+   "key": "t:visualvoiceactivitydetectionatdifferentspeeds",
+   "title": "Visual voice activity detection at different speeds",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Visual voice activity detection at different speeds | authors=B. Joosten; E. Postma; E. Krahmer | venue=Proc. AVSP"
+  },
+  {
+   "pid": "isca-karpov14_interspeech",
+   "key": "t:audiovisualsignalprocessinginamultimodalassistedlivingenvironment",
+   "title": "Audio-visual signal processing in a multimodal assisted living environment",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/karpov14-interspeech | title=Audio-visual signal processing in a multimodal assisted living environment |"
+  },
+  {
+   "pid": "isca-kim10g_interspeech",
+   "key": "p:isca-kim10g_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Proc. Interspeech 2010 (Makuhari) pp.2066-2069; DOI 10.21437/Interspeech.2010-583; Kim/Kim/Hasegawa-Johnson, UIUC"
+  },
+  {
+   "pid": "isca-kim21b-sslavvad",
+   "key": "t:noisetolerantselfsupervisedlearningforaudiovisualvoiceactivitydetection",
+   "title": "Noise-Tolerant Self-Supervised Learning for Audio-Visual Voice Activity Detection",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Noise-Tolerant Self-Supervised Learning for Audio-Visual Voice Activity Detection | authors=Kim, Kyeong, Lee, Ko,"
+  },
+  {
+   "pid": "isca-kim21b_interspeech",
+   "key": "p:isca-kim21b_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2021 | task_family=speech_activity_detection | vocabulary_regime=not_a_word_task | scope_limits=VAD on"
+  },
+  {
+   "pid": "isca-kumar09_avsync",
+   "key": "t:robustaudiovisualspeechsynchronydetectionbygeneralizedbimodallinearprediction",
+   "title": "Robust Audio-Visual Speech Synchrony Detection by Generalized Bimodal Linear Prediction",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kumar09_avsync | title=Robust Audio-Visual Speech Synchrony Detection by Generalized Bimodal Linear Predic"
+  },
+  {
+   "pid": "isca-lee07b_lipvad",
+   "key": "t:preventinganexternalacousticnoisefrombeingmisrecognizedasaspeechrecognitionobjec",
+   "title": "Preventing an External Acoustic Noise from being Misrecognized as a Speech Recognition Object by Confirming the Lip Movement Image Signal",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lee07b_lipvad | title=Preventing an External Acoustic Noise from being Misrecognized as a Speech Recogniti"
+  },
+  {
+   "pid": "isca-lee14b_interspeech",
+   "key": "t:awhisperedmandarincorpusforspeechtechnologyapplications",
+   "title": "A Whispered Mandarin Corpus for Speech Technology Applications",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Whispered Mandarin Corpus for Speech Technology Applications | system_name=iWhisper-Mandarin corpus + baseline p"
+  },
+  {
+   "pid": "isca-li13d_interspeech",
+   "key": "t:speakerverificationbasedonfusionofacousticandarticulatoryinformation",
+   "title": "Speaker verification based on fusion of acoustic and articulatory information",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/li13d-interspeech | title=Speaker verification based on fusion of acoustic and articulatory information |"
+  },
+  {
+   "pid": "isca-marcheret15_avsp",
+   "key": "p:isca-marcheret15_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=phoneme_or_character_classification | scope_limits=frontal-pose studio videos; synchrony classes artificial"
+  },
+  {
+   "pid": "isca-mcloughlin14-usvad",
+   "key": "t:theuseoflowfrequencyultrasoundforvoiceactivitydetection",
+   "title": "The Use of Low-Frequency Ultrasound for Voice Activity Detection",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The Use of Low-Frequency Ultrasound for Voice Activity Detection | authors=McLoughlin, Sharifzadeh | venue=Intersp"
+  },
+  {
+   "pid": "isca-mcloughlin14_interspeech",
+   "key": "t:theuseoflowfrequencyultrasoundforvoiceactivitydetection",
+   "title": "The Use of Low-Frequency Ultrasound for Voice Activity Detection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The Use of Low-Frequency Ultrasound for Voice Activity Detection | system_name=Active LF-ultrasonic VAD: tweeter+t"
+  },
+  {
+   "pid": "isca-mcloughlin15_interspeech",
+   "key": "t:lowfrequencyultrasonicvoiceactivitydetectionusingconvolutionalneuralnetworks",
+   "title": "Low Frequency Ultrasonic Voice Activity Detection using Convolutional Neural Networks",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21437/Interspeech.2015-327 | title=Low Frequency Ultrasonic Voice Activity Detection using Convolutional Neu"
+  },
+  {
+   "pid": "isca-meng22d_interspeech",
+   "key": "t:evidenceofonsetandsustainedneuralresponsestoisolatedphonemesfromintracranialreco",
+   "title": "Evidence of Onset and Sustained Neural Responses to Isolated Phonemes from Intracranial Recordings in a Voice-based Cursor Control Task",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evidence of Onset and Sustained Neural Responses to Isolated Phonemes from Intracranial Recordings in a Voice-base"
+  },
+  {
+   "pid": "isca-mihajlik05_interspeech",
+   "key": "p:isca-mihajlik05_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Proc. Interspeech 2005 (Lisbon); DOI 10.21437/Interspeech.2005-258; Mihajlik/Tobler/Tuske/Gordos, Budapest Univ of"
+  },
+  {
+   "pid": "isca-navarathna10_avsp",
+   "key": "t:cascadingappearancebasedfeaturesforvisualvoiceactivitydetection",
+   "title": "Cascading appearance-based features for visual voice activity detection",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Cascading appearance-based features for visual voice activity detection | authors=Rajitha Navarathna; David Dean;"
+  },
+  {
+   "pid": "isca-priyasad19_avsp",
+   "key": "t:learningsalientfeaturesformultimodalemotionrecognitionwithrecurrentneuralnetwork",
+   "title": "Learning Salient Features for Multimodal Emotion Recognition with Recurrent Neural Networks and Attention Based Fusion",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Learning Salient Features for Multimodal Emotion Recognition with Recurrent Neural Networks and Attention Based Fu"
+  },
+  {
+   "pid": "isca-qin07b_interspeech",
+   "key": "t:acomparisonofacousticfeaturesforarticulatoryinversion",
+   "title": "A Comparison of Acoustic Features for Articulatory Inversion",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/qin07b-interspeech | title=A Comparison of Acoustic Features for Articulatory Inversion | authors=Chao Qin"
+  },
+  {
+   "pid": "isca-ribeiro19_usdiarize",
+   "key": "t:ultrasoundtongueimagingfordiarizationandalignmentofchildspeechtherapysessions",
+   "title": "Ultrasound Tongue Imaging for Diarization and Alignment of Child Speech Therapy Sessions",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ribeiro19_usdiarize | title=Ultrasound Tongue Imaging for Diarization and Alignment of Child Speech Therap"
+  },
+  {
+   "pid": "isca-rivet07_avsp",
+   "key": "p:isca-rivet07_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=intermediate_signal_processing | demonstrated_use_cases=noisy_environment, other | vocabulary_regime=not_a_w"
+  },
+  {
+   "pid": "isca-rivet07b-vvad",
+   "key": "t:developmentandcomparisonoftwoapproachesforvisualspeechanalysiswithapplicationtov",
+   "title": "Development and comparison of two approaches for visual speech analysis with application to voice activity detection",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-rivet07b-vvad | title=Development and comparison of two approaches for visual speech analysis with applica"
+  },
+  {
+   "pid": "isca-rivet07b_avsp",
+   "key": "t:developmentandcomparisonoftwoapproachesforvisualspeechanalysiswithapplicationtov",
+   "title": "Development and comparison of two approaches for visual speech analysis with application to voice activity detection",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Development and comparison of two approaches for visual speech analysis with application to voice activity detecti"
+  },
+  {
+   "pid": "isca-sahidullah16b_interspeech",
+   "key": "t:robustspeakerrecognitionwithcombineduseofacousticandthroatmicrophonespeech",
+   "title": "Robust Speaker Recognition with Combined Use of Acoustic and Throat Microphone Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Robust Speaker Recognition with Combined Use of Acoustic and Throat Microphone Speech | Study.study_design=system_"
+  },
+  {
+   "pid": "isca-schacht07-liptrack",
+   "key": "t:fastliptrackingforspeechnonspeechdetection",
+   "title": "Fast lip tracking for speech/nonspeech detection",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-schacht07-liptrack | title=Fast lip tracking for speech/nonspeech detection | authors=Stefan Schacht, Oleg"
+  },
+  {
+   "pid": "isca-schacht07_avsp",
+   "key": "t:fastliptrackingforspeechnonspeechdetection",
+   "title": "Fast lip tracking for speech/nonspeech detection",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Fast lip tracking for speech/nonspeech detection | authors=Stefan Schacht; Oleg Fallman; Dietrich Klakow | venue=P"
+  },
+  {
+   "pid": "isca-schwartz04-interspeech",
+   "key": "p:isca-schwartz04-interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=healthy_volunteers | population_description=10 French naive"
+  },
+  {
+   "pid": "isca-sharma19b-vepd",
+   "key": "t:realtimeonlinevisualendpointdetectionusingunidirectionallstm",
+   "title": "Real Time Online Visual End Point Detection Using Unidirectional LSTM",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real Time Online Visual End Point Detection Using Unidirectional LSTM | authors=Sharma, Vijay, Patrick | venue=Int"
+  },
+  {
+   "pid": "isca-sharma19b_vvad",
+   "key": "t:realtimeonlinevisualendpointdetectionusingunidirectionallstm",
+   "title": "Real Time Online Visual End Point Detection Using Unidirectional LSTM",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-sharma19b_vvad | title=Real Time Online Visual End Point Detection Using Unidirectional LSTM | authors=Tan"
+  },
+  {
+   "pid": "isca-sharon20_interspeech",
+   "key": "t:thesoundofsilenceineegcognitivevoiceactivitydetection",
+   "title": "The “Sound of Silence” in EEG — Cognitive voice activity detection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The “Sound of Silence” in EEG — Cognitive voice activity detection | system_name=EEG non-speech-state activity det"
+  },
+  {
+   "pid": "isca-shen10_avsp",
+   "key": "p:isca-shen10_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=sentence_recognition | scope_limits=connected-digit domain; single AV grammar-free HMM evaluation per noise"
+  },
+  {
+   "pid": "isca-takeda06_interspeech",
+   "key": "p:isca-takeda06_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Proc. Interspeech 2006 (Pittsburgh) pp.2302-2305; DOI 10.21437/Interspeech.2006-92; Takeda/Yamamoto/Komatani/Ogata"
+  },
+  {
+   "pid": "isca-takeuchi09_avsp",
+   "key": "t:voiceactivitydetectionbasedonfusionofaudioandvisualinformation",
+   "title": "Voice activity detection based on fusion of audio and visual information",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Voice activity detection based on fusion of audio and visual information | authors=Shin'ichi Takeuchi; Takashi Has"
+  },
+  {
+   "pid": "isca-takeuchi10_avsp",
+   "key": "t:decisionfusionbyboostingmethodformultimodalvoiceactivitydetection",
+   "title": "Decision fusion by boosting method for multi-modal voice activity detection",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decision fusion by boosting method for multi-modal voice activity detection | authors=Shin'ichi Takeuchi; Takashi"
+  },
+  {
+   "pid": "isca-tamura08_avsp",
+   "key": "p:isca-tamura08_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "scope_limits=Japanese connected digit sequences of length 1-7 (AURORA-2/AURORA-2J-compatible task) | extra.Production.sc"
+  },
+  {
+   "pid": "isca-tamura10c",
+   "key": "p:isca-tamura10c",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Gifu U AVVAD->AVASR pipeline: AV voice activity detection front-end + multistream-HMM AV recognizer | modali"
+  },
+  {
+   "pid": "isca-tamura10c_interspeech",
+   "key": "t:arobustaudiovisualspeechrecognitionusingaudiovisualvoiceactivitydetection",
+   "title": "A Robust Audio-visual Speech Recognition Using Audio-visual Voice Activity Detection",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca:tamura10c_interspeech | title=A Robust Audio-visual Speech Recognition Using Audio-visual Voice Activity D"
+  },
+  {
+   "pid": "isca-tao15-vvad",
+   "key": "t:anunsupervisedvisualonlyvoiceactivitydetectionapproachusingtemporalorofacialfeat",
+   "title": "An Unsupervised Visual-only Voice Activity Detection Approach Using Temporal Orofacial Features",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Unsupervised Visual-only Voice Activity Detection Approach Using Temporal Orofacial Features | authors=Tao, Han"
+  },
+  {
+   "pid": "isca-tao15_interspeech",
+   "key": "t:anunsupervisedvisualonlyvoiceactivitydetectionapproachusingtemporalorofacialfeat",
+   "title": "An Unsupervised Visual-only Voice Activity Detection Approach Using Temporal Orofacial Features",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/tao15-interspeech | title=An Unsupervised Visual-only Voice Activity Detection Approach Using Temporal Oro"
+  },
+  {
+   "pid": "isca-tao16b-avsad",
+   "key": "t:improvingboundaryestimationinaudiovisualspeechactivitydetectionusingbayesianinfo",
+   "title": "Improving Boundary Estimation in Audiovisual Speech Activity Detection Using Bayesian Information and Dynamic Programming",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improving Boundary Estimation in Audiovisual Speech Activity Detection Using Bayesian Information and Dynamic Prog"
+  },
+  {
+   "pid": "isca-tao16b_interspeech",
+   "key": "t:improvingboundaryestimationinaudiovisualspeechactivitydetectionusingbayesianinfo",
+   "title": "Improving Boundary Estimation in Audiovisual Speech Activity Detection Using Bayesian Information Criterion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improving Boundary Estimation in Audiovisual Speech Activity Detection Using Bayesian Information Criterion | task"
+  },
+  {
+   "pid": "isca-tao17-bimodalvad",
+   "key": "t:bimodalrecurrentneuralnetworkforaudiovisualvoiceactivitydetection",
+   "title": "Bimodal Recurrent Neural Network for Audiovisual Voice Activity Detection",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Bimodal Recurrent Neural Network for Audiovisual Voice Activity Detection | venue=Interspeech 2017 | Study.researc"
+  },
+  {
+   "pid": "isca-tao17_avvad",
+   "key": "t:bimodalrecurrentneuralnetworkforaudiovisualvoiceactivitydetection",
+   "title": "Bimodal Recurrent Neural Network for Audiovisual Voice Activity Detection",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-tao17_avvad | title=Bimodal Recurrent Neural Network for Audiovisual Voice Activity Detection | authors=Fe"
+  },
+  {
+   "pid": "isca-tao17_interspeech",
+   "key": "p:isca-tao17_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2017 | task_family=speech_activity_detection | vocabulary_regime=not_a_word_task | scope_limits=subjec"
+  },
+  {
+   "pid": "isca-tao18-advlstm",
+   "key": "t:audiovisualspeechactivitydetectionwithadvancedlongshorttermmemory",
+   "title": "Audiovisual Speech Activity Detection with Advanced Long Short-Term Memory",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audiovisual Speech Activity Detection with Advanced Long Short-Term Memory | venue=Interspeech 2018 | Study.resear"
+  },
+  {
+   "pid": "isca-tao18_avsad",
+   "key": "t:audiovisualspeechactivitydetectionwithadvancedlongshorttermmemory",
+   "title": "Audiovisual Speech Activity Detection with Advanced Long Short-Term Memory",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-tao18_avsad | title=Audiovisual Speech Activity Detection with Advanced Long Short-Term Memory | authors=F"
+  },
+  {
+   "pid": "isca-tao18_interspeech",
+   "key": "t:audiovisualspeechactivitydetectionwithadvancedlongshorttermmemory",
+   "title": "Audiovisual Speech Activity Detection with Advanced Long Short-Term Memory",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audiovisual Speech Activity Detection with Advanced Long Short-Term Memory | task_family=speech_activity_detection"
+  },
+  {
+   "pid": "isca-toledano07_interspeech",
+   "key": "t:improvedlanguagerecognitionusingbetterphoneticdecodersandfusionwithmfccandsdcfea",
+   "title": "Improved Language Recognition Using Better Phonetic Decoders and Fusion with MFCC and SDC Features",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improved Language Recognition Using Better Phonetic Decoders and Fusion with MFCC and SDC Features | language=engl"
+  },
+  {
+   "pid": "isca-yoshida10-twolayer",
+   "key": "t:twolayeredaudiovisualintegrationinvoiceactivitydetectionandautomaticspeechrecogn",
+   "title": "Two-Layered Audio-Visual Integration in Voice Activity Detection and Automatic Speech Recognition",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Two-Layered Audio-Visual Integration in Voice Activity Detection and Automatic Speech Recognition | authors=Yoshid"
+  },
+  {
+   "pid": "isca-yoshida10_avsp",
+   "key": "p:isca-yoshida10_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=isolated_word_recognition | scope_limits=isolated words; robot-listening context with ego-noise, moving sour"
+  },
+  {
+   "pid": "isca-zhou21-cmts",
+   "key": "t:audiovisualinformationfusionusingcrossmodalteacherstudentlearningforvoiceactivit",
+   "title": "Audio-Visual Information Fusion Using Cross-modal Teacher-Student Learning for Voice Activity Detection",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Information Fusion Using Cross-modal Teacher-Student Learning for Voice Activity Detection | authors="
+  },
+  {
+   "pid": "isca-zhou21_interspeech",
+   "key": "p:isca-zhou21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2021 | task_family=speech_activity_detection | vocabulary_regime=not_a_word_task | scope_limits=in-hou"
+  },
+  {
+   "pid": "isca-zuazo26-megconf",
+   "key": "t:megconformerconformerbasedmegdecoderforrobustspeechandphonemeclassification",
+   "title": "MEGConformer: Conformer-Based MEG Decoder for Robust Speech and Phoneme Classification",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MEGConformer: Conformer-Based MEG Decoder for Robust Speech and Phoneme Classification | authors=de Zuazo Xabier,"
+  },
+  {
+   "pid": "oa-W2975100131",
+   "key": "t:towardanimaginedspeechbasedbraincomputerinterfaceusingeegsignals",
+   "title": "Toward an Imagined Speech-Based Brain Computer Interface Using EEG Signals",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W2975100131 | doi=oa:W2975100131 | title=Toward an Imagined Speech-Based Brain Computer Interface Using EEG"
+  },
+  {
+   "pid": "pmc-10510111-berezutskaya",
+   "key": "t:directspeechreconstructionfromsensorimotorbrainactivitywithoptimizeddeeplearning",
+   "title": "Direct speech reconstruction from sensorimotor brain activity with optimized deep learning models",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10510111-berezutskaya | title=Direct speech reconstruction from sensorimotor brain activity with optimized"
+  },
+  {
+   "pid": "pmc-11053081-als-ecog-synth",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterfaceinanindivid",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11053081-als-ecog-synth | title=Online speech synthesis using a chronically implanted brain-computer interf"
+  },
+  {
+   "pid": "pmc-11226700-imagineddetect",
+   "key": "t:imaginedspeecheventdetectionfromelectrocorticographyanditstransferbetweenspeechm",
+   "title": "Imagined speech event detection from electrocorticography and its transfer between speech modes and subjects",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11226700-imagineddetect | title=Imagined speech event detection from electrocorticography and its transfer"
+  },
+  {
+   "pid": "pmc-11351572-iad-dtw",
+   "key": "t:iterativealignmentdiscoveryofspeechassociatedneuralactivity",
+   "title": "Iterative alignment discovery of speech-associated neural activity",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11351572-iad-dtw | title=Iterative alignment discovery of speech-associated neural activity | authors=R. Ra"
+  },
+  {
+   "pid": "pmc-11451764-angrick",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: A pilot study with an ALS participant",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11451764-angrick | title=Real-time detection of spoken speech from unlabeled ECoG signals: A pilot study wi"
+  },
+  {
+   "pid": "pmc-11904493-tonal-b2t",
+   "key": "t:protocoltoperformofflineecogbraintotextdecodingfornaturaltonalsentences",
+   "title": "Protocol to perform offline ECoG brain-to-text decoding for natural tonal sentences",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11904493-tonal-b2t | title=Protocol to perform offline ECoG brain-to-text decoding for natural tonal senten"
+  },
+  {
+   "pid": "pmc-12106081-whisperecog",
+   "key": "t:aunifiedacoustictospeechtolanguageembeddingspacecapturestheneuralbasisofnaturall",
+   "title": "A unified acoustic-to-speech-to-language embedding space captures the neural basis of natural language processing in everyday conversations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12106081-whisperecog | title=A unified acoustic-to-speech-to-language embedding space captures the neural b"
+  },
+  {
+   "pid": "pmc-12337102-sharedpercept",
+   "key": "t:implicationsofsharedmotorandperceptualactivationsonthesensorimotorcortexforneuro",
+   "title": "Implications of shared motor and perceptual activations on the sensorimotor cortex for neuroprosthetic decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12337102-sharedpercept | title=Implications of shared motor and perceptual activations on the sensorimotor"
+  },
+  {
+   "pid": "pmc-12498269-alsvad",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12498269-alsvad | title=Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study wit"
+  },
+  {
+   "pid": "pmc-12498269-ecogvad",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12498269-ecogvad | title=Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study wi"
+  },
+  {
+   "pid": "pmc-12498269-nvad",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant | authors="
+  },
+  {
+   "pid": "pmc-12498269-rtspoken",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignals",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time detection of spoken speech from unlabeled ECoG signals | authors=rt-spoken group | Study.research_object"
+  },
+  {
+   "pid": "pmc-12531074-gaze-noise",
+   "key": "t:adaptionsineyemovementbehaviorduringfacetofacecommunicationinnoise",
+   "title": "Adaptions in eye-movement behavior during face-to-face communication in noise",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12531074-gaze-noise | title=Adaptions in eye-movement behavior during face-to-face communication in noise |"
+  },
+  {
+   "pid": "pmc-13236962-cbci-als-coa",
+   "key": "t:clinicalevaluationofcommunicationbraincomputerinterfacesinamyotrophiclateralscle",
+   "title": "Clinical evaluation of communication brain computer interfaces in amyotrophic lateral sclerosis: a landscape analysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13236962-cbci-als-coa | title=Clinical evaluation of communication brain computer interfaces in amyotrophic"
+  },
+  {
+   "pid": "pmc-13635214-ecog-tonal",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language | authors=Haobo Zhang, Daoha"
+  },
+  {
+   "pid": "pmc-13635214-ecogmand",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13635214-ecogmand | title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Lang"
+  },
+  {
+   "pid": "pmc-13635214-tonalecog",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language | venue=Scientific Data | do"
+  },
+  {
+   "pid": "pmc-13642280-megopt",
+   "key": "t:optimalsensorsetformegbasedspontaneousandintendedspeechdecodingtowardpracticalco",
+   "title": "Optimal sensor set for MEG-based spontaneous and intended speech decoding toward practical communication",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13642280-megopt | title=Optimal sensor set for MEG-based spontaneous and intended speech decoding toward pr"
+  },
+  {
+   "pid": "pmc-3292135-mmwave",
+   "key": "t:anovelradarsensorforthenoncontactdetectionofspeechsignals",
+   "title": "A Novel Radar Sensor for the Non-Contact Detection of Speech Signals",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3292135-mmwave | title=A Novel Radar Sensor for the Non-Contact Detection of Speech Signals | authors=Mingk"
+  },
+  {
+   "pid": "pmc-4005607-speechad",
+   "key": "t:jointspatialspectralfeaturespaceclusteringforspeechactivitydetectionfromecogsign",
+   "title": "Joint Spatial-Spectral Feature Space Clustering for Speech Activity Detection from ECoG Signals",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Joint Spatial-Spectral Feature Space Clustering for Speech Activity Detection from ECoG Signals | authors=Kanas VG"
+  },
+  {
+   "pid": "pmc-5126633-temporalpole",
+   "key": "t:neuraloscillationsinthetemporalpoleforatemporallycongruentaudiovisualspeechdetec",
+   "title": "Neural oscillations in the temporal pole for a temporally congruent audio-visual speech detection task",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural oscillations in the temporal pole for a temporally congruent audio-visual speech detection task | authors=O"
+  },
+  {
+   "pid": "pmc-5134471-iruwb",
+   "key": "t:towardscontactlesssilentspeechrecognitionbasedondetectionofactiveandvisibleartic",
+   "title": "Towards contactless silent speech recognition based on detection of active and visible articulators using IR-UWB radar",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5134471-iruwb | title=Towards contactless silent speech recognition based on detection of active and visibl"
+  },
+  {
+   "pid": "pmc-5704085-spatialvad",
+   "key": "t:decodingspatialattentionwitheegandvirtualacousticspace",
+   "title": "Decoding spatial attention with EEG and virtual acoustic space",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding spatial attention with EEG and virtual acoustic space | authors=spatial-VAD group | Study.research_object"
+  },
+  {
+   "pid": "pmc-7218843-neurovad",
+   "key": "t:neurovadrealtimevoiceactivitydetectionfromnoninvasiveneuromagneticsignals",
+   "title": "NeuroVAD: Real-Time Voice Activity Detection from Non-Invasive Neuromagnetic Signals",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=NeuroVAD: Real-Time Voice Activity Detection from Non-Invasive Neuromagnetic Signals | authors=NeuroVAD group | St"
+  },
+  {
+   "pid": "sut-warren26_thesis",
+   "key": "t:imaginedspeechdetectionwitheeganddeeplearningmodels",
+   "title": "Imagined Speech detection with EEG and Deep Learning Models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=sut-warren26_thesis | title=Imagined Speech detection with EEG and Deep Learning Models | authors=Cliff Warren"
+  },
+  {
+   "pid": "w4210435229-avasync",
+   "key": "t:detectionandrecognitionofasynchronousauditoryvisualspeecheffectsofageandhearingl",
+   "title": "Detection and Recognition of Asynchronous Auditory/Visual Speech: Effects of Age and Hearing Loss",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Detection and Recognition of Asynchronous Auditory/Visual Speech: Effects of Age and Hearing Loss | authors=Sandra"
+  }
+ ],
+ "usual_approach": {
+  "design": "manual_labels",
+  "n": 22,
+  "tier": "pattern match",
+  "pids": [
+   "sut-warren26_thesis",
+   "arxiv-2506.02098",
+   "doi-10.1016-j.xpro.2025.103650",
+   "doi-10.1044-2024-jslhr-24-00046",
+   "pmc-12337102-sharedpercept"
+  ],
+  "population_unique": 119
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-sharma19b_vvad",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "CNN2015 [15] 96.7 - 72 - DCT LSTM 95 89 91.2 92 CNN LSTM 96.5 99 92.2 97"
+  },
+  {
+   "pid": "isca-cornu15_avsp",
+   "role": "prior",
+   "loc": "Tables 1, 3",
+   "quote": "CNN STATIC 59.02 74.07 CNN STACK3 59.02 74.68"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 6,
+  "found": 6,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "isca-sharma19b_vvad",
+  "year": 2019,
+  "metric": "frame-level visual VAD accuracy, GRID, speaker-independent (27/3/2 speakers), CNN + unidirectional LSTM; 96.5% speaker-dependent",
+  "value": 92.2,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "tally": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 119,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "manual_labels",
+   "n": 22,
+   "tier": "pattern match",
+   "population_unique": 119
+  },
+  "state_of_the_art": {
+   "pid": "isca-sharma19b_vvad",
+   "year": 2019,
+   "metric": "frame-level visual VAD accuracy, GRID, speaker-independent (27/3/2 speakers), CNN + unidirectional LSTM; 96.5% speaker-dependent",
+   "value": 92.2,
+   "unit": "%",
+   "timing": "prior"
+  },
+  "read": 2,
+  "read_prior": [
+   "isca-cornu15_avsp"
+  ],
+  "unread": 142,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "audio_derived_union": {
+  "design": "audio-derived labels (forced alignment or acoustic VAD/energy)",
+  "n": 23,
+  "tier": "pattern match",
+  "note": "union of forced_alignment (17) and audio_vad_labels (6), unique studies"
+ },
+ "used_by": [
+  "voice-activity-detection-for-ultrasound-based-silent-speech-interfaces-using-convolutional-neural-networks"
+ ]
+}

@@ -1,91 +1,155 @@
 # Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convolutional Neural Networks
 
-Amin Honarmandi Shandiz, Laszlo Toth  
-arXiv 2021 · [DOI](https://doi.org/10.1007/978-3-030-83527-9_43) · [arXiv](https://arxiv.org/abs/2105.13718)
+Amin Honarmandi Shandiz, László Tóth. arXiv preprint, 2021. [arXiv:2105.13718](https://arxiv.org/abs/2105.13718)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convolutional Neural Networks* (Amin Honarmandi Shandiz and Laszlo Toth, arXiv 2021) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging)
 
-CNN speech-versus-silence detection from ultrasound tongue images on one speaker (TaL1), reaching 85.2% test accuracy; removing silence slightly improves downstream SSI reconstruction (MCD 3.05 vs 3.12).
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Ultrasound tongue imaging |
-| Task | Speech/silence detection for ultrasound SSI |
-| Vocabulary | 2 classes (speech/silence) |
-| Speaker | Speaker-dependent |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | 85.2% test accuracy, F1 0.9, ROC AUC 0.859, single speaker |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Single-speaker data with speech-derived labels; no cross-speaker validation, live test, or robustness to probe shift and new users.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Read speech, TaL1 recordings | Recorded speech sessions | 3,882 of 8,995 | ● Standard (Inherited (TaL corpus).) |
+| M02 Teacher signal | WebRTC VAD on parallel audio | Audio-derived labels (alignment 17, VAD 6) | 23 of 8,995 | ● Standard (Audio-derived labels predate it.) |
+| M03 Train / calibrate | Single speaker; seeds not stated | Training records | 1,526 of 8,995 | ● Standard (No seeds or repeated runs.) |
+| M04 Use-time act | Overt read speech | Silent or overt | 5,595 of 8,995 | ● Standard (Inherited.) |
+| M05 Sensing | Ultrasound tongue images, 82 fps | Sensor recorded | 7,329 of 8,995 | ● Standard (Inherited (TaL1).) |
+| M06 Decoding | Single-frame 2D CNN, no smoothing | Classical SVM/GMM/HMM | 74 of 8,995 | ● Standard (Frame-wise CNN VAD predates it.) |
+| M07 Runtime aids | None | None recorded | 119 of 8,995 | – Not applicable (No lexicon in VAD or synthesis.) |
+| M08 Output | Speech/silence label; mel to WaveGlow | Output types | 3,268 of 8,995 | ● Standard (Inherited.) |
+| M09 Confirmation | Offline | Offline | 82 of 8,995 | – Not applicable (Offline study.) |
+| M10 Correction | Offline | Offline | 82 of 8,995 | – Not applicable (Offline study.) |
+| M11 Eval reference | WebRTC labels as reference | Reference construction | 234 of 8,995 | ✕ Not reported (No hand-checked frames.) |
+| M12 Evaluation | One speaker, file split | Held-out speakers | 46 of 8,995 | ▼ Behind (Four checked prior held-out-speaker studies.) |
+| M13 Hardware & limits | Energy saving claimed, not measured | Device constraints | 6,075 of 8,995 | ✕ Not reported (No latency or energy measured.) |
 
-Preprocessing paper, narrow but legitimate.
+</details>
 
-### Review
+## Verdict
 
-The paper does not solve ultrasound SSI, but it does close a real preprocessing gap. The classifier reaches 85.2% test accuracy with 0.859 ROC AUC on the ultrasound speech/silence task, and the downstream experiment shows that keeping long silence can worsen MCD. The scope remains narrow because everything is single-speaker TaL1 and the gains are incremental rather than transformative.
+The paper [[1]](#ref-1) changes two components: a single-frame 2D CNN labelling ultrasound tongue frames as speech or silence (M06), trained on acoustic-VAD labels from the parallel audio (M02). Both are standard: a single-frame CNN VAD on lip images with audio-derived labels dates from 2015 [[2]](#ref-2), and an ultrasound tongue-activity speech detector from 2019 [[3]](#ref-3); the paper discusses only acoustic VAD (Sec. 3). The evaluation (M12) is behind the best comparable work: four checked earlier non-acoustic VAD studies (of 46 pattern matches, Appendix) tested held-out speakers, the best reaching 92.2% on unseen GRID speakers with lip video [[4]](#ref-4); this paper tests one speaker on a file split, holding out no TaL1 session. Accuracy 0.852 is about 11 points above always answering "speech", and 43% of silence frames are kept (inference, Table 6). The claim that ultrasound VAD "performed similarly" to speech VAD (Sec. 5.4) rests on MCD changes of 0.01 to 0.05 and MSE changes of mixed sign, with no repeated runs or test.
 
-### Why it matters
+## Against the field, component by component
 
-The result is modest but real: ultrasound-based speech-versus-silence detection works reasonably well on one speaker, and silence trimming slightly helps downstream SSI reconstruction.
+### M06 Processing: speech activity detection from a non-acoustic signal
 
-### Prior state of the art
+**Usual approach:** Among 119 unique non-acoustic VAD studies (pattern match, upper bound, Appendix), the full text names classical SVM, GMM or HMM classifiers (74), temporal smoothing (42), CNNs (37) and recurrent networks (36). The paper uses a CNN on one frame with no temporal context or smoothing (Sec. 4.2).
 
-Ultrasound SSI systems usually assumed speech frames or used speech-side VAD labels without testing ultrasound-only VAD itself.
+**State of the art:** In 2019, a CNN and unidirectional LSTM reached 92.2% frame-level accuracy on held-out GRID speakers (column SiA; 96.5% under SdA) [[4]](#ref-4).
 
-### What changed
+The design predates the paper: a single-frame CNN on mouth pixels gave 96.99% speaker-dependent VAD accuracy [[2]](#ref-2); a CNN detected mouth state from reflected ultrasonic chirps as a VAD [[5]](#ref-5); and ultrasound echo variance was thresholded as "estimated tongue activity" to find child speech [[3]](#ref-3). Only the tongue-image input is new. Verdict: standard.
 
-Adds an explicit ultrasound VAD stage and checks how silence removal affects articulatory-to-acoustic synthesis metrics.
+### M02 Training-only supervision: labels from the synchronized audio
 
-### Position in the field
+**Usual approach:** In the same population, audio-derived labels appear in 23 studies (forced alignment 17, acoustic VAD or energy 6) and manual annotation in 22 (pattern match, Appendix). The paper uses the coarser VAD form (WebRTC, Sec. 5.3).
 
-Core ultrasound SSI preprocessing paper.
+**State of the art:** Labels from GRID alignment files (2019) [[4]](#ref-4), as in [[2]](#ref-2).
 
-### Practical value
+Verdict: standard, since audio-derived labels are the common route. With no hand-checked frames and the VAD mode unstated (Sec. 5.1), 0.852 measures agreement with WebRTC, not with speech.
 
-Useful if an ultrasound SSI pipeline needs a simple front-end to drop silence before synthesis.
+### M12 Evaluation: protocol for the detector
 
-### Advanced
+**Usual approach:** Of the 119 studies, 46 mention a held-out-speaker or leave-one-subject-out test, 30 a single speaker and 13 a held-out session (pattern match, Appendix).
 
-preprocessing; evaluation
+**State of the art:** Held-out speakers: 27 training, 3 validation, 2 test (2019) [[4]](#ref-4).
 
-### Unresolved
+All results come from one TaL1 speaker on a file split (train 1015, validation 50, test 24; Sec. 4.1), although TaL1 has six sessions and its corpus paper [concurrent] benchmarks by leaving one out [[6]](#ref-6). The cost is known: the single-frame CNN fell from 96.99% to 74.07% on held-out speakers [[2]](#ref-2), a 24% relative drop (inference), and an unadapted ultrasound synthesis model on a new session scored MUSHRA naturalness 1.19 on a 0 to 100 scale [[7]](#ref-7). The comparators are lip-video studies on other corpora; the like-for-like gap is the session split TaL1 allowed. Verdict: behind the best comparable work [[4]](#ref-4).
 
-cross-speaker robustness; real-time deployment; broader corpora
+### M12 Evaluation: synthesis output (incidental)
 
-### Evaluation details
+**Usual approach:** MCD, the default in ultrasound-to-speech work (21 of 51 studies, pattern match, Appendix), as here.
 
-| Item | Details |
-| --- | --- |
-| Task | speech/silence detection for ultrasound-based SSI |
-| Input | ultrasound tongue images |
-| Sensor | ultrasound imaging system |
-| Body site | tongue |
-| Output | speech/silence labels |
-| Vocabulary size | 2 classes |
-| Metrics and results | Ultrasound VAD reaches 85.2% test accuracy, F1 0.9, and ROC AUC 0.859; with Conv3D+BiLSTM SSI, removing silence yields test MCD 3.05 versus 3.12 when keeping 180 ms silence |
-| Evaluation protocol | single-speaker TaL1 classification accuracy/AUC plus SSI reconstruction with and without silence removal |
+**State of the art:** A [later] 2026 system reports ASR WER of 31.64% on synthesized TaL80 speech [[8]](#ref-8).
 
-### Limits
+Retained silence raises MCD (Table 3), yet every ultrasound-VAD MCD in Table 7 is 0.01 to 0.05 below Table 4 (3.05 against 3.08 for Conv3D+BiLSTM), with no seeds or test; whether both test sets were trimmed alike is open.
 
-- **Technical:** Single-speaker data and speech-derived labels limit the result.
-- **Evaluation:** No cross-speaker validation or live interactive test is provided.
-- **Deployment:** Practical robustness to probe shift, silence styles, and new users is unknown.
-- **Scope of this review:** Speech-silence preprocessing for one ultrasound SSI setup.
+## The 13 components
 
-### Evidence
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Read speech, TaL1 recordings | Recorded speech sessions (slot-filled 3,882) | – | standard |
+| M02 Training-only supervision | WebRTC VAD on parallel audio | Audio-derived labels (alignment 17, VAD 6) (pattern match 23) | [[4]](#ref-4) (2019): alignment labels | standard |
+| M03 Training and adaptation | Single speaker; seeds not stated | Training records (slot-filled 1,526) | – | standard |
+| M04 Use-time action | Overt read speech | Silent or overt (slot-filled 5,595) | – | standard |
+| M05 Sensors | Ultrasound tongue images, 82 fps | Sensor recorded (slot-filled 7,329) | – | standard |
+| M06 Processing and decoding | Single-frame 2D CNN, no smoothing | Classical SVM/GMM/HMM (pattern match 74) | [[4]](#ref-4) (2019): 92.2% frame accuracy, unseen speakers | standard |
+| M07 Lexicon and LM | None | None recorded (slot-filled 119) | – | not applicable |
+| M08 Output | Speech/silence label; mel to WaveGlow | Output types (slot-filled 3,268) | – | standard |
+| M09 Confirmation | Offline | Offline (slot-filled 82) | – | not applicable |
+| M10 Correction | Offline | Offline (slot-filled 82) | – | not applicable |
+| M11 Reference construction | WebRTC labels as reference | Reference construction (slot-filled 234) | – | not reported |
+| M12 Evaluation | One speaker, file split | Held-out speakers (pattern match 46) | [[4]](#ref-4) (2019): 92.2% SiA frame accuracy, 27/3/2 speakers | behind |
+| M13 Device and cost | Energy saving claimed, not measured | Device constraints (slot-filled 6,075) | – | not reported |
 
-- The paper first shows silence handling affects SSI quality, then trains a CNN to separate speech and silent ultrasound tongue images. (Abstract)
-- The ultrasound speech-silence classifier reaches 0.852 test accuracy, 0.9 F1, and 0.859 ROC AUC. (Table 5.)
-- With ultrasound-based VAD and the Conv3D+BiLSTM SSI model, removing silence gives test MCD 3.05 versus 3.12 when keeping 180 ms silence. (Table 7. Training the SSI system with removing or retaining silence from the data)
+## Where the claims outrun the evidence
+
+- No majority baseline: speech is 8514 of 11453 test frames (Table 6), so always answering "speech" scores 74.3% (inference); kappa 0.57 (Table 5) is the honest figure.
+- Weak silence class: 1268 of 2939 test silence frames are labelled speech (Table 6): specificity 57% (inference).
+- Mixed MSE: with 180 ms kept, ultrasound VAD lowers MSE (test) from 0.29 to 0.26 but raises MSE (dev) from 0.259 to 0.35 (Conv3D+BiLSTM, Tables 4 and 7), so "slightly better MSE" (Sec. 5.4) is one column.
+- The output is described as the probability of silence (Sec. 4.2), but recall 0.95 equals 8096/8514, so speech is the positive class (inference, Tables 5 and 6).
+
+## What the field needs next
+
+- M12: held-out-session tests on TaL1 and held-out-speaker tests on TaL80, with a majority baseline and specificity, as in [[4]](#ref-4).
+- M06: a temporal detector (LSTM or smoothing) against the single-frame CNN on the same split.
+- M13: measured latency and energy on a wearable (motivation, Sec. 2).
+
+## Questions for the authors
+
+- Which WebRTC VAD version and aggressiveness mode produced the labels?
+- Were the train, validation and test files separated by recording session?
+- Which threshold produced Tables 5 and 6, and which class is "Positive"?
+- In Table 7, was the test set trimmed by the ultrasound VAD or by the speech VAD before MCD was computed?
+
+## Appendix: literature search
+
+- M06, non-acoustic-speech-activity-detection. Inclusion rule: studies detecting speech against non-speech (including voicing, mouth state and endpoints) from lip video, ultrasound, ultrasonic Doppler, radar, EMG, EMA, EEG, MEG or ECoG; audio-visual systems count when a non-acoustic branch is evaluated. Ledger counts: slot-filled 7345; pattern match 119 unique studies (upper bound: papers using an acoustic VAD only for preprocessing also match). Usual design (full-text pattern match): classical SVM, GMM or HMM 74; temporal smoothing 42; CNN 37; recurrent network 36. Read in full: [[2]](#ref-2), [[5]](#ref-5), [[3]](#ref-3), [[4]](#ref-4). Known-item recall: 1.0 (7 seeds).
+- M02, audio-derived-speech-activity-labels. Inclusion rule: same population; source of the training labels. Ledger counts: slot-filled 31 (sparse slot); pattern match 119 unique studies. Usual design (full-text pattern match): audio-derived 23 (forced alignment 17; acoustic VAD or energy 6); manual annotation 22. Read in full: [[2]](#ref-2), [[4]](#ref-4). Known-item recall: 1.0 (6 seeds).
+- M12, non-acoustic-speech-activity-evaluation-protocol. Inclusion rule: same population; held-out speakers, held-out sessions or a single speaker. Ledger counts: slot-filled 6960; pattern match 119 unique studies. Usual design (full-text pattern match): held-out speakers 46; single speaker 30; held-out sessions 13. Prior non-acoustic VAD studies with a held-out-speaker test, snippets checked: 4 (2013 to 2019). Read in full: [[4]](#ref-4), [[2]](#ref-2), [[5]](#ref-5), [[6]](#ref-6), [[7]](#ref-7).
+- M12, ultrasound-to-speech-output-evaluation (published topic table, appended). Inclusion rule: studies synthesizing speech or acoustic features from ultrasound tongue images and evaluating the output. Ledger counts: slot-filled 6960; pattern match 51 unique studies. Usual design: MCD 21, MUSHRA 14 (pattern match). State of the art read in full: [[8]](#ref-8). Known-item recall: 0.57.
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Shandiz, A. H., Tóth, L. “Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convolutional Neural Networks.” *arXiv preprint*, 2021. doi:[10.48550/arXiv.2105.13718](https://doi.org/10.48550/arXiv.2105.13718). arXiv:[2105.13718](https://arxiv.org/abs/2105.13718). Target. Read as arXiv v3. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/voice-activity-detection-for-ultrasound-based-silent-speech-interfaces-using-convolutional-neural-networks) [wiki: arxiv-2105.13718](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2105.13718/article.md)
+2. <a id="ref-2"></a>Le Cornu, T., Milner, B. “Voicing classification of visual speech using convolutional neural networks.” *Proc. FAAVSP 2015*, 2015. <https://www.isca-archive.org/avsp_2015/cornu15_avsp.html> Prior; deciding prior for M06, M02 and M12. [wiki: isca-cornu15_avsp](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-cornu15_avsp/article.md)
+3. <a id="ref-3"></a>Ribeiro, M. S., Eshky, A., Richmond, K., Renals, S. “Ultrasound Tongue Imaging for Diarization and Alignment of Child Speech Therapy Sessions.” *Proc. Interspeech 2019*, 2019. doi:[10.21437/Interspeech.2019-2612](https://doi.org/10.21437/Interspeech.2019-2612). Prior; deciding prior for M06 (ultrasound tongue activity). [wiki: isca-ribeiro19_usdiarize](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-ribeiro19_usdiarize/article.md)
+4. <a id="ref-4"></a>Sharma, T., Aralikatti, R., Margam, D. K., Thanda, A., Roy, S., Pujitha A. K., et al. “Real Time Online Visual End Point Detection Using Unidirectional LSTM.” *Proc. Interspeech 2019*, 2019. doi:[10.21437/Interspeech.2019-3253](https://doi.org/10.21437/Interspeech.2019-3253). Prior; state of the art for M06/M12 (speaker-independent visual VAD). [wiki: isca-sharma19b_vvad](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-sharma19b_vvad/article.md)
+5. <a id="ref-5"></a>McLoughlin, I., Song, Y. “Low Frequency Ultrasonic Voice Activity Detection using Convolutional Neural Networks.” *Proc. Interspeech 2015*, 2015. doi:[10.21437/Interspeech.2015-327](https://doi.org/10.21437/Interspeech.2015-327). Prior; CNN VAD from a non-acoustic (ultrasonic) signal. [wiki: isca-mcloughlin15_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-mcloughlin15_interspeech/article.md)
+6. <a id="ref-6"></a>Ribeiro, M. S., Sanger, J., Zhang, J., Eshky, A., Wrench, A., Richmond, K., et al. “TaL: A Synchronised Multi-Speaker Corpus of Ultrasound Tongue Imaging, Audio, and Lip Videos.” *Proc. IEEE Spoken Language Technology Workshop (SLT 2021)*, 2021. doi:[10.1109/SLT48900.2021.9383619](https://doi.org/10.1109/SLT48900.2021.9383619). arXiv:[2011.09804](https://arxiv.org/abs/2011.09804). Prior; corpus and session-held-out benchmark. [concurrent] [wiki: arxiv-2011.09804](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2011.09804/article.md) [wiki: doi-10.1109-slt48900.2021.9383619](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-slt48900.2021.9383619/article.md)
+7. <a id="ref-7"></a>Gosztolya, G., Grósz, T., Tóth, L., Markó, A., Csapó, T. G. “Applying DNN Adaptation to Reduce the Session Dependency of Ultrasound Tongue Imaging-based Silent Speech Interfaces.” *Acta Polytechnica Hungarica*, 2020, 17(7), 109–124. doi:[10.12700/aph.17.7.2020.7.6](https://doi.org/10.12700/aph.17.7.2020.7.6). Prior; cross-session dependency of ultrasound SSI. [wiki: doi-10.12700-aph.17.7.2020.7.6](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.12700-aph.17.7.2020.7.6/article.md)
+8. <a id="ref-8"></a>Sonkar, Y., Kilaru, Y., Yelimeli, S., Shah, N., Gandhi, V. “Tongue2Speech: Real-Time Speech Synthesis from Tongue Ultrasound Videos via Spatiotemporal Transformers.” *Proc. Interspeech 2026*, 2026, 6856–6860. doi:[10.21437/Interspeech.2026-3023](https://doi.org/10.21437/Interspeech.2026-3023). State of the art for ultrasound-to-speech output evaluation. [later] [wiki: isca-sonkar26_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-sonkar26_interspeech/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`process/log.json`](process/log.json): process record: each step, who did it (reader, script, writer, evaluator), when, the checks run and the input versions
+- [`process/notes.json`](process/notes.json): reading notes on the target and comparator papers: claims, numbers, conditions and what is not stated, with locations
+- [`process/plan.json`](process/plan.json): plan: which components the paper changes and the topics it is compared on
+- [`process/draft.md`](process/draft.md): the review as first written, before the independent evaluation
+- [`process/claims-draft.md`](process/claims-draft.md): claim table of the draft: every claim mapped to a note or a count
+- [`process/claims.md`](process/claims.md): claim table of the published review
+- [`components/M02/audio-derived-speech-activity-labels.csv`](../../components/M02/audio-derived-speech-activity-labels.csv): M02 topic "audio-derived-speech-activity-labels", every candidate paper with its decision (31 slot-filled, 119 pattern match, usual design in 22, 2 read in full)
+- [`components/M06/non-acoustic-speech-activity-detection.csv`](../../components/M06/non-acoustic-speech-activity-detection.csv): M06 topic "non-acoustic-speech-activity-detection", every candidate paper with its decision (7345 slot-filled, 119 pattern match, usual design in 74, 4 read in full)
+- [`components/M12/non-acoustic-speech-activity-evaluation-protocol.csv`](../../components/M12/non-acoustic-speech-activity-evaluation-protocol.csv): M12 topic "non-acoustic-speech-activity-evaluation-protocol", every candidate paper with its decision (6960 slot-filled, 119 pattern match, usual design in 46, 5 read in full)
+- [`components/M12/ultrasound-to-speech-output-evaluation.csv`](../../components/M12/ultrasound-to-speech-output-evaluation.csv): M12 topic "ultrasound-to-speech-output-evaluation", every candidate paper with its decision (6960 slot-filled, 51 pattern match, usual design in 21, 3 read in full)
+
 
 ## More reviews in Ultrasound & tongue imaging
 
