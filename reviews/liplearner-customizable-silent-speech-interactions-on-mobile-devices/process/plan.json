@@ -1,0 +1,86 @@
+{
+ "target": "arxiv-2302-05907-liplearner",
+ "changed": [
+  "M01",
+  "M03",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M02": "LRW word labels (500 classes) decide contrastive positives; encoder initialised from Feng et al. LRW weights (word classification lineage)",
+  "M04": "Silent mouthing of commands on a hand-held phone; voiced utterances only at Voice2Lip enrollment",
+  "M05": "Single front phone camera, MediaPipe mouth ROI, grayscale",
+  "M07": "Closed set of user-enrolled command labels; no language model or lexicon at use time",
+  "M08": "Command class triggering an iOS Shortcut",
+  "M09": "Active-learning confirm/reject prompt (button), offered while shots are few",
+  "M10": "User picks the correct label; corrected sample is added (on-demand learning)",
+  "M11": "Prompted command labels; 25-command in-the-wild set from 11 speakers",
+  "M13": "iPhone 13 Pro, local inference about 422 ms per 30-frame window, classifier update about 2.2 s"
+ },
+ "topics": [
+  {
+   "slot": "M03",
+   "topic": "overt-silent-joint-training",
+   "for_slot": "M01",
+   "reuse": "components/M03/overt-silent-joint-training.json",
+   "inclusion_rule": "Reused published table (see audit).",
+   "metric": "silent-test accuracy or WER when overt recordings enter training"
+  },
+  {
+   "slot": "M03",
+   "topic": "few-shot-user-vocabulary-enrollment",
+   "inclusion_rule": "see audit",
+   "pattern": "few-shot | one-shot | N-shot | user-defined vocabulary | vocabulary registration | personalized lip",
+   "design_regex": [
+    "frozen encoder + linear or logistic classifier",
+    "metric or prototype matching",
+    "fine-tuning network weights on the user",
+    "user-dependent training from scratch"
+   ],
+   "metric": "accuracy or F1 at N shots, higher is better"
+  },
+  {
+   "slot": "M06",
+   "topic": "visual-keyword-spotting",
+   "inclusion_rule": "see audit",
+   "pattern": "camera modality AND keyword spotting / wake word / hotword",
+   "design_regex": [
+    "fixed wake word",
+    "text or phoneme query",
+    "enrolled example query",
+    "audio-visual fusion",
+    "visual-only"
+   ],
+   "metric": "EER or mAP, keyword spotting"
+  },
+  {
+   "slot": "M06",
+   "topic": "silent-command-activation",
+   "inclusion_rule": "see audit",
+   "pattern": "silent speech / lip reading / mouthed AND command / interaction / interface",
+   "design_regex": [
+    "explicit manual trigger",
+    "mouth or speech activity detector",
+    "gaze or gesture trigger",
+    "keyword spotting or wake word"
+   ],
+   "metric": "false positive rate, EER"
+  },
+  {
+   "slot": "M12",
+   "topic": "lip-command-recognition-test-split",
+   "inclusion_rule": "see audit",
+   "pattern": "camera modality AND lip reading / silent speech AND command / isolated word / closed lexicon",
+   "design_regex": [
+    "speaker-disjoint test",
+    "within-speaker test",
+    "session- or condition-disjoint test",
+    "chance level reported"
+   ],
+   "metric": "accuracy or F1"
+  }
+ ],
+ "prep_use": "prep/plan.draft.json corrected: M01 reclassified as Voice2Lip enrollment (training-time action), contrastive pretraining folded into M03, M02 inherited; prep audits M01/M02 (key=value design regexes, overbroad patterns, no design counts) and the M06 lookahead pattern rebuilt; M03 published table articulatory-speech-model-speaker-session-adaptation not used (adaptation population of ultrasound/EMG speaker adaptation, not vocabulary enrollment)."
+}

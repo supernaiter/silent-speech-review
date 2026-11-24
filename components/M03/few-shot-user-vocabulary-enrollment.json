@@ -1,0 +1,666 @@
+{
+ "topic": "few-shot-user-vocabulary-enrollment",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(few[- ]shot|one[- ]shot|\\b\\d[- ]shot|user[- ]defined (command|vocabular|word|gesture|keyword)|customi[sz]\\w* (command|vocabular|keyword)|vocabulary registration|personali[sz]ed (lip|command|vocabular))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Silent-speech, lip-reading and other non-acoustic speech or command decoders (any signal) whose ledger names few-shot, one-shot or N-shot learning, user-defined or customized vocabularies, vocabulary registration or personalized lip models; the design compared is how a user's new examples enter the model: a frozen pretrained encoder with a linear or logistic classifier, metric or prototype matching (Siamese, prototypical, triplet, nearest neighbour), fine-tuning network weights on the user, or user-dependent training from scratch. Boundary: a study counts under every design its full text (reference list removed) names, so counts are upper bounds; zero-shot speaker conditioning for synthesis, pruning 'one-shot' and BCI competitions are pattern hits that do not register a vocabulary; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 38,
+  "string_match_unique": 30,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "TrainingRun.training_hardware=unreported",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2306.06410",
+     "arxiv-2307.04552",
+     "arxiv-2401.03468"
+    ]
+   },
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.08059",
+     "arxiv-2305.14359"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2608.17983",
+     "arxiv-2510.08059"
+    ]
+   },
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.64898-2026.07.23.739430",
+     "pmc-12526642-emg-eeg-ssi"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=cochleanet-style avse prior work reused; phy sim in labview nxg3 on i7-9700+64gb",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2210.13127"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective={'head': 'few-shot logistic regression on frozen embeddings, incremental'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.05907"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective={'loss': 'contrastive infonce-style same-word attract on lrw'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.05907"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=python 3.8.13",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2311.15683"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=pytorch 2.0.1",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2311.15683"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_hardware=apple mps acceleration",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2311.15683"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "metric or prototype matching",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.21203-rs.3.rs-10426456",
+     "arxiv-2512.16518",
+     "doi-10.3390-s25082624",
+     "doi-10.3390-s25196168",
+     "pmc-11244127-eeg-emg-mouth"
+    ]
+   },
+   {
+    "design": "user-dependent training from scratch",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.21203-rs.3.rs-10426644-v1",
+     "doi-10.64898-2026.07.23.739430",
+     "arxiv-2510.08059",
+     "arxiv-2512.16518",
+     "arxiv-2302-05907-liplearner"
+    ]
+   },
+   {
+    "design": "fine-tuning network weights on the user",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.18299-align",
+     "doi-10.21203-rs.3.rs-10426456",
+     "arxiv-2311.15683"
+    ]
+   },
+   {
+    "design": "frozen encoder + linear or logistic classifier",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2302-05907-liplearner"
+    ]
+   }
+  ],
+  "metric_pattern": "accuracy|F1",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "5-shot accuracy",
+   "value": 98.75,
+   "unit": "%",
+   "raw": "98.75",
+   "pid": "arxiv-2302.05907",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy",
+   "value": 96.0,
+   "unit": null,
+   "raw": "all-weather scenario tests: greeting 8 words 95%; exercise 5 location words >=96% rest/walk/jog and 86% running (avg 96%); repast 5 food words >=96% (total 98% ",
+   "pid": "doi-10.1038-s41528-021-00119-7",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "95.63",
+   "value": 95.63,
+   "unit": "% accuracy",
+   "raw": "SNN fused EMG+PZT",
+   "pid": "pmc-12031478-emg-pzt-siltext",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Best imagined-speech decoding classification accuracy in competition: 82.6%",
+   "value": 82.6,
+   "unit": "percent_accuracy",
+   "raw": "a classification accuracy of 82.6% represented the best performance",
+   "pid": "doi-10.3389-fnhum.2022.898300",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BCI IV-2a LOSO/transfer",
+   "value": 45.14,
+   "unit": "accuracy_pct",
+   "raw": "EEGNeX+SuLoRA zero-shot LOSO S9 45.14±2.04 vs baseline 44.21±2.64",
+   "pid": "arxiv-2510.08059",
+   "year": 2025,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2008.12487",
+   "key": "t:classificationofimaginedspeechusingsiameseneuralnetwork",
+   "title": "Classification of Imagined Speech Using Siamese Neural Network",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "le combinations augment small data | technical_essence=end-to-end Siamese CNN encoder trained on pair contrastive loss (one-shot heritage, small-data tolerant) | technical_essence=test trial embedded -> class = 5 nearest training instances | extra."
+  },
+  {
+   "pid": "arxiv-2010.06363",
+   "key": "t:threedimensionallipmotionnetworkfortextindependentspeakerrecognition",
+   "title": "Three-Dimensional Lip Motion Network for Text-Independent Speaker Recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "protocols; baselines LSTM/VGG-16/ResNet-34; prior 2D-image and 3D-face SOTA compared | InteractionProtocol.turn_taking=one-shot sentence utterance -> verify identity | claim=3LMNet+RFM+prior beats LSTM/VGG-16/ResNet-34 baselines and 2D-image/3D-fa"
+  },
+  {
+   "pid": "arxiv-2111.01740",
+   "key": "t:personalizedoneshotlipreadingforanalspatient",
+   "title": "Personalized One-Shot Lipreading for an ALS Patient",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2111.01740 | title=Personalized One-Shot Lipreading for an ALS Patient | Study.research_objective=one-shot word lipreading personalized to ALS patient + 4 speak"
+  },
+  {
+   "pid": "arxiv-2210.13127",
+   "key": "t:anovelframestructureforcloudbasedaudiovisualspeechenhancementinmultimodalhearing",
+   "title": "A Novel Frame Structure for Cloud-Based Audio-Visual Speech Enhancement in Multimodal Hearing-aids",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "+64GB | EvaluationProtocol.statistical_plan={'metrics': 'per-block latency (us/ms) + bit layouts', 'test': 'LabVIEW sim one-shot vs per-frame'} | Claim.claim_scope=proposed frame meets high-data-rate + low-latency for cloud AVSE hearing aids; encry"
+  },
+  {
+   "pid": "arxiv-2212.02047",
+   "key": "t:towardsneuraldecodingofimaginedspeechbasedonspokenspeech",
+   "title": "Towards Neural Decoding of Imagined Speech based on Spoken Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ross-condition transfer decoding: imagined-speech trained alone 30.5%; spoken-EEG-transferred classifier reaches 26.8% (few-shot spoken 28.0%); analogous visual-imagery transfer 31.8%→26.3%. Same words/phrases across paradigms enables transfer. | t"
+  },
+  {
+   "pid": "arxiv-2302-05907-liplearner",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "search_objective=LipLearner mobile silent-speech command interface: 30 commands (20 user-dependent) recognized at 81.7% one-shot, 98.8% five-shot; 25-command in-the-wild F1 0.8947; on-device phone camera only | Study.study_design=controlled_experim"
+  },
+  {
+   "pid": "arxiv-2302.05907",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| Study.research_objective=On-device customizable silent-speech interface: contrastive pre-trained lip encoder (LRW) + few-shot logistic head for arbitrary user commands; Voice2Lip voice-assisted registration; similarity KWS wake-up; incremental o"
+  },
+  {
+   "pid": "arxiv-2305.14359",
+   "key": "t:zeroshotpersonalizedliptospeechsynthesiswithfaceimagebasedvoicecontrol",
+   "title": "Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2305.14359 | title=Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control | authors=Zheng-Yan Sheng, Yang Ai, Zhen-Hua Ling | venue=ICASS"
+  },
+  {
+   "pid": "arxiv-2306.06410",
+   "key": "t:opensropenmodalityspeechrecognitionviamaintainingmultimodalityalignment",
+   "title": "OpenSR: Open-Modality Speech Recognition via Maintaining Multi-Modality Alignment",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "taining Multi-Modality Alignment | Study.research_objective=OpenSR: maintain AV-HuBERT multi-modality alignment -> zero/few-shot lip-reading from labeled audio only; SOTA zero-shot 39.2(29h)/36.0(224h), full-shot 25.0 LRS2. | task_family=sentence_r"
+  },
+  {
+   "pid": "arxiv-2307.04552",
+   "key": "t:sparsevsrlightweightandnoiserobustvisualspeechrecognition",
+   "title": "SparseVSR: Lightweight and Noise Robust Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=sentence_recognition | extra.Task.scope=LRS3 WER across sparsity 0-90% x pruning tech (naive/PARP/LTH/LRR, one-shot+iterative); dense vs sparse vs distill vs 8-bit; noise robustness. | intended_use_cases=assistive_text_entry | Cohort.d"
+  },
+  {
+   "pid": "arxiv-2311.15683",
+   "key": "t:ultrasensitivetextilestrainsensorsredefinewearablesilentspeechinterfaceswithhigh",
+   "title": "Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "F 317 <=5% strain, +420% vs SOTA, >10k cycles, 0.05% limit) + lightweight end-to-end 1D-CNN; 95.25% on 20 common words, few-shot transfer to new user/words. | task_family=isolated_word_recognition | extra.Task.scope=20 most-frequent English verbs+n"
+  },
+  {
+   "pid": "arxiv-2401.03468",
+   "key": "t:multichannelavwav2vec2aframeworkforlearningmultichannelmultimodalspeechrepresent",
+   "title": "Multichannel AV-wav2vec2: A Framework for Learning Multichannel Multi-Modal Speech Representation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l.statistical_plan={'metrics': 'CER%,DER%,FA%,MISS%,SPKEER%', 'test': 'MISP C1-C4 + AVSD dev/eval'} | Claim.claim_scope=one-shot SSL AV-wav2vec2 beats iterative AV-HuBERT & MS-TCN on all channel combos; inter-channel loss helps; +900h unlabeled gai"
+  },
+  {
+   "pid": "arxiv-2409.00986",
+   "key": "t:personalizedlipreadingadaptingtoyouruniquelipmovementswithvisionandlanguage",
+   "title": "Personalized Lip Reading: Adapting to Your Unique Lip Movements with Vision and Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2409.00986 | title=Personalized Lip Reading: Adapting to Your Unique Lip Movements with Vision and Language | Study.research_objective=Speaker-adaptive lip"
+  },
+  {
+   "pid": "arxiv-2411.18266",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "otid pulse) -> token-level 1D-CNN decoding (144ms tokens, N=15 ctx) pretrained on 10 healthy, KD ResNet-101->ResNet-18, few-shot transfer to 5 dysarthric stroke patients; GPT-4o-mini TSA+SEA for fluent emotional sentences; TTS playback ~1s. | task_"
+  },
+  {
+   "pid": "arxiv-2502.13508",
+   "key": "t:vlasvisionlanguageactionmodelwithspeechinstructionsforcustomizedrobotmanipulatio",
+   "title": "VLAS: Vision-Language-Action Model With Speech Instructions For Customized Robot Manipulation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "SGQA acc'} | Claim.claim_scope=End-to-end speech-conditioned VLA beats ASR-cascade manipulation; voiceprint RAG enables personalized commands. | T1 mcil lh1 | T1 mcil lh2 | T1 mcil lh3 | T1 mcil lh4 | T1 mcil lh5 | T1 mcil len | T1 hulc lh1 | T1 hulc lh2 | T1"
+  },
+  {
+   "pid": "arxiv-2502.17829",
+   "key": "t:silentspeechsentencerecognitionwithsixaxisaccelerometersusingconformerandctcalgo",
+   "title": "Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cy = correctly recognized words / total words', 'splits': '70/15/15', 'scenarios': ['standard', 'blind cross-subject', 'few-shot personalized']} | Claim.claim_scope=97.17% overall (97.24% words, 97.16% sentences) vs prior 94.65±2.54%; accuracy stay"
+  },
+  {
+   "pid": "arxiv-2510.08059",
+   "key": "t:mitigatingsubjectdependencyineegdecodingwithsubjectspecificlowrankadapters",
+   "title": "Mitigating Subject Dependency in EEG Decoding with Subject-Specific Low-Rank Adapters",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n most held-out subjects; transferred subject adapters outperform baseline and independent per-subject models, enabling few-shot reuse | technical_limits=needs known subject at inference: no direct application to unseen subjects without adaptation;"
+  },
+  {
+   "pid": "arxiv-2512.16518",
+   "key": "t:posterrecognizinghiddenintheearprivatekeyforreliablesilentspeechinterfaceusingmu",
+   "title": "Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ntication/CLWUM uses all participants’ data. | TrainingRun.update_schedule={'registration_phase': 'user records a small/few-shot set of silent spellings; network trained with paired user and other-user data', 'verification_phase': 'compare against"
+  },
+  {
+   "pid": "arxiv-2603.18299-align",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l speech decoding: adversarially train encoder vs domain classifier so latents keep phoneme info but drop session cues; few-shot unsupervised target alignment, no phoneme labels | Study.unit_of_analysis=T12+T15 attempted-speech intracortical data;"
+  },
+  {
+   "pid": "arxiv-2608.17983",
+   "key": "t:dualcotraincrossdatasetultrasoundtonguesegmentationunderextremedatascarcity",
+   "title": "DUALCO-TRAIN: CROSS-DATASET ULTRASOUND TONGUE SEGMENTATION UNDER EXTREME DATA SCARCITY",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "h metrics | claim=source-free co-training does not merely preserve but can correct and generalize a highly constrained (5-shot) source model under domain shift | claim=framework reaches ~asymptotic Dice with 10–50 labeled source images (e.g., 0.7"
+  },
+  {
+   "pid": "doi-10.1038-s41528-021-00119-7",
+   "key": "t:allweathernaturalsilentspeechrecognitionviamachinelearningassistedtattoolikeelec",
+   "title": "All-weather, natural silent speech recognition via machine-learning-assisted tattoo-like electronics",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "red ultrathin electrodes (45% face deformation tolerance) + wireless DAQ (500 Hz, 10-bit, 10-500 Hz, x1000) + cloud LDA few-shot (10 trials/word, 1100x101 matrix); EOG rejected by 50 μV threshold + 15 Hz high-pass | evaluation_mode=live_interactive"
+  },
+  {
+   "pid": "doi-10.11159-icbes22.141",
+   "key": "t:myospeechasystemforrecognizingwordutterancesofthespeechimpaired",
+   "title": "Myo-Speech: A System for Recognizing Word Utterances of the Speech Impaired",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speech-impaired volunteers from sEMG at sternocleidomastoid (not microphones) to reissue intelligible versions; 3-word personalized vocabulary | production_labels=attempted_speech | Cohort.demographics=2 speech-impaired adults with severe hearing loss: female 2"
+  },
+  {
+   "pid": "doi-10.1145-3544548.3581465",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ds via Voice2Lip | Study.study_design=controlled_experiment | task_family=isolated_word_recognition | extra.Task.target=few-shot keyword spotting of user-registered silent commands on mobile | extra.Task.output_kind=command label (visual keyword sp"
+  },
+  {
+   "pid": "doi-10.1609-aaai.v35i18.17933",
+   "key": "t:authnetadeeplearningbasedauthenticationmechanismusingtemporalfacialfeaturemoveme",
+   "title": "AuthNet: A Deep Learning Based Authentication Mechanism Using Temporal Facial Feature Movements (Student Abstract)",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ds custom set; student-abstract scale; MIRACL-VC1 is small (evaluation depth limited) | InteractionProtocol.turn_taking=one-shot password utterance -> authenticate/reject | AuthNet acc | FaceNet+Gergen acc | FaceNet+LipNet acc"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-10426456",
+   "key": "t:metricbasedfewshotlearningframeworkforuserdefinedvocabularyregistrationinelectro",
+   "title": "Metric-Based Few-Shot Learning Framework for User-Defined Vocabulary Registration in Electromyography-Based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21203/rs.3.rs-10426456/v1 | title=Metric-Based Few-Shot Learning Framework for User-Defined Vocabulary Registration in Electromyography-Based Silent Speech Interfaces | author"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-10426644-v1",
+   "key": "t:reconstructingthebrainslanguagenetworkfromnoninvasiveeegenablesinterpretablespee",
+   "title": "Reconstructing the brain’s language network from non-invasive EEG enables interpretable speech decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "onstraints (cortical eigenmodes) + soft language-network prior, decoded to text by meta-learning diffusion decoder with few-shot adaptation; error-informed LoRA correction; CER 29.1/29.0 + BLEU 0.709/0.710 on ChineseEEG (LP/GD), 11% rel error reduc"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2022.898300",
+   "key": "t:2020internationalbraincomputerinterfacecompetitionareview",
+   "title": "2020 International brain-computer interface competition: A review",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "kin_contact | technical_essence=Review of the 2020 International BCI Competition (98 participants/31 teams): 5 tracks — few-shot EEG learning, micro-sleep detection, IMAGINED SPEECH decoding (best 82.6% classification), cross-session classification"
+  },
+  {
+   "pid": "doi-10.3390-s24134125",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uracy reported; chance level 33% | system_name=two-layer LSTM + fully connected head (3 outputs, softmax) | system_name=few-shot 1D-CNN, 9 blocks: 6 conv blocks (1D conv→tanh→batchnorm→maxpool) + 3-block fully-connected head → 64-dim feature vector"
+  },
+  {
+   "pid": "doi-10.3390-s25082624",
+   "key": "t:awearablesilenttextinputsystemusingemgandpiezoelectricsensors",
+   "title": "A Wearable Silent Text Input System Using EMG and Piezoelectric Sensors",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t only, random order | technical_essence=feature models: SVM/RF/DT (grid search); non-feature: 7-layer 1D-CNN + Siamese few-shot (contrastive cosine loss vs reference vectors); best = SNN on fused raw streams | technical_essence=PMLDF: per-sensor F"
+  },
+  {
+   "pid": "doi-10.3390-s25196168",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "SNN → trigram LM | Representation.windowing=moving window 700px stride 380px over continuous signal → snippets; each vs 5-shot references, avg cosine distance ranking | technical_essence=shifting/cropping/up/downsampling (interpolation) of EMG+EE"
+  },
+  {
+   "pid": "doi-10.64898-2026.07.23.739430",
+   "key": "t:ageneralizablespeechneuroprosthesis",
+   "title": "A generalizable speech neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ctions → shared latent space → shared decoder → phoneme CTC; compare vs single-user (SU) baselines offline+closed-loop; few-shot adaptation to held-out users | Study.unit_of_analysis=WER/PER on held-out Switchboard + self-generated sentences; close"
+  },
+  {
+   "pid": "isca-lucey02_icslp",
+   "key": "t:alinkbetweencepstralshrinkingandtheweightedproductruleinaudiovisualspeechrecogni",
+   "title": "A link between cepstral shrinking and the weighted product rule in audio-visual speech recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cts male and female | ProductionCondition.activity_origin=overt_articulation | dataset_description=M2VTS: 37 subjects x 4 shots x 10 French digits; shots 1-3 train, shot 4 test | modalities=microphone, optical_camera | observed_quantities=air_aco"
+  },
+  {
+   "pid": "pmc-11244127-eeg-emg-mouth",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ssing to extract mouth-motion patterns; augmented samples (voltage shifts, noise intrusions, brief dropouts) expand the few-shot training set | ProcessingStep.architecture=Real-time capture→amplify→filter→digitize→BLE transmit; offline correlation/"
+  },
+  {
+   "pid": "pmc-11244127-mouthmotion",
+   "key": "t:wirelessmouthmotionrecognitionsystembasedoneegemgsensorsforseverespeechimpairmen",
+   "title": "Wireless Mouth Motion Recognition System Based on EEG-EMG Sensors for Severe Speech Impairments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "es=surface_emg, scalp_eeg | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=few-shot three-shot network + data augmentation; 10-fold cross-validation | Dataset.counts_by_unit=3-class (two D + one M phonem"
+  },
+  {
+   "pid": "pmc-12031478-emg-pzt-siltext",
+   "key": "t:awearablesilenttextinputsystemusingemgandpiezoelectricsensors",
+   "title": "A Wearable Silent Text Input System Using EMG and Piezoelectric Sensors",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "classifiers (SVM, DT, RF) vs non-feature-based CNN and Siamese NN (twin weight-shared CNNs, contrastive loss, Fea-Shot few-shot scheme); best result uses fused EMG+PZT | EvaluationProtocol.experimental_design=Closed-set classification of the eight"
+  },
+  {
+   "pid": "pmc-12526642-emg-eeg-ssi",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ive=demonstrate sentence-level silent speech recognition from a wearable single-channel EMG+EEG system via window-based few-shot learning, sensor fusion, and LM post-processing | task_family=sentence_recognition | intended_use_cases=private_communi"
+  },
+  {
+   "pid": "pmc-12526642-emgeeg-snn",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e-level silent speech recognition with a wearable single-channel EMG + single-channel EEG system, using Siamese-network few-shot learning, EMG/EEG sensor fusion and a trigram LM post-processor | Study.unit_of_analysis=One 21-year-old male; Corpus A"
+  },
+  {
+   "pid": "pmc-13483768-gennp",
+   "key": "t:ageneralizablespeechneuroprosthesis",
+   "title": "A generalizable speech neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "BCI users to cut per-patient data needs | Study.unit_of_analysis=relative WER of multi-user vs single-user decoders and few-shot finetuned WER on held-out user | task_encoding=attempted_utterance | task_family=speech_reconstruction | target_populat"
+  }
+ ],
+ "usual_approach": {
+  "design": "metric or prototype matching",
+  "n": 7,
+  "tier": "pattern match",
+  "pids": [
+   "doi-10.21203-rs.3.rs-10426456",
+   "arxiv-2512.16518",
+   "doi-10.3390-s25082624",
+   "doi-10.3390-s25196168",
+   "pmc-11244127-eeg-emg-mouth"
+  ],
+  "population_unique": 30,
+  "note": "full-text pattern counts over 30 unique candidate studies with text (reference lists removed; a study can match several): metric or prototype matching 7, user-dependent training from scratch 6, fine-tuning network weights on the user 3, frozen encoder + linear or logistic classifier 1"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2302-05907-liplearner",
+   "role": "target",
+   "loc": "Sec. 5.2",
+   "quote": "we freeze the weights of the encoder model and only train the linear classifier"
+  },
+  {
+   "pid": "arxiv-2111.01740",
+   "role": "prior",
+   "loc": "Sec. 2.1.1; Table 2",
+   "quote": "All the network components are trained end-to-end."
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-10426456",
+   "role": "sota",
+   "loc": "Abstract; Sec. 2.4",
+   "quote": "achieving 82.85% and 90.17% accuracy in a 20-way classification task under the one-shot and three-shot settings"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.21203-rs.3.rs-10426456",
+  "year": 2026,
+  "metric": "EMG user-defined vocabulary registration, 20-way, one-shot, prototypical network, 20 participants, held-out sessions as queries (three-shot 90.17)",
+  "value": 82.85,
+  "unit": "% accuracy",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 30,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "metric or prototype matching",
+   "n": 7,
+   "tier": "pattern match",
+   "population_unique": 30
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.21203-rs.3.rs-10426456",
+   "year": 2026,
+   "metric": "EMG user-defined vocabulary registration, 20-way, one-shot, prototypical network, 20 participants, held-out sessions as queries (three-shot 90.17)",
+   "value": 82.85,
+   "unit": "% accuracy",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-2111.01740"
+  ],
+  "unread": 38,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "liplearner-customizable-silent-speech-interactions-on-mobile-devices"
+ ]
+}

@@ -1,0 +1,587 @@
+{
+ "topic": "visual-keyword-spotting",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*modalities=[^|]*optical_camera)(?=.*(keyword[- ]spotting|wake[- ]?(up[- ])?words?|\\bKWS\\b|hot[- ]?words?))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies whose ledger names a camera modality and keyword spotting, wake words or hotwords; the design compared is how the keyword is specified and which signal is used: a fixed wake word or keyword set, a text or phoneme query (zero-shot), an enrolled example query (few-shot), audio-visual fusion or visual-only input. Boundary: a study counts under every design its full text (reference list removed) names (upper bound); audio-only KWS and visual forced alignment without spotting are pattern hits only; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 25,
+  "string_match_unique": 18,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.20219",
+     "acl-2024-emnlp-main-821-vhasr",
+     "doi-10.1145-3544548.3581465",
+     "isca-zhou22g-avwake",
+     "ecva-stafylakis18-zerokws"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.20219",
+     "isca-ishi10_avsp",
+     "isca-krnoul07_avsp",
+     "arxiv-1807.08469",
+     "arxiv-2009.01225"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=search",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2110-15957-vkwsattn",
+     "arxiv-2009-01225-wakewords",
+     "arxiv-1807-08469-zeroshotkws",
+     "isca-krnoul07_avsp"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=select",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.20219",
+     "isca-ishi10_avsp",
+     "arxiv-1807.08469",
+     "arxiv-2302.05907"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.20219",
+     "isca-ishi10_avsp",
+     "isca-krnoul07_avsp",
+     "arxiv-2111.01740"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "acl-2024-emnlp-main-821-vhasr",
+     "isca-zhou22g-avwake",
+     "ecva-stafylakis18-zerokws"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2110-15957-vkwsattn",
+     "arxiv-2009-01225-wakewords",
+     "arxiv-1807-08469-zeroshotkws"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2110-15957-vkwsattn",
+     "arxiv-2009-01225-wakewords"
+    ]
+   },
+   {
+    "design": "ProcessingStep.hyperparameters=dual-stream asr + vision-hotword stream with combined decoding",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "acl-2024-emnlp-main-821-vhasr"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1807-08469-zeroshotkws"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "fixed wake word or keyword set",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.20219",
+     "isca-ghosh26c_interspeech",
+     "acl-2024-emnlp-main-821-vhasr",
+     "arxiv-2403.01700-flcma",
+     "arxiv-2302.13523-vekws"
+    ]
+   },
+   {
+    "design": "audio-visual fusion",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "isca-ghosh26c_interspeech",
+     "arxiv-2403.01700-flcma",
+     "arxiv-2302.13523-vekws",
+     "arxiv-2303.02348-dkuwws",
+     "arxiv-2202.08509-lthwws"
+    ]
+   },
+   {
+    "design": "visual-only",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "isca-ghosh26c_interspeech",
+     "arxiv-2302.13523-vekws",
+     "arxiv-2110-15957-vkwsattn",
+     "arxiv-2009-01225-wakewords",
+     "arxiv-1807-08469-zeroshotkws"
+    ]
+   },
+   {
+    "design": "text or phoneme query (zero-shot)",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2202.08509-lthwws",
+     "arxiv-2110-15957-vkwsattn",
+     "arxiv-1807-08469-zeroshotkws",
+     "isca-kamper17_visground",
+     "arxiv-2303.08670"
+    ]
+   },
+   {
+    "design": "enrolled example query (few-shot)",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2110-15957-vkwsattn",
+     "arxiv-2009-01225-wakewords",
+     "isca-kamper17_visground"
+    ]
+   }
+  ],
+  "metric_pattern": "EER|equal error|F1|accuracy|mAP|precision|recall|false",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "counterpart low-light F1",
+   "value": 0.2134,
+   "unit": "1",
+   "raw": "0.2134",
+   "pid": "arxiv-2302.05907",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t5 lrs3-av eer",
+   "value": 1.6,
+   "unit": "percent",
+   "raw": "1.6",
+   "pid": "arxiv-2009.01225",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "zero-shot KWS EER",
+   "value": 6.46,
+   "unit": "percent",
+   "raw": "Joint-G2P EER 6.46%; FAR@MDR=5% 8.48% on unseen keywords",
+   "pid": "arxiv-1807-08469-zeroshotkws",
+   "year": 2018,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "KWS mAP (LRS2)",
+   "value": 72.5,
+   "unit": "percent",
+   "raw": "mAPCls 72.5 / mAPLoc 71.6 / Acc@1 68.7 on LRS2; LRS3 mAPCls 58.2",
+   "pid": "arxiv-2110-15957-vkwsattn",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "end-to-end command execution accuracy (%, 60 trials; SD 43.67)",
+   "value": 75,
+   "unit": null,
+   "raw": "command execution accuracy of 75%",
+   "pid": "arxiv-2602.20219",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "keyword accuracy both @65dBA (AV-VAD better per-speaker)",
+   "value": 75,
+   "unit": "%",
+   "raw": "75%",
+   "pid": "isca-ishi10_avsp",
+   "year": 2010,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "acl-2024-emnlp-main-821-vhasr",
+   "key": "t:vhasramultimodalspeechrecognitionsystemwithvisionhotwords",
+   "title": "VHASR: A Multimodal Speech Recognition System With Vision Hotwords",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=VHASR: A Multimodal Speech Recognition System With Vision Hotwords | authors=Hu J, Li Z, Wang P | venue=Proceeding"
+  },
+  {
+   "pid": "arxiv-1807-08469-zeroshotkws",
+   "key": "t:zeroshotkeywordspottingforvisualspeechrecognitioninthewild",
+   "title": "Zero-shot keyword spotting for visual speech recognition in-the-wild",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Zero-shot keyword spotting for visual speech recognition in-the-wild | authors=Stafylakis; Tzimiropoulos (Universi"
+  },
+  {
+   "pid": "arxiv-1807.08469",
+   "key": "t:zeroshotkeywordspottingforvisualspeechrecognitioninthewild",
+   "title": "Zero-shot keyword spotting for visual speech recognition in-the-wild",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1807.08469 | title=Zero-shot keyword spotting for visual speech recognition in-the-wild | Study.research_"
+  },
+  {
+   "pid": "arxiv-2009-01225-wakewords",
+   "key": "t:seeingwakewordsaudiovisualkeywordspotting",
+   "title": "Seeing wake words: Audio-Visual Keyword Spotting",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Seeing wake words: Audio-Visual Keyword Spotting | authors=Momeni; Afouras; Stafylakis; Albanie; Zisserman (VGG Ox"
+  },
+  {
+   "pid": "arxiv-2009.01225",
+   "key": "t:seeingwakewordsaudiovisualkeywordspotting",
+   "title": "Seeing wake words: Audio-visual Keyword Spotting",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2009.01225 | title=Seeing wake words: Audio-visual Keyword Spotting | Study.research_objective=KWS-Net: o"
+  },
+  {
+   "pid": "arxiv-2110-15957-vkwsattn",
+   "key": "t:visualkeywordspottingwithattention",
+   "title": "Visual Keyword Spotting with Attention",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Visual Keyword Spotting with Attention | authors=Prajwal; Momeni; Afouras; Zisserman (VGG Oxford) | venue=IJCV 202"
+  },
+  {
+   "pid": "arxiv-2110.15957",
+   "key": "t:visualkeywordspottingwithattention",
+   "title": "Visual Keyword Spotting with Attention",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2110.15957 | title=Visual Keyword Spotting with Attention | Study.research_objective=Transpotter: transfo"
+  },
+  {
+   "pid": "arxiv-2111.01740",
+   "key": "t:personalizedoneshotlipreadingforanalspatient",
+   "title": "Personalized One-Shot Lipreading for an ALS Patient",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2111.01740 | title=Personalized One-Shot Lipreading for an ALS Patient | Study.research_objective=one-sho"
+  },
+  {
+   "pid": "arxiv-2202.08509-lthwws",
+   "key": "t:astudyofdesigningcompactaudiovisualwakewordspottingsystembasedoniterativefinetun",
+   "title": "A Study of Designing Compact Audio-Visual Wake Word Spotting System Based on Iterative Fine-Tuning in Neural Network Pruning",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2202.08509-lthwws | title=A Study of Designing Compact Audio-Visual Wake Word Spotting System Based on It"
+  },
+  {
+   "pid": "arxiv-2204.08686-mispwws",
+   "key": "t:audiovisualwakewordspottingsystemformispchallenge2021",
+   "title": "Audio-Visual Wake Word Spotting System for MISP Challenge 2021",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2204.08686-mispwws | title=Audio-Visual Wake Word Spotting System for MISP Challenge 2021 | authors=Yangu"
+  },
+  {
+   "pid": "arxiv-2302.05907",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2302.05907 | title=LipLearner: Customizable Silent Speech Interactions on Mobile Devices | venue=CHI 2023"
+  },
+  {
+   "pid": "arxiv-2302.13523-vekws",
+   "key": "t:vekwsvisualmodalityenhancedendtoendkeywordspotting",
+   "title": "VE-KWS: Visual Modality Enhanced End-to-End Keyword Spotting",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2302.13523-vekws | title=VE-KWS: Visual Modality Enhanced End-to-End Keyword Spotting | authors=Ao Zhang,"
+  },
+  {
+   "pid": "arxiv-2303.02348-dkuwws",
+   "key": "t:thedkupostchallengeaudiovisualwakewordspottingsystemforthe2021mispchallengedeepa",
+   "title": "The DKU Post-Challenge Audio-Visual Wake Word Spotting System for the 2021 MISP Challenge: Deep Analysis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.02348-dkuwws | title=The DKU Post-Challenge Audio-Visual Wake Word Spotting System for the 2021 MISP"
+  },
+  {
+   "pid": "arxiv-2303.08670",
+   "key": "t:deepvisualforcedalignmentlearningtoaligntranscriptionwithtalkingfacevideo",
+   "title": "Deep Visual Forced Alignment: Learning to Align Transcription with Talking Face Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.08670 | title=Deep Visual Forced Alignment: Learning to Align Transcription with Talking Face Video"
+  },
+  {
+   "pid": "arxiv-2403.01700-flcma",
+   "key": "t:robustwakewordspottingwithframelevelcrossmodalattentionbasedaudiovisualconformer",
+   "title": "Robust Wake Word Spotting With Frame-Level Cross-Modal Attention Based Audio-Visual Conformer",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.01700-flcma | title=Robust Wake Word Spotting With Frame-Level Cross-Modal Attention Based Audio-Vis"
+  },
+  {
+   "pid": "arxiv-2602.20219",
+   "key": "t:anapproachtocombiningvideoandspeechwithlargelanguagemodelsinhumanrobotinteractio",
+   "title": "An Approach to Combining Video and Speech with Large Language Models in Human-Robot Interaction",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Approach to Combining Video and Speech with Large Language Models in Human-Robot Interaction | arxiv_id=2602.20"
+  },
+  {
+   "pid": "doi-10.1145-3544548.3581465",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipLearner: Customizable Silent Speech Interactions on Mobile Devices | authors=Zixiong Su; Shitao Fang; Yuta Ito;"
+  },
+  {
+   "pid": "eccv18-stafylakis_zskws",
+   "key": "t:zeroshotkeywordspottingforvisualspeechrecognitioninthewild",
+   "title": "Zero-shot keyword spotting for visual speech recognition in-the-wild",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=eccv18-stafylakis_zskws | title=Zero-shot keyword spotting for visual speech recognition in-the-wild | authors="
+  },
+  {
+   "pid": "ecva-stafylakis18-zerokws",
+   "key": "t:zeroshotkeywordspottingforvisualspeechrecognitioninthewild",
+   "title": "Zero-shot keyword spotting for visual speech recognition in-the-wild",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Zero-shot keyword spotting for visual speech recognition in-the-wild | authors=Stafylakis, Tzimiropoulos | Study.r"
+  },
+  {
+   "pid": "isca-ghosh26c_interspeech",
+   "key": "t:valignvisualforcedalignmentviaphonemetovideooptimalpathtraversal",
+   "title": "V-Align: Visual Forced Alignment via Phoneme to Video Optimal Path Traversal",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ghosh26c_interspeech | title=V-Align: Visual Forced Alignment via Phoneme to Video Optimal Path Traversal"
+  },
+  {
+   "pid": "isca-ishi10_avsp",
+   "key": "t:realtimeaudiovisualvoiceactivitydetectionforspeechrecognitioninnoisyenvironments",
+   "title": "Real-time audio-visual voice activity detection for speech recognition in noisy environments",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time audio-visual voice activity detection for speech recognition in noisy environments | authors=Carlos T. I"
+  },
+  {
+   "pid": "isca-kamper17_visground",
+   "key": "t:visuallygroundedlearningofkeywordpredictionfromuntranscribedspeech",
+   "title": "Visually grounded learning of keyword prediction from untranscribed speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kamper17_visground | title=Visually grounded learning of keyword prediction from untranscribed speech | au"
+  },
+  {
+   "pid": "isca-krnoul07_avsp",
+   "key": "t:innovationsinczechaudiovisualspeechsynthesisforprecisearticulation",
+   "title": "Innovations in Czech Audio-Visual Speech Synthesis for Precise Articulation",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Innovations in Czech Audio-Visual Speech Synthesis for Precise Articulation | authors=Zdeněk Krňoul, Miloš Železný"
+  },
+  {
+   "pid": "isca-zhou22g-avwake",
+   "key": "t:audiovisualwakewordspottinginmisp2021challengedatasetreleaseanddeepanalysis",
+   "title": "Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Deep Analysis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Deep Analysis | authors=Zhou, Chen, Du,"
+  },
+  {
+   "pid": "isca-zhou22g_interspeech",
+   "key": "t:audiovisualwakewordspottinginmisp2021challengedatasetreleaseanddeepanalysis",
+   "title": "Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Deep Analysis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-zhou22g_interspeech | title=Audio-Visual Wake Word Spotting in MISP2021 Challenge: Dataset Release and Dee"
+  }
+ ],
+ "usual_approach": {
+  "design": "fixed wake word or keyword set",
+  "n": 12,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2602.20219",
+   "isca-ghosh26c_interspeech",
+   "acl-2024-emnlp-main-821-vhasr",
+   "arxiv-2403.01700-flcma",
+   "arxiv-2302.13523-vekws"
+  ],
+  "population_unique": 18,
+  "note": "full-text pattern counts over 18 unique candidate studies with text (reference lists removed; a study can match several): fixed wake word or keyword set 12, audio-visual fusion 8, visual-only 7, text or phoneme query (zero-shot) 5, enrolled example query (few-shot) 3"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2302-05907-liplearner",
+   "role": "target",
+   "loc": "Sec. 6.1",
+   "quote": "this technique has not yet been applied in lipreading-based interfaces"
+  },
+  {
+   "pid": "arxiv-1807-08469-zeroshotkws",
+   "role": "prior",
+   "loc": "Sec. 5.1; Table 1",
+   "quote": "The ﬁnal number of queries in the list is Nq = 635."
+  },
+  {
+   "pid": "arxiv-2009-01225-wakewords",
+   "role": "prior",
+   "loc": "Sec. 5.1",
+   "quote": "with the EER also decreasing from 6.3% to 5.7%"
+  },
+  {
+   "pid": "arxiv-2110-15957-vkwsattn",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "Transpotter (VTP) 68.7 90.7 72.5 71.6 55.7 78.5 58.2 56.1"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 5,
+  "found": 4,
+  "recall": 0.8,
+  "missed": [
+   "arxiv-2302-05907-liplearner"
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2110-15957-vkwsattn",
+  "year": 2021,
+  "metric": "visual-only KWS mAP (classification), LRS2 test, phoneme text queries, 1.6K-word test vocabulary, Transpotter (VTP)",
+  "value": 72.5,
+  "unit": "% mAP",
+  "timing": "prior",
+  "confirmed_in_text": true
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 18,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "fixed wake word or keyword set",
+   "n": 12,
+   "tier": "pattern match",
+   "population_unique": 18
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2110-15957-vkwsattn",
+   "year": 2021,
+   "metric": "visual-only KWS mAP (classification), LRS2 test, phoneme text queries, 1.6K-word test vocabulary, Transpotter (VTP)",
+   "value": 72.5,
+   "unit": "% mAP",
+   "timing": "prior",
+   "confirmed_in_text": true
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-1807-08469-zeroshotkws",
+   "arxiv-2009-01225-wakewords"
+  ],
+  "unread": 25,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.8
+ },
+ "used_by": [
+  "liplearner-customizable-silent-speech-interactions-on-mobile-devices"
+ ]
+}

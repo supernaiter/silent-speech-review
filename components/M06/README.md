@@ -211,6 +211,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Speech or silent-speech recognition studies that classify speech units from radar or RF reflections or transmissions of the articulators (IR-UWB, FMCW, SFCW, CW Doppler, mmWave, Wi-Fi or RFID backscatter); the design compared is the representation fed to the classifier: hand-engineered features (distances, envelopes, velocity or spectral descriptors) versus raw frames or spectrograms fed to a learned network. Boundary: radar used only to recover the acoustic vibration of the throat or vocal folds is excluded; datasets without a recognizer are excluded; versions of one study count once; ledger hits from non-radar papers are inside the pattern-match upper bound.
 - Used in: [IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases](../../reviews/ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases/)
 
+## silent-command-activation
+
+- Table: [`silent-command-activation.csv`](silent-command-activation.csv) (7345 slot-filled, 183 pattern match, usual design in 20, 1 read in full)
+- Inclusion rule: Silent-speech, lip-reading and mouthed-speech studies (any signal) whose ledger names commands, interaction or an interface; the design compared is how a command utterance is started or segmented at use time: an explicit manual trigger (push-to-talk, button or screen tap, manual segmentation), a mouth or speech activity detector, a gaze or gesture trigger, or keyword spotting / a wake word. Boundary: a study counts under every design its full text (reference list removed) names (upper bound); offline corpora with pre-segmented clips have none; versions count once.
+- Used in: [LipLearner: Customizable Silent Speech Interactions on Mobile Devices](../../reviews/liplearner-customizable-silent-speech-interactions-on-mobile-devices/)
+
 ## speaker-recognition-from-articulation
 
 - Table: [`speaker-recognition-from-articulation.csv`](speaker-recognition-from-articulation.csv) (7345 slot-filled, 58 pattern match, usual design in 34, 5 read in full)
@@ -280,6 +286,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`visual-frontend-spatial-pooling.csv`](visual-frontend-spatial-pooling.csv) (7345 slot-filled, 1116 pattern match, usual design in 254, 5 read in full)
 - Inclusion rule: Visual or audio-visual speech recognition studies (lip reading, VSR, AVSR; word or sentence level) whose ledger names lip reading, VSR, AVSR or an LRS/LRW benchmark. The design compared is how the per-frame spatial feature map of the visual front-end is reduced to a vector: global average pooling (or flatten) after a CNN/ResNet trunk, versus learned spatial attention or transformer pooling over the map. Boundary: temporal attention alone, attention used for audio-visual fusion, and ROI cropping are not spatial pooling; reviews count as pattern matches only; versions of one study count once.
 - Used in: [Sub-word Level Lip Reading With Visual Attention](../../reviews/sub-word-level-lip-reading-with-visual-attention/)
+
+## visual-keyword-spotting
+
+- Table: [`visual-keyword-spotting.csv`](visual-keyword-spotting.csv) (7345 slot-filled, 18 pattern match, usual design in 12, 4 read in full)
+- Inclusion rule: Studies whose ledger names a camera modality and keyword spotting, wake words or hotwords; the design compared is how the keyword is specified and which signal is used: a fixed wake word or keyword set, a text or phoneme query (zero-shot), an enrolled example query (few-shot), audio-visual fusion or visual-only input. Boundary: a study counts under every design its full text (reference list removed) names (upper bound); audio-only KWS and visual forced alignment without spotting are pattern hits only; versions count once.
+- Used in: [LipLearner: Customizable Silent Speech Interactions on Mobile Devices](../../reviews/liplearner-customizable-silent-speech-interactions-on-mobile-devices/)
 
 ## wearable-silent-sentence-decoding
 

@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/liplearner-customizable-silent-speech-interactions-on-mobile-devices/](liplearner-customizable-silent-speech-interactions-on-mobile-devices/).**
 
-LipLearner enables customizable few-shot silent speech commands on smartphones with on-device keyword spotting and incremental learning; reaches 98.8% five-shot accuracy on 30 commands in a live study.
+All three changed components are standard: on-device few-shot head untested against prototypes or fine-tuning; voiced enrollment loses 5.6 points; visual KWS predates it uncited.
 
 [Read the full review](liplearner-customizable-silent-speech-interactions-on-mobile-devices/) · [All reviews](../README.md)
