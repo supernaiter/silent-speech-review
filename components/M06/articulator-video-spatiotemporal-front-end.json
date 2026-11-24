@@ -18456,6 +18456,13 @@
    "role": "sota",
    "loc": "Sec. 6.1; Table 1",
    "quote": "It achieves the lowest overall WER of 15.93%,"
+  },
+  {
+   "pid": "arxiv-2110.07603",
+   "role": "prior",
+   "loc": "Sec. 3.1",
+   "quote": "Transformer layers, to get an enhanced self-attended feature map",
+   "by": "fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis"
   }
  ],
  "known_item_recall": {
@@ -18504,6 +18511,92 @@
   "known_item_recall": 1.0
  },
  "used_by": [
-  "3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces"
- ]
+  "3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces",
+  "fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis"
+ ],
+ "added_pattern_counts": [
+  {
+   "by": "fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis",
+   "scope": "full texts of the 1,342 unique studies of this table (reference lists removed)",
+   "tier": "pattern match",
+   "counts": [
+    {
+     "design": "transformer_visual_frontend",
+     "regex": "vision transformer|visual transformer|video transformer|\\bViT\\b|swin transformer|transformer pooling|\\bVTP\\b",
+     "n": 102,
+     "tier": "pattern match",
+     "prior_n": 7,
+     "concurrent_n": 10,
+     "later_n": 76,
+     "unresolved_n": 9,
+     "prior_pids": [
+      "arxiv-2005.09297",
+      "arxiv-2007.10629",
+      "arxiv-2012.07467",
+      "arxiv-2109.09536",
+      "arxiv-2110.07603",
+      "isca-scanlon04_interspeech",
+      "oa-W3099202502"
+     ],
+     "pids": [
+      "acl-2024-emnlp-main-821-vhasr",
+      "arxiv-2005.09297",
+      "arxiv-2007.10629",
+      "arxiv-2012.07467",
+      "arxiv-2109.09536",
+      "arxiv-2110-15957-vkwsattn",
+      "arxiv-2110.07603",
+      "arxiv-2201.10439"
+     ]
+    },
+    {
+     "design": "spatial_then_temporal_transformer",
+     "regex": "spatial transformer encoder|spatial[- ]temporal transformer|spatio-?temporal transformer|factori[sz]ed (spatial|space)[- ]time|divided space-?time",
+     "n": 2,
+     "tier": "pattern match",
+     "prior_n": 0,
+     "concurrent_n": 0,
+     "later_n": 2,
+     "unresolved_n": 0,
+     "prior_pids": [],
+     "pids": [
+      "arxiv-2410.21958",
+      "isca-sonkar26_interspeech"
+     ]
+    }
+   ],
+   "note": "prior = first public before 2022-01 (more than six months before the target, 2022-07); dates from the arXiv id or the index year; related-work mentions count (upper bound)"
+  }
+ ],
+ "tally_fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 1342,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "spatiotemporal (3D) convolution front end over a frame stack, usually followed by a recurrent or temporal-convolution back end",
+   "n": 380,
+   "tier": "pattern match",
+   "population_unique": 1342
+  },
+  "state_of_the_art": {
+   "pid": "isca-sonkar26_interspeech",
+   "year": 2026,
+   "metric": "single-speaker TaL1 WER of ASR on synthesized speech; 3D spatio-temporal CNN front end plus Transformer (strongest baseline 3D-CNN+BiLSTM 24.15)",
+   "value": 15.93,
+   "unit": "%",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 6,
+  "read_prior": [
+   "arxiv-1611.01599",
+   "arxiv-1703.04105",
+   "arxiv-2006.16367",
+   "arxiv-2110.07603",
+   "isca-csapo17-us2speech"
+  ],
+  "unread": 1811,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
 }

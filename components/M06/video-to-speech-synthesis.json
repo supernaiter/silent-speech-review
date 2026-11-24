@@ -2319,6 +2319,27 @@
    "loc": "Table VII",
    "quote": "End-to-end WGAN (2022) [20] 1.37 0.568 0.289 16.05",
    "added_by": "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
+  },
+  {
+   "pid": "arxiv-2005.08209",
+   "role": "prior",
+   "loc": "Table 4; Fig. 3",
+   "quote": "Lip2Wav (ours) 0.416 0.284 1.300",
+   "by": "fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "arxiv-2104.13332",
+   "role": "prior",
+   "loc": "Abstract; Table III",
+   "quote": "Ours 2.10 0.595 26.78 7.03 %",
+   "by": "fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "arxiv-2303.00502",
+   "role": "sota",
+   "loc": "Table 7",
+   "quote": "SLTS 0.757 0.612 1.514",
+   "by": "fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis"
   }
  ],
  "known_item_recall": {
@@ -2361,6 +2382,7 @@
  },
  "used_by": [
   "audio-visual-video-to-speech-synthesis-with-synthesized-input-audio",
+  "fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis",
   "improved-speech-reconstruction-from-silent-video",
   "intelligible-lip-to-speech-synthesis-with-speech-units",
   "large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis",
@@ -2486,6 +2508,139 @@
      "note": "all dated 2023 or later"
     }
    ]
+  },
+  {
+   "by": "fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis",
+   "scope": "full texts of the 165 unique video-to-speech studies of this table (reference lists removed)",
+   "tier": "pattern match",
+   "counts": [
+    {
+     "design": "non_autoregressive_named",
+     "regex": "non-?autoregressive",
+     "n": 8,
+     "tier": "pattern match",
+     "prior_n": 0,
+     "concurrent_n": 1,
+     "later_n": 7,
+     "unresolved_n": 0,
+     "prior_pids": [],
+     "pids": [
+      "arxiv-2207.03800",
+      "arxiv-2307.01233",
+      "arxiv-2308.15256",
+      "arxiv-2412.18839",
+      "arxiv-2502.03128",
+      "arxiv-2503.16956",
+      "arxiv-2511.22229",
+      "arxiv-2603.14267"
+     ]
+    },
+    {
+     "design": "autoregressive_decoder_named",
+     "regex": "(?<!non-)(?<!non)(?<!non )autoregressive|tacotron",
+     "n": 24,
+     "tier": "pattern match",
+     "prior_n": 9,
+     "concurrent_n": 2,
+     "later_n": 12,
+     "unresolved_n": 1,
+     "prior_pids": [
+      "arxiv-1708.01204",
+      "arxiv-2005.08209",
+      "arxiv-2104.13332",
+      "arxiv-2105.09652-spkdisent",
+      "arxiv-2112.04748",
+      "icassp2007-hueber-eigentongue-ssi",
+      "isca-hueber08_segvocoder",
+      "isca-kawashima10_timstruct",
+      "isca-qu19-lipsound"
+     ],
+     "pids": [
+      "arxiv-1708.01204",
+      "arxiv-2005.08209",
+      "arxiv-2104.13332",
+      "arxiv-2105.09652-spkdisent",
+      "arxiv-2112.04748",
+      "arxiv-2204.01265",
+      "arxiv-2207.03800",
+      "arxiv-2304.05574"
+     ]
+    },
+    {
+     "design": "inference_speed_reported",
+     "regex": "inference (time|speed|latency)|real[- ]time factor|\\bRTF\\b|speed-?up|acceleration ratio",
+     "n": 17,
+     "tier": "pattern match",
+     "prior_n": 1,
+     "concurrent_n": 4,
+     "later_n": 12,
+     "unresolved_n": 0,
+     "prior_pids": [
+      "arxiv-2105.09652-spkdisent"
+     ],
+     "pids": [
+      "arxiv-2105.09652-spkdisent",
+      "arxiv-2203.17263",
+      "arxiv-2204.01726",
+      "arxiv-2205.02058",
+      "arxiv-2207.03800",
+      "arxiv-2306.03258",
+      "arxiv-2307.07748",
+      "arxiv-2308.07787-diffv2s"
+     ]
+    },
+    {
+     "design": "parameter_count_reported",
+     "regex": "number of parameters|parameter count|#\\s?param|\\d+(\\.\\d+)?\\s?M (parameters|params)",
+     "n": 21,
+     "tier": "pattern match",
+     "prior_n": 7,
+     "concurrent_n": 2,
+     "later_n": 10,
+     "unresolved_n": 2,
+     "prior_pids": [
+      "arxiv-1804.04121",
+      "arxiv-2105.09652-spkdisent",
+      "arxiv-2112.04748",
+      "isca-biasutto19_labialgru",
+      "isca-hofer10_interspeech",
+      "isca-michelsanti20-vid2voc",
+      "w-2246823171"
+     ],
+     "pids": [
+      "arxiv-1804.04121",
+      "arxiv-2105.09652-spkdisent",
+      "arxiv-2112.04748",
+      "arxiv-2205.02058",
+      "arxiv-2209.00642",
+      "arxiv-2306.01432",
+      "arxiv-2502.03128",
+      "arxiv-2505.11391"
+     ]
+    },
+    {
+     "design": "transformer_visual_frontend",
+     "regex": "vision transformer|visual transformer|video transformer|\\bViT\\b|swin transformer|transformer pooling|\\bVTP\\b",
+     "n": 10,
+     "tier": "pattern match",
+     "prior_n": 0,
+     "concurrent_n": 1,
+     "later_n": 8,
+     "unresolved_n": 1,
+     "prior_pids": [],
+     "pids": [
+      "arxiv-2207.03800",
+      "arxiv-2306.00489",
+      "arxiv-2306.06652",
+      "arxiv-2403.01087",
+      "arxiv-2506.04134",
+      "doi-10.1038-s41598-024-55248-6",
+      "isca-ghosh26b-lipadapt",
+      "isca-montesinos23_interspeech"
+     ]
+    }
+   ],
+   "note": "prior = first public before 2022-01 (more than six months before the target, 2022-07); dates from the arXiv id or the index year; related-work mentions count (upper bound)"
   }
  ],
  "state_of_the_art_lrs3": {
@@ -3101,6 +3256,47 @@
   "read_prior": [
    "arxiv-2104.13332",
    "arxiv-2107.12003",
+   "arxiv-2306.03258",
+   "cvf-kim21-mabm",
+   "doi-10.1109-tnnls.2022.3191677",
+   "isca-vougioukas19_ganv2s"
+  ],
+  "unread": 187,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "state_of_the_art_fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis": {
+  "pid": "arxiv-2303.00502",
+  "year": 2023,
+  "metric": "STOI on Lip2Wav Chemistry Lectures, speaker-dependent (ESTOI 0.612, PESQ 1.514; Lip2Wav 0.416 / 0.284 / 1.300 in the same table)",
+  "value": 0.757,
+  "unit": "STOI",
+  "timing": "later"
+ },
+ "tally_fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 165,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "neural vocoder (WaveNet, WaveGlow, HiFi-GAN, MelGAN and similar) on predicted acoustic features",
+   "n": 49,
+   "tier": "pattern match",
+   "population_unique": 165
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2303.00502",
+   "year": 2023,
+   "metric": "STOI on Lip2Wav Chemistry Lectures, speaker-dependent (ESTOI 0.612, PESQ 1.514; Lip2Wav 0.416 / 0.284 / 1.300 in the same table)",
+   "value": 0.757,
+   "unit": "STOI",
+   "timing": "later"
+  },
+  "read": 17,
+  "read_prior": [
+   "arxiv-2005.08209",
+   "arxiv-2104.13332",
+   "arxiv-2107.12003",
+   "arxiv-2212.11377",
    "arxiv-2306.03258",
    "cvf-kim21-mabm",
    "doi-10.1109-tnnls.2022.3191677",
