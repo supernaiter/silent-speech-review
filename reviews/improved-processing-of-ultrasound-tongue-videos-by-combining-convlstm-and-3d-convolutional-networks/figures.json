@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Read Hungarian sentences, one speaker"
+     ],
+     "field": "Reading tasks",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "Inherited corpus design [@csapo2017dnn]."
+    },
+    "M02": {
+     "choice": [
+      "80 standardized mel targets"
+     ],
+     "field": "Paired audio",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Mel targets as in [@csapo2020waveglow]."
+    },
+    "M03": {
+     "choice": [
+      "Speaker-dependent training"
+     ],
+     "field": "Speaker-dependent training",
+     "n": 8995,
+     "matched": 1608,
+     "verdict": "standard",
+     "note": "No adaptation or held-out speaker; normalization fit scope unstated."
+    },
+    "M04": {
+     "choice": [
+      "Voiced read speech"
+     ],
+     "field": "Overt or silent",
+     "n": 8995,
+     "matched": 6538,
+     "verdict": "standard",
+     "note": "Silent articulation motivates the work but is not tested."
+    },
+    "M05": {
+     "choice": [
+      "Micro ultrasound, 64 elements, 82 frames/s"
+     ],
+     "field": "Ultrasound imaging",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "Inherited hardware."
+    },
+    "M06": {
+     "choice": [
+      "3D-CNN plus one ConvLSTM over 5 time steps"
+     ],
+     "field": "3D convolution or CNN plus recurrent layer",
+     "n": 8995,
+     "matched": 148,
+     "verdict": "standard",
+     "note": "New layer type for ultrasound-to-speech; 2.1% MSE edge over BiLSTM, one speaker, one run, co-varying dropout and pooling."
+    },
+    "M07": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 120,
+     "verdict": "na",
+     "note": "Direct acoustic regression."
+    },
+    "M08": {
+     "choice": [
+      "80-bin mel-spectrogram; waveform by WaveGlow"
+     ],
+     "field": "Vocoder or mel features",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": "Inherited from [@csapo2020waveglow]; waveform not evaluated."
+    },
+    "M09": {
+     "choice": [
+      "Offline"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "Offline"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Parallel audio; 310/41/87 sentence split"
+     ],
+     "field": "Parallel audio",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Same split as [@grosz2018f0]."
+    },
+    "M12": {
+     "choice": [
+      "MSE and mean R2 of mel targets, single runs"
+     ],
+     "field": "MCD; MUSHRA in a minority",
+     "n": 8995,
+     "matched": 51,
+     "verdict": "behind",
+     "note": "Behind best comparable work (group's listener-tested studies), not typical practice (MUSHRA 14 of 51)."
+    },
+    "M13": {
+     "choice": [
+      "Laboratory; size and speed not measured"
+     ],
+     "field": "Laboratory",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "missing",
+     "note": "No parameter count, training or inference time."
+    }
+   }
+  }
+ ]
+}
