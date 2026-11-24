@@ -2100,6 +2100,27 @@
    "loc": "Table I",
    "quote": "SVTS [11] 1.256 78.0 0.557 0.389 6.04",
    "added_by": "svts-scalable-video-to-speech-synthesis"
+  },
+  {
+   "pid": "arxiv-2202.09081-vcvts",
+   "role": "target",
+   "loc": "Sec. 2.3",
+   "quote": "which is produced by the speaker encoder from a reference utterance",
+   "added_by": "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion"
+  },
+  {
+   "pid": "arxiv-2105.09652-spkdisent",
+   "role": "prior",
+   "loc": "Sec. III",
+   "quote": "we concatenate the speaker identity to the visual features (obtained after the LSTM) and the augmented vector is then passed to the audio decoder.",
+   "added_by": "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion"
+  },
+  {
+   "pid": "cvf-prajwal20-lip2wav",
+   "role": "prior",
+   "loc": "Sec. 6.4",
+   "quote": "feed a speaker embedding as input to our model.",
+   "added_by": "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion"
   }
  ],
  "known_item_recall": {
@@ -2150,6 +2171,7 @@
   "naturall2s-end-to-end-high-quality-multispeaker-lip-to-speech-synthesis-with-differential-digita",
   "resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling",
   "svts-scalable-video-to-speech-synthesis",
+  "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion",
   "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
  ],
  "state_of_the_art_resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling": {
@@ -2258,6 +2280,117 @@
    "arxiv-2202.09081-vcvts",
    "arxiv-2306.03258",
    "arxiv-2308.07787-diffv2s"
+  ],
+  "unread": 187,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "ledger_tally_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "design_slot": "M07",
+  "design_slot_fill": 0.013,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "InformationUse.access_class=normally_available",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2509.04507-dualstg",
+     "isca-inan19"
+    ]
+   },
+   {
+    "design": "InformationUse.use_stage=inference",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839",
+     "arxiv-2509.04507-dualstg",
+     "isca-inan19"
+    ]
+   },
+   {
+    "design": "information_availability=runtime_available",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "target_relation=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "InformationUse.information_consumer=lipvoicer (pred) conditioning via pre-trained lip-reading network",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "similar|SECS|speaker",
+  "better": "higher"
+ },
+ "usual_approach_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "design": "InformationUse.access_class=normally_available",
+  "n": 3,
+  "tier": "slot-filled",
+  "pids": [
+   "arxiv-2412.18839",
+   "arxiv-2509.04507-dualstg",
+   "isca-inan19"
+  ],
+  "population_unique": 3
+ },
+ "known_item_recall_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "pid": "arxiv-2411.19486",
+  "year": 2024,
+  "metric": "LRS3 SECS on unseen speakers with a video-derived speaker embedding (0.851 with an audio-derived one), WER 28.5% in both cases",
+  "value": 0.664,
+  "unit": "SECS",
+  "timing": "later"
+ },
+ "deciding_priors_note_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": "Target first public 2022-02. Reference-audio speaker embeddings in multi-speaker video-to-speech before it: Lip2Wav multi-speaker LRW variant (2020) and the speaker-disentanglement study (2021), both read and both the target's own baselines.",
+ "tally_vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion": {
+  "slot_filled_unique": 119,
+  "string_match_unique": 165,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "audio_reference_speaker_embedding",
+   "n": 21,
+   "tier": "pattern match",
+   "population_unique": 165
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2411.19486",
+   "year": 2024,
+   "metric": "LRS3 SECS on unseen speakers with a video-derived speaker embedding (0.851 with an audio-derived one), WER 28.5% in both cases",
+   "value": 0.664,
+   "unit": "SECS",
+   "timing": "concurrent"
+  },
+  "read": 7,
+  "read_prior": [
+   "arxiv-2105.09652-spkdisent",
+   "arxiv-2107.12003",
+   "arxiv-2202.09081-vcvts",
+   "arxiv-2306.03258",
+   "arxiv-2308.07787-diffv2s",
+   "cvf-prajwal20-lip2wav"
   ],
   "unread": 187,
   "confirmed_unique": 0,

@@ -24,7 +24,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`audio-only-decoder-pretraining.csv`](audio-only-decoder-pretraining.csv) (1526 slot-filled, 30 pattern match, usual design in 9, 3 read in full)
 - Inclusion rule: Studies that synthesize speech from a non-acoustic signal (video, ultrasound, EMG, articulography, neural recordings) and pre-train the speech-generating part of the model (decoder, generator or speech autoencoder) on speech data without the non-acoustic signal, then transfer it into the signal-to-speech model. Boundary: an off-the-shelf pretrained vocoder used alone is counted separately (pretrained_vocoder_only), encoder-side self-supervised pre-training on the non-acoustic signal belongs to M03 self-supervised-pretraining, audio-visual paired pre-training (VoxCeleb2) is counted separately, knowledge distillation into a visual encoder belongs to M02 audio-knowledge-transfer-to-video; full-text design counts are pattern matches (upper bounds, mentions included); versions counted once.
-- Used in: [Large-scale unsupervised audio pre-training for video-to-speech synthesis](../../reviews/large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis/)
+- Used in: [Large-scale unsupervised audio pre-training for video-to-speech synthesis](../../reviews/large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis/), [VCVTS: Multi-Speaker Video-to-Speech Synthesis via Cross-Modal Knowledge Transfer from Voice Conversion](../../reviews/vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion/)
 
 ## cross-lingual-encoder-transfer-to-video-speech
 
