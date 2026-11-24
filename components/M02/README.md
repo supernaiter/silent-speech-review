@@ -114,6 +114,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | --- | --- | --- |
 | Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | 2026 | Sec. 3 |
 
+## text-supervision-in-video-to-speech-training
+
+- Table: [`text-supervision-in-video-to-speech-training.csv`](text-supervision-in-video-to-speech-training.csv) (31 slot-filled, 165 pattern match, usual design in 31, 4 read in full)
+- Inclusion rule: The same 165-study video-to-speech population, classified by training-only text supervision: a CTC or ASR/text loss on the speech generator or its features, and a recognizer trained on noised or diffusion-time-conditioned spectrograms to act as a guidance classifier. Boundary: text used at inference is M07; a pretrained evaluation ASR is not supervision; full-text pattern counts, upper bound; versions once.
+- Used in: [LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading](../../reviews/lipvoicer-generating-speech-from-silent-videos-guided-by-lip-reading/)
+
 ## whisper-to-normal-training-pairing
 
 - Table: [`whisper-to-normal-training-pairing.csv`](whisper-to-normal-training-pairing.csv) (31 slot-filled, 60 pattern match, usual design in 39, 5 read in full)
