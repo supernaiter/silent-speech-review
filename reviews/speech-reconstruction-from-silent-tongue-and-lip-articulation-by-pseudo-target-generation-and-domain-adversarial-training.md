@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/speech-reconstruction-from-silent-tongue-and-lip-articulation-by-pseudo-target-generation-and-domain-adversarial-training/](speech-reconstruction-from-silent-tongue-and-lip-articulation-by-pseudo-target-generation-and-domain-adversarial-training/).**
 
-Reconstructs speech from silent tongue ultrasound and lip video using pseudo acoustic targets and domain adversarial training, improving silent-mode WER by about 15% and MOS by 0.34 over TaLNet on TaL.
+DTW pseudo targets (M02) follow prior EMG target transfer; the mode discriminator (M03) is untested by its ablation; silent MCD/STOI use self-made references and 18 speakers are dropped.
 
 [Read the full review](speech-reconstruction-from-silent-tongue-and-lip-articulation-by-pseudo-target-generation-and-domain-adversarial-training/) · [All reviews](../README.md)

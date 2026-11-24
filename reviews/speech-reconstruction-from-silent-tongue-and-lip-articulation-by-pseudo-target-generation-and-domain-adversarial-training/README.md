@@ -1,92 +1,153 @@
 # Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training
 
-Ruichen Zheng, Yang Ai, Zhenhua Ling  
-arXiv 2023 · [arXiv](https://arxiv.org/abs/2304.05574)
+Rui-Chen Zheng, Yang Ai, Zhen-Hua Ling. arXiv preprint, 2023. [arXiv:2304.05574](https://arxiv.org/abs/2304.05574)
 
-**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training* (Ruichen Zheng et al., arXiv 2023) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Ultrasound & tongue imaging](../../README.md#ultrasound--tongue-imaging)
 
-Reconstructs speech from silent tongue ultrasound and lip video using pseudo acoustic targets and domain adversarial training, improving silent-mode WER by about 15% and MOS by 0.34 over TaLNet on TaL.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Ultrasound tongue imaging plus optical lip camera |
-| Task | Speech synthesis from silent articulation |
-| Vocabulary | Not stated |
-| Speaker | Not stated |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | Silent mode: 43.1% WER, STOI 0.517, MOS 3.33 on TaL corpus |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Evaluated only on TaL with some speakers excluded; silent mode lags vocalized; requires specialized ultrasound and video hardware with no real-time study.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | TaL silent and aloud takes | Recorded production | 3,882 of 8,995 | ● Standard (Inherited.) |
+| M02 Teacher signal | Encoder-space DTW targets, cost filter | Paired-take target transfer | 15 of 8,995 | ● Standard (Predated in EMG.) |
+| M03 Train / calibrate | Joint training, mode discriminator | Paired-audio supervision | 31 of 8,995 | ● Standard (Ablation confounded.) |
+| M04 Use-time act | Silent input, no fine-tuning | Production condition | 5,595 of 8,995 | ● Standard (Inherited.) |
+| M05 Sensing | Ultrasound plus lip video | Ultrasound studies | 144 of 8,995 | ● Standard (Inherited.) |
+| M06 Decoding | TaLNet encoder-decoder | Encoder-decoder | 7,345 of 8,995 | ● Standard (Inherited.) |
+| M07 Runtime aids | None | Lexicon or LM | 119 of 8,995 | – Not applicable (No lexicon.) |
+| M08 Output | Mel to PWG waveform | Waveform | 3,268 of 8,995 | ● Standard (Inherited.) |
+| M09 Confirmation | None | Mostly absent | 82 of 8,995 | – Not applicable (Offline.) |
+| M10 Correction | None | Mostly absent | 82 of 8,995 | – Not applicable (Offline.) |
+| M11 Eval reference | Vocoded pseudo targets | Transcript (no topic tally) | 234 of 8,995 | ● Standard (Self-made reference.) |
+| M12 Evaluation | MCD, STOI, WER, MOS; 18 speakers dropped | MCD | 21 of 8,995 | ● Standard (Self-defined filter.) |
+| M13 Hardware & limits | Not reported | Device constraints | 6,075 of 8,995 | ✕ Not reported (No runtime.) |
 
-Strong SSI paper improving silent speech reconstruction by generating pseudo acoustic targets and using domain adversarial training to address domain mismatch; validated with TaL dataset showing substantial WER and MOS gains over TaLNet.
+</details>
 
-### Review
+## Verdict
 
-This work convincingly addresses two key challenges in silent speech reconstruction: lack of paired acoustic targets and vocalized-silent domain mismatch. By generating pseudo acoustic targets via DTW alignment from paired vocalized articulation data and employing domain adversarial training to produce domain-invariant articulatory feature representations, the authors overcome limitations of prior ultrasound-and-lip based SSI systems trained only on vocalized data. Iterative retraining further refines the model. The experimental results on the TaL dataset validate that these approaches yield substantial improvements in WER, MCD, STOI, and MOS compared to the TaLNet baseline, both in silent and vocalized speaking modes. However, a clear performance gap remains between silent and vocalized modes, and hardware constraints limit deployment readiness. Overall, the paper provides a strong system integration and training methodology contribution advancing articulatory-to-acoustic conversion for silent speech interfaces using multimodal tongue ultrasound and lip video data.
+The paper [[1]](#ref-1) changes the silent training target (M02) and adds joint silent-vocalized training with a speaking-mode discriminator (M03); both are standard. DTW transfer of vocalized targets to silent articulation was established for silent EMG [[2]](#ref-2), with realignment by the partially trained model [[3]](#ref-3); neither is cited. The read priors aim domain-adversarial training at speakers or sessions [[4]](#ref-4), [[5]](#ref-5), so the speaking-mode label is new, but its single-run ablation drops the vocalized loss with the discriminator. Silent MCD and STOI are scored against the method's own vocoded pseudo targets, and 18 of 81 speakers were dropped from the silent test by the same DTW cost (Sec. 4.2). The silent WER gain (59.960% to 43.114%, Table 1) is relatively smaller than the vocalized gain (28% against 36%); the absolute silent-vocalized gap narrows by 7.3 points, but the ratio widens from 2.2 to 2.5 (inference).
 
-### Why it matters
+## Against the field, component by component
 
-The paper's key addition is a novel training approach leveraging pseudo target generation and domain adversarial learning to overcome silent mode data scarcity and domain mismatch in multimodal tongue ultrasound plus lip video speech reconstruction, not just the neural decoder design.
+### M02 Training-only supervision: silent pseudo targets by DTW
 
-### Prior state of the art
+**Usual approach:** Silent decoders take targets from the paired vocalized take by time alignment: 15 of 16 confirmed (52 pattern match, Appendix), as in [[2]](#ref-2) and [[3]](#ref-3). The paper aligns encoder outputs instead of signal features (Sec. 3.1), drops high-cost samples (Sec. 4.2), and is the only ultrasound study in the confirmed set (Appendix).
 
-Ultrasound-and-lip reconstruction models trained on vocalized speech perform poorly on silent articulation due to missing acoustic targets and domain mismatch.
+**State of the art:** The [later] GETS [[6]](#ref-6) (2026) reaches 11.89% WER on the silent EMG test set; the target's 43.114% differs in signal, recognizer and data, so neither ranks the other.
 
-### What changed
+The iterative strategy repeats the prior realignment at a different schedule: Gaddy and Klein recompute alignments every five epochs (76.5% WER without it, 68.0% with, their Table 5); here three rounds give 46.016% to 43.114% (Table 2, Fig. 2a). Verdict: standard.
 
-Introduces DTW-generated pseudo acoustic targets for silent articulation and domain adversarial training to learn domain-invariant features, combined with iterative retraining to improve silent-mode speech reconstruction.
+### M03 Training: joint training with a speaking-mode discriminator
 
-### Position in the field
+**Usual approach:** The recorded design is paired-audio supervision (31 of 138 slot-filled studies); full-text designs are target transfer 27, domain-adversarial invariance 12, fine-tuning from an overt model 11, a cross-mode divergence 5 (pattern match, Appendix). [[3]](#ref-3) pools both modes but gives vocalized samples their own session embeddings, the opposite of invariance. Domain-adversarial training was earlier aimed at speakers [[4]](#ref-4) and EMG sessions [[5]](#ref-5), and [[7]](#ref-7) adapted TaL recognizers to silent speech with fMLLR; the speaking-mode label is new, but untested alone.
 
-A strong core SSI result advancing articulatory-to-acoustic conversion with ultrasound and lip video, addressing silent speech training challenges.
+**State of the art:** The [later] [[8]](#ref-8) (2026) aligns silent and voiced representations and lowers silent EMG WER from 26.75% to 25.14% over 10 seeds (p = 0.002), repeated-run evidence this paper lacks.
 
-### Practical value
+"w/o DAT" reduces Eq. (3) to the silent loss (Sec. 4.4), removing the discriminator and the vocalized loss together; its deficit (51.199% against 43.114% WER, Table 2) mixes invariance with vocalized co-training, which helped in [[3]](#ref-3) (71.6% WER without its non-parallel vocalized data, 3.6 points worse). Verdict: standard.
 
-Provides a working approach for silent-mode articulatory speech reconstruction that could benefit clinical or silent communication settings where ultrasound and lip video capture are feasible.
+### M11 Reference construction: pseudo targets as silent ground truth
 
-### Advanced
+**Usual approach:** M11 has no topic tally; the read prior [[3]](#ref-3) scores silent output only by transcription WER, with 9.5% on vocalized test audio as the lower bound.
 
-silent_mode_training; domain_adaptation; multimodal_articulatory_reconstruction
+**State of the art:** Later silent work [[6]](#ref-6), [[8]](#ref-8) (2026) also scores silent output by WER.
 
-### Unresolved
+Here silent MCD and STOI use PWG waveforms of the test pseudo targets (Sec. 4.3), from an unstated encoder. The proposed model is trained on such targets and TaLNet is not, so both metrics favour it by construction (inference). The reference scores 10.246% WER against 4.110% for natural vocalized recordings (Sec. 4.3). Verdict: standard.
 
-The remaining performance gap between silent and vocalized modes and hardware specialization remain unresolved.
+### M12 Evaluation: test population and protocol
 
-### Evaluation details
+**Usual approach:** Ultrasound-to-speech studies use MCD (21 of 51 unique studies) and MUSHRA (14), rarely ASR on output (3) (pattern match, Appendix); this paper's set is broader.
 
-| Item | Details |
-| --- | --- |
-| Task | speech-reconstruction |
-| Input | ultrasound tongue imaging; optical lip video |
-| Sensor | Ultrasound tongue imaging system; optical lip video camera |
-| Body site | tongue; lip; oral-cavity |
-| Output | speech-audio |
-| Metrics and results | Silent mode: MCD 3.935 dB, STOI 0.517, WER 43.114%, MOS 3.330; Vocalized mode: WER 17.309%, improvements of ~15% WER and 0.34 MOS in silent mode compared to TaLNet baseline. Metrics from Table 1 of the paper. |
-| Evaluation protocol | Objective metrics (MCD, STOI, WER) via ASR plus subjective MOS testing on silent and vocalized test sets; ablation on iterative training and domain adversarial training. |
+**State of the art:** The [later] Tongue2Speech [[9]](#ref-9) (2026) reports 31.64% WER on TaL80 with another recognizer and split, so it does not rank the target's 17.309% vocalized WER.
 
-### Limits
+The silent test drops 18 speakers by the method's own first-round DTW cost (Sec. 4.2), so results cover speakers whose pseudo targets work. Test speakers are also training speakers (Sec. 4.1). Verdict: standard.
 
-- **Technical:** No ground truth acoustic data for silent mode complicates training; DTW-based pseudo labels may still have alignment noise; silent mode performance lags vocalized; some speakers with poor articulation.
-- **Evaluation:** Evaluation restricted to the TaL corpus; results validated on silent and vocalized modes with some speakers excluded due to unreliable articulations.
-- **Deployment:** Specialized ultrasound and lip video hardware requirements; no deployment or real-time study provided.
-- **Scope of this review:** Articulatory-to-acoustic speech reconstruction from silent tongue and lip articulation only; multimodal ultrasound and optical lip video input in controlled corpus setting.
+## The 13 components
 
-### Evidence
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | TaL silent and aloud takes | Recorded production (slot-filled 3,882) | – | standard |
+| M02 Training-only supervision | Encoder-space DTW targets, cost filter | Paired-take target transfer (confirmed 15) | [[6]](#ref-6) (2026): EMG WER 11.89% | standard |
+| M03 Training and adaptation | Joint training, mode discriminator | Paired-audio supervision (slot-filled 31) | [[8]](#ref-8) (2026): EMG WER 25.14% | standard |
+| M04 Use-time action | Silent input, no fine-tuning | Production condition (slot-filled 5,595) | – | standard |
+| M05 Sensors | Ultrasound plus lip video | Ultrasound studies (slot-filled 144) | – | standard |
+| M06 Processing and decoding | TaLNet encoder-decoder | Encoder-decoder (slot-filled 7,345) | – | standard |
+| M07 Lexicon and LM | None | Lexicon or LM (slot-filled 119) | – | not applicable |
+| M08 Output | Mel to PWG waveform | Waveform (slot-filled 3,268) | – | standard |
+| M09 Confirmation | None | Mostly absent (slot-filled 82) | – | not applicable |
+| M10 Correction | None | Mostly absent (slot-filled 82) | – | not applicable |
+| M11 Reference construction | Vocoded pseudo targets | Transcript (no topic tally) (slot-filled 234) | – | standard |
+| M12 Evaluation | MCD, STOI, WER, MOS; 18 speakers dropped | MCD (pattern match 21) | [[9]](#ref-9) (2026): WER 31.64% | standard |
+| M13 Device and cost | Not reported | Device constraints (slot-filled 6,075) | – | not reported |
 
-- The paper proposes pseudo target generation using DTW alignment between vocalized and silent articulations, domain adversarial training to learn robust domain-invariant articulatory representations, and iterative training strategy to improve speech reconstruction from silent tongue and lip articulation. (3. PROPOSED METHOD)
-- The paper combines dynamic time warping-based pseudo target generation, domain adversarial training, and iterative retraining tailored for silent articulatory-to-acoustic conversion from multimodal tongue ultrasound and lip video input, addressing domain mismatch and lack of paired acoustic targets for silent speech reconstruction. (3. PROPOSED METHOD)
-- In silent mode the paper reports MCD 3.935 dB, STOI 0.517, WER 43.114%, and MOS 3.330, improving on TaLNet by about 15 WER points and 0.34 MOS; in vocalized mode WER reduces from 26.890% to 17.309%. (4.3 Experimental Results)
-- The evaluation is performed on the TaL corpus containing synchronized audio, ultrasound tongue images, and lip videos in vocalized and silent speaking modes from 81 native English speakers, with 1212 paired utterances, in a speaker-independent setting. (4. EXPERIMENTS)
-- Silent-mode speech reconstruction performance remains worse than vocalized mode, and some speakers with unreliable silent articulations are excluded; specialized ultrasound and optical lip video hardware constrain deployment. (4.3 Experimental Results)
+## Where the claims outrun the evidence
+
+- Invariance is asserted, not measured: no discriminator accuracy or cross-mode distance is reported, and the authors say it "may" explain the vocalized gain (Sec. 4.3).
+- The silent-only "w/o DAT" model reaches 25.032% vocalized WER (Table 2): continued training explains about a fifth of the vocalized gain, and Table 2 does not separate the rest (inference).
+- In Table 1 the abstract's "over 15%" silent WER drop is 16.8 points or 28% relative, its "approximately 10%" vocalized drop 9.6 points or 36% relative (inference).
+
+## What the field needs next
+
+- M03: remove only the discriminator, keep the vocalized loss, over several seeds, and compare with mode embeddings [[3]](#ref-3).
+- M02: encoder-space against feature-space DTW with periodic realignment on TaL, at equal training steps.
+- M11/M12: all 81 speakers, speaker-disjoint, scored by a fixed open recognizer.
+
+## Questions for the authors
+
+- Which model and iteration produced the silent test pseudo references?
+- How was the checkpoint chosen?
+- Which iFLYTEK version and text normalization produced the WERs?
+- What are both systems' WERs on the 18 excluded speakers?
+
+## Appendix: literature search
+
+- M02, silent-target-transfer (published table, reused). Inclusion rule: studies that train a decoder or synthesizer on silently articulated non-acoustic signals using acoustic or label targets transferred from a separate vocalized recording of the same utterance by time alignment (DTW, forced alignment or a learned alignment); any signal; training only on vocalized data and testing on silent data, alignment used only for scoring, whisper or NAM conversion and imagined speech excluded; versions count once. Ledger: 31 unique studies slot-filled for M02; 52 unique studies pattern match; 16 confirmed. Usual design: target transfer from the paired vocalized recording, 15 confirmed; prior designs [[2]](#ref-2), [[3]](#ref-3). Signals of the 16 confirmed (published include reasons): ultrasound plus lip video in the target [[1]](#ref-1), EMG-based in all others. Read in full: [[3]](#ref-3), [[2]](#ref-2), [[6]](#ref-6). Known-item recall 0.67.
+- M03, overt-silent-joint-training (published table, reused). Inclusion rule: studies with any signal whose ledger mentions both overt and silent speech production, classified by how overt recordings enter the training of a silent-speech decoder (pooled training, fine-tuning from an overt model, time-aligned target transfer, domain-adversarial invariance, an explicit distance or divergence between modes); overt-only training applied to silent test data, whisper-to-normal conversion and perception studies excluded; a study counts under every design its full text names (upper bound); versions count once. Ledger: 1,526 unique studies slot-filled for M03; 354 unique studies pattern match. Usual design: supervision from paired audio, 31 of 138 (slot-filled); target transfer 27, domain-adversarial invariance 12, fine-tuning from an overt model 11, divergence or metric loss 5 (pattern match). Read in full: [[3]](#ref-3), [[4]](#ref-4), [[5]](#ref-5), [[7]](#ref-7), [[8]](#ref-8). Known-item recall 1.0.
+- M12, ultrasound-to-speech-output-evaluation (published table, reused). Inclusion rule: studies that synthesize speech or acoustic features from ultrasound tongue images (with or without lip video) and evaluate the output, classified by output measure; recognition-only studies, contour tracking and reviews excluded; versions count once. Ledger: 6,960 unique studies slot-filled for M12; 51 unique studies pattern match. Usual design: MCD 21, often with MUSHRA 14; listener intelligibility 5, MOS 4, ASR on output 3 (pattern match). Read in full: [[9]](#ref-9). Known-item recall 0.57.
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Zheng, R., Ai, Y., Ling, Z. “Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training.” *arXiv preprint*, 2023. doi:[10.48550/arXiv.2304.05574](https://doi.org/10.48550/arXiv.2304.05574). arXiv:[2304.05574](https://arxiv.org/abs/2304.05574). Target. Read as arXiv v1. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/speech-reconstruction-from-silent-tongue-and-lip-articulation-by-pseudo-target-generation-and-domain-adversarial-training) [wiki: arxiv-2304.05574](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2304.05574/article.md)
+2. <a id="ref-2"></a>Janke, M., Diener, L. “EMG-to-Speech: Direct Generation of Speech From Facial Electromyographic Signals.” *IEEE/ACM Transactions on Audio, Speech, and Language Processing*, 2017, 25(12), 2375-2385. doi:[10.1109/TASLP.2017.2738568](https://doi.org/10.1109/TASLP.2017.2738568). Prior; deciding prior for M02 (DTW target transfer to silent EMG). Uncited by the target. [wiki: doi-10.1109-taslp-2017-2738568](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-taslp-2017-2738568/article.md)
+3. <a id="ref-3"></a>Gaddy, D., Klein, D. “Digital Voicing of Silent Speech.” *Proc. 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, 2020, 5521-5530. doi:[10.18653/v1/2020.emnlp-main.445](https://doi.org/10.18653/v1/2020.emnlp-main.445). arXiv:[2010.02960](https://arxiv.org/abs/2010.02960). Prior; deciding prior for M02, M03 and M11. Uncited by the target. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/digital-voicing-of-silent-speech) [wiki: arxiv-2010.02960](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2010.02960/article.md) [wiki: doi-10.18653-v1-2020.emnlp-main.445](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.18653-v1-2020.emnlp-main.445/article.md)
+4. <a id="ref-4"></a>Wand, M., Schmidhuber, J. “Improving Speaker-Independent Lipreading with Domain-Adversarial Training.” *Proc. Interspeech 2017*, 2017, 3662-3666. arXiv:[1708.01565](https://arxiv.org/abs/1708.01565). Prior; domain-adversarial training against speakers. [wiki: arxiv-1708.01565](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1708.01565/article.md)
+5. <a id="ref-5"></a>Wand, M., Schultz, T., Schmidhuber, J. “Domain-Adversarial Training for Session Independent EMG-based Speech Recognition.” *Proc. Interspeech 2018*, 2018, 3167-3171. doi:[10.21437/Interspeech.2018-2318](https://doi.org/10.21437/Interspeech.2018-2318). Prior; domain-adversarial training against recording sessions. [wiki: isca-wand18_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-wand18_interspeech/article.md)
+6. <a id="ref-6"></a>Lee, J., Lee, J., Lee, K. “GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition.” *Proc. Interspeech 2026*, 2026. doi:[10.21437/Interspeech.2026-1938](https://doi.org/10.21437/Interspeech.2026-1938). Later; state of the art for M02. [later] [wiki: isca-lee26r_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-lee26r_interspeech/article.md)
+7. <a id="ref-7"></a>Ribeiro, M. S., Eshky, A., Richmond, K., Renals, S. “Silent versus modal multi-speaker speech recognition from ultrasound and video.” *Proc. Interspeech 2021*, 2021, 641-645. doi:[10.21437/Interspeech.2021-23](https://doi.org/10.21437/Interspeech.2021-23). Prior; cited by the target; silent-modal mismatch on TaL. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/silent-versus-modal-multi-speaker-speech-recognition-from-ultrasound-and-video) [wiki: isca-ribeiro21-silentus](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-ribeiro21-silentus/article.md)
+8. <a id="ref-8"></a>Lee, J., Hwang, I., Lee, J., Kim, E., Han, D., Lee, K. “Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment.” *Proc. Interspeech 2026*, 2026. doi:[10.21437/Interspeech.2026-2931](https://doi.org/10.21437/Interspeech.2026-2931). Later; state of the art for M03. [later] [wiki: isca-lee26v_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-lee26v_interspeech/article.md)
+9. <a id="ref-9"></a>Sonkar, Y., Kilaru, Y., Yelimeli, S., Shah, N., Gandhi, V. “Tongue2Speech: Real-Time Speech Synthesis from Tongue Ultrasound Videos via Spatiotemporal Transformers.” *Proc. Interspeech 2026*, 2026, 6856-6860. doi:[10.21437/Interspeech.2026-3023](https://doi.org/10.21437/Interspeech.2026-3023). Later; state of the art for M12 (published topic table). [later] [wiki: isca-sonkar26_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-sonkar26_interspeech/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`process/log.json`](process/log.json): process record: each step, who did it (reader, script, writer, evaluator), when, the checks run and the input versions
+- [`process/notes.json`](process/notes.json): reading notes on the target and comparator papers: claims, numbers, conditions and what is not stated, with locations
+- [`process/plan.json`](process/plan.json): plan: which components the paper changes and the topics it is compared on
+- [`process/draft.md`](process/draft.md): the review as first written, before the independent evaluation
+- [`process/claims-draft.md`](process/claims-draft.md): claim table of the draft: every claim mapped to a note or a count
+- [`process/claims.md`](process/claims.md): claim table of the published review
+- [`components/M02/silent-target-transfer.csv`](../../components/M02/silent-target-transfer.csv): M02 topic "silent-target-transfer", every candidate paper with its decision (31 slot-filled, 52 pattern match, usual design in 15, 4 read in full)
+- [`components/M03/overt-silent-joint-training.csv`](../../components/M03/overt-silent-joint-training.csv): M03 topic "overt-silent-joint-training", every candidate paper with its decision (1526 slot-filled, 354 pattern match, usual design in 31, 5 read in full)
+- [`components/M12/ultrasound-to-speech-output-evaluation.csv`](../../components/M12/ultrasound-to-speech-output-evaluation.csv): M12 topic "ultrasound-to-speech-output-evaluation", every candidate paper with its decision (6960 slot-filled, 51 pattern match, usual design in 21, 3 read in full)
+
 
 ## More reviews in Ultrasound & tongue imaging
 
