@@ -76,7 +76,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`paralinguistic-output-from-production-signals.csv`](paralinguistic-output-from-production-signals.csv) (3268 slot-filled, 99 pattern match, usual design in 12, 4 read in full)
 - Inclusion rule: Include studies that infer a paralinguistic property of the speaker or utterance (affect or emotion, speaker identity, speaking mode, prosody, intonation or pitch) from a non-acoustic speech-production signal recorded while speaking (EMG, EMA, ultrasound, real-time MRI, electropalatography, strain sensors, ECoG or intracortical recordings). Boundary: acoustic-only and face-video audiovisual emotion recognition are excluded; facial EMG or EEG emotion recognition without speech production is excluded; F0 or prosody counts only when reported as an output; surveys are pattern matches only; versions of one study count once.
-- Used in: [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](../../reviews/affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg/)
+- Used in: [Affect Decoding in Phonated and Silent Speech Production from Surface EMG](../../reviews/affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg/), [Convolutional Neural Network-Based Age Estimation Using B-Mode Ultrasound Tongue Image](../../reviews/convolutional-neural-network-based-age-estimation-using-b-mode-ultrasound-tongue-image/)
 
 ## rf-ssr-output-granularity
 
