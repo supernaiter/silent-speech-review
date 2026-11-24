@@ -2072,6 +2072,27 @@
    "loc": "Sec. 5.1",
    "quote": "For predicting the text from the silent video at inference time, we use Ma et al. (2023) as our lip-reader for LRS2 and LRS3.",
    "added_by": "resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling"
+  },
+  {
+   "pid": "arxiv-2107.12003",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "the speaker characteristic features are predicted from face images using a face encoder trained through cross-modal learning with a pre-trained acoustic model",
+   "added_by": "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
+  },
+  {
+   "pid": "arxiv-2107.12003",
+   "role": "prior",
+   "loc": "Table II; Sec. V-B",
+   "quote": "Facetron 3.24 7.7 14.7 3.87 99.22%",
+   "added_by": "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
+  },
+  {
+   "pid": "arxiv-2202.09081-vcvts",
+   "role": "prior",
+   "loc": "Sec. 2.3",
+   "quote": "which is produced by the speaker encoder from a reference utterance",
+   "added_by": "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
   }
  ],
  "known_item_recall": {
@@ -2120,7 +2141,8 @@
  },
  "used_by": [
   "naturall2s-end-to-end-high-quality-multispeaker-lip-to-speech-synthesis-with-differential-digita",
-  "resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling"
+  "resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling",
+  "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
  ],
  "state_of_the_art_resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling": {
   "pid": "arxiv-2411.19486",
@@ -2157,5 +2179,43 @@
    ]
   }
  ],
- "deciding_priors_note_resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling": "Lip-reader text at use time: LipVoicer 2023 (read; same lip reader family, Ma et al. 2023). Reference audio speaker conditioning is the usual approach (21). DiffV2S 2023 needs no reference audio (read)."
+ "deciding_priors_note_resound-speech-reconstruction-from-silent-videos-via-acoustic-semantic-decomposed-modeling": "Lip-reader text at use time: LipVoicer 2023 (read; same lip reader family, Ma et al. 2023). Reference audio speaker conditioning is the usual approach (21). DiffV2S 2023 needs no reference audio (read).",
+ "state_of_the_art_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": {
+  "pid": "arxiv-2411.19486",
+  "year": 2024,
+  "metric": "LRS3 SECS on unseen speakers with a video-derived speaker embedding (0.851 with an audio-derived one), WER 28.5% in both cases",
+  "value": 0.664,
+  "unit": "SECS",
+  "timing": "later"
+ },
+ "deciding_priors_note_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": "Target first public 2023-05. Face-derived speaker features with no reference audio, tested on held-out GRID speakers, predate it: Facetron (2021-07, read; face encoder trained by cosine similarity to a pre-trained prosody embedding; 4 unseen speakers, WER 14.7%). VCVTS (2022-02, read, cited by the target) uses a reference-utterance speaker encoder. DiffV2S (2023-08) is [concurrent]. No ahead verdict.",
+ "tally_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": {
+  "slot_filled_unique": 119,
+  "string_match_unique": 165,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "audio_reference_speaker_embedding",
+   "n": 21,
+   "tier": "pattern match",
+   "population_unique": 165
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2411.19486",
+   "year": 2024,
+   "metric": "LRS3 SECS on unseen speakers with a video-derived speaker embedding (0.851 with an audio-derived one), WER 28.5% in both cases",
+   "value": 0.664,
+   "unit": "SECS",
+   "timing": "concurrent"
+  },
+  "read": 5,
+  "read_prior": [
+   "arxiv-2107.12003",
+   "arxiv-2202.09081-vcvts",
+   "arxiv-2306.03258",
+   "arxiv-2308.07787-diffv2s"
+  ],
+  "unread": 187,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
 }

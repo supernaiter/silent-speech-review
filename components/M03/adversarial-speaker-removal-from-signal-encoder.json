@@ -457,6 +457,20 @@
    "role": "target",
    "loc": "Sec. III",
    "quote": "The second approach to disentanglement uses the idea of gradient reversal"
+  },
+  {
+   "pid": "arxiv-2105.09652-spkdisent",
+   "role": "prior",
+   "loc": "Abstract; Sec. III",
+   "quote": "To better disentangle the two inputs—linguistic content and speaker identity—we add adversarial losses that dispel the identity from the video embeddings.",
+   "added_by": "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
+  },
+  {
+   "pid": "arxiv-2411.19486",
+   "role": "sota",
+   "loc": "Table III",
+   "quote": "V2SFlow-V 3.780 28.5 0.664 0.251 8.09 w/o cc 3.271 106.4 0.643 0.259 2.81 w/o cp 3.796 28.5 0.663 0.255 8.11 w/o cs 3.722 28.7 0.587 0.252 7.99",
+   "added_by": "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
   }
  ],
  "known_item_recall": {
@@ -504,7 +518,8 @@
  },
  "used_by": [
   "cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding",
-  "speaker-disentanglement-in-video-to-speech-conversion"
+  "speaker-disentanglement-in-video-to-speech-conversion",
+  "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
  ],
  "ledger_tally_cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding": {
   "design_slot": "M03",
@@ -601,5 +616,151 @@
  "sota_candidates_cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding": [],
  "review_notes": {
   "cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding": "Target trains a gradient-reversal subject discriminator on EEG-EMG tone features; mean LOSO accuracy 84.69% without it, 85.10% with it (Table 5), single runs. Compared with ALIGN (arxiv-2603.18299-align, concurrent), whose session-adversary ablation uses 4 seeds."
+ },
+ "ledger_tally_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2305.14359",
+     "isca-wand18_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-noda14_interspeech",
+     "doi-10.1007-s10489-014-0629-7"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=adapt to unseen target speaker using unlabeled target data only",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1708.01565"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=adamw lr0.001 bs112(grid)/220(lrw-id); adapt only padding lr0.01; 5-fold mean",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2208.04498"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective={'stage1': 'joint vsr + speaker-id multi-task until id module converges'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.16071"
+    ]
+   },
+   {
+    "design": "training_sample_count=276000",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s10489-014-0629-7"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=denoising reconstruction (audio ae); phoneme-label logistic regression (cnn)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s10489-014-0629-7"
+    ]
+   },
+   {
+    "design": "adaptation=user_specific_training",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-noda14_interspeech"
+    ]
+   },
+   {
+    "design": "training_vocabulary_size=216",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-noda14_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-wand18_interspeech"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "WER|word error|EER|accuracy",
+  "better": "lower"
+ },
+ "known_item_recall_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": {
+  "seeds_in_wiki": 10,
+  "found": 0,
+  "recall": 0.0,
+  "missed": [
+   "arxiv-2001.08702",
+   "arxiv-2007.06504",
+   "arxiv-2104.13332",
+   "arxiv-2202.09081-vcvts",
+   "arxiv-2204.01726",
+   "arxiv-2205.02058",
+   "arxiv-2209.01383",
+   "isca-michelsanti20-vid2voc",
+   "isca-michelsanti20_interspeech",
+   "isca-vougioukas19_ganv2s"
+  ]
+ },
+ "state_of_the_art_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": {
+  "pid": "arxiv-2411.19486",
+  "year": 2024,
+  "metric": "LRS3 unseen-speaker SECS with a separate video-derived speaker attribute (0.587 without it), WER 28.5% vs 28.7%",
+  "value": 0.664,
+  "unit": "SECS",
+  "timing": "later"
+ },
+ "deciding_priors_note_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": "Target first public 2023-05. Content/identity disentanglement in a GRID video-to-speech encoder predates it: Oneata et al. (2021-05, read; adversarial dispel and gradient-reversal losses) and Wand and Schmidhuber (2017-08, read; gradient reversal on a GRID lipreader). The VAE prior is a different device from both, but the role is the same. No ahead verdict.",
+ "tally_zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 18,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "gradient-reversal speaker or subject classifier on the signal encoder",
+   "n": 6,
+   "tier": "pattern match",
+   "population_unique": 18
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2305.14359",
+   "year": 2023,
+   "metric": "speaker EER on 13 unseen GRID speakers against their own natural speech, VAE identity/content split, speech-reference embedding (36.72 with a face embedding, 43.13 without the VAE)",
+   "value": 26.57,
+   "unit": "% EER",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-1708.01565",
+   "arxiv-2105.09652-spkdisent"
+  ],
+  "unread": 20,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
  }
 }
