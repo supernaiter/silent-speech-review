@@ -1,0 +1,52 @@
+{
+ "target": "arxiv-2207.03800",
+ "prep_used": "prep/plan/out.json corrected: M02 and M03 moved to inherited (the two-stage mel-then-generator schedule and the GAN generator losses are the usual separately trained vocoder lineage; their consequences are discussed under M06); M13 kept as a table row (speed and size claims are discussed under M06 because the speedup comes from the decoder and vocoder choice); new M03/M13 topics of prep not built; front-end topic added under M06; M12 kept.",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Recorded talking-face lecture video (Lip2Wav) and read GRID sentences with paired audio",
+  "M02": "Paired ground-truth audio: mel targets (SSIM + L1) in stage 1, HiFi-GAN adversarial, mel and feature-matching losses in stage 2",
+  "M03": "Two-stage training; upstream frozen in stage 2 on Lip2Wav, sampled 1.2 s windows; single run, no seeds or selection data",
+  "M04": "Overt speech video, audio muted at test",
+  "M05": "S3FD face crop, 96x96, 30 fps",
+  "M07": "None",
+  "M08": "16 kHz waveform",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Recorded audio of the same utterance; Lip2Wav splits by reference",
+  "M13": "Parameter count and single-GPU batch-1 timing only"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-synthesis",
+   "reuse": "components/M06/video-to-speech-synthesis.json",
+   "inclusion_rule": "Reused published table: studies that synthesize a speech waveform from talking-face or lip video (audio muted at test) and report the acoustic representation and how it becomes a waveform; enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS excluded; versions once. Added for this review: full-text pattern counts (reference lists removed) over the same 165 studies for a non-autoregressive decoder named, an autoregressive or Tacotron decoder named, inference speed reported and parameter count reported, split by first-public date against 2022-07.",
+   "pattern": "published pattern",
+   "design_field": "published full-text vocoder counts plus added regexes",
+   "metric": "Lip2Wav speaker-dependent STOI/ESTOI/PESQ; GRID PESQ"
+  },
+  {
+   "slot": "M06",
+   "topic": "articulator-video-spatiotemporal-front-end",
+   "reuse": "components/M06/articulator-video-spatiotemporal-front-end.json",
+   "inclusion_rule": "Reused published table: studies that decode text, speech or acoustic features from articulator video with a learned image front end, classified by how temporal context enters the front end. Added for this review: a full-text pattern for a transformer visual front end (vision / visual / video transformer, ViT, Swin, transformer pooling) over the 1,342 studies and over the 165 video-to-speech studies, split by first-public date against 2022-07; a mention in related work counts (upper bound).",
+   "pattern": "published pattern",
+   "design_field": "transformer_visual_frontend regex",
+   "metric": "presence of the design; controlled front-end comparison"
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "inclusion_rule": "Reused published table (165 video-to-speech studies; listener tests, ASR WER on the output, unseen-speaker tests). Added for this review: full-text pattern counts for STOI/ESTOI and PESQ reported, split by first-public date against 2022-07.",
+   "pattern": "published pattern",
+   "design_field": "stoi_or_estoi, pesq regexes",
+   "metric": "objective intelligibility and quality on the same Lip2Wav speakers"
+  }
+ ]
+}
