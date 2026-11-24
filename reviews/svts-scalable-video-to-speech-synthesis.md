@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/svts-scalable-video-to-speech-synthesis/](svts-scalable-video-to-speech-synthesis/).**
 
-SVTS shows a simple spectrogram predictor with a pretrained vocoder outperforms prior complex video-to-speech models and scales to large datasets such as LRS3+VoxCeleb2.
+Conformer mel predictor plus pretrained vocoder (M06) and data scaling (M03) are standard; GRID/LRW gains hold, but later tests put SVTS at 78-82% WER on LRS3.
 
 [Read the full review](svts-scalable-video-to-speech-synthesis/) · [All reviews](../README.md)

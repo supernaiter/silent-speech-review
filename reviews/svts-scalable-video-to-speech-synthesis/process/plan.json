@@ -1,0 +1,77 @@
+{
+ "target": "arxiv-2205.02058",
+ "changed": [
+  "M03",
+  "M06"
+ ],
+ "incidental": [
+  "M07",
+  "M11",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "GRID, LRW and LRS3 overt-speech video corpora with paired audio; no new collection",
+  "M02": "Real-audio 80-band log-mel targets, no text labels (paired-audio supervision, the field default)",
+  "M04": "Overt speech video with audio muted at test",
+  "M05": "Single camera, 96x96 grayscale mouth crop from 68 landmarks, 20 fps",
+  "M08": "Waveform audio from predicted mel spectrograms (folded into M06)",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M13": "Vocoder throughput on one RTX 2080 Ti; no device, cost or safety constraint"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-synthesis",
+   "reuse": "components/M06/video-to-speech-synthesis.json",
+   "inclusion_rule": "Reused published table: studies that synthesize a speech waveform from talking-face or lip video and report the acoustic representation and how it becomes a waveform; enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS excluded; versions once.",
+   "pattern": "published pattern",
+   "design_field": "published full-text vocoder counts",
+   "metric": "LRS3 ASR WER on the SVTS unseen-speaker split; GRID and LRW WER"
+  },
+  {
+   "slot": "M06",
+   "topic": "joint-end-to-end-lip-to-speech-training",
+   "reuse": "components/M06/joint-end-to-end-lip-to-speech-training.json",
+   "inclusion_rule": "Reused published table: the same 165-study population, classified by whether the waveform generator is trained with the visual path or is a pre-trained or separately trained vocoder; a study counts under every design its full text names (upper bound).",
+   "pattern": "published pattern",
+   "design_field": "published full-text regexes pretrained_vocoder, joint_waveform_training, ddsp_or_harmonic_noise",
+   "metric": "presence of the design"
+  },
+  {
+   "slot": "M03",
+   "topic": "training-data-scale-video-to-speech",
+   "inclusion_rule": "The 165-study video-to-speech population of components/M06/video-to-speech-synthesis, classified from the full text (reference list removed) by the training corpora and scale it names: GRID, LRW, LRS3, VoxCeleb2 audio-visual data, a corpus size of 1,000 hours or more, and model-size scaling. Boundary: a study counts under every corpus its text names, including related-work and evaluation-only mentions (upper bound); audio-only pre-training corpora are not counted; versions once.",
+   "pattern": "M06 video-to-speech population pattern",
+   "design_field": "full-text regexes grid_data, lrw_data, lrs3_data, voxceleb2_audiovisual_data, over_1000_hours, model_size_scaling",
+   "metric": "presence of the design; LRS3 unseen-speaker metrics for the effect of added data"
+  },
+  {
+   "slot": "M07",
+   "topic": "reference-speaker-conditioning-at-inference",
+   "reuse": "components/M07/reference-speaker-conditioning-at-inference.json",
+   "inclusion_rule": "Reused published table: the same 165-study population, classified by the speaker information supplied at use time (embedding from reference audio, from the face or lip video, or none); training-only or scoring-only embeddings do not count (upper bound).",
+   "pattern": "published pattern",
+   "design_field": "published full-text regexes",
+   "metric": "SECS and WER with audio- versus video-derived embeddings"
+  },
+  {
+   "slot": "M11",
+   "topic": "asr-retranscribed-evaluation-reference",
+   "reuse": "components/M11/asr-retranscribed-evaluation-reference.json",
+   "inclusion_rule": "Reused published table: the video-to-speech population classified by how the ASR-WER text reference is built (ASR transcript of the real audio) and whether the ASR error on the real test audio is reported (upper bound).",
+   "pattern": "published pattern",
+   "design_field": "published full-text regexes",
+   "metric": "ASR WER on the real test audio"
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "inclusion_rule": "Reused published table: the same video-to-speech population, counting the evaluation protocols its full text names (listener test, ASR WER on output, unseen speakers) (upper bound).",
+   "pattern": "published pattern",
+   "design_field": "published protocol counts",
+   "metric": "listener test; LRS3 WER under one ASR"
+  }
+ ]
+}
