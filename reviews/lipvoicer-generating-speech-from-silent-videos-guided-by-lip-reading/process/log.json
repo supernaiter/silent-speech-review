@@ -1,6 +1,6 @@
 {
  "slug": "lipvoicer-generating-speech-from-silent-videos-guided-by-lip-reading",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,30 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-24T05:18:09+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-24T05:20:43+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "15 applied, 0 rejected, 1 unverified (C25, bibliographic). Gate after triage: check_review.py 0 FAIL, 1 WARN (papers read counted from reused published tables), body 6,997 characters.",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-24T05:23:17+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 148 found, 0 missing, 16 unchecked (unstated, figure-only or no source)",
+  "topic counts M02-text-supervision-in-video-to-speech-training": "ok",
+  "topic counts M06-video-to-speech-one-to-many-decoder": "ok",
+  "topic counts M07-lip-reader-text-guidance-for-video-to-speech": "ok",
+  "topic counts M12-video-to-speech-output-evaluation": "ok"
+ },
  "inputs": {
   "notes_sha256": "13c4afd8bb729b97cfa11b2f6a565595aa0a4a9df298e1bed42a5dc601c5c5ef",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +61,6 @@
  },
  "body_chars": {
   "draft": 16433,
-  "final": null
+  "final": 16427
  }
 }

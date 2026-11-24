@@ -8,6 +8,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Neural speech decoders that constrain output with a vocabulary of at least 1,000 words via an n-gram or neural language model at use time. Boundary: 50-word or command sets are counted as small vocabulary; LLM rescoring counts.
 - Used in: [A cross-species neural foundation model for end-to-end speech decoding](../../reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/), [A high-performance neuroprosthesis for speech decoding and avatar control](../../reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control/), [A high-performance speech neuroprosthesis](../../reviews/a-high-performance-speech-neuroprosthesis/), [iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding](../../reviews/iphoneme-brain-to-text-communication-for-als-using-conformerxl-decoding/), [Neuroprosthesis for decoding speech in a paralyzed person with anarthria](../../reviews/neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria/)
 
+## lip-reader-text-guidance-for-video-to-speech
+
+- Table: [`lip-reader-text-guidance-for-video-to-speech.csv`](lip-reader-text-guidance-for-video-to-speech.csv) (119 slot-filled, 165 pattern match, usual design in 150, 7 read in full)
+- Inclusion rule: The 165-study video-to-speech population (pattern of components/M06/video-to-speech-one-to-many-decoder), classified from the full text (reference list removed) by whether text predicted from the video by a lip reader is used at inference to condition or guide speech synthesis, whether a classifier or ASR guides a diffusion sampler, and whether a lip-reader-to-TTS cascade is named. Boundary: a study counts under every design its text names (upper bound, related-work mentions included); text used only as a training loss or as an evaluation reference does not count as use-time text; versions once.
+- Used in: [LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading](../../reviews/lipvoicer-generating-speech-from-silent-videos-guided-by-lip-reading/)
+
 ## llm-transcript-correction
 
 - Table: [`llm-transcript-correction.csv`](llm-transcript-correction.csv) (119 slot-filled, 382 pattern match, usual design in 78, 4 read in full)
