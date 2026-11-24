@@ -1,6 +1,6 @@
 {
  "slug": "knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,31 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-24T02:11:08+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-24T02:13:09+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "10 applied, 2 partly applied (one part rejected each: Hinton not citable, MUTE author list correct), 0 unverified.",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-24T02:15:32+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 142 found, 0 missing, 18 unchecked (unstated, figure-only or no source)",
+  "topic counts M02-knowledge-distillation-in-speech-decoding": "ok",
+  "topic counts M05-facial-emg-channel-layout": "ok",
+  "topic counts M06-closed-vocabulary-word-classification": "ok",
+  "topic counts M12-wearable-sensor-word-test-split": "ok",
+  "topic counts M13-wearable-speech-sensor-on-device-inference": "ok"
+ },
  "inputs": {
   "notes_sha256": "787efdab3325373c04f7e8a2a0bf2c391c2d129197500ab3ab95625ee42ee433",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +62,6 @@
  },
  "body_chars": {
   "draft": 15877,
-  "final": null
+  "final": 15991
  }
 }

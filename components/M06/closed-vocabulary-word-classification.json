@@ -4376,6 +4376,12 @@
    "role": "prior",
    "loc": "Abstract",
    "quote": "We decode produced and perceived utterances with accuracy rates as high as 61% and 76%"
+  },
+  {
+   "pid": "isca-walliczek06_interspeech",
+   "role": "prior",
+   "loc": "Table 1 | Sec. 5.1.1",
+   "quote": "Words\n64.8\n78.1\n71.2\n82.9"
   }
  ],
  "known_item_recall": {
@@ -4412,15 +4418,275 @@
   },
   "read": 2,
   "read_prior": [
-   "pmc-6667454-qa"
+   "pmc-6667454-qa",
+   "isca-walliczek06_interspeech"
   ],
   "unread": 413,
   "confirmed_unique": 0,
   "known_item_recall": 0.5
  },
  "used_by": [
+  "knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface",
   "neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria",
   "ultrasensitive-textile-strain-sensors-redefine-wearable-silent-speech-interfaces-with-high-machine-learning-efficiency",
   "wireless-silent-speech-interface-using-multi-channel-textile-emg-sensors-integrated-into-headpho"
- ]
+ ],
+ "ledger_tally_knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 152,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2603.02847",
+     "arxiv-2607.08236",
+     "arxiv-2607.25626",
+     "arxiv-2608-25204-libribrain100"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 87,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2604.05751",
+     "arxiv-2607.08236",
+     "doi-10.1002-aisy.70440",
+     "isca-belfrouh26-xcalib"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 82,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2607.05165",
+     "arxiv-2608-25204-libribrain100",
+     "arxiv-2608.16975",
+     "arxiv-2609-03231-pnpl26"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 53,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "arxiv-2603.02847",
+     "arxiv-2604.05751",
+     "arxiv-2607.08236",
+     "arxiv-2609.21436"
+    ]
+   },
+   {
+    "design": "decoder_route=closed_set_classification",
+    "n": 41,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2607.05165",
+     "arxiv-2609.21436",
+     "doi-10.1088-2515-7647.ae869f",
+     "isca-belfrouh26_odyssey"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 35,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.02847",
+     "arxiv-2607.05165",
+     "arxiv-2609.21436",
+     "arxiv-2609.31997",
+     "doi-10.21203-rs.3.rs-11207165.v1"
+    ]
+   },
+   {
+    "design": "model_family=hmm",
+    "n": 25,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1038-s41467-019-10994-4",
+     "doi-10.1088-1741-2552-aaab6f",
+     "doi-10.1016-j.imavis.2016.03.003",
+     "doi-10.1109-msp.2013.2296173"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 22,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.05762",
+     "doi-10.21203-rs.3.rs-11207165.v1",
+     "arxiv-2508.07233",
+     "cell-40816265-innersp",
+     "doi-10.1007-s00521-024-10456-z"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 22,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751",
+     "arxiv-2607.25626",
+     "arxiv-2609.21436",
+     "doi-10.1088-2515-7647.ae869f",
+     "doi-10.21203-rs.3.rs-10510743.v1"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=select",
+    "n": 18,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2512.16518",
+     "doi-10.1007-s00521-024-10456-z",
+     "acisc-6479124-inlip",
+     "medrxiv-2023.01.18.23284110-avfrench",
+     "doi-10.1088-1742-6596-1438.1.012032"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "(?i)accura",
+  "better": "higher"
+ },
+ "sota_candidates_knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface": [
+  {
+   "metric": "accuracy plateaus at ~5 sensors",
+   "value": 2500,
+   "unit": "word",
+   "raw": "training vocabulary size",
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "year": 2017,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "condition main effect on accuracy (eta2p=0.87)",
+   "value": 286.85,
+   "unit": "F",
+   "raw": "F(1, 43) = 286.85, p < 0.001",
+   "pid": "doi-10.3389-fpsyg.2013.00359",
+   "year": 2013,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Linguistic neural decoding has advanced from phoneme-level classification to open-vocabulary sentence decoding, with deep learning and LLM integration driving accuracy gains; remaining challenges include non-invasive SNR limits and vocabulary coverage",
+   "value": 180,
+   "unit": "words",
+   "raw": "Representative benchmark: 180-word vocabulary decoded at 5.22% Top-1 / 13.59% Top-5 vs chance",
+   "pid": "doi-10.1038-s42003-025-08511-z",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "online accuracy (correct / 50 trials)",
+   "value": 100.0,
+   "unit": "percent",
+   "raw": "100.0",
+   "pid": "arxiv-2609.21436",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CVOS silent-speech accuracy",
+   "value": 100.0,
+   "unit": "percent",
+   "raw": "peak word accuracy (Moderate/Tightness 3)",
+   "pid": "doi-10.34133-cbsystems.0536",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "acoustic-only clean accuracy",
+   "value": 100,
+   "unit": "percent",
+   "raw": "nearly 100%",
+   "pid": "doi-10.5772-6364",
+   "year": 2008,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word accuracy Audio MFCC reference",
+   "value": 99.7,
+   "unit": null,
+   "raw": "Audio 3/3 99.7%",
+   "pid": "isca-hofe10",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best accuracy (all-subjects scheme)",
+   "value": 99.67,
+   "unit": "percent",
+   "raw": "99.67",
+   "pid": "doi-10.21203-rs.3.rs-2287259-v1",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "day-1 50-word accuracy",
+   "value": 99.6,
+   "unit": "percent",
+   "raw": "99.6",
+   "pid": "doi-10.1056-nejmoa2314132",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy 50-word",
+   "value": 99.6,
+   "unit": "%",
+   "raw": "99.6",
+   "pid": "doi-10.3390-brainsci15040336",
+   "year": 2025,
+   "tier": "ledger only"
+  }
+ ],
+ "known_item_recall_knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface": {
+  "seeds_in_wiki": 4,
+  "found": 1,
+  "recall": 0.25,
+  "missed": [
+   "arxiv-2009.02110",
+   "doi-10.1016-j.specom.2009.12.002",
+   "doi-10.1109-access.2020.3026579"
+  ]
+ },
+ "tally_knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 360,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "model_family=other",
+   "n": 82,
+   "tier": "slot-filled",
+   "population_unique": 355
+  },
+  "state_of_the_art": {
+   "pid": "pmc-11328962-rapidcal",
+   "year": 2024,
+   "metric": "50-word vocabulary accuracy, day 1, intracortical, attempted speech in ALS",
+   "value": "99.6%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "isca-walliczek06_interspeech",
+   "pmc-6667454-qa"
+  ],
+  "unread": 413,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.5
+ }
 }

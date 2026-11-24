@@ -48,6 +48,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Neural-signal decoders (EEG, MEG, intracranial) that start from a checkpoint pretrained on large neural corpora (the 40-study neural foundation-model population) and, during supervised fine-tuning, add a training-only self-supervised loss (signal-transformation prediction, reconstruction, contrastive or pretext targets) to the task loss. Boundary: pretraining objectives used only before fine-tuning are excluded; use-time updates are M03; versions of one study count once; full-text pattern hits are an upper bound.
 - Used in: [NeuroTTT: Bridging Pretrain–Downstream Task Misalignment in EEG Foundation Models via Test-Time Training](../../reviews/neurottt-bridging-pretraining-downstream-task-misalignment-in-eeg-foundation-models-via-test-tim/)
 
+## knowledge-distillation-in-speech-decoding
+
+- Table: [`knowledge-distillation-in-speech-decoding.csv`](knowledge-distillation-in-speech-decoding.csv) (31 slot-filled, 22 pattern match, usual design in 46, 1 read in full)
+- Inclusion rule: Speech, word or language decoding studies from any non-acoustic or audio-visual signal (EMG, EEG, ECoG, intracortical, lip video, ultrasound, wearable strain or inertial sensors) that train a student model on teacher outputs or representations (knowledge distillation, teacher-student, self-distillation), found by ledger text or full text; design compared: where the teacher comes from (audio/ASR or cross-modal teacher, an ensemble of teachers, a larger same-modality model) and whether distillation is used for model compression. Boundary: full-text counts are pattern matches and include mentions in related work; acoustic-only ASR distillation is out of scope when read; versions count once.
+- Used in: [Knowledge Distilled Ensemble Model for sEMG-based Silent Speech Interface](../../reviews/knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface/)
+
 ## silent-articulation-text-label-supervision
 
 - Table: [`silent-articulation-text-label-supervision.csv`](silent-articulation-text-label-supervision.csv) (31 slot-filled, 195 pattern match, usual design in 46, 3 read in full)

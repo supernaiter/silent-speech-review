@@ -77,6 +77,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Lip reading or visual/audio-visual speech recognition whose visual input is an event stream, recorded by an event camera (DVS/DAVIS/Prophesee) or converted from RGB video. Boundary: event cameras used for non-speech face tasks (action units, gait) are excluded; event datasets without a recognition result count only if they report one; versions of one study count once.
 - Used in: [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](../../reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/)
 
+## facial-emg-channel-layout
+
+- Table: [`facial-emg-channel-layout.csv`](facial-emg-channel-layout.csv) (7329 slot-filled, 17 pattern match, usual design in 2, 2 read in full)
+- Inclusion rule: Include silent-speech recognition studies using facial surface EMG that specify or compare electrode, channel, or muscle placement and relate the configuration to word-recognition performance. Boundary: exclude EMG studies without placement or muscle details and studies that change only the decoder or signal-processing method.
+- Used in: [Knowledge Distilled Ensemble Model for sEMG-based Silent Speech Interface](../../reviews/knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface/)
+
 ## imagined-speech-eeg-consumer-headset
 
 - Table: [`imagined-speech-eeg-consumer-headset.csv`](imagined-speech-eeg-consumer-headset.csv) (7329 slot-filled, 167 pattern match, usual design in 61, 2 read in full)
