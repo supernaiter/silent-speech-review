@@ -1,0 +1,82 @@
+{
+ "target": "arxiv-2105.13718",
+ "changed": [
+  "M02",
+  "M06"
+ ],
+ "incidental": [
+  "M12",
+  "M13"
+ ],
+ "inherited": {
+  "M01": "TaL1 corpus recording lineage: the study uses previously recorded files from one male speaker and introduces no new user action during training-data collection.",
+  "M03": "TaL1 SSI lineage: no target-speaker calibration or model adaptation is introduced.",
+  "M05": "TaL1 ultrasound-tongue-imaging lineage, including the reported 82-frames-per-second acquisition.",
+  "M07": "TaL1 ultrasound-to-speech/WaveGlow lineage; no use-time lexicon, language model, or auxiliary information is reported.",
+  "M08": "TaL1 SSI output lineage: predicted mel-spectrogram features are converted to speech with WaveGlow; the VAD decision is an internal control output.",
+  "M09": "TaL1 SSI interface lineage; no user-facing presentation or confirmation mechanism is specified.",
+  "M10": "TaL1 SSI interface lineage; no correction or re-entry mechanism is specified.",
+  "M11": "Synchronized-audio/WebRTC-VAD label lineage supplies the speech/silence pseudo-reference; no independent manual reference is reported.",
+  "M04": "TaL1 recording lineage: ordinary voiced read speech; the user does nothing new at use time (prep had put the VAD here; it is processing, M06)."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "non-acoustic-speech-activity-detection",
+   "inclusion_rule": "Include studies that detect speech versus non-speech (or voiced/unvoiced, mouth open/closed as a VAD proxy, speech onset/endpoint) from a non-acoustic signal: lip/face video, ultrasound tongue imaging, ultrasonic Doppler, radar, EMG, EMA, EEG/MEG/ECoG. Boundary: audio-visual systems count when a visual-only or non-acoustic branch is evaluated; papers that only apply an acoustic VAD to their audio match the pattern and inflate the upper bound.",
+   "pattern": "(?s)^(?=.*(?:voice[- ]activity|speech[- ]activity detect|\\bVAD\\b|speech/silence|speech/non-?speech|speech detection|silence detection|end ?point detect))(?=.*(?:ultrasound_imaging|optical_camera|surface_emg|radar|active_acoustic_sensing|\\bmeg\\b|ecog|scalp_eeg|magnetic_tracking|intracortical))",
+   "design_field": "zzz_none (forces full-text design counts)",
+   "design_regex": [
+    "cnn",
+    "recurrent",
+    "classical (SVM/GMM/HMM/LDA/AdaBoost)",
+    "temporal_smoothing"
+   ],
+   "metric": "frame-level accuracy / AUC / F1 for speech vs non-speech; higher is better",
+   "better": "higher"
+  },
+  {
+   "slot": "M02",
+   "topic": "audio-derived-speech-activity-labels",
+   "inclusion_rule": "Same population as M06/non-acoustic-speech-activity-detection; classify where the speech/non-speech training labels come from: an acoustic VAD or energy on the synchronized audio, forced alignment of the audio, or manual annotation. Boundary: papers that only use audio VAD for preprocessing match the pattern (upper bound).",
+   "pattern": "(?s)^(?=.*(?:voice[- ]activity|speech[- ]activity detect|\\bVAD\\b|speech/silence|speech/non-?speech|speech detection|silence detection|end ?point detect))(?=.*(?:ultrasound_imaging|optical_camera|surface_emg|radar|active_acoustic_sensing|\\bmeg\\b|ecog|scalp_eeg|magnetic_tracking|intracortical))",
+   "design_slot": "M02",
+   "design_regex": [
+    "audio_vad_labels",
+    "manual_labels",
+    "forced_alignment"
+   ],
+   "metric": "as M06",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "non-acoustic-speech-activity-evaluation-protocol",
+   "inclusion_rule": "Same population as M06/non-acoustic-speech-activity-detection; classify the evaluation protocol of the detector: held-out speakers (speaker-independent, leave-one-subject-out), held-out sessions, or a single speaker. Boundary: a pattern hit in a paper that uses VAD only as preprocessing counts toward the upper bound.",
+   "pattern": "(?s)^(?=.*(?:voice[- ]activity|speech[- ]activity detect|\\bVAD\\b|speech/silence|speech/non-?speech|speech detection|silence detection|end ?point detect))(?=.*(?:ultrasound_imaging|optical_camera|surface_emg|radar|active_acoustic_sensing|\\bmeg\\b|ecog|scalp_eeg|magnetic_tracking|intracortical))",
+   "design_field": "zzz_none",
+   "design_regex": [
+    "held_out_speakers",
+    "held_out_sessions",
+    "single_speaker"
+   ],
+   "metric": "as M06",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "ultrasound-to-speech-output-evaluation",
+   "reuse": "components/M12/ultrasound-to-speech-output-evaluation.json",
+   "inclusion_rule": "Include studies that synthesize speech or acoustic features from ultrasound tongue images (with or without lip video) and evaluate the output; classify the output measures used (MCD or other spectral distance, MUSHRA or MOS ratings, listener transcription or identification, ASR on the synthesized speech). Boundary: exclude recognition-only studies, contour tracking and reviews (they inflate the pattern match, an upper bound); count versions once by key.",
+   "pattern": "(?s)^(?=.*ultrasound_imaging)(?=.*(speech_reconstruction|to-speech|vocoder|speech synthesis|synthesi[sz]ed speech|articulatory-to-acoustic|waveform|mel-spectrogram|spectrogram))",
+   "metric_pattern": "MUSHRA|MOS|naturalness",
+   "better": "higher"
+  }
+ ],
+ "dropped_prep_topics": {
+  "M02-audio-vad-derived-ultrasound-activity-supervision": "key=value design regex, population of 9 restricted to ultrasound; rebuilt across all non-acoustic signals",
+  "M04-ultrasound-speech-activity-detection-at-use-time": "no usual approach; VAD is processing (M06), not a use-time action",
+  "M06-ultrasound-speech-activity-cnn-classifier": "no usual approach; ultrasound-only population; rebuilt across all non-acoustic signals",
+  "M13-ultrasound-silent-speech-vad-deployment-cost": "no usual approach; M13 kept as not_reported without a topic (energy saving is motivation only)"
+ }
+}
