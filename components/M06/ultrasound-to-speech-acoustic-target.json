@@ -1,0 +1,994 @@
+{
+ "topic": "ultrasound-to-speech-acoustic-target",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*ultrasound_imaging)(?=.*(synthes|vocoder|to-speech|speech reconstruction|articulatory-to-acoustic|output_kind=[^|]*(audio|speech|spectr|formant)))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include studies whose ledger lists ultrasound imaging as input and speech synthesis, a vocoder or an acoustic/formant output, and classify by full-text pattern (whole text, related-work mentions included, so counts are upper bounds) the acoustic representation the network is trained to predict: vocoder spectral parameters (MGC-LSP, mel-cepstrum, MFCC), mel-spectrogram, formant frequencies. Boundary: reviews and corpus papers count as pattern matches; a hit on 'formant' in related work or as an analysis feature is not a formant target unless the snippet shows prediction; versions count once by key.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 68,
+  "string_match_unique": 50,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 26,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2608.17983",
+     "arxiv-2506.03831",
+     "arxiv-2509.13145",
+     "doi-10.1109-tnsre.2024.3520498",
+     "doi-10.12700-aph.17.7.2020.7.6"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 20,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2603.11877",
+     "arxiv-2608.17983",
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.1109-tnsre.2024.3520498",
+     "doi-10.14232-phd.11818"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 17,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.03831",
+     "arxiv-2509.13145",
+     "doi-10.12700-aph.17.7.2020.7.6",
+     "arxiv-1904.05259",
+     "doi-10.1145-3290605.3300376"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 17,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1109-tnsre.2024.3520498",
+     "isca-ibrahimov25-usconformer",
+     "doi-10.14232-phd.11818",
+     "doi-10.12700-aph.17.7.2020.7.6"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 10,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2608.17983",
+     "doi-10.1038-s44460-025-00010-2",
+     "arxiv-2506.03831",
+     "arxiv-2509.13145",
+     "doi-10.1109-tnsre.2024.3520498"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 10,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1109-tnsre.2024.3520498",
+     "doi-10.14232-phd.11818",
+     "doi-10.21437-ssw-2023-36"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=select",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2608.17983",
+     "arxiv-2509.13145",
+     "doi-10.1007-s00521-024-10456-z",
+     "arxiv-2104.11601",
+     "arxiv-2105.13718"
+    ]
+   },
+   {
+    "design": "model_family=hmm",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1016-j.specom.2009.08.002",
+     "isca-hueber07_interspeech",
+     "doi-10.1109-access.2020.3026579",
+     "isca-hueber08_interspeech"
+    ]
+   },
+   {
+    "design": "decoder_route=direct_signal_to_audio",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1016-j.specom.2009.08.002",
+     "isca-csapo17_interspeech",
+     "isca-csapo19_interspeech",
+     "isca-hueber08_interspeech",
+     "isca-jaumardhakoun16_interspeech"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=postprocess",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-tnsre.2024.3520498",
+     "doi-10.12700-aph.17.7.2020.7.6",
+     "sottovoce",
+     "arxiv-2304.05574"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "vocoder_spectral_params",
+    "n": 35,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "isca-sonkar26_interspeech",
+     "arxiv-2506.03831",
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1109-tnsre.2024.3520498"
+    ]
+   },
+   {
+    "design": "mel_spectrogram",
+    "n": 17,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "isca-sonkar26_interspeech",
+     "arxiv-2506.03831",
+     "doi-10.1109-tnsre.2024.3520498",
+     "doi-10.14232-phd.11818"
+    ]
+   },
+   {
+    "design": "neural_vocoder",
+    "n": 16,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "isca-sonkar26_interspeech",
+     "arxiv-2506.03831",
+     "doi-10.1109-tnsre.2024.3520498",
+     "doi-10.14232-phd.11818"
+    ]
+   },
+   {
+    "design": "formant_target",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "isca-sonkar26_interspeech",
+     "arxiv-2506.03831",
+     "doi-10.14232-phd.11818",
+     "pmc-5864145-vsmcvowel",
+     "arxiv-2006.16367"
+    ]
+   }
+  ],
+  "metric_pattern": null,
+  "better": "lower"
+ },
+ "sota_candidates": [],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1904.05259",
+   "key": "t:autoencoderbasedarticulatorytoacousticmappingforultrasoundsilentspeechinterfaces",
+   "title": "Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1904.05259 | doi=10.48550/arxiv.1904.05259 | title=Autoencoder-Based Articulatory-to-Acoustic Mapping for"
+  },
+  {
+   "pid": "arxiv-1906.09885",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1906.09885 | title=Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder | venue=SPECOM"
+  },
+  {
+   "pid": "arxiv-2006.16367",
+   "key": "t:ultra2speechadeeplearningframeworkforformantfrequencyestimationandtrackingfromul",
+   "title": "Ultra2Speech -- A Deep Learning Framework for Formant Frequency Estimation and Tracking from Ultrasound Tongue Images",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2006.16367 | title=Ultra2Speech -- A Deep Learning Framework for Formant Frequency Estimation and Trackin"
+  },
+  {
+   "pid": "arxiv-2008.03152",
+   "key": "t:ultrasoundbasedarticulatorytoacousticmappingwithwaveglowspeechsynthesis",
+   "title": "Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2008.03152 | title=Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis | ven"
+  },
+  {
+   "pid": "arxiv-2009.02110",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2009.02110 | title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 2020; v3"
+  },
+  {
+   "pid": "arxiv-2011.09804",
+   "key": "t:talasynchronisedmultispeakercorpusofultrasoundtongueimagingaudioandlipvideos",
+   "title": "TaL: a synchronised multi-speaker corpus of ultrasound tongue imaging, audio, and lip videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2011.09804 | title=TaL: a synchronised multi-speaker corpus of ultrasound tongue imaging, audio, and lip"
+  },
+  {
+   "pid": "arxiv-2104.11532",
+   "key": "t:3dconvolutionalneuralnetworksforultrasoundbasedsilentspeechinterfaces",
+   "title": "3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2104.11532 | title=3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces | venue"
+  },
+  {
+   "pid": "arxiv-2104.11601",
+   "key": "t:improvingneuralsilentspeechinterfacemodelsbyadversarialtraining",
+   "title": "Improving Neural Silent Speech Interface Models by Adversarial Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2104.11601 | title=Improving Neural Silent Speech Interface Models by Adversarial Training | venue=CogInf"
+  },
+  {
+   "pid": "arxiv-2105.13718",
+   "key": "t:voiceactivitydetectionforultrasoundbasedsilentspeechinterfacesusingconvolutional",
+   "title": "Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convolutional Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2105.13718 | title=Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convoluti"
+  },
+  {
+   "pid": "arxiv-2106.04552",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2106.04552 | title=Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces | venue=Inters"
+  },
+  {
+   "pid": "arxiv-2107.02003",
+   "key": "t:speechsynthesisfromtextandultrasoundtongueimagebasedarticulatoryinput",
+   "title": "Speech Synthesis from Text and Ultrasound Tongue Image-based Articulatory Input",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2107.02003 | title=Speech Synthesis from Text and Ultrasound Tongue Image-based Articulatory Input | venu"
+  },
+  {
+   "pid": "arxiv-2107.05550",
+   "key": "t:extendingtexttospeechsynthesiswitharticulatorymovementpredictionusingultrasoundt",
+   "title": "Extending Text-to-Speech Synthesis with Articulatory Movement Prediction using Ultrasound Tongue Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2107.05550 | title=Extending Text-to-Speech Synthesis with Articulatory Movement Prediction using Ultraso"
+  },
+  {
+   "pid": "arxiv-2107.12051",
+   "key": "t:adaptationoftacotron2basedtexttospeechforarticulatorytoacousticmappingusingultra",
+   "title": "Adaptation of Tacotron2-based Text-To-Speech for Articulatory-to-Acoustic Mapping using Ultrasound Tongue Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2107.12051 | title=Adaptation of Tacotron2-based Text-To-Speech for Articulatory-to-Acoustic Mapping usin"
+  },
+  {
+   "pid": "arxiv-2206.12947",
+   "key": "t:improvedprocessingofultrasoundtonguevideosbycombiningconvlstmand3dconvolutionaln",
+   "title": "Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convolutional Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2206.12947 | title=Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convoluti"
+  },
+  {
+   "pid": "arxiv-2303.01758",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.01758 | title=SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Net"
+  },
+  {
+   "pid": "arxiv-2304.05574",
+   "key": "t:speechreconstructionfromsilenttongueandliparticulationbypseudotargetgenerationan",
+   "title": "Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2304.05574 | title=Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generat"
+  },
+  {
+   "pid": "arxiv-2506.03831",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2506.03831 | title=Conformer-based Ultrasound-to-Speech Conversion | authors=Ibrahim Ibrahimov, Csaba Zai"
+  },
+  {
+   "pid": "arxiv-2509.13145",
+   "key": "t:utillmapersonalizedarticulatoryspeechtherapyassistancesystembasedonmultimodallar",
+   "title": "UTI-LLM: A Personalized Articulatory-Speech Therapy Assistance System Based on Multimodal Large Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.13145 | title=UTI-LLM: A Personalized Articulatory-Speech Therapy Assistance System Based on Multimo"
+  },
+  {
+   "pid": "arxiv-2603.11877",
+   "key": "t:silentspeechinterfacesintheeraoflargelanguagemodelsacomprehensivetaxonomyandsyst",
+   "title": "Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.11877 | arxiv_id=2603.11877v1 | source_url=https://arxiv.org/pdf/2603.11877v1 | title=Silent Speech"
+  },
+  {
+   "pid": "arxiv-2608.17983",
+   "key": "t:dualcotraincrossdatasetultrasoundtonguesegmentationunderextremedatascarcity",
+   "title": "DUALCO-TRAIN: CROSS-DATASET ULTRASOUND TONGUE SEGMENTATION UNDER EXTREME DATA SCARCITY",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.17983 | paper_version=arXiv 2608.17983v1 [cs.CV], 18 Aug 2026 (v1) | title=DUALCO-TRAIN: CROSS-DATAS"
+  },
+  {
+   "pid": "conf-issp2008-hueber-acquisition",
+   "key": "t:acquisitionofultrasoundvideoandacousticspeechdataforasilentspeechinterfaceapplic",
+   "title": "Acquisition of Ultrasound, Video and Acoustic Speech Data for a Silent-Speech Interface Application",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=conf:issp2008/hueber_acquisition | title=Acquisition of Ultrasound, Video and Acoustic Speech Data for a Silent"
+  },
+  {
+   "pid": "doi-10-1109-icassp-2018-8461732",
+   "key": "t:f0estimationfordnnbasedultrasoundsilentspeechinterfaces",
+   "title": "F0 Estimation for DNN-Based Ultrasound Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10-1109-icassp-2018-8461732 | title=F0 Estimation for DNN-Based Ultrasound Silent Speech Interfaces | autho"
+  },
+  {
+   "pid": "doi-10.1007-s00521-024-10456-z",
+   "key": "t:decodingsilentspeechamachinelearningperspectiveondatamethodsandframeworks",
+   "title": "Decoding silent speech: a machine learning perspective on data, methods, and frameworks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1007/s00521-024-10456-z | title=Decoding silent speech: a machine learning perspective on data, methods,"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2015.09.008",
+   "key": "t:statisticalconversionofsilentarticulationintoaudiblespeechusingfullcovariancehmm",
+   "title": "Statistical Conversion of Silent Articulation into Audible Speech using Full-Covariance HMM",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1016/j.csl.2015.09.008 | title=Statistical Conversion of Silent Articulation into Audible Speech using F"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.08.002",
+   "key": "t:silentspeechinterfaces",
+   "title": "Silent speech interfaces",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Speech Communication | doi=10.1016/j.specom.2009.08.002 | title=Silent speech interfaces | authors=B. Denby, T. Sc"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sensing technologies for silent speech interfaces | needs_manual_check=cited metrics are secondhand: values summar"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2024.3520498",
+   "key": "t:endtoendmandarinspeechreconstructionbasedonultrasoundtongueimagesusingdeeplearni",
+   "title": "End-to-End Mandarin Speech Reconstruction Based on Ultrasound Tongue Images Using Deep Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-End Mandarin Speech Reconstruction Based on Ultrasound Tongue Images Using Deep Learning | needs_manual_che"
+  },
+  {
+   "pid": "doi-10.1111-1460-6984.12478",
+   "key": "t:systematicreviewofultrasoundvisualbiofeedbackininterventionforspeechsounddisorde",
+   "title": "Systematic review of ultrasound visual biofeedback in intervention for speech sound disorders",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Systematic review of ultrasound visual biofeedback in intervention for speech sound disorders | venue=Internationa"
+  },
+  {
+   "pid": "doi-10.1145-3290605.3300376",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks | authors=N. Kimura; M"
+  },
+  {
+   "pid": "doi-10.12700-aph.17.7.2020.7.6",
+   "key": "t:applyingdnnadaptationtoreducethesessiondependencyofultrasoundbasedsilentspeechin",
+   "title": "Applying DNN Adaptation to Reduce the Session Dependency of Ultrasound-Based Silent Speech Interfaces",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.12700-aph.17.7.2020.7.6 | doi=10.12700/aph.17.7.2020.7.6 | title=Applying DNN Adaptation to Reduce the S"
+  },
+  {
+   "pid": "doi-10.14232-phd.11818",
+   "key": "p:doi-10.14232-phd.11818",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=University of Szeged, Doctoral School of Computer Science | needs_manual_check=thesis aggregates six previously pu"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2011-239",
+   "key": "t:statisticalmappingbetweenarticulatoryandacousticdataforanultrasoundbasedsilentsp",
+   "title": "Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2011-239 | title=Statistical Mapping between Articulatory and Acoustic Data for an Ult"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2012-225",
+   "key": "t:continuousarticulatorytoacousticmappingusingphonebasedtrajectoryhmmforasilentspe",
+   "title": "Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2012-225 | title=Continuous Articulatory-to-Acoustic Mapping using Phone-based Traject"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2019-2046",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder | intended_use_cases=speech_restoration, no"
+  },
+  {
+   "pid": "doi-10.21437-ssw-2023-36",
+   "key": "p:doi-10.21437-ssw-2023-36",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=SSW 2023 (Grenoble) | needs_manual_check=Tables 1-2 per-method V-MSE/MCD grids partially transcribed, PESQ per-sen"
+  },
+  {
+   "pid": "doi-10.3390-s22228601",
+   "key": "t:optimizingtheultrasoundtongueimagerepresentationforresidualnetworkbasedarticulat",
+   "title": "Optimizing the Ultrasound Tongue Image Representation for Residual Network-Based Articulatory-to-Acoustic Mapping",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s22228601 | doi=10.3390/s22228601 | title=Optimizing the Ultrasound Tongue Image Representation for"
+  },
+  {
+   "pid": "icphs2007-hueber-ouisper",
+   "key": "t:ouispercorpusbasedsynthesisdrivenbyarticulatorydata",
+   "title": "Ouisper: Corpus Based Synthesis Driven by Articulatory Data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=icphs2007:hueber_ouisper | title=Ouisper: Corpus Based Synthesis Driven by Articulatory Data | authors=Thomas H"
+  },
+  {
+   "pid": "isca-bocquelet15-dnnsynth",
+   "key": "t:realtimecontrolofadnnbasedarticulatorysynthesizerforsilentspeechconversionapilot",
+   "title": "Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a Pilot Study",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a Pilot Study | authors=Bo"
+  },
+  {
+   "pid": "isca-csapo17-us2speech",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface | authors=Csapo, Grobsz, Csapo, Toth | ven"
+  },
+  {
+   "pid": "isca-csapo17_interspeech",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface | system_name=DNN ultrasound-to-speech con"
+  },
+  {
+   "pid": "isca-csapo17_ussynth",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-csapo17_ussynth | title=DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface | authors="
+  },
+  {
+   "pid": "isca-csapo17_ustospeech",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-csapo17_ustospeech | title=DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface | autho"
+  },
+  {
+   "pid": "isca-csapo19-usvocoder",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder | authors=Csapo, Grobosz, Nagy, Bartos | ve"
+  },
+  {
+   "pid": "isca-csapo19_interspeech",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder | system_name=US-SSI with continuous vocode"
+  },
+  {
+   "pid": "isca-csapo20b-uswaveglow",
+   "key": "t:ultrasoundbasedarticulatorytoacousticmappingwithwaveglowspeechsynthesis",
+   "title": "Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis | authors=Csapo, Xu, Nagy, Percos"
+  },
+  {
+   "pid": "isca-csapo20b_interspeech",
+   "key": "p:isca-csapo20b_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2020 | task_family=speech_reconstruction | vocabulary_regime=not_a_word_task | scope_limits=speaker-de"
+  },
+  {
+   "pid": "isca-engwall99_eurospeech",
+   "key": "t:modelingofthevocaltractinthreedimensions",
+   "title": "Modeling of the vocal tract in three dimensions",
+   "year": 1999,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Modeling of the vocal tract in three dimensions | authors=Olov Engwall | venue=Proc. Eurospeech 1999, Budapest | d"
+  },
+  {
+   "pid": "isca-eshky18_ultrasuite",
+   "key": "t:ultrasuitearepositoryofultrasoundandacousticdatafromchildspeechtherapysessions",
+   "title": "UltraSuite: A Repository of Ultrasound and Acoustic Data from Child Speech Therapy Sessions",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-eshky18_ultrasuite | title=UltraSuite: A Repository of Ultrasound and Acoustic Data from Child Speech Ther"
+  },
+  {
+   "pid": "isca-hueber07_interspeech",
+   "key": "t:continuousspeechphonerecognitionfromultrasoundandopticalimagesofthetongueandlips",
+   "title": "Continuous-Speech Phone Recognition from Ultrasound and Optical Images of the Tongue and Lips",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/hueber07-interspeech | title=Continuous-Speech Phone Recognition from Ultrasound and Optical Images of the"
+  },
+  {
+   "pid": "isca-hueber07_ssiphone",
+   "key": "t:continuousspeechphonerecognitionfromultrasoundandopticalimagesofthetongueandlips",
+   "title": "Continuous-Speech Phone Recognition   from Ultrasound and Optical Images of the Tongue and Lips",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-hueber07_ssiphone | title=Continuous-Speech Phone Recognition   from Ultrasound and Optical Images of the"
+  },
+  {
+   "pid": "isca-hueber08_interspeech",
+   "key": "p:isca-hueber08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=phonetic vocoder driven by visual observation of ton"
+  },
+  {
+   "pid": "isca-hueber08b_phonerec",
+   "key": "t:phonerecognitionfromultrasoundandopticalvideosequencesforasilentspeechinterface",
+   "title": "Phone Recognition from Ultrasound and Optical Video Sequences for a Silent Speech Interface",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-hueber08b_phonerec | title=Phone Recognition from Ultrasound and Optical Video Sequences for a Silent Spee"
+  },
+  {
+   "pid": "isca-hueber09_mshmm",
+   "key": "t:visuophoneticdecodingusingmultistreamandcontextdependentmodelsforanultrasoundbas",
+   "title": "Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultrasound-based Silent Speech Interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-hueber09_mshmm | title=Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultr"
+  },
+  {
+   "pid": "isca-hueber11-usmapping",
+   "key": "t:statisticalmappingbetweenarticulatoryandacousticdataforanultrasoundbasedsilentsp",
+   "title": "Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface | autho"
+  },
+  {
+   "pid": "isca-hueber12-trajhmm",
+   "key": "t:continuousarticulatorytoacousticmappingusingphonebasedtrajectoryhmmforasilentspe",
+   "title": "Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface | autho"
+  },
+  {
+   "pid": "isca-ibrahimov25-usconformer",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Conformer-based Ultrasound-to-Speech Conversion | authors=Ibrahimov, et-al | venue=Interspeech 2025 | Study.resear"
+  },
+  {
+   "pid": "isca-ibrahimov25_interspeech",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ibrahimov25_interspeech | title=Conformer-based Ultrasound-to-Speech Conversion | authors=Ibrahim Ibrahimo"
+  },
+  {
+   "pid": "isca-jaumardhakoun16_interspeech",
+   "key": "t:anarticulatorybasedsingingvoicesynthesisusingtongueandlipsimaging",
+   "title": "An Articulatory-Based Singing Voice Synthesis Using Tongue and Lips Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Articulatory-Based Singing Voice Synthesis Using Tongue and Lips Imaging | task_family=speech_reconstruction |"
+  },
+  {
+   "pid": "isca-sonkar26_interspeech",
+   "key": "t:tongue2speechrealtimespeechsynthesisfromtongueultrasoundvideosviaspatiotemporalt",
+   "title": "Tongue2Speech: Real-Time Speech Synthesis from Tongue Ultrasound Videos via Spatiotemporal Transformers",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-sonkar26_interspeech | title=Tongue2Speech: Real-Time Speech Synthesis from Tongue Ultrasound Videos via S"
+  },
+  {
+   "pid": "isca-toth18-multitask",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Inter"
+  },
+  {
+   "pid": "isca-toth18_interspeech",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Inter"
+  },
+  {
+   "pid": "isca-toth18_mtlussi",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-toth18_mtlussi | title=Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultra"
+  },
+  {
+   "pid": "isca-xu14b_interspeech",
+   "key": "t:3dtonguemotionvisualizationbasedonultrasoundimagesequences",
+   "title": "3d tongue motion visualization based on ultrasound image sequences",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/xu14b-interspeech | title=3d tongue motion visualization based on ultrasound image sequences | authors=Kel"
+  },
+  {
+   "pid": "issp2011-denby-portable-ssi",
+   "key": "t:towardsapracticalsilentspeechinterfacebasedonvocaltractimaging",
+   "title": "Towards a Practical Silent Speech Interface Based on Vocal Tract Imaging",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=issp2011:denby_portable_ssi | title=Towards a Practical Silent Speech Interface Based on Vocal Tract Imaging |"
+  },
+  {
+   "pid": "pmc-5864145-vsmcvowel",
+   "key": "t:humansensorimotorcortexcontrolofdirectlymeasuredvocaltractmovementsduringvowelpr",
+   "title": "Human Sensorimotor Cortex Control of Directly Measured Vocal Tract Movements during Vowel Production",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5864145-vsmcvowel | title=Human Sensorimotor Cortex Control of Directly Measured Vocal Tract Movements duri"
+  },
+  {
+   "pid": "pmc-9696288-utiaam",
+   "key": "t:optimizingtheultrasoundtongueimagerepresentationforresidualnetworkbasedarticulat",
+   "title": "Optimizing the Ultrasound Tongue Image Representation for Residual Network-Based Articulatory-to-Acoustic Mapping",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Optimizing the Ultrasound Tongue Image Representation for Residual Network-Based Articulatory-to-Acoustic Mapping"
+  },
+  {
+   "pid": "sottovoce",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks | authors=Naoki Kimura"
+  }
+ ],
+ "usual_approach": {
+  "design": "vocoder_spectral_params",
+  "n": 35,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2603.11877",
+   "isca-sonkar26_interspeech",
+   "arxiv-2506.03831",
+   "doi-10.1007-s00521-024-10456-z",
+   "doi-10.1109-tnsre.2024.3520498"
+  ],
+  "population_unique": 50,
+  "note": "full-text pattern counts over 50 unique ultrasound-to-speech studies (68 folders): vocoder_spectral_params 35, mel_spectrogram 17, neural_vocoder 16, formant_target 6. Formant-target hits (6 unique) checked by snippet: the target; the 2020 SSI review (arxiv-2009.02110 / doi-10.1109-access.2020.3026579) mentions formant trajectories only in a neurocomputational model; Conant et al. 2018 (pmc-5864145-vsmcvowel) uses formants only as an encoding-model predictor of cortical activity; isca-sonkar26_interspeech, arxiv-2506.03831 and doi-10.14232-phd.11818 are later. No ultrasound-to-speech study first public before 2020-06 predicts formants. Jaumard-Hakoun et al. 2016 (tongue and lip imaging to singing voice) predicts LSF. Denby and Stone 2004 (ICASSP) is not in the wiki."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2006.16367",
+   "role": "target",
+   "loc": "Sec. 4.1",
+   "quote": "In this study, we explored the ﬁrst two\nformant frequencies - the most dominating parameters for speech trajectories."
+  },
+  {
+   "pid": "isca-hueber11-usmapping",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "the Mel-cepstral distortion (with the 95 % confidence interval calculated with a normal approximation) was found to be 7.6"
+  },
+  {
+   "pid": "isca-csapo17-us2speech",
+   "role": "prior",
+   "loc": "Sec. 2.2",
+   "quote": "Together with the gain, the MGC-LSP resulted in a 13-dimension feature vector"
+  },
+  {
+   "pid": "arxiv-1904.05259",
+   "role": "prior",
+   "loc": "Sec. III",
+   "quote": "MGC-LSP spectral parameters is a"
+  },
+  {
+   "pid": "isca-csapo19-usvocoder",
+   "role": "prior",
+   "loc": "Sec. 3.2",
+   "quote": "which resulted in F0, energy and 24-order spectral (MGC-LSP) features"
+  },
+  {
+   "pid": "isca-sonkar26_interspeech",
+   "role": "sota",
+   "loc": "Sec. 3",
+   "quote": "layer Transformer before synthesis via HiFi-GAN vocoder."
+  },
+  {
+   "pid": "isca-sonkar26_interspeech",
+   "role": "sota",
+   "loc": "Sec. 6.1; Table 1",
+   "quote": "It achieves the lowest overall WER of 15.93%"
+  },
+  {
+   "pid": "isca-jaumardhakoun16_interspeech",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "predict vocal tract properties via Line Spectral Frequencies"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 5,
+  "found": 5,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "isca-sonkar26_interspeech",
+  "year": 2026,
+  "metric": "WER of ASR on synthesized speech, TaL1 single speaker; mel-spectrogram target, HiFi-GAN vocoder",
+  "value": 15.93,
+  "unit": "%",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 50,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "vocoder_spectral_params",
+   "n": 35,
+   "tier": "pattern match",
+   "population_unique": 50
+  },
+  "state_of_the_art": {
+   "pid": "isca-sonkar26_interspeech",
+   "year": 2026,
+   "metric": "WER of ASR on synthesized speech, TaL1 single speaker; mel-spectrogram target, HiFi-GAN vocoder",
+   "value": 15.93,
+   "unit": "%",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 7,
+  "read_prior": [
+   "arxiv-1904.05259",
+   "isca-csapo17-us2speech",
+   "isca-csapo19-usvocoder",
+   "isca-hueber11-usmapping",
+   "isca-jaumardhakoun16_interspeech"
+  ],
+  "unread": 68,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "ultra2speech-a-deep-learning-framework-for-formant-frequency-estimation-and-tracking-from-ultrasound-tongue-images"
+ ]
+}

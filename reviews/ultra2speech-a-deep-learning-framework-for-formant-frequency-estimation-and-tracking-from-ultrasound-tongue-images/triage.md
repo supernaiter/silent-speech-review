@@ -1,0 +1,19 @@
+# Triage of the evaluation (2026-11-24)
+
+| # | Verdict | Evidence | Where applied |
+|---|---|---|---|
+| 1 | applied | The script's 6 unique formant hits are: the target; the 2020 SSI review (arxiv-2009.02110 / IEEE Access), which mentions formant trajectories only in a neurocomputational model of speech motor control; Conant et al. 2018 (formants F1-F4 as encoding-model features); and three later works (Shandiz thesis 2023 and Ibrahimov et al. 2025, both citing the target; Sonkar et al. 2026, analysis only). None of them predicts formants from ultrasound before the target, so the absence claim holds. The missing sixth hit is now named. | M06 acoustic-target section; Appendix; audit note |
+| 2 | applied in part / unverified | Jaumard-Hakoun et al. 2016 is in the wiki; read: it predicts LSF, not formants (Abstract). It is now cited and counted as a read prior. Denby and Stone 2004 is not in the wiki: unverified, not cited. The absence claim was already limited to the ledger ("no ledger ultrasound-to-speech study"). | M06 acoustic-target section; Appendix; refs |
+| 3 | applied | The contradictory "real departure ... stays standard" wording is gone: the formant target departs from the usual target and is rated standard for lack of repetition and of a same-data comparison. | Verdict; M06 acoustic-target section |
+| 4 | applied | New quotes checked in the source text: vowel sequences (Sec. 4.1); Table 1 scores every method on f1, f2 and f1-f2 (Sec. 4.2); vowel transitions (Sec. 2); reference [11] predicted 24-order MGC-LSP (Sec. 2). The Gosztolya split (310/41/87) and 14 listeners, and the ablated MAE values (.0113, .0161, .0087), were already in notes (c4, p-gosz19-listen, Table 2 entries); the claim table now shows every quote. The MAE-unit claim now cites the unitless Table 1 values. | claims.md; M06 sections; M12 section |
+| 5 | applied | M12 rule check: three earlier single-speaker ultrasound-to-acoustic studies held out whole utterances (Hueber 2011, 900/150 sentences; Csapo 2017, listening sentences excluded from training; Gosztolya 2019, 310/41/87). The target shuffles one-second clips at random. This split condition does not depend on the task, so the verdict now rests on the split and states the task difference. "Best documented by listener count" became "most completely, Gosztolya et al.". | M12 section; Verdict; slots; verdict.short |
+| 6 | applied | The target's Sec. 2 attributes 24-order MGC-LSP to [11] ("for synthesizing speech in Hungarian language [11]"), and Sec. 4.2 names the Conv-BiLSTM of [11] as baseline. The attribution holds and is now quoted. | Claims list; notes t-ref11-mgc |
+| 7 | applied | Table 2: R2 drops most without the spatial branch (98.08), MAE rises most without the temporal branch (.0161). One sentence added. | M06 front-end section |
+| 8 | applied | All five read priors are now cited. | M06 acoustic-target section |
+| 9 | applied | Rewritten as F1/F2 carrying vowel quality but no F0 or voicing, marked (inference). | M06 acoustic-target section |
+| 10 | applied in part | Later papers in the wiki (arxiv-2105.13718, arxiv-2206.12947) cite a MICCAI 2020 version, pp. 473-482. The arXiv v1 that was read stays the cited version; the MICCAI version is noted in refs.json and verification_status. | refs.json note; extra.json |
+| 11 | rejected | Tongue2Speech is the confirmed state of the art in the published topic table, and the text already says the target has no speech-output measure to compare with it. No better-matched candidate is in the audits. | none |
+| 12 | rejected | The section already says that earlier ultrasound-to-speech work used stacked frames in a feed-forward network [toth2018multitask]; adding more would exceed the length limit. | none |
+| 13 | no action | Positive finding. | none |
+
+Counts: 13 findings; 10 applied (2 of them in part); 2 rejected; 1 positive, no action. Denby and Stone 2004 stays unverified.
