@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "GRID, LRW overt speech"
+  ],
+  "field": "Recorded speech video",
+  "n": 7388,
+  "matched": 3882,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "VQCPC unit indices (200)"
+  ],
+  "field": "Paired-audio targets",
+  "n": 22,
+  "matched": 11,
+  "matched_tier": "slot-filled (unique studies, M03 supervision_kind)",
+  "verdict": "standard",
+  "note": "Earliest video unit target; not ablated.",
+  "sota": "[@choi2024v2sflow] (2024): LRS3 WER 28.5%"
+ },
+ "M03": {
+  "choice": [
+   "Speech-only VC, decoder reused"
+  ],
+  "field": "Off-the-shelf vocoder only",
+  "n": 30,
+  "matched": 9,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "TaLNet transfer predates it.",
+  "sota": "[@zhang2021talnet] (2021): WER 36.5%"
+ },
+ "M04": {
+  "choice": [
+   "Overt speech, audio muted"
+  ],
+  "field": "Silent or overt",
+  "n": 7388,
+  "matched": 5595,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "96x96 lip crop, 80-bin mel"
+  ],
+  "field": "Camera video",
+  "n": 7388,
+  "matched": 7329,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Conformer VC decoder, F0 predictor"
+  ],
+  "field": "Adversarial training",
+  "n": 165,
+  "matched": 54,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Predictor not ablated; vocoder confound.",
+  "sota": "[@kim2025faces] (2025): LRS3 WER 30.45%"
+ },
+ "M07": {
+  "choice": [
+   "Reference-utterance embedding"
+  ],
+  "field": "Audio-reference embedding",
+  "n": 165,
+  "matched": 21,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Usual design; MOS-SS only.",
+  "sota": "[@choi2024v2sflow] (2024): SECS 0.664"
+ },
+ "M08": {
+  "choice": [
+   "Griffin-Lim or Parallel WaveGAN"
+  ],
+  "field": "Waveform or text",
+  "n": 7388,
+  "matched": 3268,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "Offline"
+  ],
+  "field": "Offline",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "Offline"
+  ],
+  "field": "Offline",
+  "n": 7388,
+  "matched": 82,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "GRID 4 held-out speakers; LRW splits"
+  ],
+  "field": "Corpus references",
+  "n": 7388,
+  "matched": 234,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "LRW speaker disjointness assumed.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "PESQ, STOI, MOS; no WER"
+  ],
+  "field": "Listener test",
+  "n": 165,
+  "matched": 83,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "behind",
+  "note": "Baselines report WER; VCVTS does not.",
+  "sota": "[@kefalas2023large] (2023): GRID unseen WER 16.05%"
+ },
+ "M13": {
+  "choice": [
+   "No code, runtime or size"
+  ],
+  "field": "Hardware and cost",
+  "n": 7388,
+  "matched": 6075,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Offline benchmark only.",
+  "sota": "–"
+ }
+}
