@@ -1,0 +1,60 @@
+{
+ "target": "arxiv-2006.16367",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Vocalized (open-vocal-tract) production during data collection, as in the ultrasound-to-speech lineage (Csapó et al. 2017; Gosztolya et al. 2019); no silent-articulation condition.",
+  "M03": "The single-participant model-selection setup follows the personalized ultrasound-formant baseline lineage represented by Juanpere and Csapó [11]; no calibration or adaptation method is added.",
+  "M04": "The use-time task follows the ultrasound-to-formant baseline lineage of Juanpere and Csapó [11]; this paper does not introduce a distinct silent or non-vocal user action.",
+  "M05": "Ultrasound tongue imaging with synchronized acoustic recording follows the ultrasound-to-formant lineage represented by Juanpere and Csapó [11]; the specific ALOKA and microphone hardware are implementation choices.",
+  "M07": "Continuous formant regression and synthesis follow the prior ultrasound-to-formant and Klatt-synthesis lineage [11, 12]; no use-time lexicon or language model is introduced.",
+  "M08": "The formant-to-speech stage uses the joint parallel-cascaded Klatt synthesis approach cited in [12], rather than a new synthesis method.",
+  "M09": "The offline research pipeline follows the prior ultrasound-to-formant lineage [11] and adds no presentation, confirmation, or commit interface.",
+  "M10": "The offline research pipeline follows the prior ultrasound-to-formant lineage [11] and adds no user correction, re-entry, or action-adjustment mechanism.",
+  "M11": "The LPC-derived f1/f2 acoustic reference construction follows the ultrasound-to-formant regression lineage represented by Juanpere and Csapó [11]; no independently validated reference procedure is added.",
+  "M02": "Paired synchronized audio supplies the regression targets (LPC-derived f1/f2), the standard paired-audio supervision of articulatory-to-acoustic mapping; no auxiliary or speech-latent loss.",
+  "M13": "Laboratory ultrasound system with head stabilization; no wearability, latency or clinical evaluation, as in most ultrasound SSI studies."
+ },
+ "topics": [
+  {
+   "reuse": "components/M06/ultrasound-image-sequence-temporal-layer.json",
+   "slot": "M06",
+   "topic": "ultrasound-image-sequence-temporal-layer",
+   "inclusion_rule": "(published table, unchanged)",
+   "pattern": "ultrasound_imaging",
+   "better": "lower"
+  },
+  {
+   "slot": "M06",
+   "topic": "ultrasound-to-speech-acoustic-target",
+   "inclusion_rule": "Include studies whose ledger lists ultrasound imaging as input and speech synthesis, a vocoder or an acoustic/formant output, and classify by full-text pattern (whole text, related-work mentions included, so counts are upper bounds) the acoustic representation the network is trained to predict: vocoder spectral parameters (MGC-LSP, mel-cepstrum, MFCC), mel-spectrogram, formant frequencies. Boundary: reviews and corpus papers count as pattern matches; a hit on 'formant' in related work or as an analysis feature is not a formant target unless the snippet shows prediction; versions count once by key.",
+   "pattern": "(?s)^(?=.*ultrasound_imaging)(?=.*(synthes|vocoder|to-speech|speech reconstruction|articulatory-to-acoustic|output_kind=[^|]*(audio|speech|spectr|formant)))",
+   "design_regex": [
+    "formant_target",
+    "vocoder_spectral_params",
+    "mel_spectrogram",
+    "neural_vocoder"
+   ],
+   "metric": "speech-output quality of the synthesized signal (MCD, listening score, ASR WER)",
+   "better": "lower"
+  },
+  {
+   "slot": "M12",
+   "topic": "ultrasound-to-speech-output-evaluation",
+   "inclusion_rule": "Same population as M06 ultrasound-to-speech-acoustic-target; classify by full-text pattern whether the synthesized speech itself is evaluated: listening test (MUSHRA, MOS, subjective test), mel-cepstral distortion, or an intelligibility measure (STOI, WER). Boundary: related-work mentions count (upper bound); evaluation of intermediate parameters only (formant R2, spectral-parameter correlation) does not count as speech-output evaluation.",
+   "pattern": "(same as M06 ultrasound-to-speech-acoustic-target)",
+   "design_regex": [
+    "listening_test",
+    "mel_cepstral_distortion",
+    "intelligibility_measure"
+   ],
+   "metric": "MCD / listening score",
+   "better": "lower"
+  }
+ ],
+ "note": "Corrected from prep/plan.draft.json: M02 speech-latent-target dropped (invalid topic; paired-audio supervision is inherited); M01 and M13 moved to inherited (no substantive point beyond the table); formant target moved into M06 as the intermediate representation; M12 output-evaluation topic added. M12 speaker-split topic dropped: a single-participant personalized design is a stated scope, and the published table state of the art is a classification task."
+}
