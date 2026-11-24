@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface/](knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface/).**
 
-Distills a ResNet ensemble into a lightweight model for spelling via the NATO phonetic alphabet from 3-channel facial sEMG on portable hardware. KDE-SSI reaches 85.9% accuracy on 26 classes with 0.12 ms inference per sample.
+Ensemble-to-student distillation (M02, M06, M13) is standard: same-modality distillation predates it; 85.9% is one unseeded split of unstated unit, and 7x smaller is against six models.
 
 [Read the full review](knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface/) · [All reviews](../README.md)

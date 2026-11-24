@@ -1,0 +1,2196 @@
+{
+ "topic": "knowledge-distillation-in-speech-decoding",
+ "slot": "M02",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?i)knowledge[- ]distill|teacher[- ]student|distilled (student|model)|self[- ]distill",
+ "scope": "ledger",
+ "fulltext_pattern": "(?i)knowledge distillation|teacher[- ]student (model|framework|training|network|distillation|learning)",
+ "inclusion_rule": "Speech, word or language decoding studies from any non-acoustic or audio-visual signal (EMG, EEG, ECoG, intracortical, lip video, ultrasound, wearable strain or inertial sensors) that train a student model on teacher outputs or representations (knowledge distillation, teacher-student, self-distillation), found by ledger text or full text; design compared: where the teacher comes from (audio/ASR or cross-modal teacher, an ensemble of teachers, a larger same-modality model) and whether distillation is used for model compression. Boundary: full-text counts are pattern matches and include mentions in related work; acoustic-only ASR distillation is out of scope when read; versions count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 31,
+  "slot_filled_unique": 31,
+  "string_match_folders": 25,
+  "string_match_unique": 22,
+  "fulltext_only_folders": 163
+ },
+ "ledger_tally": {
+  "design_slot": "M02",
+  "design_slot_fill": 0.003,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "information_availability=training_only",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2007.06504",
+     "cvpr21-ren"
+    ]
+   },
+   {
+    "design": "target_relation=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2007.06504"
+    ]
+   },
+   {
+    "design": "target_relation=supervision_target",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "cvpr21-ren"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "audio_or_asr_teacher",
+    "n": 46,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2509.23610",
+     "arxiv-2601-20881-malipnet",
+     "arxiv-2601.20881-malipnet",
+     "arxiv-2603.11877",
+     "arxiv-2606-09667-xmask"
+    ]
+   },
+   {
+    "design": "emg_or_neural_signal",
+    "n": 27,
+    "tier": "pattern match",
+    "pids": [
+     "aaai-38133-linprovsr",
+     "arxiv-2601.20881-malipnet",
+     "arxiv-2601.21148",
+     "arxiv-2603.11877",
+     "arxiv-2604.05751"
+    ]
+   },
+   {
+    "design": "compression_student",
+    "n": 20,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.08046",
+     "arxiv-2603.11877",
+     "doi-10.1038-s41598-026-62988-0",
+     "doi-10.20517-ss.2026.38",
+     "doi-10.26092-elib.5498"
+    ]
+   },
+   {
+    "design": "ensemble_teacher",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2308.06533",
+     "arxiv-2502.05766"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)accura",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "CVOS silent-speech accuracy",
+   "value": 100.0,
+   "unit": "percent",
+   "raw": "peak word accuracy (Moderate/Tightness 3)",
+   "pid": "doi-10.34133-cbsystems.0536",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word recognition accuracy",
+   "value": 96.4,
+   "unit": "percent",
+   "raw": "average 96.4% individual word recognition on RGB+Depth corpus",
+   "pid": "cmes-63186-rehab",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LipNet 95.2% GRID accuracy as prior context",
+   "value": 95.2,
+   "unit": "percent",
+   "raw": "LipNet reference accuracy on GRID (context)",
+   "pid": "doi-10.1109-tcsvt.2023.3282224",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW accuracy",
+   "value": 91.69,
+   "unit": "percent",
+   "raw": "0.9169",
+   "pid": "arxiv-2508.07233-landvfe",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW SOTA accuracy",
+   "value": 88.5,
+   "unit": "%",
+   "raw": "SOTA 88.5% on LRW (cross-modal mutual learning)",
+   "pid": "arxiv-2205.10839-vsa-survey",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy",
+   "value": 85.8,
+   "unit": "percent",
+   "raw": "85.8%",
+   "pid": "pmc-13006734-strainssi",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LipNet 2D-CNN accuracy",
+   "value": 81.97,
+   "unit": "percent",
+   "raw": "81.97%",
+   "pid": "pmc-13527132-urdu",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "overall accuracy",
+   "value": 77.49,
+   "unit": "percent",
+   "raw": "Overall Acc (student, SOTA)",
+   "pid": "arxiv-2607.08236-tvta",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Accuracy",
+   "value": 52.0,
+   "unit": "percent",
+   "raw": "Accuracy=52%",
+   "pid": "arxiv-2603.11877",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BrainStack SOTA accuracy",
+   "value": 41.87,
+   "unit": "percent",
+   "raw": "BrainStack avg word-level accuracy (24-way)",
+   "pid": "arxiv-2601.21148",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [
+  "doi-10.64898-2026.04.02.715749-cocontrol",
+  "arxiv-2606-07259-genvsr",
+  "arxiv-2405.08021",
+  "isca-lee26v_interspeech",
+  "doi-10.32604-cmes.2025.063186",
+  "arxiv-2110.07879",
+  "isca-papadimitriou24-fingerspell",
+  "arxiv-2607.09001",
+  "arxiv-2606-09667-xmask",
+  "arxiv-2301.10180",
+  "doi-10.1109-iccv51070.2023.01409",
+  "arxiv-2409.05307-ral-lipreading",
+  "doi-10.34133-cbsystems.0536",
+  "doi-10.64388-irev9i6-1713196",
+  "irej-1713196-hybrid",
+  "pmc-8722107-fmrireconsurvey",
+  "arxiv-2607-29112-doublehelix",
+  "isca-gao23c_interspeech",
+  "arxiv-2502.04834",
+  "isca-botelho21-apnea",
+  "isca-fernandezlopez23-sparsevsr",
+  "arxiv-2204.01265",
+  "arxiv-2401.09802",
+  "arxiv-2302.02141",
+  "isca-anwar23_interspeech",
+  "arxiv-2603.10324",
+  "arxiv-2407.03563",
+  "scirep-62988-livevsr-net",
+  "arxiv-2601.20881",
+  "isca-sankar23_interspeech"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "aaai-38133-linprovsr",
+   "key": "t:linprovsrlinguisticsknowledgeguidedprogressivedisambiguationnetworkforvisualspee",
+   "title": "LinProVSR: Linguistics-Knowledge Guided Progressive Disambiguation Network for Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "acl-2024emnlp858-audiovsr",
+   "key": "t:audiovsrenhancingvideospeechrecognitionwithaudiodata",
+   "title": "AudioVSR: Enhancing Video Speech Recognition with Audio Data",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "acl-2025-mms-llama",
+   "key": "t:mmsllamaefficientllmbasedaudiovisualspeechrecognitionwithminimalmultimodalspeech",
+   "title": "MMS-LLaMA: Efficient LLM-based Audio-Visual Speech Recognition with Minimal Multimodal Speech Tokens",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-1911.11502",
+   "key": "t:hearinglipsimprovinglipreadingbydistillingspeechrecognizers",
+   "title": "Hearing Lips: Improving Lip Reading by Distilling Speech Recognizers",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-1911.12747",
+   "key": "t:asrisallyouneedcrossmodaldistillationforlipreading",
+   "title": "ASR is all you need: cross-modal distillation for lip reading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2003.05709",
+   "key": "t:deformationflowbasedtwostreamnetworkforlipreading",
+   "title": "Deformation Flow Based Two-Stream Network for Lip Reading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2005.03846",
+   "key": "t:synchronousbidirectionallearningformultilinguallipreading",
+   "title": "Synchronous Bidirectional Learning for Multilingual Lip Reading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2007.06504",
+   "key": "t:towardspracticallipreadingwithdistilledandefficientmodels",
+   "title": "Towards Practical Lipreading with Distilled and Efficient Models",
+   "year": 2021,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "nue=ICASSP 2021 (arXiv:2007.06504) | Study.research_objective=Bridge accuracy-efficiency gap for deployable lipreading: self-distillation SOTA + lightweight DS-TCN head + sequential KD to recover accuracy | Study.study_design=controlled_experiment | ta"
+  },
+  {
+   "pid": "arxiv-2104.04784",
+   "key": "t:lipreadingusingexternalvisemedecoding",
+   "title": "Lip reading using external viseme decoding",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2106.13686-cmkdcs",
+   "key": "t:crossmodalknowledgedistillationmethodforautomaticcuedspeechrecognition",
+   "title": "Cross-Modal Knowledge Distillation Method for Automatic Cued Speech Recognition",
+   "year": 2021,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2106.13686-cmkdcs | title=Cross-Modal Knowledge Distillation Method for Automatic Cued Speech Recognition | authors=J. Wang, Z. Tang, X. Li, M. Yu, Q. Fang, L. Liu | venue=arX"
+  },
+  {
+   "pid": "arxiv-2108.00190",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2108.03543",
+   "key": "t:spatiotemporalattentionmechanismandknowledgedistillationforlipreading",
+   "title": "Spatio-Temporal Attention Mechanism and Knowledge Distillation for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2108.03543 | title=Spatio-Temporal Attention Mechanism and Knowledge Distillation for Lip Reading | Study.research_objective=On Feng2020 baseline: +lip-alignment aug, +spatio-temporal attention (R"
+  },
+  {
+   "pid": "arxiv-2110.07879",
+   "key": "t:advancesandchallengesindeeplipreading",
+   "title": "Advances and Challenges in Deep Lip Reading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2204.01265",
+   "key": "t:multimodalityassociativebridgingthroughmemoryspeechsoundrecollectedfromfacevideo",
+   "title": "Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2204.01725",
+   "key": "t:distinguishinghomophenesusingmultiheadvisualaudiomemoryforlipreading",
+   "title": "Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2204.04965",
+   "key": "t:multistreamneuralarchitecturesforcuedspeechrecognitionusingapretrainedvisualfeat",
+   "title": "Multistream neural architectures for cued-speech recognition using a pre-trained visual feature extractor and constrained CTC decoding",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2204.08686-mispwws",
+   "key": "t:audiovisualwakewordspottingsystemformispchallenge2021",
+   "title": "Audio-Visual Wake Word Spotting System for MISP Challenge 2021",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2205.10839",
+   "key": "t:deeplearningforvisualspeechanalysisasurvey",
+   "title": "Deep Learning for Visual Speech Analysis: A Survey",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2205.10839-vsa-survey",
+   "key": "t:deeplearningforvisualspeechanalysisasurvey",
+   "title": "Deep Learning for Visual Speech Analysis: A Survey",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2206.02050",
+   "key": "t:learningspeakerspecificliptospeechgeneration",
+   "title": "Learning Speaker-specific Lip-to-Speech Generation",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2207.05692",
+   "key": "t:liplisteningmixingsensestounderstandlipsusingcrossmodalityknowledgedistillationf",
+   "title": "Lip-Listening: Mixing Senses to Understand Lips using Cross Modality Knowledge Distillation for Word-Based Models",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2207.05692 | title=Lip-Listening: Mixing Senses to Understand Lips using Cross Modality Knowledge Distillation for Word-Based Models | Study.research_objective=cross-modal KD: audio teacher model distills into word-level lipr"
+  },
+  {
+   "pid": "arxiv-2209.01383",
+   "key": "t:trainingstrategiesforimprovedlipreading",
+   "title": "Training Strategies for Improved Lip-reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "time-mask/word-boundary), 3 temporal heads (DC-TCN/MS-TCN/BGRU), 3 inits (scratch/LiRA-LRS3/LRS2&3+AVSpeech), iterative self-distillation + ensemble; Top-1 acc. | task_family=isolated_word_recognition | extra.Task.scope=ablation+init+self-distill+SOTA"
+  },
+  {
+   "pid": "arxiv-2212.01083-cmlcsr",
+   "key": "t:crossmodalmutuallearningforcuedspeechrecognition",
+   "title": "Cross-Modal Mutual Learning for Cued Speech Recognition",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2212.02782",
+   "key": "t:selfsupervisedaudiovisualspeechrepresentationslearningbymultimodalselfdistillati",
+   "title": "Self-Supervised Audio-Visual Speech Representations Learning by Multimodal Self-Distillation",
+   "year": 2022,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2212.02782 | title=Self-Supervised Audio-Visual Speech Representations Learning by Multimodal Self-Distillation | authors=Zhang JX, Wan G, Ling ZH, Pan J, Gao J, Liu C (USTC + iFLYTEK) | venue=arXiv:2212.02782 v1 | task_family"
+  },
+  {
+   "pid": "arxiv-2301.10180",
+   "key": "t:amultipurposeaudiovisualcorpusformultimodalpersianspeechrecognitionthearmanavdat",
+   "title": "A Multi-Purpose Audio-Visual Corpus for Multi-Modal Persian Speech Recognition: the Arman-AV Dataset",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2302.02141",
+   "key": "t:lipformerlearningtolipreadunseenspeakersbasedonvisuallandmarktransformers",
+   "title": "LipFormer: Learning to Lipread Unseen Speakers based on Visual-Landmark Transformers",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2303.00628",
+   "key": "t:muavicamultilingualaudiovisualcorpusforrobustspeechrecognitionandrobustspeechtot",
+   "title": "MuAViC: A Multilingual Audio-Visual Corpus for Robust Speech Recognition and Robust Speech-to-Text Translation",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2303.05309",
+   "key": "t:mixspeechcrossmodalityselflearningwithaudiovisualstreammixupforvisualspeechtrans",
+   "title": "MixSpeech: Cross-Modality Self-Learning with Audio-Visual Stream Mixup for Visual Speech Translation and Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2303.07005",
+   "key": "t:realtimeaudiovisualendtoendspeechenhancement",
+   "title": "Real-Time Audio-Visual End-to-End Speech Enhancement",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2303.14307",
+   "key": "p:arxiv-2303.14307",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2303.17200",
+   "key": "t:synthvsrscalingupvisualspeechrecognitionwithsyntheticsupervision",
+   "title": "SynthVSR: Scaling Up Visual Speech Recognition With Synthetic Supervision",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2304.04068",
+   "key": "t:wordlevelpersianlipreadingdataset",
+   "title": "Word-level Persian Lipreading Dataset",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2305.04542",
+   "key": "t:multitemporallipaudiomemoryforvisualspeechrecognition",
+   "title": "Multi-Temporal Lip-Audio Memory for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2305.14933",
+   "key": "t:incorporatingultrasoundtongueimagesforaudiovisualspeechenhancementthroughknowled",
+   "title": "Incorporating Ultrasound Tongue Images for Audio-Visual Speech Enhancement through Knowledge Distillation",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2305.14933 | title=Incorporating Ultrasound Tongue Images for Audio-Visual Speech Enhancement through Knowledge Distillation | authors=Rui-Chen Zheng, Yang Ai, Zhen-Hua Ling | venue=arXiv v2 (USTC NERC Speech & Language; INTERSPEECH-style)"
+  },
+  {
+   "pid": "arxiv-2305.15403",
+   "key": "t:avtranspeechaudiovisualrobustspeechtospeechtranslation",
+   "title": "AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2306.02596",
+   "key": "t:anovelinterpretableandgeneralizableresynchronizationmodelforcuedspeechbasedonamu",
+   "title": "A Novel Interpretable and Generalizable Re-synchronization Model for Cued Speech based on a Multi-Cuer Corpus",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2306.08290",
+   "key": "t:investigatingthedynamicsofhandandlipsinfrenchcuedspeechusingattentionmechanismsa",
+   "title": "Investigating the dynamics of hand and lips in French Cued Speech using attention mechanisms and CTC-based decoding",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2307.04552",
+   "key": "t:sparsevsrlightweightandnoiserobustvisualspeechrecognition",
+   "title": "SparseVSR: Lightweight and Noise Robust Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2307.07748",
+   "key": "t:leveragingselfsupervisedaudiovisualpretrainedmodelstoimprovevocodedspeechintelli",
+   "title": "Leveraging Self-Supervised Audio-Visual Pretrained Models to Improve Vocoded Speech Intelligibility in Cochlear Implant Simulation",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2307.10157",
+   "key": "t:leveragingvisemesforbettervisualspeechrepresentationandlipreading",
+   "title": "Leveraging Visemes for Better Visual Speech Representation and Lip Reading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2308.03432",
+   "key": "t:cuingwithoutsharingafederatedcuedspeechrecognitionframeworkviamutualknowledgedis",
+   "title": "Cuing Without Sharing: A Federated Cued Speech Recognition Framework via Mutual Knowledge Distillation",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2308.03432 | title=Cuing Without Sharing: A Federated Cued Speech Recognition Framework via Mutual Knowledge Distillation | Study.research_objective=FedCSR: federated ACSR over 4-cuer Non-IID clients via mutual knowledge distillation (v"
+  },
+  {
+   "pid": "arxiv-2308.06533",
+   "key": "t:knowledgedistilledensemblemodelforsemgbasedsilentspeechinterface",
+   "title": "Knowledge Distilled Ensemble Model for sEMG-based Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2308.06533 | title=Knowledge Distilled Ensemble Model for sEMG-based Silent Speech Interface | authors=Wenqiang Lai, Qihan Yang, Ye Mao, Endong Sun, Jiangna"
+  },
+  {
+   "pid": "arxiv-2308.07593",
+   "key": "t:akvsraudioknowledgeempoweredvisualspeechrecognitionbycompressingaudioknowledgeof",
+   "title": "AKVSR: Audio Knowledge Empowered Visual Speech Recognition by Compressing Audio Knowledge of a Pretrained Model",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2308.09311",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2309.10455",
+   "key": "t:incorporatingultrasoundtongueimagesforaudiovisualspeechenhancement",
+   "title": "Incorporating Ultrasound Tongue Images for Audio-Visual Speech Enhancement",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2309.17395",
+   "key": "t:avcplcontinuouspseudolabelingforaudiovisualspeechrecognition",
+   "title": "AV-CPL: Continuous Pseudo-Labeling for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2310-04858-romanian",
+   "key": "t:endtoendlipreadinginromanianwithcrosslingualdomainadaptationandlateralinhibition",
+   "title": "End-to-End Lip Reading in Romanian with Cross-Lingual Domain Adaptation and Lateral Inhibition",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2310.04858",
+   "key": "t:endtoendlipreadinginromanianwithcrosslingualdomainadaptationandlateralinhibition",
+   "title": "End-to-End Lip Reading in Romanian with Cross-Lingual Domain Adaptation and Lateral Inhibition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2311.12480",
+   "key": "t:speakeradaptedendtoendvisualspeechrecognitionforcontinuousspanish",
+   "title": "Speaker-Adapted End-to-End Visual Speech Recognition for Continuous Spanish",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2312.09727",
+   "key": "t:litevsrefficientvisualspeechrecognitionbylearningfromspeechrepresentationsofunla",
+   "title": "LiteVSR: Efficient Visual Speech Recognition by Learning from Speech Representations of Unlabeled Data",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-decoder VSR SOTA | TrainingRun.training_objective=match frozen pretrained audio encoder feats from unlabeled AV pairs (self-distillation) | TrainingRun.training_hardware=1 consumer-grade GPU; inference Intel i7-8550U CPU 250ms/s | EvaluationProtocol.s"
+  },
+  {
+   "pid": "arxiv-2401.09802",
+   "key": "t:efficienttrainingformultilingualvisualspeechrecognitionpretrainingwithdiscretize",
+   "title": "Efficient Training for Multilingual Visual Speech Recognition: Pre-training with Discretized Visual Speech Representation",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2401.17604",
+   "key": "t:computationandparameterefficientmultimodalfusiontransformerforcuedspeechrecognit",
+   "title": "Computation and Parameter Efficient Multi-Modal Fusion Transformer for Cued Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2402.05457",
+   "key": "t:itsnevertoolatefusingacousticinformationintolargelanguagemodelsforautomaticspeec",
+   "title": "It's Never Too Late: Fusing Acoustic Information into Large Language Models for Automatic Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2403.04245",
+   "key": "t:astudyofdropoutinducedmodalitybiasonrobustnesstomissingvideoframesforaudiovisual",
+   "title": "A Study of Dropout-Induced Modality Bias on Robustness to Missing Video Frames for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2403.18843",
+   "key": "t:jepkdjointembeddingpredictivearchitecturebasedknowledgedistillationforvisualspee",
+   "title": "JEP-KD: Joint-Embedding Predictive Architecture Based Knowledge Distillation for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2403.18843 | title=JEP-KD: Joint-Embedding Predictive Architecture Based Knowledge Distillation for Visual Speech Recognition | Study.research_objective=JEPA-style KD for VSR: generative network predicts/mends"
+  },
+  {
+   "pid": "arxiv-2405.08021",
+   "key": "t:diffetslearningadiffusionprobabilisticmodelforelectromyographytospeechconversion",
+   "title": "Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2407.03563",
+   "key": "t:learningvideotemporaldynamicswithcrossmodalattentionforrobustaudiovisualspeechre",
+   "title": "Learning Video Temporal Dynamics with Cross-Modal Attention for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2407.07825",
+   "key": "t:rtlavocerealtimelowsnraudiovisualspeechenhancement",
+   "title": "RT-LA-VocE: Real-Time Low-SNR Audio-Visual Speech Enhancement",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2409.05307",
+   "key": "t:ralredundancyawarelipreadingmodelbasedondifferentiallearningwithsymmetricviews",
+   "title": "RAL: Redundancy-Aware Lipreading Model Based on Differential Learning with Symmetric Views",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2409.05307-ral-lipreading",
+   "key": "t:ralredundancyawarelipreadingmodelbasedondifferentiallearningwithsymmetricviews",
+   "title": "RAL: Redundancy-Aware Lipreading Model Based on Differential Learning with Symmetric Views",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2409.07210",
+   "key": "t:enhancingctcbasedvisualspeechrecognition",
+   "title": "Enhancing CTC-Based Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2411.18266",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2501.16780",
+   "key": "t:avespeechacomprehensivemultimodaldatasetforspeechrecognitionintegratingaudiovisu",
+   "title": "AVE Speech: A Comprehensive Multi-Modal Dataset for Speech Recognition Integrating Audio, Visual, and Electromyographic Signals",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2502.04834",
+   "key": "t:lightweightoperationsforvisualspeechrecognition",
+   "title": "Lightweight Operations for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2502.05758",
+   "key": "t:targetspeakerlipreadingbyaudiovisualselfdistillationpretrainingandspeakeradaptat",
+   "title": "Target Speaker Lipreading by Audio-Visual Self-Distillation Pretraining and Speaker Adaptation",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2502.05758 | title=Target Speaker Lipreading by Audio-Visual Self-Distillation Pretraining and Speaker Adaptation | Study.research_objective=Target-speaker Chinese lipreading (ChatCLR task2): A"
+  },
+  {
+   "pid": "arxiv-2502.05766",
+   "key": "t:audiovisualrepresentationlearningviaknowledgedistillationfromspeechfoundationmod",
+   "title": "Audio-Visual Representation Learning via Knowledge Distillation from Speech Foundation Models",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=arxiv-2502.05766 | title=Audio-Visual Representation Learning via Knowledge Distillation from Speech Foundation Models | Study.research_objective=DistillAV: AV representation learning via cross-modal KD"
+  },
+  {
+   "pid": "arxiv-2503.11315",
+   "key": "t:mmsllamaefficientllmbasedaudiovisualspeechrecognitionwithminimalmultimodalspeech",
+   "title": "MMS-LLaMA: Efficient LLM-based Audio-Visual Speech Recognition with Minimal Multimodal Speech Tokens",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2503.14928",
+   "key": "t:shushingletsimagineanauthenticspeechfromthesilentvideo",
+   "title": "Shushing! Let’s Imagine an Authentic Speech from the Silent Video",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2503.21408",
+   "key": "t:vallrvisualasrlanguagemodelforlipreading",
+   "title": "VALLR: Visual ASR Language Model for Lip Reading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2503.21785",
+   "key": "t:lendahandsemitrainingfreecuedspeechrecognitionviamllmdrivenhandmodelingforbarrie",
+   "title": "Lend a Hand: Semi Training-Free Cued Speech Recognition via MLLM-Driven Hand Modeling for Barrier-free Communication",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2505.04394",
+   "key": "t:swinlipanefficientvisualspeechencoderforlipreadingusingswintransformer",
+   "title": "SwinLip: An Efficient Visual Speech Encoder for Lip Reading Using Swin Transformer",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2506.16073",
+   "key": "t:td3netatemporaldenselyconnectedmultidilatedconvolutionalnetworkforlipreading",
+   "title": "TD3Net: A temporal densely connected multi-dilated convolutional network for lipreading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2508.07233-landvfe",
+   "key": "t:landmarkguidedvisualfeatureextractorforvisualspeechrecognitionwithlimitedresourc",
+   "title": "Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2508.13576",
+   "key": "t:endtoendaudiovisuallearningforcochlearimplantsoundcodingsimulationsinnoisyenviro",
+   "title": "End-to-End Audio-Visual Learning for Cochlear Implant Sound Coding Simulations in Noisy Environments",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2509.23610",
+   "key": "t:efficientaudiovisualspeechseparationwithdiscretelipsemanticsandmultiscalegloball",
+   "title": "Efficient Audio-Visual Speech Separation with Discrete Lip Semantics and Multi-Scale Global-Local Attention",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2510-04136-mome",
+   "key": "t:momemixtureofmatryoshkaexpertsforaudiovisualspeechrecognition",
+   "title": "MoME: Mixture of Matryoshka Experts for Audio-Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2510-22961-sfmavsr",
+   "key": "t:adaptingspeechfoundationmodelsforunifiedmultimodalspeechrecognitionwithlargelang",
+   "title": "Adapting Speech Foundation Models for Unified Multimodal Speech Recognition with Large Language Models",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2510.04136",
+   "key": "t:momemixtureofmatryoshkaexpertsforaudiovisualspeechrecognition",
+   "title": "MoME: Mixture of Matryoshka Experts for Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2510.22961",
+   "key": "t:adaptingspeechfoundationmodelsforunifiedmultimodalspeechrecognitionwithlargelang",
+   "title": "Adapting Speech Foundation Models for Unified Multimodal Speech Recognition with Large Language Models",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2511.18405",
+   "key": "t:amultimodalconversationalagentfortabulardataanalysis",
+   "title": "A Multimodal Conversational Agent for Tabular Data Analysis",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2601-20881-malipnet",
+   "key": "t:malipnetmultidimensionalattentionnetworksforrobustlipreading",
+   "title": "MA-LipNet: Multi-Dimensional Attention Networks for Robust Lipreading",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2601.18393",
+   "key": "t:ocrenhancedmultimodalasrcanreadwhilelistening",
+   "title": "OCR-Enhanced Multimodal ASR Can Read While Listening",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2601.20881",
+   "key": "t:malipnetmultidimensionalattentionnetworksforrobustlipreading",
+   "title": "MA-LipNet: Multi-Dimensional Attention Networks for Robust Lipreading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2601.20881-malipnet",
+   "key": "t:multidimensionalattentionnetworksforrobustlipreading",
+   "title": "Multi-Dimensional Attention Networks for Robust Lipreading",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2601.21148",
+   "key": "t:brainstackneuromoewithfunctionallyguidedexpertroutingforeegbasedlanguagedecoding",
+   "title": "BrainStack: Neuro-MoE with Functionally Guided Expert Routing for EEG-Based Language Decoding",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2603.08046",
+   "key": "t:whispearabidirectionalframeworkforscalingwhisperedspeechconversionviapseudoparal",
+   "title": "WhispEar: A Bi-directional Framework for Scaling Whispered Speech Conversion via Pseudo-Parallel Whisper Generation",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2603.10324",
+   "key": "t:nasovoceanosemountedlowaudibilityspeechinterfaceforalwaysavailablespeechinteract",
+   "title": "NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2603.11877",
+   "key": "t:silentspeechinterfacesintheeraoflargelanguagemodelsacomprehensivetaxonomyandsyst",
+   "title": "Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2604.05751",
+   "key": "t:braintospeechprosodyfeatureengineeringandtransformerbasedreconstruction",
+   "title": "Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606-07259-genvsr",
+   "key": "t:assessingtruegeneralisabilityofaudiovisualspeechrecognisers",
+   "title": "Assessing True Generalisability of Audio-Visual Speech Recognisers",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606-09667-xmask",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606.05763",
+   "key": "t:m2savsrmodalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspe",
+   "title": "M2S-AVSR: Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606.05763-m2savsr",
+   "key": "t:modalityawaremultiviewselfsupervisedrepresentationforrobustaudiovisualspeechreco",
+   "title": "Modality-aware Multi-view Self-supervised Representation for Robust Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606.07259",
+   "key": "t:assessingtruegeneralisabilityofaudiovisualspeechrecognisers",
+   "title": "Assessing True Generalisability of Audio-Visual Speech Recognisers",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "nlabelled corpora including AVSpeech and VoxCeleb2.'} | SystemConfiguration.component_versions={'description': 'Unified teacher-student model for ASR/VSR/AVSR; unlabelled audio-visual pretraining and semi-supervised pseudo-label fine-tuning.'} | SystemCon"
+  },
+  {
+   "pid": "arxiv-2606.07259-mv2lrs3",
+   "key": "t:assessingtruegeneralisabilityofaudiovisualspeechrecognisers",
+   "title": "Assessing True Generalisability of Audio-Visual Speech Recognisers",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2606.09667",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2607-08236-tvta",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "607.08236 | Study.research_objective=event-camera lip reading via trajectory-aware viseme-guided temporal aggregation + teacher-student consistency: DVS-Lip baseline 74.09% +3.40pts; Acc1 (confusable) 67.23% | Study.study_design=controlled_experiment | ta"
+  },
+  {
+   "pid": "arxiv-2607-09001-otalign",
+   "key": "t:optimaltransportbasedsemanticalignmentforllmbasedaudiovisualspeechrecognition",
+   "title": "Optimal Transport-based Semantic Alignment for LLM-based Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2607-29112-doublehelix",
+   "key": "t:doublehelixstructuredcrossmodalfusionforaudiovisualspeechrecognitionwithllms",
+   "title": "DoubleHelix: Structured Cross-Modal Fusion for Audio-Visual Speech Recognition with LLMs",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2607.08236-tvta",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "al modeling per spatial location before spatial aggregation + VGA (CTC decoder + viseme-guided gated aggregation) + EMA teacher-student consistency under event perturbations | EvaluationProtocol.experimental_design=DVS-Lip benchmark: Acc1/Acc2/Acc vs 15 b"
+  },
+  {
+   "pid": "arxiv-2607.09001",
+   "key": "t:optimaltransportbasedsemanticalignmentforllmbasedaudiovisualspeechrecognition",
+   "title": "Optimal Transport-based Semantic Alignment for LLM-based Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2607.09001-otavsr",
+   "key": "t:optimaltransportbasedsemanticalignmentforllmbasedaudiovisualspeechrecognition",
+   "title": "Optimal Transport-based Semantic Alignment for LLM-based Audio-Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2607.25626-eegalign",
+   "key": "t:jointtextaudioalignmentforeegtotextdecodinginchinesespeechproductionandperceptio",
+   "title": "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2607.29112",
+   "key": "t:doublehelixstructuredcrossmodalfusionforaudiovisualspeechrecognitionwithllms",
+   "title": "DoubleHelix: Structured Cross-Modal Fusion for Audio-Visual Speech Recognition with LLMs",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2607.29112-doublehelix",
+   "key": "t:doublehelixstructuredcrossmodalfusionforaudiovisualspeechrecognitionwithllms",
+   "title": "DoubleHelix: Structured Cross-Modal Fusion for Audio-Visual Speech Recognition with LLMs",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "arxiv-2610.00825-atr",
+   "key": "t:alignthenreasonamultimodallipsyncjudgefordubbing",
+   "title": "Align Then Reason: A Multimodal Lip-Sync Judge for Dubbing",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cmes-63186-rehab",
+   "key": "t:deeplearningbasedlipreadingforvocalimpairedpatientrehabilitation",
+   "title": "Deep Learning-Based Lip-Reading for Vocal Impaired Patient Rehabilitation",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-dai24-modalbias",
+   "key": "t:astudyofdropoutinducedmodalitybiasonrobustnesstomissingvideoframesforaudiovisual",
+   "title": "A Study of Dropout-Induced Modality Bias on Robustness to Missing Video Frames for Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-dai24-modalitybias",
+   "key": "t:astudyofdropoutinducedmodalitybiasonrobustnesstomissingvideoframesforaudiovisual",
+   "title": "A Study of Dropout-Induced Modality Bias on Robustness to Missing Video Frames for Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-kim21-mabm",
+   "key": "t:multimodalityassociativebridgingthroughmemoryspeechsoundrecollectedfromfacevideo",
+   "title": "Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-kim23-lowresource-lipread",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf-zhang24-es3",
+   "key": "t:es3evolvingselfsupervisedlearningofrobustaudiovisualspeechrepresentations",
+   "title": "ES3: Evolving Self-Supervised Learning of Robust Audio-Visual Speech Representations",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "targets = 624 bi-char units (EN) or tonal phone initials/finals (ZH) | ProcessingStep.architecture=Three-stage Siamese self-distillation: (1) audio-unique+shared via InfoNCE I(Ea;Ev) & audio targets; (2) video-unique bootstrapped on shared knowledge;"
+  },
+  {
+   "pid": "cvf23-cheng_mixspeech",
+   "key": "t:mixspeechcrossmodalityselflearningwithaudiovisualstreammixupforvisualspeechtrans",
+   "title": "MixSpeech: Cross-Modality Self-Learning with Audio-Visual Stream Mixup for Visual Speech Translation and Recognition",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf23-kim_lowres",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf23-liu_synthvsr",
+   "key": "t:synthvsrscalingupvisualspeechrecognitionwithsyntheticsupervision",
+   "title": "SynthVSR: Scaling Up Visual Speech Recognition With Synthetic Supervision",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvf24-dai_modality",
+   "key": "t:astudyofdropoutinducedmodalitybiasonrobustnesstomissingvideoframesforaudiovisual",
+   "title": "A Study of Dropout-Induced Modality Bias on Robustness to Missing Video Frames for Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "cvpr21-ren",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "Reading | authors=Sucheng Ren, Yong Du, Jianming Lv, Guoqiang Han, Shengfeng He | Study.research_objective=Cross-modal knowledge distillation for lip reading via a trainable audio-visual master + modality tutors + student-feedback regularization + curricul"
+  },
+  {
+   "pid": "doi-10.1007-s40820-025-02042-2",
+   "key": "t:noninvasivebraincomputerinterfacesconvergingfrontiersinneuralsignaldecodingandfl",
+   "title": "Non-Invasive Brain-Computer Interfaces: Converging Frontiers in Neural Signal Decoding and Flexible Bioelectronics Integration",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1016-j.eswa.2025.126741",
+   "key": "t:targetspeakerlipreadingbyaudiovisualselfdistillationpretrainingandspeakeradaptat",
+   "title": "Target Speaker Lipreading by Audio-Visual Self-Distillation Pretraining and Speaker Adaptation",
+   "year": 2025,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "title=Target Speaker Lipreading by Audio-Visual Self-Distillation Pretraining and Speaker Adaptation | needs_manual_check=arXiv submitted version; published ESWA may differ, compet"
+  },
+  {
+   "pid": "doi-10.1038-s41467-025-68228-9",
+   "key": "p:doi-10.1038-s41467-025-68228-9",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1038-s41598-026-53299-5",
+   "key": "t:lipreadingsystemsforurdualphabetsindiverseenvironments",
+   "title": "Lip reading systems for Urdu alphabets in diverse environments",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1038-s41598-026-62988-0",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce video & content understanding via vision: a comprehensive study on lip reading and visual speech recognition for enhanced shopping experience",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1109-iccv51070.2023.01409",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1109-tcsvt.2023.3282224",
+   "key": "t:lipformerlearningtolipreadunseenspeakersbasedonvisuallandmarktransformers",
+   "title": "LipFormer: Learning to Lipread Unseen Speakers based on Visual-Landmark Transformers",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1609-aaai.v34i04.6174",
+   "key": "t:hearinglipsimprovinglipreadingbydistillingspeechrecognizers",
+   "title": "Hearing Lips: Improving Lip Reading by Distilling Speech Recognizers",
+   "year": 2020,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "Rui Xu; Xinchao Wang; Peng Hou; Haihong Tang; Mingli Song | Study.research_objective=improve lip reading by cross-modal knowledge distillation from speech recognizers | Study.study_design=controlled_experiment | task_family=sentence_recognition | extra.Task"
+  },
+  {
+   "pid": "doi-10.20517-ss.2026.38",
+   "key": "t:biointegratedsystemsforsilentspeechrecognitionfromadvancedbioplatformstomedicala",
+   "title": "Bio-integrated systems for silent speech recognition: from advanced bioplatforms to medical applications",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.26092-elib.5498",
+   "key": "t:personalizingmyoelectricsilentspeechinterfacesviacrossspeakertrainingandvoicetim",
+   "title": "Personalizing Myoelectric Silent Speech Interfaces via Cross-Speaker Training and Voice Timbre Control",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.31234-osf.io-2bmdh",
+   "key": "t:automaticrecognitionofgestureidentityandonsetofcuedspeech",
+   "title": "Automatic Recognition of Gesture Identity and Onset of Cued-Speech",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.32604-cmes.2025.063186",
+   "key": "t:deeplearningbasedlipreadingforvocalimpairedpatientrehabilitation",
+   "title": "Deep Learning-Based Lip-Reading for Vocal Impaired Patient Rehabilitation",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.3390-ai6090222",
+   "key": "t:dualstreamformeradualbranchtransformerarchitectureforvisualspeechrecognition",
+   "title": "Dual-Stream Former: A Dual-Branch Transformer Architecture for Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.3390-electronics12051151",
+   "key": "t:researchonalipreadingalgorithmbasedonefficientghostnet",
+   "title": "Research on a Lip Reading Algorithm Based on Efficient-GhostNet",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.3390-math11122665",
+   "key": "t:areviewofrecentadvancesondeeplearningmethodsforaudiovisualspeechrecognition",
+   "title": "A Review of Recent Advances on Deep Learning Methods for Audio-Visual Speech Recognition",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.3390-s23218770",
+   "key": "t:afacialfeatureandlipmovementenhancedaudiovisualspeechseparationmodel",
+   "title": "A Facial Feature and Lip Movement Enhanced Audio-Visual Speech Separation Model",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.3390-s25082366",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.3390-s26082553",
+   "key": "t:recoveringspeechfromvibrationsprinciplesandalgorithmsinradarandlasersensing",
+   "title": "Recovering Speech from Vibrations: Principles and Algorithms in Radar and Laser Sensing",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.34133-cbsystems.0536",
+   "key": "t:softmultiaxialstrainmappinginterfacewithaidrivendecodingforsilentspeechinnoise",
+   "title": "Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speech in Noise",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.64388-irev9i6-1713196",
+   "key": "t:visionbasedsilentspeechrecognitionusinghybrid3dcnnandbilstmarchitecture",
+   "title": "Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Architecture",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.64898-2025.11.30.691403",
+   "key": "t:representationalignmentandgenerationacomprehensivesurveyoffoundationmodelsfornon",
+   "title": "Representation, Alignment, and Generation: A Comprehensive Survey of Foundation Models for Non-Invasive Brain Decoding",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.64898-2026.04.02.715749-cocontrol",
+   "key": "t:probabilisticcocontrolinbraincomputerinterfacesuncertaintyasacontrolsignalinbrai",
+   "title": "Probabilistic Co-Control in Brain-Computer Interfaces: Uncertainty as a Control Signal in Brain-to-Text Decoding",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "ib22-vsr-sat",
+   "key": "t:speakeradaptedendtoendvisualspeechrecognitionforcontinuousspanish",
+   "title": "Speaker-Adapted End-to-End Visual Speech Recognition for Continuous Spanish",
+   "year": 2022,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "ib24-simt-avsr",
+   "key": "t:towardsparameterefficientnonautoregressivespanishaudiovisualspeechrecognition",
+   "title": "Towards Parameter-Efficient Non-Autoregressive Spanish Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "iber24-simtavsr",
+   "key": "t:towardsparameterefficientnonautoregressivespanishaudiovisualspeechrecognition",
+   "title": "Towards Parameter-Efficient Non-Autoregressive Spanish Audio-Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "iccv25-thomas_vallr",
+   "key": "t:vallrvisualasrlanguagemodelforlipreading",
+   "title": "VALLR: Visual ASR Language Model for Lip Reading",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "ijraset-77475-deeplip",
+   "key": "t:deeplipahybridcnnrnnlstmframeworkforendtoendvisualspeechrecognitionusingctcloss",
+   "title": "DeepLip: A Hybrid CNN-RNN-LSTM Framework for End-to-End Visual Speech Recognition using CTC Loss",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "irej-1713196-hybrid",
+   "key": "t:visionbasedsilentspeechrecognitionusinghybrid3dcnnandbilstmarchitecture",
+   "title": "Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Architecture",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-anwar23-muavic",
+   "key": "t:muavicamultilingualaudiovisualcorpusforrobustspeechrecognitionandrobustspeechtot",
+   "title": "MuAViC: A Multilingual Audio-Visual Corpus for Robust Speech Recognition and Robust Speech-to-Text Translation",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-anwar23_interspeech",
+   "key": "t:muavicamultilingualaudiovisualcorpusforrobustspeechrecognitionandrobustspeechtot",
+   "title": "MuAViC: A Multilingual Audio-Visual Corpus for Robust Speech Recognition and Robust Speech-to-Text Translation",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-botelho21-apnea",
+   "key": "t:visualspeechforobstructivesleepapneadetection",
+   "title": "Visual Speech for Obstructive Sleep Apnea Detection",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-botelho21_interspeech",
+   "key": "t:visualspeechforobstructivesleepapneadetection",
+   "title": "Visual Speech for Obstructive Sleep Apnea Detection",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-chen24g-rtveoce",
+   "key": "t:rtlavocerealtimelowsnraudiovisualspeechenhancement",
+   "title": "RT-LA-VocE: Real-Time Low-SNR Audio-Visual Speech Enhancement",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-fernandezlopez23-sparsevsr",
+   "key": "t:sparsevsrlightweightandnoiserobustvisualspeechrecognition",
+   "title": "SparseVSR: Lightweight and Noise Robust Visual Speech Recognition",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-fernandezlopez23_interspeech",
+   "key": "t:sparsevsrlightweightandnoiserobustvisualspeechrecognition",
+   "title": "SparseVSR: Lightweight and Noise Robust Visual Speech Recognition",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-gao23c_interspeech",
+   "key": "t:anovelinterpretableandgeneralizableresynchronizationmodelforcuedspeechbasedonamu",
+   "title": "A Novel Interpretable and Generalizable Re-synchronization Model for Cued Speech based on a Multi-Cuer Corpus",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-lee26v_interspeech",
+   "key": "t:enhancingemgtospeechviasilentvoicedrepresentationalignment",
+   "title": "Enhancing EMG-to-Speech via Silent-Voiced Representation Alignment",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-li23k-avencoder",
+   "key": "t:anefcientandnoiserobustaudiovisualencoderforaudiovisualspeechrecognition",
+   "title": "An Efﬁcient and Noise-Robust Audiovisual Encoder for Audiovisual Speech Recognition",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-li23k_interspeech",
+   "key": "t:anefficientandnoiserobustaudiovisualencoderforaudiovisualspeechrecognition",
+   "title": "An Efficient and Noise-Robust Audiovisual Encoder for Audiovisual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "n-but-deep reduced feature dimension conformer encoder (22M params) | model_family=transformer, cnn | technical_essence=teacher-student distillation of AV encoder: task-specific finetuned AV-HuBERT teacher; simplified loss learns only from teacher layers"
+  },
+  {
+   "pid": "isca-li25q-hybridav",
+   "key": "t:efficientnoiserobusthybridaudiovisualencoderwithjointdistillationandpruningforau",
+   "title": "Efficient Noise-Robust Hybrid Audiovisual Encoder with Joint Distillation and Pruning for Audiovisual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-li25q_interspeech",
+   "key": "t:efficientnoiserobusthybridaudiovisualencoderwithjointdistillationandpruningforau",
+   "title": "Efficient Noise-Robust Hybrid Audiovisual Encoder with Joint Distillation and Pruning for Audiovisual Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-lin26m_interspeech",
+   "key": "t:assessingtruegeneralisabilityofaudiovisualspeechrecognisers",
+   "title": "Assessing True Generalisability of Audio-Visual Speech Recognisers",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-papadimitriou24-fingerspell",
+   "key": "t:multimodalcontinuousfingerspellingrecognitionviavisualalignmentlearning",
+   "title": "Multimodal Continuous Fingerspelling Recognition via Visual Alignment Learning",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-papadimitriou25_interspeech",
+   "key": "t:amultistreamframeworkutilizing3dhumanreconstructionforcuedspeechrecognition",
+   "title": "A Multi-Stream Framework Utilizing 3D Human Reconstruction for Cued Speech Recognition",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-sankar23-cuedspeech",
+   "key": "t:investigatingthedynamicsofhandandlipsinfrenchcuedspeechusingattentionmechanismsa",
+   "title": "Investigating the dynamics of hand and lips in French Cued Speech using attention mechanisms and transformers",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-sankar23_interspeech",
+   "key": "t:investigatingthedynamicsofhandandlipsinfrenchcuedspeechusingattentionmechanismsa",
+   "title": "Investigating the dynamics of hand and lips in French Cued Speech using attention mechanisms and CTC-based decoding",
+   "year": 2023,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-scheck25_interspeech",
+   "key": "t:diffmvetsdiffusionbasedmultivoiceelectromyographytospeechconversionusingspeakeri",
+   "title": "DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Training Targets",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-sonkar26_interspeech",
+   "key": "t:tongue2speechrealtimespeechsynthesisfromtongueultrasoundvideosviaspatiotemporalt",
+   "title": "Tongue2Speech: Real-Time Speech Synthesis from Tongue Ultrasound Videos via Spatiotemporal Transformers",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "isca-suzuki19_interspeech",
+   "key": "t:knowledgedistillationforthroatmicrophonespeechrecognition",
+   "title": "Knowledge Distillation for Throat Microphone Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "title=Knowledge Distillation for Throat Microphone Speech Recognition | task_family=sentence_recognition | Study.study_design=controlled_experi"
+  },
+  {
+   "pid": "isca-zheng23b-usenhance",
+   "key": "t:incorporatingultrasoundtongueimagesforaudiovisualspeechenhancementthroughknowled",
+   "title": "Incorporating Ultrasound Tongue Images for Audio-Visual Speech Enhancement through Knowledge Distillation",
+   "year": 2023,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "title=Incorporating Ultrasound Tongue Images for Audio-Visual Speech Enhancement through Knowledge Distillation | authors=Zheng, Liu, Wang | venue=Interspeech 2023 | Study.research_objective=ultrasound tongue images for AV spe"
+  },
+  {
+   "pid": "isca-zhou21-cmts",
+   "key": "t:audiovisualinformationfusionusingcrossmodalteacherstudentlearningforvoiceactivit",
+   "title": "Audio-Visual Information Fusion Using Cross-modal Teacher-Student Learning for Voice Activity Detection",
+   "year": 2021,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "title=Audio-Visual Information Fusion Using Cross-modal Teacher-Student Learning for Voice Activity Detection | authors=Zhou, Lu, Sun, Li, Wang, Zhang | venue=Interspeech 2021 | Study.researc"
+  },
+  {
+   "pid": "isca-zhou21_interspeech",
+   "key": "p:isca-zhou21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "mdpi-s25082366_ptm",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-11322636-spikingtrain",
+   "key": "t:directtraininghighperformancedeepspikingneuralnetworksareviewoftheoriesandmethod",
+   "title": "Direct training high-performance deep spiking neural networks: a review of theories and methods",
+   "year": 2024,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-12031098-ptmst3d",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-12031098-st3d-ptm",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-12816716-intelligent-throat",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": 2026,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "ken errors and add emotional/logical coherence; teacher ResNet-101 pretrained on healthy → fine-tuned on patient data → knowledge-distilled to ResNet-18 student cutting latency 76% | EvaluationProtocol.experimental_design=Pretrain on 10 healthy subjects, fi"
+  },
+  {
+   "pid": "pmc-13006734-cvos-ssi",
+   "key": "t:softmultiaxialstrainmappinginterfacewithaidrivendecodingforsilentspeechinnoise",
+   "title": "Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speech in Noise",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-13006734-strainssi",
+   "key": "t:softmultiaxialstrainmappinginterfacewithaidrivendecodingforsilentspeechinnoisyen",
+   "title": "Soft Multiaxial Strain Mapping Interface with AI-Driven Decoding for Silent Speech in Noisy Environments",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-13119776-radspeech",
+   "key": "t:recoveringspeechfromvibrationsprinciplesandalgorithmsinradarandlasersensing",
+   "title": "Recovering Speech from Vibrations: Principles and Algorithms in Radar and Laser Sensing.",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-13191437-somato",
+   "key": "t:towardsanunderstandingofsomatosensoryperturbationoncovertspeechproductionafuncti",
+   "title": "Towards an understanding of somatosensory perturbation on covert speech production: a functional near infrared spectroscopy study",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-13191437-somatpert",
+   "key": "t:towardsanunderstandingofsomatosensoryperturbationoncovertspeechproduction",
+   "title": "Towards an understanding of somatosensory perturbation on covert speech production",
+   "year": 2025,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-13527132-ulra",
+   "key": "t:lipreadingsystemsforurdualphabetsindiverseenvironments",
+   "title": "Lip reading systems for Urdu alphabets in diverse environments",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-13527132-urdu",
+   "key": "t:lipreadingsystemsforurdualphabetsindiverseenvironments",
+   "title": "Lip reading systems for Urdu alphabets in diverse environments",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-13527132-urdulip",
+   "key": "t:lipreadingsystemsforurdualphabetsindiverseenvironments",
+   "title": "Lip reading systems for Urdu alphabets in diverse environments",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-13527132-urdulr",
+   "key": "t:lipreadingsystemsforurdualphabetsindiverseenvironments",
+   "title": "Lip reading systems for Urdu alphabets in diverse environments",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-7664219-tfeeg",
+   "key": "t:applicationoftransferlearningineegdecodingbasedonbraincomputerinterfacesareview",
+   "title": "Application of Transfer Learning in EEG Decoding Based on Brain-Computer Interfaces: A Review",
+   "year": 2020,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-8722107-fmrireconsurvey",
+   "key": "t:naturalimagereconstructionfromfmriusingdeeplearningasurvey",
+   "title": "Natural Image Reconstruction From fMRI Using Deep Learning: A Survey",
+   "year": 2021,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "scirep-62988-livevsr-net",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "w7164654225-urdu",
+   "key": "t:lipreadingsystemsforurdualphabetsindiverseenvironments",
+   "title": "Lip reading systems for Urdu alphabets in diverse environments",
+   "year": 2026,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  }
+ ],
+ "usual_approach": {
+  "design": "audio_or_asr_teacher",
+  "n": 46,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2509.23610",
+   "arxiv-2601-20881-malipnet",
+   "arxiv-2601.20881-malipnet",
+   "arxiv-2603.11877",
+   "arxiv-2606-09667-xmask"
+  ],
+  "population_unique": 131,
+  "note": "full-text pattern counts over 131 unique studies whose ledger or full text mentions knowledge distillation or teacher-student training (mentions included): audio or ASR teacher / cross-modal distillation 46, EMG or neural signal named 27, compression to a smaller student 20, ensemble teacher 2 (the target and one audio-visual study distilling several speech foundation models)"
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2007.06504",
+   "role": "prior",
+   "loc": "Table 1; Table 3; Sec. 2",
+   "quote": "In this work, we use born-again distillation for improving the performance of the state-of-the-art model."
+  },
+  {
+   "pid": "arxiv-2007.06504",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "ResNet-18 + MS-TCN - Student 3 87.9"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 4,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2007.06504",
+  "year": 2020,
+  "metric": "LRW 500-word accuracy of a same-architecture self-distilled video student (teacher 85.3%); distilled efficient students reported with and without distillation",
+  "value": "87.9%",
+  "timing": "prior"
+ },
+ "tally": {
+  "slot_filled_unique": 31,
+  "string_match_unique": 22,
+  "fulltext_only_folders": 163,
+  "usual_approach": {
+   "design": "audio_or_asr_teacher",
+   "n": 46,
+   "tier": "pattern match",
+   "population_unique": 131
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2007.06504",
+   "year": 2020,
+   "metric": "LRW 500-word accuracy of a same-architecture self-distilled video student (teacher 85.3%); distilled efficient students reported with and without distillation",
+   "value": "87.9%",
+   "timing": "prior"
+  },
+  "read": 1,
+  "read_prior": [
+   "arxiv-2007.06504"
+  ],
+  "unread": 188,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface"
+ ]
+}

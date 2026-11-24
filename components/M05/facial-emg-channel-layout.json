@@ -1,0 +1,447 @@
+{
+ "topic": "facial-emg-channel-layout",
+ "slot": "M05",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?:silent[- ]speech|subvocal|mouthed).{0,120}(?:sEMG|surface EMG).{0,140}(?:muscle|channel|electrode|sensor)|(?:sEMG|surface EMG).{0,120}(?:silent[- ]speech|subvocal|mouthed).{0,140}(?:muscle|channel|electrode|sensor)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include silent-speech recognition studies using facial surface EMG that specify or compare electrode, channel, or muscle placement and relate the configuration to word-recognition performance. Boundary: exclude EMG studies without placement or muscle details and studies that change only the decoder or signal-processing method.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8898,
+  "slot_filled_unique": 7329,
+  "string_match_folders": 18,
+  "string_match_unique": 17,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M05",
+  "design_slot_fill": 0.989,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "channel_count=8",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.36687-myocodec",
+     "doi-10.1044-2021_jslhr-20-00257"
+    ]
+   },
+   {
+    "design": "channel_count=4",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-tim.2025.3583386",
+     "isca-meltzner13_interspeech"
+    ]
+   },
+   {
+    "design": "channel_count=256",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2403.05583"
+    ]
+   },
+   {
+    "design": "Acquisition.sensor_geometry={'neck': 'right ventral",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1044-2021_jslhr-20-00257"
+    ]
+   },
+   {
+    "design": "Acquisition.sensor_geometry=2 submental + 2 ventromedial'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1044-2021_jslhr-20-00257"
+    ]
+   },
+   {
+    "design": "Acquisition.sensor_geometry='face': 'right",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1044-2021_jslhr-20-00257"
+    ]
+   },
+   {
+    "design": "Acquisition.sensor_geometry=2 supralabial + 2 infralabial'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1044-2021_jslhr-20-00257"
+    ]
+   },
+   {
+    "design": "channel_count=120",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1088-1741-2552-abca14"
+    ]
+   },
+   {
+    "design": "Acquisition.sensor_geometry=surface emg electrodes over articulatory muscles",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-icassp.2007.366934"
+    ]
+   },
+   {
+    "design": "Acquisition.sensor_geometry=8 facial semg sensor locations incl. submental; anatomically aligned",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-taslp.2017.2740000"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "\\baccuracy\\b|\\bF1\\b|word error rate|\\bWER\\b",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "overall classification accuracy (1D SE-ResNet, 10 words)",
+   "value": 96,
+   "unit": "percent",
+   "raw": "overall classification accuracy, 1D SE-ResNet, 10 words",
+   "pid": "doi-10.1109-tim.2025.3583386",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "vocal-mode baseline accuracy 92.1%",
+   "value": 92.1,
+   "unit": "percent",
+   "raw": "vocal-mode accuracy",
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "year": 2017,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "100-word strain-gauge SSI recognition accuracy",
+   "value": 87.53,
+   "unit": "percent",
+   "raw": "Our model with a 3D-convolution algorithm produced 87.53% recognition accuracy",
+   "pid": "doi-10.1038-s41467-022-33457-9",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "prior (Jou/Schultz ICSLP): WER, 50 phrases, 6ch, 6 subjects",
+   "value": 34.7,
+   "unit": "wer_percent",
+   "raw": "34.7% word error rate",
+   "pid": "doi-10.15439-2017f153",
+   "year": 2017,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "baseline WER 33.9%",
+   "value": 33.9,
+   "unit": "percent",
+   "raw": "baseline WER without AF multi-stream",
+   "pid": "doi-10.1109-icassp.2007.366934",
+   "year": 2007,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "transformer ASR WER",
+   "value": 32.5,
+   "unit": "percent",
+   "raw": "32.5%",
+   "pid": "arxiv-2509.04507-dualstg",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "baseline avg val WER (5 runs)",
+   "value": 30.4,
+   "unit": "percent",
+   "raw": "30.4",
+   "pid": "arxiv-2403.05583",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "emg2speech WER %",
+   "value": 21.12,
+   "unit": "percent",
+   "raw": "WER 21.12%; PER 21.61%",
+   "pid": "arxiv-2609.36687-myocodec",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "4-sensor subset WER 15.2% vs 8-sensor",
+   "value": 15.2,
+   "unit": "%",
+   "raw": "best 4-sensor subset WER 15.2% vs full 8-sensor (≈4% absolute drop); subset selectable via monophone HMM screening",
+   "pid": "isca-deng14b_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2403.05583",
+   "key": "t:acrossmodalapproachtosilentspeechwithllmenhancedrecognition",
+   "title": "A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "restoration, private_communication, noisy_environment | acoustic_mode=no_vocalization | production_instruction=Silently mouthed words; parallel vocalized readings of same utterances in Gaddy db. | sensor_hardware=sEMG sensors on face and neck (Gaddy & Klein 2020 dataset). | modalities=intracortical_microelectrode | sensor_hardware=256 electrodes in speech-related motor cortex; intended-speech neural activity, ALS participant. | dataset_description=Gaddy & Klein"
+  },
+  {
+   "pid": "arxiv-2509.04507-dualstg",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oach | authors=Nithyashree Sivasubramaniam | venue=arXiv preprint | Study.research_objective=improve intelligibility of sEMG silent-speech recognition via transformer ASR + LLM correction stage | Study.study_design=system_proposal | task_family=sentence_recognition | sensor_hardware=8-channel surface EMG (sEMG) electrodes; other SSI modalities (UTI, EMA, lip video) discussed but not used | o"
+  },
+  {
+   "pid": "arxiv-2609.36687-myocodec",
+   "key": "t:myocodecastreamingneuralcodecforelectromyography",
+   "title": "MYOCODEC: A Streaming Neural Codec for Electromyography",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "elicitation=instructed_content | extra.Production.scope_note=emg2speech uses orofacial EMG to decode speech waveforms (silent-speech-relevant interface signal); qwerty/pose use wrist EMG | sensor_hardware=per-corpus sEMG arrays: 8-256 electrodes (wrist bands, orofacial electrodes) | body_sites=face, neck, other | observed_quantities=muscle_activity | intrusiveness=skin_contact | Representation.transformation_definition=encoder-quantizer-decoder codec: 40-sa"
+  },
+  {
+   "pid": "doi-10.1038-s41467-022-33457-9",
+   "key": "p:doi-10.1038-s41467-022-33457-9",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ticipant; four perioral crystalline-silicon biaxial strain gauges (~300 nm SiNM, <0.1 mm2 cells, <8 um stack) recording silent-speech skin strain; same-dimension sEMG electrode comparator | Study.study_design=controlled_experiment | Study.research_objective=demonstrate a scalable silent speech i"
+  },
+  {
+   "pid": "doi-10.1044-2021_jslhr-20-00257",
+   "key": "p:doi-10.1044-2021_jslhr-20-00257",
+   "title": null,
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", 'stress_tokens': 150, 'base_phrases': 50, 'unique_words': 1739, 'session_hr': '2-3'} | dataset_id=Vojtech et al. 2021 sEMG subvocal corpus (subset of Meltzner 980-phrase corpus) | sensor_hardware=Delsys Trigno Quattro wireless double-bar, 8 single-differential 25x12x7mm; neck 1-4 (digastric/mylohyoid/geni"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abca14",
+   "key": "t:towardsoptimizingelectrodeconfigurationsforsilentspeechrecognitionbasedonhighden",
+   "title": "Towards optimizing electrode configurations for silent speech recognition based on high-density surface electromyography",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Li | venue=Journal of Neural Engineering 18(1) 016005 | question=can an optimal electrode configuration for sEMG-based silent speech recognition be systematically explored with high-density sEMG? | task_family=isolated_word_recognition | production_labels=silent_articulation | sensor_hardware=REFA 120 multichannel sEMG system (TMS International) | intrusiveness=skin_contact | Acquisition.sensor_geometry=80 electrodes in 5x16 grid o"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2007.366934",
+   "key": "t:continuouselectromyographicspeechrecognitionwithamultistreamdecodingarchitecture",
+   "title": "Continuous Electromyographic Speech Recognition with a Multi-Stream Decoding Architecture",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | task_family=sentence_recognition | extra.Task.target=phone-based continuous silent-speech recognition from sEMG | extra.Task.output_kind=recognized word sequences | language=not specified in extracted text | observed_quantities=muscle_activity | Acquisition.sensor_geometry=surface EMG electrodes over articulatory muscles | Acquisition.signal_quality=E4"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2740000",
+   "key": "t:silentspeechrecognitionasanalternativecommunicationdeviceforpersonswithlaryngect",
+   "title": "Silent Speech Recognition as an Alternative Communication Device for Persons with Laryngectomy",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rom 2,500-word vocabulary; WIRB consent | claim=8-sensor speaker-dependent sEMG ASR reaches 10.3% avg WER (9.5% top-4); mouthed mode comparable to vocal mode (86.7% vs 92.1%) | author_claimed_contribution=first compelling proof-of-concept sEMG SSR for laryngectomy communication | extra.Limitation.limitation=results are speaker-dependent; reduced sensor sets degrade accuracy | extra.Protocol.reference_kind=prior sEMG SSR groups (Maier-Hein, Jou) | extra.Task.scope=assist"
+  },
+  {
+   "pid": "doi-10.1109-tim.2025.3583386",
+   "key": "p:doi-10.1109-tim.2025.3583386",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "jective=comfortable, discreet, wearable sEMG SSI avoiding large-area face/neck electrode patches while retaining robust silent-speech decoding | claim=headphone-integrated textile sEMG with SE-adaptive decoding reaches 96% on 10 voice-free control words, outperforming single-channel and non-adaptive baselines | evidence_relation=supported_within_scope | technical_limits=vocabulary (10 words) and part"
+  },
+  {
+   "pid": "doi-10.15439-2017f153",
+   "key": "t:subvocalspeechrecognitionviaclosetalkmicrophoneandsurfaceelectromyogramusingdeep",
+   "title": "Subvocal Speech Recognition via Close-Talk Microphone and Surface Electromyogram Using Deep Learning",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding (CTC letters→most probable word) | production_labels=silent_articulation | ProductionCondition.reported_experience=subvocalized speech recorded by close-talk mic + throat sEMG; 150 slide-prompted records per subject | sensor_hardware=Mega Electronics Ltd wireless sEMG, 1 kHz, 16-bit ADC; two electrodes placed diagonally around throat → 2 channels | intrusiveness=skin_contact | sensor_hardware=Koss CS100 close-talk micr"
+  },
+  {
+   "pid": "isca-deng14b_interspeech",
+   "key": "t:towardsapracticalsilentspeechrecognitionsystem",
+   "title": "Towards a Practical Silent Speech Recognition System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards a Practical Silent Speech Recognition System | system_name=BAE sEMG silent speech interface: 8 sEMG channels (4 face + 4 neck/chin) → per-channel 7-dim cepstral + delta, mean/variance normalization → 112-dim concat; two-stage FSM speech-activity detector; KALDI tri"
+  },
+  {
+   "pid": "isca-meltzner08_semg",
+   "key": "t:speechrecognitionforvocalizedandsubvocalmodesofproductionusingsurfaceemgsignalsf",
+   "title": "Speech Recognition for Vocalized and Subvocal Modes of Production using Surface EMG Signals from the Neck and Face",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=quantify word-level sEMG recognition across vocalized, mouthed, and mentally-rehearsed production — map the boundary where silent articulation stops generating decodable muscle signals | Study.unit_of_analysis=9 native American-English speakers (slender necks recruited); 11 Delsys DE2.1 parallel"
+  },
+  {
+   "pid": "isca-meltzner08_semgsubvoc",
+   "key": "t:speechrecognitionforvocalizedandsubvocalmodesofproductionusingsurfaceemgsignalsf",
+   "title": "Speech Recognition for Vocalized and Subvocal Modes of Production using Surface EMG Signals from the Neck and Face",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tes and HMM decoding over 65 words × 9 speakers | Claim.claim_scope=mentally-rehearsed speech does not yield sufficient sEMG activity for recognition — subvocal decoding requires actual articulatory muscle movement | extra.Limitation.limitation=65-word closed vocabulary, isolated words only; mental-rehearsal mode fails; str"
+  },
+  {
+   "pid": "isca-meltzner13_interspeech",
+   "key": "t:themutesilentspeechrecognitionsystem",
+   "title": "The MUTE Silent Speech Recognition System",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The MUTE Silent Speech Recognition System | system_name=MUTE (Mouthed-speech Understanding and Transcription Engine): 4 pairs custom wireless sEMG electrodes (face+neck, Delsys) → wireless transmitter → receiver module → USB → Android device running Push-To-Talk silent-chat r"
+  },
+  {
+   "pid": "isca-raugas10",
+   "key": "p:isca-raugas10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=BBN sEMG subvocalic ASR: LIBSVM GLDS-kernel one-vs-all word models, DWT+MFCC fusion | sensor_hardware=11 sEMG sensors on face and throat | intrusiveness=skin_contact | observed_quantities=muscle_activity | task_family=isolated_word_reco"
+  },
+  {
+   "pid": "pmc-7407985-spectrogram-emg",
+   "key": "t:silentspeechdecodingusingspectrogramfeaturesbasedonneuromuscularactivities",
+   "title": "Silent Speech Decoding Using Spectrogram Features Based on Neuromuscular Activities",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "olled_experiment | Study.research_objective=Test channel-interactive spectrogram features + image-transfer decoders for sEMG silent-speech word recognition, rather than channel-wise features that ignore cross-channel correlations | Study.unit_of_analysis=Per-utterance word class (10-class) decoded from multi-channel sEMG spectrograms"
+  },
+  {
+   "pid": "pmc-9312762-semgmandarin",
+   "key": "t:sequencetosequencevoicereconstructionforsilentspeechinatonallanguage",
+   "title": "Sequence-to-Sequence Voice Reconstruction for Silent Speech in a Tonal Language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ision: tones carry lexical information comparable to vowels; toneme classification loss contributes more to SSRNet than sEMGv reconstruction | extra.Limitation.status=acknowledged | extra.Limitation.limitation=Silent speech in tonal languages remains difficult; worst speakers (27.2–27.3% objective CER) trace to ASR failure on ground truth and higher electrode impedance; voiced training pairs still needed | 6.41 | 11.30 | 139 | 5"
+  },
+  {
+   "pid": "pmc-9478652-picnn-semg",
+   "key": "t:anovelsilentspeechrecognitionapproachbasedonparallelinceptionconvolutionalneural",
+   "title": "A novel silent speech recognition approach based on parallel inception convolutional neural network and Mel frequency spectral coefficient",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "orobotics 16:971446 | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=sEMG silent-speech recognition of a 100-class Chinese assistance-demand corpus via parallel per-channel inception CNN (PICNN) + MFSC spectral features, plus subject-based transfer learning for new users | Study.unit_of_anal"
+  }
+ ],
+ "usual_approach": {
+  "design": "channel_count=8",
+  "n": 2,
+  "tier": "slot-filled",
+  "pids": [
+   "arxiv-2609.36687-myocodec",
+   "doi-10.1044-2021_jslhr-20-00257"
+  ],
+  "population_unique": 17
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1088-1741-2552-abca14",
+   "role": "prior",
+   "loc": "Sec. 2.3",
+   "quote": "120 channels monopolar electrodes were utilized"
+  },
+  {
+   "pid": "doi-10.1109-tim.2025.3583386",
+   "role": "sota",
+   "loc": "Sec. III.B",
+   "quote": "The model achieved an overall classification\naccuracy of 96%"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 0,
+  "recall": 0.0,
+  "missed": [
+   "arxiv-2009.02110",
+   "doi-10.1016-j.specom.2009.12.002",
+   "doi-10.1109-access.2020.3026579",
+   "isca-walliczek06_interspeech"
+  ]
+ },
+ "tally": {
+  "slot_filled_unique": 7329,
+  "string_match_unique": 17,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "channel_count=8",
+   "n": 2,
+   "tier": "slot-filled",
+   "population_unique": 17
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1109-tim.2025.3583386",
+   "year": 2025,
+   "metric": "10-word silent command accuracy, four textile EMG electrodes in headphone earmuffs, random 80/20 sample split, 4 subjects",
+   "value": "96%",
+   "timing": "later"
+  },
+  "read": 2,
+  "read_prior": [
+   "doi-10.1088-1741-2552-abca14"
+  ],
+  "unread": 18,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.0
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.1109-tim.2025.3583386",
+  "year": 2025,
+  "metric": "10-word silent command accuracy, four textile EMG electrodes in headphone earmuffs, random 80/20 sample split, 4 subjects",
+  "value": "96%",
+  "timing": "later"
+ },
+ "used_by": [
+  "knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface"
+ ]
+}
