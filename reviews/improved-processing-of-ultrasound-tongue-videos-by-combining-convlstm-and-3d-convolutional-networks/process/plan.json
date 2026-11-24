@@ -1,0 +1,54 @@
+{
+ "target": "arxiv-2206.12947",
+ "gate": "component paper: ultrasound-to-mel network architecture study",
+ "prep": "no prep/ directory; plan, audits and comparator entries built by the writer",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Hungarian sentences read aloud by one speaker (the group's corpus, Csapo et al. 2017)",
+  "M02": "80 standardized mel-spectrogram targets from parallel voiced audio (Csapo et al. 2020 WaveGlow lineage)",
+  "M03": "Speaker-dependent training; no adaptation; normalization fit scope unstated",
+  "M04": "Voiced read speech; no silent articulation",
+  "M05": "Micro ultrasound, 64-element convex probe at 82 frames/s",
+  "M07": "No lexicon or language model",
+  "M08": "80-bin mel-spectrogram, waveform by WaveGlow (not evaluated)",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Parallel audio of the same utterance; fixed 310/41/87 sentence split of the group's earlier studies",
+  "M13": "Laboratory; size and speed claims without measurement"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "ultrasound-to-speech-network-architecture",
+   "inclusion_rule": "Reused published table: studies that map ultrasound tongue images to acoustic features or a waveform with a trained network and name the mapping architecture.",
+   "pattern": "reuse",
+   "metric": "ASR WER on synthesized speech, lower better"
+  },
+  {
+   "slot": "M06",
+   "topic": "ultrasound-image-sequence-temporal-layer",
+   "inclusion_rule": "Studies whose ledger lists ultrasound imaging as an input modality, classified by full-text pattern (reference list removed) by how the network integrates a sequence of ultrasound frames over time: 3D convolution, CNN followed by a recurrent layer, ConvLSTM, Transformer/Conformer attention. Boundary: related-work mentions, reviews, theses and non-speech-output tasks remain pattern matches (upper bound); ConvLSTM hits classified by snippet; versions once.",
+   "pattern": "ultrasound_imaging",
+   "design_field": "model_family|architecture",
+   "design_regex": {
+    "convlstm": "ConvLSTM|convolutional LSTM|conv-LSTM",
+    "conv3d": "3D[- ]?(conv|CNN)|3-D conv|spatio-?temporal conv|conv3d",
+    "cnn_then_recurrent": "(CNN|convolutional)[^.]{0,60}(LSTM|GRU|BiGRU|recurrent)",
+    "transformer_attention": "transformer encoder|self-attention|conformer|multi-head attention"
+   },
+   "metric": "ASR WER on synthesized speech, lower better"
+  },
+  {
+   "slot": "M12",
+   "topic": "ultrasound-to-speech-output-evaluation",
+   "inclusion_rule": "Reused published table: studies that synthesize speech or acoustic features from ultrasound tongue images and evaluate the output; output measures classified. Added: dated counts before 2021-12 for this review.",
+   "pattern": "reuse",
+   "metric": "ASR WER on synthesized speech, lower better"
+  }
+ ]
+}

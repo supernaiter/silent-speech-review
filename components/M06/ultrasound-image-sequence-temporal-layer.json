@@ -1,0 +1,2194 @@
+{
+ "topic": "ultrasound-image-sequence-temporal-layer",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "ultrasound_imaging",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Include studies whose ledger lists ultrasound imaging as an input modality and classify, by full-text pattern (reference list removed), how the network integrates a sequence of ultrasound frames over time: 3D (spatiotemporal) convolution, a CNN followed by a recurrent layer, ConvLSTM, or Transformer/Conformer attention. Boundary: mentions in related work, reviews, theses and tasks other than speech output (contour tracking, image prediction, recognition) still count as pattern matches, an upper bound; ConvLSTM hits were classified by snippet; versions count once by key.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 192,
+  "string_match_unique": 148,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "model_family=other",
+    "n": 64,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1109-tnsre.2024.3520498",
+     "isca-dindart25-mmodeus",
+     "isca-ibrahimov25-usconformer",
+     "doi-10.1109-ojemb.2024.3374966"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 18,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1109-tnsre.2024.3520498",
+     "doi-10.14232-phd.11818",
+     "doi-10.21437-ssw-2023-36"
+    ]
+   },
+   {
+    "design": "model_family=hmm",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1016-j.specom.2009.08.002",
+     "isca-hueber07_interspeech",
+     "arxiv-2504.13308",
+     "doi-10.1016-j.specom.2009.11.004"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1186-s13636-025-00403-8",
+     "doi-10.1109-ojemb.2024.3374966",
+     "doi-10.14232-phd.11818"
+    ]
+   },
+   {
+    "design": "model_family=linear_model",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-barbier13_interspeech",
+     "arxiv-2504.13308",
+     "doi-10.1109-access.2020.3026579",
+     "isca-frej17_interspeech",
+     "isca-huang21i_interspeech"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1609-aaai.v35i16.17693",
+     "arxiv-2504.13308",
+     "doi-10.1109-access.2020.3026579"
+    ]
+   },
+   {
+    "design": "model_family=svm",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1016-j.specom.2009.08.002",
+     "doi-10.1109-access.2020.3026579"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture={'backbone': 'resnet18_variants'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2401.14978-xrkws"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='fusion': 'feature_concat'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2401.14978-xrkws"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='modalities': ['vocal'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2401.14978-xrkws"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "conv3d",
+    "n": 27,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-sonkar26_interspeech",
+     "isca-wen26d_interspeech",
+     "arxiv-2506.03831"
+    ]
+   },
+   {
+    "design": "cnn_then_recurrent",
+    "n": 24,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "isca-sonkar26_interspeech",
+     "isca-wen26d_interspeech",
+     "arxiv-2506.03831",
+     "doi-10.1007-s00521-024-10456-z"
+    ]
+   },
+   {
+    "design": "convlstm",
+    "n": 9,
+    "tier": "pattern match",
+    "pids": [
+     "isca-sonkar26_interspeech",
+     "isca-wen26d_interspeech",
+     "doi-10.14232-phd.11818",
+     "doi-10.21437-ssw-2023-36",
+     "doi-10.3390-diagnostics12112811"
+    ]
+   },
+   {
+    "design": "transformer_attention",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "isca-sonkar26_interspeech",
+     "arxiv-2506.03831",
+     "doi-10.1007-s00521-024-10456-z",
+     "doi-10.1109-ojemb.2024.3374966"
+    ]
+   }
+  ],
+  "metric_pattern": null,
+  "better": "lower"
+ },
+ "sota_candidates": [],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1605.05967",
+   "key": "t:contourbased3dtonguemotionvisualizationusingultrasoundimagesequences",
+   "title": "Contour-based 3D tongue motion visualization using ultrasound image sequences",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "earch_of_inner_speech, other | Cohort.demographics=3D tongue-shape database speakers (mesh surface models) | modalities=ultrasound_imaging | dataset_description=database of 3D sample tongue shapes: 1000 presently; symmetric mid-sagittal projection gives 2D c"
+  },
+  {
+   "pid": "arxiv-1709.06818",
+   "key": "t:updatingthesilentspeechchallengebenchmarkwithdeeplearning",
+   "title": "Updating the silent speech challenge benchmark with deep learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ronment, other | acoustic_mode=no_vocalization | Cohort.demographics=1 native English speaker (SSC corpus) | modalities=ultrasound_imaging, optical_camera | body_sites=tongue, lips | dataset_description=SSC train corpus: US+lip video, 2342 TIMIT utterances ("
+  },
+  {
+   "pid": "arxiv-1903.00888",
+   "key": "t:denoisingconvolutionalautoencoderbasedbmodeultrasoundtongueimagefeatureextractio",
+   "title": "Denoising convolutional autoencoder based B-mode ultrasound tongue image feature extraction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "assistive_text_entry, other | Cohort.demographics=2010 Silent Speech Challenge speakers (public benchmark) | modalities=ultrasound_imaging | Acquisition.sensor_geometry=4-8MHz 128-element microconvex probe under chin, stabilizing helmet; 320x240 -> ROI 50x60"
+  },
+  {
+   "pid": "arxiv-1904.05259",
+   "key": "t:autoencoderbasedarticulatorytoacousticmappingforultrasoundsilentspeechinterfaces",
+   "title": "Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "h | Cohort.demographics=1 Hungarian female 42yo normal speech; listening test 14 native Hungarian speakers | modalities=ultrasound_imaging, microphone | sensor_hardware=Articulate Instruments \"Micro\" 2-4MHz/64-element 20mm convex transducer, midsagittal, sta"
+  },
+  {
+   "pid": "arxiv-1904.06083",
+   "key": "t:dnnbasedacoustictoarticulatoryinversionusingultrasoundtongueimaging",
+   "title": "DNN-based Acoustic-to-Articulatory Inversion using Ultrasound Tongue Imaging",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "female subject (31y) for acquisition; MUSHRA: 6 listeners (2F/4M), 3 native Hungarian, ages 23-44 mean 32 | modalities=ultrasound_imaging, microphone | sensor_hardware=Micro UTI 2-4MHz/64el/20mm convex @82fps midsagittal + stabilization headset; Beyerdynami"
+  },
+  {
+   "pid": "arxiv-1906.04232",
+   "key": "t:bownetdilatedconvolutionneuralnetworkforultrasoundtonguecontourextraction",
+   "title": "BowNet: Dilated Convolution Neural Network for Ultrasound Tongue Contour Extraction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "signal_processing | Cohort.demographics=uOttawa + SeeingSpeech UTI speakers; labels semi-auto by 2 experts | modalities=ultrasound_imaging | dataset_description=Dataset I uOttawa: 2050 (2000 high-rank +50 low-var) + informed undersampling | dataset_descripti"
+  },
+  {
+   "pid": "arxiv-1906.04301",
+   "key": "t:transferlearningforultrasoundtonguecontourextractionwithdifferentdomains",
+   "title": "Transfer Learning for Ultrasound Tongue Contour Extraction with Different Domains",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "iate_signal_processing | Cohort.demographics=uOttawa SonixTablet subjects + Seeing Speech project speakers | modalities=ultrasound_imaging | dataset_description=uOttawa UTI 2050 frames (2000 high-variance +50 low-var, informed undersampling), semi-auto label"
+  },
+  {
+   "pid": "arxiv-1906.09885",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "le + 2 female Hungarian, normal speech | Cohort.demographics=23 native Hungarian listeners (online MUSHRA) | modalities=ultrasound_imaging | sensor_hardware=Articulate Instruments Micro ultrasound 81.67fps + audio | dataset_description=209 sentences/subject"
+  },
+  {
+   "pid": "arxiv-1907.00818",
+   "key": "t:ultrasoundtongueimagingfordiarizationandalignmentofchildspeechtherapysessions",
+   "title": "Ultrasound tongue imaging for diarization and alignment of child speech therapy sessions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "demographics=typically developing children (UXTD) | Cohort.demographics=speech-disordered children (UXSSD) | modalities=ultrasound_imaging, microphone | sensor_hardware=AAA ultrasound ~121fps 135deg + audio | dataset_description=Ultrasuite UXTD+UXSSD therapy"
+  },
+  {
+   "pid": "arxiv-1907.01413",
+   "key": "t:speakerindependentclassificationofphoneticsegmentsfromrawultrasoundinchildspeech",
+   "title": "Speaker-independent classification of phonetic segments from raw ultrasound in child speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d_content | Cohort.demographics=58 children (Ultrasuite UXTD); age/gender correlation w/ accuracy analyzed | modalities=ultrasound_imaging | sensor_hardware=AAA ultrasound ~121fps 135deg FOV | dataset_description=Ultrasuite UXTD (58 children, apa/eepee/opo u"
+  },
+  {
+   "pid": "arxiv-1907.10210",
+   "key": "t:acnnbasedtoolforautomatictonguecontourtrackinginultrasoundimages",
+   "title": "A CNN-based tool for automatic tongue contour tracking in ultrasound images",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "el-lateral syllable nuclei C2lC/C2C); NS test: +2 AmE (1M/1F); Ultrax: 2 children; UltraSpeech: 2 French M | modalities=ultrasound_imaging | dataset_description=35160 human-annotated UTI frames from 11 AmE speakers; images scaled to 128x128 | dataset_descrip"
+  },
+  {
+   "pid": "arxiv-1911.03972",
+   "key": "t:irisnetdeeplearningforautomaticandrealtimetonguecontourtrackinginultrasoundvideo",
+   "title": "IrisNet: Deep Learning for Automatic and Real-time Tongue Contour Tracking in Ultrasound Video Data using Peripheral Vision",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ocessing | Cohort.demographics=UOttawa UTI speakers + cross-dataset frames (EdgeTrak/UBC/SSP/Ultrax/UM/UA) | modalities=ultrasound_imaging | dataset_description=UOttawa tongue UTI dataset, 80/10/10 split; 280-frame test set; 20-frame subsets per external dat"
+  },
+  {
+   "pid": "arxiv-2003.08808",
+   "key": "t:deeplearningforautomatictrackingoftonguesurfaceinrealtimeultrasoundvideoslandmar",
+   "title": "Deep Learning for Automatic Tracking of Tongue Surface in Real-time Ultrasound Videos, Landmarks instead of Contours",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "iate_signal_processing | Cohort.demographics=UOttawa UTI database speakers (annotation-software landmarks) | modalities=ultrasound_imaging | dataset_description=UOttawa UTI database: 2000 images annotated w/ landmark points; UBC used unseen for generalizatio"
+  },
+  {
+   "pid": "arxiv-2006.16367",
+   "key": "t:ultra2speechadeeplearningframeworkforformantfrequencyestimationandtrackingfromul",
+   "title": "Ultra2Speech -- A Deep Learning Framework for Formant Frequency Estimation and Tracking from Ultrasound Tongue Images",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n | language=unspecified (single speaker) | Cohort.demographics=single male participant (personalized SSI) | modalities=ultrasound_imaging, microphone | sensor_hardware=ALOKA SSD-5000 UTI mid-sagittal 30fps 180deg; chin-mounted | dataset_description=self-col"
+  },
+  {
+   "pid": "arxiv-2008.02470",
+   "key": "t:quantificationoftransducermisalignmentinultrasoundtongueimaging",
+   "title": "Quantification of Transducer Misalignment in Ultrasound Tongue Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "hort.demographics=UltraSuite/UXTD speakers (Scottish English children & adults; hand-selected spk for viz) | modalities=ultrasound_imaging | sensor_hardware=Micro (Articulate Instruments) UTI at 81.67fps, transducer fixed under chin by stabilization headset"
+  },
+  {
+   "pid": "arxiv-2008.03152",
+   "key": "t:ultrasoundbasedarticulatorytoacousticmappingwithwaveglowspeechsynthesis",
+   "title": "Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rian raters (paper prints \"22 ... (24 females, 2 males)\" — count/gender mismatch); ages 19-43, ~13min test | modalities=ultrasound_imaging, microphone | sensor_hardware=Micro UTI 81.67fps + Beyerdynamic mic; raw scanline UTI input | dataset_description=4 Hun"
+  },
+  {
+   "pid": "arxiv-2009.02110",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| intended_use_cases=speech_restoration, private_communication, assistive_text_entry | modalities=electropalatography, ultrasound_imaging, surface_emg, contact_microphone, magnetic_tracking, fmri, other | sensor_hardware=Sensor families per Table I: EMA/PMA"
+  },
+  {
+   "pid": "arxiv-2011.09804",
+   "key": "t:talasynchronisedmultispeakercorpusofultrasoundtongueimagingaudioandlipvideos",
+   "title": "TaL: a synchronised multi-speaker corpus of ultrasound tongue imaging, audio, and lip videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| Cohort.demographics=TaL80: 81 native English (36M/45F), mean age 29.4 (younger-skewed, uni recruitment) | modalities=ultrasound_imaging, optical_camera, microphone | body_sites=tongue, lips | sensor_hardware=Micro UTI ~80fps 92deg FOV + UltraFit helmet; l"
+  },
+  {
+   "pid": "arxiv-2101.11245",
+   "key": "t:convolutionalneuralnetworkbasedageestimationusingbmodeultrasoundtongueimage",
+   "title": "Convolutional Neural Network-Based Age Estimation Using B-Mode Ultrasound Tongue Image",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "16M), mean 8y4m (6y1m-13y4m) | Cohort.demographics=UXTD TD children: 58 (31F/27M), mean 9y3m (5y8m-12y10m) | modalities=ultrasound_imaging | sensor_hardware=B-mode UTI, frames 63x412 raw (412 returns x 63 scan lines) | dataset_description=UPX: UltraSuite SSD"
+  },
+  {
+   "pid": "arxiv-2103.00324",
+   "key": "t:exploitingultrasoundtongueimagingfortheautomaticdetectionofspeecharticulationerr",
+   "title": "Exploiting ultrasound tongue imaging for the automatic detection of speech articulation errors",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pk 04M treated for velar fronting | Cohort.demographics=TaL80 adult native English speakers (pre-training) | modalities=ultrasound_imaging, microphone | sensor_hardware=UltraSuite/Ultrax UTI ~120fps 135deg FOV; TaL Micro UTI ~80fps 92deg FOV (842 returns/64"
+  },
+  {
+   "pid": "arxiv-2103.00333",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus modal multi-speaker speech recognition from ultrasound and video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ographics=TaL corpus: TaL1 professional male voice talent + TaL80 speakers without voice-talent experience | modalities=ultrasound_imaging, optical_camera, microphone | body_sites=tongue, lips | sensor_hardware=Articulate Instruments Micro UTI ~80fps 92deg F"
+  },
+  {
+   "pid": "arxiv-2104.11532",
+   "key": "t:3dconvolutionalneuralnetworksforultrasoundbasedsilentspeechinterfaces",
+   "title": "3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_restoration, other | Cohort.demographics=Single subject (same Hungarian corpus as earlier studies [5,10]) | modalities=ultrasound_imaging, microphone | sensor_hardware=Micro UTI (Articulate Instruments), 2-4MHz/64-elem/20mm convex probe + stabilization head"
+  },
+  {
+   "pid": "arxiv-2104.11601",
+   "key": "t:improvingneuralsilentspeechinterfacemodelsbyadversarialtraining",
+   "title": "Improving Neural Silent Speech Interface Models by Adversarial Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Hungarian female reading sentences aloud | Cohort.demographics=TAL1: single trained native English speaker | modalities=ultrasound_imaging, microphone | sensor_hardware=UTI 82fps 64x946 -> 64x128 bicubic; audio 22050 Hz (Articulate Instruments sync) | datase"
+  },
+  {
+   "pid": "arxiv-2105.13718",
+   "key": "t:voiceactivitydetectionforultrasoundbasedsilentspeechinterfacesusingconvolutional",
+   "title": "Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convolutional Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| intended_use_cases=speech_restoration, other | Cohort.demographics=TaL1: one male native English speaker | modalities=ultrasound_imaging, microphone | sensor_hardware=UTI at 82 fps + synchronized speech (TaL1 subset of TaL80) | dataset_description=TaL1 sin"
+  },
+  {
+   "pid": "arxiv-2105.15162",
+   "key": "t:automaticaudiovisualsynchronisationforultrasoundtongueimaging",
+   "title": "Automatic audiovisual synchronisation for ultrasound tongue imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Cohort.demographics=10 expert evaluators: 4 SLT, 6 speech scientists; native/non-native English, dialects | modalities=ultrasound_imaging, microphone | sensor_hardware=Micro system (Cleft 80-170fps varied), Sonix RP (UXTD ~120fps), Ultrasonix (TaL ~80fps);"
+  },
+  {
+   "pid": "arxiv-2106.04552",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "spectral SSI. | task_family=intermediate_signal_processing | intended_use_cases=speech_restoration, other | modalities=ultrasound_imaging, microphone, optical_camera | body_sites=tongue, lips | sensor_hardware=Articulate Instruments Micro midsagittal UTI, 8"
+  },
+  {
+   "pid": "arxiv-2106.11769",
+   "key": "t:improvingultrasoundtongueimagereconstructionfromlipimagesusingselfsupervisedlear",
+   "title": "Improving Ultrasound Tongue Image Reconstruction from Lip Images Using Self-supervised Learning and Attention Mechanism",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ntended_use_cases=assistive_text_entry, speech_restoration | Cohort.demographics=4F/8M, 18-21y (no author) | modalities=ultrasound_imaging, optical_camera | body_sites=tongue, lips | sensor_hardware=SSC2010: UTI + lip video synchronously @60fps | dataset_des"
+  },
+  {
+   "pid": "arxiv-2107.02003",
+   "key": "t:speechsynthesisfromtextandultrasoundtongueimagebasedarticulatoryinput",
+   "title": "Speech Synthesis from Text and Ultrasound Tongue Image-based Articulatory Input",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ction | intended_use_cases=speech_restoration | Cohort.demographics=UltraSuite-TaL: 4M+4F English speakers | modalities=ultrasound_imaging, microphone | sensor_hardware=\"Micro\" UTI midsagittal 81.5fps; audio 48kHz; scanline->64x128; ULT-PCA resampled 200Hz."
+  },
+  {
+   "pid": "arxiv-2107.05550",
+   "key": "t:extendingtexttospeechsynthesiswitharticulatorymovementpredictionusingultrasoundt",
+   "title": "Extending Text-to-Speech Synthesis with Articulatory Movement Prediction using Ultrasound Tongue Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "xt_entry, other | Cohort.demographics=4M (03mn,04me,05ms,07me) + 4F (01fi,02fe,06fe,09fe) English speakers | modalities=ultrasound_imaging, microphone | sensor_hardware=\"Micro\" UTI (Articulate Instruments), midsagittal, 81.5 fps; raw scanline 64x842 -> 64x12"
+  },
+  {
+   "pid": "arxiv-2107.12051",
+   "key": "t:adaptationoftacotron2basedtexttospeechforarticulatorytoacousticmappingusingultra",
+   "title": "Adaptation of Tacotron2-based Text-To-Speech for Articulatory-to-Acoustic Mapping using Ultrasound Tongue Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sions (209 + 4x59 sentences) | Cohort.demographics=23 native Hungarian listeners (11F/12M, 14-47y), ~10min | modalities=ultrasound_imaging, microphone | sensor_hardware=\"Micro\" ultrasound (Articulate Instruments), midsagittal, 81.67 fps; Beyerdynamic TG H56c"
+  },
+  {
+   "pid": "arxiv-2206.07327",
+   "key": "t:exploitingcrossdomainandcrosslingualultrasoundtongueimagingfeaturesforelderlyand",
+   "title": "Exploiting Cross-domain And Cross-Lingual Ultrasound Tongue Imaging Features For Elderly And Dysarthric Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ion_instruction=Elderly MoCA/Pitt interview speech + TORGO dysarthric — atypical articulation, not silent. | modalities=ultrasound_imaging | sensor_hardware=UTI used only as TRAINING-side articulatory modality: A2A inversion generates 144-dim UTI features fr"
+  },
+  {
+   "pid": "arxiv-2206.12947",
+   "key": "t:improvedprocessingofultrasoundtonguevideosbycombiningconvlstmand3dconvolutionaln",
+   "title": "Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convolutional Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion=Read sentences ALOUD while UTI records tongue — voiced corpus used to train silent-interface mapping. | modalities=ultrasound_imaging | sensor_hardware=\"Micro\" ultrasound (Articulate Instruments), midsagittal probe under jaw, stabilizer headset, 2-4MHz"
+  },
+  {
+   "pid": "arxiv-2303.01758",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion_instruction=Mouth commands without vocal-cord vibration; breath not held; small leak audible allowed. | modalities=ultrasound_imaging | sensor_hardware=CONTEC CMS600P2, 3.5MHz convex probe under jaw, MPEG-4 digitizer, 30fps, 128x128 mono; 300ms A/V dela"
+  },
+  {
+   "pid": "arxiv-2304.05574",
+   "key": "t:speechreconstructionfromsilenttongueandliparticulationbypseudotargetgenerationan",
+   "title": "Speech Reconstruction from Silent Tongue and Lip Articulation By Pseudo Target Generation and Domain Adversarial Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nt mode: articulators move, no audible sound; each of 1212 silent utts pairs a same-content vocalized utt. | modalities=ultrasound_imaging | modalities=optical_camera | Acquisition.signal_quality={'silent_mode_quality': 'reduced/incomplete tongue patterns vs"
+  },
+  {
+   "pid": "arxiv-2305.14933",
+   "key": "t:incorporatingultrasoundtongueimagesforaudiovisualspeechenhancementthroughknowled",
+   "title": "Incorporating Ultrasound Tongue Images for Audio-Visual Speech Enhancement through Knowledge Distillation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "noisy speech via lip video; tongue knowledge injected via KD only. | intended_use_cases=noisy_environment | modalities=ultrasound_imaging, optical_camera, microphone | sensor_hardware=TaL corpus rig: UTI + optical lip video + audio; preprocessed frames 64x1"
+  },
+  {
+   "pid": "arxiv-2305.19130",
+   "key": "t:adaptationoftongueultrasoundbasedsilentspeechinterfacesusingspatialtransformerne",
+   "title": "Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion_instruction=Read 209 Hungarian sentences aloud; 4 extra sessions on different days w/ device remount. | modalities=ultrasound_imaging, microphone | sensor_hardware=Articulate Instruments \"Micro\" UTI, midsagittal, 81.67fps raw scanlines + omnidirectional"
+  },
+  {
+   "pid": "arxiv-2306.05374",
+   "key": "t:towardsultrasoundtongueimagepredictionfromeegduringspeechproduction",
+   "title": "Towards Ultrasound Tongue Image prediction from EEG during speech production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ain Products actiCHamp, actiCAP active electrodes, 10-20 montage, FCz ref, 4 EOG, impedance <15kOhm, 1kHz. | modalities=ultrasound_imaging | sensor_hardware=Articulate Instruments \"Micro\" AAA v220.02; 2-4MHz, 64-element, 20mm-radius convex probe @81.67fps; m"
+  },
+  {
+   "pid": "arxiv-2309.10455",
+   "key": "t:incorporatingultrasoundtongueimagesforaudiovisualspeechenhancement",
+   "title": "Incorporating Ultrasound Tongue Images for Audio-Visual Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speech using lip video (+ tongue knowledge recovered at inference). | intended_use_cases=noisy_environment | modalities=ultrasound_imaging, optical_camera, microphone | sensor_hardware=TaL80 corpus rig: ultrasound tongue frames 81.5fps + lip video 60fps + au"
+  },
+  {
+   "pid": "arxiv-2401.14978-xrkws",
+   "key": "t:robustdualmodalspeechkeywordspottingforxrheadsets",
+   "title": "Robust Dual-Modal Speech Keyword Spotting for XR Headsets",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "abels=ordinary_voiced_speech, silent_articulation | ProductionCondition.activity_origin=overt_articulation | modalities=ultrasound_imaging, other | Acquisition.sensor_geometry=headset-mounted ultrasonic emit/receive + vocal mic | Acquisition.signal_quality=1"
+  },
+  {
+   "pid": "arxiv-2402.17482",
+   "key": "t:automatedclassificationofphoneticsegmentsinchildspeechusingrawultrasoundimaging",
+   "title": "Automated Classification of Phonetic Segments in Child Speech Using Raw Ultrasound Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "toration | production_instruction=Type A (semantically unrelated words) and type B (non-words) utterances. | modalities=ultrasound_imaging | sensor_hardware=Ultrasound tongue imaging (UXTD; raw scan-line data -> 600x480x3 PNG). | dataset_description=UXTD (Ul"
+  },
+  {
+   "pid": "arxiv-2403.05820",
+   "key": "t:anaudiotextualdiffusionmodelforconvertingspeechsignalsintoultrasoundtongueimagin",
+   "title": "An Audio-textual Diffusion Model For Converting Speech Signals Into Ultrasound Tongue Imaging Data",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "production_instruction=Mandarin vowel/word/sentence speech tasks during synchronized UTI+audio recording. | modalities=ultrasound_imaging | sensor_hardware=Focus&Fusion Finus 55, P5-2 phased-array probe, stabilization headset, mid-sagittal 920x700 @60fps. |"
+  },
+  {
+   "pid": "arxiv-2504.13308",
+   "key": "t:acoustictoarticulatoryinversionofspeechdatadrivenapproacheschallengesapplication",
+   "title": "Acoustic to Articulatory Inversion of Speech; Data Driven Approaches, Challenges, Applications, and Future Scope",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ive_text_entry, other | task_family=intermediate_signal_processing | modalities=magnetic_tracking, electropalatography, ultrasound_imaging, fmri, other | observed_quantities=position, shape, contact, air_acoustics | ProductionCondition.activity_origin=overt_"
+  },
+  {
+   "pid": "arxiv-2506.03831",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion_instruction=UltraSuite-TaL80 read sentences; 24 shared read sentences incl. test set 005xaud-014xaud. | modalities=ultrasound_imaging | Acquisition.temporal_resolution={'frame_rate_fps': 81.5} | sensor_hardware=Articulate Instruments \"Micro\" ultrasound"
+  },
+  {
+   "pid": "arxiv-2509.13145",
+   "key": "t:utillmapersonalizedarticulatoryspeechtherapyassistancesystembasedonmultimodallar",
+   "title": "UTI-LLM: A Personalized Articulatory-Speech Therapy Assistance System Based on Multimodal Large Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nt | production_instruction=AUSpeech articulation tasks: monophthong, monosyllables, sentence, swallowing. | modalities=ultrasound_imaging | dataset_description=AUSpeech UTI-speech parallel corpus: 43 normal + 11 dysarthria patient speakers, 22.31h; this wor"
+  },
+  {
+   "pid": "arxiv-2509.23225",
+   "key": "t:ultraunetrealtimeultrasoundtonguesegmentationfordiverselinguisticandimagingcondi",
+   "title": "UltraUNet: Real-Time Ultrasound Tongue Segmentation for Diverse Linguistic and Imaging Conditions",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "agine Aixplorer scanner, SC6-1 convex probe, midsagittal placement beneath chin between hyoid and mandible | modalities=ultrasound_imaging | sensor_hardware=Different ultrasound imaging system (unspecified, distinct contrast/resolution/intensity distribution"
+  },
+  {
+   "pid": "arxiv-2510.18629",
+   "key": "t:dynamicalmodelparametersfromultrasoundtonguekinematics",
+   "title": "Dynamical model parameters from ultrasound tongue kinematics",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "20-mm radius 64-element 2-MHz probe, headset stabilisation (Spreafico 2018), Articulate Assistant Advanced | modalities=ultrasound_imaging | sensor_hardware=Beyerdynamic Opus 55 microphone + Grace Designs m101 preamp | Acquisition.clock_synchronization={'met"
+  },
+  {
+   "pid": "arxiv-2603.11877",
+   "key": "t:silentspeechinterfacesintheeraoflargelanguagemodelsacomprehensivetaxonomyandsyst",
+   "title": "Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ergonomics are noted.', 'reported_numeric_note': None} | sensor_hardware=B-mode ultrasound tongue imaging | modalities=ultrasound_imaging | body_sites=chin, tongue | Acquisition.signal_quality={'review_summary': 'B-mode 2–10 MHz; acoustic shadows and probe"
+  },
+  {
+   "pid": "arxiv-2603.17543",
+   "key": "t:auroramodelofformanttotongueinversionfordidacticandclinicalapplications",
+   "title": "AURORA Model of Formant-to-Tongue Inversion for Didactic and Clinical Applications",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "th={'frame_rate_fps': [59.5, 101], 'median_fps': 81.3, 'orientation': 'rotated to speaker occlusal plane'} | modalities=ultrasound_imaging | dataset_description=Pre-existing synchronised ultrasound tongue imaging + audio corpus (Kirkham et al. 2023; Strychar"
+  },
+  {
+   "pid": "arxiv-2608.17983",
+   "key": "t:dualcotraincrossdatasetultrasoundtonguesegmentationunderextremedatascarcity",
+   "title": "DUALCO-TRAIN: CROSS-DATASET ULTRASOUND TONGUE SEGMENTATION UNDER EXTREME DATA SCARCITY",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "get=tongue contour in ultrasound frames | extra.Task.output_kind=binary segmentation mask / tongue contour | modalities=ultrasound_imaging | observed_quantities=shape, position | sensor_hardware=clinical/research ultrasound systems; heterogeneous probes/tran"
+  },
+  {
+   "pid": "avsp-treille13b-audiolingual",
+   "key": "t:thesightofyourtongueneuralcorrelatesofaudiolingualspeechperception",
+   "title": "The sight of your tongue: neural correlates of audio-lingual speech perception",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "amily=intermediate_signal_processing | extra.Production.scope_note=brain-based speech decoding study | modalities=fmri, ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=audio-lingual fMRI+US | D"
+  },
+  {
+   "pid": "conf-icphs2011-cai-visual-speech-recognition",
+   "key": "t:avisualspeechrecognitionsystemforanultrasoundbasedsilentspeechinterface",
+   "title": "A Visual Speech Recognition System for an Ultrasound-based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "opulation=speech_impairment | intended_use_cases=speech_restoration | tested_population=healthy_volunteers | modalities=ultrasound_imaging, optical_camera | body_sites=tongue, lips | observed_quantities=shape, position | intrusiveness=external_noncontact | s"
+  },
+  {
+   "pid": "conf-issp2008-hueber-acquisition",
+   "key": "t:acquisitionofultrasoundvideoandacousticspeechdataforasilentspeechinterfaceapplic",
+   "title": "Acquisition of Ultrasound, Video and Acoustic Speech Data for a Silent-Speech Interface Application",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "family=speech_reconstruction | target_population=speech_impairment | intended_use_cases=speech_restoration | modalities=ultrasound_imaging, optical_camera, microphone | body_sites=tongue, lips | observed_quantities=shape, position, air_acoustics | intrusiven"
+  },
+  {
+   "pid": "doi-10-1109-icassp-2018-8461732",
+   "key": "t:f0estimationfordnnbasedultrasoundsilentspeechinterfaces",
+   "title": "F0 Estimation for DNN-Based Ultrasound Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "True} | information_overlap_audit={'relation_to_87_sentence_objective_test_set': 'not specified in paper'} | modalities=ultrasound_imaging | sensor_hardware=Articulate Instruments Ltd. Micro ultrasound system, midsagittal orientation. | Acquisition.temporal_"
+  },
+  {
+   "pid": "doi-10.1007-s00521-024-10456-z",
+   "key": "t:decodingsilentspeechamachinelearningperspectiveondatamethodsandframeworks",
+   "title": "Decoding silent speech: a machine learning perspective on data, methods, and frameworks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tasets/frameworks + Table 1/2 model and metric comparison | task_encoding=attempted_utterance | modalities=surface_emg, ultrasound_imaging, optical_camera, intracortical_microelectrode, strain_sensor, other | body_sites=face, neck, lips, tongue, chin, scalp"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2015.09.008",
+   "key": "t:statisticalconversionofsilentarticulationintoaudiblespeechusingfullcovariancehmm",
+   "title": "Statistical Conversion of Silent Articulation into Audible Speech using Full-Covariance HMM",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion | target_population=general_population | intended_use_cases=speech_restoration, private_communication | modalities=ultrasound_imaging | intrusiveness=external_noncontact | modalities=optical_camera | system_boundary=ultrasound (microconvex 3-5MHz,140°,7"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.08.002",
+   "key": "t:silentspeechinterfaces",
+   "title": "Silent speech interfaces",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nent magnets on tongue/lips/teeth; 6 dual-axis magnetic sensors on spectacles | intrusiveness=skin_contact | modalities=ultrasound_imaging, optical_camera | sensor_hardware=sub-chin ultrasound transducer + standard video camera; >60fps acquisition | intrusiv"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.11.004",
+   "key": "t:developmentofasilentspeechinterfacedrivenbyultrasoundandopticalimagesofthetongue",
+   "title": "Development of a silent speech interface driven by ultrasound and optical images of the tongue and lips",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sk_family=sentence_recognition | Study.study_design=system_proposal | tested_population=healthy_volunteers | modalities=ultrasound_imaging, optical_camera, microphone | observed_quantities=shape, position, air_acoustics | ProductionCondition.activity_origin="
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2017.08.002",
+   "key": "t:automaticanimationofanarticulatorytonguemodelfromultrasoundimagesofthevocaltract",
+   "title": "Automatic animation of an articulatory tongue model from ultrasound images of the vocal tract",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding=natural_utterance | task_family=intermediate_signal_processing | tested_population=healthy_volunteers | modalities=ultrasound_imaging | intrusiveness=external_noncontact | Acquisition.sensor_geometry=Terason T3000, 128-element microconvex, 3-5MHz, 140de"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2018.02.002",
+   "key": "t:updatingthesilentspeechchallengebenchmarkwithdeeplearning",
+   "title": "Updating the Silent Speech Challenge benchmark with deep learning",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "utput_kind=recognized word sequences | extra.Task.scope=single-speaker TIMIT-based silent speech benchmark | modalities=ultrasound_imaging | body_sites=tongue, chin | observed_quantities=tissue_vibration, shape | Acquisition.sensor_geometry=MHz-range medical"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2020.07.001",
+   "key": "p:doi-10.1016-j.specom.2020.07.001",
+   "title": null,
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_by_unit={'speakers': 3, 'nonword_types': 4, 'repetitions': 3, 'sessions_per_speaker': 3, 'conditions': 3} | modalities=ultrasound_imaging | modalities=optical_camera | sensor_hardware=Articulate Instruments Micro Speech Research Ultrasound + 5-8 MHz microco"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "iveness=external_noncontact | observed_quantities=position, air_acoustics, pressure, other | modalities=optical_camera, ultrasound_imaging, active_acoustic_sensing, strain_sensor, other | intrusiveness=skin_contact | body_sites=face, jaw, ear, lips | observe"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ysarthria, apraxia, aphasia | modalities=surface_emg, intramuscular_emg, scalp_eeg, ecog, intracortical_microelectrode, ultrasound_imaging, optical_camera, magnetic_tracking, other | sensor_hardware=taxonomy across reviewed studies: EEG, ECoG, implanted micr"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2010.5495712",
+   "key": "t:reconstructingthefulltonguecontourfromemaxraymicrobeam",
+   "title": "Reconstructing the Full Tongue Contour from EMA/X-ray Microbeam",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding=natural_utterance | task_family=intermediate_signal_processing | target_population=general_population | modalities=ultrasound_imaging | intrusiveness=external_noncontact | modalities=magnetic_tracking | system_boundary=ultrasound contours (speaker maaw0"
+  },
+  {
+   "pid": "doi-10.1109-ojemb.2024.3374966",
+   "key": "p:doi-10.1109-ojemb.2024.3374966",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "mly mixed | Dataset.collection_protocol=5-fold cross-validation on mixed set: 824 train / 206 val per fold | modalities=ultrasound_imaging | Acquisition.temporal_resolution=high frame rate 60 fps (as stated for UTI) | Acquisition.spatial_resolution=model inp"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2024.3520498",
+   "key": "t:endtoendmandarinspeechreconstructionbasedonultrasoundtongueimagesusingdeeplearni",
+   "title": "End-to-End Mandarin Speech Reconstruction Based on Ultrasound Tongue Images Using Deep Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| intrusiveness=external_noncontact | body_sites=chin, tongue | observed_quantities=position, shape, other | modalities=ultrasound_imaging, microphone | sensor_hardware=Wisonic B-mode + C5-1 curved transducer 4.5 MHz + GC573 capture; Ultrafit headset; ECM800"
+  },
+  {
+   "pid": "doi-10.1111-1460-6984.12478",
+   "key": "t:systematicreviewofultrasoundvisualbiofeedbackininterventionforspeechsounddisorde",
+   "title": "Systematic review of ultrasound visual biofeedback in intervention for speech sound disorders",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "evelopmental SSD, persistent errors; some concomitant disorders; 86.2% of studies reported prior therapy'} | modalities=ultrasound_imaging | intrusiveness=external_noncontact | sensor_hardware=ultrasound probe placed under the chin; mid-sagittal and/or coron"
+  },
+  {
+   "pid": "doi-10.1145-3290605.3300376",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oice | Cohort.demographics=system users, small-N demo | dataset_description=jaw-ultrasound image sequences | modalities=ultrasound_imaging | body_sites=jaw, tongue, chin | observed_quantities=shape, position | Representation.transformation_definition=US fram"
+  },
+  {
+   "pid": "doi-10.1186-s13636-025-00403-8",
+   "key": "t:silentspeechrecognitionusingvisualcascadingfusionoftonguelipmovementsbasedonpret",
+   "title": "Silent speech recognition using visual cascading fusion of tongue-lip movements based on pre-trained and fine-tuned model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "darin tone classification (5 tones) error rate as auxiliary metric | production_labels=silent_articulation | modalities=ultrasound_imaging | sensor_hardware=portable B-scan ultrasonography for tongue images; Tal-Tools forced alignment vs lip video (different"
+  },
+  {
+   "pid": "doi-10.12700-aph.17.7.2020.7.6",
+   "key": "t:applyingdnnadaptationtoreducethesessiondependencyofultrasoundbasedsilentspeechin",
+   "title": "Applying DNN Adaptation to Reduce the Session Dependency of Ultrasound-Based Silent Speech Interfaces",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "a Polytechnica Hungarica 17(7) | task_family=speech_reconstruction | production_labels=silent_articulation | modalities=ultrasound_imaging | sensor_hardware=Micro ultrasound system (Articulate Instruments Ltd.) at 82 fps + probe-fixing headset; Beyerdynamic"
+  },
+  {
+   "pid": "doi-10.14232-phd.11818",
+   "key": "p:doi-10.14232-phd.11818",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "v/test | dataset_id=TAL corpus / TaL1 subset | Dataset.collection_protocol=1015/24/50 train/test/val files | modalities=ultrasound_imaging, microphone | sensor_hardware=Articulate Instruments \"Micro\" ultrasound, 2-4MHz 64-element 20mm convex transducer + sta"
+  },
+  {
+   "pid": "doi-10.1587-transinf.2021edp7090",
+   "key": "p:doi-10.1587-transinf.2021edp7090",
+   "title": null,
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "WSJ0 test (100 sent); silent (no audio); only tongue stream used | Dataset.data_license=not stated in text | modalities=ultrasound_imaging, optical_camera | Acquisition.sensor_geometry=128-el 4-8MHz micro-convex probe (r=12mm) under chin on helmet; sagittal"
+  },
+  {
+   "pid": "doi-10.1609-aaai.v35i16.17693",
+   "key": "p:doi-10.1609-aaai.v35i16.17693",
+   "title": null,
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rs | dataset_description=10648 train / 750 val / 1800 test utterances; test content shared across speakers | modalities=ultrasound_imaging, optical_camera, microphone | Acquisition.sensor_geometry=US beneath chin (tongue), camera facing mouth (lips) | Acquis"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2007-25",
+   "key": "t:acquisitionandsynchronizationofmultimodalarticulatorydata",
+   "title": "Acquisition and synchronization of multimodal articulatory data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "te_signal_processing | target_population=general_population | intended_use_cases=speech_restoration, other | modalities=ultrasound_imaging, magnetic_tracking, microphone, optical_camera | body_sites=tongue, face | observed_quantities=position, shape, air_aco"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2011-239",
+   "key": "t:statisticalmappingbetweenarticulatoryandacousticdataforanultrasoundbasedsilentsp",
+   "title": "Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "opulation=speech_impairment | intended_use_cases=speech_restoration | tested_population=healthy_volunteers | modalities=ultrasound_imaging, optical_camera | body_sites=tongue, lips | observed_quantities=shape, position | intrusiveness=external_noncontact | s"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2012-225",
+   "key": "t:continuousarticulatorytoacousticmappingusingphonebasedtrajectoryhmmforasilentspe",
+   "title": "Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "opulation=speech_impairment | intended_use_cases=speech_restoration | tested_population=healthy_volunteers | modalities=ultrasound_imaging, optical_camera | body_sites=tongue, lips | observed_quantities=shape, position | intrusiveness=external_noncontact | s"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2015-521",
+   "key": "t:tonguetrackinginultrasoundimagesusingeigentonguedecompositionandartificialneural",
+   "title": "Tongue Tracking in Ultrasound Images using EigenTongue Decomposition and Artificial Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tificial Neural Networks | Study.study_design=controlled_experiment | tested_population=healthy_volunteers | modalities=ultrasound_imaging | observed_quantities=shape, position | intrusiveness=skin_contact | ProductionCondition.activity_origin=overt_articula"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2018-1736",
+   "key": "t:ultrasuitearepositoryofultrasoundandacousticdatafromchildspeechtherapysessions",
+   "title": "UltraSuite: A Repository of Ultrasound and Acoustic Data from Child Speech Therapy Sessions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y of Ultrasound and Acoustic Data from Child Speech Therapy Sessions | Study.study_design=dataset_resource | modalities=ultrasound_imaging, microphone | observed_quantities=shape, air_acoustics, position | intrusiveness=skin_contact | ProductionCondition.act"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2019-2046",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ly=speech_reconstruction | Study.study_design=controlled_experiment | tested_population=healthy_volunteers | modalities=ultrasound_imaging, microphone | observed_quantities=shape, air_acoustics | intrusiveness=skin_contact | ProductionCondition.activity_orig"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2021-1466",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ly=speech_reconstruction | Study.study_design=controlled_experiment | tested_population=healthy_volunteers | modalities=ultrasound_imaging, microphone | observed_quantities=shape, air_acoustics | intrusiveness=skin_contact | ProductionCondition.activity_orig"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2023-1966",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "hics=82 speakers of English; majority British accent variety (BEEP lexicon chosen); otherwise not detailed | modalities=ultrasound_imaging, optical_camera | observed_quantities=position, shape | intrusiveness=external_noncontact | sensor_hardware=TaL: B-mode"
+  },
+  {
+   "pid": "doi-10.21437-ssw-2023-36",
+   "key": "p:doi-10.21437-ssw-2023-36",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s | dataset_description=sentences per speaker: 01fi=180, 02fe=117, 03mn=169, 04me=166; xaud shared prompts | modalities=ultrasound_imaging, microphone | Acquisition.sensor_geometry=Micro system (Articulate Instruments) midsagittal tongue | representation_kin"
+  },
+  {
+   "pid": "doi-10.3311-wins2023-012",
+   "key": "p:doi-10.3311-wins2023-012",
+   "title": null,
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "L80 English UTI corpus | Dataset.collection_protocol=mid-sagittal UTI + helmet-mounted mic, read sentences | modalities=ultrasound_imaging, microphone | Acquisition.sensor_geometry=Micro system: 2-4MHz 64-element 20mm convex transducer mid-sagittal under chi"
+  },
+  {
+   "pid": "doi-10.3390-diagnostics12112811",
+   "key": "p:doi-10.3390-diagnostics12112811",
+   "title": null,
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eral_population, speech_impairment | dataset_id=lingual ultrasound image sequences across surveyed studies | modalities=ultrasound_imaging | Acquisition.sensor_geometry=submental transducer probe, midsagittal orientation | Acquisition.signal_quality=speckle"
+  },
+  {
+   "pid": "doi-10.3390-s21041399",
+   "key": "t:biosignalsensorsanddeeplearningbasedspeechrecognitionareview",
+   "title": "Biosignal Sensors and Deep Learning-Based Speech Recognition: A Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_articulation, NAM, ordinary_voiced_speech | modalities=electropalatography | modalities=magnetic_tracking | modalities=ultrasound_imaging | modalities=optical_camera | claim=biosignal sensor + deep learning speech recognition methods can be systematized int"
+  },
+  {
+   "pid": "doi-10.3390-s22031133",
+   "key": "t:beyondtheedgemarkerlessposeestimationofspeecharticulatorsfromultrasoundandcamera",
+   "title": "Beyond the Edge: Markerless Pose Estimation of Speech Articulators from Ultrasound and Camera Images Using DeepLabCut",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding=natural_utterance | task_family=intermediate_signal_processing | target_population=general_population | modalities=ultrasound_imaging | body_sites=tongue, jaw, neck | intrusiveness=external_noncontact | modalities=optical_camera | modalities=magnetic_tr"
+  },
+  {
+   "pid": "doi-10.3390-s22228601",
+   "key": "t:optimizingtheultrasoundtongueimagerepresentationforresidualnetworkbasedarticulat",
+   "title": "Optimizing the Ultrasound Tongue Image Representation for Residual Network-Based Articulatory-to-Acoustic Mapping",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e for ResNet-50, targeting silent-speech-interface applications | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging | sensor_hardware=“Micro” ultrasound system, 20mm-radius convex transducer, raw scanline echo data 64×842 px @81.67fps"
+  },
+  {
+   "pid": "doi-10.48550-arxiv.1904.06083",
+   "key": "t:dnnbasedacoustictoarticulatoryinversionusingultrasoundtongueimaging",
+   "title": "DNN-based Acoustic-to-Articulatory Inversion using Ultrasound Tongue Imaging",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sentences | Cohort.demographics=UTI corpus speakers | dataset_description=audio + ultrasound tongue pairs | modalities=ultrasound_imaging, microphone | observed_quantities=shape, air_acoustics | Representation.transformation_definition=UT image -> EigenTong"
+  },
+  {
+   "pid": "doi-10.63317-2b659u3p6oeh",
+   "key": "t:ssr7000asynchronizedcorpusofultrasoundtongueimagingforendtoendsilentspeechrecogn",
+   "title": "SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pulation=healthy_volunteers | Cohort.demographics=one male native English speaker; no further demographics | modalities=ultrasound_imaging, optical_camera | observed_quantities=shape, position, other | intrusiveness=external_noncontact | sensor_hardware=Ultr"
+  },
+  {
+   "pid": "icassp2007-hueber-eigentongue-ssi",
+   "key": "t:eigentonguefeatureextractionforanultrasoundbasedsilentspeechinterface",
+   "title": "Eigentongue Feature Extraction for an Ultrasound-Based Silent Speech Interface",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ly=speech_reconstruction | intended_use_cases=private_communication | tested_population=healthy_volunteers | modalities=ultrasound_imaging | body_sites=tongue, chin | intrusiveness=external_noncontact | Acquisition.temporal_resolution={'value': 30, 'unit': '"
+  },
+  {
+   "pid": "icassp2017-tatulli-multimodal-cnn-vsr",
+   "key": "t:featureextractionusingmultimodalconvolutionalneuralnetworksforvisualspeechrecogn",
+   "title": "Feature Extraction Using Multimodal Convolutional Neural Networks for Visual Speech Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_family=sentence_recognition | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging | intrusiveness=external_noncontact | Acquisition.sensor_geometry=Terason T3000, 128-element microconvex, 3-5MHz, 140de"
+  },
+  {
+   "pid": "icphs2007-hueber-ouisper",
+   "key": "t:ouispercorpusbasedsynthesisdrivenbyarticulatorydata",
+   "title": "Ouisper: Corpus Based Synthesis Driven by Articulatory Data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eech_reconstruction | target_population=laryngectomy, other | intended_use_cases=speech_restoration, other | modalities=ultrasound_imaging | body_sites=tongue, neck | intrusiveness=external_noncontact | modalities=optical_camera | system_boundary=30Hz ultras"
+  },
+  {
+   "pid": "icphs2015-schaeffler-silentprep",
+   "key": "t:complexpatternsinsilentspeechpreparationpreparingforfastresponsemightbedifferent",
+   "title": "Complex patterns in silent speech preparation: Preparing for fast response might be different to preparing for fast speech in a reaction time experiment",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "r_experience_analysis | target_population=general_population | intended_use_cases=research_of_inner_speech | modalities=ultrasound_imaging | intrusiveness=external_noncontact | modalities=optical_camera | system_boundary=picture stimulus -> silent articulato"
+  },
+  {
+   "pid": "isca-annand19_usbio",
+   "key": "t:usingultrasoundimagingtocreateaugmentedvisualbiofeedbackforarticulatorypractice",
+   "title": "Using Ultrasound Imaging to Create Augmented Visual Biofeedback for Articulatory Practice",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_restoration, other | demonstrated_use_cases=speech_restoration | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging, optical_camera | Acquisition.sensor_geometry=midsagittal ultrasound tongue imaging; TonguePART contour tracking at 36f"
+  },
+  {
+   "pid": "isca-archangeli14_interspeech",
+   "key": "t:articulationandneutralizationapreliminarystudyoflenitioninscottishgaelic",
+   "title": "Articulation and neutralization: a preliminary study of lenition in Scottish Gaelic",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k_encoding=natural_utterance | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging, microphone | intrusiveness=external_noncontact | Representation.feature_dimensions=midsagittal tongue contours hand-tr"
+  },
+  {
+   "pid": "isca-aron07_interspeech",
+   "key": "t:acquisitionandsynchronizationofmultimodalarticulatorydata",
+   "title": "Acquisition and synchronization of multimodal articulatory data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ral_population | intended_use_cases=research_of_inner_speech, other | tested_population=healthy_volunteers | modalities=ultrasound_imaging, magnetic_tracking, microphone | body_sites=tongue, chin, face | intrusiveness=skin_contact | Acquisition.sensor_geomet"
+  },
+  {
+   "pid": "isca-barbier13_interspeech",
+   "key": "t:speechplanningasanindexofspeechmotorcontrolmaturity",
+   "title": "Speech planning as an index of speech motor control maturity",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding=natural_utterance | task_family=intermediate_signal_processing | tested_population=healthy_volunteers | modalities=ultrasound_imaging, microphone, optical_camera | body_sites=tongue, jaw, chin | intrusiveness=external_noncontact | Acquisition.sensor_geo"
+  },
+  {
+   "pid": "isca-barbier15b_interspeech",
+   "key": "t:speechplanningin4yearoldchildrenversusadultsacousticandarticulatoryanalyses",
+   "title": "Speech planning in 4-year-old children versus adults: Acoustic and articulatory analyses",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lysis | Study.study_design=controlled_experiment | tested_population=healthy_volunteers, other | modalities=microphone, ultrasound_imaging | observed_quantities=air_acoustics, shape | intrusiveness=external_noncontact | ProductionCondition.activity_origin=ov"
+  },
+  {
+   "pid": "isca-beeson23-articssr",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | task_family=speech_reconstruction | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=articulat"
+  },
+  {
+   "pid": "isca-beeson23_interspeech",
+   "key": "t:silentspeechrecognitionwitharticulatorpositionsestimatedfromtongueultrasoundandl",
+   "title": "Silent Speech Recognition with Articulator Positions Estimated from Tongue Ultrasound and Lip Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ecognition | task_encoding=natural_utterance | intended_use_cases=speech_restoration, assistive_text_entry | modalities=ultrasound_imaging, optical_camera | observed_quantities=position, shape | intrusiveness=skin_contact | body_sites=tongue, lips, chin | re"
+  },
+  {
+   "pid": "isca-berry11_interspeech",
+   "key": "t:articulatoryreductioninmandarinchinesewords",
+   "title": "Articulatory Reduction in Mandarin Chinese Words",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k_encoding=natural_utterance | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging | intrusiveness=external_noncontact | Acquisition.sensor_geometry=submental ultrasound transducer, midsagittal tongue s"
+  },
+  {
+   "pid": "isca-bocquelet15-dnnsynth",
+   "key": "t:realtimecontrolofadnnbasedarticulatorysynthesizerforsilentspeechconversionapilot",
+   "title": "Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a Pilot Study",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | task_family=speech_reconstruction | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, optical_camera, magnetic_tracking | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperp"
+  },
+  {
+   "pid": "isca-cai11-lightssi",
+   "key": "t:recognitionandrealtimeperformancesofalightweightultrasoundbasedsilentspeechinter",
+   "title": "Recognition and Real Time Performances of a Lightweight Ultrasound Based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ask_family=phoneme_or_character_classification | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=lightweig"
+  },
+  {
+   "pid": "isca-chawah14_interspeech",
+   "key": "t:aneducationalplatformtocapturevisualizeandanalyzeraresinging",
+   "title": "An educational platform to capture, visualize and analyze rare singing",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "(i-THRec recording software, i-THAn MATLAB analyzer) and helmet hardware | task_encoding=natural_utterance | modalities=ultrasound_imaging, optical_camera, microphone, vibration_sensor, strain_sensor, other | body_sites=tongue, lips, neck, face, other | intr"
+  },
+  {
+   "pid": "isca-csapo15b_interspeech",
+   "key": "t:erroranalysisofextractedtonguecontoursfrom2dultrasoundimages",
+   "title": "Error analysis of extracted tongue contours from 2D ultrasound images",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ow alignment; 7 trained student tracers (Apache webserver + SQL store); despeckle-filtered for TongueTrack | modalities=ultrasound_imaging | body_sites=tongue, jaw, other | intrusiveness=skin_contact | Representation.feature_dimensions=midsagittal tongue con"
+  },
+  {
+   "pid": "isca-csapo17-us2speech",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | task_family=speech_reconstruction | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=DNN ultrasound-to-speech"
+  },
+  {
+   "pid": "isca-csapo17_interspeech",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "target_unit=audio_signal | intended_use_cases=speech_restoration, noisy_environment, private_communication | modalities=ultrasound_imaging, microphone, optical_camera | observed_quantities=shape, air_acoustics | intrusiveness=skin_contact | body_sites=tongue"
+  },
+  {
+   "pid": "isca-csapo17_ussynth",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ivate_communication | demonstrated_use_cases=speech_restoration | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging, optical_camera, microphone | intrusiveness=external_noncontact | Acquisition.sensor_geometry=Articulate Instruments ul"
+  },
+  {
+   "pid": "isca-csapo17_ustospeech",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ", noisy_environment | demonstrated_use_cases=speech_restoration | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging, microphone | intrusiveness=external_noncontact | Acquisition.sensor_geometry=Micro ultrasound midsagittal tongue + syn"
+  },
+  {
+   "pid": "isca-csapo19-usvocoder",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | task_family=speech_reconstruction | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=continuous-vocoder ultras"
+  },
+  {
+   "pid": "isca-csapo19_interspeech",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "target_unit=audio_signal | intended_use_cases=speech_restoration, noisy_environment, private_communication | modalities=ultrasound_imaging, microphone | observed_quantities=shape, air_acoustics | intrusiveness=skin_contact | body_sites=tongue, chin | represe"
+  },
+  {
+   "pid": "isca-csapo20b-uswaveglow",
+   "key": "t:ultrasoundbasedarticulatorytoacousticmappingwithwaveglowspeechsynthesis",
+   "title": "Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | task_family=speech_reconstruction | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=US articulatory-to-acoust"
+  },
+  {
+   "pid": "isca-csapo20b_interspeech",
+   "key": "p:isca-csapo20b_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Dataset.collection_protocol=209 sentences per speaker; 85-10-5 train/val/test split (~180 train sentences) | modalities=ultrasound_imaging, microphone | Acquisition.temporal_resolution={'frames_per_second': 81.67} | extra.Protocol.evaluation_target=objective"
+  },
+  {
+   "pid": "isca-csapo20d-usmisalign",
+   "key": "t:quanticationoftransducermisalignmentinultrasoundtongueimaging",
+   "title": "Quantiﬁcation of Transducer Misalignment in Ultrasound Tongue Imaging",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "amily=intermediate_signal_processing | extra.Production.scope_note=ultrasound speech instrumentation study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=ultrasound transducer mis"
+  },
+  {
+   "pid": "isca-csapo23-eegus",
+   "key": "t:towardsultrasoundtongueimagepredictionfromeegduringspeechproduction",
+   "title": "Towards Ultrasound Tongue Image prediction from EEG during speech production",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "=intermediate_signal_processing | extra.Production.scope_note=brain-based speech decoding study | modalities=scalp_eeg, ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=EEG US-image prediction |"
+  },
+  {
+   "pid": "isca-csapo23_interspeech",
+   "key": "t:towardsultrasoundtongueimagepredictionfromeegduringspeechproduction",
+   "title": "Towards Ultrasound Tongue Image Prediction from EEG during Speech Production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ction | task_encoding=natural_utterance | intended_use_cases=speech_restoration, device_control | modalities=scalp_eeg, ultrasound_imaging, microphone, optical_camera | observed_quantities=neural_activity, shape | intrusiveness=skin_contact | body_sites=scal"
+  },
+  {
+   "pid": "isca-dindart25-mmodeus",
+   "key": "t:studyofvocalfoldvibrationusingmmodeultrasoundaproofofconcept",
+   "title": "Study of vocal fold vibration using M-mode ultrasound: a proof of concept",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t | task_family=intermediate_signal_processing | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=M-mode US vocal-fold | te"
+  },
+  {
+   "pid": "isca-engwall08_interspeech",
+   "key": "t:canaudiovisualinstructionshelplearnersimprovetheirarticulationanultrasoundstudyo",
+   "title": "Can audio-visual instructions help learners improve their articulation? - an ultrasound study of short term changes",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ast attempt per training word + acoustic (perceptual) success per word | task_encoding=attempted_utterance | modalities=ultrasound_imaging, optical_camera, microphone | body_sites=tongue, chin | Acquisition.sensor_geometry=GE Logiq5 ultrasound, microconvex 8"
+  },
+  {
+   "pid": "isca-engwall99_eurospeech",
+   "key": "t:modelingofthevocaltractinthreedimensions",
+   "title": "Modeling of the vocal tract in three dimensions",
+   "year": 1999,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| Dataset.sampling_bias=only tongue, midsagittal-symmetrized; rest of tract geometry not data-derived yet | modalities=ultrasound_imaging, electropalatography | observed_quantities=shape, position, contact | Representation.transformation_definition=Cartesia"
+  },
+  {
+   "pid": "isca-eshky18-ultrasuite",
+   "key": "t:ultrasuitearepositoryofultrasoundandacousticdatafromchildspeechtherapysessions",
+   "title": "UltraSuite: A Repository of Ultrasound and Acoustic Data from Child Speech Therapy Sessions",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eech therapy | Study.study_design=dataset_resource | extra.Production.scope_note=ultrasound speech dataset | modalities=ultrasound_imaging, microphone | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=UltraSuite ul"
+  },
+  {
+   "pid": "isca-eshky18_interspeech",
+   "key": "t:ultrasuitearepositoryofultrasoundandacousticdatafromchildspeechtherapysessions",
+   "title": "UltraSuite: A Repository of Ultrasound and Acoustic Data from Child Speech Therapy Sessions",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "from Child Speech Therapy Sessions | Study.study_design=dataset_resource | tested_population=other, mixed | modalities=ultrasound_imaging, microphone | observed_quantities=position, shape, air_acoustics | intrusiveness=skin_contact | ProductionCondition.act"
+  },
+  {
+   "pid": "isca-eshky18_ultrasuite",
+   "key": "t:ultrasuitearepositoryofultrasoundandacousticdatafromchildspeechtherapysessions",
+   "title": "UltraSuite: A Repository of Ultrasound and Acoustic Data from Child Speech Therapy Sessions",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pulation=speech_impairment | tested_population=target_users | intended_use_cases=speech_restoration, other | modalities=ultrasound_imaging, microphone | Acquisition.sensor_geometry=submental ultrasound probe, midsagittal tongue view, headset-stabilized; ~121"
+  },
+  {
+   "pid": "isca-eshky19-sync",
+   "key": "t:synchronisingaudioandultrasoundbylearningcrossmodalembeddings",
+   "title": "Synchronising audio and ultrasound by learning cross-modal embeddings",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ask_family=intermediate_signal_processing | extra.Production.scope_note=ultrasound speech processing study | modalities=ultrasound_imaging, microphone | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=cross-modal a"
+  },
+  {
+   "pid": "isca-eshky19_interspeech",
+   "key": "t:synchronisingaudioandultrasoundbylearningcrossmodalembeddings",
+   "title": "Synchronising audio and ultrasound by learning cross-modal embeddings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rasound offset estimate | task_encoding=natural_utterance | intended_use_cases=assistive_text_entry, other | modalities=ultrasound_imaging, microphone | observed_quantities=shape, position, air_acoustics | intrusiveness=external_noncontact | representation_k"
+  },
+  {
+   "pid": "isca-fabre14_interspeech",
+   "key": "t:automaticanimationofanarticulatorytonguemodelfromultrasoundimagesusinggaussianmi",
+   "title": "Automatic animation of an articulatory tongue model from ultrasound images using Gaussian mixture regression",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding=natural_utterance | task_family=intermediate_signal_processing | tested_population=healthy_volunteers | modalities=ultrasound_imaging, magnetic_tracking, optical_camera, microphone | intrusiveness=external_noncontact | Representation.feature_dimensions="
+  },
+  {
+   "pid": "isca-fabre15_interspeech",
+   "key": "t:tonguetrackinginultrasoundimagesusingeigentonguedecompositionandartificialneural",
+   "title": "Tongue Tracking in Ultrasound Images using EigenTongue Decomposition and Artificial Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ediate_signal_processing | Study.study_design=controlled_experiment | tested_population=healthy_volunteers | modalities=ultrasound_imaging | intrusiveness=external_noncontact | ProductionCondition.activity_origin=overt_articulation | elicitation=instructed_c"
+  },
+  {
+   "pid": "isca-fivela11_interspeech",
+   "key": "t:coarticulationacrossprosodicdomainsinitaliananultrasoundinvestigation",
+   "title": "Coarticulation across prosodic domains in Italian: An ultrasound investigation",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "termediate_signal_processing | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging, magnetic_tracking, microphone | body_sites=tongue, chin, jaw | intrusiveness=external_noncontact | Acquisition.sensor_"
+  },
+  {
+   "pid": "isca-florescu10",
+   "key": "p:isca-florescu10",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "helmet-stabilized probe) | system_name=Fixed table-mounted ultrasound+video acquisition (head immobilized) | modalities=ultrasound_imaging, optical_camera | sensor_hardware=Terason T3000 OEM ultrasound with 8MC4 probe (7 cm focal distance) + CCD frontal lip"
+  },
+  {
+   "pid": "isca-florescu10-silentvocal",
+   "key": "t:silentvsvocalizedarticulationforaportableultrasoundbasedsilentspeechinterface",
+   "title": "Silent vs Vocalized Articulation for a Portable Ultrasound-Based Silent Speech Interface",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ask_family=phoneme_or_character_classification | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=silent vs"
+  },
+  {
+   "pid": "isca-florescu10_interspeech",
+   "key": "t:silentvsvocalizedarticulationforaportableultrasoundbasedsilentspeechinterface",
+   "title": "Silent vs Vocalized Articulation for a Portable Ultrasound-Based Silent Speech Interface",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_cases=private_communication, speech_restoration, noisy_environment | tested_population=healthy_volunteers | modalities=ultrasound_imaging | body_sites=tongue, chin | sensor_hardware=ultrasound probe behind chin (fixed table and portable Ultraspeech), forehe"
+  },
+  {
+   "pid": "isca-frej17_interspeech",
+   "key": "t:acousticsandarticulationofmedialversusfinalcoronalstopgeminationcontrastsinmoroc",
+   "title": "Acoustics and Articulation of Medial versus Final Coronal Stop Gemination Contrasts in Moroccan Arabic",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rasts in Moroccan Arabic | Study.study_design=controlled_experiment | tested_population=healthy_volunteers | modalities=ultrasound_imaging, microphone | observed_quantities=air_acoustics, position, shape | intrusiveness=skin_contact | ProductionCondition.act"
+  },
+  {
+   "pid": "isca-grimaldi10_interspeech",
+   "key": "t:articulatorygroundingofsouthernsalentinoharmonyprocesses",
+   "title": "Articulatory Grounding of Southern Salentino Harmony Processes",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k_encoding=natural_utterance | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging, microphone | intrusiveness=external_noncontact | Acquisition.sensor_geometry=Toshiba Aplio XV, sagittal submental prob"
+  },
+  {
+   "pid": "isca-hu23b-xdomainus",
+   "key": "t:exploitingcrossdomainandcrosslingualultrasoundtongueimagingfeaturesforelderlyand",
+   "title": "Exploiting Cross-Domain And Cross-Lingual Ultrasound Tongue Imaging Features For Elderly And Dysarthric Speech",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_experiment | task_family=sentence_recognition | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=cross-domain US elderly/d"
+  },
+  {
+   "pid": "isca-huang20b_interspeech",
+   "key": "t:ersuffixationinsouthwesternmandarinanemaandultrasoundstudy",
+   "title": "Er-Suffixation in Southwestern Mandarin: An EMA and Ultrasound Study",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Ultrasound Study | Study.study_design=controlled_experiment | tested_population=healthy_volunteers | modalities=other, ultrasound_imaging | observed_quantities=position, shape | intrusiveness=skin_contact | ProductionCondition.activity_origin=overt_articula"
+  },
+  {
+   "pid": "isca-huang21i_interspeech",
+   "key": "t:acrossdialectalcomparisonofapicalvowelsinbeijingmandarinnortheasternmandarinands",
+   "title": "A cross-dialectal comparison of apical vowels in Beijing Mandarin, Northeastern Mandarin and Southwestern Mandarin: An EMA and ultrasound study",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "study | Study.study_design=controlled_experiment | tested_population=healthy_volunteers | modalities=magnetic_tracking, ultrasound_imaging, microphone | observed_quantities=position, shape | ProductionCondition.activity_origin=overt_articulation | elicitatio"
+  },
+  {
+   "pid": "isca-hueber07-uscont",
+   "key": "t:continuousspeechphonerecognitionfromultrasoundandopticalimagesofthetongueandlips",
+   "title": "Continuous-Speech Phone Recognition from Ultrasound and Optical Images of the Tongue and Lips",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ask_family=phoneme_or_character_classification | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=continuou"
+  },
+  {
+   "pid": "isca-hueber07_interspeech",
+   "key": "t:continuousspeechphonerecognitionfromultrasoundandopticalimagesofthetongueandlips",
+   "title": "Continuous-Speech Phone Recognition from Ultrasound and Optical Images of the Tongue and Lips",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_cases=speech_restoration, private_communication, noisy_environment | tested_population=healthy_volunteers | modalities=ultrasound_imaging, optical_camera, microphone | body_sites=tongue, lips, jaw, neck | intrusiveness=external_noncontact | Acquisition.sens"
+  },
+  {
+   "pid": "isca-hueber07_ssiphone",
+   "key": "t:continuousspeechphonerecognitionfromultrasoundandopticalimagesofthetongueandlips",
+   "title": "Continuous-Speech Phone Recognition   from Ultrasound and Optical Images of the Tongue and Lips",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| intended_use_cases=speech_restoration, private_communication | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging, optical_camera | intrusiveness=external_noncontact | Acquisition.sensor_geometry=ultrasound video of vocal tract (tong"
+  },
+  {
+   "pid": "isca-hueber08_interspeech",
+   "key": "p:isca-hueber08_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "atural_utterance | ProductionCondition.activity_origin=overt_articulation | elicitation=instructed_content | modalities=ultrasound_imaging, optical_camera | intrusiveness=external_noncontact | observed_quantities=position, shape | representation_kind=eigenco"
+  },
+  {
+   "pid": "isca-hueber08b-usphone",
+   "key": "t:phonerecognitionfromultrasoundandopticalvideosequencesforasilentspeechinterface",
+   "title": "Phone Recognition from Ultrasound and Optical Video Sequences for a Silent Speech Interface",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ask_family=phoneme_or_character_classification | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=phone rec"
+  },
+  {
+   "pid": "isca-hueber08b_interspeech",
+   "key": "p:isca-hueber08b_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "atural_utterance | ProductionCondition.activity_origin=overt_articulation | elicitation=instructed_content | modalities=ultrasound_imaging, optical_camera | intrusiveness=external_noncontact | observed_quantities=position, shape | representation_kind=eigenco"
+  },
+  {
+   "pid": "isca-hueber08b_phonerec",
+   "key": "t:phonerecognitionfromultrasoundandopticalvideosequencesforasilentspeechinterface",
+   "title": "Phone Recognition from Ultrasound and Optical Video Sequences for a Silent Speech Interface",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ivate_communication | demonstrated_use_cases=speech_restoration | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging, optical_camera, microphone | intrusiveness=skin_contact | Acquisition.sensor_geometry=HATS chin-mounted ultrasound und"
+  },
+  {
+   "pid": "isca-hueber09-visuophon",
+   "key": "t:visuophoneticdecodingusingmultistreamandcontextdependentmodelsforanultrasoundbas",
+   "title": "Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultrasound-based Silent Speech Interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ask_family=phoneme_or_character_classification | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=multi-str"
+  },
+  {
+   "pid": "isca-hueber09_cdms",
+   "key": "t:visuophoneticdecodingusingmultistreamandcontextdependentmodelsforanultrasoundbas",
+   "title": "Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultrasound-based Silent Speech Interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ulation=healthy_volunteers | intended_use_cases=speech_restoration | production_labels=silent_articulation | modalities=ultrasound_imaging, optical_camera, microphone | intrusiveness=external_noncontact | Acquisition.sensor_geometry=ultrasound tongue under c"
+  },
+  {
+   "pid": "isca-hueber09_interspeech",
+   "key": "p:isca-hueber09_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "atural_utterance | ProductionCondition.activity_origin=overt_articulation | elicitation=instructed_content | modalities=ultrasound_imaging, optical_camera, microphone | intrusiveness=external_noncontact | observed_quantities=shape, position, air_acoustics |"
+  },
+  {
+   "pid": "isca-hueber09_mshmm",
+   "key": "t:visuophoneticdecodingusingmultistreamandcontextdependentmodelsforanultrasoundbas",
+   "title": "Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultrasound-based Silent Speech Interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "demonstrated_use_cases=speech_restoration | production_labels=silent_articulation, ordinary_voiced_speech | modalities=ultrasound_imaging, optical_camera, microphone | intrusiveness=external_noncontact | Acquisition.sensor_geometry=ultrasound tongue profile"
+  },
+  {
+   "pid": "isca-hueber11-usmapping",
+   "key": "t:statisticalmappingbetweenarticulatoryandacousticdataforanultrasoundbasedsilentsp",
+   "title": "Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ask_family=phoneme_or_character_classification | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=articulat"
+  },
+  {
+   "pid": "isca-hueber12-trajhmm",
+   "key": "t:continuousarticulatorytoacousticmappingusingphonebasedtrajectoryhmmforasilentspe",
+   "title": "Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | task_family=speech_reconstruction | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, optical_camera, magnetic_tracking | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperp"
+  },
+  {
+   "pid": "isca-hueber13_interspeech",
+   "key": "t:ultraspeechplayerintuitivevisualizationofultrasoundarticulatorydataforspeechther",
+   "title": "Ultraspeech-player: Intuitive visualization of ultrasound articulatory data for speech therapy and pronunciation training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "deo+audio (HNM-encoded) from reference-speaker databases; real-time audiovisual slow-down preserving pitch | modalities=ultrasound_imaging, optical_camera, microphone | observed_quantities=shape, position | intrusiveness=external_noncontact | body_sites=tong"
+  },
+  {
+   "pid": "isca-ibrahimov25-usconformer",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | task_family=speech_reconstruction | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=US-to-speech Conformer |"
+  },
+  {
+   "pid": "isca-ibrahimov25_interspeech",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ration | production_labels=ordinary_voiced_speech | ProductionCondition.activity_origin=overt_articulation | modalities=ultrasound_imaging | Acquisition.signal_quality=ultrasound tongue imaging (UTI) video of tongue movements during speech | Dataset.content_"
+  },
+  {
+   "pid": "isca-jaumardhakoun16_interspeech",
+   "key": "t:anarticulatorybasedsingingvoicesynthesisusingtongueandlipsimaging",
+   "title": "An Articulatory-Based Singing Voice Synthesis Using Tongue and Lips Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k_family=speech_reconstruction | Study.study_design=system_proposal | tested_population=healthy_volunteers | modalities=ultrasound_imaging, optical_camera, microphone, contact_microphone | observed_quantities=shape, position, air_acoustics, tissue_vibration"
+  },
+  {
+   "pid": "isca-kimura20_interspeech",
+   "key": "t:endtoenddeeplearningspeechrecognitionmodelforsilentspeechchallenge",
+   "title": "End-to-End Deep Learning Speech Recognition Model for Silent Speech Challenge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding=attempted_utterance | intended_use_cases=private_communication, noisy_environment, speech_restoration | modalities=ultrasound_imaging, optical_camera | observed_quantities=shape, position | intrusiveness=skin_contact | body_sites=tongue, lips, chin | re"
+  },
+  {
+   "pid": "isca-king19_rprotrusion",
+   "key": "t:thecontributionoflipprotrusiontoangloenglishrevidencefromhyperandnonhyperarticul",
+   "title": "The Contribution of Lip Protrusion to Anglo-English /r/: Evidence from Hyper- and Non-Hyperarticulated Speech",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ion | tested_population=healthy_volunteers | production_labels=ordinary_voiced_speech, silent_articulation | modalities=ultrasound_imaging, optical_camera, microphone | Acquisition.sensor_geometry=SonixRP ultrasound ~121fps + front/profile NTSC micro-cameras"
+  },
+  {
+   "pid": "isca-laporte15_interspeech",
+   "key": "t:robusttonguetrackinginultrasoundimagesamultihypothesisapproach",
+   "title": "Robust tongue tracking in ultrasound images: a multi-hypothesis approach",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uences with French-Canadian vowels; ground-truth contours from snake segmentation + interactive correction | modalities=ultrasound_imaging | intrusiveness=skin_contact | Representation.feature_dimensions=tongue shape summarized by ASM weights of first three"
+  },
+  {
+   "pid": "isca-li21_interspeech",
+   "key": "p:isca-li21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "maging) captured 60fps video w/ nearest-neighbor interp; concurrent audio 44.1kHz ATR2500-USB cardioid mic | modalities=ultrasound_imaging, microphone | extra.Measurement.placement=submental probe on head stabilizer; midsagittal tongue surface (root, dorsum,"
+  },
+  {
+   "pid": "isca-lundberg98_icslp",
+   "key": "t:reconstructingthetonguesurfacefromsixcrosssectionalcontoursultrasounddata",
+   "title": "Reconstructing the tongue surface from six cross-sectional contours: ultrasound data",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dsagittal profiles extracted for optimization | Dataset.sampling_bias=one speaker, static sustained sounds | modalities=ultrasound_imaging | extra.Measurement.placement=coronal slices fan across tongue ~1 deg apart; midsagittal scan for OSS optimization | Re"
+  },
+  {
+   "pid": "isca-ouni11_interspeech",
+   "key": "t:tonguegesturesawarenessandpronunciationtraining",
+   "title": "Tongue Gestures Awareness and Pronunciation Training",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "termediate_signal_processing | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging | body_sites=tongue, chin, palate | intrusiveness=external_noncontact | Acquisition.sensor_geometry=ultrasound probe ag"
+  },
+  {
+   "pid": "isca-qin08_interspeech",
+   "key": "t:predictingtongueshapesfromafewlandmarklocations",
+   "title": "Predicting tongue shapes from a few landmark locations",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "termediate_signal_processing | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging | Acquisition.sensor_geometry=ultrasound probe against chin with head-stabilising device; midsagittal tongue contour (l"
+  },
+  {
+   "pid": "isca-qin10b_interspeech",
+   "key": "t:adaptationofatongueshapemodelbylocalfeaturetransformations",
+   "title": "Adaptation of a tongue shape model by local feature transformations",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "termediate_signal_processing | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging | intrusiveness=external_noncontact | Acquisition.sensor_geometry=midsagittal tongue ultrasound; manually segmented con"
+  },
+  {
+   "pid": "isca-ribeiro19_usdiarize",
+   "key": "t:ultrasoundtongueimagingfordiarizationandalignmentofchildspeechtherapysessions",
+   "title": "Ultrasound Tongue Imaging for Diarization and Alignment of Child Speech Therapy Sessions",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eech_restoration, assistive_text_entry, other | production_labels=ordinary_voiced_speech, attempted_speech | modalities=ultrasound_imaging, microphone | Acquisition.sensor_geometry=B-mode midsagittal ultrasound 63x412 raw frame (~121fps, 135-degree FOV) sync"
+  },
+  {
+   "pid": "isca-ribeiro21-silentus",
+   "key": "t:silentversusmodalmultispeakerspeechrecognitionfromultrasoundandvideo",
+   "title": "Silent versus modal multi-speaker speech recognition from ultrasound and video",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ment | task_family=isolated_word_recognition | extra.Production.scope_note=silent speech recognition study | modalities=ultrasound_imaging, optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=silent US"
+  },
+  {
+   "pid": "isca-ribeiro21_interspeech",
+   "key": "p:isca-ribeiro21_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "l; lip video ~60fps grayscale 240x320; audio Sennheiser MKH 800 p48 @48kHz/16-bit; ~24h sync, 13.5h speech | modalities=ultrasound_imaging | modalities=optical_camera | Representation.transformation_definition=audio-forced phone alignment bootstraps a visual"
+  },
+  {
+   "pid": "isca-richmond12_interspeech",
+   "key": "t:ultraxananimatedmidsagittalvocaltractdisplayforspeechtherapy",
+   "title": "Ultrax: An Animated Midsagittal Vocal Tract Display for Speech Therapy",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrax: An Animated Midsagittal Vocal Tract Display for Speech Therapy | modalities=ultrasound_imaging, magnetic_tracking | observed_quantities=position, shape | supervision_kind=paired_audio | tested_population=healthy_vo"
+  },
+  {
+   "pid": "isca-scobbie13_interspeech",
+   "key": "t:theedinburghspeechproductionfacilitydoubletalkcorpus",
+   "title": "The Edinburgh Speech Production Facility DoubleTalk Corpus",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| tested_population=healthy_volunteers | modalities=magnetic_tracking, microphone, optical_camera, electropalatography, ultrasound_imaging | body_sites=tongue, lips, jaw, face, palate | intrusiveness=skin_contact | Representation.feature_dimensions=per-talke"
+  },
+  {
+   "pid": "isca-shandiz21-usspeaker",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "led_experiment | task_family=command_selection | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=neural speaker embeddings"
+  },
+  {
+   "pid": "isca-shandiz21_interspeech",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-Based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "struction | task_encoding=natural_utterance | intended_use_cases=speech_restoration, private_communication | modalities=ultrasound_imaging | observed_quantities=shape, position | intrusiveness=skin_contact | body_sites=tongue, chin | representation_kind=spea"
+  },
+  {
+   "pid": "isca-sonkar26_interspeech",
+   "key": "t:tongue2speechrealtimespeechsynthesisfromtongueultrasoundvideosviaspatiotemporalt",
+   "title": "Tongue2Speech: Real-Time Speech Synthesis from Tongue Ultrasound Videos via Spatiotemporal Transformers",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion=healthy_volunteers | intended_use_cases=speech_restoration | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging, microphone | intrusiveness=skin_contact | Acquisition.sensor_geometry=portable submental ultrasound ~80fps 92° FoV, ra"
+  },
+  {
+   "pid": "isca-spreafico18_interspeech",
+   "key": "t:ultrafitaspeakerfriendlyheadsetforultrasoundrecordingsinspeechscience",
+   "title": "UltraFit: A Speaker-friendly Headset for Ultrasound Recordings in Speech Science",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d Recordings in Speech Science | Study.study_design=system_proposal | tested_population=healthy_volunteers | modalities=ultrasound_imaging, optical_camera | observed_quantities=position, shape | intrusiveness=skin_contact | ProductionCondition.activity_origi"
+  },
+  {
+   "pid": "isca-sung14_interspeech",
+   "key": "t:thearticulationoflexicalandpostlexicalpalatalizationinkorean",
+   "title": "The articulation of lexical and post-lexical palatalization in Korean",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k_encoding=natural_utterance | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging, microphone | intrusiveness=external_noncontact | Representation.feature_dimensions=extracted tongue-curve contours on"
+  },
+  {
+   "pid": "isca-suzuki17_vl2",
+   "key": "t:visuallearning2pronunciationappusingultrasoundvideoandmri",
+   "title": "Visual Learning 2: Pronunciation app using ultrasound, video, and MRI",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion=general_population, other | tested_population=target_users | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging, optical_camera, fmri, microphone | intrusiveness=external_noncontact | Acquisition.sensor_geometry=native-speaker reco"
+  },
+  {
+   "pid": "isca-tabain16_uscoronal",
+   "key": "t:apreliminaryultrasoundstudyofnasalandlateralcoronalsinarrernte",
+   "title": "A preliminary ultrasound study of nasal and lateral coronals in Arrernte",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ation=general_population | tested_population=healthy_volunteers | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging | intrusiveness=external_noncontact | Acquisition.sensor_geometry=5-8MHz convex US probe @7MHz, 70mm depth, 107° FoV, ~"
+  },
+  {
+   "pid": "isca-tabain17_arre",
+   "key": "t:anultrasoundstudyofalveolarandretroflexconsonantsinarrerntestressedandunstressed",
+   "title": "An ultrasound study of alveolar and retroflex consonants in Arrernte: stressed and unstressed syllables",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "volunteers | intended_use_cases=research_of_inner_speech, other | production_labels=ordinary_voiced_speech | modalities=ultrasound_imaging | intrusiveness=external_noncontact | Acquisition.sensor_geometry=submental tongue ultrasound imaging of 6 female Arrer"
+  },
+  {
+   "pid": "isca-toth18-multitask",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "experiment | task_family=speech_reconstruction | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=multi-task ultrasound SSI"
+  },
+  {
+   "pid": "isca-toth18_interspeech",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g=attempted_utterance | intended_use_cases=speech_restoration, private_communication, assistive_text_entry | modalities=ultrasound_imaging, microphone | observed_quantities=shape, air_acoustics | intrusiveness=skin_contact | body_sites=tongue, chin | represe"
+  },
+  {
+   "pid": "isca-toth18_mtlussi",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e_communication | demonstrated_use_cases=speech_restoration | production_labels=silent_articulation, other | modalities=ultrasound_imaging | Acquisition.sensor_geometry=Articulate Instruments UTI scanlines resized 64x119; 8-frame context each side; audio via"
+  },
+  {
+   "pid": "isca-toth23-usadapt",
+   "key": "t:adaptationoftongueultrasoundbasedsilentspeechinterfacesusingspatialtransformerne",
+   "title": "Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "riment | task_family=isolated_word_recognition | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=STN adaptation US-SSI | D"
+  },
+  {
+   "pid": "isca-toth23_interspeech",
+   "key": "t:adaptationoftongueultrasoundbasedsilentspeechinterfacesusingspatialtransformerne",
+   "title": "Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "struction | task_encoding=natural_utterance | intended_use_cases=speech_restoration, private_communication | modalities=ultrasound_imaging, microphone | observed_quantities=shape, air_acoustics | intrusiveness=skin_contact | body_sites=tongue, chin | represe"
+  },
+  {
+   "pid": "isca-wang12e-wholeword",
+   "key": "t:wholewordrecognitionfromarticulatorymovementsforsilentspeechinterfaces",
+   "title": "Whole-Word Recognition from Articulatory Movements for Silent Speech Interfaces",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y=isolated_word_recognition | extra.Production.scope_note=silent speech interface study | modalities=magnetic_tracking, ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=whole-word SVM articulato"
+  },
+  {
+   "pid": "isca-wen26d_interspeech",
+   "key": "t:towardsrobustultrasoundbasedsilentspeechrecognitionlearningphysicsawareandcontex",
+   "title": "Towards Robust Ultrasound-based Silent Speech Recognition: Learning Physics-Aware and Context-Rich Representations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nt, speech_restoration | demonstrated_use_cases=speech_restoration | production_labels=silent_articulation | modalities=ultrasound_imaging | intrusiveness=skin_contact | Acquisition.sensor_geometry=UXTD UTI videos, 58 typically-developing children speakers;"
+  },
+  {
+   "pid": "isca-xu14b_interspeech",
+   "key": "t:3dtonguemotionvisualizationbasedonultrasoundimagesequences",
+   "title": "3d tongue motion visualization based on ultrasound image sequences",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k_encoding=natural_utterance | target_population=general_population | tested_population=healthy_volunteers | modalities=ultrasound_imaging | body_sites=tongue, chin | intrusiveness=external_noncontact | Representation.feature_dimensions=SIFT keypoints = loca"
+  },
+  {
+   "pid": "isca-zheng23b-usenhance",
+   "key": "t:incorporatingultrasoundtongueimagesforaudiovisualspeechenhancementthroughknowled",
+   "title": "Incorporating Ultrasound Tongue Images for Audio-Visual Speech Enhancement through Knowledge Distillation",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "t | task_family=intermediate_signal_processing | extra.Production.scope_note=silent speech interface study | modalities=ultrasound_imaging, microphone | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=US-KD AV spee"
+  },
+  {
+   "pid": "issp2011-denby-portable-ssi",
+   "key": "t:towardsapracticalsilentspeechinterfacebasedonvocaltractimaging",
+   "title": "Towards a Practical Silent Speech Interface Based on Vocal Tract Imaging",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "population=laryngectomy, general_population | intended_use_cases=speech_restoration, private_communication | modalities=ultrasound_imaging | intrusiveness=external_noncontact | modalities=optical_camera | system_boundary=helmet: microconvex 1in 128-element U"
+  },
+  {
+   "pid": "pmc-10848656-tonguedness",
+   "key": "t:tonguednessinspeechlateralbiasinlingualbracing",
+   "title": "Tonguedness in speech: Lateral bias in lingual bracing",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "design=controlled_experiment | extra.Production.scope_note=lateral bias lingual bracing tonguedness speech | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=n=51 participants | tested_popula"
+  },
+  {
+   "pid": "pmc-11012824-cleftprenatal",
+   "key": "t:diagnosticmethodsfortheprenataldetectionofcleftlipandpalateasystematicreview",
+   "title": "Diagnostic Methods for the Prenatal Detection of Cleft Lip and Palate: A Systematic Review",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "prenatal detection of cleft lip a | extra.Production.scope_note=prenatal cleft lip palate detection review | modalities=ultrasound_imaging | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=n=141 participants | tested_popul"
+  },
+  {
+   "pid": "pmc-5864145-vsmcvowel",
+   "key": "t:humansensorimotorcortexcontrolofdirectlymeasuredvocaltractmovementsduringvowelpr",
+   "title": "Human Sensorimotor Cortex Control of Directly Measured Vocal Tract Movements during Vowel Production",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_speech | demonstrated_use_cases=research_of_inner_speech | production_labels=ordinary_voiced_speech | modalities=ecog, ultrasound_imaging, optical_camera | Acquisition.sensor_geometry=ECoG over vSMC synchronized with ultrasound + video tracking of supralary"
+  },
+  {
+   "pid": "pmc-9689563-utitrack",
+   "key": "t:tonguecontourtrackingandsegmentationinlingualultrasoundforspeechrecognitionarevi",
+   "title": "Tongue Contour Tracking and Segmentation in Lingual Ultrasound for Speech Recognition: A Review",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=intermediate_signal_processing | production_labels=silent_articulation, ordinary_voiced_speech | modalities=ultrasound_imaging | Acquisition.sensor_geometry=transducer beneath chin; wave passes hyoid/mandible tissues; air boundary reflects strong"
+  },
+  {
+   "pid": "pmc-9696288-utiaam",
+   "key": "t:optimizingtheultrasoundtongueimagerepresentationforresidualnetworkbasedarticulat",
+   "title": "Optimizing the Ultrasound Tongue Image Representation for Residual Network-Based Articulatory-to-Acoustic Mapping",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ation=instructed_content | production_labels=ordinary_voiced_speech | tested_population=healthy_volunteers | modalities=ultrasound_imaging, microphone | Acquisition.temporal_resolution=Micro UTI 2-4MHz/64-element convex transducer, 81.67 fps; audio 22.05kHz"
+  },
+  {
+   "pid": "qmu-balchtomes-2024-ema-coreg",
+   "key": "t:improvingultrasoundposeestimationaccuracybytrainingoncoregisteredemadata",
+   "title": "Improving ultrasound pose estimation accuracy by training on co-registered EMA data",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding=natural_utterance | task_family=intermediate_signal_processing | target_population=general_population | modalities=ultrasound_imaging | intrusiveness=external_noncontact | modalities=magnetic_tracking | body_sites=tongue, lips, jaw | modalities=optical_"
+  },
+  {
+   "pid": "qmu-palo-2019-prespeech",
+   "key": "t:measuringprespeecharticulation",
+   "title": "Measuring Pre-Speech Articulation",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "r_experience_analysis | target_population=general_population | intended_use_cases=research_of_inner_speech | modalities=ultrasound_imaging | intrusiveness=external_noncontact | modalities=magnetic_tracking | body_sites=tongue, lips, jaw | system_boundary=sti"
+  },
+  {
+   "pid": "ro2016-acher-retour-visuel-aphasiologie",
+   "key": "t:retourvisuelenaphasiologiersultatscomportementauxacoustiquesetenneuroimagerie",
+   "title": "Retour visuel en aphasiologie: résultats comportementaux, acoustiques et en neuroimagerie",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sk_encoding=natural_utterance | target_population=speech_impairment | tested_population=healthy_volunteers | modalities=ultrasound_imaging | intrusiveness=external_noncontact | system_boundary=patient tongue ultrasound (Ultraspeech replay + live probe) -> th"
+  },
+  {
+   "pid": "ro2016-fabre-echographie-linguale-orthophonie",
+   "key": "t:apportdelchographielingualelarducationorthophonique",
+   "title": "Apport de l’échographie linguale à la rééducation orthophonique",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Mann-Whitney-like W between-group | task_encoding=natural_utterance | target_population=speech_impairment | modalities=ultrasound_imaging | intrusiveness=external_noncontact | system_boundary=lingual ultrasound images (live probe or USP replayed sequences)"
+  },
+  {
+   "pid": "sottovoce",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dible leakage (37.14 dB(A) mean peak); classified no_vocalization by instruction, not by acoustic silence. | modalities=ultrasound_imaging | observed_quantities=shape, position | sensor_hardware=CONTEC CMS600P2 Full Digital B-Ultrasound Diagnostic System wit"
+  }
+ ],
+ "usual_approach": {
+  "design": "3D (spatiotemporal) convolution over the frame stack (27), or a CNN followed by a recurrent layer (24); ConvLSTM 9, Transformer/Conformer attention 8",
+  "n": 27,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2104.11532",
+   "arxiv-2506.03831",
+   "isca-sonkar26_interspeech",
+   "arxiv-2603.11877",
+   "doi-10.1038-s44460-025-00010-2"
+  ],
+  "population_unique": 148,
+  "note": "full-text pattern counts over 148 unique ultrasound studies (192 folders): conv3d 27, cnn_then_recurrent 24, convlstm 9, transformer_attention 8. ConvLSTM hits by snippet: the target; its later thesis version (doi-10.14232-phd.11818, 2023); a 2021-06 prior that predicts ultrasound images from lip video with the ConvLSTM of Zhao et al. as comparison model (arxiv-2106.11769); a 2022 review describing Zhao et al. (pmc-9689563-utitrack / doi-10.3390-diagnostics12112811); and [later] citations or related-work mentions only (isca-toth23-usadapt / arxiv-2305.19130, doi-10.21437-ssw-2023-36, isca-wen26d_interspeech, isca-sonkar26_interspeech). No prior ledger study maps ultrasound to speech with a ConvLSTM layer; the ConvLSTM tongue-motion prediction study the target cites (Zhao et al., ICASSP 2019) is not in the wiki.",
+  "n_convlstm": 9,
+  "n_convlstm_speech_output_prior": 0
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-2206.12947",
+   "role": "target",
+   "loc": "Sec. 1; Sec. 4; Table 1-3",
+   "quote": "performance with the previous 2D-CNN+LSTM and 3D-CNN approaches"
+  },
+  {
+   "pid": "arxiv-2106.11769",
+   "role": "prior",
+   "loc": "Sec. 4.1",
+   "quote": "The ConvLSTM architecture proposed in [39] is used for the quantitatively comparison."
+  },
+  {
+   "pid": "arxiv-2104.11532",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "3D CNN (s=6) 0.321 0.684 0.315 0.683"
+  },
+  {
+   "pid": "isca-sonkar26_interspeech",
+   "role": "sota",
+   "loc": "Sec. 6.1; Table 1",
+   "quote": "It achieves the lowest overall WER of 15.93%"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "isca-sonkar26_interspeech",
+  "year": 2026,
+  "metric": "single-speaker TaL1 WER of ASR on synthesized speech; 3D spatio-temporal CNN front end plus 6-layer Transformer; strongest baseline 3D-CNN+BiLSTM w/ Skip 24.15; no ConvLSTM baseline",
+  "value": 15.93,
+  "unit": "%",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "used_by": [
+  "improved-processing-of-ultrasound-tongue-videos-by-combining-convlstm-and-3d-convolutional-networks"
+ ],
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 148,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "3D (spatiotemporal) convolution over the frame stack (27), or a CNN followed by a recurrent layer (24); ConvLSTM 9, Transformer/Conformer attention 8",
+   "n": 27,
+   "tier": "pattern match",
+   "population_unique": 148
+  },
+  "state_of_the_art": {
+   "pid": "isca-sonkar26_interspeech",
+   "year": 2026,
+   "metric": "single-speaker TaL1 WER of ASR on synthesized speech; 3D spatio-temporal CNN front end plus 6-layer Transformer; strongest baseline 3D-CNN+BiLSTM w/ Skip 24.15; no ConvLSTM baseline",
+   "value": 15.93,
+   "unit": "%",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2104.11532",
+   "arxiv-2106.11769"
+  ],
+  "unread": 192,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
+}

@@ -259,11 +259,17 @@ Topics searched for this component across the whole field, and the confirmed pap
 | LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | 2026 |  |
 | LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | 2026 |  |
 
+## ultrasound-image-sequence-temporal-layer
+
+- Table: [`ultrasound-image-sequence-temporal-layer.csv`](ultrasound-image-sequence-temporal-layer.csv) (7345 slot-filled, 148 pattern match, usual design in 27, 4 read in full)
+- Inclusion rule: Include studies whose ledger lists ultrasound imaging as an input modality and classify, by full-text pattern (reference list removed), how the network integrates a sequence of ultrasound frames over time: 3D (spatiotemporal) convolution, a CNN followed by a recurrent layer, ConvLSTM, or Transformer/Conformer attention. Boundary: mentions in related work, reviews, theses and tasks other than speech output (contour tracking, image prediction, recognition) still count as pattern matches, an upper bound; ConvLSTM hits were classified by snippet; versions count once by key.
+- Used in: [Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convolutional Networks](../../reviews/improved-processing-of-ultrasound-tongue-videos-by-combining-convlstm-and-3d-convolutional-networks/)
+
 ## ultrasound-to-speech-network-architecture
 
 - Table: [`ultrasound-to-speech-network-architecture.csv`](ultrasound-to-speech-network-architecture.csv) (7345 slot-filled, 51 pattern match, usual design in 37, 4 read in full)
 - Inclusion rule: Include studies that map ultrasound tongue images (with or without lip video) to acoustic features or a waveform with a trained network, and name the mapping architecture. Boundary: exclude ultrasound-to-text recognition without synthesis, contour tracking, ultrasound prediction from other signals and reviews (they inflate the pattern match, an upper bound); spatial transformer networks count as CNNs, not as attention models; count versions once by key.
-- Used in: [3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces](../../reviews/3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces/), [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](../../reviews/adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks/), [Conformer-based Ultrasound-to-Speech Conversion](../../reviews/conformer-based-ultrasound-to-speech-conversion/)
+- Used in: [3D Convolutional Neural Networks for Ultrasound-Based Silent Speech Interfaces](../../reviews/3d-convolutional-neural-networks-for-ultrasound-based-silent-speech-interfaces/), [Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks](../../reviews/adaptation-of-tongue-ultrasound-based-silent-speech-interfaces-using-spatial-transformer-networks/), [Conformer-based Ultrasound-to-Speech Conversion](../../reviews/conformer-based-ultrasound-to-speech-conversion/), [Improved Processing of Ultrasound Tongue Videos by Combining ConvLSTM and 3D Convolutional Networks](../../reviews/improved-processing-of-ultrasound-tongue-videos-by-combining-convlstm-and-3d-convolutional-networks/)
 
 ## ultrasound-tongue-image-features
 

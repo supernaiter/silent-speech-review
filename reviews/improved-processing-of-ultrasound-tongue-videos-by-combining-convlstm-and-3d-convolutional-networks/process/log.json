@@ -1,0 +1,65 @@
+{
+ "slug": "improved-processing-of-ultrasound-tongue-videos-by-combining-convlstm-and-3d-convolutional-networks",
+ "stage": "final",
+ "steps": [
+  {
+   "step": "reading",
+   "by": "reader (language model)",
+   "output": "notes.json",
+   "what": "claims, numbers, conditions and unstated items of the target and comparator papers, each with a quote and location",
+   "finished": "2026-11-24T09:18:40+00:00"
+  },
+  {
+   "step": "plan",
+   "by": "writer (language model)",
+   "output": "plan.json",
+   "what": "which of the 13 components the paper changes, and the topics to compare on",
+   "finished": "2026-11-24T09:03:51+00:00"
+  },
+  {
+   "step": "field counts",
+   "by": "script",
+   "output": "topic tables under components/",
+   "what": "ledger search per topic: population, usual approach, candidate state of the art",
+   "finished": "2026-11-24T09:03:05+00:00"
+  },
+  {
+   "step": "draft",
+   "by": "writer (language model)",
+   "output": "draft.md, claims-draft.md",
+   "what": "review written from the notes and counts only; every claim mapped to a note or a count",
+   "finished": "2026-11-24T09:15:39+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-24T09:17:25+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "13 findings that needed changes; 12 applied (finding 10 partly), 1 rejected (table row 19), 0 unverified.",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-24T09:30:13+00:00"
+  }
+ ],
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 86 found, 0 missing, 13 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-ultrasound-image-sequence-temporal-layer": "ok",
+  "topic counts M06-ultrasound-to-speech-network-architecture": "ok",
+  "topic counts M12-ultrasound-to-speech-output-evaluation": "ok"
+ },
+ "inputs": {
+  "notes_sha256": "668cb7c56ea4270efd251499284c60cf1fbf5c02c1b49f9bd29d66b701bb64c3",
+  "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+  "method_sha256": "e8a70a09aa6de9f44dabca89b49999dd1a33f4b014759fcb8827e7a2a8c2747a",
+  "method": "pipeline/SKILL.md"
+ },
+ "body_chars": {
+  "draft": 15270,
+  "final": 15404
+ }
+}
