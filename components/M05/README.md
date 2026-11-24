@@ -105,7 +105,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`rf-articulator-sensing-placement.csv`](rf-articulator-sensing-placement.csv) (7329 slot-filled, 33 pattern match, usual design in 21, 1 read in full)
 - Inclusion rule: Speech or silent-speech recognition studies that sense the articulators with radar or other RF signals (IR-UWB, FMCW/SFCW, mmWave, RFID, backscatter, Wi-Fi channel sensing); the design compared is the RF front end and where it sits (active radar at a distance, Wi-Fi channel sensing, or a tag or antenna worn on the face, in a headset or in a mask). Boundary: papers that mention Wi-Fi only as a data link are left out by the pattern; datasets and surveys count; full-text and ledger hits include related-work mentions, so counts are upper bounds.
-- Used in: [Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter](../../reviews/lip-siri-contactless-open-sentence-silent-speech-with-wi-fi-backscatter/)
+- Used in: [Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter](../../reviews/lip-siri-contactless-open-sentence-silent-speech-with-wi-fi-backscatter/), [Movement Detection of Tongue and Related Body Parts Using IR-UWB Radar](../../reviews/movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar/)
 
 ## skin-strain-sensor-channel-count
 

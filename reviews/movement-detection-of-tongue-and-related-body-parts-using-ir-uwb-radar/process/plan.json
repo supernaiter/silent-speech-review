@@ -1,0 +1,84 @@
+{
+ "slug": "movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar",
+ "target": "arxiv-2209.01762",
+ "prep_use": "corrected from prep/plan.draft.json: kept the two reused published topics (M05, M06); dropped the three slotless topics flagged in prep warnings; added the published M12 radar-ssr-speaker-split table; M03 and M13 moved to inherited (points folded into claims and questions); M11 kept inherited with its gap stated under claims",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "prompted repetitions, per-class model training (Shin and Seo 2016 protocol)"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "instructed state labels, no audio"
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "per-participant models, no validation split"
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "closed-mouth instructed tongue action, GUI-delimited trials"
+  },
+  "M05": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "rf-articulator-sensing-placement",
+     "reuse": "components/M05/rf-articulator-sensing-placement.json",
+     "inclusion_rule": "published table rule (radar or RF sensing of the articulators; compared design is the RF front end and where it points)",
+     "pattern": "IR-UWB|impulse radio|radar|FMCW|SFCW|backscatter|RFID|mmWave|millimeter wave|Wi-Fi sensing/CSI",
+     "design_field": "ledger M05 values; added full-text regexes chin_directed / mouth_or_face_directed / contact_antenna_on_face over the 33-study population",
+     "metric": "classification accuracy (%), higher"
+    }
+   ]
+  },
+  "M06": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "radar-ssr-input-representation",
+     "reuse": "components/M06/radar-ssr-input-representation.json",
+     "inclusion_rule": "published table rule (engineered features vs learned representation from raw radar frames)",
+     "pattern": "same radar population",
+     "design_field": "published full-text design regexes",
+     "metric": "classification accuracy (%), higher"
+    }
+   ]
+  },
+  "M07": {
+   "class": "inherited",
+   "lineage": "binary classification, no lexicon or LM"
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "two-state labels"
+  },
+  "M09": {
+   "class": "inherited"
+  },
+  "M10": {
+   "class": "inherited"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "instructed state as label; no independent tongue reference (discussed under claims)"
+  },
+  "M12": {
+   "class": "incidental",
+   "topics": [
+    {
+     "topic": "radar-ssr-speaker-split",
+     "reuse": "components/M12/radar-ssr-speaker-split.json",
+     "inclusion_rule": "published table rule (speaker-held-out vs within-speaker evaluation in radar/RF speech studies)",
+     "pattern": "same radar population",
+     "design_field": "published full-text design regexes speaker_dependent / speaker_independent",
+     "metric": "classification accuracy (%), higher"
+    }
+   ]
+  },
+  "M13": {
+   "class": "inherited",
+   "lineage": "bench feasibility setup, no device constraints measured"
+  }
+ }
+}
