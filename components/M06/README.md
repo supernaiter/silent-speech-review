@@ -181,6 +181,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Visual or audio-visual speech recognition studies (lip reading, VSR, AVSR; word or sentence level) whose ledger names lip reading, VSR, AVSR or an LRS/LRW benchmark. The design compared is whether facial or lip landmarks (coordinates, distances, contours, shape-model parameters) enter the recognizer as a feature stream next to or instead of pixels, and how that stream is encoded (graph convolution over landmarks versus other encoders). Boundary: landmarks used only to detect, align or crop the mouth do not count; a study counts under every design its full text names (upper bound, related-work mentions included); reviews count as pattern matches only; versions of one study count once.
 - Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/)
 
+## non-acoustic-speech-activity-detection
+
+- Table: [`non-acoustic-speech-activity-detection.csv`](non-acoustic-speech-activity-detection.csv) (7345 slot-filled, 119 pattern match, usual design in 74, 4 read in full)
+- Inclusion rule: Include studies that detect speech versus non-speech (or voiced/unvoiced, mouth open/closed as a VAD proxy, speech onset/endpoint) from a non-acoustic signal: lip/face video, ultrasound tongue imaging, ultrasonic Doppler, radar, EMG, EMA, EEG/MEG/ECoG. Boundary: audio-visual systems count when a visual-only or non-acoustic branch is evaluated; papers that only apply an acoustic VAD to their audio match the pattern and inflate the upper bound.
+- Used in: [Voice Activity Detection for Ultrasound-based Silent Speech Interfaces using Convolutional Neural Networks](../../reviews/voice-activity-detection-for-ultrasound-based-silent-speech-interfaces-using-convolutional-neural-networks/)
+
 ## noninvasive-decoding-segmentation
 
 - Table: [`noninvasive-decoding-segmentation.csv`](noninvasive-decoding-segmentation.csv) (7345 slot-filled, 1458 pattern match, usual design in 310, 2 read in full)

@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/voice-activity-detection-for-ultrasound-based-silent-speech-interfaces-using-convolutional-neural-networks/](voice-activity-detection-for-ultrasound-based-silent-speech-interfaces-using-convolutional-neural-networks/).**
 
-CNN speech-versus-silence detection from ultrasound tongue images on one speaker (TaL1), reaching 85.2% test accuracy; removing silence slightly improves downstream SSI reconstruction (MCD 3.05 vs 3.12).
+Frame-wise ultrasound CNN VAD (M06) and audio-VAD labels (M02) are standard; one-speaker file-split test (M12) is behind held-out-speaker VAD work; 85% is 11 points over majority.
 
 [Read the full review](voice-activity-detection-for-ultrasound-based-silent-speech-interfaces-using-convolutional-neural-networks/) · [All reviews](../README.md)
