@@ -203,6 +203,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Speech or silent-speech recognition studies on radar or RF sensing of the articulators (same population as radar-ssr-input-representation); the design compared is whether test speakers are held out from training (speaker-independent, cross-user or new-user test) or every model is trained and tested within one speaker (speaker-dependent, per-participant cross-validation). Boundary: a paper counts under every split it reports; pooling several speakers' data without holding any speaker out counts as speaker-dependent; full-text pattern hits include mentions in related-work sections, so counts are upper bounds.
 - Used in: [IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases](../../reviews/ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases/), [Lip-Siri: Contactless Open-Sentence Silent Speech with Wi-Fi Backscatter](../../reviews/lip-siri-contactless-open-sentence-silent-speech-with-wi-fi-backscatter/), [Movement Detection of Tongue and Related Body Parts Using IR-UWB Radar](../../reviews/movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar/)
 
+## real-time-intracranial-speech-online-evaluation
+
+- Table: [`real-time-intracranial-speech-online-evaluation.csv`](real-time-intracranial-speech-online-evaluation.csv) (6960 slot-filled, 134 pattern match, usual design in 18, 3 read in full)
+- Inclusion rule: Intracranial (ECoG, sEEG, intracortical) speech decoding studies whose ledger text mentions real-time, online or closed-loop operation; the design of interest is what the evaluation reports for that operation: an online accuracy or error-rate figure, an offline simulation or replay of the real-time pipeline, and a numeric latency. Boundary: listening-only and review papers enter through the pattern, so counts are upper bounds; versions once.
+- Used in: [Real-time decoding of question-and-answer speech dialogue using human cortical activity](../../reviews/real-time-decoding-of-question-and-answer-speech-dialogue-using-human-cortical-activity/)
+
 ## rtmri-decoding-test-split
 
 - Table: [`rtmri-decoding-test-split.csv`](rtmri-decoding-test-split.csv) (6960 slot-filled, 88 pattern match, usual design in 11, 5 read in full)
