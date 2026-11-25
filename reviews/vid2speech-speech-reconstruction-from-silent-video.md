@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/vid2speech-speech-reconstruction-from-silent-video/](vid2speech-speech-reconstruction-from-silent-video/).**
 
-Vid2speech reconstructs intelligible speech from silent face video on GRID with speaker-specific models and LPC-style resynthesis, reaching about 80% human intelligibility and partial out-of-vocabulary recovery.
+Raw-face CNN to LSP (M05, M06) is standard: 82.6% vs 40.0% over Le Cornu and Milner mixes in forced-choice listening (M12); as a whole system it later scores 44.92% vs 14.08% GRID WER (Lip2Wav).
 
 [Read the full review](vid2speech-speech-reconstruction-from-silent-video/) · [All reviews](../README.md)

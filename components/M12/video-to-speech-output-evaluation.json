@@ -2469,6 +2469,18 @@
    "loc": "Table 7",
    "quote": "Lip2Wav (Ours) 0.543 0.344 1.197 34.2%",
    "added_by": "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion"
+  },
+  {
+   "pid": "arxiv-1701.00495",
+   "role": "target",
+   "loc": "Sec. 4.3; Tables 2-3",
+   "quote": "For each clip, they were given the GRID vocabulary and tasked with classifying each reconstructed word into one of its possible options."
+  },
+  {
+   "pid": "isca-cornu15-v2speech",
+   "role": "prior",
+   "loc": "Sec. 5.2; Table 5",
+   "quote": "Each listener was allowed to replay the audio/video as many times as they wished before entering the words they heard."
   }
  ],
  "known_item_recall": {
@@ -2501,6 +2513,7 @@
   "sld-l2s-hierarchical-subspace-latent-diffusion-for-high-fidelity-lip-to-speech-synthesis",
   "svts-scalable-video-to-speech-synthesis",
   "vcvts-multi-speaker-video-to-speech-synthesis-via-cross-modal-knowledge-transfer-from-voice-conversion",
+  "vid2speech-speech-reconstruction-from-silent-video",
   "video-driven-speech-reconstruction-using-generative-adversarial-networks",
   "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
  ],
@@ -2531,7 +2544,14 @@
    "arxiv-2302.08841",
    "doi-10.1038-s41598-024-55248-6",
    "isca-cornu15_interspeech",
-   "arxiv-2303.00502"
+   "arxiv-2303.00502",
+   "arxiv-2005.08209",
+   "arxiv-2104.13332",
+   "arxiv-2105.09652-spkdisent",
+   "arxiv-2107.12003",
+   "arxiv-2202.09081-vcvts",
+   "arxiv-2212.11377",
+   "isca-cornu15-v2speech"
   ],
   "unread": 187,
   "confirmed_unique": 0,
@@ -4749,6 +4769,41 @@
     }
    ],
    "note": "prior = first public before 2022-01 (more than six months before the target, 2022-07); dates from the arXiv id or the index year; related-work mentions count (upper bound)"
+  },
+  {
+   "by": "vid2speech-speech-reconstruction-from-silent-video",
+   "scope": "full texts of the 165 unique video-to-speech studies of this table (reference lists removed)",
+   "tier": "pattern match",
+   "counts": [
+    {
+     "design": "closed_choice_listener",
+     "regex": "forced[- ]choice|closed[- ]set|given the (GRID )?vocabulary|one of its possible options|select(ed)? (each|the) word from",
+     "n": 4,
+     "pids": [
+      "isca-odisio04_resynthesised",
+      "isca-shaw13_avsp",
+      "arxiv-1701.00495",
+      "arxiv-2112.04748"
+     ],
+     "pids_dated_2016_or_earlier": [
+      "isca-odisio04_resynthesised",
+      "isca-shaw13_avsp"
+     ]
+    },
+    {
+     "design": "oov_word_test",
+     "regex": "out[- ]of[- ]vocabulary|\\bOOV\\b|unseen words|words (not )?(seen|present) (in|during) training",
+     "n": 5,
+     "pids": [
+      "isca-uttam19-hushhush",
+      "arxiv-1701.00495",
+      "arxiv-1807.00619",
+      "arxiv-1907.01367",
+      "arxiv-2112.04748"
+     ],
+     "pids_dated_2016_or_earlier": []
+    }
+   ]
   }
  ],
  "state_of_the_art_fastlts-non-autoregressive-end-to-end-unconstrained-lip-to-speech-synthesis": {

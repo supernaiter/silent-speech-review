@@ -1,0 +1,53 @@
+{
+ "target": "arxiv-1701.00495",
+ "changed": [
+  "M05",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "No user training action; voiced GRID recordings",
+  "M02": "Paired voiced audio as the regression target (Le Cornu and Milner 2015 lineage: 8th-order LPC chosen to match it)",
+  "M03": "Per-speaker training from scratch (S4; S2 retrained); validation data, normalization statistics and seeds not stated",
+  "M04": "Voiced speech; video used alone at test",
+  "M07": "No lexicon or language model in the system; listeners given the GRID vocabulary (evaluation, M12)",
+  "M08": "8 kHz waveform from predicted LSP with unvoiced excitation (folded into M06)",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "GRID S4 random 80/20 video split with all 51 words in both sets (Le Cornu and Milner protocol); five digit hold-out splits",
+  "M13": "Offline, speaker-dependent, one GPU, no latency report"
+ },
+ "topics": [
+  {
+   "slot": "M05",
+   "topic": "video-to-speech-visual-input-stream",
+   "reuse": "components/M05/video-to-speech-visual-input-stream.json",
+   "inclusion_rule": "published rule, unchanged (video-to-speech population of components/M06/video-to-speech-synthesis; full-text counts of mouth or lip crop, full face, optical flow)",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts",
+   "metric": "ASR WER on GRID where re-run; listener word accuracy"
+  },
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-synthesis",
+   "reuse": "components/M06/video-to-speech-synthesis.json",
+   "inclusion_rule": "published rule, unchanged",
+   "added": "pattern counts lpc_or_lsp, unvoiced_noise_excitation, handcrafted_visual over the same 165 studies",
+   "pattern": "published pattern",
+   "design_field": "published full-text vocoder counts",
+   "metric": "listener word accuracy on GRID S4; ASR WER on GRID"
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "inclusion_rule": "published rule, unchanged",
+   "added": "pattern counts closed_choice_listener, oov_word_test",
+   "pattern": "published pattern",
+   "design_field": "published protocol counts",
+   "metric": "listener test protocol; ASR WER on output"
+  }
+ ]
+}
