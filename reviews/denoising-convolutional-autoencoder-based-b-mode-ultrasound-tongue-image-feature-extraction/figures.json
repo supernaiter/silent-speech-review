@@ -1,0 +1,143 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Silent TIMIT reading, one speaker (SSC)"
+     ],
+     "field": "Reading tasks",
+     "n": 8995,
+     "matched": 4015,
+     "verdict": "standard",
+     "note": "SSC archive."
+    },
+    "M02": {
+     "choice": [
+      "Unlabelled reconstruction; recognizer labels from Ji et al."
+     ],
+     "field": "Text or phone labels",
+     "n": 8995,
+     "matched": 31,
+     "verdict": "standard",
+     "note": "Denoising criterion treated under M06."
+    },
+    "M03": {
+     "choice": [
+      "200 epochs; selection data, noise, seeds unstated"
+     ],
+     "field": "Per-speaker training",
+     "n": 8995,
+     "matched": 1608,
+     "verdict": "missing",
+     "note": "Architecture chosen on unstated data."
+    },
+    "M04": {
+     "choice": [
+      "Silent articulation"
+     ],
+     "field": "Overt or silent",
+     "n": 8995,
+     "matched": 6538,
+     "verdict": "standard",
+     "note": "–"
+    },
+    "M05": {
+     "choice": [
+      "Ultrasound plus lip camera, 60 fps, ROI 50x60"
+     ],
+     "field": "Ultrasound plus lips",
+     "n": 8995,
+     "matched": 8898,
+     "verdict": "standard",
+     "note": "SSC hardware."
+    },
+    "M06": {
+     "choice": [
+      "Denoising convolutional AE features"
+     ],
+     "field": "PCA or DCT, about 30 per stream",
+     "n": 8995,
+     "matched": 32,
+     "verdict": "standard",
+     "note": "Denoising and CNN features prior; 0.21 to 0.41 points over DCT."
+    },
+    "M07": {
+     "choice": [
+      "WSJ language model"
+     ],
+     "field": "Closed WSJ0 5k bigram; SSC studies, M12 tally of 8",
+     "n": 8995,
+     "matched": 3,
+     "verdict": "standard",
+     "note": "No later closed-LM result; [later] SSC work used a 65k LM."
+    },
+    "M08": {
+     "choice": [
+      "Word sequence"
+     ],
+     "field": "Text",
+     "n": 8995,
+     "matched": 3760,
+     "verdict": "standard",
+     "note": "–"
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "n": 8995,
+     "matched": 82,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "SSC split for WER; random frames for reconstruction"
+     ],
+     "field": "SSC split",
+     "n": 8995,
+     "matched": 239,
+     "verdict": "standard",
+     "note": "Reconstruction test set reused as validation (code)."
+    },
+    "M12": {
+     "choice": [
+      "WER, 1023 words, runs not stated; MSE, CW-SSIM"
+     ],
+     "field": "SSC WER, closed bigram",
+     "n": 8995,
+     "matched": 3,
+     "verdict": "standard",
+     "note": "New WERs not whole error counts."
+    },
+    "M13": {
+     "choice": [
+      "Offline helmet; no runtime"
+     ],
+     "field": "Laboratory prototype",
+     "n": 8995,
+     "matched": 6721,
+     "verdict": "missing",
+     "note": "No runtime or device test."
+    }
+   }
+  }
+ ]
+}
