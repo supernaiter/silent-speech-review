@@ -1,0 +1,49 @@
+{
+ "target": "arxiv-1903.00888",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "2010 Silent Speech Challenge data-collection lineage; the paper does not alter the participant's training-time action.",
+  "M04": "2010 Silent Speech Challenge silent-articulation recognition condition.",
+  "M05": "2010 Silent Speech Challenge acquisition lineage: mid-sagittal tongue ultrasound with its helmet-stabilized probe setup.",
+  "M08": "2010 Silent Speech Challenge recognition pipeline; output is recognized words.",
+  "M09": "2010 Silent Speech Challenge offline benchmark; no interactive presentation or confirmation stage.",
+  "M10": "2010 Silent Speech Challenge offline benchmark; no user correction or re-entry stage.",
+  "M11": "2010 Silent Speech Challenge reference utterances/transcriptions; this paper does not specify a new reference-construction protocol.",
+  "M13": "2010 Silent Speech Challenge offline evaluation setting; no separate deployment device or operating constraints are introduced.",
+  "M02": "Unlabelled reconstruction for the feature extractor; recognizer labels (transcripts, alignments) inherited from Ji et al. 2018. The speckle-denoising criterion is treated under M06 (feature extractor), where its prior (Jaumard-Hakoun 2016) sits.",
+  "M07": "WSJ language model of the SSC benchmark, inherited from Ji et al. 2018; no new lexicon or LM.",
+  "M03": "Training protocol of Ji et al. 2018 for the recognizer; the paper's own autoencoder training leaves validation, architecture-selection data, noise parameters, seeds and normalization unstated (verdict not_reported, table only)."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "ultrasound-tongue-image-features",
+   "reuse": "components/M06/ultrasound-tongue-image-features.json",
+   "inclusion_rule": "Include studies that compress ultrasound tongue images (with or without lip images) into feature vectors for recognition, synthesis or articulatory mapping by DCT, PCA/EigenTongues, autoencoders or learned CNN encoders. Boundary: exclude contour-only tracking without a feature vector used downstream, raw-image end-to-end models with no stated feature stage, and reviews; count versions once.",
+   "pattern": "^(?=.*ultrasound_imaging)(?=.*(\\bDCT\\b|discrete cosine|eigen-?tongue|\\bPCA\\b|principal component|auto-?encoder|bottleneck feature))",
+   "metric_pattern": "WER|word error",
+   "better": "lower"
+  },
+  {
+   "slot": "M12",
+   "topic": "silent-speech-challenge-benchmark",
+   "reuse": "components/M12/silent-speech-challenge-benchmark.json",
+   "inclusion_rule": "Include studies that report recognition or reconstruction results on the Silent Speech Challenge archive (single speaker, silent TIMIT training, 100 WSJ0 5k test sentences) or that test on the same 100 SSC sentences with a new recording. Boundary: exclude studies that only cite the SSC, surveys that restate its numbers (kept in the pattern match), and studies on other ultrasound corpora; count versions once.",
+   "pattern": "silent speech challenge|SSC ?(archive|benchmark|data|2010|WSJ0|sentences)|SSC2010|visual (TIMIT|WSJ0)",
+   "metric_pattern": "WER|word error",
+   "better": "lower"
+  }
+ ],
+ "writer_corrections": [
+  "M02 topic dropped: denoising reconstruction is an unlabelled training criterion of the M06 feature extractor, not training-only supervision; the prep pattern matched 1 study (the target) with known-item recall 0.",
+  "M03 topic dropped: prep audit had no usual approach; M03 kept in the table only with a not_reported verdict (architecture search, noise parameters and normalization unstated).",
+  "M07 topic dropped (prep marked it invalid; LM is inherited from the SSC benchmark).",
+  "M06 and M12 reuse the published topic tables append-only; deciding priors for M06: Jaumard-Hakoun 2016 (speckle-denoising autoencoder on tongue ultrasound, cited by the target as [13]) and Ji 2018 (DAE baseline).",
+  "State of the art: the published tables already record the target's 6.17% as the best SSC WER under the closed 5k bigram; the later end-to-end SSC result (Kimura 2020, 20.5% with a 65k LM) is reported as the different-condition later work."
+ ]
+}

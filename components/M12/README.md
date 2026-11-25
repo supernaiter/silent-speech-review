@@ -207,7 +207,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`silent-speech-challenge-benchmark.csv`](silent-speech-challenge-benchmark.csv) (6960 slot-filled, 8 pattern match, usual design in 3, 4 read in full)
 - Inclusion rule: Include studies that report recognition or reconstruction results on the Silent Speech Challenge archive (single speaker, silent TIMIT training, 100 WSJ0 5k test sentences) or that test on the same 100 SSC sentences with a new recording. Boundary: exclude studies that only cite the SSC, surveys that restate its numbers (kept in the pattern match), and studies on other ultrasound corpora; count versions once.
-- Used in: [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
+- Used in: [Denoising Convolutional Autoencoder Based B-mode Ultrasound Tongue Image Feature Extraction](../../reviews/denoising-convolutional-autoencoder-based-b-mode-ultrasound-tongue-image-feature-extraction/), [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
 
 ## text-and-video-to-speech-evaluation
 
