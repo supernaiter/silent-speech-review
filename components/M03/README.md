@@ -188,4 +188,4 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`word-lipreading-temporal-augmentation.csv`](word-lipreading-temporal-augmentation.csv) (1526 slot-filled, 156 pattern match, usual design in 40, 3 read in full)
 - Inclusion rule: The same word-level LRW / LRW-1000 population, classified by the training-time data handling their full text names: variable-length temporal cropping, time masking, random frame dropping or temporal jitter, mixup, word-boundary indicators, spatial crop and flip, and multi-stage training. Boundary: pattern counts include related-work mentions (upper bound); versions count once by key; dated as for the M06 topic.
-- Used in: [Lipreading using Temporal Convolutional Networks](../../reviews/lipreading-using-temporal-convolutional-networks/)
+- Used in: [Combining Residual Networks with LSTMs for Lipreading](../../reviews/combining-residual-networks-with-lstms-for-lipreading/), [Lipreading using Temporal Convolutional Networks](../../reviews/lipreading-using-temporal-convolutional-networks/)

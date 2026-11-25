@@ -1,0 +1,2330 @@
+{
+ "topic": "word-lipreading-visual-frontend",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "\\blrw\\b|lip reading in the wild|lrw-1000|cas-vsr-w1k",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies whose ledger names the English LRW benchmark or the Mandarin LRW-1000 / CAS-VSR-W1K benchmark (word-level lip reading), classified by the visual front end their full text names: spatiotemporal (3D) convolution, ResNet trunk, VGG trunk, ViT or patch transformer. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); audio-visual studies stay in; versions count once by ledger key (the target has three keys); dated by first public month (prior before 2016-09, [concurrent] 2016-09 to 2017-09, [later] after).",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 193,
+  "string_match_unique": 156,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "model_family=cnn",
+    "n": 43,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-11207165-v1",
+     "arxiv-2508.07233",
+     "doi-10.3390-e27111121",
+     "arxiv-2205.10839-vsa-survey",
+     "arxiv-2302.08841"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 21,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-11207165-v1",
+     "arxiv-2502.03128",
+     "doi-10.3390-e27111121",
+     "arxiv-2205.10839-vsa-survey",
+     "arxiv-2302.08841"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 19,
+    "tier": "slot-filled",
+    "pids": [
+     "cmc-nestlipgnn",
+     "arxiv-2502.03128",
+     "arxiv-2508.07233",
+     "arxiv-2510-22716-lrwpersian",
+     "doi-10.3390-s25082366"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 18,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-11207165-v1",
+     "arxiv-2508.07233",
+     "arxiv-2205.10839-vsa-survey",
+     "doi-10.21203-rs.3.rs-3852300-v1",
+     "arxiv-2310-04858-romanian"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture={'visual': 'spatiotemporal_cnn'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.13523-vekws"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='enhance': 'lip_guided_mask_mvdr'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.13523-vekws"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='fusion': 'cross_modal_attention'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2302.13523-vekws"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture={'classifier': 'mlp'",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2508.07233"
+    ]
+   },
+   {
+    "design": "ProcessingStep.architecture='decision': 'closed-set word class'}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2508.07233"
+    ]
+   },
+   {
+    "design": "model_family=hmm",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-access.2020.3036865"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "ResNet trunk",
+    "n": 124,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2508.13576",
+     "arxiv-2606.00751",
+     "arxiv-2607.08236",
+     "cmc-nestlipgnn",
+     "ijraset-77475-deeplip"
+    ]
+   },
+   {
+    "design": "spatiotemporal (3D) convolution front end",
+    "n": 122,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2508.13576",
+     "arxiv-2606.00751",
+     "ijraset-77475-deeplip",
+     "rsquare-10510743-cmtd",
+     "arxiv-2508.07233"
+    ]
+   },
+   {
+    "design": "VGG trunk",
+    "n": 64,
+    "tier": "pattern match",
+    "pids": [
+     "ijraset-77475-deeplip",
+     "arxiv-2502.03128",
+     "doi-10.22452-mjcs.vol38no4.4",
+     "doi-10.3390-e27111121",
+     "doi-10.3390-s25082366"
+    ]
+   },
+   {
+    "design": "ViT or patch transformer front end",
+    "n": 13,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2606.00751",
+     "arxiv-2510.10069-synclipmae",
+     "doi-10.3390-s25082366",
+     "cvf-tan22-dvs-lip-mstp",
+     "doi-10.21203-rs.3.rs-1386805-v1"
+    ]
+   }
+  ],
+  "metric_pattern": "LRW|top-?1|accuracy",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "t1 rbcll top10",
+   "value": 98.9,
+   "unit": "percent",
+   "raw": "98.9",
+   "pid": "arxiv-1904.04817",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "AVSR word-level accuracy on LRW test set, model-level fusion",
+   "value": 98.76,
+   "unit": "percent",
+   "raw": "AVSR accuracy for the LRW dataset equal to 98.76%",
+   "pid": "doi-10.3390-s23042284",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "5-shot accuracy",
+   "value": 98.75,
+   "unit": "%",
+   "raw": "98.75",
+   "pid": "arxiv-2302.05907",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "N7 Top10",
+   "value": 98.3,
+   "unit": "percent",
+   "raw": "98.3",
+   "pid": "arxiv-1703.04105",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW CR % (A+V end-to-end)",
+   "value": 98.0,
+   "unit": "percent",
+   "raw": "LRW classification rate %, end-to-end audiovisual",
+   "pid": "arxiv-1802.06424",
+   "year": 2018,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table2 ref96 LRW AV acc",
+   "value": 98,
+   "unit": "%",
+   "raw": "98",
+   "pid": "arxiv-2110.07879",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t1 syncvsr lrwwb",
+   "value": 95.0,
+   "unit": "percent",
+   "raw": "95.0",
+   "pid": "arxiv-2406.12233",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SyncNet validation accuracy 92.8% vs baseline 25.4%",
+   "value": 92.8,
+   "unit": "%",
+   "raw": "SyncNet initial-model validation accuracy",
+   "pid": "doi-10.1109-access.2021.3107946",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW top-1 accuracy",
+   "value": 92.3,
+   "unit": "percent",
+   "raw": "92.3% word-level accuracy on LRW, +2.1% absolute over prior SOTA",
+   "pid": "cmc-nestlipgnn",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "DC-TCN+PTM LRW peak",
+   "value": 92.15,
+   "unit": "percent",
+   "raw": "DC-TCN+PTM peak LRW accuracy @90 epochs",
+   "pid": "doi-10.3390-s25082366",
+   "year": 2025,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1611.05358",
+   "key": "t:lipreadingsentencesinthewild",
+   "title": "Lip Reading Sentences in the Wild",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ional lip reader (73.8%->50.2% WER lips-only); WLAS audio-visual improves clean-audio WER to 13.9% vs 17.7% audio-only; LRW WER 23.8% vs 38.9% prior; GRID WER 3.0% | author_claimed_contribution=WLAS network, curriculum learning strategy, and 1"
+  },
+  {
+   "pid": "arxiv-1703.04105",
+   "key": "t:combiningresidualnetworkswithlstmsforlipreadinginterspeech2017",
+   "title": "Combining Residual Networks with LSTMs for Lipreading (Interspeech 2017)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eading (Interspeech 2017) | Study.research_objective=front-end 3D conv + ResNet, back-end Bi-LSTM trained end-to-end on LRW word-level lip-reading; ablate temporal-conv vs LSTM, 2D vs 3D, ResNet vs DNN, add vs concat, fixed vs E2E. | task_fami"
+  },
+  {
+   "pid": "arxiv-1710.11201",
+   "key": "t:deepwordembeddingsforvisualspeechrecognition",
+   "title": "Deep word embeddings for visual speech recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rch_objective=Stafylakis/Tzimiropoulos: ResNet-18 spatiotemporal frontend + BiLSTM backend + avg-pool word embedding on LRW; N1-N6 ablation on 350 words; N5/N6 on full 500; low-shot PLDA word-ID + EER on 150 unseen words. | task_family=isolate"
+  },
+  {
+   "pid": "arxiv-1802.06424",
+   "key": "t:endtoendaudiovisualspeechrecognition",
+   "title": "End-to-End Audiovisual Speech Recognition",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "gn=controlled_experiment | task_family=isolated_word_recognition | extra.Task.target=within-context word recognition on LRW, clean + babble-noise SNR sweep | extra.Task.output_kind=word class label | production_labels=ordinary_voiced_speech |"
+  },
+  {
+   "pid": "arxiv-1804.04121",
+   "key": "p:arxiv-1804.04121",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "frame clean segments; ablation of phase source (GT / Griffin-Lim / mixed / predicted); frozen pretrained lip front-end (LRW + internal multiview); 3-phase curriculum training; cross-dataset PESQ-NF test for unseen speakers+languages | Evaluati"
+  },
+  {
+   "pid": "arxiv-1805.12371",
+   "key": "t:lipreadingusingconvolutionalautoencodersasfeatureextractor",
+   "title": "Lip Reading Using Convolutional Auto Encoders as Feature Extractor",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "={'electrodes': '72x42(BBC)/72x28(MIRACL,GRID) crops', 'coordinate_system': 'face'} | dataset_description=BBC-9: 9-word LRW subset, 72x42 crops | dataset_description=BBC-27: 27 confusable words (e.g. chance/change), similar phonemes, ~GRID-sca"
+  },
+  {
+   "pid": "arxiv-1806.06053",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d_use_cases=assistive_text_entry, noisy_environment | acoustic_mode=no_vocalization | Cohort.demographics=BBC speakers; LRW frontal/near-frontal; LRS2 frontal-to-profile view variety | modalities=optical_camera | Acquisition.sensor_geometry={'"
+  },
+  {
+   "pid": "arxiv-1807-08469-zeroshotkws",
+   "key": "t:zeroshotkeywordspottingforvisualspeechrecognitioninthewild",
+   "title": "Zero-shot keyword spotting for visual speech recognition in-the-wild",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ra | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=spatiotemporal ResNet (LRW-pretrained); BiRNN text encoder; Joint-G2P grapheme-phoneme keyword embedding | Dataset.counts_by_unit=LRS2 pretrain/tr"
+  },
+  {
+   "pid": "arxiv-1807.07860",
+   "key": "p:arxiv-1807.07860",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ding=natural_utterance | vocabulary_regime=closed_lexicon | modalities=microphone, optical_camera | dataset_description=LRW: 500 word classes, >800 train + 50 val/test per class, 1s clips; 25000 test samples for retrieval | dataset_description"
+  },
+  {
+   "pid": "arxiv-1809.00496",
+   "key": "t:lrs3tedalargescaledatasetforvisualspeechrecognition",
+   "title": "LRS3-TED: a large-scale dataset for visual speech recognition",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nformationResource.resource_provenance=YouTube TED/TEDx channels | information_kind=comparison corpora: GRID, MODALITY, LRW, LRS2-BBC (Table 1 statistics) | code_url=http://www.robots.ox.ac.uk/~vgg/data/lip_reading | claim=LRS3-TED is substant"
+  },
+  {
+   "pid": "arxiv-1809.08001",
+   "key": "t:perfectmatchimprovedcrossmodalembeddingsforaudiovisualsynchronisation",
+   "title": "Perfect match: Improved cross-modal embeddings for audio-visual synchronisation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oss learns AV embeddings for lip-sync; big gains over pairwise SyncNet/AVE-Net at short context; embeddings transfer to LRW word-level VSR (TC-5). | task_family=isolated_word_recognition | extra.Task.scope=T1 sync acc {5..15 frames} x {SyncNet"
+  },
+  {
+   "pid": "arxiv-1810.06178",
+   "key": "t:3dfeaturepyramidattentionmoduleforrobustvisualspeechrecognition",
+   "title": "3D Feature Pyramid Attention Module for Robust Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n | Study.research_objective=Extend FPA attention to 3D (spatiotemporal) and embed in LipNet (GRID sentences) and CRNL (LRW words); per-word-position WER analysis; word-level accuracy improvement on hard words. | task_family=sentence_recogniti"
+  },
+  {
+   "pid": "arxiv-1810.06990",
+   "key": "t:lrw1000anaturallydistributedlargescalebenchmarkforlipreadinginthewild",
+   "title": "LRW-1000: A Naturally-Distributed Large-Scale Benchmark for Lip Reading in the Wild",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv/1810.06990 | title=LRW-1000: A Naturally-Distributed Large-Scale Benchmark for Lip Reading in the Wild | authors=Shuang Yang, Yuanhang Zhang,"
+  },
+  {
+   "pid": "arxiv-1811.01194",
+   "key": "t:pushingtheboundariesofaudiovisualwordrecognitionusingresidualnetworksandlstms",
+   "title": "Pushing the boundaries of audiovisual word recognition using Residual Networks and LSTMs",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tle=Pushing the boundaries of audiovisual word recognition using Residual Networks and LSTMs | Study.research_objective=LRW word-level V/A/AV recognition: ResNet18+3D frontend, BiLSTM vs TConv backend, optical-flow, word-boundary indicator var"
+  },
+  {
+   "pid": "arxiv-1812.09336",
+   "key": "t:anempiricalanalysisofdeepaudiovisualmodelsforspeechrecognition",
+   "title": "An Empirical Analysis of Deep Audio-Visual Models for Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "f Deep Audio-Visual Models for Speech Recognition | Study.research_objective=Reimplement/derive Petridis et al. AVSR on LRW; add attention, Gaussian-noise augmentation, deeper ResNet-34 visual stream; ablate each factor and compare with [28]."
+  },
+  {
+   "pid": "arxiv-1903.09616",
+   "key": "t:ontheimportanceofvideoactionrecognitionforvisuallipreading",
+   "title": "On the Importance of Video Action Recognition for Visual Lipreading",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ips containing the target word inside a longer utterance; word must be temporally spotted | Dataset.collection_protocol=LRW dataset: 500 target words, 488,766 train / 25,000 val / 25,000 test clips from BBC TV; compares larger than GRID/CUAVE"
+  },
+  {
+   "pid": "arxiv-1904.03760",
+   "key": "p:arxiv-1904.03760",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "BLSTM (~22M), Conv-TasNet gLN (~13M), oracle PSM/IRM, Conv-FavsNet (freq-domain AV, ~10M); lip embeddings pretrained on LRW (word) or LRS2 pretrain (CI/CD-phone); ablations: emb type, BN vs gLN, Na/Nf, multi-speaker training | EvaluationProtoc"
+  },
+  {
+   "pid": "arxiv-1904.04817",
+   "key": "t:learningfromvideoswithdeepconvolutionallstmnetworks",
+   "title": "Learning from Videos with Deep Convolutional LSTM Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "m Videos with Deep Convolutional LSTM Networks | Study.research_objective=Deep ConvLSTM networks for word lipreading on LRW: VGG-M/ResNet34 + (Bi)ConvLSTM, bidirectional via separately-trained reverse net, optional LRS2 char-CTC pretrain; abla"
+  },
+  {
+   "pid": "arxiv-1904.07002",
+   "key": "p:arxiv-1904.07002",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Augsburg / Oulu | vocabulary_regime=closed_lexicon | modalities=microphone, optical_camera, other | dataset_description=LRW: ~450k videos, 1000 speakers, 500 words, in-the-wild TV broadcasts | dataset_description=own 4D capture: 4 speakers (2"
+  },
+  {
+   "pid": "arxiv-1905.02540",
+   "key": "t:learningspatiotemporalfeatureswithtwostreamdeep3dcnnsforlipreading",
+   "title": "Learning Spatio-Temporal Features with Two-Stream Deep 3D CNNs for Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ") 3D CNNs: two-stream I3D (grayscale+optical flow), two-round pretrain (ImageNet-inflated→Kinetics), Bi-LSTM backend on LRW; 10-config ablation of front/back-end and pretraining. | task_family=isolated_word_recognition | extra.Task.scope=T1 5"
+  },
+  {
+   "pid": "arxiv-1905.03968",
+   "key": "t:mobivsravisualspeechrecognitionsolutionformobiledevices",
+   "title": "MobiVSR: A Visual Speech Recognition Solution for Mobile Devices",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "obile: LipRes blocks (no 3D conv, no RNN), width multiplier alpha; accuracy-size tradeoff + energy/CO2 cost modeling on LRW. | task_family=isolated_word_recognition | extra.Task.scope=T1 Horowitz 45nm energy; T2 7x7 acc/size/flops; T3 per-laye"
+  },
+  {
+   "pid": "arxiv-1906.06337",
+   "key": "p:arxiv-1906.06337",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| dataset_description=CREMA-D: 91 actors x 12 sentences x emotions; 11594/9.7h tr; 70/15/15 split | dataset_description=LRW: 112658/36.3h tr (near-frontal filter <10 deg); recommended split | Representation.transformation_definition=audio chun"
+  },
+  {
+   "pid": "arxiv-1908.11618",
+   "key": "t:multigrainedspatiotemporalmodelingforlipreading",
+   "title": "Multi-Grained Spatio-temporal Modeling for Lip-reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ulti-grained lip-reading: ResNet-34 fine + DenseNet3D-52 medium, attention fusion, forward-input-attention Bi-ConvLSTM; LRW + Mandarin LRW-1000. | task_family=isolated_word_recognition | extra.Task.scope=T1 5x2 own rows; T2a 6 + T2b 5 SOTA row"
+  },
+  {
+   "pid": "arxiv-1911.06095",
+   "key": "t:towardsposeinvariantlipreading",
+   "title": "Towards Pose-invariant Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Pose-invariant Lip-Reading | Study.research_objective=pose-augmented training: synthesize LP profile-view word clips; M[LRW+LP]+2D-aug for cross-database robustness; per-pose accuracy on balanced LRS2-Ba by yaw/pitch quintiles. | task_family=i"
+  },
+  {
+   "pid": "arxiv-1912.08639",
+   "key": "p:arxiv-1912.08639",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "confidence adversarial detector for AVSR | reproduction_status=original_report | EvaluationProtocol.experimental_design=LRW (500 words, >1000 speakers; 488766/25000/25000 split) word-level model + GRID (33 speakers, 33000 utts; 16/7/10 split)"
+  },
+  {
+   "pid": "arxiv-2001.08702",
+   "key": "t:lipreadingusingtemporalconvolutionalnetworks",
+   "title": "Lipreading using Temporal Convolutional Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "bustness; AV babble-noise variant (fig-only). | task_family=isolated_word_recognition | extra.Task.scope=T1 SOTA 7 rows LRW/1k; T2 frame-drop 3x6 (BGRU fixed vs variable vs TCN); AV-noise fig-only. | intended_use_cases=speech_restoration, nois"
+  },
+  {
+   "pid": "arxiv-2003.03206",
+   "key": "t:canwereadspeechbeyondthelipsrethinkingroiselectionfordeepvisualspeechrecognition",
+   "title": "Can We Read Speech Beyond the Lips? Rethinking RoI Selection for Deep Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "mouth vs full-face vs upper-face vs cheeks, direct vs landmark-aligned crops, +CBAM attention, +Cutout regularization; LRW/LRW-1000/GRID; pose-wise LRW-1000; LRW->1k fixed-frontend transfer to rule out dataset bias. | task_family=isolated_wor"
+  },
+  {
+   "pid": "arxiv-2003.03983",
+   "key": "t:pseudoconvolutionalpolicygradientforsequencetosequencelipreading",
+   "title": "Pseudo-Convolutional Policy Gradient for Sequence-to-Sequence Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "seudo-convolution receptive field + overlap) for seq2seq lipreading; replaces plain REINFORCE (k=1,s=1); GRID CER/WER + LRW/1k acc; FC-classifier transfer of learned repr; k/w ablation. | task_family=sentence_recognition | extra.Task.scope=T1"
+  },
+  {
+   "pid": "arxiv-2003.05709",
+   "key": "t:deformationflowbasedtwostreamnetworkforlipreading",
+   "title": "Deformation Flow Based Two-Stream Network for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "upervised deformation flow (frame-pair L1 warp) + grayscale branch, multiplicative-prob fusion + bidirectional KD loss; LRW/LRW-1000 word acc; vs PWC-Net optical flow + fusion/KD ablations. | task_family=isolated_word_recognition | extra.Task."
+  },
+  {
+   "pid": "arxiv-2003.06439",
+   "key": "t:mutualinformationmaximizationforeffectivelipreading",
+   "title": "Mutual Information Maximization for Effective Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "k_family=isolated_word_recognition | extra.Task.scope=T1 modified baseline 3 rows; T2 10 confusable-word class accs; T3 LRW SOTA 7; T4 LRW-1000 7. | intended_use_cases=speech_restoration | extra.Production.scope_note=word-boundary not input at"
+  },
+  {
+   "pid": "arxiv-2004.14326",
+   "key": "t:seeingvoicesandhearingvoiceslearningdiscriminativeembeddingsusingcrossmodalselfs",
+   "title": "Seeing voices and hearing voices: learning discriminative embeddings using cross-modal self-supervision",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "audio-vs-face pairs co-occur => identity; same-facetrack timestep pairs => phonetic; downstream VoxCeleb1 SV/CBM EER + LRW lipreading R@1/R@10 after LRS2 pretrain. | task_family=isolated_word_recognition | extra.Task.scope=T2 identity CBM+SV"
+  },
+  {
+   "pid": "arxiv-2005.03846",
+   "key": "t:synchronousbidirectionallearningformultilinguallipreading",
+   "title": "Synchronous Bidirectional Learning for Multilingual Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "fy L2R+R2L phoneme contexts per decoder block vs two separate TM branches; optional language-type flag task; PER+Acc on LRW & LRW-1000. | task_family=isolated_word_recognition | extra.Task.scope=T1 CPs/UPs PER 5x4; T2 PER 5x6 (L2R/R2L/C-Bi); T"
+  },
+  {
+   "pid": "arxiv-2005.08209",
+   "key": "t:learningindividualspeakingstylesforaccurateliptospeechsynthesis",
+   "title": "Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ext window, gradual teacher-forcing decay, +new Lip2Wav 5-speaker 120h dataset; ablations ctx/tf/encoder; multi-speaker LRW baseline via speaker embedding. | task_family=speech_reconstruction | extra.Task.scope=T1 dataset cmp; T2/T3 GRID+TIMIT"
+  },
+  {
+   "pid": "arxiv-2005.10903",
+   "key": "t:spotfastnetworkswithmemoryaugmentedlateraltransformersforlipreading",
+   "title": "SpotFast Networks with Memory Augmented Lateral Transformers for Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ow pathway sized by boundary heuristic + all-frame pathway) with memory-augmented lateral transformers linking streams; LRW top-1. | task_family=isolated_word_recognition | extra.Task.scope=T1 LRW SOTA 7 rows; T2 window-size ablation 3x2; Fig5"
+  },
+  {
+   "pid": "arxiv-2006.08599",
+   "key": "t:noticmyspeechblendingspeechpatternswithmultimedia",
+   "title": "\"Notic My Speech\" -- Blending Speech Patterns With Multimedia",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ulti-view lipreading w/ STCNN+BiLSTM+joint CTC/attention (location-aware) + hierarchical view attention; VER on OuluVS2/LRW/LRS3; view-importance, important-viseme, and human-eval compressed-video studies. | task_family=sentence_recognition |"
+  },
+  {
+   "pid": "arxiv-2007.06504",
+   "key": "t:towardspracticallipreadingwithdistilledandefficientmodels",
+   "title": "Towards Practical Lipreading with Distilled and Efficient Models",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y.study_design=controlled_experiment | task_family=isolated_word_recognition | extra.Task.target=word classification on LRW (500 English) and LRW-1000 (1000 Mandarin syllable classes); accuracy-FLOPs trade-off | language=English, Mandarin | ex"
+  },
+  {
+   "pid": "arxiv-2009.01225",
+   "key": "t:seeingwakewordsaudiovisualkeywordspotting",
+   "title": "Seeing wake words: Audio-visual Keyword Spotting",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "honetic keyword encoding similarity map + localisation, query-by-string incl unseen keywords; visual/audio/AV models on LRW+LRS2+LRS3(-Fr/-De), babble-noise robustness. | task_family=isolated_word_recognition | extra.Task.scope=T1 dataset stat"
+  },
+  {
+   "pid": "arxiv-2009.09561",
+   "key": "p:arxiv-2009.09561",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "6kHz | representation_kind=98x98 lip-centered grayscale crop from 68 Dlib landmarks @25fps; embeddings trained as word (LRW) / phone (39 CI phones, CMU dict) / articulation-place (10 classes) posteriors | intended_use_cases=noisy_environment,"
+  },
+  {
+   "pid": "arxiv-2009.14233",
+   "key": "t:lipreadingwithdenselyconnectedtemporalconvolutionalnetworks",
+   "title": "Lip-reading with Densely Connected Temporal Convolutional Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "for word-level VSR: dense temporal-conv connections (FD/PD) + SE attention; K={3,5,7},D={1,2,5},Co=128,Cr=512,B=4; SOTA LRW 88.36 PD + LRW-1000 43.65; frame-drop robustness eval. | task_family=isolated_word_recognition | extra.Task.scope=T1 K/"
+  },
+  {
+   "pid": "arxiv-2011.07557",
+   "key": "t:learnaneffectivelipreadingmodelwithoutpains",
+   "title": "Learn an Effective Lip Reading Model without Pains",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ctive Lip Reading Model without Pains | Study.research_objective=Case-by-case bag-of-tricks study for word-level VSR on LRW+LRW-1000: frontend (ResNet/SE), backend (GRU/MS-TCN/Transformer), data (alignment, word boundaries), training tweaks (M"
+  },
+  {
+   "pid": "arxiv-2011.14334",
+   "key": "p:arxiv-2011.14334",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d conv encoder representation (time-domain, no STFT) | representation_kind=frozen visual encoder features pretrained on LRW+MS-Celeb-1M, disentangled to speech-related subspace | intended_use_cases=noisy_environment, other | EvaluationProtocol"
+  },
+  {
+   "pid": "arxiv-2012.07657",
+   "key": "t:lipsdontlieageneralisableandrobustapproachtofaceforgerydetection",
+   "title": "Lips Dont Lie: A Generalisable and Robust Approach to Face Forgery Detection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ch to Face Forgery Detection | Study.research_objective=LipForensics: pretrain spatio-temporal mouth-region features on LRW lipreading (3D/2D ResNet-18 + MS-TCN), freeze extractor, finetune classifier on FF++ for high-level temporal mouth-moti"
+  },
+  {
+   "pid": "arxiv-2012.14360",
+   "key": "t:lipreadingwithhierarchicalpyramidalconvolutionandselfattention",
+   "title": "Lip-reading with Hierarchical Pyramidal Convolution and Self-Attention",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-reading with Hierarchical Pyramidal Convolution and Self-Attention | Study.research_objective=Word-level lipreading on LRW: replace ResNet-18 conv w/ HPConv (pyramidal kernels K=3,5,7,9 + local->global hierarchical connections) and average co"
+  },
+  {
+   "pid": "arxiv-2102.06657",
+   "key": "t:endtoendaudiovisualspeechrecognitionwithconformers",
+   "title": "End-to-End Audio-Visual Speech Recognition with Conformers",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ps (195h pretrain/28h train/0.6h val/0.5h test); LRS3: 438.9h, 151,819 TED utts (408h pretrain/30h trainval/0.9h test); LRW 157h for pretraining | dataset_id=LRS2 + LRW + LRS3v0.4/v0.0 | Dataset.counts_by_unit={'lrs2_hours': 224.1, 'lrs2_clips"
+  },
+  {
+   "pid": "arxiv-2104.05418",
+   "key": "t:contrastivelearningofgloballocalvideorepresentations",
+   "title": "Contrastive Learning of Global-Local Video Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "actorized encoders (Eg_v S-global/T-global, El_v S-global/T-local) + AV spatial attention; transfer to lipreading (LRS2/LRW), deepfake (DFDC), AV event loc, action/sound cls. | task_family=sentence_recognition | extra.Task.scope=T1 lipreading"
+  },
+  {
+   "pid": "arxiv-2104.13332",
+   "key": "t:endtoendvideotospeechsynthesisusinggenerativeadversarialnetworks",
+   "title": "End-to-End Video-To-Speech Synthesis using Generative Adversarial Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "mouth->waveform GAN: video encoder + PASE/power/MFCC L1 losses + waveform&power critics; GRID seen/unseen + TCD-TIMIT + LRW/FLRW in-the-wild; best PESQ/WER vs Lip2Wav et al. | task_family=speech_reconstruction | extra.Task.scope=T1 dataset sta"
+  },
+  {
+   "pid": "arxiv-2106.09171",
+   "key": "t:liralearningvisualspeechrepresentationsfromaudiothroughselfsupervision",
+   "title": "LiRA: Learning Visual Speech Representations from Audio through Self-supervision",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e=Cross-modal SSL: visual encoder (3D front-end+ResNet18+conformer) predicts PASE+ audio features on LRS3 -> downstream LRW word / LRS2 sentence lipreading in 3 modes (Supervised/Frozen/FineTuned); new SOTA 38.8% WER LRS2 w/o external labels."
+  },
+  {
+   "pid": "arxiv-2108.03543",
+   "key": "t:spatiotemporalattentionmechanismandknowledgedistillationforlipreading",
+   "title": "Spatio-Temporal Attention Mechanism and Knowledge Distillation for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ive=On Feng2020 baseline: +lip-alignment aug, +spatio-temporal attention (Rao-style), +KD (Mabrouk); each ~+0.5-0.8% on LRW, integrated model underperforms components (local minima hypothesis). | task_family=isolated_word_recognition | extra.T"
+  },
+  {
+   "pid": "arxiv-2109.06692",
+   "key": "t:lrwrlargescalebenchmarkforlipreadinginrussianlanguage",
+   "title": "LRWR: Large-Scale Benchmark for Lip Reading in Russian language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "5 spk, 117.5k samples, lips-only release); benchmark 10 networks + training-tips; propose ALN (3D+ResNeSt+RNN) -> 89.1% LRW / 61.1% LRWR SOTA. | task_family=isolated_word_recognition | extra.Task.scope=T2 10-network LRWR benchmark; T3 training"
+  },
+  {
+   "pid": "arxiv-2110-15957-vkwsattn",
+   "key": "t:visualkeywordspottingwithattention",
+   "title": "Visual Keyword Spotting with Attention",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "r); localizes keyword extent, outperforms KWS-Net | Study.study_design=controlled_experiment | dataset_id=LRS2 + LRS3 + LRW | task_family=phoneme_or_character_classification | extra.Production.scope_note=visual-only KWS + temporal localization"
+  },
+  {
+   "pid": "arxiv-2110.06507",
+   "key": "t:perceptionpointidentifyingcriticallearningperiodsinspeechforbilingualnetworks",
+   "title": "Perception Point: Identifying Critical Learning Periods in Speech for Bilingual Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ifying Critical Learning Periods in Speech for Bilingual Networks | Study.research_objective=Viseme-classification over LRW (English) + LRW-1000 (Mandarin), mono vs bilingual models at 25/50/75/100% splits: is there a critical learning period"
+  },
+  {
+   "pid": "arxiv-2110.07879",
+   "key": "t:advancesandchallengesindeeplipreading",
+   "title": "Advances and Challenges in Deep Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "OuluVS2: controlled, continuous digits/phrase/sentence, 20k samples, 53 subjects (40M/13F), 2015. | dataset_description=LRW: wild TV word clips, 539k+ samples, 500 word classes, 29-frame target-word-centric, 2016. | dataset_description=LRW-100"
+  },
+  {
+   "pid": "arxiv-2110.15957",
+   "key": "t:visualkeywordspottingwithattention",
+   "title": "Visual Keyword Spotting with Attention",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sformer jointly encodes video frames + phoneme query for visual keyword spotting with per-frame localisation; LRS2/LRS3/LRW/BSL eval. | task_family=isolated_word_recognition | extra.Task.scope=keyword spot Acc@1/5 + mAPCls/mAPLoc on LRS2/LRS3;"
+  },
+  {
+   "pid": "arxiv-2111.01740",
+   "key": "t:personalizedoneshotlipreadingforanalspatient",
+   "title": "Personalized One-Shot Lipreading for an ALS Patient",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eading for an ALS Patient | Study.research_objective=one-shot word lipreading personalized to ALS patient + 4 speakers; LRW-pretrained LRwP/LTCN ft with real+synthetic(TTS: FastSpeech2/GlowTTS)+augmented data; variational encoder variant. | ta"
+  },
+  {
+   "pid": "arxiv-2202.07428",
+   "key": "t:learningcontextuallyfusedaudiovisualrepresentationsforaudiovisualspeechrecogniti",
+   "title": "Learning Contextually Fused Audio-visual Representations for Audio-visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "+AVSR+VSR grid; lipread acc; exclusion strategies. | intended_use_cases=assistive_text_entry | Cohort.demographics=LRS3/LRW speakers | modalities=microphone, optical_camera | Acquisition.sensor_geometry={'electrodes': 'lip video + audio', 'coo"
+  },
+  {
+   "pid": "arxiv-2202.09081-vcvts",
+   "key": "t:vcvtsmultispeakervideotospeechsynthesisviacrossmodalknowledgetransferfromvoiceco",
+   "title": "VCVTS: Multi-Speaker Video-to-Speech Synthesis via Cross-Modal Knowledge Transfer from Voice Conversion",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "OI/ESTOI/MCD/F0-RMSE plus subjective MOS naturalness and speaker similarity (95% CI) per system on seen/unseen GRID and LRW test speakers | task_encoding=natural_utterance | task_family=speech_reconstruction | Cohort.demographics=GRID (constra"
+  },
+  {
+   "pid": "arxiv-2202.13084",
+   "key": "t:visualspeechrecognitionformultiplelanguagesinthewild",
+   "title": "Visual Speech Recognition for Multiple Languages in the Wild",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cript | extra.Output.output_kind=transcript (WER/CER) | extra.Configuration.configuration_scope=train-set scaling {None,LRW,+LRS3,+AVSpeech} x 4 datasets | TrainingRun.training_objective=aux-task + main loss; pretrain->finetune for small corpo"
+  },
+  {
+   "pid": "arxiv-2202.13403",
+   "key": "t:amultimodalgermandatasetforautomaticlipreadingsystemsandtransferlearning",
+   "title": "A Multimodal German Dataset for Automatic Lip Reading Systems and Transfer Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Learning | Study.research_objective=introduce GLips: 250k German word-level lip videos from Hessian Parliament webcam, LRW-compatible; test cross-language transfer learning with X3D on LRW15/GLips15 subsets. | task_family=isolated_word_recogn"
+  },
+  {
+   "pid": "arxiv-2203.01265",
+   "key": "p:arxiv-2203.01265",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nd=binary real/fake logit per video | EvaluationProtocol.null_and_chance_baselines=train-from-scratch line + supervised LRW-pretrained Lipforensics* control | Study.unit_of_analysis=video-level; robustness at severity levels 1-5 | EvaluationRu"
+  },
+  {
+   "pid": "arxiv-2203.07996",
+   "key": "t:leveragingunimodalselfsupervisedlearningformultimodalaudiovisualspeechrecognitio",
+   "title": "Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "urce 28h. | task_family=sentence_recognition | extra.Task.scope=WER LRS2 {AO,VO,AV} x {clean,0/5dB babble,human noise}; LRW word acc; params; low-resource. | intended_use_cases=assistive_text_entry | Cohort.demographics=LRS2/LRW in-the-wild sp"
+  },
+  {
+   "pid": "arxiv-2204.01265",
+   "key": "t:multimodalityassociativebridgingthroughmemoryspeechsoundrecollectedfromfacevideo",
+   "title": "Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tive=associative bridging: modality-specific embedding + memory recalls target modality from source; evals lip reading (LRW, LRW-1000) and speech reconstruction from silent face video (GRID, speaker-dep + indep, STOI/ESTOI/PESQ + MOS). | task_"
+  },
+  {
+   "pid": "arxiv-2204.01725",
+   "key": "t:distinguishinghomophenesusingmultiheadvisualaudiomemoryforlipreading",
+   "title": "Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Audio Memory for Lip Reading | Study.research_objective=multi-head visual-audio memory (MVM) for lipreading homophenes; LRW+LRW-1000 word acc, LRS2 WER; ablation levels/heads/slots. | task_family=isolated_word_recognition | extra.Task.scope=wo"
+  },
+  {
+   "pid": "arxiv-2204.01726",
+   "key": "t:liptospeechsynthesiswithvisualcontextattentionalgan",
+   "title": "Lip to Speech Synthesis with Visual Context Attentional GAN",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "context to resolve homophene ambiguity; contrastive synchronization learning; multi-speaker settings on GRID/TCD-TIMIT/LRW | Study.unit_of_analysis=STOI/ESTOI/PESQ/WER + MOS (intelligibility/naturalness/synchronization) per dataset & speaker"
+  },
+  {
+   "pid": "arxiv-2204.02810",
+   "key": "t:expressionpreservingfacefrontalizationimprovesvisuallyassistedspeechprocessing",
+   "title": "Expression-preserving face frontalization improves visually assisted speech processing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "udy.research_objective=dynamic 3D face frontalization preserving expression; validated via ZNCC (OuluVS2), 500-IWR WCS (LRW, train/test FF combos), AVSE STOI/PESQ/SI-SDR (MEAD level-3 emotions, SNR sweep). | task_family=intermediate_signal_pro"
+  },
+  {
+   "pid": "arxiv-2205.02058",
+   "key": "t:svtsscalablevideotospeechsynthesis",
+   "title": "SVTS: Scalable Video-to-Speech Synthesis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "st intelligible LRS3 results) — vs prior small/constrained corpora | Study.unit_of_analysis=PESQ/STOI/ESTOI/WER on GRID/LRW/LRS3 (seen+unseen); vocoder and loss ablations; WER via ASR pretrained on LRW/LRS2/LRS3 (0.1% on real) | task_encoding="
+  },
+  {
+   "pid": "arxiv-2205.10839",
+   "key": "t:deeplearningforvisualspeechanalysisasurvey",
+   "title": "Deep Learning for Visual Speech Analysis: A Survey",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "aker info, metrics). | task_family=sentence_recognition | extra.Task.scope=reviewed VSR & VSG representative methods on LRW/LRW-1000/GRID/LRS2/LRS3/LSVSR + dataset stats + architecture pros/cons. | acoustic_mode=no_vocalization | Cohort.demogr"
+  },
+  {
+   "pid": "arxiv-2205.10839-vsa-survey",
+   "key": "t:deeplearningforvisualspeechanalysisasurvey",
+   "title": "Deep Learning for Visual Speech Analysis: A Survey",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "isual corpora: AVICAR, GRID, OuluVS2, IBM AV-ASR, VOCASET, MEAD | dataset_description=in-the-wild audio-visual corpora: LRW, LRS2-BBC, VoxCeleb1/2, ObamaSet, LRS3-TED, LRW-1000, HDTF, MuAViC | technical_essence=visual frontend networks: handcr"
+  },
+  {
+   "pid": "arxiv-2207.05692",
+   "key": "t:liplisteningmixingsensestounderstandlipsusingcrossmodalityknowledgedistillationf",
+   "title": "Lip-Listening: Mixing Senses to Understand Lips using Cross Modality Knowledge Distillation for Word-Based Models",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "evel KD1 + frame-level KD2 w/ Gaussian-averaged targets; Word Isolation + partial Spectrogram Augmentation for teacher; LRW. | task_family=isolated_word_recognition | extra.Task.scope=word-level visual lipreading + audio-teacher; KD-level abla"
+  },
+  {
+   "pid": "arxiv-2208.04498",
+   "key": "t:speakeradaptivelipreadingwithuserdependentpadding",
+   "title": "Speaker-adaptive Lip Reading with User-dependent Padding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ading nets, adapt only padding on 1-5min/0-100% speaker data (supervised) or self-trained pseudo-labels (unsupervised); LRW-ID speaker-labeled corpus (17,580 speakers clustered, 20 test speakers); GRID+LRW-ID; WER/acc. | task_family=sentence_r"
+  },
+  {
+   "pid": "arxiv-2209.00642",
+   "key": "t:liptospeechsynthesisforarbitraryspeakersinthewild",
+   "title": "Lip-to-Speech Synthesis for Arbitrary Speakers in the Wild",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "beddings | Study.unit_of_analysis=per-dataset PESQ/STOI/SED + FDSD/KDSD/LSE-C/LSE-D on GRID/TCD-TIMIT (constrained) and LRW/LRS2 (in-the-wild, unseen speakers); vs retrained baselines + lip2text+TTS cascade | task_encoding=natural_utterance |"
+  },
+  {
+   "pid": "arxiv-2209.01383",
+   "key": "t:trainingstrategiesforimprovedlipreading",
+   "title": "Training Strategies for Improved Lip-reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2209.01383 | title=Training Strategies for Improved Lip-reading | Study.research_objective=LRW isolated-word lip-reading training strategies: augmentation ablation (crop/flip/mixup/time-mask/word-boundary), 3 tempo"
+  },
+  {
+   "pid": "arxiv-2211.10883",
+   "key": "t:audiovisualvideofacehallucinationwithfrequencysupervisionandcrossmodalitysupport",
+   "title": "Audio-visual video face hallucination with frequency supervision and cross modality support by speech based lip reading loss",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "solution x4 using speech-derived lip-reading loss + frequency supervision + attention; eval PSNR/SSIM/ERQA on GRID/LRS2/LRW vs bicubic/SRGAN/ProgGAN/SICNN/GFPGAN/RealBasicVSR. | task_family=intermediate_signal_processing | extra.Task.scope=AV"
+  },
+  {
+   "pid": "arxiv-2301.01456",
+   "key": "t:audiovisualefficientconformerforrobustspeechrecognition",
+   "title": "Audio-Visual Efficient Conformer for Robust Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e/white/6 noise types vs Ma/Petridis. | intended_use_cases=assistive_text_entry | Cohort.demographics=BBC/TED speakers (LRW, LRS2, LRS3) | modalities=optical_camera, microphone | Acquisition.sensor_geometry={'electrodes': 'face video 22x22 pos"
+  },
+  {
+   "pid": "arxiv-2301.10180",
+   "key": "t:amultipurposeaudiovisualcorpusformultimodalpersianspeechrecognitionthearmanavdat",
+   "title": "A Multi-Purpose Audio-Visual Corpus for Multi-Modal Persian Speech Recognition: the Arman-AV Dataset",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "alysis=Table I dataset survey rows descriptive. | t1 our utt | t1 our hours | t1 our spk | t1 sfa utt | t1 sfa spk | t1 lrw utt | t1 lrw spk | t1 lrs2 utt | t1 lrs2 hours | t1 lrs2 spk | t1 mvlrs utt | t1 mvlrs hours | t1 mvlrs spk | t1 lrs3 u"
+  },
+  {
+   "pid": "arxiv-2302.05907",
+   "key": "t:liplearnercustomizablesilentspeechinteractionsonmobiledevices",
+   "title": "LipLearner: Customizable Silent Speech Interactions on Mobile Devices",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Xiv v3) | Study.research_objective=On-device customizable silent-speech interface: contrastive pre-trained lip encoder (LRW) + few-shot logistic head for arbitrary user commands; Voice2Lip voice-assisted registration; similarity KWS wake-up; i"
+  },
+  {
+   "pid": "arxiv-2302.08102",
+   "key": "t:prompttuningofdeepneuralnetworksforspeakeradaptivevisualspeechrecognition",
+   "title": "Prompt Tuning of Deep Neural Networks for Speaker-adaptive Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on | Study.research_objective=Speaker-adaptive VSR via prompt tuning (add/pad/cat, frozen backbone, <=5min adapt): GRID+LRW-ID; <3% params beats prior adapt methods. | task_family=isolated_word_recognition | task_family=sentence_recognition |"
+  },
+  {
+   "pid": "arxiv-2302.08841",
+   "key": "t:liptospeechsynthesisinthewildwithmultitasklearning",
+   "title": "Lip-to-Speech Synthesis in the Wild with Multi-task Learning",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "udy.unit_of_analysis=STOI/ESTOI/PESQ + WER (pre-trained ASR scoring of synthesized speech) on LRS2/LRS3 unseen splits + LRW; staged ablation adding each component to the SVTS baseline | task_encoding=natural_utterance | task_family=speech_reco"
+  },
+  {
+   "pid": "arxiv-2302.13523-vekws",
+   "key": "t:vekwsvisualmodalityenhancedendtoendkeywordspotting",
+   "title": "VE-KWS: Visual Modality Enhanced End-to-End Keyword Spotting",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "uality=real-world rooms, reverberant/noisy; lip-ROI provided | Dataset.content_inventory=MISP ~125h AV data 30+ rooms; +CAS-VSR-W1k visual pretrain | EvaluationProtocol.experimental_design=Score=FRR+FAR per MISP protocol; Dev/Eval ablations vs baselin"
+  },
+  {
+   "pid": "arxiv-2303.14307",
+   "key": "p:arxiv-2303.14307",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "armup_epochs': 5, 'peak_lr': 0.001, 'max_frames_per_batch': 1800} | TrainingRun.initialization=front-end pre-trained on LRW (word-level lip reading) | Dataset.counts_by_unit={'total_hours': 4700, 'english_subset_hours': 1323} | Dataset.counts_"
+  },
+  {
+   "pid": "arxiv-2303.17480",
+   "key": "p:arxiv-2303.17480",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dataset_id=LRS2: train 29h used (full 224h = pretrain 195h+train 29h), 60k vocab, 16kHz audio/25fps video | dataset_id=LRW: 500 words, 29-frame (~1s) clips, target word mid-clip; used unseen for ACC | modalities=microphone, optical_camera | R"
+  },
+  {
+   "pid": "arxiv-2304.04068",
+   "key": "t:wordlevelpersianlipreadingdataset",
+   "title": "Word-level Persian Lipreading Dataset",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "em': 'face'} | dataset_description=PLRW 500 classes len3-8, ~244,000 vids 30h 224x224 Aparat 2022 | dataset_description=LRW 500cls len5-12 1000spk ~500k BBC 173h (lit) | dataset_description=LRW-1000 1000cls 2000spk 718,018 zh 508h (lit) | data"
+  },
+  {
+   "pid": "arxiv-2305.04542",
+   "key": "t:multitemporallipaudiomemoryforvisualspeechrecognition",
+   "title": "Multi-Temporal Lip-Audio Memory for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ong-term audio feats (3 MTLAM layers between visual/audio DC-TCN) to bypass KD heterogeneity gap; inference audio-free. LRW 91.7 / LRW-1000 54.3 Top-1. | task_family=isolated_word_recognition | extra.Task.scope=Word-level VSR w/ multi-temporal"
+  },
+  {
+   "pid": "arxiv-2306.08314",
+   "key": "t:automatedspeakerindependentvisualspeechrecognitionacomprehensivesurvey",
+   "title": "Automated Speaker Independent Visual Speech Recognition: A Comprehensive Survey",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "amera | Acquisition.sensor_geometry={'electrodes': 'face/lip video', 'coordinate_system': 'face'} | dataset_description=LRW 2016 continuous, >1000 spk, 500 classes, 400000 utt, 256x256 | dataset_description=LRS2 2017, >1000 spk, 17428 classes,"
+  },
+  {
+   "pid": "arxiv-2306.15464-v2apretrain",
+   "key": "t:largescaleunsupervisedaudiopretrainingforvideotospeechsynthesis",
+   "title": "Large-scale unsupervised audio pre-training for video-to-speech synthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_analysis=Per-utterance reconstruction scored by PESQ/STOI/ESTOI/WER on GRID (33 speakers, seen and unseen), TCD-TIMIT, LRW and LRS3 vs published baselines | task_encoding=natural_utterance | task_family=speech_reconstruction | Cohort.demograp"
+  },
+  {
+   "pid": "arxiv-2307.16584-av2acascade",
+   "key": "t:audiovisualvideotospeechsynthesiswithsynthesizedinputaudio",
+   "title": "Audio-visual video-to-speech synthesis with synthesized input audio",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n audio encoder | Study.unit_of_analysis=Per-utterance reconstruction on GRID (33 speakers, seen/unseen), TCD-TIMIT and LRW scored by PESQ/STOI/ESTOI/WER vs V2A-only, A2A-only and prior systems | task_encoding=natural_utterance | task_family=s"
+  },
+  {
+   "pid": "arxiv-2308.08488",
+   "key": "t:improvingaudiovisualspeechrecognitionbylipsubwordcorrelationbasedvisualpretraini",
+   "title": "Improving Audio-Visual Speech Recognition by Lip-Subword Correlation Based Visual Pre-training and Cross-Modal Fusion Encoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "+ 10h extra eval vs original | dataset_description=MISP2021 original 500h train used by proposed | dataset_description=LRW/LRW-1000 isolated word PT (NIO/XIAOMI extra data) | representation_kind=conv3d+resnet18 video front-end feats | represe"
+  },
+  {
+   "pid": "arxiv-2308.09311",
+   "key": "t:lipreadingforlowresourcelanguagesbylearningandcombininggeneralspeechknowledgeand",
+   "title": "Lip Reading for Low-resource Languages by Learning and Combining General Speech Knowledge and Language-specific Knowledge",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "n=VoxCeleb2 ~2,442h; 1,326h used for PT | dataset_description=LRS2 English eval (T2) + part of 814h CM-seq2seq En PT w/ LRW+LRS2+LRS3 | representation_kind=masked-pred speech-unit features (AV-HuBERT PT) | representation_kind=quantized speech"
+  },
+  {
+   "pid": "arxiv-2310-04858-romanian",
+   "key": "t:endtoendlipreadinginromanianwithcrosslingualdomainadaptationandlateralinhibition",
+   "title": "End-to-End Lip Reading in Romanian with Cross-Lingual Domain Adaptation and Lateral Inhibition",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "21 words): ResNet+MS-TCN+lateral inhibition+DropBlock Acc@1 45.8/Acc@5 70.3; cross-lingual domain adaptation from GLips/LRW | Study.study_design=controlled_experiment | dataset_id=Wild LRRo (35 speakers, 21 words) | task_family=isolated_word_r"
+  },
+  {
+   "pid": "arxiv-2310.04858",
+   "key": "t:endtoendlipreadinginromanianwithcrosslingualdomainadaptationandlateralinhibition",
+   "title": "End-to-End Lip Reading in Romanian with Cross-Lingual Domain Adaptation and Lateral Inhibition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "CN&LI; SOTA. | task_family=isolated_word_recognition | extra.Task.scope=Romanian lip reading Acc@1/@5 + P/R/F1; CLDA w/ LRW(en) + GLips(de) support sets. | intended_use_cases=assistive_text_entry | Cohort.demographics=Wild LRRo Romanian speake"
+  },
+  {
+   "pid": "arxiv-2310.05058",
+   "key": "t:learningseparablehiddenunitcontributionsforspeakeradaptivelipreading",
+   "title": "Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ng | Study.research_objective=Speaker-adaptive VSR: separable hidden-unit enhance/suppress weights w/ triplet losses on LRW-ID/GRID/CAS-VSR-S68; +unsupervised adaptation 0-5min; 90.45% acc / 3.59 WER w/ 5min. | task_family=sentence_recognition"
+  },
+  {
+   "pid": "arxiv-2402.11520",
+   "key": "t:crossattentionfusionofvisualandgeometricfeaturesforlargevocabularyarabiclipreadi",
+   "title": "Cross-Attention Fusion of Visual and Geometric Features for Large Vocabulary Arabic Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "oss-Attention Fusion of Visual and Geometric Features for Large Vocabulary Arabic Lipreading | Study.research_objective=LRW-AR (100cls,36spk) new Arabic isolated-word lipreading corpus + FusionNet: 3DConv+ResNet18+GAT+Transformer visual / land"
+  },
+  {
+   "pid": "arxiv-2403.01087",
+   "key": "t:towardsaccurateliptospeechsynthesisinthewild",
+   "title": "Towards Accurate Lip-to-Speech Synthesis in-the-Wild",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e VTP + Visual-TTS pipeline | Study.unit_of_analysis=PESQ/STOI/ESTOI + LSE-C/LSE-D sync scores + crowd MOS on TCD-TIMIT/LRW/LRS2/LRS3; L2T-WER reference; representation ablation (Table 4); ALS-patient real-world demo | task_encoding=natural_ut"
+  },
+  {
+   "pid": "arxiv-2405.12983",
+   "key": "t:multilingualaudiovisualspeechrecognitionwithhybridctcrnntfastconformer",
+   "title": "Multilingual Audio-Visual Speech Recognition with Hybrid CTC/RNN-T Fast Conformer",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "%', 'test': 'LRS3 test + MuAViC test; noisy babble/white SNR'} | Claim.claim_scope=SOTA LRS3 AV 0.8 / A 0.7; V 25.5 w/o LRW pretrain; MuAViC multilingual -11.94 avg WER vs AV-HuBERT baseline; noise robust w/ half params of Auto-AVSR; mod-drop"
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "key": "t:syncvsrdataefficientvisualspeechrecognitionwithendtoendcrossmodalaudiotokensynch",
+   "title": "SyncVSR: Data-Efficient Visual Speech Recognition with End-to-End Crossmodal Audio Token Synchronization",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "token sync (quantized audio token reconstruction loss) to VSR training for homophenes — SOTA with data efficiency (157h LRW->93.2, 661h->20.0/28.1, 1992h->16.5/21.5) + first landmark-based sentence-level VSR. | task_family=isolated_word_recogn"
+  },
+  {
+   "pid": "arxiv-2407.06606",
+   "key": "t:tailoreddesignofaudiovisualspeechrecognitionmodelsusingbranchformers",
+   "title": "Tailored Design of Audio-Visual Speech Recognition Models using Branchformers",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ate_system': 'dataset-native', 'notes': 'synchronized AV'} | dataset_description=En benchmark LRS2-BBC+LRS3-TED, 818h (+LRW front-end pretrain) | dataset_description=Es benchmark: MuAViC, CMU-MOSEAS, LIP-RTVE, VLRF; 203-1021h | representation_"
+  },
+  {
+   "pid": "arxiv-2408.16564",
+   "key": "t:humaninspiredcomputingforrobustandefficientaudiovisualspeechrecognition",
+   "title": "Human-Inspired Computing for Robust and Efficient Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "_use_cases=assistive_text_entry | Cohort.demographics=DVSlip-Audio: 40 volunteers (30 train/10 test); EventLRW: diverse LRW TV speakers | modalities=other, microphone | Acquisition.sensor_geometry={'electrodes': 'DAVIS346 event camera 128x128;"
+  },
+  {
+   "pid": "arxiv-2409.00481",
+   "key": "t:dcimavsrefficientaudiovisualspeechrecognitionviadualconformerinteractionmodule",
+   "title": "DCIM-AVSR: Efficient Audio-Visual Speech Recognition via Dual Conformer Interaction Module",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "fication/layers ablation; NOISEX-92 SNR sweep (figure). | intended_use_cases=assistive_text_entry | Cohort.demographics=LRW + LRS2 BBC + LRS3 TED speakers | modalities=optical_camera, microphone | Acquisition.sensor_geometry={'electrodes': 'li"
+  },
+  {
+   "pid": "arxiv-2409.05307",
+   "key": "t:ralredundancyawarelipreadingmodelbasedondifferentiallearningwithsymmetricviews",
+   "title": "RAL: Redundancy-Aware Lipreading Model Based on Differential Learning with Symmetric Views",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "|X|)) + adaptive cross-view interaction (ACVI bidirectional cross-attention with trainable alphas). On MS-TCN baseline: LRW 89.3% (+4.0), LRW-1000 46.5% (+5.1). | task_family=isolated_word_recognition | extra.Task.scope=LRW en word-level + LRW"
+  },
+  {
+   "pid": "arxiv-2409.05307-ral-lipreading",
+   "key": "t:ralredundancyawarelipreadingmodelbasedondifferentiallearningwithsymmetricviews",
+   "title": "RAL: Redundancy-Aware Lipreading Model Based on Differential Learning with Symmetric Views",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "right half-lip asymmetry + redundancy-aware features for word-level VSR | Study.unit_of_analysis=top-1 word accuracy on LRW / LRW-1000 | task_encoding=natural_utterance | task_family=isolated_word_recognition | extra.Task.scope=isolated word l"
+  },
+  {
+   "pid": "arxiv-2412.17129",
+   "key": "t:uncoveringthevisualcontributioninaudiovisualspeechrecognition",
+   "title": "Uncovering the Visual Contribution in Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "configuration_scope=3 AVSR systems x occlusion x MaFI analysis | TrainingRun.training_objective=models pretrained/FT on LRW+LRS2+LRS3 818h total by original authors; analysis reuses checkpoints | TrainingRun.training_hardware=not reported (ana"
+  },
+  {
+   "pid": "arxiv-2501.04204",
+   "key": "t:lipgenvisemeguidedlipvideogenerationforenhancingvisualspeechrecognition",
+   "title": "LipGen: Viseme-Guided Lip Video Generation for Enhancing Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ech Recognition | Study.research_objective=LipGen: speech-driven diffusion generates viseme-guided synthetic lip video (LRW words -> phonemes via CMU dict -> animated frames on paired face databases); adds viseme-classification auxiliary branc"
+  },
+  {
+   "pid": "arxiv-2502.03128",
+   "key": "t:metisafoundationspeechgenerationmodelwithmaskedgenerativepretraining",
+   "title": "Metis: A Foundation Speech Generation Model with Masked Generative Pre-training",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "multilingual (Emilia 100K + 200K self-collected; 87K zh/185K en/7K de/8K fr/2.5K ja/7.5K ko); L2S fine-tune on combined LRW+LRS2+LRS3 train sets; LRS2/LRS3 test (>60% <2s) | modalities=optical_camera, microphone | intrusiveness=external_noncon"
+  },
+  {
+   "pid": "arxiv-2502.04834",
+   "key": "t:lightweightoperationsforvisualspeechrecognition",
+   "title": "Lightweight Operations for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "v-2502.04834 | title=Lightweight Operations for Visual Speech Recognition | Study.research_objective=Lightweight VSR on LRW: Ghost + GhostV2(DFC attention) modules inside ResNet feature extractor and MS-TCN/DC-TCN sequence models; Partial Temp"
+  },
+  {
+   "pid": "arxiv-2505.04394",
+   "key": "t:swinlipanefficientvisualspeechencoderforlipreadingusingswintransformer",
+   "title": "SwinLip: An Efficient Visual Speech Encoder for Lip Reading Using Swin Transformer",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ernel) + integrated 1D Convolutional Attention Module replacing ResNet18 frontend in DC-TCN/Bi-GRU backends; word-level LRW + LRW-1000 + sentence-level LRS2/LRS3 VO/AV; streaming variant w/o MHSA. | task_family=isolated_word_recognition | extr"
+  },
+  {
+   "pid": "arxiv-2505.13784",
+   "key": "t:transferlearningfromvisualspeechrecognitiontomouthingrecognitioningermansignlang",
+   "title": "Transfer Learning from Visual Speech Recognition to Mouthing Recognition in German Sign Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g transfer: Conv3D+BiGRU baseline per dataset, VSR->M fine-tune, DANN (M vs GLipsM), MTL over subsets of {GLipsM,GLipsR,LRW}+M; perturbed M~ for robustness. | task_family=isolated_word_recognition | extra.Task.scope=15-class top-1 acc; mouthin"
+  },
+  {
+   "pid": "arxiv-2506.16073",
+   "key": "t:td3netatemporaldenselyconnectedmultidilatedconvolutionalnetworkforlipreading",
+   "title": "TD3Net: A temporal densely connected multi-dilated convolutional network for lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ely-connected TD2 blocks w/ multi-dilated TC layers (fix blind spots of standard dilation); ResNet/EffNetV2-S frontend; LRW 89.86/LRW-1000 52.01, WB->91.41/59.20; fewer backend params+FLOPs than DC-TCN. | task_family=isolated_word_recognition"
+  },
+  {
+   "pid": "arxiv-2507.18863",
+   "key": "t:phonemelevelvisualspeechrecognitionviapointvisualfusionandlanguagemodelreconstru",
+   "title": "Phoneme-Level Visual Speech Recognition via Point-Visual Fusion and Language Model Reconstruction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ence_recognition | extra.Task.scope=VSR video/landmarks -> ARPAbet phonemes -> English sentence; WER/CER/PER; LRS2+LRS3+LRW-pretrain; LLM noise-robustness ablation 0-30%. | intended_use_cases=assistive_text_entry, other | Cohort.demographics=L"
+  },
+  {
+   "pid": "arxiv-2508.02460",
+   "key": "t:infosyncnetinformationsynchronizationtemporalconvolutionalnetworkforvisualspeech",
+   "title": "InfoSyncNet: Information Synchronization Temporal Convolutional Network for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sequence non-uniformity, then DC-TCN (Tr+DenseBlock+GAP); word boundary + label smoothing + Mixup/TM augmentation; SOTA LRW 92.0 / LRW1000 60.7. | task_family=isolated_word_recognition | extra.Task.scope=Word-level VSR on LRW (English) + LRW10"
+  },
+  {
+   "pid": "arxiv-2508.07233",
+   "key": "t:landmarkguidedvisualfeatureextractorforvisualspeechrecognitionwithlimitedresourc",
+   "title": "Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eature extractor using three spatio-temporal landmark graphs and multi-level fusion with raw-video features; it reports LRW/LRW-ID word-level results, including limited-training and held-out-speaker tests. | review_state=source_checked | revie"
+  },
+  {
+   "pid": "arxiv-2508.07233-landvfe",
+   "key": "t:landmarkguidedvisualfeatureextractorforvisualspeechrecognitionwithlimitedresourc",
+   "title": "Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "onCondition.activity_origin=overt_articulation | modalities=optical_camera | sensor_hardware=standard RGB silent video (LRW/LRW-ID BBC broadcasts) | observed_quantities=shape, position | intrusiveness=external_noncontact | Representation.trans"
+  },
+  {
+   "pid": "arxiv-2508.13576",
+   "key": "t:endtoendaudiovisuallearningforcochlearimplantsoundcodingsimulationsinnoisyenviro",
+   "title": "End-to-End Audio-Visual Learning for Cochlear Implant Sound Coding Simulations in Noisy Environments",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "); NTU + Academia Sinica + CYCU | task_family=intermediate_signal_processing | extra.Task.target=AVSE-ECS: AVSE module (LRW-pretrained 2D ResNet-18 visual + cross-attn fusion) feeds ElectrodeNet-CS (differentiable ACE: envelope detect + channe"
+  },
+  {
+   "pid": "arxiv-2508.17894",
+   "key": "t:designingpracticalmodelsforisolatedwordvisualspeechrecognition",
+   "title": "Designing Practical Models for Isolated Word Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "act efficient isolated-word VSR model: benchmark lightweight CNN feature extractors + customized TCN temporal blocks on LRW; best = MobileNetV4-S + TCN with Star-V block (88.1% acc, 2.0 GFLOP, 14.0M params, 15.65x fewer FLOPs than ResNet basel"
+  },
+  {
+   "pid": "arxiv-2510-22716-lrwpersian",
+   "key": "t:lrwpersianlipreadinginthewilddatasetforpersianlanguage",
+   "title": "LRW-Persian: Lip-reading in the Wild Dataset for Persian Language",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LRW-Persian: Lip-reading in the Wild Dataset for Persian Language | authors=Taghizadeh, Shahverdikondori, Noori, Dadgarnia"
+  },
+  {
+   "pid": "arxiv-2510.10069-synclipmae",
+   "key": "t:synclipmaecontrastivemaskedpretrainingforaudiovisualtalkingfacerepresentations",
+   "title": "SyncLipMAE: Contrastive Masked Pretraining for Audio-Visual Talking-Face Representations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "epend on unlabeled talking-face corpora; VSR evaluated on dubbing-oriented sets (VFHQ/Hallo3/HDTF) rather than standard LRW/LRS benchmarks | Dataset.counts_by_unit=unlabeled audio-visual talking-face streams for pretraining; VSR eval on VFHQ,"
+  },
+  {
+   "pid": "arxiv-2510.22716",
+   "key": "t:lrwpersianlipreadinginthewilddatasetforpersianlanguage",
+   "title": "LRW-Persian: Lip-reading in the Wild Dataset for Persian Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.22716 | title=LRW-Persian: Lip-reading in the Wild Dataset for Persian Language | Study.research_objective=LRW-Persian: largest in-the-wi"
+  },
+  {
+   "pid": "arxiv-2510.22716-lrwper",
+   "key": "t:lrwpersianlipreadinginthewilddatasetforpersianlanguage",
+   "title": "LRW-Persian: Lip-reading in the Wild Dataset for Persian Language",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.22716-lrwper | title=LRW-Persian: Lip-reading in the Wild Dataset for Persian Language | authors=Zahra Taghizadeh | venue=arXiv:2510.22716 | rev"
+  },
+  {
+   "pid": "arxiv-2606.00751",
+   "key": "t:headposeawarevisualspeechrecognitionwithfilmmodulation",
+   "title": "Head-Pose-Aware Visual Speech Recognition with FiLM Modulation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ection_protocol=The paper states LRS3 is publicly available from its source. | Dataset.content_inventory={'datasets': ['LRW', 'LRS2', 'LRS3', 'VoxCeleb2', 'AVSpeech'], 'hours': 3448, 'transcription': 'automatically generated'} | EvaluationProt"
+  },
+  {
+   "pid": "arxiv-2606.07259",
+   "key": "t:assessingtruegeneralisabilityofaudiovisualspeechrecognisers",
+   "title": "Assessing True Generalisability of Audio-Visual Speech Recognisers",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "dataset entity. | TrainingRun.initialization={'model': 'AV-HuBERT'} | Dataset.content_inventory={'training_datasets': 'LRW, LRS3, VoxCeleb2, AVSpeech', 'unlabelled_hours': None, 'labelled_hours': 3448, 'dash_means': 'source table shows dash;"
+  },
+  {
+   "pid": "arxiv-2607.08236",
+   "key": "t:tvtatrajectoryawarevisemeguidedtemporalaggregationforeventbasedlipreading",
+   "title": "TVTA: Trajectory-Aware Viseme-Guided Temporal Aggregation for Event-Based Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "=40 volunteers articulate target words; event stream and word label are recorded. Vocabulary of 100 words selected from LRW; article does not specify phonation state. | Dataset.content_inventory={'total_word_level_samples': 19871, 'vocabulary_"
+  },
+  {
+   "pid": "arxiv-2609.10394",
+   "key": "p:arxiv-2609.10394",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eration from powerful pretrained audio-only ASR; 1,759 h corpus. | system_boundary=Supervised Auto-AVSR-L; 3,448 h over LRW, LRS2, LRS3, AVSpeech and VoxCeleb2. | WER (%) | Δ = AO − AV; unit not separately printed"
+  },
+  {
+   "pid": "bmvc23-separable-vsr",
+   "key": "t:learningseparablehiddenunitcontributionsforspeakeradaptivelipreading",
+   "title": "Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ote=Visual-only lip reading: spoken content decoded from lip/face movements alone; no audio at inference. Evaluation on LRW-ID (words), GRID and CAS-VSR-S68 (sentences). | modalities=optical_camera | SystemConfiguration.system_lifecycle=implem"
+  },
+  {
+   "pid": "cmc-nestlipgnn",
+   "key": "t:nestlipgnnahierarchicalgraphneuralnetworkframeworkwithnestedmultigranularitylear",
+   "title": "NestLipGNN: A Hierarchical Graph Neural Network Framework with Nested Multi-Granularity Learning for Robust Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "6 | Study.research_objective=NestLipGNN hierarchical GNN with nested multi-granularity learning for VSR: 92.3% top-1 on LRW (+2.1% absolute over prior SOTA); LRS2/LRS3/GRID WER 22.8/28.7/0.8%; Gromov-Wasserstein regularization targets homophen"
+  },
+  {
+   "pid": "cvf-burchi23-avec",
+   "key": "t:audiovisualefficientconformerforrobustspeechrecognition",
+   "title": "Audio-Visual Efficient Conformer for Robust Speech Recognition",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "graphics=LRS2: 96,318 pretrain (195h) + 45,839 train (28h) + 1,082 val BBC clips; LRS3: 438.9h, 151,819 TED/TEDx clips; LRW visual pretrain | intended_use_cases=noisy_environment | production_labels=ordinary_voiced_speech | modalities=optical_"
+  },
+  {
+   "pid": "cvf-hong23-wol",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "onv 5x7x7 + ResNet18 on lip crops; audio front-end: 1D conv + ResNet18 blocks downsampling to visual length; front-ends LRW-pretrained | representation_kind=Per-timestep audio and visual reliability scores s in [0,1] from temporal-convolution"
+  },
+  {
+   "pid": "cvf-kim21-mabm",
+   "key": "t:multimodalityassociativebridgingthroughmemoryspeechsoundrecollectedfromfacevideo",
+   "title": "Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "emories + an associative bridge — applied to lipreading and silent-video speech reconstruction | Study.unit_of_analysis=LRW/LRW-1000 word accuracy (visual input + recalled audio) and GRID reconstructed mel-spectrogram speech quality (STOI/ESTO"
+  },
+  {
+   "pid": "cvf-ma21-dctcn",
+   "key": "t:lipreadingwithdenselyconnectedtemporalconvolutionalnetworks",
+   "title": "Lip-reading with Densely Connected Temporal Convolutional Networks",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rs full word dynamics better than dilated/sparse TCNs | Study.unit_of_analysis=Isolated-word classification accuracy on LRW (English 500-word) and LRW-1000 (Mandarin); FD vs PD variants; receptive-field ablations (K, D) | task_encoding=natural"
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "adapts its teaching to the student — instead of a frozen audio-pretrained teacher | Study.unit_of_analysis=Word label (LRW, 500 vocab) or character-decoded sentence (LRS2/LRS3) from silent lip video | task_encoding=natural_utterance | task_fa"
+  },
+  {
+   "pid": "cvf-tan22-dvs-lip-mstp",
+   "key": "t:multigrainedspatiotemporalfeaturesperceivednetworkforeventbasedlipreading",
+   "title": "Multi-grained Spatio-Temporal Features Perceived Network for Event-based Lip-Reading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sk_family=isolated_word_recognition | tested_population=healthy_volunteers | Cohort.demographics=DVS-Lip: 100 words (25 LRW confusable pairs + 50 random), 40 speakers (30 train 15M+15F, 10 test 5M+5F, disjoint), 19,871 samples total — 14,896 t"
+  },
+  {
+   "pid": "cvf-xu20-aemsr",
+   "key": "t:discriminativemultimodalityspeechrecognition",
+   "title": "Discriminative Multi-modality Speech Recognition",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-visual-awareness MSR | Study.unit_of_analysis=Sentence-level WER on LRS3-TED under clean..-10dB babble SNR; word-level LRW accuracy; AE enhancement error at -5/0/5 dB | task_encoding=natural_utterance | task_family=sentence_recognition | Coho"
+  },
+  {
+   "pid": "cvf-xu20-msr",
+   "key": "t:discriminativemultimodalityspeechrecognition",
+   "title": "Discriminative Multi-Modality Speech Recognition",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ptical_camera, microphone | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=LRW word classification and LRS3-TED sentence WER evaluation | Dataset.counts_by_unit=LRW and LRS3-TED speakers | tested_po"
+  },
+  {
+   "pid": "cvf-zhang19-stfcsl",
+   "key": "t:spatiotemporalfusionbasedconvolutionalsequencelearningforlipreading",
+   "title": "Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s=optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=GRID and LRW lipreading evaluation | Dataset.counts_by_unit=GRID and LRW corpora | tested_population=healthy_volunteers | metric"
+  },
+  {
+   "pid": "cvpr21-ren",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "lip reading on LRS2-BBC/LRS3-TED | task_family=isolated_word_recognition | extra.Task.target=word-level lip reading on LRW (500-word) | extra.Task.output_kind=text transcription | production_labels=ordinary_voiced_speech | ProductionCondition"
+  },
+  {
+   "pid": "doi-10.1038-s41467-022-33457-9",
+   "key": "p:doi-10.1038-s41467-022-33457-9",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "volunteers | split_protocol=random_trial | vocabulary_regime=closed_lexicon | dataset_description=two participants; 100 LRW words × 100 repetitions per participant; four perioral crystalline-silicon biaxial strain gauges (~300 nm SiNM, <0.1 mm"
+  },
+  {
+   "pid": "doi-10.1109-access.2017.2761539",
+   "key": "t:3dconvolutionalneuralnetworksforcrossaudiovisualmatchingrecognition",
+   "title": "3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "e->match decision | SystemConfiguration.system_lifecycle=implemented_evaluated | EvaluationProtocol.experimental_design=LRW: 400 words train/100 test x50 utt -> 280k/70k genuine+impostor pairs; AVD: 495 subj, 201 (2015-only) test, within-clip"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3036865",
+   "key": "t:asurveyofresearchonlipreadingtechnology",
+   "title": "A Survey of Research on Lipreading Technology",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on=supported_within_scope | author_claimed_contribution=taxonomy of traditional vs DL lipreading + database comparison (LRW/LRS/LRW-1000/GRID/CUAVE/OuluVS/AVICAR etc) + open problems | extra.Limitation.limitation=early databases small/posed; v"
+  },
+  {
+   "pid": "doi-10.1109-access.2021.3107946",
+   "key": "t:deeplearningbasedautomatedlipreadingasurvey",
+   "title": "Deep Learning-Based Automated Lip-Reading: A Survey",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "le=proposed_only | EvaluationProtocol.experimental_design=comparison across reported dataset-specific accuracies (GRID, LRW, OuluVS, MIRACL-VC1) | vocabulary_regime=open_vocabulary | claim=CNN-learned features significantly outperform handcraf"
+  },
+  {
+   "pid": "doi-10.1109-cvpr52729.2023.01801",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "g training | Representation.transformation_definition=ResNet18 front-ends extract visual/audio features (pre-trained on LRW) | ProductionCondition.activity_origin=overt_articulation | ProductionCondition.covert_overt_contamination={'note': 're"
+  },
+  {
+   "pid": "doi-10.1109-icassp40776.2020.9054384",
+   "key": "t:towardsposeinvariantlipreading",
+   "title": "Towards Pose-Invariant Lip-Reading",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "target=isolated-word lip reading robust across head poses | extra.Task.output_kind=word class label | language=English (LRW/LRS2) | modalities=optical_camera | Acquisition.sensor_geometry=in-the-wild mouth views including non-frontal poses | E"
+  },
+  {
+   "pid": "doi-10.14569-ijacsa.2024.01506156",
+   "key": "t:textextractionandtranslationthroughlipreadingusingdeeplearning",
+   "title": "Text Extraction and Translation Through Lip Reading using Deep Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ures→text→translation pipeline | target_population=general_population | Cohort.demographics=benchmark corpora speakers (LRW/GRID-style evaluation) | intended_use_cases=assistive_text_entry, noisy_environment, other | production_labels=ordinary"
+  },
+  {
+   "pid": "doi-10.18653-v1-2022.acl-long.308",
+   "key": "t:leveragingunimodalselfsupervisedlearningformultimodalaudiovisualspeechrecognitio",
+   "title": "Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ape, position | intrusiveness=external_noncontact | sensor_hardware=BBC broadcast video (LRS2 224h/144K sentence clips; LRW 157h/489K word clips, 29 frames fixed, frontal/near-frontal); visual at 25 FPS | ProductionCondition.activity_origin=ov"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-11207165-v1",
+   "key": "t:thefirstcharacterlevelvisualspeechrecognitionforbanglataskprotocolandresults",
+   "title": "The First Character-Level Visual Speech Recognition for Bangla: Task, Protocol and Results",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "in/val p91-120/test p121-150; 14,431 test clips from 30 unseen speakers; related BenAV 50-class x128-speaker corpus and LRW-B/LRV-B | modalities=optical_camera | intrusiveness=external_noncontact | Representation.feature_dimensions=96x96 grays"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-1386805-v1",
+   "key": "t:visualspeechrecognitionformultiplelanguagesinthewild",
+   "title": "Visual Speech Recognition for Multiple Languages in the Wild",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "y=transformer, cnn | technical_essence=Sentence-level VSR with prediction-based auxiliary tasks on public corpora only (LRW/LRS2/LRS3; Multilingual TEDx 8 languages, 765 h; CMU-MOSEAS): LRS2 WER 33.6±0.5 (best 32.9) vs 37.9 CM-seq2seq — +9.2%"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-3852300-v1",
+   "key": "t:lip2textsentencelevellipreadingonenglishspeakersusingthedeeplearningapproach",
+   "title": "Lip2Text: Sentence-Level Lipreading on English Speakers Using the Deep Learning Approach",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "pipeline targets unseen-speaker robustness | Lip2Text WER 17.38% on LRS3-TED (vs 20.4-38.9% literature VSR WERs on GRID/LRW) | ~70-75% of English speech is not lip-readable alone (motivates deep models)"
+  },
+  {
+   "pid": "doi-10.22452-mjcs.vol38no4.4",
+   "key": "t:lipcoordnetadualstreamdeeplearningarchitectureforvisualspeechrecognitionusingfac",
+   "title": "LIPCOORDNET: A Dual-Stream Deep Learning Architecture for Visual Speech Recognition Using Facial Landmarks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion.limitation=GRID-only (small controlled corpus, short sentences); heavier model (10.48M, 12h train, 287ms latency); LRW-scale untested | extra.Limitation.status=acknowledged | 1.7 | 7.1 | 10.48"
+  },
+  {
+   "pid": "doi-10.28991-esj-2024-08-06-024",
+   "key": "t:slowfasttcnadeeplearningapproachforvisualspeechrecognition",
+   "title": "SlowFast-TCN: A Deep Learning Approach for Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "backend for word-level VSR robust to viseme duration | Study.unit_of_analysis=per-clip word classification accuracy on LRW subsets | task_encoding=natural_utterance | task_family=isolated_word_recognition | extra.Task.scope=word-level lip rea"
+  },
+  {
+   "pid": "doi-10.3390-e27111121",
+   "key": "t:mviblipmultiviewinformationbottleneckforvisualspeechrecognitionviatimeseriesmode",
+   "title": "MVIB-Lip: Multi-View Information Bottleneck for Visual Speech Recognition via Time Series Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "multi-view information bottleneck | Study.unit_of_analysis=sentence acc on OuluVS (LOUO) + self-collected + word-level LRW/LRW-1000 speaker-independent; component ablations; ~200fps RTX4090 | task_encoding=natural_utterance | task_family=sent"
+  },
+  {
+   "pid": "doi-10.3390-jimaging7050091",
+   "key": "t:lipreadingbyalternatingbetweenspatiotemporalandspatialconvolutions",
+   "title": "Lip Reading by Alternating between Spatiotemporal and Spatial Convolutions",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "with MS-TCN backend + attention pooling, trained end-to-end for word-level lip reading; Greek medical-support dataset + LRW-500; higher classification accuracy at ~30% (4.6 ms) extra processing | target_population=general_population, speech_im"
+  },
+  {
+   "pid": "doi-10.3390-s22103732",
+   "key": "t:learningtherelativedynamicfeaturesforwordlevellipreading",
+   "title": "Learning the Relative Dynamic Features for Word-Level Lipreading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sequence modeling with early/late fusion; sampling-method study for short word samples; ~+8% over baseline; new SOTA on LRW and LRW-1000 | target_population=general_population | population_description=LRW (English, BBC) + LRW-1000 (Mandarin) w"
+  },
+  {
+   "pid": "doi-10.3390-s23042284",
+   "key": "t:audiovisualspeechandgesturerecognitionbysensorsofmobiledevices",
+   "title": "Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ion/feature/model-level fusion; 2DCNN+BiLSTM, 3DCNN, 3DCNN+BiLSTM variants | supervision_kind=paired_audio | dataset_id=LRW (Lip Reading in the Wild), BBC segments 1.16s, >1000 speakers | dataset_id=AUTSL (AUTSL Turkish Sign Language), 43 sign"
+  },
+  {
+   "pid": "doi-10.3390-s25082366",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nsformer + 3D-conv front-end replacing ResNet front-ends | Study.unit_of_analysis=top-1 word classification accuracy on LRW and LRW-1000 test sets; PTM ablation via DC-TCN across epochs and masking strategies | task_encoding=natural_utterance"
+  },
+  {
+   "pid": "doi-10.48175-ijarsct-29758",
+   "key": "t:deeplipacomprehensivereviewondeeplearningbasedlipreadingforvisualspeechrecogniti",
+   "title": "DeepLip: A Comprehensive Review on Deep Learning Based Lip Reading for Visual Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s in VSR literature | task_encoding=natural_utterance | task_family=sentence_recognition | extra.Task.scope=word-level (LRW) and sentence-level (LRS2/LRS3) visual-only lip reading | target_population=general_population | tested_population=heal"
+  },
+  {
+   "pid": "eccv18-stafylakis_zskws",
+   "key": "t:zeroshotkeywordspottingforvisualspeechrecognitioninthewild",
+   "title": "Zero-shot keyword spotting for visual speech recognition in-the-wild",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s not in dictionary or training set) | ProcessingStep.architecture={'stages': ['spatiotemporal-ResNet visual extractor (LRW-pretrained, LRS2 fine-tuned on 2000 frequent words as 1.5s crops, 2-layer LSTM backend)', 'G2P seq2seq encodes query te"
+  },
+  {
+   "pid": "ecva-kim22-udp",
+   "key": "t:speakeradaptivelipreadingwithuserdependentpadding",
+   "title": "Speaker-adaptive Lip Reading with User-dependent Padding",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "-dependent padding (UDP) speaker-specific input adapts a pretrained VSR model without new layers or weight updates; new LRW-ID unseen-speaker benchmark. | Study.study_design=controlled_experiment | extra.Production.scope_note=visual-only lipre"
+  },
+  {
+   "pid": "entropy-27-01121-mviblip",
+   "key": "t:mviblipmultiviewinformationbottleneckforvisualspeechrecognitionviatimeseriesmode",
+   "title": "MVIB-Lip: Multi-View Information Bottleneck for Visual Speech Recognition via Time Series Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ensor_hardware=Logitech C920 1080p HD webcam @30fps, ~0.5m, uniform indoor light (self-collected); BBC broadcast video (LRW); unconstrained (LRW-1000) | observed_quantities=position, shape | intrusiveness=external_noncontact | Representation.t"
+  },
+  {
+   "pid": "entropy-27-1121-mvib",
+   "key": "t:mviblipmultiviewinformationbottleneckforvisualspeechrecognitionviatimeseriesmode",
+   "title": "MVIB-Lip: Multi-View Information Bottleneck for Visual Speech Recognition via Time Series Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "of-experts under multi-view information bottleneck for VSR | Study.unit_of_analysis=sentence/word accuracy % on OuluVS, LRW(-1000), self-collected | task_encoding=natural_utterance | task_family=sentence_recognition | extra.Task.scope=visual-o"
+  },
+  {
+   "pid": "esj-2024-08-06-024",
+   "key": "t:slowfasttcnadeeplearningapproachforvisualspeechrecognition",
+   "title": "SlowFast-TCN: A Deep Learning Approach for Visual Speech Recognition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "design=controlled_experiment | Study.research_objective=SlowFast dual-rate frontend + TCN backend for word-level VSR on LRW subsets | Study.unit_of_analysis=word accuracy/loss on LRW subsets A (23 non-homophemic) & B (48 homopheme) + illuminat"
+  },
+  {
+   "pid": "hal-3326002-frontal",
+   "key": "t:robustfacefrontalizationforvisualspeechrecognition",
+   "title": "Robust Face Frontalization For Visual Speech Recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "talization module for profile-view VSR: Student-t EM 3D landmark alignment + mesh warping to frontal view, evaluated on LRW isolated-word recognition | Study.study_design=system_proposal | task_family=isolated_word_recognition | ProductionCond"
+  },
+  {
+   "pid": "ieee-9777678-dmclr",
+   "key": "t:usinglipreadingrecognitiontopredictdailymandarinconversation",
+   "title": "Using Lip Reading Recognition to Predict Daily Mandarin Conversation",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "del (spatiotemporal conv + SE-ResNet-18 + Bi-GRU/1D-conv/FC backend) plus new DMCLR Mandarin dataset, evaluated also on LRW and LRW-1000 | modalities=optical_camera | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep."
+  },
+  {
+   "pid": "ijraset-77475-deeplip",
+   "key": "t:deeplipahybridcnnrnnlstmframeworkforendtoendvisualspeechrecognitionusingctcloss",
+   "title": "DeepLip: A Hybrid CNN-RNN-LSTM Framework for End-to-End Visual Speech Recognition using CTC Loss",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "CNN-RNN-LSTM end-to-end visual-only speech recognition (lip reading) trained with CTC, targeting sentence-level VSR on LRW/LRW-1000 and LRS3 | Study.study_design=system_proposal | task_family=sentence_recognition | ProductionCondition.activit"
+  },
+  {
+   "pid": "in24-syncvsr",
+   "key": "t:syncvsrdataefficientvisualspeechrecognitionwithendtoendcrossmodalaudiotokensynch",
+   "title": "SyncVSR: Data-Efficient Visual Speech Recognition with End-to-End Crossmodal Audio Token Synchronization",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tion instead of masked reconstruction or hand-crafted audio targets | Study.unit_of_analysis=Word-level Top-1 accuracy (LRW English, CAS-VSR-W1K Chinese, landmark-graph ablation) and sentence-level CTC-Attention WER (LRS2/LRS3) under video-hou"
+  },
+  {
+   "pid": "interspeech-2023-969-pov",
+   "key": "t:anotherpointofviewonvisualspeechrecognition",
+   "title": "Another Point of View on Visual Speech Recognition",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tudy_design=controlled_experiment | Study.research_objective=graph/point-cloud VSR via MediaPipe 3D landmarks + AGCN on LRW incl. ROI & gender-bias analysis | Study.unit_of_analysis=word accuracy on LRW test + ROI ablation + predictive-parity"
+  },
+  {
+   "pid": "isca-afouras18b_interspeech",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "nd=text_prompt, other | dataset_description=LRS2 BBC sentences (>2M word instances, vocab >40K); test 1,243 utterances; LRW + MV-LRS pretraining | Study.study_design=controlled_experiment | Study.research_objective=state-of-the-art lip reading"
+  },
+  {
+   "pid": "isca-ahn24_interspeech",
+   "key": "t:syncvsrdataefficientvisualspeechrecognitionwithendtoendcrossmodalaudiotokensynch",
+   "title": "SyncVSR: Data-Efficient Visual Speech Recognition with End-to-End Crossmodal Audio Token Synchronization",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "rame-by-frame, addressing homophene ambiguity | Study.unit_of_analysis=WER on LRS2/LRS3 sentence VSR; top-1 accuracy on LRW/CAS-VSR-W1K word VSR | task_encoding=natural_utterance | task_family=sentence_recognition | target_population=general_p"
+  },
+  {
+   "pid": "isca-botelho21_interspeech",
+   "key": "t:visualspeechforobstructivesleepapneadetection",
+   "title": "Visual Speech for Obstructive Sleep Apnea Detection",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "chance | representation_kind=craniofacial measurements+landmarks; x-vector/PASE+/knowledge speech features; pretrained LRW lipreading visual-speech embeddings (87.9% single, 88.5% ensemble) | ProcessingStep.architecture={'stages': ['face dete"
+  },
+  {
+   "pid": "isca-chen21k_interspeech",
+   "key": "t:automaticlipreadingwithhierarchicalpyramidalconvolutionandselfattentionforimages",
+   "title": "Automatic Lip-Reading with Hierarchical Pyramidal Convolution and Self-Attention for Image Sequences with No Word Boundaries",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "closed_set_classification | supervision_kind=gesture_label | tested_population=healthy_volunteers | dataset_description=LRW: 538,766 fixed 1.16s/29-frame@25fps word segments of 500 English words from >1000 BBC speakers; 488,766/25,000/25,000 t"
+  },
+  {
+   "pid": "isca-ma21c_interspeech",
+   "key": "t:liralearningvisualspeechrepresentationsfromaudiothroughselfsupervision",
+   "title": "LiRA: Learning Visual Speech Representations from Audio through Self-supervision",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tudy_design=controlled_experiment | task_family=isolated_word_recognition | extra.Task.target=word-level lip-reading on LRW (500-word vocabulary) | task_family=sentence_recognition | extra.Task.target=sentence-level lip-reading on LRS2 (>40k v"
+  },
+  {
+   "pid": "isca-pouthier23_interspeech",
+   "key": "t:anotherpointofviewonvisualspeechrecognition",
+   "title": "Another Point of View on Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "racy gap up to 6.1% (forehead) / 4.5% (whole face) favoring women; handcrafted graphs ill-defined | dataset_description=LRW (Lip Reading in the Wild): >1000 utterances of 500 English words, hundreds of speakers, ~60% men 40% women; isolated-wo"
+  },
+  {
+   "pid": "isca-shrivastava19_interspeech",
+   "key": "t:mobivsrefficientandlightweightneuralnetworkforvisualspeechrecognitiononmobiledev",
+   "title": "MobiVSR: Efficient and Light-weight Neural Network for Visual Speech Recognition on Mobile Devices",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "eme/word classes | decoder_route=closed_set_classification | tested_population=healthy_volunteers | dataset_description=Lip Reading in the Wild (LRW): ~1000 utterances per class for 500 word classes; 50 test + 50 val clips/class; BBC TV broadcasts with high pose"
+  },
+  {
+   "pid": "isca-stafylakis17_interspeech",
+   "key": "p:isca-stafylakis17_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "on context; fully automatic collection: OCR subtitles + forced alignment + speaker-visibility verification | dataset_id=LRW (Lipreading In-The-Wild, Chung & Zisserman 2016) | Dataset.collection_protocol=500 target words; up to 1000 occurrences"
+  },
+  {
+   "pid": "isca-stafylakis17_lipread",
+   "key": "t:combiningresidualnetworkswithlstmsforlipreading",
+   "title": "Combining Residual Networks with LSTMs for Lipreading",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ") on unconstrained broadcast footage — no word-boundary info at train or test | Study.unit_of_analysis=word accuracy on LRW benchmark (500 target words, 1.28s clips, BBC TV); +6.8% absolute over prior SOTA 76.2% | task_encoding=natural_utteran"
+  },
+  {
+   "pid": "isca-thangthai17_lipdnn",
+   "key": "t:improvingcomputerlipreadingviadnnsequencediscriminativetrainingtechniques",
+   "title": "Improving computer lipreading via DNN sequence discriminative training techniques",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cy gains | extra.Limitation.limitation=visual-only accuracy still low (<50% SI); TCD-TIMIT is the only large AV corpus, LRW gains rest on isolated words; viseme coding varies across studies | extra.Limitation.status=acknowledged | 48.61 | 59"
+  },
+  {
+   "pid": "isca-wu21e_interspeech",
+   "key": "t:audiovisualmultitalkerspeechrecognitioninacocktailparty",
+   "title": "Audio-Visual Multi-Talker Speech Recognition in A Cocktail Party",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "0-dim log filterbank (25ms/10ms Hann) + 512-dim mouth-region embeddings from 3D ResNet lip-reading front-end trained on LRW | model_family=transformer, cnn | technical_essence=visual fusion resolves the label ambiguity instead of PIT: per-talk"
+  },
+  {
+   "pid": "isca-yang23w_interspeech",
+   "key": "t:animprovedendtoendaudiovisualspeechrecognitionmodel",
+   "title": "An Improved End-to-End Audio-Visual Speech Recognition Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "cription=LRS2-BBC sentence corpus, 224 h labeled AV data (pre-train + train) for AVSR; visual word-level pretraining on LRW; audio front-end inherits HuBERT trained on 60K h LibriLight | modalities=microphone, optical_camera | intrusiveness=ex"
+  },
+  {
+   "pid": "lrec22-glips",
+   "key": "t:amultimodalgermandatasetforautomaticlipreadingsystemsandtransferlearning",
+   "title": "A Multimodal German Dataset for Automatic Lip Reading Systems and Transfer Learning",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tive=Build GLips (German Lips), a 250,000-video word-level lip-reading corpus from Hessian Parliament sessions matching LRW format (500 words × 500 instances, 1.16 s @25 fps, ~100 speakers), then test bidirectional transfer learning to/from En"
+  },
+  {
+   "pid": "mdpi-math11071733",
+   "key": "t:researchonrobustaudiovisualspeechrecognitionalgorithms",
+   "title": "Research on Robust Audio-Visual Speech Recognition Algorithms",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "abulary | intended_use_cases=noisy_environment, speech_restoration | modalities=optical_camera, microphone | dataset_id=LRW (Lip Reading in the Wild) | dataset_description=500 unique English words, ~1000 utterances/word (800-1000 train, 50 val"
+  },
+  {
+   "pid": "mdpi-s25082366_ptm",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Swin Transformer + 3D conv) with Partition-Time Masking augmentation | Study.unit_of_analysis=isolated-word accuracy on LRW + LRW-1000 (and augment/ablation tables) | task_encoding=natural_utterance | task_family=isolated_word_recognition | ex"
+  },
+  {
+   "pid": "pmc-12031098-ptmst3d",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "s via temporal-dimension augmentation (PTM) + Swin-Transformer×3D-conv front end (ST3D) | Study.unit_of_analysis=PTM on LRW w/ DC-TCN (92.8% peak); ST3D on LRW + LRW-1000 (56.x% max); PTM = split sequence into k subseqs of T/k frames, mask con"
+  },
+  {
+   "pid": "pmc-12031098-st3d-ptm",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "a Swin-Transformer + 3D-convolution (ST3D) visual speech recognizer | Study.unit_of_analysis=Isolated-word lip videos: LRW (488,766 train / 25,000 val / 25,000 test, English BBC) and Chinese LRW1000 sentence clips; only video input (audio-fre"
+  },
+  {
+   "pid": "pmc-12651204-mviblip",
+   "key": "t:mviblipmultiviewinformationbottleneckforvisualspeechrecognitionviatimeseriesmode",
+   "title": "MVIB-Lip: Multi-View Information Bottleneck for Visual Speech Recognition via Time Series Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "discarding speaker nuisance — targeting low-resource and speaker-independent regimes | Study.unit_of_analysis=OuluVS + LRW + self-collected set; Transformer over 12 lip-landmark × 30-frame trajectories + ResNet-18 on 12×12 RP images → product"
+  },
+  {
+   "pid": "pmc-12675527-qazlip",
+   "key": "t:akazakhlanguagedatasetoflipmovementsforcommandrecognition",
+   "title": "A Kazakh language Dataset of Lip Movements for Command Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "imodal ASR research; baseline confirms learnable structure | Claim.claim_scope=Lip-reading corpora are English-centric (LRW 500 words/1000+ speakers); no public Kazakh resource — Turkic articulatory patterns unserved | extra.Limitation.status="
+  },
+  {
+   "pid": "pmc-8321361-altconv-lipread",
+   "key": "t:lipreadingbyalternatingbetweenspatiotemporalandspatialconvolutions",
+   "title": "Lip Reading by Alternating between Spatiotemporal and Spatial Convolutions",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ystem_lifecycle=implemented_evaluated | TrainingRun.training_objective=train ALSOS-ResNet-18+MS-TCN end-to-end (AdamW); LRW-500 subset used for pretraining the Greek LRGW-10 model | InformationUse.access_class=normally_available | Cohort.demog"
+  },
+  {
+   "pid": "pmc-9147953-reldyn-lipread",
+   "key": "t:learningtherelativedynamicfeaturesforwordlevellipreading",
+   "title": "Learning the Relative Dynamic Features for Word-Level Lipreading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "d_evaluated | TrainingRun.training_objective=train two-stream lipreading network with mix-up and cutout augmentation on LRW/LRW-1000 word classes | InformationUse.access_class=normally_available | Cohort.demographics=LRW: 1000+ speakers; LRW-1"
+  },
+  {
+   "pid": "pmc-9530138-sinm",
+   "key": "t:ultrathincrystallinesiliconbasedstraingaugeswithdeeplearningalgorithmsforsilents",
+   "title": "Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for silent speech interfaces",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "crystalline-silicon nanomembrane gauges and classify 100 silently-mouthed words with a 3D CNN | Study.unit_of_analysis=LRW-1000-sampled 100 English words, each silently articulated 100× by 2 participants → 8-channel resistance streams at 300"
+  },
+  {
+   "pid": "pmc-9530138-straintssi",
+   "key": "t:ultrathincrystallinesiliconbasedstraingaugeswithdeeplearningalgorithmsforsilents",
+   "title": "Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for silent speech interfaces",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "encodes spatiotemporal strain features; 5-fold CV; XAI/R-CAM site analysis | EvaluationProtocol.experimental_design=100 LRW words x 100 reps x 2 subjects; 5-fold CV; same-dimension sEMG control system | claim=87.53% accuracy classifying 100 si"
+  },
+  {
+   "pid": "pmc-9963439-avsrnoisy",
+   "key": "t:improvingspeechrecognitionperformanceinnoisyenvironmentsbyenhancinglipreadingacc",
+   "title": "Improving Speech Recognition Performance in Noisy Environments by Enhancing Lip Reading Accuracy",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "hips | Study.unit_of_analysis=Audio-visual utterances from the LRS2 BBC corpus (144K clips sentence-level pretrain) and LRW (500 words × ~1000 speakers, 29-frame/1.16 s clips); evaluation over synthesized babble noise at SNR −15 dB to clean |"
+  },
+  {
+   "pid": "pmc-9967234-mobavsr",
+   "key": "t:audiovisualspeechandgesturerecognitionbysensorsofmobiledevices",
+   "title": "Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "scope_note=mobile-device AVSR and hand-gesture recognition using camera+microphone sensor streams with deep learning on LRW and AUTSL datasets | modalities=optical_camera, microphone | SystemConfiguration.system_lifecycle=implemented_evaluated"
+  },
+  {
+   "pid": "pmc-9967234-mobileav",
+   "key": "t:audiovisualspeechandgesturerecognitionbysensorsofmobiledevic",
+   "title": "Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devic",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Gesture Recognition by Sensors of Mobile Devic | authors=mobile-AV group | Study.research_objective=mobile-sensor AVSR LRW 98.76% AUTSL 98.56% | Study.study_design=controlled_experiment | task_family=sentence_recognition | modalities=optical_"
+  },
+  {
+   "pid": "pmc-9967234-mobileavsr",
+   "key": "t:audiovisualspeechandgesturerecognitionbysensorsofmobiledevices",
+   "title": "Audio-visual speech and gesture recognition by sensors of mobile devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ame pipeline do lip-reading and sign/gesture recognition on device sensors | Study.unit_of_analysis=Two public corpora: LRW (500 word classes, ~1000 speakers, 800–1000 samples/class, 29 frames) for AVSR and AUTSL (226 Turkish sign gestures, 43"
+  },
+  {
+   "pid": "rsquare-10510743-cmtd",
+   "key": "t:cmtdcascadedmultitokendisambiguationmodelforlipreading",
+   "title": "CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "me_hardware=CMTD cascaded decoder + LM reranker (offline) | claim=CMTD achieves lower character error than baselines on LRW, CMLR and GRID benchmarks | claim=gating LM reranking on visual ambiguity preserves reliable visual predictions instead"
+  },
+  {
+   "pid": "stj-13-1-18-assamese-lip",
+   "key": "t:analysisoflipreadingofassamesedigitsusingdeeplearning",
+   "title": "Analysis of Lip Reading of Assamese Digits using Deep Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sy conditions | extra.Limitation.limitation=language-specific lip-reading needs custom data — generic datasets (English LRW/LRS2) miss Assamese nuances | 83 | 10 | 100 | 76 | 68"
+  },
+  {
+   "pid": "w2594690981-lrw",
+   "key": "p:w2594690981-lrw",
+   "title": "Lip Reading in the Wild",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip Reading in the Wild | authors=Chung; Zisserman (Oxford VGG) | venue=ACCV 2016 workshops | Study.research_objective=LRW benchmark + Watch-Li"
+  },
+  {
+   "pid": "w3082193865-hahncnn",
+   "key": "t:lipreadingwithhahnconvolutionalneuralnetworks",
+   "title": "Lip Reading with Hahn Convolutional Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "jective=HCNN: Hahn-moment first layer inside CNN for lipreading: OuluVS2 digits 93.72% (+DA, SI) beating SyncNet 92.8%; LRW 500-class 58.02% top-1 (+flip DA); AVLetters +20% absolute over CNN | Study.study_design=controlled_experiment | datase"
+  },
+  {
+   "pid": "w4402925227-kuey",
+   "key": "t:deeplearninginvisualspeechrecognitionareviewofrecentdevelopmentsandperformancean",
+   "title": "Deep Learning In Visual Speech Recognition: A Review Of Recent Developments And Performance Analysis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "le=implemented_evaluated | model_family=cnn, rnn, transformer | Dataset.counts_by_unit=reviews public VSR corpora (LRS, LRW, etc.)"
+  }
+ ],
+ "usual_approach": {
+  "design": "spatiotemporal (3D) convolution followed by a ResNet trunk",
+  "n": 106,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2209.01383",
+   "arxiv-2001.08702",
+   "arxiv-1802.06424",
+   "arxiv-1811.01194",
+   "arxiv-2406.12233"
+  ],
+  "population_unique": 156,
+  "note": "Full-text pattern counts (upper bounds, related-work mentions included) over 156 ledger keys = 154 studies of word-level LRW / LRW-1000 studies (three keys are versions of the target): both 3D convolution and ResNet named 106 (target 3 keys, prior 0, [concurrent] 0 of 4, [later] 103 of 149); 3D convolution 122 (target 3, [concurrent] 2, [later] 117); ResNet 124 (target 3, [concurrent] 0, [later] 121); VGG 64 (target 3, [concurrent] 2, [later] 59); ViT or patch transformer 13 (all [later]). Prior population 0. dated against the target's first public month 2017-03 (arXiv v1): prior before 2016-09, [concurrent] 2016-09 to 2017-09, [later] after; arXiv id month where present, else venue month (LRW paper ACCV 2016-11; Thangthai et al. Interspeech 2017-08; IEEE Access 3D-CNN AV matching, arXiv 2017-06). The slot-filled M06 values (model_family=cnn 43) do not separate the front end."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-1601.08188",
+   "role": "prior",
+   "loc": "Sec. 4.2",
+   "quote": "The best LSTM lipreader consists of one feed-forward layer followed by two recurrent LSTM layers",
+   "by": "combining-residual-networks-with-lstms-for-lipreading",
+   "timing": "prior"
+  },
+  {
+   "pid": "w2594690981-lrw",
+   "role": "prior",
+   "loc": "Fig. 7; Sec. 4.1",
+   "quote": "The performance of 3D ConvNets fall short of the 2D architectures by an average of around 14%.",
+   "by": "combining-residual-networks-with-lstms-for-lipreading",
+   "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-1611.01599",
+   "role": "prior",
+   "loc": "Sec. 1",
+   "quote": "using spatiotemporal convolutional neural networks (STCNNs), recurrent neural networks (RNNs), and the connectionist temporal classiﬁcation loss (CTC)",
+   "by": "combining-residual-networks-with-lstms-for-lipreading",
+   "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "prior",
+   "loc": "Table 8",
+   "quote": "W AS (ours) 23.8% 3.0%",
+   "by": "combining-residual-networks-with-lstms-for-lipreading",
+   "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "SyncVSR Transformer 157 93.2 ± 0.1 95.0 ± 0.0 58.2 ± 0.0",
+   "by": "combining-residual-networks-with-lstms-for-lipreading",
+   "timing": "later"
+  },
+  {
+   "pid": "arxiv-2209.01383",
+   "role": "sota",
+   "loc": "Fig. 1",
+   "quote": "Lip-reading model with a modiﬁed ResNet-18 as encoder and DC-TCN as a temporal model.",
+   "by": "combining-residual-networks-with-lstms-for-lipreading",
+   "timing": "later"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 8,
+  "found": 8,
+  "recall": 1.0,
+  "missed": []
+ },
+ "dated_pattern_counts": {
+  "target_keys": 3,
+  "prior": {
+   "population": 0
+  },
+  "concurrent": {
+   "population": 4,
+   "3d_conv": 2,
+   "resnet": 0,
+   "3d_conv_and_resnet": 0,
+   "vgg": 2
+  },
+  "later": {
+   "population": 149,
+   "3d_conv": 117,
+   "resnet": 121,
+   "3d_conv_and_resnet": 103,
+   "vgg": 59,
+   "vit": 13
+  }
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2406.12233",
+  "year": 2024,
+  "metric": "LRW top-1 accuracy, visual only, LRW training data only (157 h), no word-boundary input, mean of three seeds (95.0% with word boundaries)",
+  "value": 93.2,
+  "unit": "%",
+  "timing": "later"
+ },
+ "used_by": [
+  "combining-residual-networks-with-lstms-for-lipreading"
+ ],
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 156,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "spatiotemporal (3D) convolution followed by a ResNet trunk",
+   "n": 106,
+   "tier": "pattern match",
+   "population_unique": 156
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2406.12233",
+   "year": 2024,
+   "metric": "LRW top-1 accuracy, visual only, LRW training data only (157 h), no word-boundary input, mean of three seeds (95.0% with word boundaries)",
+   "value": 93.2,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 6,
+  "read_prior": [
+   "arxiv-1601.08188",
+   "arxiv-1611.01599",
+   "arxiv-1611.05358",
+   "w2594690981-lrw"
+  ],
+  "unread": 193,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
+}
