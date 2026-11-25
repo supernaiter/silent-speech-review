@@ -253,6 +253,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that decode speech, language or other neural or articulatory signals with a spiking neural network (leaky integrate-and-fire, Izhikevich or other spiking units, in software or on neuromorphic hardware) as the classifier or encoder. Boundary: 'SNN' meaning Siamese network and the SNNS simulator are pattern matches only; reviews, editorials and neuromorphic sensing without a spiking decoder are excluded; versions of one study count once.
 - Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/)
 
+## subword-unit-text-decoding-with-lexicon
+
+- Table: [`subword-unit-text-decoding-with-lexicon.csv`](subword-unit-text-decoding-with-lexicon.csv) (7345 slot-filled, 102 pattern match, usual design in 47, 4 read in full)
+- Inclusion rule: Studies whose ledger records a recognition-to-text decoder for a speech-related signal (any modality: EMG, ECoG, intracortical, EEG, video, ultrasound, NAM) and names phones, a lexicon/dictionary, an n-gram/language model, an HMM or CTC; the design compared is how sub-word units become words: HMM/GMM phone models with a pronunciation dictionary and n-gram LM, CTC-trained neural networks, or LLM rescoring. Boundary: a study counts under every design its full text names (upper bound); closed-set word classifiers without a recognition-to-text route are outside; versions once.
+- Used in: [Brain-to-text: decoding spoken phrases from phone representations in the brain](../../reviews/brain-to-text-decoding-spoken-phrases-from-phone-representations-in-the-brain/)
+
 ## text-and-video-to-speech-decoder
 
 - Table: [`text-and-video-to-speech-decoder.csv`](text-and-video-to-speech-decoder.csv) (7345 slot-filled, 9 pattern match, usual design in 5, 4 read in full)

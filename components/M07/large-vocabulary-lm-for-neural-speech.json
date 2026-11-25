@@ -13219,6 +13219,18 @@
    "role": "prior",
    "loc": "Results",
    "quote": "an improved language model could decrease word error rates from 23.8 to 17.4%"
+  },
+  {
+   "pid": "isca-jou06_interspeech",
+   "role": "prior",
+   "loc": "§2.3",
+   "quote": "Also\nnote that the test sentences do not exist in the language model\ntraining data."
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.12.002",
+   "role": "prior",
+   "loc": "§2.1-§2.2",
+   "quote": "The vocabulary of the BASE sentences consisted\nof 101 words."
   }
  ],
  "state_of_the_art": {
@@ -13258,6 +13270,7 @@
   "a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding",
   "a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control",
   "a-high-performance-speech-neuroprosthesis",
+  "brain-to-text-decoding-spoken-phrases-from-phone-representations-in-the-brain",
   "iphoneme-brain-to-text-communication-for-als-using-conformerxl-decoding",
   "neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria"
  ],
@@ -13281,5 +13294,153 @@
    "pmc-7982996-lowpowerspike",
    "pmc-pmc11086983"
   ]
+ },
+ "ledger_tally_brain2text": {
+  "design_slot": "M07",
+  "design_slot_fill": 0.013,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "InformationUse.access_class=normally_available",
+    "n": 26,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2605.31173-mindvoice",
+     "arxiv-2609.04455-brain2speech",
+     "arxiv-2609.21436",
+     "arxiv-2609.29443",
+     "isca-belfrouh26-xcalib"
+    ]
+   },
+   {
+    "design": "InformationUse.use_stage=inference",
+    "n": 20,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2605.31173-mindvoice",
+     "arxiv-2609.04455-brain2speech",
+     "arxiv-2609.21436",
+     "arxiv-2609.29443",
+     "arxiv-2609.33538"
+    ]
+   },
+   {
+    "design": "information_availability=runtime_available",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436",
+     "arxiv-2609.29443",
+     "arxiv-2609.33538",
+     "srep-66298-electrode-is",
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "InformationUse.use_stage=training",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-belfrouh26-xcalib",
+     "nano-16-00520-silentgesture",
+     "pmc-13633112-gesturedeco",
+     "mdpi-math11071733"
+    ]
+   },
+   {
+    "design": "target_relation=other",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.29443",
+     "arxiv-2412.18839",
+     "arxiv-2603.18299"
+    ]
+   },
+   {
+    "design": "target_relation=language_prior",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.29443",
+     "arxiv-2603.18299",
+     "arxiv-2607.26751"
+    ]
+   },
+   {
+    "design": "InformationUse.use_stage=calibration",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "biorxiv-2023.09.11.557181",
+     "arxiv-2603.18299"
+    ]
+   },
+   {
+    "design": "target_relation=evaluation_reference",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "biorxiv-2022.11.15.516461",
+     "arxiv-2605.08075"
+    ]
+   },
+   {
+    "design": "InformationUse.use_stage=evaluation",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-13042181-ecog-als-longitudinal",
+     "biorxiv-2022.11.15.516461"
+    ]
+   },
+   {
+    "design": "InformationUse.information_consumer=lipvoicer (pred) conditioning via pre-trained lip-reading network",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2412.18839"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": null,
+  "better": "lower"
+ },
+ "sota_candidates_brain2text": [],
+ "known_item_recall_brain2text": {
+  "seeds_in_wiki": 1,
+  "found": 1,
+  "recall": 1.0,
+  "missed": []
+ },
+ "tally_brain2text": {
+  "slot_filled_unique": 119,
+  "string_match_unique": 1162,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "neural_llm_rescoring",
+   "n": 152,
+   "tier": "pattern match",
+   "population_unique": 1162
+  },
+  "state_of_the_art": {
+   "pid": "pmc-11328962-rapidcal",
+   "year": 2024,
+   "metric": "online WER, 125,000-word vocabulary",
+   "value": "2.5%",
+   "timing": "later"
+  },
+  "read": 8,
+  "read_prior": [
+   "doi-10.1016-j.specom.2009.12.002",
+   "doi-10.1038-s41586-023-06377-x",
+   "doi-10.1038-s41593-020-0608-8",
+   "doi-10.1056-nejmoa2027540",
+   "isca-jou06_interspeech"
+  ],
+  "unread": 1291,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
  }
 }
