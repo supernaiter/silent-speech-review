@@ -333,7 +333,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`wearable-silent-sentence-decoding.csv`](wearable-silent-sentence-decoding.csv) (7345 slot-filled, 54 pattern match, usual design in 30, 6 read in full)
 - Inclusion rule: Sentence or phrase recognition from silently articulated speech measured by body-worn or contact non-video sensors (EMG, inertial, strain, triboelectric, magnetic, EMA, ultrasound, active acoustic); the design compared is how a sentence is decoded: whole-sentence classification, HMM decoding, CTC, or attention sequence-to-sequence. Boundary: lip video, imagined speech, overt-only and synthesis-only studies are outside; a study counts under every decoder its full text names (upper bound, related-work mentions included); versions count once.
-- Used in: [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](../../reviews/silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/)
+- Used in: [Development of sEMG sensors and algorithms for silent speech recognition](../../reviews/development-of-semg-sensors-and-algorithms-for-silent-speech-recognition/), [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](../../reviews/silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/)
 
 ## whisper-conversion-intermediate-representation
 

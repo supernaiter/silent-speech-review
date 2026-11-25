@@ -62,7 +62,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`emg-speech-electrode-subset.csv`](emg-speech-electrode-subset.csv) (7329 slot-filled, 42 pattern match, usual design in 10, 4 read in full)
 - Inclusion rule: Surface-EMG speech studies (recognition or synthesis) that evaluate a reduced subset of their electrodes or rank electrodes, classified by how the subset is chosen: exhaustive or greedy search over trained models, single-channel ranking, random subsets, or model attribution / association analysis. Boundary: studies that only report a fixed array, sensor-hardware papers without a subset comparison, non-speech EMG and EEG-only studies are excluded when read; versions count once.
-- Used in: [Articulatory Feature Prediction from Surface EMG during Speech Production](../../reviews/articulatory-feature-prediction-from-surface-emg-during-speech-production/)
+- Used in: [Articulatory Feature Prediction from Surface EMG during Speech Production](../../reviews/articulatory-feature-prediction-from-surface-emg-during-speech-production/), [Development of sEMG sensors and algorithms for silent speech recognition](../../reviews/development-of-semg-sensors-and-algorithms-for-silent-speech-recognition/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |
