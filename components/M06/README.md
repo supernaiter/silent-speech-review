@@ -169,6 +169,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that decode imagined, covert or inner speech (or contrast it with other conditions) from MEG and report a classification score. Boundary: perceived-speech-only and overt-only MEG decoding are excluded; EEG-only studies are excluded; reviews remain as pattern matches (upper bound); versions of one study count once.
 - Used in: [Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech](../../reviews/transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech/)
 
+## intracranial-synthesis-decoder-architecture
+
+- Table: [`intracranial-synthesis-decoder-architecture.csv`](intracranial-synthesis-decoder-architecture.csv) (7345 slot-filled, 180 pattern match, usual design in 79, 4 read in full)
+- Inclusion rule: Studies that reconstruct speech acoustics from intracranial recordings made during overt, mouthed, attempted or imagined speech (the published intracranial-synthesis population pattern), classified by the neural-to-acoustic regression model their full text names: linear or regularized linear regression, recurrent network (LSTM/GRU), transformer, 3D convolution, DenseNet, unit selection. Boundary: a study counts under every design its full text names, including related-work mentions, so counts are upper bounds; heard-speech reconstruction and text-only decoders read out by TTS are outside the topic; versions of one study count once.
+- Used in: [Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks](../../reviews/speech-synthesis-from-ecog-using-densely-connected-3d-convolutional-neural-networks/)
+
 ## intracranial-synthesis-neural-features
 
 - Table: [`intracranial-synthesis-neural-features.csv`](intracranial-synthesis-neural-features.csv) (7345 slot-filled, 180 pattern match, usual design in 62, 3 read in full)
