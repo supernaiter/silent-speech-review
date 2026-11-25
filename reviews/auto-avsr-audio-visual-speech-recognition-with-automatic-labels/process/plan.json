@@ -1,0 +1,41 @@
+{
+ "target": "arxiv-2303.14307",
+ "changed": [
+  "M02"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt read/broadcast speech video with paired audio (LRW, LRS2, LRS3, VoxCeleb2, AVSpeech)",
+  "M03": "LRW front-end pretraining, then supervised training on 818-3,448 h; 75 epochs, AdamW; no seeds or repeated runs (Ma et al. 2021/2022 lineage)",
+  "M04": "Overt speech; audio, video or both at test",
+  "M05": "Mouth-ROI video (96x96 per paper) and raw audio, 25 frames per second",
+  "M06": "ResNet-18 + Conformer encoders per modality, MLP fusion, joint CTC/attention Transformer decoder (Ma et al. 2021 conformer AVSR lineage)",
+  "M07": "Transformer LM for visual-only decoding only; no LM for ASR and AV-ASR",
+  "M08": "Open-vocabulary English text, 5,000 SentencePiece units",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Original LRS2/LRS3 transcripts and splits; no speaker-overlap statement",
+  "M13": "Public data and released code and models; no latency or device figures"
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "asr-transcribed-unlabelled-video-training",
+   "inclusion_rule": "Studies whose ledger text names lip reading, visual speech recognition (VSR), AVSR or audio-visual speech recognition, classified from the full text (reference list removed) by the training-label source for unlabelled video: transcripts produced by an audio ASR model or other automatic labeller (pseudo-labels), self-supervised pretraining, or cross-modal teacher distillation. Boundary: a study counts under every design its text names, mentions in related work included (upper bound); papers that only cite or reuse Auto-AVSR as a checkpoint or scorer stay in the population; video-to-speech synthesis is in the population only when its ledger names VSR or AVSR; versions counted once.",
+   "pattern": "(lip[- ]?read|lipread|visual speech recognition|\\bVSR\\b|\\bAVSR\\b|audio-visual speech recognition|audiovisual speech recognition)",
+   "design_field": "M03 supervision_kind (ledger) and full-text regexes asr_pseudo_labels, self_supervised_pretraining, cross_modal_distillation, human_or_caption_transcripts_only",
+   "metric": "LRS3 VSR and AV-ASR WER versus labelled and unlabelled hours"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrs3-visual-only-wer",
+   "reuse": "components/M12/lrs3-visual-only-wer.json",
+   "inclusion_rule": "Reused published table: studies reporting visual-only WER on the LRS3 test set, any training regime; audio-only and audio-visual rows, LRS2/LRW/GRID-only results and quoted numbers excluded; versions once.",
+   "pattern": "published pattern",
+   "design_field": "published (M02 supervision_kind)",
+   "metric": "LRS3 VSR WER (%) with training hours and data access"
+  }
+ ]
+}
