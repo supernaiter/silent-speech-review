@@ -2,6 +2,6 @@
 
 **This review has moved to [reviews/lipnet-end-to-end-sentence-level-lipreading/](lipnet-end-to-end-sentence-level-lipreading/).**
 
-End-to-end lipreader (spatiotemporal CNN, Bi-GRU, CTC) decoding GRID sentences from video; 4.8% WER on overlapped speakers and 11.4% on unseen speakers.
+A new CTC sentence decoder, but one corpus and one run make it standard; the comparisons break: an 86.4% word-level HMM baseline, a 10-minute panel, silent dictation untested.
 
 [Read the full review](lipnet-end-to-end-sentence-level-lipreading/) · [All reviews](../README.md)

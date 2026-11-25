@@ -217,6 +217,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Speech or silent-speech recognition studies that classify speech units from radar or RF reflections or transmissions of the articulators (IR-UWB, FMCW, SFCW, CW Doppler, mmWave, Wi-Fi or RFID backscatter); the design compared is the representation fed to the classifier: hand-engineered features (distances, envelopes, velocity or spectral descriptors) versus raw frames or spectrograms fed to a learned network. Boundary: radar used only to recover the acoustic vibration of the throat or vocal folds is excluded; datasets without a recognizer are excluded; versions of one study count once; ledger hits from non-radar papers are inside the pattern-match upper bound.
 - Used in: [IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases](../../reviews/ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases/), [Movement Detection of Tongue and Related Body Parts Using IR-UWB Radar](../../reviews/movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar/)
 
+## sentence-lipreading-sequence-objective
+
+- Table: [`sentence-lipreading-sequence-objective.csv`](sentence-lipreading-sequence-objective.csv) (7345 slot-filled, 633 pattern match, usual design in 291, 6 read in full)
+- Inclusion rule: Studies that decode sentence-level or open-vocabulary speech from lip or face video (ledger names lip reading, VSR, AVSR or an LRS2/LRS3 benchmark together with sentence-level, continuous or open-vocabulary recognition), classified by the sequence objective their full text names: CTC, attention sequence-to-sequence, hybrid CTC/attention, HMM, or transducer. Boundary: isolated-word classification without a sentence-level result is excluded; audio-only ASR is out of scope; reviews count as pattern matches only; a study counts under every objective its text names (upper bound); versions of one study count once by key.
+- Used in: [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/)
+
 ## silent-command-activation
 
 - Table: [`silent-command-activation.csv`](silent-command-activation.csv) (7345 slot-filled, 183 pattern match, usual design in 20, 1 read in full)

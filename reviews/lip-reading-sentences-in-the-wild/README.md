@@ -162,7 +162,7 @@ Data behind this review. Full texts of the papers are not included.
 - [`components/M03/length-curriculum.csv`](../../components/M03/length-curriculum.csv): M03 topic "length-curriculum", every candidate paper with its decision (18 confirmed, 71 candidates read, 5 unread)
 - [`components/M06/attention-seq2seq-decoding.csv`](../../components/M06/attention-seq2seq-decoding.csv): M06 topic "attention-seq2seq-decoding", every candidate paper with its decision (36 confirmed, 115 candidates read, 441 unread)
 - [`components/M11/in-the-wild-sentence-benchmark.csv`](../../components/M11/in-the-wild-sentence-benchmark.csv): M11 topic "in-the-wild-sentence-benchmark", every candidate paper with its decision (5 confirmed, 49 candidates read, 293 unread)
-- [`components/M12/human-lipreader-baseline.csv`](../../components/M12/human-lipreader-baseline.csv): M12 topic "human-lipreader-baseline", every candidate paper with its decision (7 confirmed, 116 candidates read, 0 unread)
+- [`components/M12/human-lipreader-baseline.csv`](../../components/M12/human-lipreader-baseline.csv): M12 topic "human-lipreader-baseline", every candidate paper with its decision (6960 slot-filled, 64 pattern match, usual design in 40, 116 read in full)
 
 
 ## More reviews in Lip & face video

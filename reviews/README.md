@@ -126,6 +126,7 @@ Each paper judged component by component against the usual approach and the stat
 - [Improved Speech Reconstruction from Silent Video](improved-speech-reconstruction-from-silent-video/) (2017). Optical-flow tower (M05) and mel-to-linear post-net (M06) are standard: no flow gain in Table 5; trails Le Cornu on S3; no listener test (M12); Lip2Wav's re-run: 27.83% vs 14.08% WER.
 - [Lip Reading Sentences in the Wild](lip-reading-sentences-in-the-wild/) (2017). Made sentence lipreading measurable with LRS, but its decoder and curriculum gains are confounded with data and augmentation, and the beats-a-lipreader claim is on unequal terms.
 - [Vid2speech: Speech Reconstruction from Silent Video](vid2speech-speech-reconstruction-from-silent-video/) (2017). Raw-face CNN to LSP (M05, M06) is standard: 82.6% vs 40.0% over Le Cornu and Milner mixes in forced-choice listening (M12); as a whole system it later scores 44.92% vs 14.08% GRID WER (Lip2Wav).
+- [LipNet: End-to-End Sentence-level Lipreading](lipnet-end-to-end-sentence-level-lipreading/) (2016). A new CTC sentence decoder, but one corpus and one run make it standard; the comparisons break: an 86.4% word-level HMM baseline, a 10-minute panel, silent dictation untested.
 
 ## Itemized summaries
 
@@ -160,5 +161,4 @@ Earlier format: evaluation conditions, results and limitations per paper.
 - [Biosignal-Based Spoken Communication: A Survey](biosignal-based-spoken-communication-a-survey/) (2017)
 - [Seeing Through Noise: Visually Driven Speaker Separation and Enhancement](seeing-through-noise-visually-driven-speaker-separation-and-enhancement/) (2017)
 - [Contour-based 3d tongue motion visualization using ultrasound image sequences](contour-based-3d-tongue-motion-visualization-using-ultrasound-image-sequences/) (2016)
-- [LipNet: End-to-End Sentence-level Lipreading](lipnet-end-to-end-sentence-level-lipreading/) (2016)
 - [Silent speech interfaces](silent-speech-interfaces/) (2010)
