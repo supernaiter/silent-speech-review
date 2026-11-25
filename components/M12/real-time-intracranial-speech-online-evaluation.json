@@ -1,0 +1,2201 @@
+{
+ "topic": "real-time-intracranial-speech-online-evaluation",
+ "slot": "M12",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*(\\becog\\b|electrocortico|\\bseeg\\b|stereo-?eeg|intracortical|intracranial|utah array|microelectrode array))(?=.*(speech|phonem|syllab|spoken|word|sentence|utterance|vocal))(?=.*(real[- ]time|\\bonline\\b|closed[- ]loop))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Intracranial (ECoG, sEEG, intracortical) speech decoding studies whose ledger text mentions real-time, online or closed-loop operation; the design of interest is what the evaluation reports for that operation: an online accuracy or error-rate figure, an offline simulation or replay of the real-time pipeline, and a numeric latency. Boundary: listening-only and review papers enter through the pattern, so counts are upper bounds; versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8381,
+  "slot_filled_unique": 6960,
+  "string_match_folders": 196,
+  "string_match_unique": 134,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M12",
+  "design_slot_fill": 0.932,
+  "sparse": false,
+  "design_values": [],
+  "pattern_counts": [
+   {
+    "design": "online_accuracy_reported",
+    "n": 18,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1016-j.celrep.2026.117162",
+     "doi-10.1038-s41593-026-02446-2",
+     "doi-10.64898-2026.06.02.729705",
+     "doi-10.64898-2026.07.23.739430",
+     "pmc-13383455-b2s"
+    ]
+   },
+   {
+    "design": "latency_number_reported",
+    "n": 18,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "doi-10.64898-2026.06.02.729705",
+     "doi-10.64898-2026.06.30.735633",
+     "doi-10.64898-2026.07.23.739430",
+     "pmc-13490415-sharedlat"
+    ]
+   },
+   {
+    "design": "offline_simulation_or_replay",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1038-s41593-026-02446-2",
+     "doi-10.64898-2026.06.02.729705",
+     "doi-10.64898-2026.06.30.735633",
+     "doi-10.64898-2026.07.23.739430",
+     "pmc-13490415-sharedlat"
+    ]
+   }
+  ],
+  "metric_pattern": "accuracy",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "day-1 50-word accuracy",
+   "value": 99.6,
+   "unit": "percent",
+   "raw": "99.6",
+   "pid": "doi-10.1056-nejmoa2314132",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Willett offline accuracy",
+   "value": 99,
+   "unit": "%",
+   "raw": "99",
+   "pid": "doi-10.3390-s23125575",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "verificationAccuracy",
+   "value": 98.3,
+   "unit": "percent",
+   "raw": "98.3%",
+   "pid": "doi-10.1101-2025.04.24.25326368",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "SUA SVM character classification accuracy",
+   "value": 98.2,
+   "unit": "percent",
+   "raw": "98.2% ± 2.29% among 30-character",
+   "pid": "doi-10.1101-2024.07.02.24309802",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Wh-word presence accuracy (raw table scale)",
+   "value": 98.0,
+   "unit": "% (from fraction)",
+   "raw": "0.98",
+   "pid": "arxiv-2605.00025",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "listener word-ID mean accuracy",
+   "value": 94.23,
+   "unit": "percent",
+   "raw": "94.23%",
+   "pid": "doi-10.1101-2024.08.14.607690",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "94.1% raw accuracy online; >99% offline with autocorrect",
+   "value": 94.1,
+   "unit": "percent",
+   "raw": "94.1% raw accuracy online",
+   "pid": "doi-10.1038-s41586-021-03506-2",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "CORP mean accuracy",
+   "value": 93.84,
+   "unit": "percent",
+   "raw": "93.84",
+   "pid": "arxiv-2311.03611",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "orofacial-movement classification accuracy",
+   "value": 92,
+   "unit": "percent",
+   "raw": "92%",
+   "pid": "doi-10.1038-s41586-023-06377-x",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Kanas detection accuracy",
+   "value": 92,
+   "unit": "%",
+   "raw": "92",
+   "pid": "doi-10.3389-fnhum.2023.1298129",
+   "year": 2023,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2311.03611",
+   "key": "t:plugandplaystabilityforintracorticalbraincomputerinterfacesaoneyeardemonstration",
+   "title": "Plug-and-Play Stability for Intracortical Brain-Computer Interfaces: A One-Year Demonstration of Seamless Brain-to-Text Communication",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2311.03611 | title=Plug-and-Play Stability for Intracortical Brain-Computer Interfaces: A One-Year Demons"
+  },
+  {
+   "pid": "arxiv-2312.13600",
+   "key": "t:braintalkerlowresourcebraintospeechsynthesiswithtransferlearningusingwav2vec20",
+   "title": "BrainTalker: Low-Resource Brain-to-Speech Synthesis with Transfer Learning using Wav2Vec 2.0",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2312.13600 | paper_version=2312.13600v1 | title=BrainTalker: Low-Resource Brain-to-Speech Synthesis with"
+  },
+  {
+   "pid": "arxiv-2403.05583",
+   "key": "t:acrossmodalapproachtosilentspeechwithllmenhancedrecognition",
+   "title": "A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.05583 | title=A Cross-Modal Approach to Silent Speech with LLM-Enhanced Recognition | authors=Tyler"
+  },
+  {
+   "pid": "arxiv-2506.05320",
+   "key": "t:generalizablerealtimeneuraldecodingwithhybridstatespacemodels",
+   "title": "Generalizable, real-time neural decoding with hybrid state-space models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2506.05320 | title=Generalizable, real-time neural decoding with hybrid state-space models | authors=Aver"
+  },
+  {
+   "pid": "arxiv-2506.12055",
+   "key": "t:towardsunifiedneuraldecodingwithbrainfunctionalnetworkmodeling",
+   "title": "Towards Unified Neural Decoding with Brain Functional Network Modeling",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2506.12055 | title=Towards Unified Neural Decoding with Brain Functional Network Modeling | authors=Di Wu"
+  },
+  {
+   "pid": "arxiv-2509.24700",
+   "key": "t:arobustmultiscaleframeworkwithtesttimeadaptationforseegbasedspeechdecoding",
+   "title": "A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2509.24700v1 | title=A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decod"
+  },
+  {
+   "pid": "arxiv-2510.19832",
+   "key": "t:lowlatencyneuralinferenceonanedgedeviceforrealtimehandwritingrecognitionfromeegs",
+   "title": "Low-Latency Neural Inference on an Edge Device for Real-Time Handwriting Recognition from EEG Signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2510.19832 | title=Low-Latency Neural Inference on an Edge Device for Real-Time Handwriting Recognition f"
+  },
+  {
+   "pid": "arxiv-2602.01247",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01247 | paper_version=2602.01247v1 | title=Mechanistic Interpretability of Brain-to-Speech Models Ac"
+  },
+  {
+   "pid": "arxiv-2603.11877",
+   "key": "t:silentspeechinterfacesintheeraoflargelanguagemodelsacomprehensivetaxonomyandsyst",
+   "title": "Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.11877 | arxiv_id=2603.11877v1 | source_url=https://arxiv.org/pdf/2603.11877v1 | title=Silent Speech"
+  },
+  {
+   "pid": "arxiv-2603.18299",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2603.18299v1 | title=ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis | authors=Zhanqi"
+  },
+  {
+   "pid": "arxiv-2604.05751",
+   "key": "t:braintospeechprosodyfeatureengineeringandtransformerbasedreconstruction",
+   "title": "Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.05751 | paper_version=arXiv:2604.05751v1; Springer edited-volume chapter PDF | title=Brain-to-Speech"
+  },
+  {
+   "pid": "arxiv-2605.00025",
+   "key": "t:modalselfsupervisedneuralmodalitydiscoveryviadecorrelationforspeechneuroprosthes",
+   "title": "MoDAl: Self-Supervised Neural Modality Discovery via Decorrelation for Speech Neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2605.00025 | paper_version=arXiv 2605.00025v3; 11-page PDF dated 6 Aug 2026 | title=MoDAl: Self-Supervise"
+  },
+  {
+   "pid": "arxiv-2607.26751",
+   "key": "t:phonemevscharacterleveltargetsandselectivestatespacemodelsforintracorticalbraint",
+   "title": "Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text | arxiv_id=2"
+  },
+  {
+   "pid": "arxiv-2608.18114-brain2qwerty2",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.18114-brain2qwerty2 | title=Accurate Decoding of Natural Sentences from Non-Invasive Brain Recording"
+  },
+  {
+   "pid": "arxiv-2609-04455-b2snet",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | authors=Suresh Chandra,"
+  },
+  {
+   "pid": "arxiv-2609-36736-speechbcirev",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Neurons to Conversation: Speech Brain-Computer Interfaces | authors=Khajehnejad, Habibollahi, Boccato, Sousa,"
+  },
+  {
+   "pid": "arxiv-2609.04455",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2609.04455 | paper_version=2609.04455v2 | title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech S"
+  },
+  {
+   "pid": "arxiv-2609.36736",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.36736 | doi=10.48550/arxiv.2609.36736 | title=From Neurons to Conversation: Speech Brain-Computer In"
+  },
+  {
+   "pid": "cell-40816265-innersp",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Inner speech in motor cortex and implications for speech neuroprostheses | authors=Kunz, Krasa, Kamdar, ... Hender"
+  },
+  {
+   "pid": "doi-10.1001-jama.2019.19813",
+   "key": "t:towardaspeechneuroprosthesis",
+   "title": "Toward a Speech Neuroprosthesis",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1001-jama.2019.19813 | doi=10.1001/jama.2019.19813 | title=Toward a Speech Neuroprosthesis | venue=JAMA"
+  },
+  {
+   "pid": "doi-10.1002-advs.202304853",
+   "key": "t:stabledecodingfromaspeechbcienablescontrolforanindividualwithalswithoutrecalibra",
+   "title": "Stable Decoding from a Speech BCI Enables Control for an Individual with ALS without Recalibration for 3 Months",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1002-advs.202304853 | title=Stable Decoding from a Speech BCI Enables Control for an Individual with ALS"
+  },
+  {
+   "pid": "doi-10.1002-advs.202401379",
+   "key": "t:braincontrolledaugmentedhearingforspatiallymovingconversationsinmultitalkerenvir",
+   "title": "Brain-Controlled Augmented Hearing for Spatially Moving Conversations in Multi-Talker Environments",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1002/advs.202401379 | title=Brain-Controlled Augmented Hearing for Spatially Moving Conversations in Multi-T"
+  },
+  {
+   "pid": "doi-10.1007-s00415-026-13734-z",
+   "key": "t:theevolutionofspeechcommunicationdevicesforanarthriaareview",
+   "title": "The evolution of speech communication devices for anarthria: a review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1007/s00415-026-13734-z | title=The evolution of speech communication devices for anarthria: a review | auth"
+  },
+  {
+   "pid": "doi-10.1007-s13311-022-01190-2",
+   "key": "t:braincomputerinterfaceapplicationstospeechdecodingandsynthesistoaugmentcommunica",
+   "title": "Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1007-s13311-022-01190-2 | title=Brain-Computer Interface: Applications to Speech Decoding and Synthesis"
+  },
+  {
+   "pid": "doi-10.1016-j.cell.2025.06.015",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1016/j.cell.2025.06.015 | title=Inner speech in motor cortex and implications for speech neuroprostheses | a"
+  },
+  {
+   "pid": "doi-10.1016-j.celrep.2026.117162",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.celrep.2026.117162 | title=Decoding intended speech with an intracortical brain-computer interfac"
+  },
+  {
+   "pid": "doi-10.1016-j.clinph.2025.2111403",
+   "key": "t:theeffectofperceivedauditoryfeedbackonspeechbraincomputerinterfacedecodingperfor",
+   "title": "The effect of perceived auditory feedback on speech Brain-Computer Interface decoding performance",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.clinph.2025.2111403 | doi=10.1016/j.clinph.2025.2111403 | title=The effect of perceived auditory"
+  },
+  {
+   "pid": "doi-10.1016-j.jphysparis.2017.07.002",
+   "key": "t:keyconsiderationsindesigningaspeechbraincomputerinterface",
+   "title": "Key considerations in designing a speech brain-computer interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.jphysparis.2017.07.002 | doi=10.1016/j.jphysparis.2017.07.002 | title=Key considerations in desig"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2010.01.001",
+   "key": "p:doi-10.1016-j.specom.2010.01.001",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=neurotrophic-electrode formant-synthesizer speech BCI | task_family=speech_reconstruction | intended_use_cas"
+  },
+  {
+   "pid": "doi-10.1016-j.tics.2023.08.014",
+   "key": "t:innerspeechaslanguageprocessandcognitivetool",
+   "title": "Inner speech as language process and cognitive tool",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Trends in Cognitive Sciences 27(12):1180-1192 (Dec 2023), Review article, CC BY open access | title=Inner speech a"
+  },
+  {
+   "pid": "doi-10.1016-j.xcrm.2023.101115",
+   "key": "t:reconstructinglanguagefrombrainsignalsanddeconstructingadversarialthoughtreading",
+   "title": "Reconstructing language from brain signals and deconstructing adversarial thought-reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.xcrm.2023.101115 | doi=10.1016/j.xcrm.2023.101115 | title=Reconstructing language from brain sign"
+  },
+  {
+   "pid": "doi-10.1038-s41467-019-10994-4",
+   "key": "t:realtimedecodingofquestionandanswerspeechdialogueusinghumancorticalactivity",
+   "title": "Real-time decoding of question-and-answer speech dialogue using human cortical activity",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41467-019-10994-4 | title=Real-time decoding of question-and-answer speech dialogue using human cortic"
+  },
+  {
+   "pid": "doi-10.1038-s41467-022-33611-3",
+   "key": "t:generalizablespellingusingaspeechneuroprosthesisinanindividualwithseverelimbandv",
+   "title": "Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41467-022-33611-3 | doi=10.1038/s41467-022-33611-3 | title=Generalizable spelling using a speech n"
+  },
+  {
+   "pid": "doi-10.1038-s41467-026-70536-7",
+   "key": "t:corticalrepresentationofmultidimensionalhandwritingmovementandimplicationsforneu",
+   "title": "Cortical representation of multidimensional handwriting movement and implications for neuroprostheses",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.1038/s41467-026-70536-7 | title=Cortical representation of multidimensional handwriting movement and imp"
+  },
+  {
+   "pid": "doi-10.1038-s41467-026-71284-4",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41467-026-71284-4 | title=Encoding of speech modes and loudness in ventral precentral gyrus | auth"
+  },
+  {
+   "pid": "doi-10.1038-s41551-024-01207-5",
+   "key": "p:doi-10.1038-s41551-024-01207-5",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=sentence_recognition | extra.Task.target=Online closed-loop phrase decoding for a Spanish-English bilingual"
+  },
+  {
+   "pid": "doi-10.1038-s41562-024-01867-y",
+   "key": "t:representationofinternalspeechbysingleneuronsinhumansupramarginalgyrus",
+   "title": "Representation of internal speech by single neurons in human supramarginal gyrus",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41562-024-01867-y | title=Representation of internal speech by single neurons in human supramargin"
+  },
+  {
+   "pid": "doi-10.1038-s41586-021-03506-2",
+   "key": "t:highperformancebraintotextcommunicationviahandwriting",
+   "title": "High-performance brain-to-text communication via handwriting",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41586-021-03506-2 | title=High-performance brain-to-text communication via handwriting | authors=F"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06377-x",
+   "key": "t:ahighperformancespeechneuroprosthesis",
+   "title": "A high-performance speech neuroprosthesis",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41586-023-06377-x | doi=10.1038/s41586-023-06377-x | title=A high-performance speech neuroprosthes"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "key": "t:ahighperformanceneuroprosthesisforspeechdecodingandavatarcontrol",
+   "title": "A high-performance neuroprosthesis for speech decoding and avatar control",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41586-023-06443-4 | title=A high-performance neuroprosthesis for speech decoding and avatar control |"
+  },
+  {
+   "pid": "doi-10.1038-s41586-025-09127-3",
+   "key": "p:doi-10.1038-s41586-025-09127-3",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=brain-to-voice instantaneous voice-synthesis neuroprosthesis | task_family=speech_reconstruction | intended_"
+  },
+  {
+   "pid": "doi-10.1038-s41593-026-02281-5",
+   "key": "t:realtimebraincontrolledselectivehearingenhancesspeechperceptioninmultitalkerenvi",
+   "title": "Real-time brain-controlled selective hearing enhances speech perception in multi-talker environments",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41593-026-02281-5 | title=Real-time brain-controlled selective hearing enhances speech perception"
+  },
+  {
+   "pid": "doi-10.1038-s41593-026-02303-2",
+   "key": "t:noninvasivedecodingoftypedsentencesfromhumanbrainactivity",
+   "title": "Noninvasive decoding of typed sentences from human brain activity",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41593-026-02303-2 | title=Noninvasive decoding of typed sentences from human brain activity | authors="
+  },
+  {
+   "pid": "doi-10.1038-s41593-026-02446-2",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41593-026-02446-2 | title=Simultaneous speech and gesture decoding for multimodal communication in"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-60277-2",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterfaceinanindivid",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-024-60277-2 | doi=10.1038/s41598-024-60277-2 | title=Online speech synthesis using a chronic"
+  },
+  {
+   "pid": "doi-10.1038-s42003-021-02578-0",
+   "key": "t:realtimesynthesisofimaginedspeechprocessesfromminimallyinvasiverecordingsofneura",
+   "title": "Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42003-021-02578-0 | doi=10.1038-s42003-021-02578-0 | title=Real-time synthesis of imagined speech"
+  },
+  {
+   "pid": "doi-10.1038-s42256-024-00824-8",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A neural speech decoding framework leveraging deep learning and speech synthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42256-024-00824-8 | doi=10.1038/s42256-024-00824-8 | title=A neural speech decoding framework leve"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sensing technologies for silent speech interfaces | needs_manual_check=cited metrics are secondhand: values summar"
+  },
+  {
+   "pid": "doi-10.1055-s-0045-1810103",
+   "key": "p:doi-10.1055-s-0045-1810103",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=speech-BCI commentary | system_name=NEJM 2024 speech neuroprosthesis (cited) | system_name=Nature 2025 insta"
+  },
+  {
+   "pid": "doi-10.1056-NEJMoa2314132",
+   "key": "t:anaccurateandrapidlycalibratingspeechneuroprosthesis",
+   "title": "An Accurate and Rapidly Calibrating Speech Neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1056/NEJMoa2314132 | title=An Accurate and Rapidly Calibrating Speech Neuroprosthesis | authors=Nicholas S."
+  },
+  {
+   "pid": "doi-10.1056-nejmoa2027540",
+   "key": "t:neuroprosthesisfordecodingspeechinaparalyzedpersonwithanarthria",
+   "title": "Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1056-nejmoa2027540 | doi=10.1056/NEJMoa2027540 | title=Neuroprosthesis for Decoding Speech in a Paralyze"
+  },
+  {
+   "pid": "doi-10.1056-nejmoa2314132",
+   "key": "t:anaccurateandrapidlycalibratingspeechneuroprosthesis",
+   "title": "An accurate and rapidly calibrating speech neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1056-nejmoa2314132 | doi=10.1056/NEJMoa2314132 | title=An accurate and rapidly calibrating speech neurop"
+  },
+  {
+   "pid": "doi-10.1080-02688697.2026.2682817",
+   "key": "t:braincomputerinterfacesandneuroprostheticsinthenexteraofneurosurgery",
+   "title": "Brain–computer interfaces and neuroprosthetics in the next era of neurosurgery",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1080/02688697.2026.2682817 | title=Brain–computer interfaces and neuroprosthetics in the next era of neurosu"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-aaab6f",
+   "key": "t:realtimeclassificationofauditorysentencesusingevokedcorticalactivityinhumans",
+   "title": "Real-time classification of auditory sentences using evoked cortical activity in humans",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1088/1741-2552/aaab6f | title=Real-time classification of auditory sentences using evoked cortical activity"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abc742",
+   "key": "t:brain2charadeeparchitecturefordecodingtextfrombrainrecordings",
+   "title": "Brain2Char: a deep architecture for decoding text from brain recordings",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-abc742 | doi=10.1088/1741-2552/abc742 | title=Brain2Char: a deep architecture for decodin"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-adf50e",
+   "key": "t:implicationsofsharedmotorandperceptualactivationsonthesensorimotorcortexforneuro",
+   "title": "Implications of shared motor and perceptual activations on the sensorimotor cortex for neuroprosthetic decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-adf50e | title=Implications of shared motor and perceptual activations on the sensorimoto"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ae0965",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-ae0965 | title=Real-time detection of spoken speech from unlabeled ECoG signals: a pilot"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552.add0e5",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.1088/1741-2552/add0e5 | title=Speech motor cortex enables BCI cursor control and click | authors=Tyler S"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552.adf50e",
+   "key": "t:implicationsofsharedmotorandperceptualactivationsonthesensorimotorcortexforneuro",
+   "title": "Implications of shared motor and perceptual activations on the sensorimotor cortex for neuroprosthetic decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1088/1741-2552/adf50e | title=Implications of shared motor and perceptual activations on the sensorimotor co"
+  },
+  {
+   "pid": "doi-10.1088-1741-2560-8-3-036004",
+   "key": "p:doi-10.1088-1741-2560-8-3-036004",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=ECoG phoneme-driven 1D cursor BCI | intended_use_cases=device_control, speech_restoration | observed_quantit"
+  },
+  {
+   "pid": "doi-10.1101-2022.06.07.495084",
+   "key": "t:speechdecodingfromasmallsetofspatiallysegregatedminimallyinvasiveintracranialeeg",
+   "title": "Speech decoding from a small set of spatially segregated minimally invasive intracranial EEG electrodes with a compact and interpretable neural network",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1101/2022.06.07.495084 | title=Speech decoding from a small set of spatially segregated minimally invasive i"
+  },
+  {
+   "pid": "doi-10.1101-2023.09.16.558028",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis | venue=bioRxiv preprint (later N"
+  },
+  {
+   "pid": "doi-10.1101-2024.07.02.24309802",
+   "key": "t:decodingimaginaryhandwritingtrajectorieswithshapeandtimedistortionlossforbrainto",
+   "title": "Decoding imaginary handwriting trajectories with shape and time distortion loss for brain-to-text communication",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.07.02.24309802 | doi=10.1101/2024.07.02.24309802 | title=Decoding imaginary handwriting trajec"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.14.607690",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.08.14.607690 | doi=10.1101/2024.08.14.607690 | title=An instantaneous voice synthesis neuropro"
+  },
+  {
+   "pid": "doi-10.1101-2024.10.04.616375",
+   "key": "t:representationofverbalthoughtinmotorcortexandimplicationsforspeechneuroprosthese",
+   "title": "Representation of verbal thought in motor cortex and implications for speech neuroprostheses",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.10.04.616375 | doi=10.1101/2024.10.04.616375 | title=Representation of verbal thought in motor"
+  },
+  {
+   "pid": "doi-10.1101-2024.11.12.623096",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.11.12.623096 | doi=10.1101/2024.11.12.623096 | title=Speech motor cortex enables BCI cursor co"
+  },
+  {
+   "pid": "doi-10.1101-2025.04.09.25325542",
+   "key": "p:doi-10.1101-2025.04.09.25325542",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.research_objective=self-paced (cue-free) silent speech BCI for direct smart-device control without screen dependen"
+  },
+  {
+   "pid": "doi-10.1101-2025.04.24.25326368",
+   "key": "p:doi-10.1101-2025.04.24.25326368",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=target_users | task_family=isolated_word_recognition | inte"
+  },
+  {
+   "pid": "doi-10.1101-2025.05.30.657105",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1101/2025.05.30.657105 | title=Encoding of speech modes and loudness in ventral precentral gyrus | authors=S"
+  },
+  {
+   "pid": "doi-10.1101-2025.06.07.658426",
+   "key": "t:errorencodinginhumanspeechmotorcortex",
+   "title": "Error encoding in human speech motor cortex",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2025.06.07.658426 | doi=10.1101/2025.06.07.658426 | title=Error encoding in human speech motor cort"
+  },
+  {
+   "pid": "doi-10.1101-2025.08.12.668516",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with longstanding anarthria and locked-in syndrome",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.1101/2025.08.12.668516 | title=Decoding intended speech with an intracortical brain-computer interface i"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases"
+  },
+  {
+   "pid": "doi-10.1109-icassp43922.2022.9747300",
+   "key": "t:towardsclosedloopspeechsynthesisfromstereotacticeegaunitselectionapproach",
+   "title": "Towards Closed-Loop Speech Synthesis From Stereotactic EEG: A Unit Selection Approach",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-icassp43922.2022.9747300 | doi=10.1109/icassp43922.2022.9747300 | title=Towards Closed-Loop Speech"
+  },
+  {
+   "pid": "doi-10.1109-msp.2024.3484629",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1109/msp.2024.3484629 | title=Emerging Brain-to-Content Technologies from Generative AI and Deep Representat"
+  },
+  {
+   "pid": "doi-10.1126-sciadv.aav6134",
+   "key": "t:speakerindependentauditoryattentiondecodingwithoutaccesstocleanspeechsources",
+   "title": "Speaker-independent auditory attention decoding without access to clean speech sources",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1126/sciadv.aav6134 | title=Speaker-independent auditory attention decoding without access to clean speech s"
+  },
+  {
+   "pid": "doi-10.1126-sciadv.adz9968",
+   "key": "t:realtimedecodingoffullspectrumchineseusingbraincomputerinterface",
+   "title": "Real-time decoding of full-spectrum Chinese using brain-computer interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1126-sciadv.adz9968 | doi=10.1126/sciadv.adz9968 | title=Real-time decoding of full-spectrum Chinese usi"
+  },
+  {
+   "pid": "doi-10.1162-imag_a_00148",
+   "key": "t:improvingauditoryattentiondecodingbyclassifyingintracranialresponsestoglimpsedan",
+   "title": "Improving auditory attention decoding by classifying intracranial responses to glimpsed and masked acoustic events",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1162/imag_a_00148 | title=Improving auditory attention decoding by classifying intracranial responses to gli"
+  },
+  {
+   "pid": "doi-10.1227-neu.0000000000003360_251",
+   "key": "p:doi-10.1227-neu.0000000000003360_251",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.research_objective=real-time continuous speech neuroprosthesis restoring voice + prosody in ALS dysarthria | task_"
+  },
+  {
+   "pid": "doi-10.1371-journal.pcbi.1007091",
+   "key": "t:deeplearningasatoolforneuraldataanalysisspeechclassificationandcrossfrequencycou",
+   "title": "Deep learning as a tool for neural data analysis: Speech classification and cross-frequency coupling in human sensorimotor cortex",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1371/journal.pcbi.1007091 | title=Deep learning as a tool for neural data analysis: Speech classification an"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0008218",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A Wireless Brain-Machine Interface for Real-Time Speech Synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1371/journal.pone.0008218 | title=A Wireless Brain-Machine Interface for Real-Time Speech Synthesis | au"
+  },
+  {
+   "pid": "doi-10.1586-erd.10.34",
+   "key": "t:developmentofspeechprosthesescurrentstatusandrecentadvances",
+   "title": "Development of speech prostheses: current status and recent advances",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1586/erd.10.34 | title=Development of speech prostheses: current status and recent advances | authors=Jo"
+  },
+  {
+   "pid": "doi-10.20517-ss.2026.38",
+   "key": "t:biointegratedsystemsforsilentspeechrecognitionfromadvancedbioplatformstomedicala",
+   "title": "Bio-integrated systems for silent speech recognition: from advanced bioplatforms to medical applications",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Bio-integrated systems for silent speech recognition: from advanced bioplatforms to medical applications | needs_m"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9156039-v1",
+   "key": "t:stablespeechbciperformanceduringslowprogressionofalsalongitudinalecogstudy",
+   "title": "Stable speech BCI performance during slow progression of ALS: A longitudinal ECoG study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21203/rs.3.rs-9156039/v1 | title=Stable speech BCI performance during slow progression of ALS: A longitudina"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9156039.v1",
+   "key": "t:stablespeechbciperformanceduringslowprogressionofalsalongitudinalecogstudy",
+   "title": "Stable speech BCI performance during slow progression of ALS: A longitudinal ECoG study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.21203/rs.3.rs-9156039/v1 | title=Stable speech BCI performance during slow progression of ALS: A longitu"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1124065",
+   "key": "t:overtspeechdecodingfromcorticalactivityacomparisonofdifferentlinearmethods",
+   "title": "Overt speech decoding from cortical activity: a comparison of different linear methods",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnhum.2023.1124065 | title=Overt speech decoding from cortical activity: a comparison of different line"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1298129",
+   "key": "t:recommendationsforpromotinguseragencyinthedesignofspeechneuroprostheses",
+   "title": "Recommendations for promoting user agency in the design of speech neuroprostheses",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2023.1298129 | doi=10.3389/fnhum.2023.1298129 | title=Recommendations for promoting user agen"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2025.1547074",
+   "key": "p:doi-10.3389-fnhum.2025.1547074",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Frontiers in Human Neuroscience 2025 | vocabulary_regime=not_a_word_task | scope_limits=systems limited to publish"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2019.01267",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2019.01267 | title=Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2026.1928223",
+   "key": "t:fromdeepbrainstimulationtobraincomputerinterfacescurrentprogressinimplantableneu",
+   "title": "From deep brain stimulation to brain-computer interfaces: current progress in implantable neurotechnology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2026.1928223 | title=From deep brain stimulation to brain-computer interfaces: current progre"
+  },
+  {
+   "pid": "doi-10.3390-biology15141148",
+   "key": "t:closingthelooponthecocktailpartyeffectfromattentiondecodingtoneurosteeredselecti",
+   "title": "Closing the Loop on the Cocktail Party Effect: From Attention Decoding to Neuro-Steered Selective Hearing",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-biology15141148 | title=Closing the Loop on the Cocktail Party Effect: From Attention Decoding to N"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s23125575 | doi=10.3390/s23125575 | title=Machine-Learning Methods for Speech and Handwriting Detec"
+  },
+  {
+   "pid": "doi-10.3390-s25133987",
+   "key": "t:towardspredictivecommunicationthefusionoflargelanguagemodelsandbraincomputerinte",
+   "title": "Towards Predictive Communication: The Fusion of Large Language Models and Brain-Computer Interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s25133987 | title=Towards Predictive Communication: The Fusion of Large Language Models and Brain-C"
+  },
+  {
+   "pid": "doi-10.64898-2025.12.10.693470",
+   "key": "t:speakeridentityisrobustlyencodedinspatialpatternsofintracranialeegforattentionde",
+   "title": "Speaker Identity is Robustly Encoded in Spatial Patterns of Intracranial EEG for Attention Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.64898/2025.12.10.693470 | title=Speaker Identity is Robustly Encoded in Spatial Patterns of Intracranial EEG"
+  },
+  {
+   "pid": "doi-10.64898-2026.02.19.26346583",
+   "key": "t:restoringbraintotextcommunicationinapersonwithdysarthriafrompontinestrokeusingan",
+   "title": "Restoring brain-to-text communication in a person with dysarthria from pontine stroke using an intracortical brain-computer interface",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.64898/2026.02.19.26346583 | title=Restoring brain-to-text communication in a person with dysarthria from"
+  },
+  {
+   "pid": "doi-10.64898-2026.06.02.729705",
+   "key": "t:neuraldecodingofspeechusingdeepneuralensembles",
+   "title": "Neural decoding of speech using deep neural ensembles",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.64898/2026.06.02.729705 | title=Neural decoding of speech using deep neural ensembles | authors=Yoon S, Avan"
+  },
+  {
+   "pid": "doi-10.64898-2026.06.30.735633",
+   "key": "t:brain2voice20highperformancevoicesynthesisbraincomputerinterface",
+   "title": "Brain2voice 2.0: High-performance voice synthesis brain-computer interface",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.64898-2026.06.30.735633 | title=Brain2voice 2.0: High-performance voice synthesis brain-computer interfa"
+  },
+  {
+   "pid": "doi-10.64898-2026.07.23.739430",
+   "key": "t:ageneralizablespeechneuroprosthesis",
+   "title": "A generalizable speech neuroprosthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.64898/2026.07.23.739430 | title=A generalizable speech neuroprosthesis | authors=Zachery M. Fogg, Nicholas S"
+  },
+  {
+   "pid": "doi-10.7302-25565",
+   "key": "p:doi-10.7302-25565",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=PhD dissertation (Robotics), University of Michigan 2025, Deep Blue DOI 10.7302/25565; Cubillos; committee Chestek"
+  },
+  {
+   "pid": "doi-10.7507-1001-5515.202107018",
+   "key": "t:keytechnologyofbraincomputerinteractionbasedonspeechimagery",
+   "title": "[Key technology of brain-computer interaction based on speech imagery] 基于言语想象的脑机交互关键技术",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.7507-1001-5515.202107018 | doi=10.7507/1001-5515.202107018 | title=[Key technology of brain-computer int"
+  },
+  {
+   "pid": "doi-10.7554-eLife.48116",
+   "key": "t:thevisualspeechheadstartimprovesperceptionandreducessuperiortemporalcortexrespon",
+   "title": "The visual speech head start improves perception and reduces superior temporal cortex responses to auditory speech",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.7554/eLife.48116 | title=The visual speech head start improves perception and reduces superior temporal cort"
+  },
+  {
+   "pid": "gatech-matthews-201212-phd",
+   "key": "t:probabilisticmodelingofneuraldataforanalysisandsynthesisofspeech",
+   "title": "Probabilistic Modeling of Neural Data for Analysis and Synthesis of Speech",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=thesis:gatech-matthews-201212-phd | title=Probabilistic Modeling of Neural Data for Analysis and Synthesis of S"
+  },
+  {
+   "pid": "isca-brumberg09_bcisynth",
+   "key": "t:artificialspeechsynthesizercontrolbybraincomputerinterface",
+   "title": "Artificial speech synthesizer control by brain-computer interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-brumberg09_bcisynth | title=Artificial speech synthesizer control by brain-computer interface | authors=Jo"
+  },
+  {
+   "pid": "isca-feghhi26_interspeech",
+   "key": "t:lightbeamanaccurateandmemoryefficientctcdecoderforspeechneuroprostheses",
+   "title": "LightBeam: An Accurate and Memory-Efficient CTC Decoder for Speech Neuroprostheses",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-feghhi26_interspeech | title=LightBeam: An Accurate and Memory-Efficient CTC Decoder for Speech Neuroprost"
+  },
+  {
+   "pid": "isca-manca13_interspeech",
+   "key": "t:perceptionandproductionofitalianvowelsanerpstudy",
+   "title": "Perception and production of Italian vowels: an ERP study",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/manca13-interspeech | title=Perception and production of Italian vowels: an ERP study | authors=Anna Dora"
+  },
+  {
+   "pid": "isca-meng22d_interspeech",
+   "key": "t:evidenceofonsetandsustainedneuralresponsestoisolatedphonemesfromintracranialreco",
+   "title": "Evidence of Onset and Sustained Neural Responses to Isolated Phonemes from Intracranial Recordings in a Voice-based Cursor Control Task",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evidence of Onset and Sustained Neural Responses to Isolated Phonemes from Intracranial Recordings in a Voice-base"
+  },
+  {
+   "pid": "isca-sheth19_interspeech",
+   "key": "t:identifyinginputfeaturesfordevelopmentofrealtimetranslationofneuralsignalstotext",
+   "title": "Identifying input features for development of real-time translation of neural signals to text",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Identifying input features for development of real-time translation of neural signals to text | system_name=sEEG p"
+  },
+  {
+   "pid": "natneuro-2446-sgdecode",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Simultaneous speech and gesture decoding for multimodal communication in paralysis | authors=Brosler, Liu, Silva,"
+  },
+  {
+   "pid": "pmc-10326283-lineardecode",
+   "key": "t:overtspeechdecodingfromcorticalactivityacomparisonofdifferentlinearmethods",
+   "title": "Overt speech decoding from cortical activity: a comparison of different linear methods",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10326283-lineardecode | title=Overt speech decoding from cortical activity: a comparison of different linea"
+  },
+  {
+   "pid": "pmc-10560396-rtsent",
+   "key": "t:realtimeclassificationofauditorysentencesusingevokedcorticalactivity",
+   "title": "Real-time classification of auditory sentences using evoked cortical activity",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time classification of auditory sentences using evoked cortical activity | authors=real-time ECoG group | Stu"
+  },
+  {
+   "pid": "pmc-10980022-satrans-decode",
+   "key": "t:subjectagnostictransformerbasedneuralspeechdecodingfromsurfaceanddepthelectrodes",
+   "title": "Subject-Agnostic Transformer-Based Neural Speech Decoding from Surface and Depth Electrode Signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Subject-Agnostic Transformer-Based Neural Speech Decoding from Surface and Depth Electrode Signals | authors=Chen"
+  },
+  {
+   "pid": "pmc-11053081-als-ecog-synth",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterfaceinanindivid",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11053081-als-ecog-synth | title=Online speech synthesis using a chronically implanted brain-computer interf"
+  },
+  {
+   "pid": "pmc-11053081-onlinesyn",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterface",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Online speech synthesis using a chronically implanted brain-computer interface | authors=online-synthesis group |"
+  },
+  {
+   "pid": "pmc-11199147-internalsmg",
+   "key": "t:representationofinternalspeechbysingleneuronsinhumansupramarginalgyrus",
+   "title": "Representation of internal speech by single neurons in human supramarginal gyrus",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Representation of internal speech by single neurons in human supramarginal gyrus | authors=Wandelt, Bjånes, Pejsa"
+  },
+  {
+   "pid": "pmc-11351572-iad-dtw",
+   "key": "t:iterativealignmentdiscoveryofspeechassociatedneuralactivity",
+   "title": "Iterative alignment discovery of speech-associated neural activity",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11351572-iad-dtw | title=Iterative alignment discovery of speech-associated neural activity | authors=R. Ra"
+  },
+  {
+   "pid": "pmc-11451764-angrick",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: A pilot study with an ALS participant",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11451764-angrick | title=Real-time detection of spoken speech from unlabeled ECoG signals: A pilot study wi"
+  },
+  {
+   "pid": "pmc-11451764-rtunlabel",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignals",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time detection of spoken speech from unlabeled ECoG signals | authors=rt-unlabeled group | Study.research_obj"
+  },
+  {
+   "pid": "pmc-11494208-icinstab",
+   "key": "t:measuringinstabilityinchronichumanintracorticalneuralrecordingstowardsstablelong",
+   "title": "Measuring instability in chronic human intracortical neural recordings towards stable, long-term brain-computer interfaces",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Measuring instability in chronic human intracortical neural recordings towards stable, long-term brain-computer in"
+  },
+  {
+   "pid": "pmc-11561076-icn-review",
+   "key": "t:implantedcorticalneuroprostheticsforspeechandmovementrestoration",
+   "title": "Implanted cortical neuroprosthetics for speech and movement restoration",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11561076-icn-review | title=Implanted cortical neuroprosthetics for speech and movement restoration | autho"
+  },
+  {
+   "pid": "pmc-12026362-invasive-bci-communication",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain–Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12026362-invasive-bci-communication | title=Invasive Brain–Computer Interface for Communication: A Scoping"
+  },
+  {
+   "pid": "pmc-12026362-invbcirev",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain-Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Invasive Brain-Computer Interface for Communication: A Scoping Review | venue=Brain Sciences | doi=10.3390/brainsc"
+  },
+  {
+   "pid": "pmc-12208300-vpcg-cursor",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12208300-vpcg-cursor | title=Speech motor cortex enables BCI cursor control and click | authors=T. Singer-C"
+  },
+  {
+   "pid": "pmc-12337102-sharedpercept",
+   "key": "t:implicationsofsharedmotorandperceptualactivationsonthesensorimotorcortexforneuro",
+   "title": "Implications of shared motor and perceptual activations on the sensorimotor cortex for neuroprosthetic decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12337102-sharedpercept | title=Implications of shared motor and perceptual activations on the sensorimotor"
+  },
+  {
+   "pid": "pmc-12360486-inner-motor",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12360486-inner-motor | title=Inner speech in motor cortex and implications for speech neuroprostheses | aut"
+  },
+  {
+   "pid": "pmc-12360486-innermtrcx",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12360486-innermtrcx | title=Inner speech in motor cortex and implications for speech neuroprostheses | auth"
+  },
+  {
+   "pid": "pmc-12360501-eegconn",
+   "key": "t:harnessingeegconnectomenewfrontiersincognitiveandclinicalneuroscience",
+   "title": "Harnessing EEG connectome: New frontiers in cognitive and clinical neuroscience",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12360501-eegconn | title=Harnessing EEG connectome: New frontiers in cognitive and clinical neuroscience |"
+  },
+  {
+   "pid": "pmc-12363778-anarthria-ibci",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with longstanding anarthria and locked-in syndrome",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding intended speech with an intracortical brain-computer interface in a person with longstanding anarthria an"
+  },
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice-synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An instantaneous voice-synthesis neuroprosthesis | authors=Wairagkar et al. | doi=10.1038/s41586-025-09127-3 | Stu"
+  },
+  {
+   "pid": "pmc-12478441-ecog-des",
+   "key": "t:intraoperativetechniquesforlanguagemappinginbrainsurgeryacomparisonbetweendirect",
+   "title": "Intraoperative Techniques for Language Mapping in Brain Surgery: A Comparison Between Direct Electrical Stimulation (DES) and Electrocorticography (ECoG)",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Intraoperative Techniques for Language Mapping in Brain Surgery: A Comparison Between Direct Electrical Stimulatio"
+  },
+  {
+   "pid": "pmc-12498269-alsvad",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12498269-alsvad | title=Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study wit"
+  },
+  {
+   "pid": "pmc-12498269-ecogvad",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12498269-ecogvad | title=Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study wi"
+  },
+  {
+   "pid": "pmc-12498269-nvad",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignalsapilotstudywithanalsparti",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time detection of spoken speech from unlabeled ECoG signals: a pilot study with an ALS participant | authors="
+  },
+  {
+   "pid": "pmc-12498269-rtspoken",
+   "key": "t:realtimedetectionofspokenspeechfromunlabeledecogsignals",
+   "title": "Real-time detection of spoken speech from unlabeled ECoG signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time detection of spoken speech from unlabeled ECoG signals | authors=rt-spoken group | Study.research_object"
+  },
+  {
+   "pid": "pmc-12561361-handwrite-b2t",
+   "key": "t:decodinghandwritingtrajectoriesfromintracorticalbrainsignalsforbraintotextcommun",
+   "title": "Decoding Handwriting Trajectories from Intracortical Brain Signals for Brain-to-Text Communication",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12561361-handwrite-b2t | title=Decoding Handwriting Trajectories from Intracortical Brain Signals for Brain"
+  },
+  {
+   "pid": "pmc-12588286-chinesebci",
+   "key": "t:realtimedecodingoffullspectrumchineseusingbraincomputerinterface",
+   "title": "Real-time decoding of full-spectrum Chinese using brain-computer interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time decoding of full-spectrum Chinese using brain-computer interface | venue=Science Advances | Study.resear"
+  },
+  {
+   "pid": "pmc-12588286-cnrtbc",
+   "key": "t:realtimedecodingoffullspectrumchineseusingbraincomputerinterface",
+   "title": "Real-time decoding of full-spectrum Chinese using brain-computer interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time decoding of full-spectrum Chinese using brain-computer interface | venue=Science Advances | doi=10.1126/"
+  },
+  {
+   "pid": "pmc-12588286-fullspec",
+   "key": "t:realtimedecodingoffullspectrumchineseusingbraincomputerinterface",
+   "title": "Real-time decoding of full-spectrum Chinese using brain-computer interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12588286-fullspec | title=Real-time decoding of full-spectrum Chinese using brain-computer interface | auth"
+  },
+  {
+   "pid": "pmc-12588286-mandarin-ecog",
+   "key": "t:realtimedecodingoffullspectrumchineseusingbraincomputerinterface",
+   "title": "Real-time decoding of full-spectrum Chinese using brain-computer interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12588286-mandarin-ecog | title=Real-time decoding of full-spectrum Chinese using brain-computer interface |"
+  },
+  {
+   "pid": "pmc-12635066-lowlat",
+   "key": "t:alowlatencyneuralinferenceframeworkforrealtimehandwriting",
+   "title": "A low-latency neural inference framework for real-time handwriting",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A low-latency neural inference framework for real-time handwriting | authors=low-latency group | Study.research_ob"
+  },
+  {
+   "pid": "pmc-12677598-microecog",
+   "key": "t:chronicallystablehighresolutionmicroelectrocorticographicbraincomputerinterfaces",
+   "title": "Chronically Stable, High-Resolution Micro-Electrocorticographic Brain-Computer Interfaces for Real-Time Motor Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Chronically Stable, High-Resolution Micro-Electrocorticographic Brain-Computer Interfaces for Real-Time Motor Deco"
+  },
+  {
+   "pid": "pmc-12677598-uecogbci",
+   "key": "t:chronicallystablehighresolutionmicroelectrocorticographicbraincomputerinterfaces",
+   "title": "Chronically Stable, High-Resolution Micro-Electrocorticographic Brain-Computer Interfaces for Long-Term Speech and Motor Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Chronically Stable, High-Resolution Micro-Electrocorticographic Brain-Computer Interfaces for Long-Term Speech and"
+  },
+  {
+   "pid": "pmc-12965882-nmidecode",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A neural speech decoding framework leveraging deep learning and speech synthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12965882-nmidecode | title=A neural speech decoding framework leveraging deep learning and speech synthesis"
+  },
+  {
+   "pid": "pmc-13127260-seeg-cohort",
+   "key": "t:seegbasedbraincomputerinterfacinginalargeadultandpediatriccohort",
+   "title": "sEEG-based brain-computer interfacing in a large adult and pediatric cohort",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13127260-seeg-cohort | title=sEEG-based brain-computer interfacing in a large adult and pediatric cohort |"
+  },
+  {
+   "pid": "pmc-13190260-invasive-connectomics",
+   "key": "t:invasiveneurophysiologyandwholebrainconnectomicsforneuraldecodinginpatientswithb",
+   "title": "Invasive neurophysiology and whole brain connectomics for neural decoding in patients with brain implants",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13190260-invasive-connectomics | title=Invasive neurophysiology and whole brain connectomics for neural dec"
+  },
+  {
+   "pid": "pmc-13251988-deepems",
+   "key": "t:neuraldecodingofspeechusingdeepneuralensembles",
+   "title": "Neural decoding of speech using deep neural ensembles",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural decoding of speech using deep neural ensembles | authors=Yoon S; Avansino DT; Madugula S; Levin AD; Fan C |"
+  },
+  {
+   "pid": "pmc-13270037-pcgmodes",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Encoding of speech modes and loudness in ventral precentral gyrus | venue=Nature Communications | doi=10.1038/s414"
+  },
+  {
+   "pid": "pmc-13270037-vpcg-loudness",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13270037-vpcg-loudness | title=Encoding of speech modes and loudness in ventral precentral gyrus | authors="
+  },
+  {
+   "pid": "pmc-13270037-vpcgloud",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13270037-vpcgloud | title=Encoding of speech modes and loudness in ventral precentral gyrus | authors=Aparn"
+  },
+  {
+   "pid": "pmc-13317629-fullstack",
+   "key": "t:fullstackarchitecturesforintelligentbraincomputerinterfaces",
+   "title": "Full-Stack Architectures for Intelligent Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13317629-fullstack | title=Full-Stack Architectures for Intelligent Brain-Computer Interfaces | authors=rev"
+  },
+  {
+   "pid": "pmc-13317701-dawn",
+   "key": "t:braincomputerinterfacesthedawnofaneweraindiseasetreatment",
+   "title": "Brain–Computer Interfaces: The Dawn of a New Era in Disease Treatment",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13317701-dawn | title=Brain–Computer Interfaces: The Dawn of a New Era in Disease Treatment | authors=X. Fe"
+  },
+  {
+   "pid": "pmc-13335209-anarthria",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13335209-anarthria | title=Decoding intended speech with an intracortical brain-computer interface in a per"
+  },
+  {
+   "pid": "pmc-13335209-celrep",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13335209-celrep | title=Decoding intended speech with an intracortical brain-computer interface in a person"
+  },
+  {
+   "pid": "pmc-13335209-ibcilong",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria a"
+  },
+  {
+   "pid": "pmc-13335209-intended-bci",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria a"
+  },
+  {
+   "pid": "pmc-13383455-b2s",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13383455-b2s | title=Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review"
+  },
+  {
+   "pid": "pmc-13406005-neurosteer",
+   "key": "t:closingthelooponthecocktailpartyeffectfromattentiondecodingtoneurosteeredselecti",
+   "title": "Closing the Loop on the Cocktail Party Effect: From Attention Decoding to Neuro-Steered Selective Hearing",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13406005-neurosteer | title=Closing the Loop on the Cocktail Party Effect: From Attention Decoding to Neuro"
+  },
+  {
+   "pid": "pmc-13426423-roadmap",
+   "key": "t:fromtradeoffstotranslationaninterdisciplinaryroadmapforneurotechnology",
+   "title": "From trade-offs to translation: An interdisciplinary roadmap for neurotechnology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13426423-roadmap | title=From trade-offs to translation: An interdisciplinary roadmap for neurotechnology |"
+  },
+  {
+   "pid": "pmc-13490415-sharedlat",
+   "key": "t:sharedlatentrepresentationsofspeechproductionforcrosspatientspeechdecoding",
+   "title": "Shared latent representations of speech production for cross-patient speech decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13490415-sharedlat | title=Shared latent representations of speech production for cross-patient speech deco"
+  },
+  {
+   "pid": "pmc-13493818-bibci",
+   "key": "t:towardsneuromorphicneurotechnologiesintegratingbraininspiredcomputingwithbrainco",
+   "title": "Towards neuromorphic neurotechnologies: integrating brain-inspired computing with brain-computer interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13493818-bibci | title=Towards neuromorphic neurotechnologies: integrating brain-inspired computing with br"
+  },
+  {
+   "pid": "pmc-13503367-bciethics",
+   "key": "t:ethicsofbraincomputerinterfaceinmentalhealthcare",
+   "title": "Ethics of brain-computer interface in mental healthcare",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13503367-bciethics | title=Ethics of brain-computer interface in mental healthcare | authors=Anonymous (JAT"
+  },
+  {
+   "pid": "pmc-13504003-aad-persp",
+   "key": "t:fromselectivelisteningtobraincontrolledhearingaperspectiveonthefutureofauditoryt",
+   "title": "From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology | venue=J"
+  },
+  {
+   "pid": "pmc-13504003-aadhear",
+   "key": "t:fromselectivelisteningtobraincontrolledhearingaperspectiveonthefutureofauditoryt",
+   "title": "From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13504003-aadhear | title=From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future"
+  },
+  {
+   "pid": "pmc-13534989-dbsbci",
+   "key": "t:fromdeepbrainstimulationtobraincomputerinterfacescurrentprogressinimplantableneu",
+   "title": "From deep brain stimulation to brain–computer interfaces: current progress in implantable neurotechnology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13534989-dbsbci | title=From deep brain stimulation to brain–computer interfaces: current progress in impla"
+  },
+  {
+   "pid": "pmc-13633112-gesturedeco",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Simultaneous speech and gesture decoding for multimodal communication in paralysis | authors=Samantha C. Brosler,"
+  },
+  {
+   "pid": "pmc-13633112-nngest",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633112-nngest | title=Simultaneous speech and gesture decoding for multimodal communication in paralysis"
+  },
+  {
+   "pid": "pmc-13633112-sgd",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633112-sgd | title=Simultaneous speech and gesture decoding for multimodal communication in paralysis | a"
+  },
+  {
+   "pid": "pmc-13633112-sgdual",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633112-sgdual | title=Simultaneous speech and gesture decoding for multimodal communication in paralysis"
+  },
+  {
+   "pid": "pmc-13633112-speechgest",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633112-speechgest | title=Simultaneous speech and gesture decoding for multimodal communication in paraly"
+  },
+  {
+   "pid": "pmc-13633114-iiegaad",
+   "key": "t:realtimebraincontrolledselectivehearingenhancesspeechperceptioninmultitalkerenvi",
+   "title": "Real-time brain-controlled selective hearing enhances speech perception in multi-talker environments",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633114-iiegaad | title=Real-time brain-controlled selective hearing enhances speech perception in multi-t"
+  },
+  {
+   "pid": "pmc-13633126-bimantype",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633126-bimantype | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis |"
+  },
+  {
+   "pid": "pmc-13633126-bitype",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633126-bitype | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis | au"
+  },
+  {
+   "pid": "pmc-13633126-bityping",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633126-bityping | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis |"
+  },
+  {
+   "pid": "pmc-13633126-ibcityping",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633126-ibcityping | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis"
+  },
+  {
+   "pid": "pmc-13648430-wholebrain-ecog",
+   "key": "t:towardawholebraininterfaceenabledbyhighresolutionsurfaceelectrophysiology",
+   "title": "Toward A Whole-Brain Interface Enabled by High-Resolution Surface Electrophysiology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Toward A Whole-Brain Interface Enabled by High-Resolution Surface Electrophysiology | authors=Elton Ho, Katrina Ba"
+  },
+  {
+   "pid": "pmc-2784218-wireless",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A wireless brain-machine interface for real-time speech synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A wireless brain-machine interface for real-time speech synthesis | authors=Guenther FH, Brumberg JS, Wright EJ, N"
+  },
+  {
+   "pid": "pmc-2784218-wirelesssynth",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A Wireless Brain-Machine Interface for Real-Time Speech Synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Wireless Brain-Machine Interface for Real-Time Speech Synthesis | authors=Frank H. Guenther, Jonathan S. Brumber"
+  },
+  {
+   "pid": "pmc-3096823-phoneme-intracortical",
+   "key": "t:classificationofintendedphonemeproductionfromchronicintracorticalmicroelectroder",
+   "title": "Classification of intended phoneme production from chronic intracortical microelectrode recordings in speech-motor cortex",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3096823-phoneme-intracortical | title=Classification of intended phoneme production from chronic intracorti"
+  },
+  {
+   "pid": "pmc-3342676-gammaevol",
+   "key": "t:temporalevolutionofgammaactivityinhumancortexduringanovertandcovertwordrepetitio",
+   "title": "Temporal evolution of gamma activity in human cortex during an overt and covert word repetition task",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3342676-gammaevol | title=Temporal evolution of gamma activity in human cortex during an overt and covert w"
+  },
+  {
+   "pid": "pmc-3637898-guenther",
+   "key": "t:brainmachineinterfacesforrealtimespeechsynthesis",
+   "title": "Brain-Machine Interfaces for Real-time Speech Synthesis",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-Machine Interfaces for Real-time Speech Synthesis | authors=Guenther et al. | Study.research_objective=real-"
+  },
+  {
+   "pid": "pmc-3701859-ecognetwork",
+   "key": "t:usingtheelectrocorticographicspeechnetworktocontrolabraincomputerinterface",
+   "title": "Using the Electrocorticographic Speech Network to Control a Brain-Computer Interface",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Using the Electrocorticographic Speech Network to Control a Brain-Computer Interface | authors=ECoG-network group"
+  },
+  {
+   "pid": "pmc-5119784-spatio",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5119784-spatio | title=Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Cov"
+  },
+  {
+   "pid": "pmc-5187421-restoration",
+   "key": "t:perceptualrestorationofmaskedspeechinhumancortex",
+   "title": "Perceptual restoration of masked speech in human cortex",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5187421-restoration | title=Perceptual restoration of masked speech in human cortex | authors=M. K. Leonard"
+  },
+  {
+   "pid": "pmc-5830057-ensdec",
+   "key": "t:asimulationstudyontheeffectsofneuronalensemblepropertiesondecodingalgorithmsfori",
+   "title": "A simulation study on the effects of neuronal ensemble properties on decoding algorithms for intracortical brain-machine interfaces.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A simulation study on the effects of neuronal ensemble properties on decoding algorithms for intracortical brain-m"
+  },
+  {
+   "pid": "pmc-6021529-innerspeechreview",
+   "key": "t:decodinginnerspeechusingelectrocorticographyprogressandchallengestowardaspeechpr",
+   "title": "Decoding Inner Speech Using Electrocorticography: Progress and Challenges Toward a Speech Prosthesis",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6021529-innerspeechreview | title=Decoding Inner Speech Using Electrocorticography: Progress and Challenges"
+  },
+  {
+   "pid": "pmc-6248919-ibci-tablet",
+   "key": "t:corticalcontrolofatabletcomputerbypeoplewithparalysis",
+   "title": "Cortical control of a tablet computer by people with paralysis",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6248919-ibci-tablet | title=Cortical control of a tablet computer by people with paralysis | authors=P. Nuy"
+  },
+  {
+   "pid": "pmc-6667454-qa",
+   "key": "t:realtimedecodingofquestionandanswerspeechdialogueusinghumancorticalactivity",
+   "title": "Real-time decoding of question-and-answer speech dialogue using human cortical activity",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time decoding of question-and-answer speech dialogue using human cortical activity | authors=Herff et al. | v"
+  },
+  {
+   "pid": "pmc-6667454-qadialogue",
+   "key": "t:realtimedecodingofquestionandanswerspeechdialogueusinghumancorticalactivity",
+   "title": "Real-time decoding of question-and-answer speech dialogue using human cortical activity",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6667454-qadialogue | title=Real-time decoding of question-and-answer speech dialogue using human cortical a"
+  },
+  {
+   "pid": "pmc-6687434-visheadstart",
+   "key": "t:thevisualspeechheadstartimprovesperceptionandreducessuperiortemporalcortexrespon",
+   "title": "The visual speech head start improves perception and reduces superior temporal cortex responses to auditory speech",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6687434-visheadstart | title=The visual speech head start improves perception and reduces superior temporal"
+  },
+  {
+   "pid": "pmc-6882773-braintospeech",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6882773-braintospeech | title=Generating Natural, Intelligible Speech From Brain Activity in Motor, Premoto"
+  },
+  {
+   "pid": "pmc-7009302-rodentcircuit",
+   "key": "t:usingneuralcircuitinterrogationinrodentstounravelhumanspeechdecoding",
+   "title": "Using Neural Circuit Interrogation in Rodents to Unravel Human Speech Decoding",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-7009302-rodentcircuit | title=Using Neural Circuit Interrogation in Rodents to Unravel Human Speech Decodin"
+  },
+  {
+   "pid": "pmc-8116487-coverteeg-review",
+   "key": "t:decodingcovertspeechfromeegacomprehensivereview",
+   "title": "Decoding Covert Speech From EEG—A Comprehensive Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Covert Speech From EEG—A Comprehensive Review | authors=Panachakel JT, Ramakrishnan AG | venue=Frontiers"
+  },
+  {
+   "pid": "pmc-8460739-realtimesynth",
+   "key": "t:realtimesynthesisofimaginedspeechprocessesfromminimallyinvasiverecordingsofneura",
+   "title": "Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8460739-realtimesynth | title=Real-time synthesis of imagined speech processes from minimally invasive reco"
+  },
+  {
+   "pid": "pmc-9086783-eegimgspeech",
+   "key": "t:astateoftheartreviewofeegbasedimaginedspeechdecoding",
+   "title": "A state-of-the-art review of EEG-based imagined speech decoding",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9086783-eegimgspeech | title=A state-of-the-art review of EEG-based imagined speech decoding | authors=D. L"
+  },
+  {
+   "pid": "pmc-9643551-bravospelling",
+   "key": "t:generalizablespellingusingaspeechneuroprosthesisinanindividualwithseverelimbandv",
+   "title": "Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9643551-bravospelling | title=Generalizable spelling using a speech neuroprosthesis in an individual with s"
+  },
+  {
+   "pid": "pmc-9856340-invbcimod",
+   "key": "t:modulatingbrainactivitywithinvasivebraincomputerinterfaceanarrativereview",
+   "title": "Modulating Brain Activity with Invasive Brain–Computer Interface: A Narrative Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9856340-invbcimod | title=Modulating Brain Activity with Invasive Brain–Computer Interface: A Narrative Rev"
+  },
+  {
+   "pid": "pmc-pmc11086983",
+   "key": "t:plugandplaystabilityforintracorticalbraincomputerinterfacesaoneyeardemonstration",
+   "title": "Plug-and-Play Stability for Intracortical Brain-Computer Interfaces: A One-Year Demonstration of Seamless Brain-to-Text Communication",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-pmc11086983 | title=Plug-and-Play Stability for Intracortical Brain-Computer Interfaces: A One-Year Demonst"
+  },
+  {
+   "pid": "pmc13270037-vpcgloud",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13270037-vpcgloud | title=Encoding of speech modes and loudness in ventral precentral gyrus | authors=Aparna"
+  }
+ ],
+ "usual_approach": {
+  "design": "online_accuracy_reported",
+  "n": 18,
+  "tier": "pattern match",
+  "pids": [
+   "doi-10.1016-j.celrep.2026.117162",
+   "doi-10.1038-s41593-026-02446-2",
+   "doi-10.64898-2026.06.02.729705",
+   "doi-10.64898-2026.07.23.739430",
+   "pmc-13383455-b2s"
+  ],
+  "population_unique": 134
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1088-1741-2552-aaab6f",
+   "role": "prior",
+   "loc": "Discussion",
+   "quote": "We observed single-trial sentence classification accuracies of 90% or higher for each subject with less than 7 minutes of training data, demonstrating the ability of rtNSR to use cortical recordings to perform accurate real-time speech decoding in a limited vocabulary setting."
+  },
+  {
+   "pid": "pmc-4464168-brain2text",
+   "role": "prior",
+   "loc": "Discussion",
+   "quote": "Despite the fact that the evaluations in this article have been performed offline, all processing steps of Brain-to-Text and the decoding approach are well suited for eventual real-time online application on desktop computers."
+  },
+  {
+   "pid": "doi-10.1056-nejmoa2314132",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "On the first day of system use, following 30 minutes of attempted speech training data, the neuroprosthesis achieved 99.6% accuracy with a 50-word vocabulary."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.1056-nejmoa2314132",
+  "year": 2024,
+  "metric": "accuracy on a 50-word vocabulary, first day of system use, intracortical attempted speech (ALS)",
+  "value": 99.6,
+  "unit": "%",
+  "timing": "later"
+ },
+ "earlier_online_accuracy_check": {
+  "note": "online_accuracy_reported regex: no hit among population studies dated 2019 or earlier; Moses et al. 2018 reports real-time accuracy in words the regex misses (read)."
+ },
+ "tally": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 134,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "online_accuracy_reported",
+   "n": 18,
+   "tier": "pattern match",
+   "population_unique": 134
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1056-nejmoa2314132",
+   "year": 2024,
+   "metric": "accuracy on a 50-word vocabulary, first day of system use, intracortical attempted speech (ALS)",
+   "value": 99.6,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "doi-10.1088-1741-2552-aaab6f",
+   "pmc-4464168-brain2text"
+  ],
+  "unread": 196,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "count_note": "Full-text regex counts; they miss phrasings such as Moses et al. 2018 (read), so they are neither upper nor lower bounds for the design. None of the 18 online_accuracy_reported hits is dated 2019 or earlier.",
+ "used_by": [
+  "real-time-decoding-of-question-and-answer-speech-dialogue-using-human-cortical-activity"
+ ]
+}

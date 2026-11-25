@@ -1,0 +1,49 @@
+{
+ "target": "doi-10.1038-s41467-019-10994-4",
+ "changed": [
+  "M06",
+  "M07"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Ten repetitions of each question (listened) and each answer (read aloud) in separate training blocks; participant-specific (Moses et al. 2018 lineage)",
+  "M02": "Phone labels from p2fa forced alignment, hand-corrected in Praat (Moses et al. 2016/2018 lineage)",
+  "M03": "Per-participant models; leave-one-block-out hyperparameter search (TPE, 250 epochs) with other test blocks as validation",
+  "M04": "Overt listening and overt reading-aloud in a cued question-and-answer task; perception and production both decoded",
+  "M05": "Clinical high-density ECoG (2x128 or 1x256 channels, 4 mm pitch), high-gamma 70-150 Hz, 3 epilepsy patients",
+  "M08": "One of 9 questions and one of 24 answers (closed set)",
+  "M09": "No confirmation step described",
+  "M10": "No correction step described",
+  "M11": "Fixed stimulus set recorded by one speaker; answers from displayed options; phone transcriptions as reference",
+  "M13": "Bedside real-time runs with trial-and-error hyperparameters; no online accuracy or latency figure"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "closed-vocabulary-word-classification",
+   "reuse": "components/M06/closed-vocabulary-word-classification.json",
+   "inclusion_rule": "Reused published table: studies that decode words or utterances from non-acoustic signals by classifying each detected segment into a closed set of at most a few hundred words or utterances, with or without a language-model or context prior; open-vocabulary decoders without a closed-set word test and acoustic-only ASR excluded.",
+   "pattern": "published pattern",
+   "design_field": "model_family; full-text regexes hmm_viterbi, linear_discriminant, svm, deep_network",
+   "metric": "closed-set accuracy with vocabulary size"
+  },
+  {
+   "slot": "M07",
+   "topic": "task-context-prior-from-decoded-utterance",
+   "inclusion_rule": "Brain-signal (ECoG, sEEG, intracortical, EEG, MEG) speech or language decoders whose ledger text names a speech unit and decoding or classification; the design of interest is the use-time prior over outputs: language model, grammar or finite-state network, pronunciation lexicon, or a context prior derived from another decoded utterance (for example a decoded question constraining the answer). A study counts under every design its full text names (upper bound); priors used only in training do not count; versions once.",
+   "pattern": "brain signal AND speech unit AND decod/classif/recogni (ledger text)",
+   "design_field": "full-text regexes language_model, grammar_or_finite_state, pronunciation_lexicon, dialogue_context_prior",
+   "metric": "answer accuracy with versus without the prior"
+  },
+  {
+   "slot": "M12",
+   "topic": "real-time-intracranial-speech-online-evaluation",
+   "inclusion_rule": "Intracranial (ECoG, sEEG, intracortical) speech decoding studies whose ledger text mentions real-time, online or closed-loop operation; the design of interest is what the evaluation reports for that operation: an online accuracy or error-rate figure, an offline simulation or replay of the real-time pipeline, and a numeric latency. Boundary: listening-only and review papers enter through the pattern, so counts are upper bounds; versions once.",
+   "pattern": "intracranial AND speech unit AND real-time/online/closed-loop (ledger text)",
+   "design_field": "full-text regexes online_accuracy_reported, offline_simulation_or_replay, latency_number_reported",
+   "metric": "online accuracy or WER"
+  }
+ ]
+}
