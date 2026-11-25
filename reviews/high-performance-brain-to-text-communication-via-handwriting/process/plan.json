@@ -1,0 +1,72 @@
+{
+ "target": "doi-10.1038-s41586-021-03506-2",
+ "target_versions": [
+  "doi-10.1038-s41586-021-03506-2",
+  "pmc-8163299-b2thand"
+ ],
+ "prep": "no prep/ directory and no prep.done for this slug; plan, audits and comparator reading built by the writer",
+ "changed": [
+  "M02",
+  "M04",
+  "M06"
+ ],
+ "incidental": [
+  "M07",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Copy-typing sentence data from one participant (T5), 242 pilot sentences then cumulative daily data (572 sentences by the last day); BrainGate data-collection lineage",
+  "M03": "Daily supervised recalibration (50 sentences per day), BrainGate intracortical-BCI lineage; reduced-calibration and unsupervised-retraining results are offline simulations",
+  "M05": "Two microelectrode arrays in hand-knob precentral gyrus (BrainGate)",
+  "M08": "Characters from a 31-symbol set (no capitals)",
+  "M09": "Characters shown on screen as detected; no confirmation step",
+  "M10": "No backspace or editing; participant told to keep writing after errors",
+  "M11": "Prompted sentences as reference for copy typing; free-typing reference construction not described",
+  "M13": "Single participant, percutaneous implant, daily recalibration; authors call it a proof of concept"
+ },
+ "topics": [
+  {
+   "slot": "M04",
+   "topic": "neural-text-entry-action",
+   "inclusion_rule": "Neural BCI studies (intracortical, ECoG, sEEG, EEG, MEG) whose ledger names the recording modality together with a text output, a text error rate or a text-entry rate (characters or words per minute); the design compared is the user action that drives text at use time (attempted handwriting, attempted or overt speech, imagined or inner speech, cursor or keyboard selection, evoked-potential spelling, speech perception). Boundary: a study counts under every action its full text names (upper bound, related-work mentions included); reviews count as pattern matches; versions counted once.",
+   "pattern": "ledger modality (ecog|intracortical|utah|microelectrode|seeg|eeg|meg) AND (WER|CER|text decoding|brain-to-text|characters per minute|words per minute|typing rate|text entry|bits per second)",
+   "design_field": "M04 production_labels (slot-filled) and full-text regexes attempted_handwriting, attempted_speech, overt_speech, imagined_or_inner_speech, cursor_keyboard_typing, speech_perception, evoked_potential_speller",
+   "metric": "characters per minute (higher better); CER where reported"
+  },
+  {
+   "slot": "M02",
+   "topic": "unaligned-neural-sentence-label-timing",
+   "inclusion_rule": "The same 154-study neural text-entry population, classified by how the decoder obtains per-time-step targets for sentence data when the intended output has no observable timing: alignment-free CTC loss, HMM or forced alignment, labels aligned to simultaneously recorded audio or speech onset, time warping, synthetic neural data augmentation, attention sequence-to-sequence. Boundary: a study counts under every design its full text names (upper bound); M03 supervision_kind gives the slot-filled values because M02 is sparse.",
+   "pattern": "same population pattern as M04/neural-text-entry-action",
+   "design_field": "--design-slot M03 --design-field supervision_kind; full-text regexes ctc_alignment_free, hmm_forced_alignment, audio_or_onset_aligned_labels, time_warping, synthetic_neural_data_augmentation, seq2seq_attention",
+   "metric": "online WER or CER of the trained decoder"
+  },
+  {
+   "slot": "M06",
+   "topic": "phoneme-rnn-ctc-lm-decoding",
+   "reuse": "components/M06/phoneme-rnn-ctc-lm-decoding.json",
+   "inclusion_rule": "Reused published table (inclusion rule kept as published): recurrent or CTC-trained decoders emitting phoneme or character probabilities converted to words with a language model.",
+   "pattern": "published pattern",
+   "design_field": "published",
+   "metric": "online WER, large vocabulary"
+  },
+  {
+   "slot": "M07",
+   "topic": "large-vocabulary-lm-for-neural-speech",
+   "reuse": "components/M07/large-vocabulary-lm-for-neural-speech.json",
+   "inclusion_rule": "Reused published table: neural decoders constraining output with a vocabulary of at least 1,000 words via an n-gram or neural language model.",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts ngram_lm, neural_llm_rescoring",
+   "metric": "online WER, large vocabulary"
+  },
+  {
+   "slot": "M12",
+   "topic": "neural-text-unseen-sentence-test",
+   "reuse": "components/M12/neural-text-unseen-sentence-test.json",
+   "inclusion_rule": "Reused published table: whether reported WER is measured on sentences absent from training or on repeats of training sentences.",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts",
+   "metric": "online WER on sentence-disjoint test"
+  }
+ ]
+}
