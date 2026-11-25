@@ -1,0 +1,62 @@
+{
+ "target": "arxiv-1907.01367",
+ "changed": [
+  "M05",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "No Lipper-specific user training action is introduced; training examples follow the OuluVS2 recording protocol.",
+  "M02": "Paired video and speech-target training follows the Vid2Speech lineage (Ephrat and Peleg, 2017); no auxiliary phoneme or CTC supervision is introduced.",
+  "M03": "Speaker-dependent training with two training phrases and one test phrase per speaker; speaker-independent with two held-out speakers; no seeds or validation set (Sec. Speech-Reconstruction Model)",
+  "M04": "Silent face-video presentation follows the Vid2Speech inference path; no distinct user operation is introduced, and the delay claim is treated under M13.",
+  "M07": "The direct video-to-speech path uses no external language model or lexicon, consistent with Vid2Speech (Ephrat and Peleg, 2017); the fixed ten-class text classifier is separate and does not guide synthesis.",
+  "M08": "Waveform output follows the Vid2Speech lineage (Ephrat and Peleg, 2017); the separate ten-class text output is ancillary.",
+  "M09": "No confirmation or commit interface is introduced; this remains outside the one-pass Vid2Speech-style waveform-generation path.",
+  "M10": "No correction or re-entry loop is introduced; this remains outside the one-pass Vid2Speech-style waveform-generation path.",
+  "M11": "PESQ against the recorded OuluVS2 audio of the same utterance (pairing not spelled out, Sec. Evaluation Metric); predecessor lineage arxiv-1807.00619",
+  "M13": "Offline laboratory recordings; a 0.169 s delay is reported without hardware or timing boundaries (Table 11); critique carried in 'claims outrun the evidence', not a topic audit"
+ },
+ "topics": [
+  {
+   "slot": "M05",
+   "topic": "multi-view-camera-input",
+   "reuse": "components/M05/multi-view-camera-input.json",
+   "inclusion_rule": "Include studies that decode speech (text or a speech waveform) from video of the talking face or lips, with the ledger recording an optical camera and a lip-reading, visual speech recognition or video-to-speech task, and count from the full text (reference list removed) whether the study feeds more than one simultaneous camera view (multi-view input), addresses non-frontal or profile poses, or uses the multi-view OuluVS2 corpus. Boundary: audio-visual speech recognition counts when the visual stream is decoded; talking-head generation, face recognition and biometric-only studies are excluded; a study counts under every design its text names (upper bound, related-work mentions included); versions counted once.",
+   "pattern": "(?s)^(?=.*modalities=optical_camera)(?=.*(lip ?read|lipread|speech ?read|visual speech recognition|\\bVSR\\b|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction|task_family=speech_reconstruction))",
+   "metric_pattern": "PESQ",
+   "better": "higher"
+  },
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-synthesis",
+   "reuse": "components/M06/video-to-speech-synthesis.json",
+   "inclusion_rule": "Include studies that synthesize a speech waveform from video of the talking face or lips (silent or with audio muted at test) and report the acoustic representation and how it is turned into a waveform. Boundary: exclude audio-visual speech enhancement or separation that takes noisy audio at test, talking-head generation (speech to video), text-only lip reading and video-to-text-to-TTS pipelines; count versions of one study once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "ESTOI|STOI",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "reuse": "components/M12/video-to-speech-output-evaluation.json",
+   "inclusion_rule": "Include studies that synthesize a speech waveform from talking-face or lip video (the population of the M06 video-to-speech-synthesis table) and compare how the synthesized speech is evaluated: human listener or opinion tests, ASR word error on the synthesized speech, and tests on speakers unseen in training. Boundary: audio-visual enhancement with noisy audio at test, talking-head generation, text-only lip reading and video-to-text-to-TTS pipelines excluded; a study counts under every protocol its full text names (upper bound, related-work mentions included); versions counted once.",
+   "pattern": "(?s)^(?=.*(modalities=optical_camera|lip video|mouth video|face video|silent video|lip movements))(?=.*(task_family=speech_reconstruction|lip-to-speech|lip to speech|video-to-speech|video to speech|speech reconstruction from|synthesi[sz]ed speech|vocoder))",
+   "metric_pattern": "wer|word error",
+   "better": "lower"
+  }
+ ],
+ "writer_corrections": [
+  "Dropped M11 and M13 topics: M11 usual approach rested on n=1 slot-filled value (sparse slot, no design regex); M13 usual approach was a lifecycle value unrelated to latency. Both are inherited rows.",
+  "Dropped prep comparator arxiv-1903.09616 (LRW word classification, single view): not a deciding prior for multi-view speech reconstruction; its notes entries c1-c7 and read_fulltext entry removed.",
+  "Deciding priors and SOTA reuse the published topic tables (arxiv-1807.00619 [concurrent], isca-uttam19-hushhush [later], arxiv-1709.00443 prior, arxiv-1701.00495, arxiv-1710.09798, arxiv-1708.01204, doi-10.1109-taslp.2017.2716178, arxiv-2306.15464-v2apretrain).",
+  "Target first_public set to 2019-01 (AAAI-19 proceedings, consistent with the published review of arxiv-1807.00619); notes had 2019-06 from the arXiv posting."
+ ],
+ "topics_verdict_metric": {
+  "M05": "PESQ on OuluVS2 (speaker-dependent and held-out)",
+  "M06": "acoustic representation / waveform generator; ASR WER and PESQ where comparable",
+  "M12": "evaluation protocol: listener test type, objective intelligibility metric, unseen speakers"
+ }
+}
