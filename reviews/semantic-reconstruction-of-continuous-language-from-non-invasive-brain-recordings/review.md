@@ -4,41 +4,41 @@ Tang J, LeBel A, Jain S, Huth AG. Nature Neuroscience, 2023. [doi:10.1038/s41593
 
 ## Verdict
 
-The paper [[1]](#ref-1) changed the decoding search (M06), the use-time prior (M07) and the use-time action (M04). M06 was ahead in 2022: no earlier non-invasive language decoder in the ledger scores language-model proposals with a forward encoding model (Appendix), and the effect holds in each of three subjects. M07 is standard, because GPT-2 had already generated text from fMRI [[2]](#ref-2); M04 is standard, because applying an overt-speech model to covert speech has precedent [[3]](#ref-3). The evaluation (M12) has the right null for a generative decoder, but every perceived-speech number comes from one test story. Meaning-level reconstruction holds; the word-level, invasive-parity and mental-privacy claims go beyond the tests.
+The paper [[1]](#ref-1) changed the decoding search (M06), the use-time prior (M07) and the use-time action (M04). M06 is ahead in the narrow sense the authors claim: language-model candidates searched by beam and scored by encoding-model likelihood, absent from earlier non-invasive language studies in the ledger (Appendix); decoding exceeds the null in all three subjects and relies on the fMRI likelihoods (Extended Data Fig. 9). Encoding-model scoring itself is older [[2]](#ref-2). M07 is standard: GPT-2 had generated text from fMRI before [[3]](#ref-3); M04 is standard: imagery transfer rests on identification among five stories. All perceived-speech numbers come from one test story used in S3's pilots.
 
 ## Against the field, component by component
 
-### M06 Decoding: generate-and-score with an encoding model
+### M06 Decoding: language-model candidates scored by an encoding model
 
-**Usual approach:** non-invasive language decoders classify or rank fixed candidates (classification in up to 251 of 335 unique studies, pattern match, Appendix). Here a language model proposes continuations and the encoding model keeps those under which the recorded responses are most likely (Fig. 1b).
+**Usual approach:** in 2022 decoders classified or ranked fixed candidates (classification in up to 66 of 95 studies dated 2022 or earlier; 251 of 335 over all years; pattern match, Appendix). The authors trace the scorer to Bayesian image and video decoders; their stated departures are a generative language-model prior and beam search (§Methods).
 
-**State of the art:** MapGuide (2024) [[4]](#ref-4) [later] maps brain activity to a text embedding on the same data; story z-score BERTScore 13.81/12.36/16.57 against 9.53/7.79/15.21 for its reproduction of this decoder (S1/S2/S3, one test story). Direct mapping has since overtaken the search.
+**State of the art:** MapGuide (2024) [[4]](#ref-4) [later] keeps this paper's GPT beam search but scores candidates against a brain-predicted text embedding; story z-score BERTScore 13.81/12.36/16.57 against 9.53/7.79/15.21 for its reproduction of this decoder (S1/S2/S3, one test story). The scorer, not the search, was overtaken.
 
-The read priors lack it: Wehbe et al. [[5]](#ref-5) chose between two given passages (74% two-way, chance 50%); Brain2Word [[2]](#ref-2) classified 180 words and steered GPT-2 through GloVe anchors; DC-LDM [[6]](#ref-6) captioned image-evoked activity. Among the 18 pattern-match studies with encoding-model scoring of candidates (Appendix), the target's versions are the earliest. Verdict: ahead, with three subjects as repetition.
+Wehbe et al. [[2]](#ref-2) already used encoding-model predictions to choose between two given passages (74% two-way, chance 50%); Brain2Word [[3]](#ref-3) steered GPT-2 with 180-way word classification and DC-LDM [[5]](#ref-5) captioned image-evoked activity, without encoding-model scoring. No earlier study among the 18 encoding-model-scoring matches or the 30 recall snippets scores generated candidates (Appendix). Verdict: ahead (narrowed design), repeated in three subjects.
 
 ### M07 Lexicon and LM: fine-tuned GPT proposals
 
-**Usual approach:** a pretrained neural language model is the most frequent named prior (112 of 335 unique studies, pattern match, upper bound). The paper fine-tunes GPT on Reddit comments and 240 stories outside the decoder data (§Methods).
+**Usual approach:** in 2022 a named n-gram model (8 of 95) was more common than a pretrained neural model (3 of 95); over all years neural models lead (112 of 335; pattern match, Appendix).
 
-**State of the art:** MapGuide (2024) [[4]](#ref-4) [later] reaches story z-score BLEU 11.14/10.31/11.27 against 4.77/6.87/7.61 for this decoder; the gain comes from how the brain signal steers the model (inference).
+**State of the art:** MapGuide (2024) [[4]](#ref-4) [later] reaches story z-score BLEU 11.14/10.31/11.27 against 4.77/6.87/7.61 for this decoder, reusing this paper's GPT.
 
-Brain2Word [[2]](#ref-2) used GPT-2 on fMRI earlier. What later work dropped is the control: a direct fMRI-to-Llama decoder kept about 43% ranking accuracy with all fMRI inputs zeroed (2026) [[7]](#ref-7) [later]. Verdict: standard.
+The brain likelihood keeps such a prior in check: a later fMRI-to-Llama decoder without one kept 42.86% Top-1 on a 1-in-100 ranking (chance 1%) with fMRI zeroed, in a blind control its authors ran (2026) [[6]](#ref-6) [later]. Verdict: standard.
 
 ### M04 Use-time action: imagined speech and silent film
 
-**Usual approach:** most decoders are tested in their training condition (inference); transfer from overt to covert speech had been shown with ECoG [[3]](#ref-3). The paper applies a listening-trained decoder to imagined storytelling and silent films.
+**Usual approach:** decoders are mostly tested in their training condition (inference); Martin et al. [[7]](#ref-7) moved an overt-speech ECoG model to covert speech, within production. Here a listening decoder meets imagined stories and silent films.
 
-**State of the art:** Tang and Huth (2025) [[8]](#ref-8) [later] transfer decoders across participants with functional alignment fitted on 70 minutes of silent movies or stories, at about half of within-participant performance.
+**State of the art:** Tang and Huth (2025) [[8]](#ref-8) [later] move decoders across participants via alignment fitted on 70 minutes of silent movies or stories, at about half of within-participant performance.
 
-Imagined speech is five one-minute stories, scored by identification among five references (100%, Fig. 3a); films are scored against audio descriptions (Extended Data Fig. 5a). Both show meaning, not words. Verdict: standard.
+Imagined speech: five one-minute stories, scored by identification among five references (100%, Fig. 3a; chance 20%, inference); films are scored against audio descriptions (Extended Data Fig. 5a). Verdict: standard.
 
 ### M12 Evaluation: one test story and a language-model null
 
-**Usual approach:** label or trial permutation (45 of 132 unique studies, pattern match, Appendix). The paper instead scores 200 sequences generated by the language model without brain data (Table 1).
+**Usual approach:** label or trial permutation (45 of 132 unique studies, all years, pattern match, Appendix). The paper scores 200 sequences generated by the language model without brain data (Table 1).
 
-**State of the art:** the best null in the published table (2026) [[9]](#ref-9) [later] retrains with shuffled trial pairings; a brain-free generator, as here, tests a generative decoder more directly (inference).
+**State of the art:** the best null in the published table (2026) [[9]](#ref-9) [later] retrains models with shuffled trial pairings; a brain-free generator tests a generative decoder more directly (inference).
 
-All perceived-speech numbers come from one story, "Where There's Smoke"; the number of test stories is not stated. WER is 0.92–0.94 against a null of 0.9637 (Table 1). Verdict: standard.
+One story serves all quantitative perceived-speech analyses; the total number of test stories is not given (§Methods). WER is 0.92–0.94 against a null of 0.9637 (Table 1). Verdict: standard.
 
 ## The 13 components
 
@@ -49,51 +49,50 @@ All perceived-speech numbers come from one story, "Where There's Smoke"; the num
 | M03 Training and adaptation | Per-subject ridge encoding model | Per-subject models | – | standard |
 | M04 Use-time action | Imagined speech and silent film, listening-trained | Same-condition test | Cross-participant transfer at about half of within-participant performance [[8]](#ref-8) | standard |
 | M05 Sensors | 3T BOLD fMRI | fMRI | – | standard |
-| M06 Processing and decoding | LM proposals scored by encoding model | Classification of fixed candidates (pattern match 251) | Story z-score BERTScore 13.81/12.36/16.57 [[4]](#ref-4) | ahead |
-| M07 Lexicon and LM | Fine-tuned GPT proposals | Pretrained neural LM (pattern match 112) | Story z-score BLEU 11.14/10.31/11.27 [[4]](#ref-4) | standard |
+| M06 Processing and decoding | LM candidates, beam search, encoding-model likelihood | Classification of fixed candidates, of 95 studies dated 2022 or earlier (pattern match 66) | Same beam search, embedding scorer; story z-score BERTScore 13.81/12.36/16.57 [[4]](#ref-4) | ahead |
+| M07 Lexicon and LM | Fine-tuned GPT proposals | N-gram LM, of 95 studies dated 2022 or earlier (pattern match 8) | Story z-score BLEU 11.14/10.31/11.27 with this GPT [[4]](#ref-4) | standard |
 | M08 Output | Continuous word sequence | Text | – | standard |
 | M09 Confirmation | None | None | – | not applicable |
 | M10 Correction | None | None | – | not applicable |
 | M11 Reference construction | Transcripts; film audio descriptions | Verbatim transcripts | – | standard |
-| M12 Evaluation | One test story; LM-generated null | Label or trial permutation (pattern match 45) | Shuffled trial-pairing null [[9]](#ref-9) | standard |
+| M12 Evaluation | One test story; LM-generated null | Label or trial permutation, of 132 studies (all years) (pattern match 45) | Shuffled trial-pairing null [[9]](#ref-9) | standard |
 | M13 Device and cost | Laboratory 3T fMRI; privacy tests | Laboratory | Functional alignment across participants [[8]](#ref-8) | standard |
 
 ## Where the claims outrun the evidence
 
-- Words. The authors concede exact words are rarely recovered (§Discussion); BERTScore reaches about 20% of a machine-translation ceiling above the floor (Table 1).
-- Invasive parity. The WER is called comparable to invasive decoders (§Discussion), a cross-study comparison with other tasks.
-- Mental privacy. Cross-subject decoding was tested only with anatomical alignment and was barely above chance (§Privacy implications). Functional alignment [[8]](#ref-8) [later] reaches about half of within-participant performance, so "cooperation is required for training" holds only for the alignment tested. Resistance rests on three subjects (Fig. 3f).
-- fNIRS. About 50% of time-points survive smoothing to fNIRS resolution (Extended Data Fig. 8), a simulation only.
+- Words. Exact words are rarely recovered, as conceded (§Discussion); BERTScore reaches about 20% of a machine-translation ceiling above the floor (Table 1).
+- Invasive parity. The WER is compared with out-of-set invasive decoders (§Discussion), across studies.
+- Test-story reuse. Qualitative pilots were restricted to S3 on the test story (§Methods), so S3's test numbers are not untouched.
+- Mental privacy. "Subject cooperation is required both to train and to apply the decoder" was tested with anatomical alignment only (§Privacy implications). Tang and Huth [[8]](#ref-8) [later] reach half of within-participant performance with functional alignment and judge that the claim still holds, as alignment needs the participant's cooperation; their caveat is consent to silent-video recordings.
 
 ## What the field needs next
 
-- M12: several held-out stories per subject with per-story spread, and a brain-free language-model null for every generative decoder.
-- M06: encoding-model search against direct mapping [[4]](#ref-4) on new stories and subjects, language model held fixed.
-- M13: privacy tests against functional alignment [[8]](#ref-8), not only anatomical alignment.
+- M12: several held-out stories per subject, untouched by pilots, with a brain-free language-model null.
+- M06: encoding-model and embedding scorers [[4]](#ref-4) compared on new stories and subjects.
 
 ## Questions for the authors
 
-- Were beam width (200), the language-model mass (0.9) and GPT layer (9) chosen on data other than the test story? They appear only in the code.
+- How did the pilots shape S3's test-story results?
+- Was the nucleus mass (0.9, given only in the code) tuned on the calibration story?
 - How does decoding vary with the ridge seed (42 in the code)?
-- How does imagined-story identification change with more than five references?
 
 ## Appendix: literature search
 
-- M06 noninvasive-language-decoder-search. Inclusion rule: language, text or semantic decoding studies whose ledger names fMRI/BOLD, fNIRS, MEG or scalp EEG; the design compared is the decoding search (forward encoding-model scoring of candidates, classification, contrastive retrieval, sequence-to-sequence generation); encoding-only studies and reviews match but are not deciding priors; versions counted once. Slot-filled 7,345 unique studies; pattern match 335 unique studies. Design counts (pattern match, of 335): classification 251, contrastive retrieval 101, sequence-to-sequence generation 52, encoding-model scoring of candidates 18. Read in full: [[5]](#ref-5), [[2]](#ref-2), [[6]](#ref-6), [[4]](#ref-4), target [[1]](#ref-1). Known-item recall 1.0.
-- M07 noninvasive-language-decoding-lm-prior. Inclusion rule: same population; the design compared is the use-time language prior (pretrained neural language model, n-gram model, beam search); a model used only for training features also matches. Slot-filled 119 unique studies; pattern match 335 unique studies. Design counts (pattern match, of 335): pretrained neural language model 112, n-gram 49, beam search 30. Read in full: [[2]](#ref-2), [[7]](#ref-7), [[4]](#ref-4), target [[1]](#ref-1). Known-item recall 1.0.
-- M12 null-model-construction-neural-decoding (published table, appended). Inclusion rule: neural decoding or response-prediction studies that test against an empirical null built by shuffling or permuting the data. Slot-filled 6,960 unique studies; pattern match 132 unique studies. Usual design: label or trial permutation, 45 of 132 (pattern match). Read in full: the priors already in the table, target [[1]](#ref-1). Known-item recall 0.0 on the published seed set.
-- M04 and M13: no topic audit. Read in full: [[8]](#ref-8); [[3]](#ref-3) was read for the published perception-imagery table.
+- M06 noninvasive-language-decoder-search. Inclusion rule: language, text or semantic decoding studies whose ledger names fMRI/BOLD, fNIRS, MEG or scalp EEG; the design compared is the decoding search (forward encoding-model scoring of candidates, classification, contrastive retrieval, sequence-to-sequence generation); encoding-only studies and reviews match but are not deciding priors; versions counted once. Slot-filled 7,345 unique studies; pattern match 335 unique studies (95 dated 2022 or earlier). Design counts over the 335 (pattern match): classification 251, contrastive retrieval 101, sequence-to-sequence generation 52, encoding-model scoring of candidates 18; dated 2022 or earlier: 66, 11, 3 and 2. All 18 encoding-model-scoring studies are listed in the audit: the target's versions, a 2019 EEG thesis that only measures encoding accuracy, and later work. Full-text recall pattern (language model or beam search near "encoding model"): 35 folders outside the ledger match, 30 sampled snippets read, none an earlier decoder of the narrowed design. Read in full: [[2]](#ref-2), [[3]](#ref-3), [[5]](#ref-5), [[4]](#ref-4), target [[1]](#ref-1). Known-item recall 1.0.
+- M07 noninvasive-language-decoding-lm-prior. Inclusion rule: same population; the design compared is the use-time language prior (pretrained neural language model, n-gram model, beam search); a model used only for training features also matches. Slot-filled 119 unique studies (sparse slot); pattern match 335 unique studies. Design counts over the 335 (pattern match): pretrained neural language model 112, n-gram 49, beam search 30; dated 2022 or earlier (of 95): 3, 8 and 3. Read in full: [[3]](#ref-3), [[6]](#ref-6), [[4]](#ref-4), target [[1]](#ref-1). Known-item recall 1.0.
+- M12 null-model-construction-neural-decoding (published table, appended). Inclusion rule: neural decoding or response-prediction studies that test against an empirical null built by shuffling or permuting the data. Slot-filled 6,960 unique studies; pattern match 132 unique studies. Usual design: label or trial permutation, 45 of 132 (pattern match, all years). Read in full: the priors already in the table, including [[9]](#ref-9), target [[1]](#ref-1). Known-item recall 0.0 on the published seed set.
+- M04 and M13: no topic audit. Read in full: [[8]](#ref-8); [[7]](#ref-7) was read for the published perception-imagery table.
 
 ## References
 
 Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
 
 1. <a id="ref-1"></a>Tang, J., LeBel, A., Jain, S., Huth, A. G. “Semantic reconstruction of continuous language from non-invasive brain recordings.” *Nature Neuroscience*, 2023, 26(5), 858–866. doi:[10.1038/s41593-023-01304-9](https://doi.org/10.1038/s41593-023-01304-9). bioRxiv preprint 10.1101/2022.09.29.509744 (2022-09) first public; version of record read [wiki: doi-10.1038-s41593-023-01304-9](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41593-023-01304-9/article.md) [wiki: doi-10.1101-2022.09.29.509744](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1101-2022.09.29.509744/article.md) [wiki: pmc-11304553-fmri-semrec](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-11304553-fmri-semrec/article.md)
-2. <a id="ref-2"></a>Affolter, N., Egressy, B., Pascual, D., Wattenhofer, R. “Brain2Word: Decoding Brain Activity for Language Generation.” *arXiv preprint*, 2020. arXiv:[2009.04765](https://arxiv.org/abs/2009.04765). [wiki: arxiv-2009.04765](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2009.04765/article.md)
-3. <a id="ref-3"></a>Martin, S., Brunner, P., Holdgraf, C., Heinze, H., Crone, N. E., Rieger, J., et al. “Decoding spectrotemporal features of overt and covert speech from the human cortex.” *Frontiers in Neuroengineering*, 2014, 7, 14. doi:[10.3389/fneng.2014.00014](https://doi.org/10.3389/fneng.2014.00014). [wiki: pmc-4034498-spectemp](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-4034498-spectemp/article.md)
+2. <a id="ref-2"></a>Wehbe, L., Murphy, B., Talukdar, P., Fyshe, A., Ramdas, A., Mitchell, T. “Simultaneously uncovering the patterns of brain regions involved in different story reading subprocesses.” *PLoS ONE*, 2014, 9(11), e112575. doi:[10.1371/journal.pone.0112575](https://doi.org/10.1371/journal.pone.0112575). [wiki: pmc-4245107-storyfmri](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-4245107-storyfmri/article.md)
+3. <a id="ref-3"></a>Affolter, N., Egressy, B., Pascual, D., Wattenhofer, R. “Brain2Word: Decoding Brain Activity for Language Generation.” *arXiv preprint*, 2020. arXiv:[2009.04765](https://arxiv.org/abs/2009.04765). [wiki: arxiv-2009.04765](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2009.04765/article.md)
 4. <a id="ref-4"></a>Zhao, X., Sun, J., Wang, S., Ye, J., Zhang, X., Zong, C. “MapGuide: A Simple yet Effective Method to Reconstruct Continuous Language from Brain Activities.” *arXiv preprint (v2)*, 2024. arXiv:[2403.17516](https://arxiv.org/abs/2403.17516). [later] [wiki: arxiv-2403.17516](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2403.17516/article.md)
-5. <a id="ref-5"></a>Wehbe, L., Murphy, B., Talukdar, P., Fyshe, A., Ramdas, A., Mitchell, T. “Simultaneously uncovering the patterns of brain regions involved in different story reading subprocesses.” *PLoS ONE*, 2014, 9(11), e112575. doi:[10.1371/journal.pone.0112575](https://doi.org/10.1371/journal.pone.0112575). [wiki: pmc-4245107-storyfmri](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-4245107-storyfmri/article.md)
-6. <a id="ref-6"></a>Huang, W., Yan, H., Cheng, K., Wang, Y., Wang, C., Li, J., et al. “A dual-channel language decoding from brain activity with progressive transfer training.” *Human Brain Mapping*, 2021, 42(15), 5089–5100. doi:[10.1002/hbm.25603](https://doi.org/10.1002/hbm.25603). [wiki: doi-10.1002-hbm.25603](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1002-hbm.25603/article.md)
-7. <a id="ref-7"></a>Suvakovic, M., Marhoefer, D., Grant-Richards, G., Pinero, A. “The Capacity of Thought: Benchmarking Llama 3.2 in Semantic fMRI Neural Language Decoding and Improving the Huth Encoding-Model Baseline.” *arXiv preprint*, 2026. arXiv:[2607.12079](https://arxiv.org/abs/2607.12079). [later] [wiki: arxiv-2607.12079](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2607.12079/article.md)
+5. <a id="ref-5"></a>Huang, W., Yan, H., Cheng, K., Wang, Y., Wang, C., Li, J., et al. “A dual-channel language decoding from brain activity with progressive transfer training.” *Human Brain Mapping*, 2021, 42(15), 5089–5100. doi:[10.1002/hbm.25603](https://doi.org/10.1002/hbm.25603). [wiki: doi-10.1002-hbm.25603](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1002-hbm.25603/article.md)
+6. <a id="ref-6"></a>Suvakovic, M., Marhoefer, D., Grant-Richards, G., Pinero, A. “The Capacity of Thought: Benchmarking Llama 3.2 in Semantic fMRI Neural Language Decoding and Improving the Huth Encoding-Model Baseline.” *arXiv preprint*, 2026. arXiv:[2607.12079](https://arxiv.org/abs/2607.12079). [later] [wiki: arxiv-2607.12079](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2607.12079/article.md)
+7. <a id="ref-7"></a>Martin, S., Brunner, P., Holdgraf, C., Heinze, H., Crone, N. E., Rieger, J., et al. “Decoding spectrotemporal features of overt and covert speech from the human cortex.” *Frontiers in Neuroengineering*, 2014, 7, 14. doi:[10.3389/fneng.2014.00014](https://doi.org/10.3389/fneng.2014.00014). [wiki: pmc-4034498-spectemp](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-4034498-spectemp/article.md)
 8. <a id="ref-8"></a>Tang, J., Huth, A. G. “Semantic language decoding across participants and stimulus modalities.” *Current Biology*, 2025, 35(5), 1023–1032.e6. doi:[10.1016/j.cub.2025.01.024](https://doi.org/10.1016/j.cub.2025.01.024). [later] [wiki: pmc-11903136-cub](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-11903136-cub/article.md)
 9. <a id="ref-9"></a>Maghsoudi, M., Shamma, S. “Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping.” *arXiv preprint*, 2026. arXiv:[2605.08075](https://arxiv.org/abs/2605.08075). [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/zero-shot-imagined-speech-decoding-via-imagined-to-listened-meg-mapping) [wiki: arxiv-2605.08075](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2605.08075/article.md)

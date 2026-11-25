@@ -32,6 +32,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Text-producing speech decoders from non-acoustic or neural signals (surface EMG, EEG, MEG, ECoG, intracortical, ultrasound, articulography, lip video, fMRI) whose ledger mentions a use-time language model, lexicon, beam search or rescoring. The design compared is the use-time language prior: an n-gram or lexicon-constrained beam search, neural language-model rescoring, or a large language model that rescores or rewrites the decoded transcript. Boundary: language models used only to build training targets or stimuli do not count; acoustic-only ASR is excluded; versions of one study count once.
 - Used in: [EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG](../../reviews/eeg-to-voice-decoding-of-spoken-and-imagined-speech-using-non-invasive-eeg/), [From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach](../../reviews/from-silent-signals-to-natural-language-a-dual-stage-transformer-llm-approach/)
 
+## noninvasive-language-decoding-lm-prior
+
+- Table: [`noninvasive-language-decoding-lm-prior.csv`](noninvasive-language-decoding-lm-prior.csv) (119 slot-filled, 335 pattern match, usual design in 112, 4 read in full)
+- Inclusion rule: Language, text or semantic decoding studies whose ledger names a non-invasive recording (fMRI/BOLD, fNIRS, MEG or scalp EEG): decoding words, sentences, stories or meaning from perceived, read, imagined or produced language. Boundary: encoding-only or activation-mapping studies and reviews are matched by the ledger pattern but are not deciding priors; versions of one study count once. The design compared is the use-time language prior: pretrained neural language model (GPT, BART, Llama), n-gram model, beam search; a model used only to produce training features also matches the pattern (upper bound).
+- Used in: [Semantic reconstruction of continuous language from non-invasive brain recordings](../../reviews/semantic-reconstruction-of-continuous-language-from-non-invasive-brain-recordings/)
+
 ## noninvasive-text-decoding-language-model
 
 - Table: [`noninvasive-text-decoding-language-model.csv`](noninvasive-text-decoding-language-model.csv) (119 slot-filled, 1458 pattern match, usual design in 169, 1 read in full)
