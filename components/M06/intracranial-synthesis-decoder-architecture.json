@@ -1,0 +1,2788 @@
+{
+ "topic": "intracranial-synthesis-decoder-architecture",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*(ecog|seeg|stereotactic|stereo-eeg|intracranial|\\bieeg\\b|depth electrode|intracortical|electrocorticograph))(?=.*(mel[- ]?spectrogram|spectrogram (regression|reconstruction|prediction)|speech synthesis|synthesi[sz]e\\w* (audible |intelligible )?speech|direct_signal_to_audio|output_types=audio|vocoder|brain-to-speech|neural-to-speech))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that reconstruct speech acoustics from intracranial recordings made during overt, mouthed, attempted or imagined speech (the published intracranial-synthesis population pattern), classified by the neural-to-acoustic regression model their full text names: linear or regularized linear regression, recurrent network (LSTM/GRU), transformer, 3D convolution, DenseNet, unit selection. Boundary: a study counts under every design its full text names, including related-work mentions, so counts are upper bounds; heard-speech reconstruction and text-only decoders read out by TTS are outside the topic; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 218,
+  "string_match_unique": 180,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 60,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2603.11877",
+     "arxiv-2606-09667-xmask",
+     "arxiv-2606.31225",
+     "arxiv-2609-36736-speechbcirev"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 42,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609-04455-b2snet",
+     "arxiv-2609.31992",
+     "doi-10.1016-j.iccn.2026.104579",
+     "doi-10.64898-2026.03.02.709171",
+     "natneuro-02456-motordyn"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 33,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2604.05751",
+     "arxiv-2606.31225",
+     "doi-10.64898-2026.03.02.709171",
+     "doi-10.1101-2025.05.27.656311"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 28,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2604.05751",
+     "arxiv-2606.31225",
+     "arxiv-2609.31992",
+     "arxiv-2511.04691"
+    ]
+   },
+   {
+    "design": "decoder_route=direct_signal_to_audio",
+    "n": 28,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.31992",
+     "doi-10.7554-elife.109400",
+     "arxiv-2412.18839",
+     "arxiv-2510.27247",
+     "doi-10.1007-s13311-022-01190-2"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 24,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751",
+     "arxiv-2606-09667-xmask",
+     "arxiv-2609-04455-b2snet",
+     "arxiv-2609-36736-speechbcirev",
+     "doi-10.1038-s44460-025-00010-2"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 24,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "arxiv-2609-36736-speechbcirev",
+     "arxiv-2609.04455",
+     "arxiv-2510.27247",
+     "pmc-11053081-onlinesyn"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 23,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01247",
+     "doi-10.1038-s44460-025-00010-2",
+     "arxiv-2412.18839",
+     "arxiv-2510.27247",
+     "arxiv-2305.14359"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 19,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2604.05751",
+     "arxiv-2606.31225",
+     "doi-10.1038-s44460-025-00010-2",
+     "nemar-241-cerebvoice"
+    ]
+   },
+   {
+    "design": "model_family=linear_model",
+    "n": 16,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.31992",
+     "arxiv-2312.13600",
+     "doi-10.3389-fnhum.2023.1124065",
+     "doi-10.1101-2022.04.05.487183",
+     "doi-10.1111-ejn.14912"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=postprocess",
+    "n": 12,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "arxiv-2609.31992",
+     "doi-10.1016-j.iccn.2026.104579",
+     "arxiv-2511.04691",
+     "doi-10.1093-jmp-jhac011"
+    ]
+   },
+   {
+    "design": "model_family=hmm",
+    "n": 10,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609-04455-b2snet",
+     "isca-nitta11_interspeech",
+     "doi-10.1016-j.specom.2009.08.002",
+     "isca-nitta10_interspeech",
+     "isca-gudnason09_interspeech"
+    ]
+   },
+   {
+    "design": "decoder_route=other",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.31992",
+     "doi-10.1038-s41597-026-07619-z",
+     "arxiv-2509.04507",
+     "doi-10.1016-j.heares.2018.11.009",
+     "doi-10.1038-s41586-019-1119-1"
+    ]
+   },
+   {
+    "design": "representation_kind=neural_features",
+    "n": 8,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1016-j.heares.2018.11.009",
+     "doi-10.1016-j.specom.2010.01.001",
+     "doi-10.1038-s41586-019-1119-1",
+     "doi-10.1038-s41586-025-09127-3",
+     "doi-10.1088-1741-2552-ab0c59"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=rescore",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2609.31992",
+     "doi-10.3390-s23125575",
+     "mdpi-fi13070182",
+     "arxiv-2303.01758"
+    ]
+   },
+   {
+    "design": "decoder_route=recognition_to_text",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s41593-026-02456-0",
+     "doi-10.1038-s42003-025-08511-z",
+     "arxiv-2509.04507",
+     "isca-cai11_interspeech",
+     "isca-dines09b_interspeech"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=select",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2512.16518",
+     "mdpi-fi13070182",
+     "isca-mattheyses11_avsp",
+     "isca-blanco98_icslp"
+    ]
+   },
+   {
+    "design": "ProcessingStep.causality=full_sequence",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.31992",
+     "mdpi-fi13070182",
+     "sottovoce",
+     "arxiv-2509.04507"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=retrieve",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-icassp43922.2022.9747300",
+     "isca-fagel09_avsp",
+     "arxiv-2204.01725"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=segment",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-access.2021.3062752",
+     "icphs2007-hueber-ouisper",
+     "arxiv-2312.05814"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "recurrent",
+    "n": 79,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "arxiv-2603.11877",
+     "arxiv-2604.05751",
+     "arxiv-2606-09667-xmask",
+     "arxiv-2609-04455-b2snet"
+    ]
+   },
+   {
+    "design": "linear_regression",
+    "n": 67,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2602.22597-vmi",
+     "arxiv-2603.11877",
+     "arxiv-2604.05751",
+     "arxiv-2609-36736-speechbcirev"
+    ]
+   },
+   {
+    "design": "transformer",
+    "n": 65,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2510.23969",
+     "arxiv-2602-01247-mechint",
+     "arxiv-2603.11877",
+     "arxiv-2604.05751",
+     "arxiv-2606-09667-xmask"
+    ]
+   },
+   {
+    "design": "conv_3d",
+    "n": 47,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2603.11877",
+     "arxiv-2604.05751",
+     "arxiv-2606-09667-xmask",
+     "arxiv-2606.31225",
+     "doi-10.1038-s44460-025-00010-2"
+    ]
+   },
+   {
+    "design": "unit_selection",
+    "n": 34,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1186-s12911-026-03552-8",
+     "arxiv-2508.18127",
+     "doi-10.1038-s42003-025-08511-z",
+     "tel-5219015-ecogthesis",
+     "doi-10.1038-s41598-024-60277-2"
+    ]
+   },
+   {
+    "design": "densenet",
+    "n": 11,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1186-s12911-026-03552-8",
+     "arxiv-2508.18127",
+     "doi-10.1038-s42003-025-08511-z",
+     "tel-5219015-ecogthesis",
+     "doi-10.1101-2024.08.21.608927"
+    ]
+   }
+  ],
+  "metric_pattern": "(pearson|correlation|\\bpcc\\b|\\bstoi\\b)",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "depth effect on correlation + spectrotemporal modulation content",
+   "value": 3,
+   "unit": "hidden_layers",
+   "raw": "depth at which DNN reconstruction accuracy saturates (1-4 tested, 64 units each)",
+   "pid": "isca-yang15c_interspeech",
+   "year": 2015,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Pearson correlation between flattened spectrograms",
+   "value": 0.954,
+   "unit": "ratio",
+   "raw": "0.954",
+   "pid": "arxiv-2602.01247",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "PC (Pearson correlation between Mel spectrograms)",
+   "value": 0.91,
+   "unit": "ratio",
+   "raw": "0.91",
+   "pid": "arxiv-2508.03166",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "PC (Pearson correlation)",
+   "value": 0.91,
+   "unit": "ratio",
+   "raw": "0.91",
+   "pid": "arxiv-2604.05751",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "PCC",
+   "value": 0.9,
+   "unit": null,
+   "raw": "0.9",
+   "pid": "arxiv-2312.13600",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "max H->D(E) linear-map correlation across models/layers",
+   "value": 0.85,
+   "unit": "pearson_r",
+   "raw": "0.85",
+   "pid": "arxiv-2510.23969",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "AV STOI",
+   "value": 0.84,
+   "unit": null,
+   "raw": "0.84",
+   "pid": "arxiv-2306.00489",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "spectrogram PCC, all electrodes (N=39)",
+   "value": 0.838,
+   "unit": "pcc",
+   "raw": "0.838",
+   "pid": "pmc-10980022-satrans-decode",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "mel-band Pearson correlation",
+   "value": 0.83,
+   "unit": null,
+   "raw": "0.83±0.04",
+   "pid": "doi-10.1038-s41586-025-09127-3",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ResNet non-causal mean PCC",
+   "value": 0.806,
+   "unit": "pcc",
+   "raw": "mean PCC = 0.806 and 0.797 for non-causal and causal, respectively",
+   "pid": "doi-10.1038-s42256-024-00824-8",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "max Pearson correlation",
+   "value": 0.8,
+   "unit": "correlation",
+   "raw": "0.8",
+   "pid": "arxiv-2111.01457",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "best per-patient spectrogram correlation",
+   "value": 0.8,
+   "unit": "Pearson r",
+   "raw": "best patient r5=0.80±0.10",
+   "pid": "doi-10.1109-embc46164.2021.9629711",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Cluster-1 SA/SI AKT Pearson r",
+   "value": 0.74,
+   "unit": null,
+   "raw": "0.74",
+   "pid": "doi-10.1101-2025.05.27.656311",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "0.738",
+   "value": 0.738,
+   "unit": "STOI",
+   "raw": "GRID speech reconstruction STOI (best of 7 methods)",
+   "pid": "cvf-kim21-mabm",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "F2 correlation 0.71, MAE 221.16 Hz (linear prediction, overall)",
+   "value": 0.71,
+   "unit": null,
+   "raw": "overall F2 correlation coefficient, linear prediction (MAE 221.16 Hz)",
+   "pid": "isca-hofe11_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "logMel spectrogram correlation (max)",
+   "value": 0.69,
+   "unit": null,
+   "raw": "up to r = 0.69",
+   "pid": "doi-10.1088-1741-2552-ab0c59",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "pearson_correlation_max",
+   "value": 0.69,
+   "unit": null,
+   "raw": "r5 = 0.69 ± 0.10 highest per-participant mean correlation (participant 5); range r1=0.19±0.12 to r5=0.69±0.10; all six p<0.001 above chance",
+   "pid": "doi-10.1101-478644",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "single-session reconstruction r F1/F2",
+   "value": 0.68,
+   "unit": "correlation",
+   "raw": "illustration session r=.69 F1 / r=.68 F2",
+   "pid": "pmc-2784218-wirelesssynth",
+   "year": 2009,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "mean waveform correlation (sd 0.18)",
+   "value": 0.67,
+   "unit": "correlation",
+   "raw": "0.67",
+   "pid": "doi-10.1038-s41598-024-60277-2",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "P2 correlation",
+   "value": 0.64,
+   "unit": null,
+   "raw": "0.64",
+   "pid": "doi-10.1109-icassp43922.2022.9747300",
+   "year": 2022,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1908.05743-eegasr",
+   "key": "t:stateoftheartspeechrecognitionusingeegandtowardsdecodingofspeechspectrumfromeeg",
+   "title": "State-of-the-art Speech Recognition using EEG and Towards Decoding of Speech Spectrum From EEG",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1908.05743-eegasr | title=State-of-the-art Speech Recognition using EEG and Towards Decoding of Speech Sp"
+  },
+  {
+   "pid": "arxiv-1909.11919",
+   "key": "t:astudyofjointeffectondenoisingtechniquesandvisualcuestoimprovespeechintelligibil",
+   "title": "A Study of Joint Effect on Denoising Techniques and Visual Cues to Improve Speech Intelligibility in Cochlear Implant Simulation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1909.11919 | title=A Study of Joint Effect on Denoising Techniques and Visual Cues to Improve Speech Inte"
+  },
+  {
+   "pid": "arxiv-2111.01457",
+   "key": "t:synthesizingspeechfromintracranialdepthelectrodesusinganencoderdecoderframework",
+   "title": "Synthesizing Speech from Intracranial Depth Electrodes using an Encoder-Decoder Framework",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2111.01457 | doi=10.51628/001c.57524 | title=Synthesizing Speech from Intracranial Depth Electrodes using"
+  },
+  {
+   "pid": "arxiv-2204.01725",
+   "key": "t:distinguishinghomophenesusingmultiheadvisualaudiomemoryforlipreading",
+   "title": "Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2204.01725 | title=Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading | Study"
+  },
+  {
+   "pid": "arxiv-2207.06020",
+   "key": "t:visualcontextdrivenaudiofeatureenhancementforrobustendtoendaudiovisualspeechreco",
+   "title": "Visual Context-driven Audio Feature Enhancement for Robust End-to-End Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2207.06020 | title=Visual Context-driven Audio Feature Enhancement for Robust End-to-End Audio-Visual Spe"
+  },
+  {
+   "pid": "arxiv-2303.01758",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.01758 | title=SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Net"
+  },
+  {
+   "pid": "arxiv-2305.14359",
+   "key": "t:zeroshotpersonalizedliptospeechsynthesiswithfaceimagebasedvoicecontrol",
+   "title": "Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2305.14359 | title=Zero-Shot Personalized Lip-to-Speech Synthesis with Face Image Based Voice Control | a"
+  },
+  {
+   "pid": "arxiv-2306.00489",
+   "key": "t:speechinpaintingcontextbasedspeechsynthesisguidedbyvideo",
+   "title": "Speech inpainting: Context-based speech synthesis guided by video",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.00489 | title=Speech inpainting: Context-based speech synthesis guided by video | authors=Montesinos"
+  },
+  {
+   "pid": "arxiv-2310.04644",
+   "key": "p:arxiv-2310.04644",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=system_proposal | tested_population=target_users | population_description=nine right-handed participa"
+  },
+  {
+   "pid": "arxiv-2311.05179",
+   "key": "t:improvingwhisperedspeechrecognitionperformanceusingpseudowhisperedbaseddataaugme",
+   "title": "IMPROVING WHISPERED SPEECH RECOGNITION PERFORMANCE USING PSEUDO-WHISPERED BASED DATA AUGMENTATION",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2311.05179v1 | source_url=https://arxiv.org/pdf/2311.05179v1 | title=IMPROVING WHISPERED SPEECH RECOGNITIO"
+  },
+  {
+   "pid": "arxiv-2312.05814",
+   "key": "t:neuralspeechembeddingsforspeechsynthesisbasedondeepgenerativenetworks",
+   "title": "Neural Speech Embeddings for Speech Synthesis Based on Deep Generative Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2312.05814v2 | source_url=https://arxiv.org/pdf/2312.05814v2 | title=Neural Speech Embeddings for Speech S"
+  },
+  {
+   "pid": "arxiv-2312.09727",
+   "key": "t:litevsrefficientvisualspeechrecognitionbylearningfromspeechrepresentationsofunla",
+   "title": "LiteVSR: Efficient Visual Speech Recognition by Learning from Speech Representations of Unlabeled Data",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2312.09727 | title=LiteVSR: Efficient Visual Speech Recognition by Learning from Speech Representations o"
+  },
+  {
+   "pid": "arxiv-2312.13600",
+   "key": "t:braintalkerlowresourcebraintospeechsynthesiswithtransferlearningusingwav2vec20",
+   "title": "BrainTalker: Low-Resource Brain-to-Speech Synthesis with Transfer Learning using Wav2Vec 2.0",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2312.13600 | paper_version=2312.13600v1 | title=BrainTalker: Low-Resource Brain-to-Speech Synthesis with"
+  },
+  {
+   "pid": "arxiv-2402.16996",
+   "key": "t:towardsdecodingbrainactivityduringpassivelisteningofspeech",
+   "title": "Towards Decoding Brain Activity During Passive Listening of Speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2402.16996 | title=Towards Decoding Brain Activity During Passive Listening of Speech | authors=Milan And"
+  },
+  {
+   "pid": "arxiv-2405.08021",
+   "key": "t:diffetslearningadiffusionprobabilisticmodelforelectromyographytospeechconversion",
+   "title": "Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2405.08021 | title=Diff-ETS: Learning a Diffusion Probabilistic Model for Electromyography-to-Speech Conv"
+  },
+  {
+   "pid": "arxiv-2407.07595",
+   "key": "t:scalinglawinneuraldatanoninvasivespeechdecodingwith175hoursofeegdata",
+   "title": "Scaling Law in Neural Data: Non-Invasive Speech Decoding with 175 Hours of EEG Data",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2407.07595 | doi=10.48550/arxiv.2407.07595 | title=Scaling Law in Neural Data: Non-Invasive Speech Decodi"
+  },
+  {
+   "pid": "arxiv-2409.00481",
+   "key": "t:dcimavsrefficientaudiovisualspeechrecognitionviadualconformerinteractionmodule",
+   "title": "DCIM-AVSR: Efficient Audio-Visual Speech Recognition via Dual Conformer Interaction Module",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2409.00481 | title=DCIM-AVSR: Efficient Audio-Visual Speech Recognition via Dual Conformer Interaction Mo"
+  },
+  {
+   "pid": "arxiv-2411.18888-areegwords",
+   "key": "t:areegwordsdatasetforenvisionedspeechrecognitionusingeegforarabicwords",
+   "title": "ArEEG_Words: Dataset for Envisioned Speech Recognition using EEG for Arabic Words",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411.18888-areegwords | title=ArEEG_Words: Dataset for Envisioned Speech Recognition using EEG for Arabic"
+  },
+  {
+   "pid": "arxiv-2412.18839",
+   "key": "t:advancingnamtospeechconversionwithnovelmethodsandthemultinamdataset",
+   "title": "Advancing NAM-to-Speech Conversion with Novel Methods and the MultiNAM Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.18839 | paper_version=arXiv:2412.18839v2 [cs.SD] 23 Jan 2025 | title=Advancing NAM-to-Speech Convers"
+  },
+  {
+   "pid": "arxiv-2506.04134",
+   "key": "t:unicueunifiedrecognitionandgenerationframeworkforchinesecuedspeechvideotospeechg",
+   "title": "UniCUE: Unified Recognition and Generation Framework for Chinese Cued Speech Video-to-Speech Generation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2506.04134 | title=UniCUE: Unified Recognition and Generation Framework for Chinese Cued Speech Video-to-"
+  },
+  {
+   "pid": "arxiv-2508.03166",
+   "key": "t:mistrmultimodalieegtospeechsynthesiswithtransformerbasedprosodypredictionandneur",
+   "title": "MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody Prediction and Neural Phase Reconstruction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody Prediction and Neural Phase Reconstruct"
+  },
+  {
+   "pid": "arxiv-2508.18127",
+   "key": "t:anintroductiontosilentparalinguistics",
+   "title": "An Introduction to Silent Paralinguistics",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2508.18127 | paper_version=2508.18127v1 | title=An Introduction to Silent Paralinguistics | authors=Zhao"
+  },
+  {
+   "pid": "arxiv-2509.04507",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.04507 | arxiv_id=2509.04507v1 | source_url=https://arxiv.org/pdf/2509.04507v1 | title=From Silent Si"
+  },
+  {
+   "pid": "arxiv-2509.04507-dualstg",
+   "key": "t:fromsilentsignalstonaturallanguageadualstagetransformerllmapproach",
+   "title": "From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Silent Signals to Natural Language: A Dual-Stage Transformer-LLM Approach | authors=Nithyashree Sivasubramani"
+  },
+  {
+   "pid": "arxiv-2509.25670-ltal2s",
+   "key": "t:ltal2slexicaltoneawareliptospeechsynthesisformandarinwithcrosslingualtransferlea",
+   "title": "LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lingual Transfer Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2509.25670-ltal2s | title=LTA-L2S: Lexical Tone-Aware Lip-to-Speech Synthesis for Mandarin with Cross-Lin"
+  },
+  {
+   "pid": "arxiv-2510.23969",
+   "key": "t:emg2speechsynthesizingspeechfromelectromyographyusingselfsupervisedspeechmodels",
+   "title": "emg2speech: synthesizing speech from electromyography using self-supervised speech models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.23969 | title=emg2speech: synthesizing speech from electromyography using self-supervised speech mod"
+  },
+  {
+   "pid": "arxiv-2510.27247",
+   "key": "t:reconstructingunseensentencesfromspeechrelatedbiosignalsforopenvocabularyneuralc",
+   "title": "Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.27247 | paper_version=arXiv 2510.27247v1; 11-page PDF dated 31 October 2025 | title=Reconstructing U"
+  },
+  {
+   "pid": "arxiv-2511.04691",
+   "key": "t:apennyforyourthoughtsdecodingspeechfrominexpensivebrainsignals",
+   "title": "A Penny for Your Thoughts: Decoding Speech from Inexpensive Brain Signals",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511.04691 | paper_version=2511.04691v1 | title=A Penny for Your Thoughts: Decoding Speech from Inexpensi"
+  },
+  {
+   "pid": "arxiv-2512.04618",
+   "key": "p:arxiv-2512.04618",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=direct ECoG-to-acoustic speech regression via ViT en"
+  },
+  {
+   "pid": "arxiv-2512.16518",
+   "key": "t:posterrecognizinghiddenintheearprivatekeyforreliablesilentspeechinterfaceusingmu",
+   "title": "Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512.16518 | arxiv_id=2512.16518v1 | title=Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable"
+  },
+  {
+   "pid": "arxiv-2601.12436",
+   "key": "t:purificationbeforefusiontowardmaskfreespeechenhancementforrobustaudiovisualspeec",
+   "title": "Purification Before Fusion: Toward Mask-Free Speech Enhancement for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2601.12436 | title=Purification Before Fusion: Toward Mask-Free Speech Enhancement for Robust Audio-Visua"
+  },
+  {
+   "pid": "arxiv-2602-01247-mechint",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes | authors=Maryam Maghsoudi, Ayushi Mish"
+  },
+  {
+   "pid": "arxiv-2602.01247",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01247 | paper_version=2602.01247v1 | title=Mechanistic Interpretability of Brain-to-Speech Models Ac"
+  },
+  {
+   "pid": "arxiv-2602.01247-mib2s",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01247-mib2s | title=Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes | aut"
+  },
+  {
+   "pid": "arxiv-2602.06460",
+   "key": "t:emgtospeechwithfewerchannels",
+   "title": "EMG-to-Speech with Fewer Channels",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.06460 | paper_version=arXiv 2602.06460v1; 5 pages | title=EMG-to-Speech with Fewer Channels | author"
+  },
+  {
+   "pid": "arxiv-2602.22597",
+   "key": "t:relatingtheneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.22597 | title=Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech | venue=I"
+  },
+  {
+   "pid": "arxiv-2602.22597-vmi",
+   "key": "t:investigatingneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Investigating Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.22597-vmi | title=Investigating Neural Representations of Vocalized, Mimed, and Imagined Speech | au"
+  },
+  {
+   "pid": "arxiv-2603.11877",
+   "key": "t:silentspeechinterfacesintheeraoflargelanguagemodelsacomprehensivetaxonomyandsyst",
+   "title": "Silent Speech Interfaces in the Era of Large Language Models: A Comprehensive Taxonomy and Systematic Review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.11877 | arxiv_id=2603.11877v1 | source_url=https://arxiv.org/pdf/2603.11877v1 | title=Silent Speech"
+  },
+  {
+   "pid": "arxiv-2604.05751",
+   "key": "t:braintospeechprosodyfeatureengineeringandtransformerbasedreconstruction",
+   "title": "Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.05751 | paper_version=arXiv:2604.05751v1; Springer edited-volume chapter PDF | title=Brain-to-Speech"
+  },
+  {
+   "pid": "arxiv-2606-09667-xmask",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading | authors=del Blanco, Gimeno-Gome"
+  },
+  {
+   "pid": "arxiv-2606.31225",
+   "key": "t:afirstexplorationofneuromorphicotcfmformultispeakervsr",
+   "title": "A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2606.31225v2 | source_url=https://arxiv.org/pdf/2606.31225v2 | title=A First Exploration of Neuromorphic O"
+  },
+  {
+   "pid": "arxiv-2609-04455-b2snet",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | authors=Suresh Chandra,"
+  },
+  {
+   "pid": "arxiv-2609-31992-mechinterp",
+   "key": "t:mechanisticinterpretabilityrevealssharedcausalsubspacesinbraintospeechdecoders",
+   "title": "Mechanistic Interpretability Reveals Shared Causal Subspaces in Brain-to-Speech Decoders",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Mechanistic Interpretability Reveals Shared Causal Subspaces in Brain-to-Speech Decoders | Study.study_design=cont"
+  },
+  {
+   "pid": "arxiv-2609-36736-speechbcirev",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Neurons to Conversation: Speech Brain-Computer Interfaces | authors=Khajehnejad, Habibollahi, Boccato, Sousa,"
+  },
+  {
+   "pid": "arxiv-2609.04455",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2609.04455 | paper_version=2609.04455v2 | title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech S"
+  },
+  {
+   "pid": "arxiv-2609.04455-brain2speech",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | authors=Chandra Shreeram"
+  },
+  {
+   "pid": "arxiv-2609.31992",
+   "key": "t:mechanisticinterpretabilityrevealssharedcausalsubspacesinbraintospeechdecoders",
+   "title": "Mechanistic Interpretability Reveals Shared Causal Subspaces in Brain-to-Speech Decoders",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.31992 | paper_version=arXiv:2609.31992v1 [cs.LG], 25 Sep 2026 (PDF, 5 pages) | title=Mechanistic Int"
+  },
+  {
+   "pid": "arxiv-2609.36736",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.36736 | doi=10.48550/arxiv.2609.36736 | title=From Neurons to Conversation: Speech Brain-Computer In"
+  },
+  {
+   "pid": "cvf-kim21-mabm",
+   "key": "t:multimodalityassociativebridgingthroughmemoryspeechsoundrecollectedfromfacevideo",
+   "title": "Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-kim21-mabm | title=Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face V"
+  },
+  {
+   "pid": "doi-10.1007-s13311-022-01190-2",
+   "key": "t:braincomputerinterfaceapplicationstospeechdecodingandsynthesistoaugmentcommunica",
+   "title": "Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1007-s13311-022-01190-2 | title=Brain-Computer Interface: Applications to Speech Decoding and Synthesis"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2016.02.002",
+   "key": "t:asilentspeechsystembasedonpermanentmagnetarticulographyanddirectsynthesis",
+   "title": "A silent speech system based on permanent magnet articulography and direct synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A silent speech system based on permanent magnet articulography and direct synthesis | venue=Computer Speech & Lan"
+  },
+  {
+   "pid": "doi-10.1016-j.heares.2018.11.009",
+   "key": "p:doi-10.1016-j.heares.2018.11.009",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Vocoded-speech auditory-hierarchy ECoG paradigm (Nourski) | intended_use_cases=speech_restoration | observed"
+  },
+  {
+   "pid": "doi-10.1016-j.iccn.2026.104579",
+   "key": "t:exploringtheacceptabilityofalipreadingappinacuteandcriticalcare",
+   "title": "Exploring the acceptability of a lip-reading app in acute and critical care",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=iccn2026/104579 | title=Exploring the acceptability of a lip-reading app in acute and critical care | authors=C"
+  },
+  {
+   "pid": "doi-10.1016-j.jphysparis.2017.07.002",
+   "key": "t:keyconsiderationsindesigningaspeechbraincomputerinterface",
+   "title": "Key considerations in designing a speech brain-computer interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.jphysparis.2017.07.002 | doi=10.1016/j.jphysparis.2017.07.002 | title=Key considerations in desig"
+  },
+  {
+   "pid": "doi-10.1016-j.rlfa.2018.07.004",
+   "key": "t:arealtimesilentspeechsystemforvoicerestorationaftertotallaryngectomy",
+   "title": "A Real-Time Silent Speech System for Voice Restoration after Total Laryngectomy",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1016/j.rlfa.2018.07.004 | title=A Real-Time Silent Speech System for Voice Restoration after Total Laryn"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.08.002",
+   "key": "t:silentspeechinterfaces",
+   "title": "Silent speech interfaces",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Speech Communication | doi=10.1016/j.specom.2009.08.002 | title=Silent speech interfaces | authors=B. Denby, T. Sc"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2010.01.001",
+   "key": "p:doi-10.1016-j.specom.2010.01.001",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=neurotrophic-electrode formant-synthesizer speech BCI | task_family=speech_reconstruction | intended_use_cas"
+  },
+  {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "key": "p:doi-10.1038-s41586-019-1119-1",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=two-stage bLSTM ECoG speech synthesizer | task_family=speech_reconstruction | intended_use_cases=speech_rest"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "key": "t:ahighperformanceneuroprosthesisforspeechdecodingandavatarcontrol",
+   "title": "A high-performance neuroprosthesis for speech decoding and avatar control",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41586-023-06443-4 | title=A high-performance neuroprosthesis for speech decoding and avatar control |"
+  },
+  {
+   "pid": "doi-10.1038-s41586-025-09127-3",
+   "key": "p:doi-10.1038-s41586-025-09127-3",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=brain-to-voice instantaneous voice-synthesis neuroprosthesis | task_family=speech_reconstruction | intended_"
+  },
+  {
+   "pid": "doi-10.1038-s41593-026-02456-0",
+   "key": "t:aneuralarchitectureforimaginedandovertspeechmotordynamics",
+   "title": "A neural architecture for imagined and overt speech motor dynamics",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41593-026-02456-0 | title=A neural architecture for imagined and overt speech motor dynamics | aut"
+  },
+  {
+   "pid": "doi-10.1038-s41597-022-01542-9",
+   "key": "t:datasetofspeechproductioninintracranialelectroencephalography",
+   "title": "Dataset of Speech Production in intracranial Electroencephalography",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-022-01542-9 | doi=10.1038/s41597-022-01542-9 | title=Dataset of Speech Production in intracr"
+  },
+  {
+   "pid": "doi-10.1038-s41597-025-04741-2",
+   "key": "p:doi-10.1038-s41597-025-04741-2",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=dataset_resource | population_description=22-year-old male neurosurgical patient undergoing treatment"
+  },
+  {
+   "pid": "doi-10.1038-s41597-026-07619-z",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-026-07619-z | title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in T"
+  },
+  {
+   "pid": "doi-10.1038-s41598-018-37359-z",
+   "key": "t:towardsreconstructingintelligiblespeechfromthehumanauditorycortex",
+   "title": "Towards reconstructing intelligible speech from the human auditory cortex",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-018-37359-z | doi=10.1038/s41598-018-37359-z | title=Towards reconstructing intelligible spe"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-60277-2",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterfaceinanindivid",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-024-60277-2 | doi=10.1038/s41598-024-60277-2 | title=Online speech synthesis using a chronic"
+  },
+  {
+   "pid": "doi-10.1038-s42003-019-0707-9",
+   "key": "t:decodingspeechfromspikebasedneuralpopulationrecordingsinsecondaryauditorycortexo",
+   "title": "Decoding speech from spike-based neural population recordings in secondary auditory cortex of non-human primates",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42003-019-0707-9 | title=Decoding speech from spike-based neural population recordings in secondar"
+  },
+  {
+   "pid": "doi-10.1038-s42003-025-08511-z",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42003-025-08511-z | title=Progress, challenges and future of linguistic neural decoding with deep"
+  },
+  {
+   "pid": "doi-10.1038-s42256-024-00824-8",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A neural speech decoding framework leveraging deep learning and speech synthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42256-024-00824-8 | doi=10.1038/s42256-024-00824-8 | title=A neural speech decoding framework leve"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sensing technologies for silent speech interfaces | needs_manual_check=cited metrics are secondhand: values summar"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-aae466",
+   "key": "t:braintospeechdecodingwillrequirelinguisticandpragmaticdata",
+   "title": "Brain-to-speech decoding will require linguistic and pragmatic data",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1088/1741-2552/aae466 | title=Brain-to-speech decoding will require linguistic and pragmatic data | authors="
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ab0c59",
+   "key": "p:doi-10.1088-1741-2552-ab0c59",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=DenseNet3D ECoG-to-logMel synthesizer + WaveNet | task_family=speech_reconstruction | intended_use_cases=spe"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-abbfef",
+   "key": "t:decodingspokenenglishfromintracorticalelectrodearraysindorsalprecentralgyrus",
+   "title": "Decoding spoken English from intracortical electrode arrays in dorsal precentral gyrus",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-abbfef | doi=10.1088/1741-2552/abbfef | title=Decoding spoken English from intracortical"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ace8be",
+   "key": "t:directspeechreconstructionfromsensorimotorbrainactivitywithoptimizeddeeplearning",
+   "title": "Direct speech reconstruction from sensorimotor brain activity with optimized deep learning models",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-ace8be | doi=10.1088/1741-2552/ace8be | title=Direct speech reconstruction from sensorimo"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ae1ea2",
+   "key": "t:magnetoencephalographymegbasednoninvasivechinesespeechdecoding",
+   "title": "Magnetoencephalography (MEG) Based Non-Invasive Chinese Speech Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1088-1741-2552-ae1ea2 | title=Magnetoencephalography (MEG) Based Non-Invasive Chinese Speech Decoding |"
+  },
+  {
+   "pid": "doi-10.1093-jmp-jhac011",
+   "key": "t:speakerresponsibilityforsyntheticspeechderivedfromneuralactivity",
+   "title": "Speaker Responsibility for Synthetic Speech Derived from Neural Activity",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1093-jmp-jhac011 | doi=10.1093/jmp/jhac011 | title=Speaker Responsibility for Synthetic Speech Derived f"
+  },
+  {
+   "pid": "doi-10.1101-2022.04.05.487183",
+   "key": "t:speechproductioninintracranialelectroencephalographyibidsdataset",
+   "title": "Speech Production in Intracranial Electroencephalography: iBIDS Dataset",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1101/2022.04.05.487183 | title=Speech Production in Intracranial Electroencephalography: iBIDS Dataset | aut"
+  },
+  {
+   "pid": "doi-10.1101-2023.09.16.558028",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis | venue=bioRxiv preprint (later N"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.21.608927",
+   "key": "t:speechsynthesisfromelectrocorticogramduringimaginedspeechusingatransformerbasedd",
+   "title": "Speech Synthesis from Electrocorticogram During Imagined Speech Using a Transformer-Based Decoder and Pretrained Vocoder",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.08.21.608927 | doi=10.1101/2024.08.21.608927 | title=Speech Synthesis from Electrocorticogram"
+  },
+  {
+   "pid": "doi-10.1101-2024.12.16.628596",
+   "key": "t:naturalspeechresynthesisfromdirectcorticalrecordingsusingapretrainedencoderdecod",
+   "title": "Natural speech re-synthesis from direct cortical recordings using a pre-trained encoder-decoder framework",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Natural speech re-synthesis from direct cortical recordings using a pre-trained encoder-decoder framework | intend"
+  },
+  {
+   "pid": "doi-10.1101-2025.05.27.656311",
+   "key": "t:neuralhierarchyforcodingarticulatorydynamicsinspeechimageryandproduction",
+   "title": "Neural hierarchy for coding articulatory dynamics in speech imagery and production",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2025.05.27.656311 | doi=10.1101/2025.05.27.656311 | title=Neural hierarchy for coding articulatory"
+  },
+  {
+   "pid": "doi-10.1101-478644",
+   "key": "t:speechsynthesisfromecogusingdenselyconnected3dconvolutionalneuralnetworks",
+   "title": "Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks | venue=bioRxiv preprint (publ"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases"
+  },
+  {
+   "pid": "doi-10.1109-access.2021.3062752",
+   "key": "t:multimodalcorpusdesignforaudiovisualspeechrecognitioninvehiclecabin",
+   "title": "Multimodal Corpus Design for Audio-Visual Speech Recognition in Vehicle Cabin",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-access.2021.3062752 | title=Multimodal Corpus Design for Audio-Visual Speech Recognition in Vehicle"
+  },
+  {
+   "pid": "doi-10.1109-access.2025.3612004",
+   "key": "t:silentwhisperenablinguserindependentultralowvolumewhisperedspeechrecognition",
+   "title": "SilentWhisper: Enabling User-Independent Ultra-Low Volume Whispered Speech Recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SilentWhisper: Enabling User-Independent Ultra-Low Volume Whispered Speech Recognition | task_family=speech_recons"
+  },
+  {
+   "pid": "doi-10.1109-embc46164.2021.9629711",
+   "key": "t:speechsynthesisfromstereotacticeegusinganelectrodeshaftdependentmultiinputconvol",
+   "title": "Speech Synthesis from Stereotactic EEG using an Electrode Shaft Dependent Multi-Input Convolutional Neural Network Approach",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1109/embc46164.2021.9629711 | title=Speech Synthesis from Stereotactic EEG using an Electrode Shaft Dependen"
+  },
+  {
+   "pid": "doi-10.1109-embc48229.2022.9871301",
+   "key": "t:towardsnaturalisticspeechdecodingfromintracranialbraindata",
+   "title": "Towards naturalistic speech decoding from intracranial brain data",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1109/EMBC48229.2022.9871301 | title=Towards naturalistic speech decoding from intracranial brain data | auth"
+  },
+  {
+   "pid": "doi-10.1109-icassp43922.2022.9747300",
+   "key": "t:towardsclosedloopspeechsynthesisfromstereotacticeegaunitselectionapproach",
+   "title": "Towards Closed-Loop Speech Synthesis From Stereotactic EEG: A Unit Selection Approach",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-icassp43922.2022.9747300 | doi=10.1109/icassp43922.2022.9747300 | title=Towards Closed-Loop Speech"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2716178",
+   "key": "t:generatingintelligibleaudiospeechfromvisualspeech",
+   "title": "Generating Intelligible Audio Speech from Visual Speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Generating Intelligible Audio Speech from Visual Speech | authors=Thomas Le Cornu; Ben Milner | venue=IEEE/ACM Tra"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2752365",
+   "key": "t:biosignalbasedspokencommunicationasurvey",
+   "title": "Biosignal-based Spoken Communication: A Survey",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1109/TASLP.2017.2752365 | title=Biosignal-based Spoken Communication: A Survey | authors=Tanja Schultz,"
+  },
+  {
+   "pid": "doi-10.1111-ejn.14912",
+   "key": "t:degradationlevelsofcontinuousspeechaffectneuralspeechtrackingandalphapowerdiffer",
+   "title": "Degradation levels of continuous speech affect neural speech tracking and alpha power differently",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1111/ejn.14912 | title=Degradation levels of continuous speech affect neural speech tracking and alpha power"
+  },
+  {
+   "pid": "doi-10.1121-1.4978364",
+   "key": "t:restoringspeechfollowingtotalremovalofthelarynxbyalearnedtransformationfromsenso",
+   "title": "Restoring speech following total removal of the larynx by a learned transformation from sensor data to acoustics",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1121/1.4978364 | title=Restoring speech following total removal of the larynx by a learned transformatio"
+  },
+  {
+   "pid": "doi-10.1126-sciadv.abc6348",
+   "key": "t:thephaseofcorticaloscillationsdeterminestheperceptualfateofvisualcuesinnaturalis",
+   "title": "The phase of cortical oscillations determines the perceptual fate of visual cues in naturalistic audiovisual speech",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1126/sciadv.abc6348 | title=The phase of cortical oscillations determines the perceptual fate of visual cues"
+  },
+  {
+   "pid": "doi-10.1126-sciadv.adh0478",
+   "key": "t:decodingandsynthesizingtonallanguagespeechfrombrainactivity",
+   "title": "Decoding and synthesizing tonal language speech from brain activity",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1126-sciadv.adh0478 | doi=10.1126/sciadv.adh0478 | title=Decoding and synthesizing tonal language speech"
+  },
+  {
+   "pid": "doi-10.1145-3290605.3300376",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks | authors=N. Kimura; M"
+  },
+  {
+   "pid": "doi-10.1145-3544548.3580706",
+   "key": "p:doi-10.1145-3544548.3580706",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=WESPER: zero-shot realtime whisper-to-normal voice conversion (STU + UTS + HiFi-GAN) | task_family=speech_re"
+  },
+  {
+   "pid": "doi-10.1186-s12911-026-03552-8",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1186-s12911-026-03552-8 | title=Artificial intelligence for brain-to-speech decoding in paralysis: a sys"
+  },
+  {
+   "pid": "doi-10.1227-neu.0000000000003360_251",
+   "key": "p:doi-10.1227-neu.0000000000003360_251",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.research_objective=real-time continuous speech neuroprosthesis restoring voice + prosody in ALS dysarthria | task_"
+  },
+  {
+   "pid": "doi-10.1371-journal.pbio.1001251",
+   "key": "p:doi-10.1371-journal.pbio.1001251",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=ECoG auditory-spectrogram/modulation reconstruction decoder | task_family=speech_reconstruction | target_uni"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0008218",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A Wireless Brain-Machine Interface for Real-Time Speech Synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1371/journal.pone.0008218 | title=A Wireless Brain-Machine Interface for Real-Time Speech Synthesis | au"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2014-449",
+   "key": "t:robustarticulatoryspeechsynthesisusingdeepneuralnetworksforbciapplications",
+   "title": "Robust Articulatory Speech Synthesis using Deep Neural Networks for BCI Applications",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.21437/Interspeech.2014-449 | title=Robust Articulatory Speech Synthesis using Deep Neural Networks for B"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1124065",
+   "key": "t:overtspeechdecodingfromcorticalactivityacomparisonofdifferentlinearmethods",
+   "title": "Overt speech decoding from cortical activity: a comparison of different linear methods",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnhum.2023.1124065 | title=Overt speech decoding from cortical activity: a comparison of different line"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1334742",
+   "key": "p:doi-10.3389-fnhum.2023.1334742",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Spectrally-degraded-speech iEEG paradigm (Nourski) | intended_use_cases=speech_restoration | observed_quanti"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2019.01267",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2019.01267 | title=Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s23125575 | doi=10.3390/s23125575 | title=Machine-Learning Methods for Speech and Handwriting Detec"
+  },
+  {
+   "pid": "doi-10.36244-icj.2024.1.6",
+   "key": "t:speechsynthesisfromintracranialstereotacticelectroencephalographyusinganeuralvoc",
+   "title": "Speech synthesis from intracranial stereotactic Electroencephalography using a neural vocoder",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.36244-icj.2024.1.6 | doi=10.36244/icj.2024.1.6 | title=Speech synthesis from intracranial stereotactic E"
+  },
+  {
+   "pid": "doi-10.3758-s13423-021-02009-5",
+   "key": "t:theroleoficonicgesturesandmouthmovementsinfacetofacecommunication",
+   "title": "The role of iconic gestures and mouth movements in face-to-face communication",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3758-s13423-021-02009-5 | doi=10.3758/s13423-021-02009-5 | title=The role of iconic gestures and mouth m"
+  },
+  {
+   "pid": "doi-10.5220-0005754100960105",
+   "key": "t:directspeechgenerationforasilentspeechinterfacebasedonpermanentmagnetarticulogra",
+   "title": "Direct Speech Generation for a Silent Speech Interface based on Permanent Magnet Articulography",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.5220/0005754100960105 | title=Direct Speech Generation for a Silent Speech Interface based on Permanent"
+  },
+  {
+   "pid": "doi-10.64898-2026.03.02.709171",
+   "key": "t:dissociablefrequencyregimesinhumantemporalcortexintegratefacialandacousticcuesdu",
+   "title": "Dissociable frequency regimes in human temporal cortex integrate facial and acoustic cues during natural speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.64898/2026.03.02.709171 | title=Dissociable frequency regimes in human temporal cortex integrate facial"
+  },
+  {
+   "pid": "doi-10.7554-elife.109400",
+   "key": "t:highfidelityneuralspeechreconstructionthroughanefficientacousticlinguisticdualpa",
+   "title": "High-fidelity neural speech reconstruction through an efficient acoustic-linguistic dual-pathway framework",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.7554-elife.109400 | title=High-fidelity neural speech reconstruction through an efficient acoustic-lingu"
+  },
+  {
+   "pid": "ib24-neural2speech",
+   "key": "t:neural2speechdecodingspeechandlanguagefromthehumanbrain",
+   "title": "#neural2speech: Decoding Speech and Language from the Human Brain",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ib24-neural2speech | title=#neural2speech: Decoding Speech and Language from the Human Brain | authors=Xabier d"
+  },
+  {
+   "pid": "iber24-pma2speech",
+   "key": "t:directspeechsynthesisfromnonaudiblespeechbiosignalsacomparativestudy",
+   "title": "Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=iber24-pma2speech | title=Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study | aut"
+  },
+  {
+   "pid": "icphs2007-hueber-ouisper",
+   "key": "t:ouispercorpusbasedsynthesisdrivenbyarticulatorydata",
+   "title": "Ouisper: Corpus Based Synthesis Driven by Articulatory Data",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=icphs2007:hueber_ouisper | title=Ouisper: Corpus Based Synthesis Driven by Articulatory Data | authors=Thomas H"
+  },
+  {
+   "pid": "isca-agelfors98_icslp",
+   "key": "t:syntheticfacesasalipreadingsupport",
+   "title": "Synthetic faces as a lipreading support",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthetic faces as a lipreading support | authors=E. Agelfors, J. Beskow, M. Dahlquist, B. Granstrom, M. Lundeberg"
+  },
+  {
+   "pid": "isca-akinrintoyo25_interspeech",
+   "key": "t:whisperddementiaspeechrecognitionandfillerworddetectionwithwhisper",
+   "title": "WhisperD: Dementia Speech Recognition and Filler Word Detection with Whisper",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=WhisperD: Dementia Speech Recognition and Filler Word Detection with Whisper | venue=Proc. Interspeech 2025 | task"
+  },
+  {
+   "pid": "isca-alradhi25-mistr",
+   "key": "t:mistrmultimodalieegtospeechsynthesiswithtransformerbasedprosodyprediction",
+   "title": "MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody Prediction",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody Prediction | authors=Al-Radhi, et-al |"
+  },
+  {
+   "pid": "isca-alradhi25_interspeech",
+   "key": "t:mistrmultimodalieegtospeechsynthesiswithtransformerbasedprosodypredictionandneur",
+   "title": "MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody Prediction and Neural Phase Reconstruction",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-alradhi25_interspeech | title=MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody P"
+  },
+  {
+   "pid": "isca-arb01-hmmviseme",
+   "key": "t:hiddenmarkovmodelsforvisualspeechsynthesiswithlimiteddata",
+   "title": "Hidden Markov models for visual speech synthesis with limited data",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-arb01-hmmviseme | title=Hidden Markov models for visual speech synthesis with limited data | authors=Allan"
+  },
+  {
+   "pid": "isca-blanco98_icslp",
+   "key": "t:sivhavisualspeechsynthesissystem",
+   "title": "SIVHA, visual speech synthesis system",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SIVHA, visual speech synthesis system | authors=Blanco Y., Cuellar M., Villanueva A., Lacunza F., Cabeza R., Marco"
+  },
+  {
+   "pid": "isca-bocquelet14_interspeech",
+   "key": "t:robustarticulatoryspeechsynthesisusingdeepneuralnetworksforbciapplications",
+   "title": "Robust articulatory speech synthesis using deep neural networks for BCI applications",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/bocquelet14-interspeech | title=Robust articulatory speech synthesis using deep neural networks for BCI ap"
+  },
+  {
+   "pid": "isca-bocquelet15_interspeech",
+   "key": "t:realtimecontrolofadnnbasedarticulatorysynthesizerforsilentspeechconversionapilot",
+   "title": "Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a pilot study",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a pilot study | system_nam"
+  },
+  {
+   "pid": "isca-cai11_interspeech",
+   "key": "t:recognitionandrealtimeperformancesofalightweightultrasoundbasedsilentspeechinter",
+   "title": "Recognition and Real Time Performances of a Lightweight Ultrasound Based Silent Speech Interface Employing a Language Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Recognition and Real Time Performances of a Lightweight Ultrasound Based Silent Speech Interface Employing a Langu"
+  },
+  {
+   "pid": "isca-dahmani19_interspeech",
+   "key": "t:conditionalvariationalautoencoderfortextdrivenexpressiveaudiovisualspeechsynthes",
+   "title": "Conditional Variational Auto-Encoder for Text-Driven Expressive AudioVisual Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Conditional Variational Auto-Encoder for Text-Driven Expressive AudioVisual Speech Synthesis | Study.study_design="
+  },
+  {
+   "pid": "isca-davis07_avsp",
+   "key": "t:makingathinkingtalkinghead",
+   "title": "Making a Thinking-Talking Head",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Making a Thinking-Talking Head | authors=C. Davis, J. Kim, T. Kuratate, J. Chen, Stelarc, D. Burnham | venue=Proc."
+  },
+  {
+   "pid": "isca-dines09b_interspeech",
+   "key": "t:speechrecognitionwithspeechsynthesismodelsbymarginalisingoverdecisiontreeleaves",
+   "title": "Speech recognition with speech synthesis models by marginalising over decision tree leaves",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech recognition with speech synthesis models by marginalising over decision tree leaves | observed_quantities=a"
+  },
+  {
+   "pid": "isca-fagel09_avsp",
+   "key": "t:effectsofsmiledspeechonlipslarynxandacoustics",
+   "title": "Effects of smiled speech on lips, larynx and acoustics",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Effects of smiled speech on lips, larynx and acoustics | authors=Sascha Fagel | venue=Proc. AVSP 2009, Norwich, UK"
+  },
+  {
+   "pid": "isca-fang12_eog",
+   "key": "t:hmmbasedcontinuouseogrecognitionforeyeinputspeechinterface",
+   "title": "HMM Based Continuous EOG Recognition for Eye-input Speech Interface",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-fang12_eog | title=HMM Based Continuous EOG Recognition for Eye-input Speech Interface | authors=Fuming Fa"
+  },
+  {
+   "pid": "isca-frye16_interspeech",
+   "key": "t:neuralresponsestospeechspecificmodulationsderivedfromaspectrotemporalfilterbank",
+   "title": "Neural Responses to Speech-Specific Modulations Derived from a Spectro-Temporal Filter Bank",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural Responses to Speech-Specific Modulations Derived from a Spectro-Temporal Filter Bank | Study.study_design=o"
+  },
+  {
+   "pid": "isca-gaudrain09_interspeech",
+   "key": "t:theroleofglottalpulserateandvocaltractlengthintheperceptionofspeakeridentity",
+   "title": "The role of glottal pulse rate and vocal tract length in the perception of speaker identity",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/gaudrain09-interspeech | title=The role of glottal pulse rate and vocal tract length in the perception of"
+  },
+  {
+   "pid": "isca-ghosh26b-lipadapt",
+   "key": "t:lipadaptertexttovideoalignmentisallyouneedforliptospeech",
+   "title": "LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | authors=Souvik Ghosh, C. V. Jawahar (IIIT"
+  },
+  {
+   "pid": "isca-gudnason09_interspeech",
+   "key": "t:voicesourcewaveformanalysisandsynthesisusingprincipalcomponentanalysisandgaussia",
+   "title": "Voice Source Waveform Analysis and Synthesis using Principal Component Analysis and Gaussian Mixture Modelling",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/gudnason09-interspeech | title=Voice Source Waveform Analysis and Synthesis using Principal Component Anal"
+  },
+  {
+   "pid": "isca-hofe11_interspeech",
+   "key": "t:speechsynthesisparametergenerationfortheassistivesilentspeechinterfacemvoca",
+   "title": "Speech Synthesis Parameter Generation for the Assistive Silent Speech Interface MVOCA",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Synthesis Parameter Generation for the Assistive Silent Speech Interface MVOCA | system_name=MVOCA / REdRES"
+  },
+  {
+   "pid": "isca-hueber07_interspeech",
+   "key": "t:continuousspeechphonerecognitionfromultrasoundandopticalimagesofthetongueandlips",
+   "title": "Continuous-Speech Phone Recognition from Ultrasound and Optical Images of the Tongue and Lips",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/hueber07-interspeech | title=Continuous-Speech Phone Recognition from Ultrasound and Optical Images of the"
+  },
+  {
+   "pid": "isca-hueber08_segvocoder",
+   "key": "t:towardsasegmentalvocoderdrivenbyultrasoundandopticalimagesofthetongueandlips",
+   "title": "Towards a Segmental Vocoder Driven by Ultrasound and Optical Images of the Tongue and Lips",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-hueber08_segvocoder | title=Towards a Segmental Vocoder Driven by Ultrasound and Optical Images of the Ton"
+  },
+  {
+   "pid": "isca-hueber08b_phonerec",
+   "key": "t:phonerecognitionfromultrasoundandopticalvideosequencesforasilentspeechinterface",
+   "title": "Phone Recognition from Ultrasound and Optical Video Sequences for a Silent Speech Interface",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-hueber08b_phonerec | title=Phone Recognition from Ultrasound and Optical Video Sequences for a Silent Spee"
+  },
+  {
+   "pid": "isca-hueber11_interspeech",
+   "key": "t:statisticalmappingbetweenarticulatoryandacousticdataforanultrasoundbasedsilentsp",
+   "title": "Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface | syste"
+  },
+  {
+   "pid": "isca-hueber12_interspeech",
+   "key": "t:continuousarticulatorytoacousticmappingusingphonebasedtrajectoryhmmforasilentspe",
+   "title": "Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface | syste"
+  },
+  {
+   "pid": "isca-kolossa12_avenh",
+   "key": "t:inventorybasedaudiovisualspeechenhancement",
+   "title": "Inventory-Based Audio-Visual Speech Enhancement",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kolossa12_avenh | title=Inventory-Based Audio-Visual Speech Enhancement | authors=Dorothea Kolossa, Robert"
+  },
+  {
+   "pid": "isca-lee26r_interspeech",
+   "key": "t:getsguidingemgtospeechsynthesisviasilentspeechrecognition",
+   "title": "GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lee26r_interspeech | title=GETS: Guiding EMG-to-Speech Synthesis via Silent Speech Recognition | authors=J"
+  },
+  {
+   "pid": "isca-liang25d-lightl2s",
+   "key": "t:lightl2sultralowcomplexityliptospeechsynthesisformultispeakerscenarios",
+   "title": "LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scenarios",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scenarios | authors=Liang, et-al | venue="
+  },
+  {
+   "pid": "isca-lorenzotrueba12_interspeech",
+   "key": "t:towardsglottalsourcecontrollabilityinexpressivespeechsynthesis",
+   "title": "Towards Glottal Source Controllability in Expressive Speech Synthesis",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-lorenzotrueba12_interspeech | title=Towards Glottal Source Controllability in Expressive Speech Synthesis"
+  },
+  {
+   "pid": "isca-madany08_avsp",
+   "key": "t:objectiveandperceptualevaluationofparameterizationsof3dmotioncapturedspeechdata",
+   "title": "Objective and perceptual evaluation of parameterizations of 3D motion captured speech data",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Objective and perceptual evaluation of parameterizations of 3D motion captured speech data | authors=Katja Madany;"
+  },
+  {
+   "pid": "isca-mattheyses11_avsp",
+   "key": "t:auditoryandphotorealisticaudiovisualspeechsynthesisfordutch",
+   "title": "Auditory and photo-realistic audiovisual speech synthesis for Dutch",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Auditory and photo-realistic audiovisual speech synthesis for Dutch | authors=Mattheyses, Latacz, Verhelst | venue"
+  },
+  {
+   "pid": "isca-morishima01-mmodal",
+   "key": "t:multimodaltranslation",
+   "title": "Multimodal translation",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-morishima01-mmodal | title=Multimodal translation | authors=Shigeo Morishima, Shin Ogata, Satoshi Nakamura"
+  },
+  {
+   "pid": "isca-nitta10_interspeech",
+   "key": "t:onemodelspeechrecognitionandsynthesisbasedonarticulatorymovementhmms",
+   "title": "One-Model Speech Recognition and Synthesis Based on Articulatory Movement HMMs",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/nitta10-interspeech | title=One-Model Speech Recognition and Synthesis Based on Articulatory Movement HMMs"
+  },
+  {
+   "pid": "isca-nitta11_interspeech",
+   "key": "t:speechsynthesisbasedonarticulatorymovementhmmswithvoicesourcecodebooks",
+   "title": "Speech Synthesis based on Articulatory-Movement HMMs with Voice-source Codebooks",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/nitta11-interspeech | title=Speech Synthesis based on Articulatory-Movement HMMs with Voice-source Codeboo"
+  },
+  {
+   "pid": "isca-qu19_interspeech",
+   "key": "t:lipsoundneuralmelspectrogramreconstructionforlipreading",
+   "title": "LipSound: Neural Mel-spectrogram Reconstruction for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipSound: Neural Mel-spectrogram Reconstruction for Lip Reading | system_name=LipSound: video frames (75@25fps gra"
+  },
+  {
+   "pid": "isca-rastogi25_interspeech",
+   "key": "t:towardssentencelevelimaginedspeechgenerationfromeegsignals",
+   "title": "Towards Sentence Level Imagined Speech Generation from EEG signals",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Sentence Level Imagined Speech Generation from EEG signals | venue=Proc. Interspeech 2025 | intended_use_c"
+  },
+  {
+   "pid": "isca-siciliano03_avsp",
+   "key": "t:lipreadabilityofasynthetictalkingfaceinnormalhearingandhearingimpairedlisteners",
+   "title": "Lipreadability of a Synthetic Talking Face in Normal Hearing and Hearing-Impaired Listeners",
+   "year": 2003,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-siciliano03_avsp | title=Lipreadability of a Synthetic Talking Face in Normal Hearing and Hearing-Impaired"
+  },
+  {
+   "pid": "isca-thomas07-voctext",
+   "key": "t:benefitsoffacialandtextualinformationinunderstandingofvocodedspeech",
+   "title": "Benefits of facial and textual information in understanding of vocoded speech",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-thomas07-voctext | title=Benefits of facial and textual information in understanding of vocoded speech | a"
+  },
+  {
+   "pid": "isca-toth09_interspeech",
+   "key": "p:isca-toth09_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=system_proposal | Study.research_objective=test whether FestVox GMM voice-transformation mapping can"
+  },
+  {
+   "pid": "isca-toth18-multitask",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Inter"
+  },
+  {
+   "pid": "isca-toth18_interspeech",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Inter"
+  },
+  {
+   "pid": "isca-toth18_mtlussi",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-toth18_mtlussi | title=Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultra"
+  },
+  {
+   "pid": "isca-toussaint26_interspeech",
+   "key": "t:emergenceofphoneticrepresentationsinemgbasedsilentspeechinterfaces",
+   "title": "Emergence of Phonetic Representations in EMG-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-toussaint26_interspeech | title=Emergence of Phonetic Representations in EMG-based Silent Speech Interface"
+  },
+  {
+   "pid": "isca-uttam19_interspeech",
+   "key": "t:hushhushspeakspeechreconstructionusingsilentvideos",
+   "title": "Hush-Hush Speak: Speech Reconstruction Using Silent Videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hush-Hush Speak: Speech Reconstruction Using Silent Videos | system_name=speaker-independent multi-view silent-vid"
+  },
+  {
+   "pid": "isca-wu11_avsp",
+   "key": "t:photorealisticvisualspeechsynthesisbasedonaamfeaturesandanarticulatorydbnmodelwi",
+   "title": "Photo-realistic visual speech synthesis based on AAM features and an articulatory DBN model with constrained asynchrony",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Photo-realistic visual speech synthesis based on AAM features and an articulatory DBN model with constrained async"
+  },
+  {
+   "pid": "isca-yang15c_interspeech",
+   "key": "t:speechreconstructionfromhumanauditorycortexwithdeepneuralnetworks",
+   "title": "Speech Reconstruction from Human Auditory Cortex with Deep Neural Networks",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/yang15c-interspeech | title=Speech Reconstruction from Human Auditory Cortex with Deep Neural Networks | a"
+  },
+  {
+   "pid": "isca-yang98e_icslp",
+   "key": "t:estimationofvoicesourceandvocaltractparametersusingcombinedsubspacebasedandampli",
+   "title": "Estimation of voice source and vocal tract parameters using combined subspace-based and amplitude spectrum-based algorithm",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Estimation of voice source and vocal tract parameters using combined subspace-based and amplitude spectrum-based a"
+  },
+  {
+   "pid": "mdpi-fi13070182",
+   "key": "t:multianglelipreadingwithangleclassificationbasedfeatureextractionanditsapplicati",
+   "title": "Multi-Angle Lipreading with Angle Classification-Based Feature Extraction and Its Application to Audio-Visual Speech Recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multi-Angle Lipreading with Angle Classification-Based Feature Extraction and Its Application to Audio-Visual Spee"
+  },
+  {
+   "pid": "natneuro-02456-motordyn",
+   "key": "t:aneuralarchitectureforimaginedandovertspeechmotordynamics",
+   "title": "A neural architecture for imagined and overt speech motor dynamics",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A neural architecture for imagined and overt speech motor dynamics | authors=Zhao Z, Wang Z, Liu Y, Qian Y, Yin Y,"
+  },
+  {
+   "pid": "nemar-241-cerebvoice",
+   "key": "t:cerebrovoicebilingualseegspeechdataset",
+   "title": "CerebroVoice: Bilingual sEEG Speech Dataset",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=CerebroVoice: Bilingual sEEG Speech Dataset | venue=NEMAR nm000241 v1.0.0 | doi=10.82901/nemar.nm000241.v1.0.0 | S"
+  },
+  {
+   "pid": "osf-ncdtp_v1",
+   "key": "t:realtimelipreadingandspeechsynthesisusingctccnnbilstmnetworkswithflaskdeployment",
+   "title": "Real-Time Lip Reading and Speech Synthesis Using CTC-CNN-BiLSTM Networks with Flask Deployment",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=osf-ncdtp_v1 | title=Real-Time Lip Reading and Speech Synthesis Using CTC-CNN-BiLSTM Networks with Flask Deploy"
+  },
+  {
+   "pid": "pmc-10256166-tonal-synth",
+   "key": "t:decodingandsynthesizingtonallanguagespeechfrombrainactivity",
+   "title": "Decoding and synthesizing tonal language speech from brain activity",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10256166-tonal-synth | title=Decoding and synthesizing tonal language speech from brain activity | authors="
+  },
+  {
+   "pid": "pmc-10326283-lineardecode",
+   "key": "t:overtspeechdecodingfromcorticalactivityacomparisonofdifferentlinearmethods",
+   "title": "Overt speech decoding from cortical activity: a comparison of different linear methods",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10326283-lineardecode | title=Overt speech decoding from cortical activity: a comparison of different linea"
+  },
+  {
+   "pid": "pmc-10510111-berezutskaya",
+   "key": "t:directspeechreconstructionfromsensorimotorbrainactivitywithoptimizeddeeplearning",
+   "title": "Direct speech reconstruction from sensorimotor brain activity with optimized deep learning models",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10510111-berezutskaya | title=Direct speech reconstruction from sensorimotor brain activity with optimized"
+  },
+  {
+   "pid": "pmc-10826467-avatarnp",
+   "key": "t:ahighperformanceneuroprosthesisforspeechdecodingandavatarcontrol",
+   "title": "A high-performance neuroprosthesis for speech decoding and avatar control",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A high-performance neuroprosthesis for speech decoding and avatar control | authors=Metzger SL, Littlejohn KT, Sil"
+  },
+  {
+   "pid": "pmc-10835303-fravtest",
+   "key": "t:astandardisedtesttoevaluateaudiovisualspeechintelligibilityinfrench",
+   "title": "A standardised test to evaluate audio-visual speech intelligibility in French",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A standardised test to evaluate audio-visual speech intelligibility in French | doi=10.1016/j.heliyon.2024.e24750"
+  },
+  {
+   "pid": "pmc-10894270-fagan-lts",
+   "key": "t:integratedvisualtransformerandflashattentionforliptospeechgenerationgan",
+   "title": "Integrated visual transformer and flash attention for lip-to-speech generation GAN",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10894270-fagan-lts | title=Integrated visual transformer and flash attention for lip-to-speech generation G"
+  },
+  {
+   "pid": "pmc-10980022-satrans-decode",
+   "key": "t:subjectagnostictransformerbasedneuralspeechdecodingfromsurfaceanddepthelectrodes",
+   "title": "Subject-Agnostic Transformer-Based Neural Speech Decoding from Surface and Depth Electrode Signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Subject-Agnostic Transformer-Based Neural Speech Decoding from Surface and Depth Electrode Signals | authors=Chen"
+  },
+  {
+   "pid": "pmc-11053081-als-ecog-synth",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterfaceinanindivid",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11053081-als-ecog-synth | title=Online speech synthesis using a chronically implanted brain-computer interf"
+  },
+  {
+   "pid": "pmc-11053081-onlinesyn",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterface",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Online speech synthesis using a chronically implanted brain-computer interface | authors=online-synthesis group |"
+  },
+  {
+   "pid": "pmc-11106343-ecogtransformer",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11106343-ecogtransformer | title=Feasibility of decoding covert speech in ECoG with a Transformer trained o"
+  },
+  {
+   "pid": "pmc-11220857-lumina",
+   "key": "t:luminalinguisticunifiedmultimodalindonesiannaturalaudiovisualdataset",
+   "title": "LUMINA: Linguistic unified multimodal Indonesian natural audio-visual dataset",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11220857-lumina | title=LUMINA: Linguistic unified multimodal Indonesian natural audio-visual dataset | aut"
+  },
+  {
+   "pid": "pmc-11424044-ailistener",
+   "key": "t:usingautomaticspeechrecognitiontomeasuretheintelligibilityofspeechsynthesizedfro",
+   "title": "Using Automatic Speech Recognition to Measure the Intelligibility of Speech Synthesized from Brain Signals",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11424044-ailistener | title=Using Automatic Speech Recognition to Measure the Intelligibility of Speech Syn"
+  },
+  {
+   "pid": "pmc-11561076-icn-review",
+   "key": "t:implantedcorticalneuroprostheticsforspeechandmovementrestoration",
+   "title": "Implanted cortical neuroprosthetics for speech and movement restoration",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11561076-icn-review | title=Implanted cortical neuroprosthetics for speech and movement restoration | autho"
+  },
+  {
+   "pid": "pmc-12043648-synthutt",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthesizing intelligible utterances from EEG of imagined speech | authors=synth-utterance group | Study.research_"
+  },
+  {
+   "pid": "pmc-12333864-bci20",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12333864-bci20 | title=Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Le"
+  },
+  {
+   "pid": "pmc-12337102-sharedpercept",
+   "key": "t:implicationsofsharedmotorandperceptualactivationsonthesensorimotorcortexforneuro",
+   "title": "Implications of shared motor and perceptual activations on the sensorimotor cortex for neuroprosthetic decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12337102-sharedpercept | title=Implications of shared motor and perceptual activations on the sensorimotor"
+  },
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice-synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An instantaneous voice-synthesis neuroprosthesis | authors=Wairagkar et al. | doi=10.1038/s41586-025-09127-3 | Stu"
+  },
+  {
+   "pid": "pmc-12412612-hsrm",
+   "key": "t:awearableaidrivenmaskwithhumiditysensingrespiratorymicrophonefornonvocalcommunic",
+   "title": "A Wearable AI-Driven Mask with Humidity-Sensing Respiratory Microphone for Non-Vocal Communication",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12412612-hsrm | title=A Wearable AI-Driven Mask with Humidity-Sensing Respiratory Microphone for Non-Vocal"
+  },
+  {
+   "pid": "pmc-12460843-linguistic-neural-decoding",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12460843-linguistic-neural-decoding | title=Progress, challenges and future of linguistic neural decoding w"
+  },
+  {
+   "pid": "pmc-12816716-intelligent-throat",
+   "key": "t:wearableintelligentthroatenablesnaturalspeechinstrokepatientswithdysarthria",
+   "title": "Wearable intelligent throat enables natural speech in stroke patients with dysarthria",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12816716-intelligent-throat | title=Wearable intelligent throat enables natural speech in stroke patients w"
+  },
+  {
+   "pid": "pmc-12860178-sravi-tl",
+   "key": "t:utilityofanovelmobilelipreadingapplicationforpatientsaftertotallaryngectomy",
+   "title": "Utility of a Novel Mobile Lip-Reading Application for Patients After Total Laryngectomy",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12860178-sravi-tl | title=Utility of a Novel Mobile Lip-Reading Application for Patients After Total Laryng"
+  },
+  {
+   "pid": "pmc-12962650-dualpath",
+   "key": "t:highfidelityneuralspeechreconstructionthroughanefficientacousticlinguisticdualpa",
+   "title": "High-fidelity neural speech reconstruction through an efficient acoustic-linguistic dual-pathway framework",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12962650-dualpath | title=High-fidelity neural speech reconstruction through an efficient acoustic-linguist"
+  },
+  {
+   "pid": "pmc-12965882-nmidecode",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A neural speech decoding framework leveraging deep learning and speech synthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12965882-nmidecode | title=A neural speech decoding framework leveraging deep learning and speech synthesis"
+  },
+  {
+   "pid": "pmc-12987850-anarthria-devices",
+   "key": "t:theevolutionofspeechcommunicationdevicesforanarthriaareview",
+   "title": "The evolution of speech communication devices for anarthria: a review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The evolution of speech communication devices for anarthria: a review | authors=Catherine T. Jones, Erik R. Hill |"
+  },
+  {
+   "pid": "pmc-13060832-seegtrack",
+   "key": "t:humanauditorycortexpreferentiallytracksspeechovermusicwithoutexplicitattention",
+   "title": "Human auditory cortex preferentially tracks speech over music without explicit attention",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13060832-seegtrack | title=Human auditory cortex preferentially tracks speech over music without explicit a"
+  },
+  {
+   "pid": "pmc-13270037-vpcg-loudness",
+   "key": "t:encodingofspeechmodesandloudnessinventralprecentralgyrus",
+   "title": "Encoding of speech modes and loudness in ventral precentral gyrus",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13270037-vpcg-loudness | title=Encoding of speech modes and loudness in ventral precentral gyrus | authors="
+  },
+  {
+   "pid": "pmc-13320234-priorexpo",
+   "key": "t:priorexposuretospeechrapidlymodulatescorticalprocessingofhighlevellinguisticstru",
+   "title": "Prior exposure to speech rapidly modulates cortical processing of high-level linguistic structure",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13320234-priorexpo | title=Prior exposure to speech rapidly modulates cortical processing of high-level lin"
+  },
+  {
+   "pid": "pmc-13383455-aibrain2speech",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review | venue=BMC Medical Informa"
+  },
+  {
+   "pid": "pmc-13383455-b2s",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13383455-b2s | title=Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review"
+  },
+  {
+   "pid": "pmc-13383455-b2srev",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review | authors=Belfrouh, Salmam,"
+  },
+  {
+   "pid": "pmc-13537912-semg_laryngectomy",
+   "key": "t:noninvasivespeechrestorationaftertotallaryngectomyusingsurfaceelectromyographypi",
+   "title": "Noninvasive Speech Restoration After Total Laryngectomy Using Surface Electromyography: Pilot Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13537912-semg_laryngectomy | title=Noninvasive Speech Restoration After Total Laryngectomy Using Surface El"
+  },
+  {
+   "pid": "pmc-13635214-ecogmand",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13635214-ecogmand | title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Lang"
+  },
+  {
+   "pid": "pmc-13635214-ecogtonal",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13635214-ecogtonal | title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Lan"
+  },
+  {
+   "pid": "pmc-13635214-ecogtone",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13635214-ecogtone | title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Lang"
+  },
+  {
+   "pid": "pmc-13635214-tonalecog",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language | venue=Scientific Data | do"
+  },
+  {
+   "pid": "pmc-2784218-wireless",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A wireless brain-machine interface for real-time speech synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A wireless brain-machine interface for real-time speech synthesis | authors=Guenther FH, Brumberg JS, Wright EJ, N"
+  },
+  {
+   "pid": "pmc-2784218-wirelesssynth",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A Wireless Brain-Machine Interface for Real-Time Speech Synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Wireless Brain-Machine Interface for Real-Time Speech Synthesis | authors=Frank H. Guenther, Jonathan S. Brumber"
+  },
+  {
+   "pid": "pmc-3269422-pasley",
+   "key": "t:reconstructingspeechfromhumanauditorycortex",
+   "title": "Reconstructing Speech from Human Auditory Cortex",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Reconstructing Speech from Human Auditory Cortex | authors=Pasley; David; Mesgarani; Flinker; Shamma; Crone; Knigh"
+  },
+  {
+   "pid": "pmc-3269422-speechrecon",
+   "key": "t:reconstructingspeechfromhumanauditorycortex",
+   "title": "Reconstructing speech from human auditory cortex",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3269422-speechrecon | title=Reconstructing speech from human auditory cortex | authors=B. N. Pasley, S. V."
+  },
+  {
+   "pid": "pmc-3637898-guenther",
+   "key": "t:brainmachineinterfacesforrealtimespeechsynthesis",
+   "title": "Brain-Machine Interfaces for Real-time Speech Synthesis",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-Machine Interfaces for Real-time Speech Synthesis | authors=Guenther et al. | Study.research_objective=real-"
+  },
+  {
+   "pid": "pmc-4424044-cogmotor",
+   "key": "t:cognitivemotorbrainmachineinterfaces",
+   "title": "Cognitive-motor brain-machine interfaces",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Cognitive-motor brain-machine interfaces | authors=Tankus; Fried | venue=J Physiol Paris | Study.research_objectiv"
+  },
+  {
+   "pid": "pmc-5187421-restoration",
+   "key": "t:perceptualrestorationofmaskedspeechinhumancortex",
+   "title": "Perceptual restoration of masked speech in human cortex",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5187421-restoration | title=Perceptual restoration of masked speech in human cortex | authors=M. K. Leonard"
+  },
+  {
+   "pid": "pmc-5906041-kennedy",
+   "key": "t:anoninvasivebraincomputerinterfaceforrealtimespeechsynthesistheimportanceofmulti",
+   "title": "A Non-Invasive Brain-Computer Interface for Real-Time Speech Synthesis: The Importance of Multimodal Feedback",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Non-Invasive Brain-Computer Interface for Real-Time Speech Synthesis: The Importance of Multimodal Feedback | au"
+  },
+  {
+   "pid": "pmc-6351601-intelligible",
+   "key": "t:towardsreconstructingintelligiblespeechfromthehumanauditorycortex",
+   "title": "Towards reconstructing intelligible speech from the human auditory cortex",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6351601-intelligible | title=Towards reconstructing intelligible speech from the human auditory cortex | au"
+  },
+  {
+   "pid": "pmc-6822609-3dcnn",
+   "key": "t:speechsynthesisfromecogusingdenselyconnected3dconvolutionalneuralnetworks",
+   "title": "Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks | authors=3DCNN synthesis grou"
+  },
+  {
+   "pid": "pmc-6882773-b2speech",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices | au"
+  },
+  {
+   "pid": "pmc-6882773-braintospeech",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6882773-braintospeech | title=Generating Natural, Intelligible Speech From Brain Activity in Motor, Premoto"
+  },
+  {
+   "pid": "pmc-8460739-realtimesynth",
+   "key": "t:realtimesynthesisofimaginedspeechprocessesfromminimallyinvasiverecordingsofneura",
+   "title": "Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8460739-realtimesynth | title=Real-time synthesis of imagined speech processes from minimally invasive reco"
+  },
+  {
+   "pid": "pmc-9130409-bcispeechrev",
+   "key": "t:braincomputerinterfaceapplicationstospeechdecodingandsynthesistoaugmentcommunica",
+   "title": "Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication | authors=Luo S,"
+  },
+  {
+   "pid": "pmc-9714519-speechsynth",
+   "key": "t:speechsynthesisfromneuraldecodingofspokensentences",
+   "title": "Speech synthesis from neural decoding of spoken sentences",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech synthesis from neural decoding of spoken sentences | authors=Anumanchipalli GK, Chartier J, Chang EF | Stud"
+  },
+  {
+   "pid": "pmc-9844948-vsricu",
+   "key": "t:twostagevisualspeechrecognitionforintensivecarepatients",
+   "title": "Two-stage visual speech recognition for intensive care patients",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9844948-vsricu | title=Two-stage visual speech recognition for intensive care patients | authors=H. Laux, A"
+  },
+  {
+   "pid": "pmc-9959127-wav2lip-avsr",
+   "key": "t:multimodalsensorinputarchitecturewithdeeplearningforaudiovisualspeechrecognition",
+   "title": "Multimodal Sensor-Input Architecture with Deep Learning for Audio-Visual Speech Recognition in Wild",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9959127-wav2lip-avsr | title=Multimodal Sensor-Input Architecture with Deep Learning for Audio-Visual Speec"
+  },
+  {
+   "pid": "pmc-9967234-mobileavsr",
+   "key": "t:audiovisualspeechandgesturerecognitionbysensorsofmobiledevices",
+   "title": "Audio-visual speech and gesture recognition by sensors of mobile devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9967234-mobileavsr | title=Audio-visual speech and gesture recognition by sensors of mobile devices | autho"
+  },
+  {
+   "pid": "sottovoce",
+   "key": "t:sottovoceanultrasoundimagingbasedsilentspeechinteractionusingdeepneuralnetworks",
+   "title": "SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SottoVoce: An Ultrasound Imaging-Based Silent Speech Interaction Using Deep Neural Networks | authors=Naoki Kimura"
+  },
+  {
+   "pid": "tel-5219015-ecogthesis",
+   "key": "t:reconstructionofovertspeechfromelectrocorticographicecogdatausingdeepneuralnetwo",
+   "title": "Reconstruction of overt speech from Electrocorticographic (ECoG) data using deep neural networks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Reconstruction of overt speech from Electrocorticographic (ECoG) data using deep neural networks | authors=Mohamed"
+  }
+ ],
+ "usual_approach": {
+  "design": "recurrent sequence model (LSTM/GRU)",
+  "n": 79,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2602-01247-mechint",
+   "arxiv-2603.11877",
+   "arxiv-2604.05751",
+   "arxiv-2606-09667-xmask",
+   "arxiv-2609-04455-b2snet"
+  ],
+  "population_unique": 180,
+  "note": "full-text pattern counts over 180 unique studies: recurrent 79, linear_regression 67, transformer 65, conv_3d 47, unit_selection 34, densenet 11; slot-filled model_family over the same population: transformer 24, rnn 24, cnn 23, linear_model 16"
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1038-s42256-024-00824-8",
+   "role": "sota",
+   "loc": "Results; Fig. 2a",
+   "quote": "The causal ResNet model (PCC = 0.797) achieved a performance comparable to that of the non-causal model (PCC = 0.806)"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ace8be",
+   "role": "prior",
+   "loc": "Discussion",
+   "quote": "And even though DN occasionally outperformed S2S, the improvements were marginal"
+  },
+  {
+   "pid": "arxiv-2111.01457",
+   "role": "prior",
+   "loc": "Results; Table 1",
+   "quote": "our approach outperforms the baseline from [16] both in terms of mean-squared-error loss"
+  },
+  {
+   "pid": "doi-10.36244-icj.2024.1.6",
+   "role": "prior",
+   "loc": "Table I",
+   "quote": "Mean 5.39 4.55 5.04 4.78"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 1,
+  "found": 1,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.1038-s42256-024-00824-8",
+  "year": 2024,
+  "metric": "mean spectrogram PCC across 48 ECoG participants, non-causal 3D ResNet (causal 0.797; LSTM 0.745)",
+  "value": 0.806,
+  "unit": "PCC",
+  "timing": "later"
+ },
+ "deciding_priors_note": "The architecture choice was tested head-to-head only in later work read here (Kohler 2022 sEEG; Berezutskaya 2023 HD ECoG; Chen 2024 ECoG, 48 participants).",
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 180,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "recurrent sequence model (LSTM/GRU)",
+   "n": 79,
+   "tier": "pattern match",
+   "population_unique": 180
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1038-s42256-024-00824-8",
+   "year": 2024,
+   "metric": "mean spectrogram PCC across 48 ECoG participants, non-causal 3D ResNet (causal 0.797; LSTM 0.745)",
+   "value": 0.806,
+   "unit": "PCC",
+   "timing": "later"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2111.01457",
+   "doi-10.1088-1741-2552-ace8be",
+   "doi-10.36244-icj.2024.1.6"
+  ],
+  "unread": 218,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "speech-synthesis-from-ecog-using-densely-connected-3d-convolutional-neural-networks"
+ ]
+}
