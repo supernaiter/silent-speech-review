@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | M2SILENT: Enabling Multi-user Silent Speech Interactions via Multi-directional Speakers in Shared Spaces |  | Sec. 5 |
 | Multimodal Speech Recognition with Ultrasonic Sensors |  | Sec. 5.1 |
 
+## avsr-noise-and-run-variability-protocol
+
+- Table: [`avsr-noise-and-run-variability-protocol.csv`](avsr-noise-and-run-variability-protocol.csv) (6960 slot-filled, 349 pattern match, usual design in 183, 3 read in full)
+- Inclusion rule: The same 349-study AVSR population as M06/avsr-audio-stream-input-representation, classified by evaluation protocol its full text names: additive-noise test at stated SNRs, babble noise in particular, and run-to-run variability (seeds, repeated runs, standard deviation, confidence intervals). Boundary: a study counts under every protocol its text names (upper bound, related-work mentions included); versions count once by key.
+- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/)
+
 ## bci2020-imagined-speech-benchmark
 
 - Table: [`bci2020-imagined-speech-benchmark.csv`](bci2020-imagined-speech-benchmark.csv) (6960 slot-filled, 16 pattern match, usual design in 10, 2 read in full)

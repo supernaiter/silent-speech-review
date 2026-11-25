@@ -9327,6 +9327,18 @@
    "role": "sota",
    "loc": "Sec. 1; Sec. 4",
    "quote": "yielding WERs of 17.6% (VSR), 0.9% (ASR), and 0.8% (A VSR) on LRS3"
+  },
+  {
+   "pid": "arxiv-1810.00108",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "For decoding, we include a character-level RNN-LM,"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Sec. 3.6",
+   "quote": "It is a recurrent network with 4 unidirectional layers of 1024 LSTM cells each."
   }
  ],
  "known_item_recall": {
@@ -9385,6 +9397,41 @@
   "known_item_recall": 1.0
  },
  "used_by": [
+  "end-to-end-audio-visual-speech-recognition-with-conformers",
   "lipnet-end-to-end-sentence-level-lipreading"
- ]
+ ],
+ "pattern_counts_before_target_end-to-end-audio-visual-speech-recognition-with-conformers": {
+  "cutoff": "2021-02",
+  "note": "the deciding priors on LRS2/LRS3 (arxiv-1810.00108, arxiv-1809.02108) decode with recurrent character LMs; the target moves to a Transformer LM."
+ },
+ "tally_end-to-end-audio-visual-speech-recognition-with-conformers": {
+  "slot_filled_unique": 119,
+  "string_match_unique": 633,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "neural language model or LLM rescoring at use time (today); a task grammar or lexicon before the target",
+   "n": 143,
+   "tier": "pattern match",
+   "population_unique": 633
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2602.19316",
+   "year": 2026,
+   "metric": "LRS3 visual-only WER with hybrid CTC/attention decoding and no external language model at use time (USR 2.0 Huge)",
+   "value": 17.6,
+   "unit": "% WER",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 6,
+  "read_prior": [
+   "arxiv-1807.05162",
+   "arxiv-1809.02108",
+   "arxiv-1810.00108",
+   "isca-gergen16-streamw"
+  ],
+  "unread": 900,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
 }

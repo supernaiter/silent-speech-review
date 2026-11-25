@@ -1,0 +1,58 @@
+{
+ "target": "arxiv-2102.06657",
+ "prep": "no prep/ directory and no prep.done for this slug; plan and audits built by the writer",
+ "changed": [
+  "M06",
+  "M07"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "LRS2 and LRS3 overt read/broadcast speech video with paired audio; training augmentation (crops, flips, NOISEX babble, speed perturbation) from the authors' earlier recipes",
+  "M02": "Character transcripts as supervision (hybrid CTC/attention lineage of Watanabe et al. and Petridis et al. 2018)",
+  "M03": "Single training run per configuration; optional LRW front-end initialisation; alpha not stated",
+  "M04": "Overt speech video with or without additive babble noise at test",
+  "M05": "Grayscale 88x88 mouth crop from 68-landmark alignment and 16 kHz raw waveform",
+  "M08": "Character sequences",
+  "M09": "Offline benchmark study",
+  "M10": "Offline benchmark study",
+  "M11": "LRS2 and LRS3 (v0.4 and v0.0) original splits and transcripts",
+  "M13": "Front-end parameter counts only; no runtime"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "sentence-lipreading-encoder-architecture",
+   "inclusion_rule": "Studies that decode sentence-level or open-vocabulary speech from lip or face video, alone or with audio (the 633-study population of M06/sentence-lipreading-sequence-objective), classified by the temporal encoder their full text names: Conformer, Transformer encoder, recurrent (LSTM/GRU), or temporal convolution (TCN/TDNN). Boundary: a study counts under every encoder its text names, including related-work mentions (upper bound); audio-only ASR is out of scope; versions count once by key.",
+   "pattern": "same population pattern as M06/sentence-lipreading-sequence-objective",
+   "design_field": "full-text regexes conformer, transformer_encoder, recurrent_encoder, temporal_convolution",
+   "metric": "LRS3 / LRS2 visual-only and audio-visual WER"
+  },
+  {
+   "slot": "M06",
+   "topic": "avsr-audio-stream-input-representation",
+   "inclusion_rule": "Studies whose ledger names audio-visual speech recognition (AVSR), classified by the audio-stream input their full text names: raw waveform fed to a learned front-end, or hand-designed spectral features (log-Mel filterbank, MFCC, spectrogram). Boundary: a study counts under every representation its text names (upper bound); visual-only lip reading without an audio stream is out; audio-visual speech enhancement without recognition is out unless the ledger names AVSR; versions count once by key.",
+   "pattern": "audio[- ]visual speech recognition|audiovisual speech recognition|\\bavsr\\b",
+   "design_field": "full-text regexes raw_waveform, filterbank_or_mfcc",
+   "metric": "LRS2 / LRS3 audio-only and audio-visual WER, clean and babble noise"
+  },
+  {
+   "slot": "M07",
+   "topic": "use-time-language-model-visual-speech",
+   "reuse": "components/M07/use-time-language-model-visual-speech.json",
+   "inclusion_rule": "Reused published table (same 633-study sentence lip-reading population), classified by use-time language information: n-gram LM, neural LM or LLM rescoring, explicit no external LM.",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts",
+   "metric": "LRS3 visual-only WER with and without external LM"
+  },
+  {
+   "slot": "M12",
+   "topic": "avsr-noise-and-run-variability-protocol",
+   "inclusion_rule": "The same 349-study AVSR population as M06/avsr-audio-stream-input-representation, classified by evaluation protocol its full text names: additive-noise test at stated SNRs, babble noise in particular, and run-to-run variability (seeds, repeated runs, standard deviation, confidence intervals). Boundary: a study counts under every protocol its text names (upper bound, related-work mentions included); versions count once by key.",
+   "pattern": "audio[- ]visual speech recognition|audiovisual speech recognition|\\bavsr\\b",
+   "design_field": "full-text regexes additive_noise_snr_sweep, babble_noise, run_variability",
+   "metric": "presence of the protocol; LRS3 AVSR WER for the state of the art"
+  }
+ ]
+}

@@ -78,6 +78,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition | 2022 | Ledger M06 |
 | Reliability-Based Large-Vocabulary Audio-Visual Speech Recognition | 2022 | §3 |
 
+## avsr-audio-stream-input-representation
+
+- Table: [`avsr-audio-stream-input-representation.csv`](avsr-audio-stream-input-representation.csv) (7345 slot-filled, 349 pattern match, usual design in 182, 4 read in full)
+- Inclusion rule: Studies whose ledger names audio-visual speech recognition (AVSR), classified by the audio-stream input their full text names: raw waveform fed to a learned front-end, or hand-designed spectral features (log-Mel filterbank, MFCC, spectrogram). Boundary: a study counts under every representation its text names (upper bound); visual-only lip reading without an audio stream is out; audio-visual speech enhancement without recognition is out unless the ledger names AVSR; versions count once by key.
+- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/)
+
 ## causal-closed-loop-speech-synthesis
 
 - Table: [`causal-closed-loop-speech-synthesis.csv`](causal-closed-loop-speech-synthesis.csv) (7345 slot-filled, 87 pattern match, usual design in 24, 3 read in full)
@@ -216,6 +222,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`radar-ssr-input-representation.csv`](radar-ssr-input-representation.csv) (7345 slot-filled, 32 pattern match, usual design in 21, 5 read in full)
 - Inclusion rule: Speech or silent-speech recognition studies that classify speech units from radar or RF reflections or transmissions of the articulators (IR-UWB, FMCW, SFCW, CW Doppler, mmWave, Wi-Fi or RFID backscatter); the design compared is the representation fed to the classifier: hand-engineered features (distances, envelopes, velocity or spectral descriptors) versus raw frames or spectrograms fed to a learned network. Boundary: radar used only to recover the acoustic vibration of the throat or vocal folds is excluded; datasets without a recognizer are excluded; versions of one study count once; ledger hits from non-radar papers are inside the pattern-match upper bound.
 - Used in: [IR-UWB Radar-Based Contactless Silent Speech Recognition of Vowels, Consonants, Words, and Phrases](../../reviews/ir-uwb-radar-based-contactless-silent-speech-recognition-of-vowels-consonants-words-and-phrases/), [Movement Detection of Tongue and Related Body Parts Using IR-UWB Radar](../../reviews/movement-detection-of-tongue-and-related-body-parts-using-ir-uwb-radar/)
+
+## sentence-lipreading-encoder-architecture
+
+- Table: [`sentence-lipreading-encoder-architecture.csv`](sentence-lipreading-encoder-architecture.csv) (7345 slot-filled, 633 pattern match, usual design in 233, 6 read in full)
+- Inclusion rule: Studies that decode sentence-level or open-vocabulary speech from lip or face video, alone or with audio (the 633-study population of M06/sentence-lipreading-sequence-objective), classified by the temporal encoder their full text names: Conformer, Transformer encoder, recurrent (LSTM/GRU), or temporal convolution (TCN/TDNN). Boundary: a study counts under every encoder its text names, including related-work mentions (upper bound); audio-only ASR is out of scope; versions count once by key.
+- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/)
 
 ## sentence-lipreading-sequence-objective
 
