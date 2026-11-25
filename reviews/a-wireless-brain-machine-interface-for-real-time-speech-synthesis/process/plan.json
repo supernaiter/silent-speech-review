@@ -1,0 +1,86 @@
+{
+ "slug": "a-wireless-brain-machine-interface-for-real-time-speech-synthesis",
+ "target": "doi-10.1371-journal.pone.0008218",
+ "prep": "no prep/ directory; plan, audits and comparator selection built by the writer",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "cued attempted speech by a locked-in participant (Kennedy neurotrophic-electrode programme)"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "stimulus formant trajectories as targets: intended formants assumed equal to the heard stimulus (no own audio, participant is mute)"
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "per-session Kalman fit on a one-minute mimicry block with F-test unit selection (Wu et al. 2006 / Kim et al. 2008 cursor-BCI lineage)"
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "attempted speech of a vowel heard just before"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "two-channel Neurotrophic Electrode in left precentral gyrus (Kennedy 1989; Bartels et al. 2008)"
+  },
+  "M06": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "causal-closed-loop-speech-synthesis",
+     "inclusion_rule": "Studies that synthesize speech acoustics from a non-acoustic signal (neural, EMG, articulography, ultrasound, video) online, in real time, with the audio played back to the user while or right after they speak. Boundary: include formant or vocoder synthesis of vowels, words or sentences, and offline studies only when they simulate causal frame-level inference; exclude offline acausal reconstruction, text decoding read out by TTS, and conversion from acoustic input; count versions once.",
+     "pattern": "reused published topic table",
+     "design_field": "ledger M06 design values; published full-text pattern counts (closed-loop audio feedback, offline whole-utterance, causal frame-level)",
+     "metric": "listener WER %, lower better; latency ms"
+    }
+   ]
+  },
+  "M07": {
+   "class": "inherited",
+   "lineage": "no lexicon or language model; continuous formant control"
+  },
+  "M08": {
+   "class": "changed",
+   "note": "two continuously controlled formants (F1, F2) of a 63-parameter Klatt synthesizer; vowels only",
+   "topics": [
+    {
+     "topic": "intracranial-synthesis-waveform-generation",
+     "inclusion_rule": "Include studies that reconstruct speech acoustics (spectrograms, vocoder features or waveforms) from intracranial recordings (ECoG, sEEG or depth electrodes, intracortical arrays) made during overt, mouthed, attempted or imagined speech production. Boundary: exclude reconstruction of heard speech, text-only decoding read out by a TTS engine, and reviews or citation-only mentions; count versions of one study once. The ledger pattern also admits some reviews and text-decoding papers, so its count is an upper bound. Design of interest: how predicted acoustic features become a waveform (neural vocoder such as WaveNet, WaveGlow or HiFi-GAN; Griffin-Lim or other iterative phase reconstruction; parametric vocoder; unit selection).",
+     "pattern": "reused published topic table; added full-text pattern formant_synthesizer (formant synthesizer|Klatt|decoded formants) in a separate field",
+     "design_field": "published full-text pattern counts plus formant_synthesizer",
+     "metric": "listener WER %, lower better"
+    }
+   ]
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "continuous audio output; visual formant cursor in the last 15 of 25 sessions; no confirmation step"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "no correction loop beyond continuous steering within a 6 s trial"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "canonical vowel formant targets as reference"
+  },
+  "M12": {
+   "class": "inherited",
+   "note": "protocol points (no chance level, attractor force, block-order learning confound) go to the claims section; no separate topic",
+   "lineage": "center-out hit rate and endpoint error, as in cursor BCIs"
+  },
+  "M13": {
+   "class": "incidental",
+   "note": "transcutaneous FM telemetry with inductive power, no skin-penetrating connector; authors claim a first",
+   "topics": [
+    {
+     "topic": "wireless-implanted-speech-bci",
+     "inclusion_rule": "Speech or communication studies that record from implanted neural sensors (intracortical, ECoG, sEEG, depth) in humans or animals, classified by how the signal leaves the body: percutaneous connector or pedestal, wireless telemetry (including a transmitter mounted on a percutaneous pedestal), or a fully implanted system with no skin-penetrating hardware. Boundary: reviews and related-work mentions inflate the full-text counts (upper bounds); wearable EMG/EEG wireless devices are outside the population (ledger modality filter).",
+     "pattern": "ledger modalities in {intracortical_microelectrode, ecog, seeg, intracranial, depth} and a speech or communication term",
+     "design_field": "full-text regex: percutaneous connector or pedestal; wireless telemetry; fully implanted",
+     "metric": "online task performance and duration of use"
+    }
+   ]
+  }
+ }
+}
