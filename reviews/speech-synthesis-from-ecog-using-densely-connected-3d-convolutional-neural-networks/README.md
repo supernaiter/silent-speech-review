@@ -17,19 +17,19 @@ Verdicts compare the paper's choice for each component with common practice acro
 
 | Component | This paper | Common practice | Papers with this practice | Verdict |
 | --- | --- | --- | --- | --- |
-| M01 Training-time act | Overt single-word reading | Recorded overt speech | 8995 | ● Standard (Inherited.) |
-| M02 Teacher signal | 40-bin logMel of paired audio | Paired-audio targets | 8995 | ● Standard (Inherited.) |
-| M03 Train / calibrate | Per participant, 8.5-12.7 min | Per-participant training | 8995 | ● Standard (No seeds or repeated runs.) |
-| M04 Use-time act | Overt reading | Overt speech | 8995 | ● Standard (Same as training.) |
-| M05 Sensing | 64-ch 8x8 ECoG, 4 mm | ECoG grid over speech cortex | 8995 | ● Standard (Inherited.) |
+| M01 Training-time act | Overt single-word reading | Recorded overt speech |  | ● Standard (Inherited.) |
+| M02 Teacher signal | 40-bin logMel of paired audio | Paired-audio targets |  | ● Standard (Inherited.) |
+| M03 Train / calibrate | Per participant, 8.5-12.7 min | Per-participant training |  | ● Standard (No seeds or repeated runs.) |
+| M04 Use-time act | Overt reading | Overt speech |  | ● Standard (Same as training.) |
+| M05 Sensing | 64-ch 8x8 ECoG, 4 mm | ECoG grid over speech cortex |  | ● Standard (Inherited.) |
 | M06 Decoding | 3D DenseNet over grid x time | Recurrent model | 79 of 180 | ● Standard (No baseline regressor in the paper.) |
-| M07 Runtime aids | None | None | 8995 | – Not applicable (Direct acoustic regression.) |
+| M07 Runtime aids | None | None |  | – Not applicable (Direct acoustic regression.) |
 | M08 Output | WaveNet on LJ-Speech | Neural vocoder | 51 of 180 | ● Standard (Voice not the participant's.) |
-| M09 Confirmation | Offline | Offline | 8995 | – Not applicable (Offline study.) |
-| M10 Correction | Offline | Offline | 8995 | – Not applicable (Offline study.) |
-| M11 Eval reference | Original lapel-mic audio | Recorded audio | 8995 | ● Standard (Fold unit not stated.) |
+| M09 Confirmation | Offline | Offline |  | – Not applicable (Offline study.) |
+| M10 Correction | Offline | Offline |  | – Not applicable (Offline study.) |
+| M11 Eval reference | Original lapel-mic audio | Recorded audio |  | ● Standard (Fold unit not stated.) |
 | M12 Evaluation | Per-bin r, STOI, retrained null | Correlation | 122 of 173 | ● Standard (No listener or identification test.) |
-| M13 Hardware & limits | Offline, not real time | Offline analysis | 8995 | ● Standard (Authors concede it.) |
+| M13 Hardware & limits | Offline, not real time | Offline analysis |  | ● Standard (Authors concede it.) |
 
 </details>
 

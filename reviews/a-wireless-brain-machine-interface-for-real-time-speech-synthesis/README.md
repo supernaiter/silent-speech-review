@@ -17,19 +17,19 @@ Verdicts compare the paper's choice for each component with common practice acro
 
 | Component | This paper | Common practice | Papers with this practice | Verdict |
 | --- | --- | --- | --- | --- |
-| M01 Training-time act | Cued attempted vowels | Cued attempted or overt speech | 8995 | ● Standard (Inherited.) |
-| M02 Teacher signal | Heard stimulus formants | Paired audio or stimulus targets | 8995 | ● Standard (Inherited; participant is mute.) |
-| M03 Train / calibrate | Per-session Kalman fit | Supervised per-user training | 8995 | ● Standard (Units kept per session not stated.) |
-| M04 Use-time act | Attempted vowel | Cued attempted speech | 8995 | ● Standard (Inherited.) |
-| M05 Sensing | 2-channel Neurotrophic Electrode | Intracortical arrays | 8995 | ● Standard (Inherited (Kennedy lineage).) |
+| M01 Training-time act | Cued attempted vowels | Cued attempted or overt speech |  | ● Standard (Inherited.) |
+| M02 Teacher signal | Heard stimulus formants | Paired audio or stimulus targets |  | ● Standard (Inherited; participant is mute.) |
+| M03 Train / calibrate | Per-session Kalman fit | Supervised per-user training |  | ● Standard (Units kept per session not stated.) |
+| M04 Use-time act | Attempted vowel | Cued attempted speech |  | ● Standard (Inherited.) |
+| M05 Sensing | 2-channel Neurotrophic Electrode | Intracortical arrays |  | ● Standard (Inherited (Kennedy lineage).) |
 | M06 Decoding | Closed-loop Kalman decoding | Closed-loop audio feedback, of 87 | 50 of 87 | ● Standard (Earliest in ledger; one participant.) |
-| M07 Runtime aids | None | No lexicon | 8995 | ● Standard (Inherited.) |
+| M07 Runtime aids | None | No lexicon |  | ● Standard (Inherited.) |
 | M08 Output | F1/F2 of a Klatt synthesizer | Neural vocoder, of 180 | 54 of 180 | ● Standard (Vowels only.) |
-| M09 Confirmation | Continuous audio | No confirmation | 8995 | ● Standard (Online; no confirmation step.) |
-| M10 Correction | No correction step | No correction loop | 8995 | ● Standard (Online; steering within a 6 s trial only.) |
-| M11 Eval reference | Vowel targets | Cued stimulus as reference | 8995 | ● Standard (Inherited.) |
-| M12 Evaluation | Hit rate, endpoint error | Task accuracy | 8995 | ● Standard (No chance level or listener test.) |
-| M13 Hardware & limits | FM telemetry, skin closed | Mixed: 35/52/51 of 382 (upper bounds) | 8995 | ● Standard (Skin closed; priority over refs. 32, 33 unresolved; one participant.) |
+| M09 Confirmation | Continuous audio | No confirmation |  | ● Standard (Online; no confirmation step.) |
+| M10 Correction | No correction step | No correction loop |  | ● Standard (Online; steering within a 6 s trial only.) |
+| M11 Eval reference | Vowel targets | Cued stimulus as reference |  | ● Standard (Inherited.) |
+| M12 Evaluation | Hit rate, endpoint error | Task accuracy |  | ● Standard (No chance level or listener test.) |
+| M13 Hardware & limits | FM telemetry, skin closed | Mixed: 35/52/51 of 382 (upper bounds) |  | ● Standard (Skin closed; priority over refs. 32, 33 unresolved; one participant.) |
 
 </details>
 
