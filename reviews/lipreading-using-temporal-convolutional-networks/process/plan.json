@@ -1,0 +1,67 @@
+{
+ "target": "arxiv-2001.08702",
+ "first_public": "2020-01",
+ "chronology": "prior = first public before 2019-07; [concurrent] = 2019-07 to 2020-07; [later] = after 2020-07",
+ "changed": [
+  "M06",
+  "M03"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "LRW and LRW-1000 broadcast speech video (overt, voiced); no own recording",
+  "M02": "Word-class labels only; no audio or other training-only teacher for the visual model",
+  "M04": "Overt speech video of TV speakers, audio unused in the visual-only model",
+  "M05": "Grayscale 96x96 mouth ROI (88x88 crop), 3D-conv + ResNet-18 front end from the ResNet + LSTM lineage (Stafylakis and Tzimiropoulos 2017; Petridis et al. 2018)",
+  "M07": "None: closed 500/1000-class softmax, no language model",
+  "M08": "One word class per clip",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "LRW and LRW-1000 labels and splits as distributed; hardest-word list from [10]",
+  "M13": "Training time 3 to 1 GPU-weeks stated; no parameter count, FLOPs or latency for the proposed model"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "word-lipreading-temporal-backend",
+   "inclusion_rule": "Studies whose ledger names the English LRW benchmark or the Mandarin LRW-1000 / CAS-VSR-W1K benchmark (word-level lip reading), classified by the temporal back end their full text names: recurrent (LSTM or GRU), temporal convolution (TCN, MS-TCN, DC-TCN or a temporal-convolution back end), Transformer, Conformer. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); audio-visual studies stay in; versions count once by key; dated split by first public month (prior before 2019-07, [concurrent] 2019-07 to 2020-07, [later] after).",
+   "pattern": "\\blrw\\b|lip reading in the wild|lrw-1000|cas-vsr-w1k",
+   "design_field": "full-text design regexes (temporal back end)",
+   "metric": "LRW top-1 accuracy (visual only)"
+  },
+  {
+   "slot": "M03",
+   "topic": "word-lipreading-temporal-augmentation",
+   "inclusion_rule": "The same word-level LRW / LRW-1000 population, classified by the training-time data handling their full text names: variable-length temporal cropping, time masking, random frame dropping or temporal jitter, mixup, word-boundary indicators, spatial crop and flip, and multi-stage training. Boundary: pattern counts include related-work mentions (upper bound); versions count once by key; dated as for the M06 topic.",
+   "pattern": "\\blrw\\b|lip reading in the wild|lrw-1000|cas-vsr-w1k",
+   "design_field": "full-text design regexes (augmentation and schedule)",
+   "metric": "LRW top-1 accuracy with and without randomly removed test frames"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrw-word-accuracy",
+   "reuse": "components/M12/lrw-word-accuracy.json",
+   "inclusion_rule": "Reused published table: visual-only word-level lip reading on English LRW with top-1 test accuracy; LRW-1000 excluded; word-boundary inputs labelled; versions once.",
+   "pattern": "published pattern",
+   "design_field": "published",
+   "metric": "LRW top-1 accuracy"
+  }
+ ],
+ "deciding_priors": {
+  "M06": [
+   "arxiv-1703.04105 (temporal-conv vs BiLSTM back end on LRW)",
+   "arxiv-1811.01194 (TConv vs BiLSTM back end on LRW)",
+   "arxiv-1905.02540 (best prior LRW result, 84.1%)"
+  ],
+  "M03": [
+   "arxiv-1811.01194 (only prior frame-drop pattern hit)"
+  ],
+  "later_checks": [
+   "arxiv-2209.01383 [later] same-recipe MS-TCN vs BGRU vs DC-TCN"
+  ],
+  "sota": [
+   "arxiv-2406.12233 (SyncVSR, LRW and CAS-VSR-W1K)"
+  ]
+ }
+}

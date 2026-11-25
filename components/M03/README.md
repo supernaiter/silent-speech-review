@@ -183,3 +183,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`word-concatenation-sentence-training-data.csv`](word-concatenation-sentence-training-data.csv) (1526 slot-filled, 54 pattern match, usual design in 17, 3 read in full)
 - Inclusion rule: The same 54-study population as M06/wearable-silent-sentence-decoding, classified by how sentence-level training data are obtained or enlarged: synthetic sentences concatenated from recorded word samples, additive noise, time masking or warping; a study counts under every design its full text names (upper bound); a study that names concatenation only to reject it is counted and read.
 - Used in: [Silent Speech Sentence Recognition with Six-Axis Accelerometers using Conformer and CTC Algorithm](../../reviews/silent-speech-sentence-recognition-with-six-axis-accelerometers-using-conformer-and-ctc-algorith/)
+
+## word-lipreading-temporal-augmentation
+
+- Table: [`word-lipreading-temporal-augmentation.csv`](word-lipreading-temporal-augmentation.csv) (1526 slot-filled, 156 pattern match, usual design in 40, 3 read in full)
+- Inclusion rule: The same word-level LRW / LRW-1000 population, classified by the training-time data handling their full text names: variable-length temporal cropping, time masking, random frame dropping or temporal jitter, mixup, word-boundary indicators, spatial crop and flip, and multi-stage training. Boundary: pattern counts include related-work mentions (upper bound); versions count once by key; dated as for the M06 topic.
+- Used in: [Lipreading using Temporal Convolutional Networks](../../reviews/lipreading-using-temporal-convolutional-networks/)

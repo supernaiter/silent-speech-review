@@ -167,7 +167,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`lrw-word-accuracy.csv`](lrw-word-accuracy.csv) (6960 slot-filled, 155 pattern match, usual design in 90, 2 read in full)
 - Inclusion rule: Visual-only word-level lip reading evaluated on the English LRW benchmark (500 words, BBC clips) with top-1 accuracy on its test set. Boundary: LRW-1000 / CAS-VSR-W1k and other-language LRW variants are excluded; audio-visual results count only when a visual-only figure is also reported; results that feed word-boundary indicators to the model are kept but labelled; versions of one study count once.
-- Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/)
+- Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/), [Lipreading using Temporal Convolutional Networks](../../reviews/lipreading-using-temporal-convolutional-networks/)
 
 ## neural-speech-reconstruction-identification-test
 
