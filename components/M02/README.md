@@ -132,6 +132,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: The same 165-study video-to-speech population, classified by training-only text supervision: a CTC or ASR/text loss on the speech generator or its features, and a recognizer trained on noised or diffusion-time-conditioned spectrograms to act as a guidance classifier. Boundary: text used at inference is M07; a pretrained evaluation ASR is not supervision; full-text pattern counts, upper bound; versions once.
 - Used in: [LipVoicer: Generating Speech from Silent Videos Guided by Lip Reading](../../reviews/lipvoicer-generating-speech-from-silent-videos-guided-by-lip-reading/)
 
+## unaligned-neural-sentence-label-timing
+
+- Table: [`unaligned-neural-sentence-label-timing.csv`](unaligned-neural-sentence-label-timing.csv) (31 slot-filled, 154 pattern match, usual design in 64, 4 read in full)
+- Inclusion rule: The same 154-study neural text-entry population, classified by how the decoder obtains per-time-step targets for sentence data when the intended output has no observable timing: alignment-free CTC loss, HMM or forced alignment, labels aligned to simultaneously recorded audio or speech onset, time warping, synthetic neural data augmentation, attention sequence-to-sequence. Boundary: a study counts under every design its full text names (upper bound); M03 supervision_kind gives the slot-filled values because M02 is sparse.
+- Used in: [High-performance brain-to-text communication via handwriting](../../reviews/high-performance-brain-to-text-communication-via-handwriting/)
+
 ## whisper-to-normal-training-pairing
 
 - Table: [`whisper-to-normal-training-pairing.csv`](whisper-to-normal-training-pairing.csv) (31 slot-filled, 60 pattern match, usual design in 39, 5 read in full)
