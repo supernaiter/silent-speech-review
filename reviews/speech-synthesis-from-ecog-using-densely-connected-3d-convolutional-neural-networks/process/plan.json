@@ -1,0 +1,65 @@
+{
+ "target": "doi-10.1088-1741-2552-ab0c59",
+ "target_versions": [
+  "doi-10.1088-1741-2552-ab0c59",
+  "pmc-6822609-3dcnn",
+  "doi-10.1101-478644"
+ ],
+ "first_public": "2018-11",
+ "changed": [
+  "M06",
+  "M08"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt reading of single words during awake craniotomy (paired audio recorded)",
+  "M02": "40-bin logMel spectrogram of the simultaneously recorded overt audio as regression target",
+  "M03": "Per-participant training, 5-fold cross-validation, 8.5-12.7 min per participant; no seeds or repeated runs",
+  "M04": "Overt single-word reading (same as training)",
+  "M05": "64-channel 8x8 ECoG grid, 4 mm pitch, over M1v/PMv/IFG; broadband gamma 70-170 Hz",
+  "M07": "None: direct spectrogram regression, no lexicon or language model",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Original lapel-microphone audio as reference",
+  "M13": "Offline; authors concede training and WaveNet synthesis are not real time"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "intracranial-synthesis-decoder-architecture",
+   "inclusion_rule": "Studies that reconstruct speech acoustics from intracranial recordings made during overt, mouthed, attempted or imagined speech (the published intracranial-synthesis population pattern), classified by the neural-to-acoustic regression model their full text names: linear or regularized linear regression, recurrent network (LSTM/GRU), transformer, 3D convolution, DenseNet, unit selection. Boundary: a study counts under every design its full text names, including related-work mentions, so counts are upper bounds; heard-speech reconstruction and text-only decoders read out by TTS are outside the topic; versions of one study count once.",
+   "pattern": "published M06 intracranial-synthesis pattern",
+   "design_field": "full-text regexes linear_regression, recurrent, transformer, conv_3d, densenet, unit_selection",
+   "metric": "spectrogram Pearson correlation (PCC) under per-participant evaluation"
+  },
+  {
+   "slot": "M08",
+   "topic": "intracranial-synthesis-waveform-generation",
+   "reuse": "components/M08/intracranial-synthesis-waveform-generation.json",
+   "inclusion_rule": "Reused published table: intracranial production-speech acoustic reconstruction, classified by how predicted acoustic features become a waveform (neural vocoder, Griffin-Lim, parametric vocoder, unit selection).",
+   "pattern": "published",
+   "design_field": "published full-text vocoder counts",
+   "metric": "MCD / STOI / listener tests"
+  },
+  {
+   "slot": "M12",
+   "topic": "neural-speech-reconstruction-identification-test",
+   "reuse": "components/M12/neural-speech-reconstruction-identification-test.json",
+   "inclusion_rule": "Reused published table: neural-to-acoustic speech reconstruction studies, classified by evaluation (correlation, identification among candidates, MCD, listener test, STOI).",
+   "pattern": "published",
+   "design_field": "published protocol counts",
+   "metric": "identification accuracy / listener test"
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-speech-test-partition",
+   "reuse": "components/M12/intracranial-speech-test-partition.json",
+   "inclusion_rule": "Reused published table: intracranial speech decoding studies, classified by how test data are separated (random trial split, k-fold, held-out session, held-out subject).",
+   "pattern": "published",
+   "design_field": "published partition counts",
+   "metric": "held-out-unit description"
+  }
+ ]
+}
