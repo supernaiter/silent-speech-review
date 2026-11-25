@@ -1,0 +1,51 @@
+{
+ "target": "arxiv-1802.06424",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "LRW: overt speech in BBC broadcast clips",
+  "M02": "500-class word labels from the LRW corpus (no training-only auxiliary target)",
+  "M03": "Stafylakis et al. 2017 three-step stream initialisation, then joint training; babble-noise augmentation at -5 to 20 dB; one run, no seeds",
+  "M04": "Overt speech video with audio at test",
+  "M05": "Camera and microphone; fixed 96x96 grayscale mouth crop; raw waveform z-normalised per segment",
+  "M07": "None: 500-way softmax, no lexicon or language model",
+  "M08": "One of 500 word labels per 1.16 s clip",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "LRW train/validation/test partition; speaker overlap not stated",
+  "M13": "No runtime, model size or hardware"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "lrw-audiovisual-word-recognition",
+   "inclusion_rule": "Studies whose ledger names both the English LRW benchmark and audio-visual recognition, classified by audio input (raw waveform vs spectral features) and fusion design (concatenation plus recurrent fusion, attention/Transformer, pre-trained front end); LRW-1000 and other-language variants excluded; a study counts under every design its text names (upper bound); versions once.",
+   "pattern": "ledger text names LRW and audio-visual (anchored lookaheads)",
+   "design_field": "full-text regexes raw_waveform_audio, spectral_audio_features, concat_then_recurrent_fusion, attention_or_transformer_fusion, pretrained_ssl_frontend",
+   "metric": "LRW 500-word audio-visual top-1 accuracy (clean)"
+  },
+  {
+   "slot": "M06",
+   "topic": "avsr-audio-stream-input-representation",
+   "reuse": "components/M06/avsr-audio-stream-input-representation.json",
+   "inclusion_rule": "Reused published table: AVSR studies classified by audio-stream input (raw waveform vs spectral features); a study counts under each it names; versions once.",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts",
+   "metric": "AVSR WER / accuracy"
+  },
+  {
+   "slot": "M12",
+   "topic": "avsr-noise-and-run-variability-protocol",
+   "reuse": "components/M12/avsr-noise-and-run-variability-protocol.json",
+   "inclusion_rule": "Reused published table: the same 349 AVSR studies classified by additive-noise testing at stated SNRs, babble noise, and run-to-run variability.",
+   "pattern": "published pattern",
+   "design_field": "published protocol counts",
+   "metric": "presence of noise test, held-out noise types, repeated runs or confidence intervals"
+  }
+ ],
+ "prep": "No prep/ directory: plan, audits and comparator reading done by the writer; two published topic tables reused append-only."
+}
