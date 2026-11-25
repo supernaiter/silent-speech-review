@@ -127,6 +127,7 @@ Each paper judged component by component against the usual approach and the stat
 - [Lip Reading Sentences in the Wild](lip-reading-sentences-in-the-wild/) (2017). Made sentence lipreading measurable with LRS, but its decoder and curriculum gains are confounded with data and augmentation, and the beats-a-lipreader claim is on unequal terms.
 - [Vid2speech: Speech Reconstruction from Silent Video](vid2speech-speech-reconstruction-from-silent-video/) (2017). Raw-face CNN to LSP (M05, M06) is standard: 82.6% vs 40.0% over Le Cornu and Milner mixes in forced-choice listening (M12); as a whole system it later scores 44.92% vs 14.08% GRID WER (Lip2Wav).
 - [LipNet: End-to-End Sentence-level Lipreading](lipnet-end-to-end-sentence-level-lipreading/) (2016). A new CTC sentence decoder, but one corpus and one run make it standard; the comparisons break: an 86.4% word-level HMM baseline, a 10-minute panel, silent dictation untested.
+- [Brain-to-text: decoding spoken phrases from phone representations in the brain](brain-to-text-decoding-spoken-phrases-from-phone-representations-in-the-brain/) (2015). Phone-model decoder (M06) is the EMG recognizer moved to ECoG: standard. 25% WER uses per-phrase dictionaries holding the spoken words (M07); the time-shift null (M12) is sound.
 
 ## Itemized summaries
 

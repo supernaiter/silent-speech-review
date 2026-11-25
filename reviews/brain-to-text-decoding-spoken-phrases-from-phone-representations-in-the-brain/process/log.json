@@ -1,6 +1,6 @@
 {
  "slug": "brain-to-text-decoding-spoken-phrases-from-phone-representations-in-the-brain",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,30 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-25T09:19:55+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-25T09:22:02+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-25T09:24:30+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 64 found, 0 missing, 7 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-subword-unit-text-decoding-with-lexicon": "ok",
+  "topic counts M07-large-vocabulary-lm-for-neural-speech": "ok",
+  "topic counts M12-neural-text-unseen-sentence-test": "ok",
+  "topic counts M12-null-model-construction-neural-decoding": "ok"
+ },
  "inputs": {
   "notes_sha256": "d617b29ec1df6c306103cad0ae11f28a5d27628fb3741a5c0f64329e9bcca560",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +61,6 @@
  },
  "body_chars": {
   "draft": 14745,
-  "final": null
+  "final": 14123
  }
 }
