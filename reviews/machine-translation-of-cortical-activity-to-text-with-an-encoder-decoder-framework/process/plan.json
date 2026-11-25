@@ -1,0 +1,104 @@
+{
+ "slug": "machine-translation-of-cortical-activity-to-text-with-an-encoder-decoder-framework",
+ "target": "doi-10.1038-s41593-020-0608-8",
+ "prep": "no prep/ directory; plan, audits and comparators built by the writer; published topic tables reused append-only",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "overt reading of prompted sentences by epilepsy-monitoring patients with clinical ECoG grids (UCSF lineage: Moses 2019, Anumanchipalli 2019)"
+  },
+  "M02": {
+   "class": "changed",
+   "note": "training-only auxiliary MFCC regression from the encoder, discarded at test time",
+   "topics": [
+    {
+     "topic": "auxiliary-speech-feature-regression",
+     "inclusion_rule": "reused published topic table (rule as published)",
+     "pattern": "reused",
+     "design_field": "M03 supervision_kind",
+     "metric": "WER %, lower better"
+    }
+   ]
+  },
+  "M03": {
+   "class": "changed",
+   "note": "cross-participant pretraining and cross-task (MOCHA-2..9) transfer",
+   "topics": [
+    {
+     "topic": "cross-subject-pooled-training",
+     "inclusion_rule": "reused published topic table (rule as published; fine-tuning from another participant counts)",
+     "pattern": "reused",
+     "design_field": "full-text per-subject vs pooled/transfer",
+     "metric": "WER / PER %, lower better"
+    }
+   ]
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "overt reading at test time"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "clinical peri-Sylvian ECoG grids, high-gamma envelope (UCSF lineage)"
+  },
+  "M06": {
+   "class": "changed",
+   "note": "temporal-convolution + BiLSTM encoder, autoregressive LSTM decoder emitting words, greedy decoding",
+   "topics": [
+    {
+     "topic": "neural-encoder-decoder-text-decoding",
+     "inclusion_rule": "Same population as neural-text-output-unit; design compared is the sequence decoder (autoregressive encoder-decoder vs CTC vs HMM/Viterbi); paper counted under every decoder its text names.",
+     "pattern": "M08 neural-text-output-unit ledger pattern (neural modality with WER/CER/PER)",
+     "design_field": "full-text regex: encoder-decoder / CTC / HMM-Viterbi",
+     "metric": "WER %, lower better"
+    }
+   ]
+  },
+  "M07": {
+   "class": "inherited",
+   "lineage": "no external LM; closed prompt set learned implicitly by the decoder"
+  },
+  "M08": {
+   "class": "changed",
+   "note": "whole words (1,806-class softmax) as output unit",
+   "topics": [
+    {
+     "topic": "neural-text-output-unit",
+     "inclusion_rule": "reused published topic table",
+     "pattern": "reused",
+     "design_field": "full-text regex: characters / phonemes / words",
+     "metric": "WER %, lower better"
+    }
+   ]
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "none; offline"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "none; offline"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "prompt text corrected against manual transcription of what was spoken"
+  },
+  "M12": {
+   "class": "incidental",
+   "note": "held-out repeat blocks of the same 50 sentences; 30 models per condition with corrected tests",
+   "topics": [
+    {
+     "topic": "neural-text-unseen-sentence-test",
+     "inclusion_rule": "reused published topic table",
+     "pattern": "reused",
+     "design_field": "full-text regex: sentence-disjoint vs repeated sentences",
+     "metric": "WER %, lower better"
+    }
+   ]
+  },
+  "M13": {
+   "class": "inherited",
+   "lineage": "offline clinical monitoring; prospective prosthesis use discussed only"
+  }
+ }
+}
