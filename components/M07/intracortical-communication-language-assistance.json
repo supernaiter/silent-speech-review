@@ -1,0 +1,651 @@
+{
+ "topic": "intracortical-communication-language-assistance",
+ "slot": "M07",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?is)(intracortical|utah array|microelectrode array).*(cursor|point-and-click|keyboard|typing|text entry|characters per minute|ccpm|grid task)|(cursor|point-and-click|keyboard|typing|text entry|characters per minute|ccpm|grid task).*(intracortical|utah array|microelectrode array)",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Same 33-study intracortical text-entry population as the M06 topic; the design compared is use-time language assistance: a language model, or word prediction / word completion / autocomplete. Boundary: full-text pattern counts with the reference list removed (upper bound; a paper that names a language model only to exclude it or in related work counts); the target is included because it names word completion and prediction while excluding them.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 120,
+  "slot_filled_unique": 119,
+  "string_match_folders": 46,
+  "string_match_unique": 33,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M07",
+  "design_slot_fill": 0.013,
+  "sparse": true,
+  "design_values": [],
+  "pattern_counts": [
+   {
+    "design": "language_model",
+    "n": 15,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1038-s41593-026-02218-y",
+     "doi-10.1038-s41593-026-02303-2",
+     "pmc-13317629-fullstack",
+     "pmc-13375540-ibciterm",
+     "pmc-12026362-invasive-bci-communication"
+    ]
+   },
+   {
+    "design": "word_prediction_or_completion",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.3390-brainsci15040336",
+     "pmc-11561076-icn-review",
+     "pmc-10353344-fingertyping",
+     "doi-10.1001-jama.2019.19813",
+     "pmc-6248919-ibci-tablet"
+    ]
+   }
+  ],
+  "metric_pattern": null,
+  "better": "lower"
+ },
+ "sota_candidates": [],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "doi-10.1001-jama.2019.19813",
+   "key": "t:towardaspeechneuroprosthesis",
+   "title": "Toward a Speech Neuroprosthesis",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "commands produce low-dimensional vocal-tract gestures (Chartier et al. 2018) | InformationResource.resource_provenance=intracortical communication BCI spelling benchmarks: best rates under 10 wpm despite fast cursor control | InformationResource.resource_provenance=commercial ASR scale (e.g. Siri trained on >10,000 hours) motivating biomimetic low-data architectures | task_family=speech_reconstruction | extra.Task.target=restore natural-rate spoken communication for paralyzed speech-loss patients by decoding speech gestures/commands from cortex, informed by motor speech neuroscience and deep learning | production_labels=attempted_speech, instructed_imagery, ordinary_voiced_speech | claim=cursor-based spelling BCIs cap near 10wpm vs natural speech 120-150wpm — direct speech decoding is the needed approach | claim"
+  },
+  {
+   "pid": "doi-10.1007-s13311-022-01190-2",
+   "key": "t:braincomputerinterfaceapplicationstospeechdecodingandsynthesistoaugmentcommunica",
+   "title": "Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "speech | observed_quantities=neural_activity | technical_essence=Review of speech-decoding/synthesis BCIs as AAC beyond cursor control: surveys intracortical (3 covert vowels ~70% accuracy in LIS), ECoG word decoding (3% WER, ~250-word vocab in one participant), and real-time sentence decoding from attempted speech in anarthric pontine-stroke participant (median WER 25.6% vs 92.1% chance, 15.2 words/min) — maps the field toward continuous speech-synthesis BCIs | target_population=speech_impairment, motor_impairment | population_description=Severe-paralysis populations (LIS, quadriplegia with anarthria from pontine stroke) + implanted-study participants | decoder_route=direct_signal_to_audio | Speech BCIs already deliver real-time sentence decoding from attempted speech at far-better-than-chance WER — the field is moving from classification toward continuous synthesis for communication | Intracortical and ECoG recordings decode covert/overt speech units at usable accuracy, validating implanted neural substrates for AAC"
+  },
+  {
+   "pid": "doi-10.1038-s41586-021-03506-2",
+   "key": "t:highperformancebraintotextcommunicationviahandwriting",
+   "title": "High-performance brain-to-text communication via handwriting",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "sk_family=spelling_text_entry | task_encoding=learned_code_or_gesture | production_labels=attempted_speech | modalities=intracortical_microelectrode | observed_quantities=neural_activity | technical_essence=Intracortical brain-to-text BCI: RNN decodes attempted handwriting from motor cortex (precentral gyrus) in tetraplegic participant T5 (C4 AIS C) — 90 chars/min at 94.1% raw accuracy online, >99% offline with 50k-word bigram autocorrect (CER 0.89%, WER 3.4%); 31-character set; >2× prior intracortical BCI speed | target_population=motor_impairment | population_description=single participant T5 with high-level spinal cord injury (C4 AIS C), tetraplegia, BrainGate clinical trial | typing speed 90 chars/min (comparable to able-bodied 115 cpm smartphone typing) | 94.1% raw accuracy online; >99% offline with autocorrect | offline autocorrect: CER 0.89%, WER 3.4% (custom 50k-word"
+  },
+  {
+   "pid": "doi-10.1038-s41591-026-04414-6",
+   "key": "p:doi-10.1038-s41591-026-04414-6",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=BrainGate multimodal speech+cursor iBCI long-term home deployment (Card/Stavisky) | intended_use_cases=speech_restoration, device_control, private_communication | modalities=intracortical_microelectrode | observed_quantities=neural_activity | decoder_route=recognition_to_text | output_types=text, device_action | elicitation=instructed_content | acoustic_mode=no_vocalization | tested_population=target_users | evaluation_mode=live_interactive | vocabulary_regime=open_vocabulary | dataset_description=single ALS participant, nearly 2 years, >3,800 h independent home use; 183,060 sentences / 1,960,163 words at 56 wpm average; formal prompted-word evaluations >99% word accuracy at 125k vocabulary; participant-rated 92% sentences ≥mostly correct; concurrent cursor BCI for PC control | Study.research_objective=demonstrate independent, reliable, long-term home operation of a multimodal speech+cursor iBCI without researcher assistance | evidence_relation=supported_within_scope | claim=an intracortical speech+cursor BCI supports independent near-daily home use for ~2 years (>3,800 h), sustaining interpersonal communicat"
+  },
+  {
+   "pid": "doi-10.1038-s41593-026-02218-y",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41593-026-02218-y | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis | authors=Justin J. Jude, Hadar Levi-Aharoni, Alexander J. Acosta, Shane B. Allcroft, Claire Nicolas, Bayardo E. Lacayo, Nicholas S. Card, Maitreyee Wairagkar | venue=Nature Neuroscience | review_state=source_checked | Study.research_objective=develop and evaluate an intracortical BCI typing neuroprosthesis providing bimanual QWERTY keyboard functionality for people with paralysis, decoding finger movements onto a three-row 30-key layout | Study.unit_of_analysis=finger-movement decoding sessions; characters/words typed per minute and word error rate | task_encoding=attempted_utterance | task_family=spelling_text_entry | target_population=motor_impairment | intended_use_cases=assistive_text_entry | tested_population=target_users | Cohort.demographics=two iBCI clinical-trial participants with tetraplegia — one ALS, one spinal cord injury | Dataset.content_inventory=bimanual finger-movement neural data mapped to isolated movement task; QWERTY key selection via three movements per finger | modalities=intracortical_microelectrode | sensor_hardware=bilateral precentral gyrus microelectrode arrays; contralateral finger tuning predominates | Representation.feature_dimensions=single-electrode tuning to individual fi"
+  },
+  {
+   "pid": "doi-10.1038-s41593-026-02303-2",
+   "key": "t:noninvasivedecodingoftypedsentencesfromhumanbrainactivity",
+   "title": "Noninvasive decoding of typed sentences from human brain activity",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "(conv only / no LM) | system_boundary=offline, sentence-level correction requires known keystroke timing; healthy overt typing — not yet validated for paralyzed motor imagery | SystemConfiguration.system_lifecycle=implemented_evaluated | extra.Output.output_kind=text_sentence | claim=MEG sentence CER 29%±1.7 avg (best 18%, some held-out sentences perfect) vs EEG 65% — noninvasive sentence decoding viable | evidence_relation=supported_within_scope | claim=decoder relies on motor cortex: confusions cluster on QWERTY-adjacent keys; K-means on conv embeddings separates L/R-hand keys and recovers keyboard layout | Claim.claim_type=generalization | claim=CER improves with training data (r=−0.93) and LM correction gives 2.5× CER improvement on MEG — language statistics materially aid decoding | technical_limits=healthy overt typists only — paralyzed motor-imagery transfer unproven; offline sentence-level pipeline needs keystroke timing; intracortical typing BCIs still far more accurate (CER<6% online) | sentence CER EEG vs MEG | motor-layout evidence"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552.add0e5",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.1088/1741-2552/add0e5 | title=Speech motor cortex enables BCI cursor control and click | authors=Tyler Singer-Clark, Xianda Hou, Nicholas S. Card, Maitreyee Wairagkar, Carrina Iacobacci, Haley Peracha | venue=Journal of Neural Engineering | review_state=source_checked | Study.research_objective=test whether ventral precentral (speech-motor) cortex can also drive a cursor+click BCI, enabling a multi-modal speech+computer-control BCI from one implant site | Study.unit_of_analysis=closed-loop cursor bitrate (bps), target-selection success rate, per-array decoding contribution, speaking-interference assessment | task_family=command_selection | target_population=combined_impairments, motor_impairment | intended_use_cases=device_control, speech_restoration | tested_population=target_users | Cohort.demographics=single BrainGate2 participant T15 (ALS), 4x 64-ch Utah arrays in left vPCG (55b/6v/area4); same arrays previously ran a speech BCI | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=4x 64-electrode Utah arrays, left vPCG (midPCG 55b, ventral premotor 6v, primary motor 4); 512 features (threshold crossings + spike band power) p"
+  },
+  {
+   "pid": "doi-10.1101-2024.11.12.623096",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.11.12.623096 | doi=10.1101/2024.11.12.623096 | title=Speech motor cortex enables BCI cursor control and click | authors=Tyler B. Singer-Clark, Xianda Hou, Nicholas S. Card, Maitreyee Wairagkar, Carrina Iacobacci, Hamza Peracha, Leigh R. Hochberg, Sergey D. Stavisky, David M. Brandman | venue=bioRxiv 2024.11.12.623096v2 (PMC11601350 NIHMS) | task_family=command_selection | extra.Task.target=drive macOS mouse cursor + click with vPCG intracortical signals: Radial8 calibration (8 radial + center targets, dwell/click selection), Grid Evaluation (bitrate), Simultaneous Speech+Cursor interference test, free personal use (Netflix, NYT Spelling Bee, settings) | production_labels=attempted_speech, instructed_imagery | Cohort.demographics=T15: 45-year-old left-handed man with ALS; tetraplegic, severe dysarthria; informed consent incl. video | tested_population=target_users | modalities=intracortical_microelectrode | sensor_hardware=4 x 64-ch Utah (NeuroPort) arrays, left ventral precentral gyrus (vPCG); NeuroPort 30 kHz; HCP-parcellation-aligned placement from preoperative MRI | Session.session_timing=6 sessions at home: 1 first-ever usage (post-implant day ~39), 4 evaluation sessions, 1 simultaneous speech+cursor; 3-minute blocks | Dataset.collection_protocol=closed-loop cursor trajectories: 224 trials in first six Radial8 blocks; 1263 evaluation trials; per-trial cued target, dwell/click selection; simultaneous blocks add auditory speech go cue (beep) during move/dwell period | Representation.windowing=512-D feature vector per 10 ms bin = per-electrode threshold crossings (sum) + spike-band power (mean) over the bin | technical_essence=30 kHz raw -> per-electrode threshold crossings at -4.5 x RMS (1 ms windows) + spike-band power; 512 features per ms; binned to 10 ms; post-hoc: SBP alone comparable | technical_essence=v_t = alpha*v_{t-1} + (1-alpha)*beta*D_cursor*f_t — linear regression tuning matrix f_t(512)->2-D velocity; alpha~0.9-0.93 smoothing, beta gain, exponential smoothing | technical_essence=logistic regression D_click f_t -> 2-D class logits with temporal smoothing; all four arrays carry click information above chance | TrainingRun.training_objective=online recalibration: standard Radial8 center-out task trains linear decoders; velocity assist (position error intention estimation in first-ever session) faded to closed-loop as angular error <60°; decoder weights updated throughout calibration blocks | system_name=vPCG intracortical cursor+click BCI driving personal macOS mouse (lightweight on-device app) with optional simultaneous attempted-speech u"
+  },
+  {
+   "pid": "doi-10.1109-tbme.2021.3069119",
+   "key": "p:doi-10.1109-tbme.2021.3069119",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| target_unit=activity_event | intended_use_cases=device_control, assistive_text_entry, speech_restoration | modalities=intracortical_microelectrode | observed_quantities=neural_activity | intrusiveness=percutaneous | output_types=device_action, text | elicitation=instructed_content | acoustic_mode=no_vocalization | tested_population=target_users | split_protocol=session_holdout | evaluation_mode=live_interactive | vocabulary_regime=not_a_word_task | dataset_description=two tetraplegic BrainGate pilot participants; 192-channel wireless broadband neural signals; Grid-Task item selections comparing cabled vs wireless sessions (T5 1.62/1.81 bps, T10 1.51/1.51 bps median; T10 91.6%/94.8% acquisitions, incl. 44/45 at 1.79 bps with a faulty transmitter); continuous 24-h at-home recording from two arrays in one participant | Study.research_objective=remove cable tethering and expert oversight so iBCIs can be available for extended independent use incl. at home | evidence_relation=supported_within_scope | claim=first human use of a wireless broadband iBCI: 192-electrode percutaneous wireless recording/decoding enabled cursor control of a standard tablet and continuous 24-hour at-home operation — a step toward practical untethered deployment |"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2020.00123",
+   "key": "t:thepotentialofstereotacticeegforbraincomputerinterfacescurrentprogressandfutured",
+   "title": "The Potential of Stereotactic-EEG for Brain-Computer Interfaces: Current Progress and Future Directions",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "put demonstrated on related modalities | extra.Task.scope=invasive BCI modality assessment for chronic use | modalities=intracortical_microelectrode, ecog | observed_quantities=neural_activity | Acquisition.sensor_geometry=penetrating depth electrodes via small burr holes, stereotactic guidance | Acquisition.spatial_resolution=sparse sampling incl. deeper structures (hippocampus, amygdala, insula) | Acquisition.repositioning=implanted chronically; combined sEEG+ECoG implantation common | EvaluationProtocol.experimental_design=narrative mini-review comparing sEEG vs ECoG for BCI decoding | extra.Protocol.evaluation_target=modality characteristics and published decoding demonstrations | extra.Protocol.population=refractory epilepsy monitoring patients (sEEG clinical use) | extra.Protocol.reference_kind=published literature | extra.Protocol.evaluator=author synthesis | evaluation_mode=qualitative_only | system_name=sEEG depth-electrode BCI | SystemConfiguration.component_versions=LFP depth shafts; microwire single-unit tips available | SystemConfiguration.system_lifecycle=proposed_only | technical_essence=demonstrations: 3 hand gestures + rest decoded, 2D cursor control, imagined/executed grip strength | Representation.transformation_definition=local field potentials along electrode shaft; microwires for single-unit recording | ProductionCondition.activity_origin=overt_articulation | Cohort.demographics=refractory-epilepsy patients undergoing sEEG monitoring | output_types=text, audio, class_label | claim=sEEG promising for chronic BCI: fewer surgical complications than ECoG craniotomy, DBS precedent supports chronic implants | author_claimed_contribution=first focused assessment of sEEG potential for BCI vs ECoG | extra.Limitation.limitation=sparse spatial sampling vs ECoG high-density coverage; likely lower decoding performance for some tasks | Acquisition.signal_quality=LFP along shaft; single-unit spiking via microwire tip option | Acquisition.instrument_calibration=stereotactic guidance placement | extra.Protocol.vocabulary=gesture/cursor/speech task sets across reviewed studies | three hand gestures + rest decoded from central-sulcus sEEG | continuous two-dimensional cursor control demonstrated | sEEG surgical methodology documented across 500 procedures in cited safety literature | sEEG vs"
+  },
+  {
+   "pid": "doi-10.3390-brainsci15040336",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain-Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ment) | venue=Brain Sciences 15(4):336 (MDPI) | Study.research_objective=summarize progress of intracranial BCIs (ECoG, intracortical microelectrode, sEEG) used to restore communication in patients with severe neurological deficits; update on current capabilities and technical features | extra.Task.target=systematic scoping review of human clinical studies on invasive BCIs for communication: cursor/spelling tasks and direct speech-to-text/speech-to-audio decoding; PubMed + Ovid Embase, Jan 2005-Oct 2024, English human studies only | production_labels=attempted_speech, instructed_imagery, ordinary_voiced_speech | Cohort.demographics=41 articles covering patients with ALS (10 intracortical cases), brainstem stroke (6), spinal cord injury (13); also epilepsy/tumor patients with temporary implants; ALSFRS-R 6-23; representative cases 45M tetraparesis+dysarthria, 67F bulbar ALS, 36M pontine infarct anarthria | Session.session_timing=chronic implantation durations: 138 days no-recalibration LFP spelling, 76 days brainstem stroke case, 262 days ALS LIS, 1000+ days cursor control, 3-month stable decoding, multi-year at-home use | Dataset.collection_protocol=41 included articles from PubMed + Ovid Embase searches (BCI/neuroprosthesis/intracortical keywords AND LIS/ALS/dysarthria/communication/stroke terms); PRISMA flow with exclusions of non-human/non-English/review articles; reference-list checking | modalities=intracortical_microelectrode, ecog, other | sensor_hardware=96-channel Utah microelectrode arrays (1-1.5mm), 4x64ch, 2x96ch, 256 electrodes (4 microarrays 3.2x3.2mm), hdECoG 64/128/253-electrode subdural grids over ventral sensorimotor/precentral/inferior frontal cortex, sEEG depth electrodes incl. thalamic Vim and subthalamic nucleus DBS, neurotrophic electrode | Representation.transformation_definition=spike/LFP features -> RNN/Kalman/deep-learning decoders -> text or synthesized audio; vocabulary sizes 50 words to 125,000 words; some systems add facial avatar animation; auto-calibrating retrospective decoders | system_name=invasive BCI communication systems across 41 studies: cursor-control spellers (Opti-II/QWERTY/radial keyboards), speech-to-text decoders, speech-to-audio synthesizers, avatar control | extra.Protocol.evaluation_target=communication rate (words/min, characters/min), decoding accuracy/WER on vocabularies, calibration-free duration; review compares cursor-based vs direct speech decoding | Study.negative_findings=heterogeneity of reported variables prevents cross-study comparison; no large-scale RCTs exist (case reports/series only); surgical risks (infection, glial scar ~100um, impedance drift, brain atrophy in ALS displacing electrodes); sEEG results still in infancy | claim=direct cortical speech decoding now achieves ~62 words/min (vs natural speech 120-150 wpm) — far exceeding cursor-control spelling; one ALS patient reached 62 wpm with 23.8% WER on 125,000-word vocabulary | claim=intracortical speech decoding accuracies: 99.6% on 50-word vocabulary and 97.5% on 125,000-word vocabulary (256-electrode precentral arrays); thalamic/sEEG vowel decoding 100% production / 96% perception / 88% imagery | claim=chronic stability demonstrated: no recalibration for 138 days (LFP), 3 months stable speech decoding (median accuracy 90.59%), 262 days ALS use (89±6%), and BCI control maintained 1000+ days post-implant | included articles | ALS intracortical cases | brainstem stroke cases | SCI cases | Utah array channels | word select min | word select max | correct chars/min | days no recalibration | accuracy 125k vocab | best words/min | natural speech low | natural speech high | WER 125k vocab | accuracy 50-word | vocabulary size | glial scar size | perception accuracy | imagery accuracy | 3-electrode speller rate | stroke spelling rate | radial keyboard gain | google chat rate | selection success low | vowel task accuracy gain | targets selected | 3-month median accuracy"
+  },
+  {
+   "pid": "doi-10.7302-25565",
+   "key": "p:doi-10.7302-25565",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "or_intent_decoding | task_encoding=natural_utterance | vocabulary_regime=not_a_word_task | dataset_id=Monkeys N (2x64ch Utah arrays motor cortex + 8 intramuscular bipolar EMG forearm FCR/FDPx3/FCU/ECRB/EIP/EDC) and W (96ch array); SBP 300-1000Hz 20ms bins; EMG 2kHz->100-500Hz BP->rectify->6Hz LP envelope; signal quality: ridge 10-bin/200ms history, 3 days x500 trials (N), 2 days (W) | modalities=intracortical_microelectrode, intramuscular_emg | Representation.transformation_definition=SBP (300-1000Hz band power) in 20ms bins for brain channels (>=1 crossing/s); EMG envelopes normalized to daily peak; synergy activations/weights via PCA/NMF/dPCA | extra.Protocol.evaluation_target=velocity/position correlation + MSE offline (n=13 days); online success rate/throughput/trial-time/path-efficiency (n=5 days); noise injection robustness; on/off-context generalization MSE increase % | EvaluationProtocol.experimental_design=offline pre-recorded vs online closed-loop; injected noise sweeps (magnitude up to 100x std, duration to 3 bins); off-context train-normal/test-spring+wrist vs on-context 80/20 | extra.Limitation.limitation=KalmanNet catastrophic under out-of-distribution noise (spikes); deep models generalize worse than plain KF across contexts; synergy compression does not aid denoise/generalization; N=2 monkeys; n=5 online days | extra.Task.target=understand motor control to inform assistive tech: reliable ankle impedance metrics (Ch2), scalable motor-learning platform (Ch3), compressed/explainable iBMI decoders (Ch4-5) | system_boundary=Ch5 pipeline: SBP features -> decoder (KF/KalmanNet/tcFNN/LSTM) -> finger kinematics -> online feedback cursor | system_boundary=Ch2: robotic platform random dorsiflexion perturbations in standing/walking -> motion capture + 6-com"
+  },
+  {
+   "pid": "isca-brumberg09_bcisynth",
+   "key": "t:artificialspeechsynthesizercontrolbybraincomputerinterface",
+   "title": "Artificial speech synthesizer control by brain-computer interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "checked | Study.study_design=controlled_experiment | Study.research_objective=restore real-time vowel production via an intracortical BCI driving a formant speech synthesizer with instantaneous auditory feedback | Study.unit_of_analysis=25y male locked-in (brainstem stroke, age 16); Neurotrophic intracortical electrode, left speech motor cortex; Kalman-filter 2-D formant (F1/F2) decoder; center-out vowel task 3 periphery targets + center; 25 sessions / 5 months | task_encoding=imagined_utterance | task_family=speech_reconstruction | target_population=combined_impairments, speech_impairment, motor_impairment | tested_population=target_users | intended_use_cases=speech_restoration, assistive_text_entry | demonstrated_use_cases=speech_restoration | production_labels=attempted_speech, instructed_imagery | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=Neurotrophic intracortical microelectrode, left hemisphere speech motor cortex; sub-50ms end-to-end delay | representation_kind=instantaneous predicted F1/F2 formant trajectory driving Klatt cascade/parallel formant synthesizer | ProcessingStep.architecture={'stages': ['intracortical spike/firing features', 'Kalman-filter center-out calibration maps neural state to 2-D formant space', 'Klatt formant synthesizer renders vowel', 'auditory feedback to subject <50ms', 'online error correction by user']} | EvaluationProtocol.experimental_design=center-out vowel-production closed-loop task; 5-34 trials/session in 1-4 blocks over 25 sessions/5 months; per-session learning slope test | EvaluationRun.execution_artifacts=80-90% correct vowel production at best; significant positive performance slope within sessions; <50ms loop delay | extra.Output.output_kind=synthesized vowel audio from a formant-space neural cursor | Claim.claim_scope=intracortical speech-motor signals enable real-time closed-loop vowel production with 80-90% accura"
+  },
+  {
+   "pid": "pmc-10353344-fingertyping",
+   "key": "t:abraincomputertypinginterfaceusingfingermovements",
+   "title": "A brain-computer typing interface using finger movements",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A brain-computer typing interface using finger movements | authors=Shah, Willsey, Hahn | venue=International IEEE EMBS Conference on Neural Engineering | Study.research_objective=a brain-computer typing interface using decoded finger movements | Study.study_design=controlled_experiment | extra.Production.scope_note=BCI typing finger movements | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=intracortical brain-computer typing interface decoding finger movements achieving approximately 9 words per minute | Dataset.counts_b"
+  },
+  {
+   "pid": "pmc-11071346-typingbci",
+   "key": "t:aflexibleintracorticalbraincomputerinterfacefortypingusingfingermovements",
+   "title": "A flexible intracortical brain-computer interface for typing using finger movements",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A flexible intracortical brain-computer interface for typing using finger movements | authors=Shah, Willsey, Hahn | Study.research_objective=a flexible intracortical BCI for typing using decoded finger movements | Study.study_design=controlled_experiment | extra.Production.scope_note=finger-movement typing brain-to-text BCI | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=decoding finger movements from two 96-channel microelectrode arrays to drive a flexible typing BCI | Dataset.counts_by_unit=1 BrainGate2 participant (T5) | tested_population=target_users | metric"
+  },
+  {
+   "pid": "pmc-11494208-icinstab",
+   "key": "t:measuringinstabilityinchronichumanintracorticalneuralrecordingstowardsstablelong",
+   "title": "Measuring instability in chronic human intracortical neural recordings towards stable, long-term brain-computer interfaces",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Measuring instability in chronic human intracortical neural recordings towards stable, long-term brain-computer interfaces | venue=Communications Biology | doi=10.1038/s42003-024-06784-4 | Study.study_design=controlled_experiment | Study.research_objective=measure iBCI neural-data instability (MINDFUL) without intention labels to infer performance and time recalibration | task_family=command_selection | acoustic_mode=no_vocalization | production_labels=attempted_speech | tested_population=target_users | modalities=intracortical_microelectrode | ProcessingStep.architecture=MINDFUL: KLD between reference and 60-s sliding-window neural feature distributions (PCA of decoder inputs, optionally + decoder outputs) | representation_kind=threshold-crossing spike rate and spike power; decoder velocity outputs | EvaluationProtocol.experimental_design=fixed decoders across sessions; AE tracked; MINDFUL correlated with AE over 142 days (T11, 15 sessions) and 28 days (T5, 6 sessions) | claim=MINDFUL instability measure correlates with closed-loop cursor performance from neural data alone (Pearson r=0.93 T11, 0.72 T5 combined features) | claim=enables inferring online iBCI performance and deciding when to recalibrate for practical long-term use | claim=statistical distance (KLD) between neural distributions is near-linearly related to decoding performance (r=0.985/0.983) | technical_limits=two participants; cursor task only; T5 correlation weaker; requires reference distribution from initial good-performance session | mindful_corr"
+  },
+  {
+   "pid": "pmc-11561076-icn-review",
+   "key": "t:implantedcorticalneuroprostheticsforspeechandmovementrestoration",
+   "title": "Implanted cortical neuroprosthetics for speech and movement restoration",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ation | demonstrated_use_cases=speech_restoration | production_labels=attempted_speech, instructed_imagery | modalities=intracortical_microelectrode, ecog, other | Acquisition.sensor_geometry=Four recording compartments have reached human trials — intracortical microelectrode arrays (Utah: 4 mm², ~100 silicon shanks of 1.5 mm length, 80 µm diameter, penetrating cortex), subdural ECoG/micro-ECoG (no pial transgression after craniotomy), extradural, and intravascular (Stentrode stent electrodes deployed into the sagittal sinus under angiographic control) | representation_kind=Neural signal features mapped by a decoder to speech or movement intention; orofacial sensorimotor-cortex recordings drive direct speech synthesis or virtual-keyboard/cursor control; avatar embodiment can reuse the participant's prior voice and facial expressions | ProcessingStep.architecture=Decoder calibrated per user in a training period on attempted/imagined tasks; Bayesian classifiers + recurrent neural networks + natural language models for word prediction; representational drift countered by continuous online recalibration, achieving >90% accuracy without retraining for >1 year on handwriting | EvaluationProtocol.experimental_design=Decoding evaluated in laboratory trials: BrainGate cursor/handwriting tasks, Utrecht ALS typing, UCSF BRAVO attempted-speech synthesis at 15 wpm, and a 253-channel subdural system (vs 128) reaching a median 78 wpm w"
+  },
+  {
+   "pid": "pmc-11601350-spmotor",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech motor cortex enables BCI cursor control and click | authors=speech-motor group | Study.research_objective=speech-motor BCI cursor+click 93% | Study.study_design=controlled_experiment | task_family=sentence_recognition | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=neural trials | te"
+  },
+  {
+   "pid": "pmc-12026362-invasive-bci-communication",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain–Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "enue=Brain Sciences | review_state=source_checked | Study.research_objective=Scoping review of intracranial BCIs (ECoG, intracortical microelectrodes, sEEG) used to restore communication in patients with neurological deficits | Study.unit_of_analysis=Human implant studies: device type, cortical target, task (cursor, attempted/silent/overt speech), decoding outcome (accuracy, words per minute, sentence decoding) | task_encoding=attempted_utterance | task_family=speech_reconstruction | tested_population=target_users | Cohort.demographics=Across 41 studies: mostly tetraplegic patients — 10 intracranial implants with ALS, 6 with brainstem stroke, 13 with spinal cord injury; ECoG cases often opportunistic in epilepsy/movement-disorder patients | intended_use_cases=speech_restoration, private_communication, assistive_text_entry | demonstrated_use_cases=speech_restoration, assistive_text_entry | production_labels=attempted_speech, silent_articulation, ordinary_voiced_speech, instructed_imagery | modalities=ecog, intracortical_microelectrode, other | Acquisition.sensor_geometry=ECoG grids/strips on cortical surface, penetrating intracortical silicon microelectrode arrays (e.g., 96-channel Utah-type), and sEEG depth electrodes (hippocampus, thalamus) placed per clinical need | representation_kind=Neural correlates of phonemes (Wernicke BA40, auditory BA42/22, premotor BA6, sensorimotor BA3), gestures, words, sentences; thalamic vowel encoding; attempted vs internally vocalised productions | ProcessingStep.architecture=Cursor/character decoders → attempted-speech classifiers → recurrent neural networks converting attempted speech into acoustic speech preserving patient pacing; decoder recalibration monitoring signal instability | EvaluationProtocol.experimental_design=PRISMA scoping review of PubMed + OVID Embase — 41 included studies tabulated by device, target, task, and outcome metric | EvaluationRun.execution_artifacts=Speech-to-text/speech-to-audio decoding achieved from intracortical devices; real-time full-sentence decoding from silent speech attempts; up to 62 words/min; SMG word decoding 24–55% offline, 25–79% online internal speech; sEEG speech decoding remains in infancy | extra.Output.output_kind=Synthesis of invasive-communication-BCI progress: from cursor spelling to real-time sentence text and artificial-voice output, with patient counts, targets, and accuracies | Claim.c"
+  },
+  {
+   "pid": "pmc-12208300-cursor",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech motor cortex enables BCI cursor control and click | authors=cursor-click group | Study.research_objective=speech-motor-cortex BCI cursor control+click | Study.study_design=controlled_experiment | task_family=sentence_recognition | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | model_family=linear_model | Dataset.count"
+  },
+  {
+   "pid": "pmc-12208300-spchcursor",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech motor cortex enables BCI cursor control and click | authors=Singer-Clark, Hou, Card, Wairagkar | venue=Journal of Neural Engineering | Study.research_objective=ventral speech motor cortex enabling cursor control and click | Study.study_design=controlled_experiment | task_family=command_selection | extra.Production.scope_note=speech-motor-cortex cursor-BCI study | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=ventral sp"
+  },
+  {
+   "pid": "pmc-12208300-vpcg-cursor",
+   "key": "t:speechmotorcortexenablesbcicursorcontrolandclick",
+   "title": "Speech motor cortex enables BCI cursor control and click",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12208300-vpcg-cursor | title=Speech motor cortex enables BCI cursor control and click | authors=T. Singer-Clark, N. Hou, N. S. Card, M. Wairagkar, M. Iacobacci, R. Peracha, L. R. Hochberg, S. D. Stavisky, D. M. Brandman | venue=Journal of Neural Engineering | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Test whether ventral precentral gyrus (speech motor cortex) can drive cursor+click computer control, enabling a multi-modal speech+pointing BCI | Study.unit_of_analysis=T15, a 45-year-old left-handed man with ALS, tetraplegic with severe dysarthria; four intracortical arrays in vPCG previously used for a speech BCI | task_encoding=learned_code_or_gesture | task_family=command_selection | tested_population=target_users | Cohort.demographics=T15: 45-year-old left-handed man with ALS, tetraplegic + severe dysarthria, BrainGate2 NCT00912041; four intracortical microelectrode arrays in vPCG | intended_use_cases=device_control, speech_restoration | demonstrated_use_cases=device_control | production_labels=attempted_speech | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=Four intracortical microelectrode arrays implanted in ventral precentral gyrus; per ms: threshold crossings + spike band power per electrode → 512 neural featu"
+  },
+  {
+   "pid": "pmc-12452802-aac_access",
+   "key": "t:supportingeffectivealternativeaccessforindividualswithphysicaldisabilitiesstateo",
+   "title": "Supporting effective alternative access for individuals with physical disabilities: state of the science, emerging technologies, and future directions",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "ience on alternative access: does method matter, how to choose best fit, emerging technologies | Study.unit_of_analysis=typing speed (wpm) per access method across published studies | task_family=spelling_text_entry | tested_population=target_users | modalities=scalp_eeg, surface_emg, intracortical_microelectrode, other | intrusiveness=external_noncontact | Acquisition.sensor_geometry=reviewed methods: keyboard/swit"
+  },
+  {
+   "pid": "pmc-13317629-fullstack",
+   "key": "t:fullstackarchitecturesforintelligentbraincomputerinterfaces",
+   "title": "Full-Stack Architectures for Intelligent Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "es=speech_restoration, assistive_text_entry | production_labels=attempted_speech, task_evoked_inner_speech | modalities=intracortical_microelectrode, ecog, scalp_eeg | Acquisition.sensor_geometry=intracortical Utah/MEA + thin-film rGO (25um) + endovascular (<100um vessels) + ECoG/EEG across reviewed systems | representation_kind=spike/LFP features -> time-frequency spectrograms -> CNN/Transformer; sequence models RNN/temporal conv/attention | ProcessingStep.architecture={'stages': ['record neural signals via implanted/epidural/ECoG/EEG electrodes', 'wireless data + power transfer', 'artifact gating + feature extraction (spectrogram/CNN)', 'sequence decoding (RNN/Transformer) to text/voice output']} | EvaluationProtocol.experimental_design=survey of clinical-grade demonstrations incl. attempted-speech brain-to-voice (PER 37.1%, <10ms), attempted handwriting (WER 1.5%), ECoG visual decode 97.8% | EvaluationRun.execution_artifacts=benchmark table: brain-to-voice PER 37.1% <10ms Transformer; attempted handwriting WER 1.5% 0.4s RNN+LM; MEA text entry tens of chars/min | extra.Output.output_kind=synthesized voice/text from intracortical signals; restored communication"
+  },
+  {
+   "pid": "pmc-13317701-dawn",
+   "key": "t:braincomputerinterfacesthedawnofaneweraindiseasetreatment",
+   "title": "Brain–Computer Interfaces: The Dawn of a New Era in Disease Treatment",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "tended_use_cases=speech_restoration, device_control | production_labels=attempted_speech, other | modalities=scalp_eeg, intracortical_microelectrode, other | Acquisition.sensor_geometry=history spans noninvasive EEG/SCP to implanted motor neuroprosthesis + DBS neuromodulation | representation_kind=neural signals (SCP/EEG/iEEG) decoded to output commands; Wolpaw 2000 definition framework | ProcessingStep.architecture={'stages': ['neural signal detection (EEG/iEEG)', 'decoding to output commands', 'feedback control of external devices', 'closed-loop neuromodulation (aDBS)']} | EvaluationProtocol.experimental_design=narrative review + historical classification; no quantitative benchmark | EvaluationRun.execution_artifacts=review synthesis; cited milestones: SCP-LIS communication, Kennedy cursor, Nagle robotic arm (2004) | extra.Output.output_kind=BCI design-space synthesis for disease treatment incl. communicati"
+  },
+  {
+   "pid": "pmc-13375540-ibciterm",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain-computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term independent use of an intracortical brain-computer interface for speech and cursor control | authors=Card, Singer-Clark, Peracha, Iacobacci et al (UC Davis / BrainGate2) | venue=Nature Medicine | Study.research_objective=demonstrate independent near-daily home use of multimodal iBCI (speech + cursor) in T15 (45yo, ALS severe dysarthria): 4x64ch ventral precentral gyrus; >3,800h over ~2yr (444/653 days); attempted speech >99% word acc 125k vocab; vocalized >99% @30.6 WPM, silent 96.5% @49.7 WPM; ~56 WPM free use; 92% sentences mostly correct; PC control for texts/emails/browsing | dataset_id=BrainGate2 T15 home-use iBCI logs (~3,800h, 2yr), copy-task sentence decoding sessions | task_family=sentence_recognition | extra.Production.scope_note=attempted overt + silent speech; free-form home communication + copy task | modalities=intracortical_microelectrode | model_family=rnn, transformer | ProcessingStep.hyperparameters=improved speech+cursor decoder architectures; phoneme-to-text with 125k-word LM | Dataset.counts_by_unit=4x64-channel arrays; >3,800h use; 444"
+  },
+  {
+   "pid": "pmc-13375540-ltbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain–computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13375540-ltbci | title=Long-term independent use of an intracortical brain–computer interface for speech and cursor control | authors=Nicholas S. Card, Tyler Singer-Clark, Hamza Peracha, Carrina Iacobacci | venue=Nature Medicine | review_state=source_checked | Study.research_objective=demonstrate independent at-home long-term use of a multimodal intracortical BCI for brain-to-text speech + cursor control without researcher assistance or frequent recalibration | Study.unit_of_analysis=single participant T15 (ALS, severe dysarthria); ~2yr post-implant, independent use from day 281, 19 months near-daily totaling 3,800+ h; attempted-speech sentence decoding + cursor; usage and accuracy logged longitudinally | task_encoding=attempted_utterance | task_family=speech_reconstruction | target_population=combined_impairments | tested_population=target_users | intended_use_cases=speech_restoration, device_control | demonstrated_use_cases=speech_restoration, device_control, private_communication | production_labels=attempted_speech, silent_articulation | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=chronically implanted intracortical microelectrode arrays (speech+motor areas) in participant T15 with ALS | representation_kind=neural features → word-sequence probabilities over >125,000-word English vocabulary; continuous background decoder recalibration against slow neural drift | ProcessingStep.architecture={'stages': ['intracortical neural recording', 'brain-to-text speech decoder (continuous background recalibration)', 'RNN-based cursor decoder (≥ linear models, reduced calibration)', 'speech-as-keyboard + cursor-as-mouse PC control']} | EvaluationProtocol.experimental_design=longitudinal observational+task metrics: prompted word copy (125k vocab), vocalized vs silent attempted speech WPM/accuracy, sentence self-labels, logged daily usage hours | EvaluationRun.execution_artifacts=3,800+ independent-use hours over 19 months (9.5 h/day avg); 183,060 sentences/1.96M words at 56 wpm; 92% sentences ≥mostly correct; >99% word accuracy (99.2% copy, 125k vocab); silent 96.5% @49.7wpm vs vocalized >99% @30.6wpm | extra.Output.output_kind=decoded text sentences + cursor control for personal computer use (texts, emails, browsing) | Claim.claim_scope=a multimodal iBCI can sustain independent, near-daily, researcher-free home use for speech+cursor over ~2 years with high accuracy and minimal recalibration burden | Claim.claim_scope=continuous background recalibration against neural drift plus RNN cursor decoding enable the sustained accuracy; silent-speech decoding trades ~2.7pp accuracy for +19wpm vs vocalized attempted"
+  },
+  {
+   "pid": "pmc-13375540-ltc-speechbci",
+   "key": "t:longtermindependentuseofanintracorticalbraincomputerinterfaceforspeechandcursorc",
+   "title": "Long-term independent use of an intracortical brain-computer interface for speech and cursor control",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term independent use of an intracortical brain-computer interface for speech and cursor control | authors=Card NS, Singer-Clark T, Peracha H, Iacobacci C, Hou X, Wairagkar M, Fogg Z, et al. | venue=Nature Medicine (2026), doi 10.1038/s41591-026-04414-6; PMC13375540 | doi=10.1038/s41591-026-04414-6 | Study.research_objective=demonstrate independent at-home long-term multimodal intracortical BCI (brain-to-text speech + cursor) without researcher oversight | task_family=sentence_recognition | intended_use_cases=speech_restoration, private_communication, device_control | task_family=command_selection | production_labels=attempted_speech, silent_articulation, ordinary_voiced_speech | linguistic_form=expanded_phonological | Cohort.recruitment=BrainGate2 clinical trial NCT00912041, enrolled 2023 | Dataset.content_inventory=183,060 self-composed sentences (1,960,163 words) over 3,800+ h at-home use across 444 sessions; periodic copy-task benchmarks 50-200 sentences/session | modalities=intracortical_microelectrode | sensor_hardware=four 64-microelectrode arrays (256 ch) percutaneous wired; spike-band power / multi-unit thresholds; eye tracking integrated | SystemConfiguration.environmental_constraints=percutaneous wired connections, daily care-partner setup, bulk multi-computer system not portable outside home | EvaluationProtocol.experimental_design=longitudinal: self-rated per-sentence correctness; periodic copy-task benchmark (prompted sentences) under vocalized vs silent strategies; structured grid cursor throughput; signal-stability analysis over 678 days | technical_essence=binned neural features (spike-band power / threshold crossings) from 4x64ch arrays -> parallel speech/cursor/click decoders | technical_essence=transformer-based brain-to-text phoneme decoder + language model (125k vocab); continuous background fine-tuning; replaced RNN decoder post-implant day 600 | technical_essence=cursor: linear decoder -> RNN (day 654) reducing calibration to ~0.8 min | evaluation_mode=live_interactive | claim=an intracortical speech+cursor BCI supports near-daily independent home use for ~2 years: 3,800+ h, 183,060 sentences (1.96M words) at 56 WPM with 92% at-least-mostly-correct self-ratings, and >99% prompted word accuracy at 125k vocabulary — first demonstration of researcher-free multimodal BCI independence | claim=task-relevant neural representations and signals remain stable long-term: >90% of electrodes retained >=2Hz spiking across 19+ months and speech-modulation cosine similarity stayed >0.6 over 18+ month gaps | technical_limits=single participant (generalizability unknown); percutaneous wired setup requiring daily care-partner don/doff; bulky non-portable system; conversational-use accuracy below structured copy-task levels; fatigue not systematically assessed | at-home use hours | sentences communicated | words communicated | average speaking rate | sentences at-least-mostly-correct | copy-task word accuracy (transformer) | vocalized copy-task accuracy | silent copy-task accuracy | vocalized rate | silent rate | cursor throughput | modulation cosine similarity floor | electrodes >=2Hz spiking | longest correct utterance"
+  },
+  {
+   "pid": "pmc-13633112-nngest",
+   "key": "t:simultaneousspeechandgesturedecodingformultimodalcommunicationinparalysis",
+   "title": "Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "6% seen vs unseen; no significant drop when combined | extra.Limitation.limitation=n=3 with differing etiologies; prior intracortical work showed cross-effector interference (vPC speech degrades cursor) — residual interference possible | extra.Limitation.status=acknowledged | 65.8 | 253"
+  },
+  {
+   "pid": "pmc-13633113-b2qwerty",
+   "key": "t:noninvasivedecodingoftypedsentencesfromhumanbrainactivity",
+   "title": "Noninvasive decoding of typed sentences from human brain activity",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": ") @1kHz, HP 0.1 / LP 330 Hz; EEG actiCAP slim (BrainVision, BRAINAMP DC) + 3 ocular @1kHz HP 0.02; custom MR-compatible keyboard (metal artifacts) | extra.Production.scope_note=Sentences displayed word-by-word; after final word a visual cue prompts typing the memorized sentence on QWERTY without visual feedback; 29 characters decode set | representation_kind=500 ms windows of sensor activity; keystroke-aligned features peaking t=40 ms post-keypress — efferent motor + afferent somatosensory convergence | ProcessingStep.architecture=Brain2Qwerty 3 stages: (1) convolutional module on 500 ms windows, (2) transformer at sentence level, (3) pretrained language model correction; ablations Conv / Conv+Trans beat EEGNet on MEG | EvaluationProtocol.experimental_design=Sentence-level CER across 20 training-subset splits; hand/key classification vs keystroke; Mann-Whitney across devices; held-out sentence decode | EvaluationRun.execution_artifacts=MEG CER 29% avg (best 18±2.3%, worst 47±3.2%) vs EEG 65% (best 61±1.9%, worst 69±1.8%); device P=1e-7; perfectly decodes held-out sentences; hand classification MEG 74±1.3% vs EEG 64±0.8% (P=8.9e-7) at t=40 ms; errors = QWERTY-near keys → motor-cortex reliance | extra.Output.output_kind=Decoded text strings (CER metric), per-sentence | Dataset.collection_protocol=EEG/MEG during word-by-word sentence viewing + memorized typing, custom non-metallic keyboard | Claim.claim_scope=Noninvasive MEG sentence typing decode reaches CER 18% best/29% mean — narrows the invasive/noninvasive gap for safe BCIs for noncommunicating patients | Claim.claim_scope=Decoder relies primarily on motor representations — mistakes are physically-near keys, hand decode peaks 40 ms post-keystroke | extra.Limitation.status=acknowledged | extra.Limitation.limitation=EEG CER stays ~65% (vs MEG 29%); study does not probe linguistic production mechanisms (companion paper); intracortical baselines still far better (90 cpm, CER<6%) | 29% | 18% | 40ms | 74% | 35"
+  },
+  {
+   "pid": "pmc-13633126-bimantype",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633126-bimantype | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis | authors=BrainGate2 team | venue=Nature Neuroscience | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=iBCI neuroprosthesis decoding attempted bimanual finger movements to QWERTY typing for paralysis | Study.unit_of_analysis=per-character decoding accuracy (offline) and online typing rate (WPM) per participant | task_encoding=attempted_utterance | task_family=spelling_text_entry | target_population=motor_impairment, speech_impairment | tested_population=target_users | intended_use_cases=assistive_text_entry, speech_restoration | demonstrated_use_cases=assistive_text_entry | production_labels=attempted_speech | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=BrainGate2 Utah arrays in precentral area 6d hand knob, ipsi+contra; T18 has 6 arrays; multiunit threshold crossings | representation_kind=bi"
+  },
+  {
+   "pid": "pmc-13633126-bimanualtype",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterp",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after p",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Restoring rapid natural bimanual typing with a neuroprosthesis after p | authors=bimanual-typing group | Study.research_objective=bimanual typing neuroprosthesis 22wpm | Study.study_design=controlled_experiment | task_family=sentence_recognition | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=neural trials | te"
+  },
+  {
+   "pid": "pmc-13633126-bitype",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633126-bitype | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis | authors=Jude Justin J., Levi-Aharoni Hadar, Acosta Alexander J., Allcroft Shane B., Nicolas Claire, Lacayo Bayardo E., Card Nicholas S., Wairagkar Maitreyee, Levin Alisa D., Brandman David M., Stavisky Sergey D., Willett Francis R., Williams Ziv M., Simeral John D., Hochberg Leigh R., Rubin Daniel B. | venue=Nature Neuroscience | review_state=source_checked | Study.research_objective=Restore fast, familiar, high-throughput communication in paralysis via an iBCI typing neuroprosthesis decoding attempted bimanual QWERTY finger movements to text | Study.unit_of_analysis=Real-time decoded characters/sentences: chars per minute, WPM, raw and post-LM character/word error rates in copy and free typing | task_encoding=attempted_utterance | tested_population=target_users | Cohort.demographics=Two BrainGate2 participants with tetraplegia: T17 (65yo, C4 AIS C SCI ~9y, right-handed) and T18 (C4 ASIA A SCI ~18 months, no volitional movement below C4; one ALS participant also referenced); sessions at residence; NCT00912041/IDE G090003 | intended_use_cases=assistive_text_entry | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=Utah microelectrode arrays in precentral gyrus: T17 left-hemisphere arrays across 6d/55b/6v (256 electrodes incl. 2 arrays/128 in hand areas), T1"
+  },
+  {
+   "pid": "pmc-13633126-bityping",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633126-bityping | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis | authors=Jude Justin J., Levi-Aharoni Hadar, Acosta Alexander J., Allcroft Shane B., Nicolas Claire, Lacayo Bayardo E., Card Nicholas S., Wairagkar Maitreyee, Levin Alisa D., Brandman David M., Stavisky Sergey D., Willett Francis R., Williams Ziv M., Simeral John D., Hochberg Leigh R., Rubin Daniel B. | venue=Nature Neuroscience | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Restore familiar high-rate text entry: decode attempted bimanual finger movements into QWERTY keystrokes in people with paralysis | Study.unit_of_analysis=Characters/minute, WPM, word error rate on copy and free-typing tasks across sessions | task_family=spelling_text_entry | tested_population=target_users | Cohort.demographics=Two BrainGate iBCI participants with tetraplegia: T17 (33yo man, ALS, tetraplegia+anarthria+ventilated) and T18 (spinal cord injury) | intended_use_cases=assistive_text_entry | Acquisition.sensor_geometry=Utah microelectrode arrays in precentral gyrus: T17 — 2 arrays each in 6d/55b/6v (256 ch used); T18 — 6 arrays all in 6d hand knob bilaterally (3"
+  },
+  {
+   "pid": "pmc-13633126-ibcityping",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633126-ibcityping | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis | authors=BrainGate2 team | venue=Nature Neuroscience | review_state=source_checked | Study.research_objective=restore rapid natural bimanual QWERTY typing via iBCI from attempted finger movements — familiar high-information-rate paradigm vs point-and-click | Study.unit_of_analysis=per-participant offline character-decoding accuracy + online typing speed (wpm) + error structure within/across fingers and hands | task_encoding=attempted_utterance | task_family=spelling_text_entry | target_population=speech_impairment, motor_impairment | tested_population=target_users | intended_use_cases=assistive_text_entry, private_communication | demonstrated_use_cases=assistive_text_entry | production_labels=attempted_speech | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=Utah microelectrode arrays in precentral/area-6d hand knob, ipsi+contralateral (T18: 6 arrays); NeuroPort 30kHz/16-bit, percutaneous connectors |"
+  },
+  {
+   "pid": "pmc-5319839-ibcityping",
+   "key": "t:highperformancecommunicationbypeoplewithparalysisusinganintracorticalbraincomput",
+   "title": "High performance communication by people with paralysis using an intracortical brain-computer interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5319839-ibcityping | title=High performance communication by people with paralysis using an intracortical brain-computer interface | authors=Chethan Pandarinath, Paul Nuyujukian, Christine H. Blabe, Brittany L. Sorice, Jad Saab, Francis R. Willett, Leigh R. Hochberg | review_state=source_checked | Study.study_design=controlled_experiment | Study.research_objective=Show that an intracortical BCI can deliver communication rates a paralyzed person would actually use: decode imagined hand movement into point-and-click cursor control over an on-screen keyboard, then measure copy/free-typing throughput against able-bodied texting baselines | Study.unit_of_analysis=Three BrainGate participants — T6 (ALS), T5 (63y, spinal-cord tetraplegia), T7 (54y, ALS, typing-naive) — each with a 96-channel intracortical array in the hand area of motor cortex; multiunit spikes + high-frequency LFP; ReFIT Kalman velocity decode + HMM click state; copy-typing on QWERTY/OPTI-II (T6,T5) and ABCDEF (T7), 2-minute blocks; grid-task click accuracy; free typing over days | task_encoding=attempted_utterance | task_family=spelling_text_entry | tested_population=target_users | Cohort.demographics=Three adults with severe motor impairment: T6 ALS, T5 63y tetraplegia post-SCI, T7 54y ALS; all implanted clinical-trial participants with anarthria/paralysis-level communication need | intended_use_cases=assistive_text_entry, private_communication | demonstrated_use_cases=assistive_text_entry | production_labels=attempted_speech | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=96-channel silicon intracortical microelectrode array in motor-cortex hand area; multiunit threshold-crossing spikes and high-frequency local field potentials drive the decoder | representation_kind=On-screen keyboards (QWERTY, OPTI-II optimized layout, alphabetical ABCDEF) as letter targets; metrics = correct characters/minute (ccpm), words/minute, bits/second information throughput, grid click accuracy | ProcessingStep.architecture=ReFIT Kalman filter decodes cursor velocity continuously from spikes+HFLFP (with velocity-bias correction); an HMM infers click state — separating continuous pointing from discrete selection, the decoder pair that beat prior iBCIs | EvaluationProtocol.experimental_design=Rigorous peak-performance protocol: calibrated filters, pseudo-randomized 2-minute copy-typing blocks per layout, grid task for click accuracy, multi-day free-typing logs; ALS-user satisfaction survey (Huggins) as the clinical bar | EvaluationRun.execution_artifacts=Copy-typing records: T6 31.6 ccpm (6.3 wpm), T5 39.2 ccpm (7.8 wpm), T7 13.5 ccpm (2.7 wpm); T6 free typing 24.4 ± 3.3 ccpm; grid click accuracy 92.6% (1007/1087) T6, 97.7% T5; throughput T6 0.93 bits/s, T7 0.64 bits/s — 1.4–4.2× typing-rate and 2.2–4.0× information-throughput gains over prior iBCIs | extra.Output.output_kind=Typed sentences on screen produced solely from attempted hand movement — an assistive-communication iBCI running at smartphone-adjacent rates | Claim.claim_scope=People with paralysis can type by thought at rates near able-bodied smartphone texting — up to ~8 wpm via intracortical point-and-click decode, meeting the communication-rate bar ALS users say they need | Claim.claim_type=generalization |"
+  },
+  {
+   "pid": "pmc-5591042-clickcal",
+   "key": "t:retrospectivelysupervisedclickdecodercalibrationforselfcalibratingpointandclickb",
+   "title": "Retrospectively supervised click decoder calibration for self-calibrating point-and-click brain-computer interfaces.",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Retrospectively supervised click decoder calibration for self-calibrating point-and-click brain-computer interfaces. | authors=Jarosiewicz B, Sarma AA, Saab J, Franco B, Cash SS, Eskandar EN | venue=Journal of physiology, Paris | Study.study_design=controlled_experiment | task_family=command_selection | extra.Production.scope_note=brain-to-text and neural speech decoding | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=not reported | met"
+  },
+  {
+   "pid": "pmc-5718885-dualstate",
+   "key": "t:brainstateclassificationandadualstatedecoderdramaticallyimprovethecontrolofcurso",
+   "title": "Brain-state classification and a dual-state decoder dramatically improve the control of cursor movement through a brain-machine interface.",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-state classification and a dual-state decoder dramatically improve the control of cursor movement through a brain-machine interface. | authors=Sachs NA, Ruiz-Torres R, Perreault EJ, Miller LE | venue=Journal of neural engineering | Study.study_design=controlled_experiment | task_family=command_selection | extra.Production.scope_note=brain-to-text and neural speech decoding | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=not reported | met"
+  },
+  {
+   "pid": "pmc-6218537-cursorpos",
+   "key": "t:brainmachineinterfacecursorpositiononlyweaklyaffectsmonkeyandhumanmotorcorticala",
+   "title": "Brain-machine interface cursor position only weakly affects monkey and human motor cortical activity in the absence of arm movements.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-machine interface cursor position only weakly affects monkey and human motor cortical activity in the absence of arm movements. | authors=Stavisky SD; Kao JC; Nuyujukian P; Pandarinath C; Blabe C; Ryu SI; Hochberg LR; Henderson JM; Shenoy KV | venue=Scientific reports | Study.study_design=controlled_experiment | task_family=command_selection | extra.Production.scope_note=BMI cursor position monkey human motor cortex | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | metric"
+  },
+  {
+   "pid": "pmc-6248919-ibci-tablet",
+   "key": "t:corticalcontrolofatabletcomputerbypeoplewithparalysis",
+   "title": "Cortical control of a tablet computer by people with paralysis",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| review_state=source_checked | Study.research_objective=Demonstrate the first unmodified-consumer-device iBCI: decode intracortical motor-cortex spiking into a Bluetooth HID point-and-click mouse so people with tetraplegia can drive a stock Android tablet through real applications — including a real-time cross-coast chat between two participants | Study.unit_of_analysis=Three BrainGate2 participants — T6 (ALS, 51F, one 96-ch array, days 1013/1018/1034), T9 (ALS, 51M, two 1.5-mm arrays, days 218/222/225), T5 (C4 ASIA-C SCI, 63M, two arrays, days 121/124/140) — ReFIT-KF velocity + HMM click (T6,T5) or cumulative closed-loop + LDA (T9); Nexus 9 on Android 5.1; seven tasks each day; chat session T6↔T9 on implant days 1211/416 | task_encoding=attempted_utterance | task_family=command_selection | tested_population=target_users | Cohort.demographics=Three tetraplegic adults — T6 ALS 51F (ALSFRS 14), T9 ALS 51M (ALSFRS 6), T5 C4 ASIA-C SCI 63M — 2.75 years, 9 months, 4 months post-implant respectively | intended_use_cases=assistive_text_entry, private_communication, device_control, other | demonstrated_use_cases=assistive_text_entry, device_control, other | production_labels=attempted_speech, other | modalities=intracortical_microelectrode | Acquisition.sensor_geometry=One (T6) or two (T9,T5) 96-channel Blackrock intracortical microelectrode arrays (1.0–1.5 mm) in the hand area of dominant motor cortex; threshold-crossing spikes decoded in real time | representation_kind=Continuous 2-D cursor velocity plus a discrete click state — exposed to the tablet as a standard Bluetooth HID wireless mouse, so the OS needs no modification | ProcessingStep.architecture=Per-participant decoders: ReFIT-KF velocity decoding with running bias correction + HMM click classification (T6,T5); cumulative closed-loop decoder + LDA click (T9) — deliberately decoder-agnostic to highlight iBCI reliability rather than one algorithm | EvaluationProtocol.experimental_design=Each participant completes the same seven tasks on three days, timing from keyboard activation to last character; application battery covers web browsing, email, chat, piano, video, text messaging; chat session links T6↔T9 across coasts in real time | EvaluationRun.execution_artifacts=All three completed the full seven-task battery on stock hardware: mean totals 15.4 min (T6), 33.5 min (T9), 19.8 min (T5); one T5 session lost to a cable fault, then remedied; T6↔T9 real-time chat ran cross-coast on implant days 1211/416 — first unmodified consumer-tablet iBCI control | extra.Output.output_kind=A general-purpose interface: full application control (typing, browsing, music, video, chat) rather than a dedicated speller — the decoder output rides a stock Bluetooth mouse profile | Claim.claim_scope=Intracortical BCI can drive an unmodified commercial tablet at useful speed: all three tetraplegic users finished seven real tasks in 15.4–33.5 minutes, including application-level typing and the first real-time person-to-person iBCI chat | Claim.claim_type=generalization | Claim.claim_scope=The interface is decoder-agnostic: ReFIT-KF+HMM and cumulative-closed-loop+LDA both sustained multi-day use up to 2.75 years post-implant, so the result is a platform property not an algorithm artifact | extra.Limitation.status=acknowledged | extra.Limitation.limitation=Three participants, one device family; a fourth T5 session failed on a cable fault; advanced cursor features (click-hold, multitouch, gestures) need extra decoded dimensions; calibration still costs 4–25 minutes per day"
+  },
+  {
+   "pid": "pmc-7824107-bci50y",
+   "key": "t:summaryofoverfiftyyearswithbraincomputerinterfacesareview",
+   "title": "Summary of over fifty years with brain-computer interfaces—a review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "that made brain-controlled communication and prosthesis routine | Study.unit_of_analysis=Chronological survey: EEG/ECoG/intracortical methods × paradigms (P300/SSVEP/ASSR/SCP/SMR/ERD-ERS/MI/imagined+mental speech/hybrid) × applications (spellers, cursor, robotic/prosthetic arms with 7-DoF, wheelchairs, smart homes, gaming) × commercial headsets (NeuroSky MindWave $99+, Emotiv, OpenBCI, g.tec) with efficacy marks — 93–99% μ/β cursor control, 82% smart-home P300 at <149 s/response | task_encoding=task_evoked_inner | Cohort.demographics=Case series across decades: Nagle (2004, C-quadriplegia, speech retained), 58F+66M tetraplegic-anarthric stroke pair on 96-ch arrays, 52F prosthetic-arm user after 13 weeks; healthy volunteers dominate paradigm research | intended_use_cases=assistive_text_entry, device_control, speech_restoration, private_communication, other | demonstrated_use_cases=assistive_text_entry, device_control, speech_restoration, other | production_labels=instructed_imagery, task_evoked_inner_speech, silent_articulation | modalities=scalp_eeg, ecog, intracortical_microelectrode | Acquisition.sensor_geometry=Three tiers: scalp EEG (gel/dry electrodes → consumer headsets at $99+), ECoG 2–3 mm cortical discs (Penfield/Jasper 1930), and 4×4 mm 96-ch intracortical arrays (Blackrock/BrainGate) in M1 hand area; cost keeps invasive hardware experimental and non-invasive devices commercial | representation_kind=Paradigm inventory: evoked ERPs (P300, SSVEP, ASSR), self-paced rhythms (SMR/μ, β, ERD/ERS), slow cortical potentials, motor imagery, and mental-speech/imagined tasks — each with speed-vs-training trade-offs (SSVEP fast but gaze-bound, P300 robust but slow, MI flexible but train-heavy) | ProcessingStep.architecture=Canonical chain — amplify, digitize, feature-extract (band powers, CSP, wavelet, entropy), classify (LDA/SVM/ANN; deep nets appearing late) → command — plus hybrid systems combining two paradigms or EEG+EMG/eye-trackers | EvaluationProtocol.experimental_design=Historical milestones plus tabulated paradigm comparisons: accuracy/efficacy figures (93–99% μ/β cursor, 82% SCI P300 smart-home <149 s), information rates, training demands, and device price sheets; invasive cases report training duration and restored function (7-DoF arm, drinking unaided after 14 y) | EvaluationRun.execution_artifacts=Milestone chain complete: 1875 Caton signals → 1924/30 Berger EEG → 1969/70 animal BCIs → 1973 Vidal concept → 1988 P300 speller → 1991 μ-rhythm cursor → 1999 Birbaumer locked-in spelling → 2004 Nagle implant → 2012 reach-grasp restoration → consumer EEG era | extra.Output.output_kind=A field timeline plus a paradigm-device matrix that doubles as the reference scaffold for EEG-BCI work — spellers for the speechless, cursor/arm control, and first consumer BCIs under $100 | Claim.claim_type=generalization | Claim.claim_scope=Fifty years of incremental method and device work has moved BCI from a speculative idea to practical reality: non-invasive systems already deliver usable spelling, cursor, and smart-home control to patients who cannot move or speak | Claim.claim_scope=Cost and form factor now decide adopti"
+  },
+  {
+   "pid": "pmc-7970827-nhptyping",
+   "key": "t:anonhumanprimatebraincomputertypinginterface",
+   "title": "A Non-Human Primate Brain-Computer Typing Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Non-Human Primate Brain-Computer Typing Interface | authors=Nuyujukian P, Kao JC, Ryu SI | venue=Proceedings of the IEEE. Institute of Electrical and Electronics Engineers | Study.research_objective=a non-human primate brain-computer typing interface | Study.study_design=controlled_experiment | task_family=spelling_text_entry | extra.Production.scope_note=non-human primate brain-computer typing interface | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | Dataset.counts_by_unit=n=1 participants |"
+  },
+  {
+   "pid": "pmc-8491307-cursorclick",
+   "key": "t:generalizablecursorclickdecodingusinggrasprelatedneuraltransients",
+   "title": "Generalizable cursor click decoding using grasp-related neural transients",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Generalizable cursor click decoding using grasp-related neural transients | venue=Journal of neural engineering | Study.research_objective=generalizable cursor click decoding using grasp-related neural transients | task_family=command_selection | extra.Production.scope_note=primary N: grasp transients for click decoding (BrainGate) | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=cursor cli"
+  },
+  {
+   "pid": "pmc-8745032-hapticibci",
+   "key": "t:effectsofperipheralhapticfeedbackonintracorticalbraincomputerinterfacecontroland",
+   "title": "Effects of Peripheral Haptic Feedback on Intracortical Brain-Computer Interface Control and Associated Sensory Responses in Motor Cortex",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Effects of Peripheral Haptic Feedback on Intracortical Brain-Computer Interface Control and Associated Sensory Responses in Motor Cortex | authors=Deo DR, Rezaii P, Hochberg LR | venue=IEEE Transactions on Haptics | Study.research_objective=peripheral haptic feedback effects on intracortical brain-computer interface control | Study.study_design=controlled_experiment | extra.Production.scope_note=peripheral haptic feedback intracortical BCI control motor cortex | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=iBCI cursor control with haptic feedback delivered in blocks of trials | Dataset.counts_by_unit=clinical patients | tested_populati"
+  },
+  {
+   "pid": "pmc-9856340-invbcimod",
+   "key": "t:modulatingbrainactivitywithinvasivebraincomputerinterfaceanarrativereview",
+   "title": "Modulating Brain Activity with Invasive Brain–Computer Interface: A Narrative Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "| intended_use_cases=speech_restoration, assistive_text_entry | production_labels=attempted_speech, other | modalities=intracortical_microelectrode, ecog, other | Acquisition.sensor_geometry=MEA (cortical spikes), ECoG, sEEG, and DBS electrodes in cortex/deep brain | representation_kind=spikes/LFP decoded to motor commands, letter intent, and articulatory→acoustic speech maps | ProcessingStep.architecture={'stages': ['record invasive neural signals', 'decode device-control/letter/speech intent', 'encode via ICMS or DBS stimulation', 'close loop with perceptual feedback']} | EvaluationProtocol.experimental_design=surveyed clinical/BI outcomes: decoding accuracies, typing speed, medication reduction | EvaluationRun.execution_artifacts=letter decoding 94.1% online / >99% corrected; ~115 ch/"
+  },
+  {
+   "pid": "pmc-9915729-cursorrecal",
+   "key": "t:longtermunsupervisedrecalibrationofcursorbcis",
+   "title": "Long-term unsupervised recalibration of cursor BCIs",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Long-term unsupervised recalibration of cursor BCIs | authors=Wilson GH, Willett FR | Study.research_objective=long-term unsupervised recalibration of cursor brain-computer interfaces maintains performance | Study.study_design=controlled_experiment | extra.Production.scope_note=long-term unsupervised recalibration cursor BCI | modalities=intracortical_microelectrode | SystemConfiguration.system_lifecycle=implemented_evaluated | ProcessingStep.hyperparameters=unsupervis"
+  }
+ ],
+ "usual_approach": {
+  "design": "language_model",
+  "n": 6,
+  "tier": "pattern match",
+  "population_unique": 17,
+  "note": "Over the 17 primary intracortical studies (pattern match, upper bound, target excluded): language model 6, word prediction or completion 2.",
+  "pids": []
+ },
+ "read_fulltext": [
+  {
+   "pid": "pmc-6248919-ibci-tablet",
+   "role": "prior",
+   "loc": "Results, Table 3",
+   "quote": "The word completion feature increased typing rates by 68% (T6), 13% (T9), and 35% (T5) compared to the predicted typing rate if every selection was a single character."
+  },
+  {
+   "pid": "pmc-13633126-bitype",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "Sentence decoding is improved using a 5-gram language model."
+  },
+  {
+   "pid": "pmc-13633126-bitype",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "Typing speed is user-regulated, reaching 110 characters per minute, resulting in 22 words per minute with a word error rate of 1.6%."
+  }
+ ],
+ "usual_approach_slot_filled": {
+  "design": "language_model",
+  "n": 15,
+  "tier": "pattern match",
+  "pids": [
+   "doi-10.1038-s41593-026-02218-y",
+   "doi-10.1038-s41593-026-02303-2",
+   "pmc-13317629-fullstack",
+   "pmc-13375540-ibciterm",
+   "pmc-12026362-invasive-bci-communication"
+  ],
+  "population_unique": 33
+ },
+ "state_of_the_art": {
+  "pid": "pmc-13633126-bitype",
+  "year": 2026,
+  "metric": "online character rate, attempted bimanual finger typing (QWERTY), participant T18 peak, user-regulated, 22 words per minute at 1.6% WER with a 5-gram language model",
+  "value": 110,
+  "unit": "characters per minute",
+  "timing": "later"
+ },
+ "prior_period_counts": {
+  "definition": "population studies with index year 2016 or earlier, unique studies, full-text pattern match",
+  "population_prior_unique": 3,
+  "designs": {
+   "language_model": 0,
+   "word_prediction_or_completion": 0
+  },
+  "note": "The 3 ledger records with index year 2016 or earlier are a speech-synthesizer BCI (isca-brumberg09_bcisynth), a monkey cursor study (pmc-5718885-dualstate) and pmc-5591042-clickcal, which is [concurrent] (DOI registered 2017-03). None is a prior human cursor-click text-entry study; the prior-period basis is the target's Table 1."
+ },
+ "tally": {
+  "slot_filled_unique": 119,
+  "string_match_unique": 33,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "language_model",
+   "n": 6,
+   "tier": "pattern match",
+   "population_unique": 17
+  },
+  "state_of_the_art": {
+   "pid": "pmc-13633126-bitype",
+   "year": 2026,
+   "metric": "online character rate, attempted bimanual finger typing (QWERTY), participant T18 peak, user-regulated, 22 words per minute at 1.6% WER with a 5-gram language model",
+   "value": 110,
+   "unit": "characters per minute",
+   "timing": "later"
+  },
+  "read": 2,
+  "read_prior": [
+   "pmc-6248919-ibci-tablet"
+  ],
+  "unread": 46,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.0
+ },
+ "clean_population": {
+  "unique_studies": 17,
+  "definition": "primary intracortical studies (human or monkey) among the 33 ledger records; version duplicates merged by title; excluded from the 33 ledger records: 11 reviews or commentaries, 1 dissertation, 1 noninvasive typing study, 1 speech-synthesizer study, the target",
+  "excluded": {
+   "doi-10.1001-jama.2019.19813": "commentary",
+   "doi-10.1007-s13311-022-01190-2": "review",
+   "doi-10.3389-fnins.2020.00123": "review",
+   "doi-10.3390-brainsci15040336": "review",
+   "pmc-12026362-invasive-bci-communication": "review",
+   "pmc-11561076-icn-review": "review",
+   "pmc-12452802-aac_access": "review",
+   "pmc-13317629-fullstack": "review",
+   "pmc-13317701-dawn": "review",
+   "pmc-7824107-bci50y": "review",
+   "pmc-9856340-invbcimod": "review",
+   "doi-10.7302-25565": "dissertation",
+   "doi-10.1038-s41593-026-02303-2": "noninvasive",
+   "pmc-13633113-b2qwerty": "noninvasive",
+   "isca-brumberg09_bcisynth": "speech synthesizer",
+   "pmc-5319839-ibcityping": "target"
+  },
+  "design_counts": {
+   "language_model": 6,
+   "word_prediction_or_completion": 2
+  },
+  "tier": "pattern match"
+ },
+ "prior_period_basis": {
+  "source": "target Table 1 (prior studies of BCI communication rates in people with motor impairment, reviewer's count; notes t115-t117)",
+  "n": 12,
+  "designs": {
+   "rates_without_prediction_or_completion": 10,
+   "rates_with_prediction_or_completion": 2
+  }
+ },
+ "known_item_recall": {
+  "seeds": [
+   "pmc-5326682-als-implant-bci"
+  ],
+  "basis": "the target's in-wiki citations (one, an ECoG study)",
+  "seeds_in_wiki": 1,
+  "found": 0,
+  "recall": 0.0,
+  "missed": [
+   "pmc-5326682-als-implant-bci"
+  ]
+ },
+ "used_by": [
+  "high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf"
+ ]
+}

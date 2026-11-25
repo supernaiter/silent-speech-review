@@ -8,6 +8,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Surface-EMG decoders scored with WER or CER (the 64-study population of the M12 unseen-sentence table), classified by the use-time linguistic constraint their full text names: hand-written or rule grammar, n-gram language model, neural or large language model, or no language model. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); versions once; acoustic-only ASR excluded.
 - Used in: [Development of sEMG sensors and algorithms for silent speech recognition](../../reviews/development-of-semg-sensors-and-algorithms-for-silent-speech-recognition/)
 
+## intracortical-communication-language-assistance
+
+- Table: [`intracortical-communication-language-assistance.csv`](intracortical-communication-language-assistance.csv) (119 slot-filled, 33 pattern match, usual design in 6, 2 read in full)
+- Inclusion rule: Same 33-study intracortical text-entry population as the M06 topic; the design compared is use-time language assistance: a language model, or word prediction / word completion / autocomplete. Boundary: full-text pattern counts with the reference list removed (upper bound; a paper that names a language model only to exclude it or in related work counts); the target is included because it names word completion and prediction while excluding them.
+- Used in: [High performance communication by people with paralysis using an intracortical brain-computer interface](../../reviews/high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf/)
+
 ## large-vocabulary-lm-for-neural-speech
 
 - Table: [`large-vocabulary-lm-for-neural-speech.csv`](large-vocabulary-lm-for-neural-speech.csv) (119 slot-filled, 1162 pattern match, usual design in 152, 4 read in full)

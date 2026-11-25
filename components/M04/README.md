@@ -12,7 +12,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`neural-text-entry-action.csv`](neural-text-entry-action.csv) (5595 slot-filled, 154 pattern match, usual design in 68, 4 read in full)
 - Inclusion rule: Neural BCI studies (intracortical, ECoG, sEEG, EEG, MEG) whose ledger names the recording modality together with a text output, a text error rate or a text-entry rate (characters or words per minute); the design compared is the user action that drives text at use time (attempted handwriting, attempted or overt speech, imagined or inner speech, cursor or keyboard selection, evoked-potential spelling, speech perception). Boundary: a study counts under every action its full text names (upper bound, related-work mentions included); reviews count as pattern matches; versions counted once.
-- Used in: [High-performance brain-to-text communication via handwriting](../../reviews/high-performance-brain-to-text-communication-via-handwriting/)
+- Used in: [High-performance brain-to-text communication via handwriting](../../reviews/high-performance-brain-to-text-communication-via-handwriting/), [High performance communication by people with paralysis using an intracortical brain-computer interface](../../reviews/high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf/)
 
 ## noninvasive-text-production-action
 

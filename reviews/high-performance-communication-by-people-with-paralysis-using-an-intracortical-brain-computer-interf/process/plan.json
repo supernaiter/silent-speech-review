@@ -1,0 +1,83 @@
+{
+ "target": "pmc-5319839-ibcityping",
+ "changed": [
+  "M06",
+  "M12"
+ ],
+ "incidental": [
+  "M04",
+  "M07"
+ ],
+ "inherited": {
+  "M01": "ReFIT-KF motor-control calibration lineage; the T6 movement-suppression comparison is an ancillary test, not a new training-data action or learning procedure.",
+  "M02": "Existing supervised cursor-target and HMM-click calibration targets; no new training-only loss or label source is described.",
+  "M03": "ReFIT-KF calibration, bias-update, and recalibration lineage; participant-specific protocol changes do not introduce a new adaptation method.",
+  "M05": "BrainGate2 intracortical recording lineage using silicon arrays in motor-cortex hand/upper-extremity areas.",
+  "M08": "Conventional on-screen keyboard and typed-character output; no new output representation is introduced.",
+  "M09": "Existing keyboard target-selection interface using HMM click selection or dwell; T7's recentering is a protocol variant.",
+  "M10": "Conventional keyboard delete-based correction; no new correction or re-entry method is introduced.",
+  "M13": "BrainGate2 investigational implanted-system lineage; surgical risks and lack of deployed-system evidence remain inherited operating constraints.",
+  "M11": "Prompted-sentence copy typing and the cued random-target grid task of the BrainGate/Stanford lineage (Hochberg 2006; Nuyujukian 2015, as cited by the target)."
+ },
+ "topics": [
+  {
+   "slot": "M04",
+   "topic": "neural-text-entry-action",
+   "inclusion_rule": "Neural BCI studies (intracortical, ECoG, sEEG, EEG, MEG) whose ledger names the recording modality together with a text output, a text error rate or a text-entry rate (characters or words per minute); the design compared is the user action that drives text at use time (attempted handwriting, attempted or overt speech, imagined or inner speech, cursor or keyboard selection, evoked-potential spelling, speech perception). Boundary: a study counts under every action its full text names (upper bound, related-work mentions included); reviews count as pattern matches; versions counted once.",
+   "pattern": "(?s)(modalities|sensor_hardware|Acquisition\\.sensor_geometry|intrusiveness)=[^|]*(ecog|electrocortico\\w*|intracortical|utah|microelectrode|seeg|stereo-?eeg|scalp_eeg|\\beeg\\b|\\bmeg\\b|electrode grid).*(word error|\\bWER\\b|character error|phoneme error|\\bCER\\b|text decod|sentence decod|brain-to-text|decod\\w* (of )?(text|sentences)|characters per minute|words per minute|correct characters|typing (rate|speed)|text entry|bits per second)|(word error|\\bWER\\b|character error|phoneme error|\\bCER\\b|text decod|sentence decod|brain-to-text|decod\\w* (of )?(text|sentences)|characters per minute|words per minute|correct characters|typing (rate|speed)|text entry|bits per second).*(modalities|sensor_hardware|Acquisition\\.sensor_geometry|intrusiveness)=[^|]*(ecog|electrocortico\\w*|intracortical|utah|microelectrode|seeg|stereo-?eeg|scalp_eeg|\\beeg\\b|\\bmeg\\b|electrode grid)",
+   "design_regex": [
+    "imagined_or_inner_speech",
+    "attempted_speech",
+    "overt_speech",
+    "speech_perception",
+    "cursor_keyboard_typing",
+    "evoked_potential_speller",
+    "attempted_handwriting"
+   ],
+   "audit": "high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf.audit/M04-neural-text-entry-action.audit.json",
+   "reuse": "components/M04/neural-text-entry-action.json"
+  },
+  {
+   "slot": "M06",
+   "topic": "intracortical-cursor-click-communication-decoder",
+   "inclusion_rule": "Intracortical BCI studies (ledger population: 33 unique studies (46 folders) whose ledger text names an intracortical recording (intracortical, Utah array, microelectrode array) together with cursor, point-and-click, keyboard, typing, text entry, characters per minute, ccpm or grid task); the design compared is the decoder that turns neural activity into text-entry selections: continuous Kalman-family cursor decoder (ReFIT-KF or Kalman filter), discrete click decoder (HMM or LDA state classifier), dwell selection, recurrent-network decoders of characters or words. Boundary: full-text pattern counts with the reference list removed, so related-work mentions and reviews count (upper bound); a study counts under every design it names; the target is included; versions counted once.",
+   "pattern": "(?is)(intracortical|utah array|microelectrode array).*(cursor|point-and-click|keyboard|typing|text entry|characters per minute|ccpm|grid task)|(cursor|point-and-click|keyboard|typing|text entry|characters per minute|ccpm|grid task).*(intracortical|utah array|microelectrode array)",
+   "design_regex": [
+    "recurrent_network_decoder",
+    "kalman_cursor_decoder",
+    "discrete_click_decoder",
+    "dwell_selection"
+   ],
+   "audit": "high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf.audit/M06-intracortical-cursor-click-communication-decoder.audit.json",
+   "reuse": null
+  },
+  {
+   "slot": "M07",
+   "topic": "intracortical-communication-language-assistance",
+   "inclusion_rule": "Same 33-study intracortical text-entry population as the M06 topic; the design compared is use-time language assistance: a language model, or word prediction / word completion / autocomplete. Boundary: full-text pattern counts with the reference list removed (upper bound; a paper that names a language model only to exclude it or in related work counts); the target is included because it names word completion and prediction while excluding them.",
+   "pattern": "(?is)(intracortical|utah array|microelectrode array).*(cursor|point-and-click|keyboard|typing|text entry|characters per minute|ccpm|grid task)|(cursor|point-and-click|keyboard|typing|text entry|characters per minute|ccpm|grid task).*(intracortical|utah array|microelectrode array)",
+   "design_regex": [
+    "language_model",
+    "word_prediction_or_completion"
+   ],
+   "audit": "high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf.audit/M07-intracortical-communication-language-assistance.audit.json",
+   "reuse": null
+  },
+  {
+   "slot": "M12",
+   "topic": "intracortical-communication-rate-benchmark",
+   "inclusion_rule": "Same 33-study intracortical text-entry population as the M06 topic; the design compared is the rate metric reported for communication: achieved bitrate on a cued grid, information transfer rate (ITR), correct characters per minute (ccpm), words per minute, word error rate alongside the rate. Boundary: full-text pattern counts with the reference list removed (upper bound; definitions and related-work mentions count); a study counts under every metric it names; the target is included.",
+   "pattern": "(?is)(intracortical|utah array|microelectrode array).*(cursor|point-and-click|keyboard|typing|text entry|characters per minute|ccpm|grid task)|(cursor|point-and-click|keyboard|typing|text entry|characters per minute|ccpm|grid task).*(intracortical|utah array|microelectrode array)",
+   "design_regex": [
+    "words_per_minute",
+    "word_error_rate",
+    "correct_characters_per_minute",
+    "information_transfer_rate",
+    "achieved_bitrate"
+   ],
+   "audit": "high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf.audit/M12-intracortical-communication-rate-benchmark.audit.json",
+   "reuse": null
+  }
+ ],
+ "prep_use": "prep.done absent; prep/plan.draft.json corrected: M06 topic rebuilt (draft pattern matched 2 studies, no inclusion rule); M07/M11/M12 draft topics replaced by full-text design counts over one 33-study intracortical text-entry population; M11 moved to inherited; M04 published topic table reused append-only from prep/audit."
+}
