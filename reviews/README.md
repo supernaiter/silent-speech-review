@@ -121,6 +121,7 @@ Each paper judged component by component against the usual approach and the stat
 - [Visual-Only Recognition of Normal, Whispered and Silent Speech](visual-only-recognition-of-normal-whispered-and-silent-speech/) (2018). Ahead on data: the first public three-mode lip-video corpus. Standard on transfer: the silent drop was known, and most of it is test-mode difficulty, not the training mode.
 - [Improved Speech Reconstruction from Silent Video](improved-speech-reconstruction-from-silent-video/) (2017). Optical-flow tower (M05) and mel-to-linear post-net (M06) are standard: no flow gain in Table 5; trails Le Cornu on S3; no listener test (M12); Lip2Wav's re-run: 27.83% vs 14.08% WER.
 - [Lip Reading Sentences in the Wild](lip-reading-sentences-in-the-wild/) (2017). Made sentence lipreading measurable with LRS, but its decoder and curriculum gains are confounded with data and augmentation, and the beats-a-lipreader claim is on unequal terms.
+- [Vid2speech: Speech Reconstruction from Silent Video](vid2speech-speech-reconstruction-from-silent-video/) (2017). Raw-face CNN to LSP (M05, M06) is standard: 82.6% vs 40.0% over Le Cornu and Milner mixes in forced-choice listening (M12); as a whole system it later scores 44.92% vs 14.08% GRID WER (Lip2Wav).
 
 ## Itemized summaries
 
@@ -158,7 +159,6 @@ Earlier format: evaluation conditions, results and limitations per paper.
 - [Development of sEMG sensors and algorithms for silent speech recognition](development-of-semg-sensors-and-algorithms-for-silent-speech-recognition/) (2018)
 - [Biosignal-Based Spoken Communication: A Survey](biosignal-based-spoken-communication-a-survey/) (2017)
 - [Seeing Through Noise: Visually Driven Speaker Separation and Enhancement](seeing-through-noise-visually-driven-speaker-separation-and-enhancement/) (2017)
-- [Vid2speech: Speech Reconstruction from Silent Video](vid2speech-speech-reconstruction-from-silent-video/) (2017)
 - [Contour-based 3d tongue motion visualization using ultrasound image sequences](contour-based-3d-tongue-motion-visualization-using-ultrasound-image-sequences/) (2016)
 - [LipNet: End-to-End Sentence-level Lipreading](lipnet-end-to-end-sentence-level-lipreading/) (2016)
 - [Silent speech interfaces](silent-speech-interfaces/) (2010)

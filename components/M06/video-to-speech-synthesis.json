@@ -2375,6 +2375,18 @@
    "loc": "Table 4",
    "quote": "21.4% 0.92 3.11 6.239 8.266",
    "added_by": "svts-scalable-video-to-speech-synthesis"
+  },
+  {
+   "pid": "arxiv-1701.00495",
+   "role": "target",
+   "loc": "Sec. 2; Sec. 3.2",
+   "quote": "This produces an unvoiced speech signal and results in unnatural sounding speech."
+  },
+  {
+   "pid": "isca-cornu15-v2speech",
+   "role": "prior",
+   "loc": "Tables 4-5",
+   "quote": "GMM UNV GMM + AAM + LPC Unvoiced"
   }
  ],
  "known_item_recall": {
@@ -2410,7 +2422,18 @@
    "timing": "later"
   },
   "read": 3,
-  "read_prior": [],
+  "read_prior": [
+   "arxiv-2005.08209",
+   "arxiv-2104.13332",
+   "arxiv-2107.12003",
+   "arxiv-2202.09081-vcvts",
+   "arxiv-2212.11377",
+   "arxiv-2306.03258",
+   "cvf-kim21-mabm",
+   "doi-10.1109-tnnls.2022.3191677",
+   "isca-cornu15-v2speech",
+   "isca-vougioukas19_ganv2s"
+  ],
   "unread": 187,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
@@ -2426,6 +2449,7 @@
   "naturall2s-end-to-end-high-quality-multispeaker-lip-to-speech-synthesis-with-differential-digita",
   "robustl2s-speaker-specific-lip-to-speech-synthesis-exploiting-self-supervised-representations",
   "svts-scalable-video-to-speech-synthesis",
+  "vid2speech-speech-reconstruction-from-silent-video",
   "video-driven-speech-reconstruction-using-generative-adversarial-networks",
   "vocoder-based-speech-synthesis-from-silent-videos",
   "zero-shot-personalized-lip-to-speech-synthesis-with-face-image-based-voice-control"
@@ -2677,6 +2701,93 @@
     }
    ],
    "note": "prior = first public before 2022-01 (more than six months before the target, 2022-07); dates from the arXiv id or the index year; related-work mentions count (upper bound)"
+  },
+  {
+   "by": "vid2speech-speech-reconstruction-from-silent-video",
+   "scope": "full texts of the 165 unique video-to-speech studies of this table (reference lists removed)",
+   "tier": "pattern match",
+   "counts": [
+    {
+     "design": "lpc_or_lsp",
+     "regex": "\\bLPC\\b|linear predict|line spectral|\\bLSPs?\\b",
+     "n": 35,
+     "pids": [
+      "isca-almajai06_interspeech",
+      "icassp2007-hueber-eigentongue-ssi",
+      "isca-krnoul07_avsp",
+      "isca-hofer10_interspeech",
+      "isca-kawashima10_timstruct",
+      "w-2246823171",
+      "doi-10.21437-interspeech.2011-316",
+      "isca-wu11_avsp"
+     ],
+     "pids_dated_2016_or_earlier": [
+      "isca-almajai06_interspeech",
+      "icassp2007-hueber-eigentongue-ssi",
+      "isca-krnoul07_avsp",
+      "isca-hofer10_interspeech",
+      "isca-kawashima10_timstruct",
+      "w-2246823171",
+      "doi-10.21437-interspeech.2011-316",
+      "isca-wu11_avsp",
+      "isca-hollenstein13_avsp",
+      "isca-ming13_avsp",
+      "doi-10.21437-interspeech.2015-139"
+     ]
+    },
+    {
+     "design": "unvoiced_noise_excitation",
+     "regex": "unvoiced excitation|white noise excitation|gaussian (white )?noise (as the )?excitation|noise excitation",
+     "n": 6,
+     "pids": [
+      "doi-10.21437-interspeech.2015-139",
+      "doi-10.1109-taslp-2017-2716178",
+      "doi-10.1109-taslp.2017.2716178",
+      "arxiv-1701.00495",
+      "arxiv-1708.01204",
+      "isca-csapo17_interspeech"
+     ],
+     "pids_dated_2016_or_earlier": [
+      "doi-10.21437-interspeech.2015-139"
+     ]
+    },
+    {
+     "design": "handcrafted_visual",
+     "regex": "active appearance model|\\bAAMs?\\b|\\b2D-?DCT\\b|eigenlip|discrete cosine transform",
+     "n": 35,
+     "pids": [
+      "isca-almajai06_interspeech",
+      "icassp2007-hueber-eigentongue-ssi",
+      "icphs2007-hueber-ouisper",
+      "isca-milner07-viswien",
+      "isca-edge08_avsp",
+      "isca-hueber08_segvocoder",
+      "isca-theobald08_interspeech",
+      "isca-theobald08c_interspeech"
+     ],
+     "pids_dated_2016_or_earlier": [
+      "isca-almajai06_interspeech",
+      "icassp2007-hueber-eigentongue-ssi",
+      "icphs2007-hueber-ouisper",
+      "isca-milner07-viswien",
+      "isca-edge08_avsp",
+      "isca-hueber08_segvocoder",
+      "isca-theobald08_interspeech",
+      "isca-theobald08c_interspeech",
+      "doi-10.1016-j.specom.2009.11.005",
+      "isca-kawashima10_timstruct",
+      "isca-mattheyses10_interspeech",
+      "w-2246823171",
+      "doi-10.21437-interspeech.2011-239",
+      "isca-musti11_avsp",
+      "isca-wu11_avsp",
+      "doi-10.21437-interspeech.2012-225",
+      "doi-10.21437-interspeech.2015-139",
+      "isca-rademan15_avsp",
+      "doi-10.1016-j.csl.2015.09.008"
+     ]
+    }
+   ]
   }
  ],
  "state_of_the_art_lrs3": {

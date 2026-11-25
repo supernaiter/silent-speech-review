@@ -4,33 +4,33 @@ Ariel Ephrat, Shmuel Peleg. 2017 IEEE International Conference on Acoustics, Spe
 
 ## Verdict
 
-The paper [[1]](#ref-1) changes the visual input (M05: full-face frames stacked over K = 9 instead of mouth features) and the estimator (M06: a CNN from raw pixels to LSP, keeping the comparator's 8th-order LPC and unvoiced excitation). Both are standard. The gain over Le Cornu and Milner [[2]](#ref-2), 82.6% against 40.0% audio-only word intelligibility on GRID S4 (Table 2), holds in direction but is confounded by the evaluation (M12): Vid2speech listeners picked each word from the GRID vocabulary (Sec. 4.3); the comparator's listeners typed them. The face-over-mouth claim rests on one figure with no stated split or error metric (Fig. 2). Re-run later, it scores 44.92% GRID WER against 14.08% for Lip2Wav [[3]](#ref-3) [later]. The OOV-digit test (51.6% against 10.0% chance, Table 3) is a ten-way choice, not open-vocabulary reconstruction.
+The paper [[1]](#ref-1) changes the visual input (M05: full-face frames stacked over K = 9 instead of mouth features) and the estimator (M06: a CNN from raw pixels to LSP, keeping the comparator's 8th-order LPC and unvoiced excitation). Both are standard. The gain over Le Cornu and Milner [[2]](#ref-2), 82.6% against 40.0% audio-only word intelligibility on GRID S4 (Table 2), holds in direction but is confounded by the evaluation (M12): Vid2speech listeners picked each word from the GRID vocabulary (Sec. 4.3); the comparator's listeners typed them. As a whole system under Lip2Wav's protocol (Google ASR, mean of 4 GRID speakers), it scores 44.92% WER against 14.08% for Lip2Wav [[3]](#ref-3) [later]. The OOV-digit test (51.6% against 10.0% chance, Table 3) is a ten-way choice, not open-vocabulary reconstruction.
 
 ## Against the field, component by component
 
 ### M05 Sensors: full face over several frames
 
-**Usual approach:** Of 165 unique video-to-speech studies (pattern match, Appendix), 76 name a mouth or lip crop and 15 the full face. The comparator used features around a tracked mouth centre point or a lip AAM [[2]](#ref-2); the paper stacks K grayscale 128×128 face crops as channels (Sec. 3.1).
+**Usual approach:** Of 165 unique video-to-speech studies (pattern match, Appendix), 76 name a mouth or lip crop and 15 the full face. The comparator used mouth-centred DCT or lip AAM features [[2]](#ref-2); the paper stacks K grayscale face crops as channels (Sec. 3.1).
 
 **State of the art:** Lip2Wav (2020) [[3]](#ref-3) [later] also uses face crops, calls this channel-stacked 2D-CNN "very inadequate" for real-world faces (Sec. 2.1), and scores 14.08% GRID WER against 44.92% for its re-run of Vid2speech (Table 2, mean of 4 speakers). The gap compares whole systems, not inputs.
 
-The face-over-mouth result (40% lower test error at K = 9, Fig. 2) gives no split, metric definition or seed (Sec. 3.1); the mouth arm is a hard-coded mask (Sec. 4). Verdict: standard.
+The face-over-mouth result (40% lower test error, both at K = 9, Sec. 3.1) gives no split, metric definition or seed; the mouth arm is a hard-coded mask (Sec. 4). Verdict: standard: 15 studies name the full face (Appendix), and one unrepeated figure cannot support ahead.
 
 ### M06 Processing: CNN regression to LSP, unvoiced excitation
 
-**Usual approach:** Of the 165 studies (pattern match, Appendix), 49 name a neural vocoder, 41 a parametric vocoder, 35 LPC or LSP, 35 hand-crafted visual features (AAM, DCT, eigenlips) and 6 unvoiced or noise excitation. The paper replaces the comparator's GMM on AAM features with a CNN on raw pixels, but keeps its 8th-order LPC "to isolate the effect of using CNN-learned visual features versus the hand-crafted ones" (Sec. 2) and its unvoiced Gaussian-noise excitation (Sec. 3.2), matching the comparator's GMM UNV row [[2]](#ref-2).
+**Usual approach:** Of the 165 studies (pattern match, Appendix), 49 name a neural vocoder, 41 a parametric vocoder, 35 LPC or LSP, 35 hand-crafted visual features and 6 unvoiced or noise excitation. The paper replaces the comparator's GMM on AAM features with a CNN on raw pixels, but keeps its 8th-order LPC "to isolate the effect of using CNN-learned visual features" (Sec. 2) and its unvoiced Gaussian-noise excitation (Sec. 3.2), matching the comparator's GMM UNV row [[2]](#ref-2).
 
-**State of the art:** The best GRID row in the 2023 comparison of Kefalas et al. [[4]](#ref-4) [later] is an end-to-end waveform GAN at 4.07% WER (four seen speakers, one ASR with 0.1% WER on real audio, Table IV). Under Lip2Wav's protocol, Vid2speech sits 30.84 points (68.7% relative) behind Lip2Wav on GRID and 44.26 points behind on TCD-TIMIT (75.52% against 31.26%, Table 3) (inference).
+**State of the art:** The lowest WER in Table IV of Kefalas et al. (2023) [[4]](#ref-4) [later] is the end-to-end WGAN (2022) row at 4.07% (four seen GRID speakers, one ASR with 0.1% WER on real audio); their best own row is 4.54%. Its recognizer differs from Lip2Wav's Google ASR, so the WER scales are not comparable. Under Lip2Wav's protocol it trails Lip2Wav by 30.84 points on GRID (68.7% relative) and by 44.26 on TCD-TIMIT (75.52% against 31.26%, Table 3) (inference).
 
-The matched target and excitation leave only the front end and estimator different from [[2]](#ref-2). The comparator's pixel-based DNN (2D-DCT input) scored 26.9% (Table 5), so pixel input alone does not explain the gain (inference). The cost is the excitation: the comparator measured a 7.5-point absolute gain from real voicing (Sec. 5.3), and the paper concedes "unnatural sounding" speech (Sec. 3.2). Verdict: standard.
+The matched target and excitation leave only the front end and estimator different from [[2]](#ref-2). The comparator's DNN on 2D-DCT features scored 26.9% (Tables 4–5). The cost is the excitation: the comparator measured a 7.5-point absolute gain from real voicing (Sec. 5.3), and the paper concedes "unnatural sounding" speech (Sec. 3.2). Verdict: standard.
 
 ### M12 Evaluation: closed-choice listeners and an OOV split
 
-**Usual approach:** Of the 165 studies (pattern match, Appendix), 83 name a listener or opinion test, 51 an unseen-speaker test and 38 ASR WER on the output; 4 name a closed-choice listener format and 5 an out-of-vocabulary word test. The paper runs 23 MTurk workers who classify each word among the GRID options (Sec. 4.3).
+**Usual approach:** Of the 165 studies (pattern match, Appendix), 83 name a listener or opinion test, 51 an unseen-speaker test and 38 ASR WER on the output; 4 name a closed-choice listener format and 5 an out-of-vocabulary word test. The paper has 23 MTurk workers pick each word from the GRID options (Sec. 4.3).
 
-**State of the art:** Kefalas et al. (2023) [[4]](#ref-4) [later] score unseen GRID speakers with one ASR model at 16.05% WER (Table VII); Lip2Wav [[3]](#ref-3) [later] adds raters to ASR WER.
+**State of the art:** One fixed ASR checked on real audio (0.1% WER), unseen speakers and objective metrics: in Kefalas et al. (2023) [[4]](#ref-4) [later] the lowest unseen-GRID WER is 16.05% (WGAN row; best own row 17.08%, Table VII). Lip2Wav [[3]](#ref-3) [later] adds 15 raters for intelligibility and naturalness.
 
-The 82.6% against 40.0% comparison crosses response formats: forced choice among GRID options here, free entry with replays in [[2]](#ref-2) (Sec. 5.2). Both state 19% chance, but forced choice removes off-vocabulary errors (inference). Verdict: standard.
+The 82.6% against 40.0% comparison crosses response formats: forced choice among GRID options here, free entry with replays in [[2]](#ref-2) (Sec. 5.2). Both state 19% chance (Table 2; Sec. 5.2 of [[2]](#ref-2)), but forced choice removes off-vocabulary errors (inference). Verdict: standard.
 
 ## The 13 components
 
@@ -53,23 +53,21 @@ The 82.6% against 40.0% comparison crosses response formats: forced choice among
 ## Where the claims outrun the evidence
 
 - "Significantly more intelligible" (Sec. 4.4) has no test, interval or per-condition count; 38 distinct sequences are pooled across three clip types (Sec. 4.3).
-- Audio-visual scores 79.9% against 82.6% audio-only on S4 (Table 2): adding the real video cost 2.7 points, while the comparator gained 11.9 (inference); with pooled counts the two are not distinguishable.
-- "As done there" (Sec. 4.1) holds for speaker and training size (800 of 1,000 sentences in [[2]](#ref-2)), not for the listener task.
+- Audio-visual scores 79.9% against 82.6% audio-only on S4 (Table 2): adding the real video cost 2.7 points, while the comparator gained 11.9 (inference); pooled counts give no way to show the two differ.
+- "As done there" (Sec. 4.1) holds for speaker and training size (800 of 1,000 sentences in [[2]](#ref-2)), not for the listener task. Its "best results" are the unvoiced row; oracle voicing gave 48.6% (Table 5).
 - "Vocabulary-agnostic" OOV reconstruction (Sec. 1) is 51.6% in a ten-digit choice against 93.4% with all digits trained (Table 3), a 44.8% relative drop (inference) the authors concede (Sec. 4.4).
 
 ## What the field needs next
 
-- M12: the same clips scored by free transcription and by forced choice, with per-condition counts.
+- M12: the same clips scored by free transcription and by forced choice.
 - M05: face against mouth crops on several speakers, with stated split and seed.
-- M06: unvoiced against predicted voicing on fixed LSP predictions.
+- M06: unvoiced against predicted voicing on fixed LSPs.
 
 ## Questions for the authors
 
 - How many judgements underlie each Table 2 and 3 cell?
-- Which data produced Fig. 2, and which error metric does it plot?
-- Which partition supplies the normalization statistics and validation set?
+- Which data and error metric underlie Fig. 2?
 - With which seed was the 80/20 split drawn, and was it repeated?
-- Were the Le Cornu and Milner values re-measured under your listener protocol?
 
 ## Appendix: literature search
 
@@ -83,5 +81,5 @@ Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.b
 
 1. <a id="ref-1"></a>Ephrat, A., Peleg, S. “Vid2speech: Speech Reconstruction from Silent Video.” *2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 2017, 5095-5099. doi:[10.1109/ICASSP.2017.7953127](https://doi.org/10.1109/ICASSP.2017.7953127). arXiv:[1701.00495](https://arxiv.org/abs/1701.00495). Target. Read as arXiv v2; venue, pages and DOI from the ICASSP 2017 proceedings record. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/vid2speech-speech-reconstruction-from-silent-video) [wiki: arxiv-1701.00495](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1701.00495/article.md)
 2. <a id="ref-2"></a>Le Cornu, T., Milner, B. “Reconstructing intelligible audio speech from visual speech features.” *Interspeech 2015*, 2015. doi:[10.21437/Interspeech.2015-139](https://doi.org/10.21437/Interspeech.2015-139). Prior; the comparator [10] of the target; deciding prior for M05, M06 and M12. [wiki: isca-cornu15-v2speech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-cornu15-v2speech/article.md) [wiki: isca-cornu15_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-cornu15_interspeech/article.md)
-3. <a id="ref-3"></a>Prajwal, K. R., Mukhopadhyay, R., Namboodiri, V. P., Jawahar, C. V. “Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis.” *2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2020, 13793-13802. doi:[10.1109/CVPR42600.2020.01381](https://doi.org/10.1109/CVPR42600.2020.01381). arXiv:[2005.08209](https://arxiv.org/abs/2005.08209). Read as arXiv v1; re-runs the target in Tables 2-3. [later] [wiki: arxiv-2005.08209](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2005.08209/article.md)
-4. <a id="ref-4"></a>Kefalas, T., Panagakis, Y., Pantic, M. “Large-scale unsupervised audio pre-training for video-to-speech synthesis.” *IEEE/ACM Transactions on Audio, Speech, and Language Processing*, 2024, 32, 2255-2268. doi:[10.1109/TASLP.2024.3382500](https://doi.org/10.1109/TASLP.2024.3382500). arXiv:[2306.15464](https://arxiv.org/abs/2306.15464). Read as arXiv v1 (2023); table numbers from that version. [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis) [wiki: arxiv-2306.15464-v2apretrain](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2306.15464-v2apretrain/article.md)
+3. <a id="ref-3"></a>Prajwal, K. R., Mukhopadhyay, R., Namboodiri, V. P., Jawahar, C. V. “Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis.” *2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2020. doi:[10.1109/CVPR42600.2020.01381](https://doi.org/10.1109/CVPR42600.2020.01381). arXiv:[2005.08209](https://arxiv.org/abs/2005.08209). Read as arXiv v1; re-runs the target in Tables 2-3. [later] [wiki: arxiv-2005.08209](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2005.08209/article.md)
+4. <a id="ref-4"></a>Kefalas, T., Panagakis, Y., Pantic, M. “Large-scale unsupervised audio pre-training for video-to-speech synthesis.” *IEEE/ACM Transactions on Audio, Speech, and Language Processing*, 2024, 32. doi:[10.1109/TASLP.2024.3382500](https://doi.org/10.1109/TASLP.2024.3382500). arXiv:[2306.15464](https://arxiv.org/abs/2306.15464). Read as arXiv v1 (2023); table numbers from that version. [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis) [wiki: arxiv-2306.15464-v2apretrain](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2306.15464-v2apretrain/article.md)
