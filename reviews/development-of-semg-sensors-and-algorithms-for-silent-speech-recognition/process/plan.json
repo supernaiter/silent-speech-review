@@ -1,0 +1,57 @@
+{
+ "target": "doi-10.1088-1741-2552-aac965",
+ "changed": [
+  "M05",
+  "M06",
+  "M07"
+ ],
+ "incidental": [],
+ "inherited": {
+  "M01": "Subject-dependent models trained on each subject's own mouthed and vocalized sessions (2-3 h per subject); BAE/Delsys lineage (Meltzner 2008)",
+  "M02": "Prompted text labels only; no acoustic target",
+  "M03": "Per-subject training; no separate calibration",
+  "M04": "Silently mouthed (subvocal) speech; vocalized mode in Corpus 1",
+  "M08": "Word sequence text",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Prompted transcripts from TIMIT-derived, NATO, text-message, phrase and digit sets",
+  "M13": "Laboratory sessions of 4-6 h; tethered DE 2.1 and wireless Trigno Mini sensors"
+ },
+ "topics": [
+  {
+   "slot": "M05",
+   "topic": "emg-speech-electrode-subset",
+   "reuse": "components/M05/emg-speech-electrode-subset.json",
+   "inclusion_rule": "Reused published table (rule unchanged): surface-EMG speech studies that evaluate a reduced subset of their electrodes or rank electrodes, classified by how the subset is chosen.",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts",
+   "metric": "WER or accuracy of the best subset relative to the full array"
+  },
+  {
+   "slot": "M06",
+   "topic": "wearable-silent-sentence-decoding",
+   "reuse": "components/M06/wearable-silent-sentence-decoding.json",
+   "inclusion_rule": "Reused published table (rule unchanged): sentence or phrase recognition from silently articulated speech measured by body-worn non-video sensors, classified by sentence decoder (HMM, CTC, attention, whole-sentence classification).",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts",
+   "metric": "WER on silent sentences"
+  },
+  {
+   "slot": "M07",
+   "topic": "emg-recognition-grammar-and-language-model",
+   "inclusion_rule": "Surface-EMG decoders scored with WER or CER (the 64-study population of the M12 unseen-sentence table), classified by the use-time linguistic constraint their full text names: hand-written or rule grammar, n-gram language model, neural or large language model, or no language model. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); versions once; acoustic-only ASR excluded.",
+   "pattern": "EMG + WER/CER ledger pattern (same as M12 table)",
+   "design_field": "full-text regexes grammar_constrained_decoding, ngram_language_model, neural_or_llm_lm, no_language_model",
+   "metric": "WER on silent speech, open or closed vocabulary"
+  },
+  {
+   "slot": "M12",
+   "topic": "emg-text-unseen-sentence-test",
+   "reuse": "components/M12/emg-text-unseen-sentence-test.json",
+   "inclusion_rule": "Reused published table (rule unchanged): surface-EMG decoders scored with WER or CER, classified by whether the headline error is measured on sentences absent from training.",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts",
+   "metric": "WER on held-out sentences"
+  }
+ ]
+}
