@@ -1,0 +1,91 @@
+{
+ "slug": "semantic-reconstruction-of-continuous-language-from-non-invasive-brain-recordings",
+ "target": "doi-10.1038-s41593-023-01304-9",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "passive listening to narrative podcast stories (Huth et al. 2016 lineage), 16 h per subject"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "none beyond the stimulus transcripts; GPT features of the transcript are the encoding-model regressors"
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "per-subject bootstrap ridge encoding model; per-subject word-rate model"
+  },
+  "M04": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "perception-imagery-cross-condition-model",
+     "slot_of_table": "M06",
+     "inclusion_rule": "reused published table: perception-trained models applied to imagery or covert speech",
+     "pattern": "published",
+     "design_field": "full-text regexes of the published table",
+     "metric": "whether a listening-trained decoder transfers to imagined speech and silent video"
+    }
+   ]
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "3T BOLD fMRI, TR 2 s, 2.6 mm voxels; cortical regions localized per subject"
+  },
+  "M06": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "noninvasive-language-decoder-search",
+     "inclusion_rule": "Language, text or semantic decoding studies whose ledger names a non-invasive recording (fMRI/BOLD, fNIRS, MEG or scalp EEG): decoding words, sentences, stories or meaning from perceived, read, imagined or produced language. Boundary: encoding-only or activation-mapping studies and reviews are matched by the ledger pattern but are not deciding priors; versions of one study count once. The design compared is the decoding search: forward encoding-model scoring of candidate word sequences, direct classification, contrastive retrieval of candidates, or sequence-to-sequence generation.",
+     "pattern": "(?s)^(?=.*\\b(fmri|bold|meg|scalp_eeg|eeg|fnirs|magnetoencephalograph\\w*|electroencephalograph\\w*)\\b)(?=.*(semantic_or_intent_decoding|language decod\\w*|decod\\w* (of )?(continuous |natural |perceived |the )?(language|text|sentences?|word sequences|stories|story|narratives?|semantics?|meaning)|word sequence|brain-to-text|eeg-to-text|meg-to-text|fmri-to-text|continuous language|language reconstruction|reconstruct\\w* (continuous |perceived )?(language|text|sentences)|open-vocabulary|text generation))",
+     "design_field": "model_family|representation_kind plus full-text regexes",
+     "metric": "BERTScore / BLEU-1 / WER on held-out perceived stories"
+    }
+   ]
+  },
+  "M07": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "noninvasive-language-decoding-lm-prior",
+     "inclusion_rule": "Language, text or semantic decoding studies whose ledger names a non-invasive recording (fMRI/BOLD, fNIRS, MEG or scalp EEG): decoding words, sentences, stories or meaning from perceived, read, imagined or produced language. Boundary: encoding-only or activation-mapping studies and reviews are matched by the ledger pattern but are not deciding priors; versions of one study count once. The design compared is the use-time language prior: pretrained neural language model (GPT, BART, Llama), n-gram model, beam search; a model used only to produce training features also matches the pattern (upper bound).",
+     "pattern": "(?s)^(?=.*\\b(fmri|bold|meg|scalp_eeg|eeg|fnirs|magnetoencephalograph\\w*|electroencephalograph\\w*)\\b)(?=.*(semantic_or_intent_decoding|language decod\\w*|decod\\w* (of )?(continuous |natural |perceived |the )?(language|text|sentences?|word sequences|stories|story|narratives?|semantics?|meaning)|word sequence|brain-to-text|eeg-to-text|meg-to-text|fmri-to-text|continuous language|language reconstruction|reconstruct\\w* (continuous |perceived )?(language|text|sentences)|open-vocabulary|text generation))",
+     "design_field": "full-text regexes (M07 sparse)",
+     "metric": "BLEU-1 on held-out perceived stories"
+    }
+   ]
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "continuous English word sequence"
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "none (offline)"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "none (offline)"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "verbatim story transcripts; out-of-scanner transcripts for imagined stories; audio descriptions for films"
+  },
+  "M12": {
+   "class": "incidental",
+   "topics": [
+    {
+     "topic": "null-model-construction-neural-decoding",
+     "inclusion_rule": "reused published table",
+     "pattern": "published",
+     "metric": "null construction"
+    }
+   ],
+   "note": "null from language-model sequences generated without brain data; one perceived test story; three subjects; no brain-free control on the full pipeline"
+  },
+  "M13": {
+   "class": "incidental",
+   "note": "mental-privacy tests (cross-subject anatomical alignment, resistance tasks); later cross-participant functional alignment"
+  }
+ }
+}
