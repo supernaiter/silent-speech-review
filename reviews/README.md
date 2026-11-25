@@ -133,6 +133,7 @@ Each paper judged component by component against the usual approach and the stat
 - [Vid2speech: Speech Reconstruction from Silent Video](vid2speech-speech-reconstruction-from-silent-video/) (2017). Raw-face CNN to LSP (M05, M06) is standard: 82.6% vs 40.0% over Le Cornu and Milner mixes in forced-choice listening (M12); as a whole system it later scores 44.92% vs 14.08% GRID WER (Lip2Wav).
 - [LipNet: End-to-End Sentence-level Lipreading](lipnet-end-to-end-sentence-level-lipreading/) (2016). A new CTC sentence decoder, but one corpus and one run make it standard; the comparisons break: an 86.4% word-level HMM baseline, a 10-minute panel, silent dictation untested.
 - [Brain-to-text: decoding spoken phrases from phone representations in the brain](brain-to-text-decoding-spoken-phrases-from-phone-representations-in-the-brain/) (2015). Phone-model decoder (M06) is the EMG recognizer moved to ECoG: standard. 25% WER uses per-phrase dictionaries holding the spoken words (M07); the time-shift null (M12) is sound.
+- [A Wireless Brain-Machine Interface for Real-Time Speech Synthesis](a-wireless-brain-machine-interface-for-real-time-speech-synthesis/) (2009). Closed-loop formant decoding (M06) and F1/F2 output (M08) are standard: gesture-driven formant synthesis came first; one user learns vowels; hit rate lacks a chance level; no speech measured.
 
 ## Itemized summaries
 
