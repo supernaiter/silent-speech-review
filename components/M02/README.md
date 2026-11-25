@@ -8,6 +8,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that generate speech (waveform, spectrogram or vocoder features) from a non-acoustic speech signal (ultrasound, EMA, PMA, EMG, lip or face video, radar, intracranial recordings) and train the mapping network itself with an adversarial (discriminator or critic) loss, alone or added to a regression loss. Boundary: exclude a GAN vocoder (HiFi-GAN, MelGAN, Parallel WaveGAN) trained only on audio and used off the shelf, domain-adversarial or gradient-reversal training against speaker or session, acoustic-input conversion (whisper, NAM) and reviews; the pattern match is an upper bound; versions count once by key.
 - Used in: [Improving Neural Silent Speech Interface Models by Adversarial Training](../../reviews/improving-neural-silent-speech-interface-models-by-adversarial-training/)
 
+## asr-transcribed-unlabelled-video-training
+
+- Table: [`asr-transcribed-unlabelled-video-training.csv`](asr-transcribed-unlabelled-video-training.csv) (31 slot-filled, 1049 pattern match, usual design in 45, 4 read in full)
+- Inclusion rule: Studies whose ledger text names lip reading, visual speech recognition (VSR), AVSR or audio-visual speech recognition, classified from the full text (reference list removed) by the training-label source for unlabelled video: transcripts produced by an audio ASR model or other automatic labeller (pseudo-labels), self-supervised pretraining, or cross-modal teacher distillation. Boundary: a study counts under every design its text names, mentions in related work included (upper bound); papers that only cite or reuse Auto-AVSR as a checkpoint or scorer stay in the population; video-to-speech synthesis is in the population only when its ledger names VSR or AVSR; versions counted once.
+- Used in: [Auto-AVSR: Audio-Visual Speech Recognition with Automatic Labels](../../reviews/auto-avsr-audio-visual-speech-recognition-with-automatic-labels/)
+
 ## audio-derived-speech-activity-labels
 
 - Table: [`audio-derived-speech-activity-labels.csv`](audio-derived-speech-activity-labels.csv) (31 slot-filled, 119 pattern match, usual design in 22, 2 read in full)
