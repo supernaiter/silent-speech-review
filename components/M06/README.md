@@ -223,6 +223,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Language or text decoding studies whose ledger names scalp EEG or MEG. The design compared is how the decoder is segmented at test time: windows locked to known events supplied to the decoder (word, stimulus or keystroke onsets) versus continuous decoding that infers segmentation itself (CTC, asynchronous or sliding-window decoding). Boundary: event-locked training with continuous test-time decoding counts as continuous; reviews count as pattern matches only.
 - Used in: [Brain-to-Text Decoding: A Non-invasive Approach via Typing](../../reviews/brain-to-text-decoding-a-non-invasive-approach-via-typing/), [Continuous Silent Speech Recognition using EEG](../../reviews/continuous-silent-speech-recognition-using-eeg/)
 
+## noninvasive-language-decoder-search
+
+- Table: [`noninvasive-language-decoder-search.csv`](noninvasive-language-decoder-search.csv) (7345 slot-filled, 335 pattern match, usual design in 251, 5 read in full)
+- Inclusion rule: Language, text or semantic decoding studies whose ledger names a non-invasive recording (fMRI/BOLD, fNIRS, MEG or scalp EEG): decoding words, sentences, stories or meaning from perceived, read, imagined or produced language. Boundary: encoding-only or activation-mapping studies and reviews are matched by the ledger pattern but are not deciding priors; versions of one study count once. The design compared is the decoding search: forward encoding-model scoring of candidate word sequences, direct classification, contrastive retrieval of candidates, or sequence-to-sequence generation.
+- Used in: [Semantic reconstruction of continuous language from non-invasive brain recordings](../../reviews/semantic-reconstruction-of-continuous-language-from-non-invasive-brain-recordings/)
+
 ## noninvasive-speech-decoding-objective
 
 - Table: [`noninvasive-speech-decoding-objective.csv`](noninvasive-speech-decoding-objective.csv) (7345 slot-filled, 538 pattern match, usual design in 98, 6 read in full)

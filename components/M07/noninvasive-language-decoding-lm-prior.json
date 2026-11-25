@@ -1,0 +1,4277 @@
+{
+ "topic": "noninvasive-language-decoding-lm-prior",
+ "slot": "M07",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*\\b(fmri|bold|meg|scalp_eeg|eeg|fnirs|magnetoencephalograph\\w*|electroencephalograph\\w*)\\b)(?=.*(semantic_or_intent_decoding|language decod\\w*|decod\\w* (of )?(continuous |natural |perceived |the )?(language|text|sentences?|word sequences|stories|story|narratives?|semantics?|meaning)|word sequence|brain-to-text|eeg-to-text|meg-to-text|fmri-to-text|continuous language|language reconstruction|reconstruct\\w* (continuous |perceived )?(language|text|sentences)|open-vocabulary|text generation))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Language, text or semantic decoding studies whose ledger names a non-invasive recording (fMRI/BOLD, fNIRS, MEG or scalp EEG): decoding words, sentences, stories or meaning from perceived, read, imagined or produced language. Boundary: encoding-only or activation-mapping studies and reviews are matched by the ledger pattern but are not deciding priors; versions of one study count once. The design compared is the use-time language prior: pretrained neural language model (GPT, BART, Llama), n-gram model, beam search; a model used only to produce training features also matches the pattern (upper bound).",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 120,
+  "slot_filled_unique": 119,
+  "string_match_folders": 395,
+  "string_match_unique": 335,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M07",
+  "design_slot_fill": 0.013,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "InformationUse.access_class=normally_available",
+    "n": 10,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436",
+     "cmcl-2026-akama-brain2text",
+     "osf-g34v7-istals",
+     "pmc-13405265-avtiming",
+     "pmc-12019108-headed-syntax"
+    ]
+   },
+   {
+    "design": "InformationUse.use_stage=inference",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436",
+     "cmcl-2026-akama-brain2text",
+     "osf-g34v7-istals",
+     "pmc-12019108-headed-syntax",
+     "arxiv-2402.15011"
+    ]
+   },
+   {
+    "design": "information_availability=runtime_available",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436",
+     "arxiv-2605.08075"
+    ]
+   },
+   {
+    "design": "InformationUse.retrieval_scope=3s windows of meg (208/273ch) or eeg (60/128ch) recordings resampled to 120 hz",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2208.12266-natmi"
+    ]
+   },
+   {
+    "design": "target_relation=evaluation_reference",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2605.08075"
+    ]
+   },
+   {
+    "design": "target_relation=observation",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.21436"
+    ]
+   },
+   {
+    "design": "InformationUse.use_stage=evaluation",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "pmc-13405265-avtiming"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "pretrained_neural_lm",
+    "n": 112,
+    "tier": "pattern match",
+    "pids": [
+     "acl2026-pred-fmri",
+     "arxiv-2601.13866",
+     "arxiv-2601.20447",
+     "arxiv-2603.03312",
+     "arxiv-2603.12628-ub2t"
+    ]
+   },
+   {
+    "design": "ngram_lm",
+    "n": 49,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2601.20447",
+     "arxiv-2603.03312",
+     "arxiv-2604.16441",
+     "arxiv-2605.17503",
+     "arxiv-2606.20696-mindalign"
+    ]
+   },
+   {
+    "design": "beam_search",
+    "n": 30,
+    "tier": "pattern match",
+    "pids": [
+     "acl2026-pred-fmri",
+     "arxiv-2603.12628-ub2t",
+     "arxiv-2604.16441",
+     "arxiv-2607.12079",
+     "arxiv-2608-18114-natsent"
+    ]
+   }
+  ],
+  "metric_pattern": "BLEU-?1|BLEU",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "S2 MapGuide bleupos",
+   "value": 95.91,
+   "unit": "score",
+   "raw": "95.91",
+   "pid": "arxiv-2403.17516",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Speech2Text BLEU-1",
+   "value": 90.28,
+   "unit": "percent",
+   "raw": "90.28",
+   "pid": "arxiv-2410.20916",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "brain-to-caption benchmark",
+   "value": 63.2,
+   "unit": "BLEU1_pct",
+   "raw": "BrainJanus COCO-GT BLEU1 vs MindLLM 61.75",
+   "pid": "arxiv-2606.30319",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BLEU1 56.79",
+   "value": 56.79,
+   "unit": "bleu1",
+   "raw": "subj01 BLEU-1 for direct semantic decoding",
+   "pid": "arxiv-2503.22697",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Schoffelen session BLEU-1",
+   "value": 53.16,
+   "unit": "percent",
+   "raw": "53.16",
+   "pid": "arxiv-2403.01748",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BLEU-1",
+   "value": 45.2,
+   "unit": "percent",
+   "raw": "45.2%",
+   "pid": "osf-g34v7-istals",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "+40.2% BLEU-1",
+   "value": 40.2,
+   "unit": "pct_improvement",
+   "raw": "BLEU-1 improvement over prior classification SOTA",
+   "pid": "arxiv-2311.09889",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word-level BLEU-1",
+   "value": 21.93,
+   "unit": "percent",
+   "raw": "DELTA word-level BLEU-1",
+   "pid": "arxiv-2511.21746",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BLEU-1",
+   "value": 15.58,
+   "unit": null,
+   "raw": "15.58",
+   "pid": "arxiv-2607.12071",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ind p2 brainctx bleu1",
+   "value": 0.308,
+   "unit": "ratio",
+   "raw": "0.308",
+   "pid": "arxiv-2408.05362",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "acl2026-pred-fmri",
+   "key": "t:languagereconstructionwithbrainpredictivecodingfromfmridata",
+   "title": "Language Reconstruction with Brain Predictive Coding from fMRI Data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=acl2026-pred-fmri | title=Language Reconstruction with Brain Predictive Coding from fMRI Data | authors=Congchi"
+  },
+  {
+   "pid": "arxiv-1505.06670",
+   "key": "t:thecompositionalnatureofeventrepresentationsinthehumanbrain",
+   "title": "The Compositional Nature of Event Representations in the Human Brain",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1505.06670 | title=The Compositional Nature of Event Representations in the Human Brain | authors=Andrei"
+  },
+  {
+   "pid": "arxiv-1507.05869",
+   "key": "t:kernelconvolutionmodelfordecodingsoundsfromtimevaryingneuralresponses",
+   "title": "Kernel convolution model for decoding sounds from time-varying neural responses",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1507.05869 | title=Kernel convolution model for decoding sounds from time-varying neural responses | auth"
+  },
+  {
+   "pid": "arxiv-1911.11610-impeegasr",
+   "key": "t:improvingeegbasedcontinuousspeechrecognition",
+   "title": "Improving EEG based Continuous Speech Recognition",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1911.11610-impeegasr | title=Improving EEG based Continuous Speech Recognition | authors=Krishna Gautam,"
+  },
+  {
+   "pid": "arxiv-2006.01261-eegsep",
+   "key": "t:understandingeffectofspeechperceptionineegbasedspeechrecognitionsystems",
+   "title": "Understanding effect of speech perception in EEG based speech recognition systems",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2006.01261-eegsep | title=Understanding effect of speech perception in EEG based speech recognition syste"
+  },
+  {
+   "pid": "arxiv-2006.02902-eegvae",
+   "key": "t:constrainedvariationalautoencoderforimprovingeegbasedspeechrecognitionsystems",
+   "title": "Constrained Variational Autoencoder for improving EEG based Speech Recognition Systems",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2006.02902-eegvae | title=Constrained Variational Autoencoder for improving EEG based Speech Recognition"
+  },
+  {
+   "pid": "arxiv-2009.02110",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2009.02110 | title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 2020; v3"
+  },
+  {
+   "pid": "arxiv-2009.04765",
+   "key": "t:brain2worddecodingbrainactivityforlanguagegeneration",
+   "title": "Brain2Word: Decoding Brain Activity for Language Generation",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2009.04765 | title=Brain2Word: Decoding Brain Activity for Language Generation | authors=Nicolas Affolter"
+  },
+  {
+   "pid": "arxiv-2112.02690",
+   "key": "t:openvocabularyelectroencephalographytotextdecodingandzeroshotsentimentclassifica",
+   "title": "Open Vocabulary Electroencephalography-To-Text Decoding and Zero-shot Sentiment Classification",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2112.02690 | title=Open Vocabulary Electroencephalography-To-Text Decoding and Zero-shot Sentiment Classi"
+  },
+  {
+   "pid": "arxiv-2208.12266-natmi",
+   "key": "t:decodingspeechperceptionfromnoninvasivebrainrecordings",
+   "title": "Decoding speech perception from non-invasive brain recordings",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2208.12266 | title=Decoding speech perception from non-invasive brain recordings | authors=Alexandre Défo"
+  },
+  {
+   "pid": "arxiv-2302.01736",
+   "key": "t:relatingeegtocontinuousspeechusingdeepneuralnetworksareview",
+   "title": "Relating EEG to continuous speech using deep neural networks: a review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2302.01736 | title=Relating EEG to continuous speech using deep neural networks: a review | authors=Coren"
+  },
+  {
+   "pid": "arxiv-2309.01848",
+   "key": "t:ahumancentricmetaverseenabledbybraincomputerinterfaceasurvey",
+   "title": "A Human-Centric Metaverse Enabled by Brain-Computer Interface: A Survey",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2309.01848 | title=A Human-Centric Metaverse Enabled by Brain-Computer Interface: A Survey | venue=survey"
+  },
+  {
+   "pid": "arxiv-2309.07701",
+   "key": "t:semanticreconstructionofcontinuouslanguagefrommegsignals",
+   "title": "Semantic reconstruction of continuous language from MEG signals",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2309.07701 | title=Semantic reconstruction of continuous language from MEG signals | authors=Bo Wang, Xir"
+  },
+  {
+   "pid": "arxiv-2309.16457",
+   "key": "t:sisdsleepinterpreterthroughawakeguidedcrosssubjectsemanticdecoding",
+   "title": "SI-SD: Sleep Interpreter through awake-guided cross-subject Semantic Decoding",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2309.16457 | title=SI-SD: Sleep Interpreter through awake-guided cross-subject Semantic Decoding | author"
+  },
+  {
+   "pid": "arxiv-2311.09889",
+   "key": "t:brainllmgenerativelanguagedecodingfrombrainrecordings",
+   "title": "BrainLLM: Generative Language Decoding from Brain Recordings",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2311.09889 | title=BrainLLM: Generative Language Decoding from Brain Recordings | authors=Ziyi Ye, Qingya"
+  },
+  {
+   "pid": "arxiv-2312.10987",
+   "key": "t:rethinkingcrosssubjectdatasplittingforbraintotextdecoding",
+   "title": "Rethinking Cross-Subject Data Splitting for Brain-to-Text Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2312.10987 | title=Rethinking Cross-Subject Data Splitting for Brain-to-Text Decoding | venue=AAAI 2024;"
+  },
+  {
+   "pid": "arxiv-2402.15011",
+   "key": "t:aconversationalbrainartificialintelligenceinterface",
+   "title": "A Conversational Brain-Artificial Intelligence Interface",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Conversational Brain-Artificial Intelligence Interface | paper_version=arXiv 2402.15011v2, submitted 14 March 20"
+  },
+  {
+   "pid": "arxiv-2403.01748",
+   "key": "t:neuspeechdecodeneuralsignalasspeech",
+   "title": "NeuSpeech: Decode Neural signal as Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.01748 | title=NeuSpeech: Decode Neural signal as Speech | venue=ICLR 2024 submission; v3 | Study.res"
+  },
+  {
+   "pid": "arxiv-2403.11771",
+   "key": "t:modalityagnosticfmridecodingofvisionandlanguage",
+   "title": "Modality-Agnostic fMRI Decoding of Vision and Language",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.11771 | title=Modality-Agnostic fMRI Decoding of Vision and Language | authors=Mitja Nikolaus, Milad"
+  },
+  {
+   "pid": "arxiv-2403.17516",
+   "key": "t:mapguideasimpleyeteffectivemethodtoreconstructcontinuouslanguagefrombrainactivit",
+   "title": "MapGuide: A Simple yet Effective Method to Reconstruct Continuous Language from Brain Activities",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.17516 | title=MapGuide: A Simple yet Effective Method to Reconstruct Continuous Language from Brain"
+  },
+  {
+   "pid": "arxiv-2405.02165",
+   "key": "t:eeg2textopenvocabularyeegtotextdecodingwitheegpretrainingandmultiviewtransformer",
+   "title": "EEG2TEXT: Open Vocabulary EEG-to-Text Decoding with EEG Pre-Training and Multi-View Transformer",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2405.02165 | title=EEG2TEXT: Open Vocabulary EEG-to-Text Decoding with EEG Pre-Training and Multi-View Tr"
+  },
+  {
+   "pid": "arxiv-2405.07840",
+   "key": "t:openvocabularyauditoryneuraldecodingusingfmripromptedllm",
+   "title": "Open-vocabulary Auditory Neural Decoding Using fMRI-prompted LLM",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2405.07840 | title=Open-vocabulary Auditory Neural Decoding Using fMRI-prompted LLM | authors=Xiaoyu Chen"
+  },
+  {
+   "pid": "arxiv-2405.11459",
+   "key": "t:duindiscreteunitsguidedmaskmodelingfordecodingspeechfromintracranialneuralsignal",
+   "title": "Du-IN: Discrete units-guided mask modeling for decoding speech from Intracranial Neural signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.48550/arXiv.2405.11459 | title=Du-IN: Discrete units-guided mask modeling for decoding speech from Intracran"
+  },
+  {
+   "pid": "arxiv-2405.14055",
+   "key": "t:howmanybytescanyoutakeoutofbraintotextdecoding",
+   "title": "How Many Bytes Can You Take Out Of Brain-To-Text Decoding?",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2405.14055 | title=How Many Bytes Can You Take Out Of Brain-To-Text Decoding? | venue=arXiv 2024; v1 | St"
+  },
+  {
+   "pid": "arxiv-2405.17720",
+   "key": "t:mindformersemanticalignmentofmultisubjectfmriforbraindecoding",
+   "title": "MIND FORMER : S EMANTIC ALIGNMENT OF MULTI - SUBJECT F MRI FOR BRAIN DECODING",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2405.17720 | title=MIND FORMER : S EMANTIC ALIGNMENT OF MULTI - SUBJECT F MRI FOR BRAIN DECODING | author"
+  },
+  {
+   "pid": "arxiv-2406.01512",
+   "key": "t:madmultialignmentmegtotextdecoding",
+   "title": "MAD: Multi-Alignment MEG-to-Text Decoding",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2406.01512 | title=MAD: Multi-Alignment MEG-to-Text Decoding | authors=Yiqian Yang, Hyejeong Jo, Yiqun Du"
+  },
+  {
+   "pid": "arxiv-2406.07584",
+   "key": "t:brainchatdecodingsemanticinformationfromfmriusingvisionlanguagepretrainedmodels",
+   "title": "BrainChat: Decoding Semantic Information from fMRI using Vision-language Pretrained Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2406.07584 | title=BrainChat: Decoding Semantic Information from fMRI using Vision-language Pretrained Mo"
+  },
+  {
+   "pid": "arxiv-2407.07595",
+   "key": "t:scalinglawinneuraldatanoninvasivespeechdecodingwith175hoursofeegdata",
+   "title": "Scaling Law in Neural Data: Non-Invasive Speech Decoding with 175 Hours of EEG Data",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2407.07595 | doi=10.48550/arxiv.2407.07595 | title=Scaling Law in Neural Data: Non-Invasive Speech Decodi"
+  },
+  {
+   "pid": "arxiv-2408.05362",
+   "key": "t:mindspeechcontinuousimaginedspeechdecodingusinghighdensityfnirsandprompttuningfo",
+   "title": "MindSpeech: Continuous Imagined Speech Decoding using High-Density fNIRS and Prompt Tuning for Advanced Human-AI Interaction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2408.05362 | title=MindSpeech: Continuous Imagined Speech Decoding using High-Density fNIRS and Prompt Tu"
+  },
+  {
+   "pid": "arxiv-2410.20916",
+   "key": "t:neugptunifiedmultimodalneuralgpt",
+   "title": "NeuGPT: Unified multi-modal Neural GPT",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2410.20916 | title=NeuGPT: Unified multi-modal Neural GPT | venue=arXiv 2024 (NeurIPS-adjacent); v1 | Stu"
+  },
+  {
+   "pid": "arxiv-2411.11302",
+   "key": "t:towardspersonalizedbraincomputerinterfaceapplicationbasedonendogenouseegparadigm",
+   "title": "Towards Personalized Brain-Computer Interface Application Based on Endogenous EEG Paradigms",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2411.11302 | title=Towards Personalized Brain-Computer Interface Application Based on Endogenous EEG Para"
+  },
+  {
+   "pid": "arxiv-2412.06695",
+   "key": "t:towardsbrainpassageretrievalaninvestigationofeegqueryrepresentations",
+   "title": "Towards Brain Passage Retrieval -- An Investigation of EEG Query Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.06695 | title=Towards Brain Passage Retrieval -- An Investigation of EEG Query Representations | ven"
+  },
+  {
+   "pid": "arxiv-2501-09700-cueless",
+   "key": "t:cuelesseegbasedimaginedspeechbiometricidentificationdatasetandbenchmarks",
+   "title": "Cueless EEG-based imagined speech biometric identification: dataset and benchmarks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501-09700-cueless | title=Cueless EEG-based imagined speech biometric identification: dataset and benchm"
+  },
+  {
+   "pid": "arxiv-2501.06326",
+   "key": "t:oncreatingabraintotextdecoder",
+   "title": "On Creating A Brain-To-Text Decoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.06326 | title=On Creating A Brain-To-Text Decoder | venue=arXiv 2025 (workshop); v2 | Study.research"
+  },
+  {
+   "pid": "arxiv-2501.14790",
+   "key": "t:towardsdynamicneuralcommunicationandspeechneuroprosthesisbasedonvisemedecoding",
+   "title": "Towards Dynamic Neural Communication and Speech Neuroprosthesis Based on Viseme Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2501.14790v1 | source_url=https://arxiv.org/pdf/2501.14790v1 | title=Towards Dynamic Neural Communication"
+  },
+  {
+   "pid": "arxiv-2502.17465",
+   "key": "t:bridgingbrainsignalsandlanguageadeeplearningapproachtoeegtotextdecoding",
+   "title": "Bridging Brain Signals and Language: A Deep Learning Approach to EEG-to-Text Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.17465 | title=Bridging Brain Signals and Language: A Deep Learning Approach to EEG-to-Text Decoding"
+  },
+  {
+   "pid": "arxiv-2502.17480",
+   "key": "t:braintotextdecodinganoninvasiveapproachviatyping",
+   "title": "Brain-to-Text Decoding: A Non-invasive Approach via Typing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2502.17480 | title=Brain-to-Text Decoding: A Non-invasive Approach via Typing | venue=arXiv/Nature 2025 ("
+  },
+  {
+   "pid": "arxiv-2503.22697",
+   "key": "t:brain2textdecodingmodelrevealstheneuralmechanismsofvisualsemanticprocessing",
+   "title": "Brain2Text Decoding Model Reveals the Neural Mechanisms of Visual Semantic Processing",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2503.22697 | title=Brain2Text Decoding Model Reveals the Neural Mechanisms of Visual Semantic Processing"
+  },
+  {
+   "pid": "arxiv-2504.21214",
+   "key": "t:pretraininglargebrainlanguagemodelforactivebcisilentspeech",
+   "title": "Pretraining Large Brain Language Model for Active BCI: Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2504.21214 | title=Pretraining Large Brain Language Model for Active BCI: Silent Speech | authors=Jinzhao"
+  },
+  {
+   "pid": "arxiv-2505.10356",
+   "key": "t:decodingthemultimodalmindgeneralizablebraintotexttranslationviamultimodalalignme",
+   "title": "Decoding the Multimodal Mind: Generalizable Brain-to-Text Translation via Multimodal Alignment and Adaptive Routing",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.10356 | title=Decoding the Multimodal Mind: Generalizable Brain-to-Text Translation via Multimodal A"
+  },
+  {
+   "pid": "arxiv-2505.13446",
+   "key": "t:unlockingnoninvasivebraintotext",
+   "title": "Unlocking Non-Invasive Brain-to-Text",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.13446 | title=Unlocking Non-Invasive Brain-to-Text | venue=arXiv 2025 (PNAS 2025); v1 | Study.resear"
+  },
+  {
+   "pid": "arxiv-2505.20480",
+   "key": "t:brainstratifycoarsetofinedisentanglementofintracranialneuraldynamics",
+   "title": "BrainStratify: Coarse-to-Fine Disentanglement of Intracranial Neural Dynamics",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.20480 | title=BrainStratify: Coarse-to-Fine Disentanglement of Intracranial Neural Dynamics | author"
+  },
+  {
+   "pid": "arxiv-2505.21304",
+   "key": "t:optimizingfmridataacquisitionfordecodingnaturalspeechwithlimitedparticipants",
+   "title": "Optimizing fMRI Data Acquisition for Decoding Natural Speech with Limited Participants",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.21304 | title=Optimizing fMRI Data Acquisition for Decoding Natural Speech with Limited Participants"
+  },
+  {
+   "pid": "arxiv-2506.00854",
+   "key": "t:eeg2textcnanexploratorystudyofopenvocabularychinesetexteegalignmentvialargelangu",
+   "title": "EEG2TEXT-CN: An Exploratory Study of Open-Vocabulary Chinese Text-EEG Alignment via Large Language Model and Contrastive Learning on ChineseEEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2506.00854 | title=EEG2TEXT-CN: An Exploratory Study of Open-Vocabulary Chinese Text-EEG Alignment via La"
+  },
+  {
+   "pid": "arxiv-2506.10165",
+   "key": "t:the2025pnplcompetitionspeechdetectionandphonemeclassificationinthelibribraindata",
+   "title": "The 2025 PNPL Competition: Speech Detection and Phoneme Classification in the LibriBrain Dataset",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2506.10165 | title=The 2025 PNPL Competition: Speech Detection and Phoneme Classification in the LibriBra"
+  },
+  {
+   "pid": "arxiv-2510.27247",
+   "key": "t:reconstructingunseensentencesfromspeechrelatedbiosignalsforopenvocabularyneuralc",
+   "title": "Reconstructing Unseen Sentences from Speech-related Biosignals for Open-vocabulary Neural Communication",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2510.27247 | paper_version=arXiv 2510.27247v1; 11-page PDF dated 31 October 2025 | title=Reconstructing U"
+  },
+  {
+   "pid": "arxiv-2511.21746",
+   "key": "t:deltalanguagediffusionbasedeegtotextarchitecture",
+   "title": "DELTA: Language Diffusion-based EEG-to-Text Architecture",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511.21746 | title=DELTA: Language Diffusion-based EEG-to-Text Architecture | authors=MinGyu Jeon, HyoBin"
+  },
+  {
+   "pid": "arxiv-2512.03458-imaud",
+   "key": "t:aconvolutionalframeworkformappingimaginedauditorymegintolistenedbrainresponses",
+   "title": "A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain Responses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512.03458-imaud | title=A Convolutional Framework for Mapping Imagined Auditory MEG into Listened Brain"
+  },
+  {
+   "pid": "arxiv-2512.09524",
+   "key": "t:neurosketchapracticaldesignrecipeforneuraldecoding",
+   "title": "NeuroSketch: A Practical Design Recipe for Neural Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2512.09524 | title=NeuroSketch: A Practical Design Recipe for Neural Decoding | authors=Gaorui Zhang, Zhi"
+  },
+  {
+   "pid": "arxiv-2512.22146",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512.22146 | title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG | venue=arX"
+  },
+  {
+   "pid": "arxiv-2512.22146-e2voice",
+   "key": "t:eegtovoicedecodingofspokenandimaginedspeechusingnoninvasiveeeg",
+   "title": "EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2512.22146-e2voice | title=EEG-to-Voice Decoding of Spoken and Imagined speech Using Non-Invasive EEG | a"
+  },
+  {
+   "pid": "arxiv-2601.13866",
+   "key": "t:audiooutperformstextforvisualdecoding",
+   "title": "Audio Outperforms Text for Visual Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2601.13866 | title=Audio Outperforms Text for Visual Decoding | authors=Zhengdi Zhang, Hao Zhang, Wenjun"
+  },
+  {
+   "pid": "arxiv-2601.20447",
+   "key": "t:assemblingthemindsmosaictowardseegsemanticintentdecoding",
+   "title": "Assembling the Mind's Mosaic: Towards EEG Semantic Intent Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2601.20447 | title=Assembling the Mind's Mosaic: Towards EEG Semantic Intent Decoding | authors=Jiahe Li,"
+  },
+  {
+   "pid": "arxiv-2601.21148",
+   "key": "t:brainstackneuromoewithfunctionallyguidedexpertroutingforeegbasedlanguagedecoding",
+   "title": "BrainStack: Neuro-MoE with Functionally Guided Expert Routing for EEG-Based Language Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2601.21148 | title=BrainStack: Neuro-MoE with Functionally Guided Expert Routing for EEG-Based Language D"
+  },
+  {
+   "pid": "arxiv-2602.02494",
+   "key": "t:megxldataefficientbraintotextvialongcontextpretraining",
+   "title": "MEG-XL: Data-Efficient Brain-to-Text via Long-Context Pre-Training",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.02494 | title=MEG-XL: Data-Efficient Brain-to-Text via Long-Context Pre-Training | venue=arXiv 2026;"
+  },
+  {
+   "pid": "arxiv-2602.20932",
+   "key": "t:hierarchiceeg2textassessingeegtotextdecodingacrosshierarchicalabstractionlevels",
+   "title": "Hierarchic-EEG2Text: Assessing EEG-To-Text Decoding across Hierarchical Abstraction Levels",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.20932 | title=Hierarchic-EEG2Text: Assessing EEG-To-Text Decoding across Hierarchical Abstraction Le"
+  },
+  {
+   "pid": "arxiv-2603.03312",
+   "key": "t:escapingthebleutrapasignalgroundedframeworkwithdecoupledsemanticguidanceforeegto",
+   "title": "Escaping the BLEU Trap: A Signal-Grounded Framework with Decoupled Semantic Guidance for EEG-to-Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.03312 | title=Escaping the BLEU Trap: A Signal-Grounded Framework with Decoupled Semantic Guidance f"
+  },
+  {
+   "pid": "arxiv-2603.12628-ub2t",
+   "key": "t:towardsunifiedbraintotextdecodingacrossspeechproductionandperception",
+   "title": "Towards unified brain-to-text decoding across speech production and perception",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.12628-ub2t | title=Towards unified brain-to-text decoding across speech production and perception |"
+  },
+  {
+   "pid": "arxiv-2603.17109",
+   "key": "t:senseefficienteegtotextviaprivacypreservingsemanticretrieval",
+   "title": "SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2603.17109 | title=SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval | authors=Aksha"
+  },
+  {
+   "pid": "arxiv-2603.17109-sense",
+   "key": "t:senseefficienteegtotextviaprivacypreservingsemanticretrieval",
+   "title": "SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.17109-sense | title=SENSE: Efficient EEG-to-Text via Privacy-Preserving Semantic Retrieval | authors"
+  },
+  {
+   "pid": "arxiv-2604.02362",
+   "key": "t:cipherconformerbasedinferenceofphonemesfromhighdensityeegrepresentations",
+   "title": "CIPHER: Conformer-based Inference of Phonemes from High-density EEG Representations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2604.02362 | title=CIPHER: Conformer-based Inference of Phonemes from High-density EEG Representations |"
+  },
+  {
+   "pid": "arxiv-2604.15374-lfa",
+   "key": "t:aligningtheimaginedlatentfunctionalalignmentinvisualimagerydecodingfromfmridata",
+   "title": "Aligning the Imagined: Latent Functional Alignment in Visual Imagery Decoding from fMRI Data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.15374-lfa | title=Aligning the Imagined: Latent Functional Alignment in Visual Imagery Decoding from"
+  },
+  {
+   "pid": "arxiv-2604.16370",
+   "key": "t:braincliplmsemanticcompressionforeegtotextdecoding",
+   "title": "Brain-CLIPLM: Semantic Compression for EEG-to-Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2604.16370 | title=Brain-CLIPLM: Semantic Compression for EEG-to-Text Decoding | authors=Xiaoli Yang, Hui"
+  },
+  {
+   "pid": "arxiv-2604.16370-bcliplm",
+   "key": "t:braincliplmsemanticcompressionforeegtotextdecoding",
+   "title": "Brain-CLIPLM: Semantic Compression for EEG-to-Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.16370-bcliplm | title=Brain-CLIPLM: Semantic Compression for EEG-to-Text Decoding | authors=Xiaoli Y"
+  },
+  {
+   "pid": "arxiv-2604.16441",
+   "key": "t:iphonemebraintotextcommunicationforalsusingconformerxldecoding",
+   "title": "iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2604.16441 | paper_version=2604.16441v1 | title=iPhoneme: Brain-to-Text Communication for ALS Using Confo"
+  },
+  {
+   "pid": "arxiv-2604.16441-iphoneme",
+   "key": "t:iphonemebraintotextcommunicationforalsusingconformerxldecoding",
+   "title": "iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.16441-iphoneme | title=iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding | au"
+  },
+  {
+   "pid": "arxiv-2605.08075",
+   "key": "t:zeroshotimaginedspeechdecodingviaimaginedtolistenedmegmapping",
+   "title": "Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping | arxiv_id=2605.08075v1 | paper_version=ar"
+  },
+  {
+   "pid": "arxiv-2605.16739",
+   "key": "t:emominddecodingaffectivecaptionsfromhumanbrainfmri",
+   "title": "EmoMind: Decoding Affective Captions from Human Brain fMRI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2605.16739 | title=EmoMind: Decoding Affective Captions from Human Brain fMRI | authors=Bilal A. Mohammed"
+  },
+  {
+   "pid": "arxiv-2605.17503",
+   "key": "t:ragbasedeegtotexttranslationusingdeeplearningandllms",
+   "title": "RAG-based EEG-to-Text Translation Using Deep Learning and LLMs",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2605.17503 | title=RAG-based EEG-to-Text Translation Using Deep Learning and LLMs | authors=Enrico Collau"
+  },
+  {
+   "pid": "arxiv-2605.17503-rag",
+   "key": "t:ragbasedeegtotexttranslationusingdeeplearningandllms",
+   "title": "RAG-Based EEG-to-Text Translation Using Deep Learning and LLMs",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2605.17503-rag | title=RAG-Based EEG-to-Text Translation Using Deep Learning and LLMs | authors=Enrico Co"
+  },
+  {
+   "pid": "arxiv-2605.24524",
+   "key": "t:whatareweactuallydecodingsourceattributionfornoninvasivebraintolanguageretrieval",
+   "title": "What Are We Actually Decoding? Source Attribution for Non-Invasive Brain-to-Language Retrieval",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2605.24524 | title=What Are We Actually Decoding? Source Attribution for Non-Invasive Brain-to-Language R"
+  },
+  {
+   "pid": "arxiv-2605.24524-srcattr",
+   "key": "t:whatareweactuallydecodingsourceattributionfornoninvasivebraintolanguageretrieval",
+   "title": "What Are We Actually Decoding? Source Attribution for Non-Invasive Brain-to-Language Retrieval",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2605.24524-srcattr | title=What Are We Actually Decoding? Source Attribution for Non-Invasive Brain-to-La"
+  },
+  {
+   "pid": "arxiv-2606-20696-mindalign",
+   "key": "t:mindaligndecodinginnerspeechfromfmrisignalsviamultimodalembeddingalignmentunderl",
+   "title": "MindAlign: Decoding Inner Speech from fMRI Signals via Multimodal Embedding Alignment under Limited Data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MindAlign: Decoding Inner Speech from fMRI Signals via Multimodal Embedding Alignment under Limited Data | authors"
+  },
+  {
+   "pid": "arxiv-2606.01264",
+   "key": "t:a1000houreegemgaudiodatasetofjapanesespeechproduction",
+   "title": "A 1000-hour EEG–EMG–audio dataset of Japanese speech production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A 1000-hour EEG–EMG–audio dataset of Japanese speech production | arxiv_id=2606.01264v1 | paper_version=arXiv v1,"
+  },
+  {
+   "pid": "arxiv-2606.20696",
+   "key": "t:mindaligndecodinginnerspeechfromfmrisignalsviamultimodalembeddingalignmentunderl",
+   "title": "MindAlign: Decoding Inner Speech from fMRI Signals via Multimodal Embedding Alignment under Limited Data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2606.20696 | paper_version=2606.20696v1 | title=MindAlign: Decoding Inner Speech from fMRI Signals via Mu"
+  },
+  {
+   "pid": "arxiv-2606.20696-mindalign",
+   "key": "t:mindaligndecodinginnerspeechfromfmrisignalsviamultimodalembeddingalignmentunderl",
+   "title": "MindAlign: Decoding Inner Speech from fMRI Signals via Multimodal Embedding Alignment under Limited Data",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2606.20696-mindalign | title=MindAlign: Decoding Inner Speech from fMRI Signals via Multimodal Embedding"
+  },
+  {
+   "pid": "arxiv-2606.30319",
+   "key": "t:brainjanusaunifiedmodelforunderstandingandgenerationacrossbrainvisionandlanguage",
+   "title": "BrainJanus: A Unified Model for Understanding and Generation across Brain, Vision, and Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2606.30319 | title=BrainJanus: A Unified Model for Understanding and Generation across Brain, Vision, and"
+  },
+  {
+   "pid": "arxiv-2607.05165",
+   "key": "t:physiologicalnoiseaugmentationimprovesnoninvasivebraintospeech",
+   "title": "Physiological Noise Augmentation Improves Non-Invasive Brain-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.05165 | paper_version=arXiv 2607.05165v1 [cs.LG], 6 Jul 2026 (18-page PDF) | title=Physiological Noi"
+  },
+  {
+   "pid": "arxiv-2607.12071",
+   "key": "t:beyondparalleltrackinginteractivemultifeaturefusiondrivessemanticreconstructionf",
+   "title": "Beyond Parallel Tracking: Interactive Multi-Feature Fusion Drives Semantic Reconstruction from Non-invasive Brain Recordings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Beyond Parallel Tracking: Interactive Multi-Feature Fusion Drives Semantic Reconstruction from Non-invasive Brain"
+  },
+  {
+   "pid": "arxiv-2607.12071-xattnfuse",
+   "key": "t:beyondparalleltrackinginteractivemultifeaturefusiondrivessemanticreconstructionf",
+   "title": "Beyond Parallel Tracking: Interactive Multi-Feature Fusion Drives Semantic Reconstruction from Non-invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.12071-xattnfuse | title=Beyond Parallel Tracking: Interactive Multi-Feature Fusion Drives Semantic R"
+  },
+  {
+   "pid": "arxiv-2607.12079",
+   "key": "t:thecapacityofthoughtbenchmarkingllama32insemanticfmrineurallanguagedecodingandim",
+   "title": "The Capacity of Thought: Benchmarking Llama 3.2 in Semantic fMRI Neural Language Decoding and Improving the Huth Encoding-Model Baseline",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2607.12079 | title=The Capacity of Thought: Benchmarking Llama 3.2 in Semantic fMRI Neural Language Decod"
+  },
+  {
+   "pid": "arxiv-2607.12079-fmrifla",
+   "key": "t:thecapacityofthoughtbenchmarkingllama32insemanticfmrineurallanguagedecodingandim",
+   "title": "The Capacity of Thought: Benchmarking Llama 3.2 in Semantic fMRI Neural Language Decoding and Improving the Huth Encoding-Model Baseline",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.12079-fmrifla | title=The Capacity of Thought: Benchmarking Llama 3.2 in Semantic fMRI Neural Langua"
+  },
+  {
+   "pid": "arxiv-2607.18749",
+   "key": "t:iseegtotextfeasibleinrealworldscenariosanindepthanalysisusinganeuropsychologyins",
+   "title": "Is EEG-to-Text Feasible in Real-World Scenarios? An In-Depth Analysis Using a Neuropsychology-Inspired Benchmark",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2607.18749 | title=Is EEG-to-Text Feasible in Real-World Scenarios? An In-Depth Analysis Using a Neuropsy"
+  },
+  {
+   "pid": "arxiv-2607.18749-cofett",
+   "key": "t:cofettreexaminingeegtotextfeasibilitywithateacherforcingfreebenchmark",
+   "title": "COFETT: Re-examining EEG-to-Text Feasibility with a Teacher-Forcing-Free Benchmark",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.18749-cofett | title=COFETT: Re-examining EEG-to-Text Feasibility with a Teacher-Forcing-Free Benchm"
+  },
+  {
+   "pid": "arxiv-2607.25626",
+   "key": "t:jointtextaudioalignmentforeegtotextdecodinginchinesespeechproductionandperceptio",
+   "title": "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv/2607.25626 | title=Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and P"
+  },
+  {
+   "pid": "arxiv-2607.25626-eegalign",
+   "key": "t:jointtextaudioalignmentforeegtotextdecodinginchinesespeechproductionandperceptio",
+   "title": "Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Production and Perception",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2607.25626-eegalign | title=Joint Text-Audio Alignment for EEG-to-Text Decoding in Chinese Speech Product"
+  },
+  {
+   "pid": "arxiv-2607.27268",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2607.27268 | paper_version=2607.27268v2 | title=Do EEG Foundation Models Transfer to Speech? A Benchmark"
+  },
+  {
+   "pid": "arxiv-2608-18114-natsent",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings | authors=Zhang, Lévy, Rommel, Rapin, Be"
+  },
+  {
+   "pid": "arxiv-2608-20186-silentread",
+   "key": "t:decodingsilentreadingfromnoninvasiveeeg",
+   "title": "Decoding silent reading from non-invasive EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding silent reading from non-invasive EEG | authors=Marquardt, Alchanat, Jain (nubrain) | venue=arXiv 2608.201"
+  },
+  {
+   "pid": "arxiv-2608.01623",
+   "key": "t:sageswitchawareeegguidedsoftgatingfortargetspeakerextractionwithintrialswitching",
+   "title": "SAGE: Switch-Aware EEG-Guided Soft Gating for Target Speaker Extraction with In-Trial Switching",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2608.01623 | title=SAGE: Switch-Aware EEG-Guided Soft Gating for Target Speaker Extraction with In-Trial"
+  },
+  {
+   "pid": "arxiv-2608.16975",
+   "key": "t:marginregularizedstructuredsemanticalignmentforbrainlanguagecorrespondence",
+   "title": "Margin-Regularized Structured Semantic Alignment for Brain-Language Correspondence",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv/2608.16975 | title=Margin-Regularized Structured Semantic Alignment for Brain-Language Correspondence | a"
+  },
+  {
+   "pid": "arxiv-2608.16975-mdsiglip",
+   "key": "t:marginregularizedstructuredsemanticalignmentforbrainlanguagecorrespondence",
+   "title": "Margin-Regularized Structured Semantic Alignment for Brain-Language Correspondence",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.16975-mdsiglip | title=Margin-Regularized Structured Semantic Alignment for Brain-Language Correspon"
+  },
+  {
+   "pid": "arxiv-2608.18114",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings | arxiv_id=2608.18114v1 | paper_version="
+  },
+  {
+   "pid": "arxiv-2608.18114-brain2qwerty2",
+   "key": "t:accuratedecodingofnaturalsentencesfromnoninvasivebrainrecordings",
+   "title": "Accurate Decoding of Natural Sentences from Non-Invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.18114-brain2qwerty2 | title=Accurate Decoding of Natural Sentences from Non-Invasive Brain Recording"
+  },
+  {
+   "pid": "arxiv-2608.20186",
+   "key": "t:decodingsilentreadingfromnoninvasiveeeg",
+   "title": "Decoding silent reading from non-invasive EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "question=Is open-vocabulary word-level information decodable from EEG during silent reading? | question=How much apparen"
+  },
+  {
+   "pid": "arxiv-2608.20186-silentread",
+   "key": "t:decodingsilentreadingfromnoninvasiveeeg",
+   "title": "Decoding silent reading from non-invasive EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.20186-silentread | title=Decoding silent reading from non-invasive EEG | authors=Ingo Marquardt, Ant"
+  },
+  {
+   "pid": "arxiv-2608.25204",
+   "key": "t:libribrain100onehundredhoursofbroadanddeepmegdataforneuralspeechdecodingatscale",
+   "title": "LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.25204 | paper_version=arXiv 2608.25204v1 [cs.LG], 25 Aug 2026 | title=LibriBrain100: One Hundred Hou"
+  },
+  {
+   "pid": "arxiv-2608.25204-libribrain100",
+   "key": "t:libribrain100onehundredhoursofbroadanddeepmegdataforneuralspeechdecodingatscale",
+   "title": "LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2608.25204-libribrain100 | title=LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural S"
+  },
+  {
+   "pid": "arxiv-2609-02887-commbci",
+   "key": "t:acommonmeasureofcommunicationforspeechbraincomputerinterfaces",
+   "title": "A Common Measure of Communication for Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Common Measure of Communication for Speech Brain-Computer Interfaces | authors=Jayalath, Ballyk, Parker Jones (O"
+  },
+  {
+   "pid": "arxiv-2609-40359-shortcuts",
+   "key": "t:removingtimingshortcutsimprovesnoninvasivebraintotext",
+   "title": "Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text | authors=Jayalath, Parker Jones (Neural Processing"
+  },
+  {
+   "pid": "arxiv-2609-40359-timingshort",
+   "key": "t:removingtimingshortcutsimprovesnoninvasivebraintotext",
+   "title": "Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text | authors=Dulhan Jayalath, Oiwi Parker Jones (PNPL,"
+  },
+  {
+   "pid": "arxiv-2609.02887",
+   "key": "t:acommonmeasureofcommunicationforspeechbraincomputerinterfaces",
+   "title": "A Common Measure of Communication for Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.02887 | doi=10.48550/arxiv.2609.02887 | title=A Common Measure of Communication for Speech Brain-Com"
+  },
+  {
+   "pid": "arxiv-2609.03231",
+   "key": "t:the2026pnplcompetitionwordclassificationandefficientcrosssubjectgeneralisationin",
+   "title": "The 2026 PNPL Competition: Word Classification and Efficient Cross-Subject Generalisation in LibriBrain100",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.03231 | paper_version=arXiv:2609.03231v1 [cs.LG], 3 Sep 2026 | title=The 2026 PNPL Competition: Word"
+  },
+  {
+   "pid": "arxiv-2609.10296",
+   "key": "t:thesemanticbottleneckleveragingsemanticrepresentationsfornoninvasivespeechdecodi",
+   "title": "The Semantic Bottleneck: Leveraging Semantic Representations for Non-Invasive Speech Decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The Semantic Bottleneck: Leveraging Semantic Representations for Non-Invasive Speech Decoding | arxiv_id=2609.1029"
+  },
+  {
+   "pid": "arxiv-2609.21436",
+   "key": "t:aessianaroundearsilentspeechinterfaceforcrossdayonlinereusewithouttestdaycalibra",
+   "title": "AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.21436 | paper_version=arXiv 2609.21436v1 (preprint PDF, 26 pages, retrieved 2026-09-29) | title=AESS"
+  },
+  {
+   "pid": "arxiv-2609.24095",
+   "key": "t:hdndhierarchicaldynamicneuraldecodingformultilingualwordcharacterretrievalfromno",
+   "title": "HDND: Hierarchical Dynamic Neural Decoding for Multilingual Word/Character Retrieval from Non-Invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2609.24095v2 | title=HDND: Hierarchical Dynamic Neural Decoding for Multilingual Word/Character Retrieval"
+  },
+  {
+   "pid": "arxiv-2609.24095-hdnd",
+   "key": "t:hdndformultilingualwordcharacterretrievalfromnoninvasivebrainrecordings",
+   "title": "HDND for Multilingual Word/Character Retrieval from Non-Invasive Brain Recordings",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.24095-hdnd | title=HDND for Multilingual Word/Character Retrieval from Non-Invasive Brain Recordings"
+  },
+  {
+   "pid": "arxiv-2609.31402-afa-net",
+   "key": "t:afanetadifferentialattentionapproachforauditoryattentiondetection",
+   "title": "AFA-Net: A Differential Attention Approach for Auditory Attention Detection",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.31402-afa-net | title=AFA-Net: A Differential Attention Approach for Auditory Attention Detection |"
+  },
+  {
+   "pid": "arxiv-2609.31997",
+   "key": "t:integratinglanguagemodelsintolistenedandimaginedspeechdecodingfrommeg",
+   "title": "Integrating Language Models into Listened and Imagined Speech Decoding from MEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.31997 | paper_version=arXiv 2609.31997v1; five-page PDF | title=Integrating Language Models into Lis"
+  },
+  {
+   "pid": "arxiv-2609.36736",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.36736 | doi=10.48550/arxiv.2609.36736 | title=From Neurons to Conversation: Speech Brain-Computer In"
+  },
+  {
+   "pid": "arxiv-2609.40359",
+   "key": "t:removingtimingshortcutsimprovesnoninvasivebraintotext",
+   "title": "Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.40359 | title=Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text | authors=Dulhan Jayalat"
+  },
+  {
+   "pid": "arxiv-2609.40359-b2t-shortcuts",
+   "key": "t:removingtimingshortcutsimprovesnoninvasivebraintotext",
+   "title": "Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.40359-b2t-shortcuts | title=Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text | authors="
+  },
+  {
+   "pid": "arxiv-2610-07120-fnirsclip",
+   "key": "t:towardssemanticreconstructionofindividualwordsfromfnirsusingcliploss",
+   "title": "Towards Semantic Reconstruction of Individual Words from fNIRS Using CLIP Loss",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Semantic Reconstruction of Individual Words from fNIRS Using CLIP Loss | authors=Posso-Murillo, Palladino,"
+  },
+  {
+   "pid": "arxiv-2610-08229-priors",
+   "key": "t:confidenceorderingreversalundercontextualpriorsinneuraldecoding",
+   "title": "Confidence-Ordering Reversal under Contextual Priors in Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Confidence-Ordering Reversal under Contextual Priors in Neural Decoding | authors=Zhang, Liu (KTH; Karolinska Inst"
+  },
+  {
+   "pid": "arxiv-2610.00397",
+   "key": "t:neurotokenjointsourceanddirectionalaadwithenvelopedecodingviaconditionalflowmatc",
+   "title": "NEUROTOKEN: Joint Source and Directional AAD with Envelope Decoding via Conditional Flow Matching",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2610.00397 | title=NEUROTOKEN: Joint Source and Directional AAD with Envelope Decoding via Conditional Fl"
+  },
+  {
+   "pid": "arxiv-2610.00397-neurotoken-aad",
+   "key": "t:neurotokenjointsourceanddirectionalaadwithenvelopedecodingviaconditionalflowmatc",
+   "title": "NEUROTOKEN: Joint Source and Directional AAD with Envelope Decoding via Conditional Flow Matching",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2610.00397-neurotoken-aad | title=NEUROTOKEN: Joint Source and Directional AAD with Envelope Decoding via"
+  },
+  {
+   "pid": "cmcl-2026-akama-brain2text",
+   "key": "t:braintotextdecodingwithbrainatlasesandbrainfoundationmodels",
+   "title": "Brain-to-Text Decoding with Brain Atlases and Brain Foundation Models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-to-Text Decoding with Brain Atlases and Brain Foundation Models | authors=Akama Haruka, Yoshida Ryo, Muller-"
+  },
+  {
+   "pid": "doi-10.1002-aur.70097",
+   "key": "t:auditoryandsemanticprocessingofspeechinnoiseinautismabehavioralandeegstudy",
+   "title": "Auditory and Semantic Processing of Speech-in-Noise in Autism: A Behavioral and EEG Study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1002-aur.70097 | title=Auditory and Semantic Processing of Speech-in-Noise in Autism: A Behavioral and E"
+  },
+  {
+   "pid": "doi-10.1002-hbm.25603",
+   "key": "t:adualchannellanguagedecodingfrombrainactivitywithprogressivetransfertraining",
+   "title": "A dual-channel language decoding from brain activity with progressive transfer training",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1002-hbm.25603 | title=A dual-channel language decoding from brain activity with progressive transfer tr"
+  },
+  {
+   "pid": "doi-10.1002-hbm.26505",
+   "key": "t:temporaldynamicsofoscillatoryactivityduringnonlexicallanguagedecodingevidencefro",
+   "title": "Temporal dynamics of oscillatory activity during nonlexical language decoding: Evidence from Morse code and magnetoencephalography",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1002-hbm.26505 | title=Temporal dynamics of oscillatory activity during nonlexical language decoding: Ev"
+  },
+  {
+   "pid": "doi-10.1007-s10162-026-01048-w",
+   "key": "t:fromselectivelisteningtobraincontrolledhearingaperspectiveonthefutureofauditoryt",
+   "title": "From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1007-s10162-026-01048-w | title=From Selective Listening to Brain-Controlled Hearing: A Perspective on t"
+  },
+  {
+   "pid": "doi-10.1016-j.bandl.2026.105833",
+   "key": "t:neuraltrackingofsurprisalinspanishenglishbilingualchildrenduringnaturalisticheri",
+   "title": "Neural tracking of surprisal in Spanish-English bilingual children during naturalistic heritage language listening",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.bandl.2026.105833 | title=Neural tracking of surprisal in Spanish-English bilingual children duri"
+  },
+  {
+   "pid": "doi-10.1016-j.clinph.2025.2110942",
+   "key": "t:emergenttechnologiesinclinicalneurophysiologytostudythecentralnervoussystemifcnh",
+   "title": "Emergent technologies in clinical neurophysiology to study the central nervous system: IFCN handbook chapter",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1016/j.clinph.2025.2110942 | title=Emergent technologies in clinical neurophysiology to study the central ne"
+  },
+  {
+   "pid": "doi-10.1016-j.dib.2025.112248",
+   "key": "t:afmrineuroimagingdatasetofwordreadingwithsemanticandphonologicallocalizersinchil",
+   "title": "A fMRI neuroimaging dataset of word reading with semantic and phonological localizers in children and adolescents",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.dib.2025.112248 | title=A fMRI neuroimaging dataset of word reading with semantic and phonologica"
+  },
+  {
+   "pid": "doi-10.1016-j.dib.2025.112258",
+   "key": "t:simultaneouseegandfmridataduringaninnerspeechtask",
+   "title": "Simultaneous EEG and fMRI data during an inner speech task",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.dib.2025.112258 | doi=10.1016/j.dib.2025.112258 | title=Simultaneous EEG and fMRI data during an"
+  },
+  {
+   "pid": "doi-10.1016-j.isci.2026.116458",
+   "key": "t:neuraltrackingofprosodicandstatisticalrhythmsjointlysupportsartificiallanguagele",
+   "title": "Neural tracking of prosodic and statistical rhythms jointly supports artificial language learning",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.isci.2026.116458 | title=Neural tracking of prosodic and statistical rhythms jointly supports art"
+  },
+  {
+   "pid": "doi-10.1016-j.isci.2026.117610",
+   "key": "t:differentialcrossmodalfunctionalplasticityindeafindividualsametaanalysisofneuroi",
+   "title": "Differential cross-modal functional plasticity in deaf individuals: A meta-analysis of neuroimaging studies",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1016/j.isci.2026.117610 | title=Differential cross-modal functional plasticity in deaf individuals: A meta-a"
+  },
+  {
+   "pid": "doi-10.1016-j.nicl.2022.102982",
+   "key": "t:thetimecourseofmultisensoryspeechprocessinginunilaterallystimulatedcochlearimpla",
+   "title": "The timecourse of multisensory speech processing in unilaterally stimulated cochlear implant users revealed by ERPs",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.nicl.2022.102982 | doi=10.1016/j.nicl.2022.102982 | title=The timecourse of multisensory speech p"
+  },
+  {
+   "pid": "doi-10.1016-j.xcrm.2023.101115",
+   "key": "t:reconstructinglanguagefrombrainsignalsanddeconstructingadversarialthoughtreading",
+   "title": "Reconstructing language from brain signals and deconstructing adversarial thought-reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.xcrm.2023.101115 | doi=10.1016/j.xcrm.2023.101115 | title=Reconstructing language from brain sign"
+  },
+  {
+   "pid": "doi-10.1038-s41467-018-04819-z",
+   "key": "t:neuralmechanismsforselectivelytuningintothetargetspeakerinanaturalisticnoisysitu",
+   "title": "Neural mechanisms for selectively tuning in to the target speaker in a naturalistic noisy situation",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41467-018-04819-z | title=Neural mechanisms for selectively tuning in to the target speaker in a natur"
+  },
+  {
+   "pid": "doi-10.1038-s41467-026-75653-x",
+   "key": "t:concept2brainanaimodelforpredictingneurophysiologicalresponsestotextandpictures",
+   "title": "Concept2Brain: an AI model for predicting neurophysiological responses to text and pictures",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41467-026-75653-x | title=Concept2Brain: an AI model for predicting neurophysiological responses to te"
+  },
+  {
+   "pid": "doi-10.1038-s41583-024-00802-4",
+   "key": "t:thelanguagenetworkasanaturalkindwithinthebroaderlandscapeofthehumanbrain",
+   "title": "The language network as a natural kind within the broader landscape of the human brain",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41583-024-00802-4 | title=The language network as a natural kind within the broader landscape of the h"
+  },
+  {
+   "pid": "doi-10.1038-s41593-023-01304-9",
+   "key": "t:semanticreconstructionofcontinuouslanguagefromnoninvasivebrainrecordings",
+   "title": "Semantic reconstruction of continuous language from non-invasive brain recordings",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41593-023-01304-9 | title=Semantic reconstruction of continuous language from non-invasive brain r"
+  },
+  {
+   "pid": "doi-10.1038-s41593-026-02281-5",
+   "key": "t:realtimebraincontrolledselectivehearingenhancesspeechperceptioninmultitalkerenvi",
+   "title": "Real-time brain-controlled selective hearing enhances speech perception in multi-talker environments",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41593-026-02281-5 | title=Real-time brain-controlled selective hearing enhances speech perception"
+  },
+  {
+   "pid": "doi-10.1038-s41597-024-03398-7",
+   "key": "t:chineseeegachineselinguisticcorporaeegdatasetforsemanticalignmentandneuraldecodi",
+   "title": "ChineseEEG: A Chinese Linguistic Corpora EEG Dataset for Semantic Alignment and Neural Decoding",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-024-03398-7 | title=ChineseEEG: A Chinese Linguistic Corpora EEG Dataset for Semantic Alignm"
+  },
+  {
+   "pid": "doi-10.1038-s41597-024-04114-1",
+   "key": "p:doi-10.1038-s41597-024-04114-1",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=Chisco — Chinese Imagined Speech Corpus (128-ch EEG, >20k imagined sentences) | intended_use_cases=research_"
+  },
+  {
+   "pid": "doi-10.1038-s41597-025-04967-0",
+   "key": "t:simultaneouseegandfnirsrecordingsforsemanticdecodingofimaginedanimalsandtools",
+   "title": "Simultaneous EEG and fNIRS recordings for semantic decoding of imagined animals and tools",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-025-04967-0 | title=Simultaneous EEG and fNIRS recordings for semantic decoding of imagined"
+  },
+  {
+   "pid": "doi-10.1038-s41597-025-05036-2",
+   "key": "t:tmnredachineselanguageeegdatasetforfuzzysemantictargetidentificationinnaturalrea",
+   "title": "TMNRED, A Chinese Language EEG Dataset for Fuzzy Semantic Target Identification in Natural Reading Environments",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-025-05036-2 | title=TMNRED, A Chinese Language EEG Dataset for Fuzzy Semantic Target Identif"
+  },
+  {
+   "pid": "doi-10.1038-s41597-025-05957-y",
+   "key": "t:cireachineseeegdatasetfordecodingspeechintentionmodulatedbyprosodicemotion",
+   "title": "CIRE: A Chinese EEG Dataset for decoding speech intention modulated by prosodic emotion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41597-025-05957-y | title=CIRE: A Chinese EEG Dataset for decoding speech intention modulated by p"
+  },
+  {
+   "pid": "doi-10.1038-s41598-019-47795-0",
+   "key": "t:comparisonoftwotalkerattentiondecodingfromeegwithnonlinearneuralnetworksandlinea",
+   "title": "Comparison of Two-Talker Attention Decoding from EEG with Nonlinear Neural Networks and Linear Methods",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41598-019-47795-0 | title=Comparison of Two-Talker Attention Decoding from EEG with Nonlinear Neural N"
+  },
+  {
+   "pid": "doi-10.1038-s41598-023-47643-2",
+   "key": "t:theroleofmultimodalcuesinsecondlanguagecomprehension",
+   "title": "The role of multimodal cues in second language comprehension",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41598-023-47643-2 | title=The role of multimodal cues in second language comprehension | authors=Ye Zh"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-79309-y",
+   "key": "t:usingdatafromcuepresentationsresultsingrosslyoverestimatingsemanticbciperformanc",
+   "title": "Using data from cue presentations results in grossly overestimating semantic BCI performance",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-024-79309-y | title=Using data from cue presentations results in grossly overestimating sema"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-83417-0",
+   "key": "t:differencesinspatiotemporaldynamicsforprocessingspecificsemanticcategoriesaneegs",
+   "title": "Differences in spatiotemporal dynamics for processing specific semantic categories: An EEG study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-024-83417-0 | title=Differences in spatiotemporal dynamics for processing specific semantic"
+  },
+  {
+   "pid": "doi-10.1038-s41598-025-13000-8",
+   "key": "t:applicationofmachinelearningandtemporalresponsefunctionmodelingofeegdatafordiffe",
+   "title": "Application of machine learning and temporal response function modeling of EEG data for differential diagnosis in primary progressive aphasia",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-025-13000-8 | title=Application of machine learning and temporal response function modeling"
+  },
+  {
+   "pid": "doi-10.1038-s41598-025-29587-x",
+   "key": "t:evaluatingeegtotextmodelsthroughnoisebasedperformanceanalysis",
+   "title": "Evaluating EEG-to-text models through noise-based performance analysis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41598-025-29587-x | title=Evaluating EEG-to-text models through noise-based performance analysis | aut"
+  },
+  {
+   "pid": "doi-10.1038-s42003-025-07788-4",
+   "key": "t:resilienceandvulnerabilityofneuralspeechtrackingafterhearingrestoration",
+   "title": "Resilience and vulnerability of neural speech tracking after hearing restoration",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42003-025-07788-4 | title=Resilience and vulnerability of neural speech tracking after hearing res"
+  },
+  {
+   "pid": "doi-10.1038-s42003-025-08511-z",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42003-025-08511-z | title=Progress, challenges and future of linguistic neural decoding with deep"
+  },
+  {
+   "pid": "doi-10.1038-s42003-026-10394-7",
+   "key": "t:cognitiveloadweakensneuralspeechtrackingwithoutalteringresponsetiming",
+   "title": "Cognitive load weakens neural speech tracking without altering response timing",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42003-026-10394-7 | title=Cognitive load weakens neural speech tracking without altering response"
+  },
+  {
+   "pid": "doi-10.1073-pnas.2422097122",
+   "key": "t:hierarchicaldynamiccodingcoordinatesspeechcomprehensioninthehumanbrain",
+   "title": "Hierarchical dynamic coding coordinates speech comprehension in the human brain",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1073-pnas.2422097122 | title=Hierarchical dynamic coding coordinates speech comprehension in the human b"
+  },
+  {
+   "pid": "doi-10.1093-braincomms-fcag261",
+   "key": "t:corticalspeechenvelopetrackingreflectslesionsymptomprofilesinpoststrokeaphasia",
+   "title": "Cortical speech envelope tracking reflects lesion-symptom profiles in post-stroke aphasia",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1093/braincomms/fcag261 | title=Cortical speech envelope tracking reflects lesion-symptom profiles in post-s"
+  },
+  {
+   "pid": "doi-10.1101-2020.08.03.234997-megcat",
+   "key": "t:datadrivenmachinelearningmodelsfordecodingspeechcategorizationfromevokedbrainres",
+   "title": "Data-driven machine learning models for decoding speech categorization from evoked brain responses",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Data-driven machine learning models for decoding speech categorization from evoked brain responses | authors=Mahmu"
+  },
+  {
+   "pid": "doi-10.1101-2022.09.29.509744",
+   "key": "t:semanticreconstructionofcontinuouslanguagefromnoninvasivebrainrecordings",
+   "title": "Semantic reconstruction of continuous language from non-invasive brain recordings",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1101/2022.09.29.509744 | title=Semantic reconstruction of continuous language from non-invasive brain record"
+  },
+  {
+   "pid": "doi-10.1101-2024.02.16.580578-vldm",
+   "key": "t:fromsighttoinsightamultitaskapproachwiththevisuallanguagedecodingmodel",
+   "title": "From Sight to Insight: A Multi-task Approach with the Visual Language Decoding Model",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Sight to Insight: A Multi-task Approach with the Visual Language Decoding Model | authors=Huang W; Yang P; Ta"
+  },
+  {
+   "pid": "doi-10.1101-2024.04.23.590673-mindcaption",
+   "key": "t:mindcaptioningevolvingdescriptivetextofmentalcontentfromhumanbrainactivity",
+   "title": "Mind Captioning: Evolving descriptive text of mental content from human brain activity",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Mind Captioning: Evolving descriptive text of mental content from human brain activity | venue=bioRxiv preprint |"
+  },
+  {
+   "pid": "doi-10.1101-2024.07.02.24309802",
+   "key": "t:decodingimaginaryhandwritingtrajectorieswithshapeandtimedistortionlossforbrainto",
+   "title": "Decoding imaginary handwriting trajectories with shape and time distortion loss for brain-to-text communication",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.07.02.24309802 | doi=10.1101/2024.07.02.24309802 | title=Decoding imaginary handwriting trajec"
+  },
+  {
+   "pid": "doi-10.1101-2024.07.18.604038",
+   "key": "t:howdoweimagineaspeechatriplenetworkmodelforsituationallysimulatedinnerspeech",
+   "title": "How do we imagine a speech? A triple network model for situationally simulated inner speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.07.18.604038 | doi=10.1101/2024.07.18.604038 | title=How do we imagine a speech? A triple netw"
+  },
+  {
+   "pid": "doi-10.1109-access.2021.3116196",
+   "key": "t:decodingimaginedspeechfromeegusingtransferlearning",
+   "title": "Decoding Imagined Speech From EEG Using Transfer Learning",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined Speech From EEG Using Transfer Learning | intended_use_cases=research_of_inner_speech, assistive"
+  },
+  {
+   "pid": "doi-10.1109-embc48229.2022.9871767",
+   "key": "t:neuralentrainmenttorhythmsofimaginedsyllables",
+   "title": "Neural Entrainment to Rhythms of Imagined Syllables",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1109/embc48229.2022.9871767 | title=Neural Entrainment to Rhythms of Imagined Syllables | authors=Changj"
+  },
+  {
+   "pid": "doi-10.1109-msp.2024.3484629",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1109/msp.2024.3484629 | title=Emerging Brain-to-Content Technologies from Generative AI and Deep Representat"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2021.3096874",
+   "key": "t:decodingimaginedspeechbasedondeepmetriclearningforintuitivebcicommunication",
+   "title": "Decoding Imagined Speech Based on Deep Metric Learning for Intuitive BCI Communication",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined Speech Based on Deep Metric Learning for Intuitive BCI Communication | venue=IEEE Transactions o"
+  },
+  {
+   "pid": "doi-10.1111-ejn.70538",
+   "key": "t:neuraltrackingofsustainedattentionattentionswitchingandnaturalconversationinaudi",
+   "title": "Neural Tracking of Sustained Attention, Attention Switching, and Natural Conversation in Audiovisual Environments Using Wearable EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1111-ejn.70538 | title=Neural Tracking of Sustained Attention, Attention Switching, and Natural Conversa"
+  },
+  {
+   "pid": "doi-10.1126-sciadv.adw1464",
+   "key": "t:mindcaptioningevolvingdescriptivetextofmentalcontentfromhumanbrainactivity",
+   "title": "Mind captioning: Evolving descriptive text of mental content from human brain activity",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1126-sciadv.adw1464 | title=Mind captioning: Evolving descriptive text of mental content from human brai"
+  },
+  {
+   "pid": "doi-10.1146-annurev-linguistics-011718-012353",
+   "key": "t:crossmodaleffectsinspeechperception",
+   "title": "Cross-modal effects in speech perception",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1146-annurev-linguistics-011718-012353 | doi=10.1146/annurev-linguistics-011718-012353 | title=Cross-mod"
+  },
+  {
+   "pid": "doi-10.1162-NOL.a.286",
+   "key": "t:neuralcodingofmultiplelinguisticcomponentsduringreadingcomprehensionacrossdevelo",
+   "title": "Neural Coding of Multiple Linguistic Components During Reading Comprehension Across Development",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1162/NOL.a.286 | title=Neural Coding of Multiple Linguistic Components During Reading Comprehension Across D"
+  },
+  {
+   "pid": "doi-10.1162-imag.a.126",
+   "key": "t:neuralspeechtrackinginnoisereflectstheopposinginfluenceofsnronintelligibilityand",
+   "title": "Neural speech tracking in noise reflects the opposing influence of SNR on intelligibility and attentional effort",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1162-imag.a.126 | title=Neural speech tracking in noise reflects the opposing influence of SNR on intell"
+  },
+  {
+   "pid": "doi-10.1162-imag.a.1305",
+   "key": "t:canyoufeelwhatiamsayingspeechbasedvibrotactilestimulationenhancesthecorticaltrac",
+   "title": "Can you feel what I am saying? Speech-based vibrotactile stimulation enhances the cortical tracking of attended speech in a multi-talker background",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1162/IMAG.a.1305 | title=Can you feel what I am saying? Speech-based vibrotactile stimulation enhances the c"
+  },
+  {
+   "pid": "doi-10.1162-imag_a_00003",
+   "key": "t:auditorydyadicinteractionsthroughtheeyeofthesocialbrainhowvisualistheposteriorst",
+   "title": "Auditory dyadic interactions through the eye of the social brain: How visual is the posterior STS interaction region?",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1162/imag_a_00003 | title=Auditory dyadic interactions through the eye of the social brain: How visual is th"
+  },
+  {
+   "pid": "doi-10.1162-imag_a_00484",
+   "key": "t:unawareprocessingofwordsactivatesexperiencederivedinformationinconceptualsemanti",
+   "title": "Unaware processing of words activates experience-derived information in conceptual-semantic brain networks",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1162-imag_a_00484 | title=Unaware processing of words activates experience-derived information in concep"
+  },
+  {
+   "pid": "doi-10.1162-nol_a_00088",
+   "key": "t:predictivecodingandinternalerrorcorrectioninspeechproduction",
+   "title": "Predictive Coding and Internal Error Correction in Speech Production",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1162-nol_a_00088 | doi=10.1162/nol_a_00088 | title=Predictive Coding and Internal Error Correction in Sp"
+  },
+  {
+   "pid": "doi-10.1177-23312165241266316",
+   "key": "t:neuraldecodingofthespeechenvelopeeffectsofintelligibilityandspectraldegradation",
+   "title": "Neural Decoding of the Speech Envelope: Effects of Intelligibility and Spectral Degradation",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1177-23312165241266316 | title=Neural Decoding of the Speech Envelope: Effects of Intelligibility and Sp"
+  },
+  {
+   "pid": "doi-10.1177-23312165261439202",
+   "key": "t:electrophysiologicalassessmentofsemanticprocessingofcochlearimplantusersusingana",
+   "title": "Electrophysiological Assessment of Semantic Processing of Cochlear Implant Users Using an Audiobook",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1177-23312165261439202 | title=Electrophysiological Assessment of Semantic Processing of Cochlear Implan"
+  },
+  {
+   "pid": "doi-10.1371-journal.pbio.3003588",
+   "key": "t:sensorysharpeningandsemanticpredictionerrorsunifycompetingmodelsofpredictiveproc",
+   "title": "Sensory sharpening and semantic prediction errors unify competing models of predictive processing in human speech comprehension",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1371-journal.pbio.3003588 | title=Sensory sharpening and semantic prediction errors unify competing mode"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0212620",
+   "key": "t:adaptivemultidegreeoffreedombraincomputerinterfaceusingonlinefeedbacktowardsnove",
+   "title": "Adaptive multi-degree of freedom Brain Computer Interface using online feedback: Towards novel methods and metrics of mutual adaptation between humans and machines for BCI",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1371/journal.pone.0212620 | title=Adaptive multi-degree of freedom Brain Computer Interface using online fee"
+  },
+  {
+   "pid": "doi-10.1523-eneuro.0254-25.2026",
+   "key": "t:spatiotemporaldynamicsinprespeechsemanticcategorydecodinganintracranialeegstudy",
+   "title": "Spatiotemporal Dynamics in Prespeech Semantic Category Decoding: An Intracranial EEG Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1523-eneuro.0254-25.2026 | title=Spatiotemporal Dynamics in Prespeech Semantic Category Decoding: An Int"
+  },
+  {
+   "pid": "doi-10.1523-eneuro.0272-25.2026",
+   "key": "t:auditorybrainstemencodingofspeechinnoisepredictswordidentificationnarrativecompr",
+   "title": "Auditory Brainstem Encoding of Speech-in-Noise Predicts Word Identification, Narrative Comprehension, and Subjective Listening Effort in a Selective Attention Task",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1523-eneuro.0272-25.2026 | title=Auditory Brainstem Encoding of Speech-in-Noise Predicts Word Identifica"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-9916752.v1",
+   "key": "t:noninvasivebraintotextbcisphonemelevelsentencereconstructionfrommeg",
+   "title": "Non-Invasive Brain-to-Text BCIs: Phoneme-Level Sentence Reconstruction from MEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.21203/rs.3.rs-9916752/v1 | title=Non-Invasive Brain-to-Text BCIs: Phoneme-Level Sentence Reconstruction"
+  },
+  {
+   "pid": "doi-10.25560-81092",
+   "key": "t:decodingspeechcomprehensionfromcontinuouseegrecordings",
+   "title": "Decoding Speech Comprehension from Continuous EEG recordings",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.25560/81092 | title=Decoding Speech Comprehension from Continuous EEG recordings | venue=PhD thesis, Imperia"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-g34v7",
+   "key": "t:anovelmachinelearningmodelfornoninvasiveeegbasedinnerspeechtranslationinals",
+   "title": "A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Translation in ALS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.31234/osf.io/g34v7_v1 | title=A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Transla"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-g34v7_v2",
+   "key": "t:anovelmachinelearningmodelfornoninvasiveeegbasedinnerspeechtranslationinals",
+   "title": "A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Translation in ALS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.31234-osf.io-g34v7_v2 | title=A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Tra"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2020.557534",
+   "key": "t:robusteegbaseddecodingofauditoryattentionwithhighrmslevelspeechsegmentsinnoisyco",
+   "title": "Robust EEG-Based Decoding of Auditory Attention With High-RMS-Level Speech Segments in Noisy Conditions",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnhum.2020.557534 | title=Robust EEG-Based Decoding of Auditory Attention With High-RMS-Level Speech Se"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2022.841035",
+   "key": "t:braincomputerinterfacesandcommunicationdisabilitiesethicallegalandsocialaspectso",
+   "title": "Brain Computer Interfaces and Communication Disabilities: Ethical, Legal, and Social Aspects of Decoding Speech From the Brain",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2022.841035 | doi=10.3389/fnhum.2022.841035 | title=Brain Computer Interfaces and Communicati"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2024.1460139",
+   "key": "t:cognitivecomponentofauditoryattentiontonaturalspeechevents",
+   "title": "Cognitive component of auditory attention to natural speech events",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2024.1460139 | title=Cognitive component of auditory attention to natural speech events | aut"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2024.1483024",
+   "key": "t:neuralspeechtrackingandauditoryattentiondecodingineverydaylife",
+   "title": "Neural speech tracking and auditory attention decoding in everyday life",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2024.1483024 | title=Neural speech tracking and auditory attention decoding in everyday life"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2025.1637174",
+   "key": "t:neuralsignalsmachinelearningandthefutureofinnerspeechrecognition",
+   "title": "Neural signals, machine learning, and the future of inner speech recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2025.1637174 | doi=10.3389/fnhum.2025.1637174 | title=Neural signals, machine learning, and t"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2026.1838064",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfromnoninvasivebrainsigna",
+   "title": "The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.3389/fnhum.2026.1838064 | title=The current status of foundation models in decoding inner speech from no"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2026.1913105",
+   "key": "t:grasparesponselockedparadigmthatrevealslowbetadesynchronisationisaparticipantinv",
+   "title": "GRASP: a response-locked paradigm that reveals low-beta desynchronisation is a participant-invariant signature of semantic decoding in EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2026.1913105 | title=GRASP: a response-locked paradigm that reveals low-beta desynchronisatio"
+  },
+  {
+   "pid": "doi-10.3389-fninf.2025.1561401",
+   "key": "t:bridgingneuroscienceandaiasurveyonlargelanguagemodelsforneurologicalsignalinterp",
+   "title": "Bridging neuroscience and AI: a survey on large language models for neurological signal interpretation",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fninf.2025.1561401 | title=Bridging neuroscience and AI: a survey on large language models for neur"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2016.00429",
+   "key": "t:automaticspeechrecognitionfromneuralsignalsafocusedreview",
+   "title": "Automatic Speech Recognition from Neural Signals: A Focused Review",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2016.00429 | title=Automatic Speech Recognition from Neural Signals: A Focused Review | autho"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2018.00531",
+   "key": "t:acomparisonofregularizationmethodsinforwardandbackwardmodelsforauditoryattention",
+   "title": "A Comparison of Regularization Methods in Forward and Backward Models for Auditory Attention Decoding",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2018.00531 | title=A Comparison of Regularization Methods in Forward and Backward Models for Audi"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2018.00695",
+   "key": "t:speechrecognitionviafnirsbasedbrainsignals",
+   "title": "Speech Recognition via fNIRS Based Brain Signals",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2018.00695 | title=Speech Recognition via fNIRS Based Brain Signals | authors=Yichuan Liu, Ha"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2020.00603",
+   "key": "t:decodingtheattendedspeakerfromeegusingadaptiveevaluationintervalscapturesfluctua",
+   "title": "Decoding the Attended Speaker From EEG Using Adaptive Evaluation Intervals Captures Fluctuations in Attentional Listening",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2020.00603 | title=Decoding the Attended Speaker From EEG Using Adaptive Evaluation Intervals Cap"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2021.642251",
+   "key": "t:decodingcovertspeechfromeegacomprehensivereview",
+   "title": "Decoding Covert Speech From EEG-A Comprehensive Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2021.642251 | doi=10.3389/fnins.2021.642251 | title=Decoding Covert Speech From EEG-A Compreh"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2021.760611",
+   "key": "t:aspeechlevelbasedsegmentedmodeltodecodethedynamicauditoryattentionstatesinthecom",
+   "title": "A Speech-Level–Based Segmented Model to Decode the Dynamic Auditory Attention States in the Competing Speaker Scenes",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2021.760611 | title=A Speech-Level–Based Segmented Model to Decode the Dynamic Auditory Attention"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2024.1415397",
+   "key": "t:novelbiasreducedcoherencemeasureforeegbasedspeechtrackinginlistenerswithhearingi",
+   "title": "Novel bias-reduced coherence measure for EEG-based speech tracking in listeners with hearing impairment",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2024.1415397 | title=Novel bias-reduced coherence measure for EEG-based speech tracking in li"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2026.1899770",
+   "key": "t:braincliplmsemanticcompressionforeegtotextdecoding",
+   "title": "Brain-CLIPLM: semantic compression for EEG-to-text decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2026.1899770 | title=Brain-CLIPLM: semantic compression for EEG-to-text decoding | authors=Xiaoli"
+  },
+  {
+   "pid": "doi-10.3389-fphys.2021.700655",
+   "key": "t:extractingtheauditoryattentioninadualspeakerscenariofromeegusingajointcnnlstmmod",
+   "title": "Extracting the Auditory Attention in a Dual-Speaker Scenario From EEG Using a Joint CNN-LSTM Model",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fphys.2021.700655 | title=Extracting the Auditory Attention in a Dual-Speaker Scenario From EEG Using a"
+  },
+  {
+   "pid": "doi-10.3390-bioengineering11121216",
+   "key": "t:selectiveauditoryattentiondetectionusingcombinedtransformerandconvolutionalgraph",
+   "title": "Selective Auditory Attention Detection Using Combined Transformer and Convolutional Graph Neural Networks",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3390/bioengineering11121216 | title=Selective Auditory Attention Detection Using Combined Transformer and Co"
+  },
+  {
+   "pid": "doi-10.3390-biology15131028",
+   "key": "t:temporalresponsefunctiondrivenrepresentationalsimilarityanalysisforspeechpercept",
+   "title": "Temporal Response Function-Driven Representational Similarity Analysis for Speech Perception Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-biology15131028 | title=Temporal Response Function-Driven Representational Similarity Analysis for"
+  },
+  {
+   "pid": "doi-10.3390-biology15141148",
+   "key": "t:closingthelooponthecocktailpartyeffectfromattentiondecodingtoneurosteeredselecti",
+   "title": "Closing the Loop on the Cocktail Party Effect: From Attention Decoding to Neuro-Steered Selective Hearing",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-biology15141148 | title=Closing the Loop on the Cocktail Party Effect: From Attention Decoding to N"
+  },
+  {
+   "pid": "doi-10.3390-s23125575",
+   "key": "t:machinelearningmethodsforspeechandhandwritingdetectionusingneuralsignalsareview",
+   "title": "Machine-Learning Methods for Speech and Handwriting Detection Using Neural Signals: A Review",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s23125575 | doi=10.3390/s23125575 | title=Machine-Learning Methods for Speech and Handwriting Detec"
+  },
+  {
+   "pid": "doi-10.3390-s26103212",
+   "key": "t:imaginedspeechbraincomputerinterfaceataskorientedreviewofneuraldecoding",
+   "title": "Imagined Speech Brain–Computer Interface: A Task-Oriented Review of Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s26103212 | title=Imagined Speech Brain–Computer Interface: A Task-Oriented Review of Neural Decodi"
+  },
+  {
+   "pid": "doi-10.64898-2025.11.30.691403",
+   "key": "t:representationalignmentandgenerationacomprehensivesurveyoffoundationmodelsfornon",
+   "title": "Representation, Alignment, and Generation: A Comprehensive Survey of Foundation Models for Non-Invasive Brain Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.64898/2025.11.30.691403 | title=Representation, Alignment, and Generation: A Comprehensive Survey of Foundat"
+  },
+  {
+   "pid": "doi-10.64898-2026.07.14.738583",
+   "key": "t:articulatorytimingandformsupportdistinctneuralbenefitsduringaudiovisualspeech",
+   "title": "Articulatory timing and form support distinct neural benefits during audiovisual speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.64898/2026.07.14.738583 | title=Articulatory timing and form support distinct neural benefits during audiovi"
+  },
+  {
+   "pid": "doi-10.7507-1001-5515.202107018",
+   "key": "t:keytechnologyofbraincomputerinteractionbasedonspeechimagery",
+   "title": "[Key technology of brain-computer interaction based on speech imagery] 基于言语想象的脑机交互关键技术",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.7507-1001-5515.202107018 | doi=10.7507/1001-5515.202107018 | title=[Key technology of brain-computer int"
+  },
+  {
+   "pid": "doi-10.7554-elife.100830",
+   "key": "t:enhancedneuralspeechtrackingthroughnoiseindicatesstochasticresonanceinhumans",
+   "title": "Enhanced neural speech tracking through noise indicates stochastic resonance in humans",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.7554-elife.100830 | title=Enhanced neural speech tracking through noise indicates stochastic resonance i"
+  },
+  {
+   "pid": "hal-3769268-intimag",
+   "key": "t:preliminarystudyforintonationclassificationofimaginedspeechforbraincomputerinter",
+   "title": "Preliminary study for intonation classification of imagined speech for brain-computer interface applications",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Preliminary study for intonation classification of imagined speech for brain-computer interface applications | aut"
+  },
+  {
+   "pid": "hal-4579676-semmotor",
+   "key": "t:thecontributionofsensorymotorinteractionstoimaginedspeech",
+   "title": "The contribution of sensory-motor interactions to imagined speech",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The contribution of sensory-motor interactions to imagined speech | authors=Bouton Sophie, Proix Timothee, Martin"
+  },
+  {
+   "pid": "ib24-neural2speech",
+   "key": "t:neural2speechdecodingspeechandlanguagefromthehumanbrain",
+   "title": "#neural2speech: Decoding Speech and Language from the Human Brain",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ib24-neural2speech | title=#neural2speech: Decoding Speech and Language from the Human Brain | authors=Xabier d"
+  },
+  {
+   "pid": "isca-cheng23e_interspeech",
+   "key": "t:similarhierarchicalrepresentationofspeechandothercomplexsoundsinthebrainanddeepr",
+   "title": "Similar Hierarchical Representation of Speech and Other Complex Sounds In the Brain and Deep Residual Networks: An MEG Study",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-cheng23e_interspeech | title=Similar Hierarchical Representation of Speech and Other Complex Sounds In the"
+  },
+  {
+   "pid": "isca-ivucic25_interspeech",
+   "key": "t:selectiveauditoryattentiondecodinginnaturalisticconversationsusingeegbasedspeech",
+   "title": "Selective Auditory Attention Decoding in Naturalistic Conversations Using EEG-Based Speech Envelope Tracking in Multi-Speaker Environments",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ivucic25_interspeech | title=Selective Auditory Attention Decoding in Naturalistic Conversations Using EEG"
+  },
+  {
+   "pid": "isca-monesi21_interspeech",
+   "key": "t:extractingdifferentlevelsofspeechinformationfromeegusinganlstmbasedmodel",
+   "title": "Extracting Different Levels of Speech Information from EEG Using an LSTM-Based Model",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-monesi21_interspeech | title=Extracting Different Levels of Speech Information from EEG Using an LSTM-Base"
+  },
+  {
+   "pid": "isca-oota23-taskonomy",
+   "key": "t:speechtaskonomywhichspeechtasksarethemostpredictiveoffmribrainactivity",
+   "title": "Speech Taskonomy: Which Speech Tasks are the most Predictive of fMRI Brain Activity?",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Taskonomy: Which Speech Tasks are the most Predictive of fMRI Brain Activity? | authors=Oota, Momin, et-al"
+  },
+  {
+   "pid": "isca-oota23_interspeech",
+   "key": "t:speechtaskonomywhichspeechtasksarethemostpredictiveoffmribrainactivity",
+   "title": "Speech Taskonomy: Which Speech Tasks are the most Predictive of fMRI Brain Activity?",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-oota23_interspeech | title=Speech Taskonomy: Which Speech Tasks are the most Predictive of fMRI Brain Acti"
+  },
+  {
+   "pid": "isca-qiu23_interspeech",
+   "key": "t:exploringauditoryattentiondecodingusingspeakerfeatures",
+   "title": "Exploring Auditory Attention Decoding using Speaker Features",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-qiu23_interspeech | title=Exploring Auditory Attention Decoding using Speaker Features | authors=Yichen Qi"
+  },
+  {
+   "pid": "isca-shams25-neuro2sem",
+   "key": "t:neuro2semanticatransferlearningframeworkforsemanticreconstructionofcontinuouslan",
+   "title": "Neuro2Semantic: A Transfer Learning Framework for Semantic Reconstruction of Continuous Language",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neuro2Semantic: A Transfer Learning Framework for Semantic Reconstruction of Continuous Language | authors=Shams,"
+  },
+  {
+   "pid": "isca-shams25_interspeech",
+   "key": "t:neuro2semanticatransferlearningframeworkforsemanticreconstructionofcontinuouslan",
+   "title": "Neuro2Semantic: A Transfer Learning Framework for Semantic Reconstruction of Continuous Language from Human Intracranial EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-shams25_interspeech | title=Neuro2Semantic: A Transfer Learning Framework for Semantic Reconstruction of C"
+  },
+  {
+   "pid": "isca-soman23_interspeech",
+   "key": "t:enhancingtheeegspeechmatchmismatchtaskswithwordboundaries",
+   "title": "Enhancing the EEG Speech Match Mismatch Tasks With Word Boundaries",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-soman23_interspeech | title=Enhancing the EEG Speech Match Mismatch Tasks With Word Boundaries | authors=K"
+  },
+  {
+   "pid": "isca-sung26_interspeech",
+   "key": "t:fmridecodingofspeechconditionsacrossbrainregionsofinterestforneuralevaluationofs",
+   "title": "fMRI Decoding of Speech Conditions Across Brain Regions of Interest for Neural Evaluation of Speech Enhancement",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-sung26_interspeech | title=fMRI Decoding of Speech Conditions Across Brain Regions of Interest for Neural"
+  },
+  {
+   "pid": "isca-yan24b_interspeech",
+   "key": "t:auditoryattentiondecodinginfourtalkerenvironmentwitheeg",
+   "title": "Auditory Attention Decoding in Four-Talker Environment with EEG",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-yan24b_interspeech | title=Auditory Attention Decoding in Four-Talker Environment with EEG | authors=Yujie"
+  },
+  {
+   "pid": "isca-zhao24e-langacq",
+   "key": "t:decodinghumanlanguageacquisitioneegevidenceforpredictiveprobabilisticstatisticsi",
+   "title": "Decoding Human Language Acquisition: EEG Evidence for Predictive Probabilistic Statistics in Word Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Human Language Acquisition: EEG Evidence for Predictive Probabilistic Statistics in Word Learning | venue"
+  },
+  {
+   "pid": "isca-zhao24e_interspeech",
+   "key": "t:electroencephalographicevidenceforpredictivestatisticallearninginauditorywordseg",
+   "title": "Electroencephalographic Evidence for Predictive Statistical Learning in Auditory Word Segmentation",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-zhao24e_interspeech | title=Electroencephalographic Evidence for Predictive Statistical Learning in Audito"
+  },
+  {
+   "pid": "nemar-on005170-chisco",
+   "key": "p:nemar-on005170-chisco",
+   "title": "Chisco",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=dataset_resource | Study.research_objective=Chinese imagined speech EEG dataset (imagine + reading ta"
+  },
+  {
+   "pid": "oa-W2778189107",
+   "key": "t:whatwasithinkingusingmultivoxelpatternanalysistoidentifysharedneuralrepresentati",
+   "title": "What Was I Thinking? Using Multi-Voxel Pattern Analysis to Identify Shared Neural Representations Between External and Internal Speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W2778189107 | doi=hdl:1807/79336 | title=What Was I Thinking? Using Multi-Voxel Pattern Analysis to Identify"
+  },
+  {
+   "pid": "oa-W416947624",
+   "key": "t:wheneyemeetsearaninvestigationofaudiovisualspeechandnonspeechperceptionandagerel",
+   "title": "When Eye Meets Ear: An Investigation of Audiovisual Speech and Non-Speech Perception and Age-Related Differences",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa:W416947624 | title=When Eye Meets Ear: An Investigation of Audiovisual Speech and Non-Speech Perception and"
+  },
+  {
+   "pid": "osf-g34v7-istals",
+   "key": "t:anovelmachinelearningmodelfornoninvasiveeegbasedinnerspeechtranslationinals",
+   "title": "A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Translation in ALS",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Novel Machine Learning Model for Non-Invasive EEG-Based Inner-Speech Translation in ALS | authors=Alex Steiner |"
+  },
+  {
+   "pid": "osf-zqgfu-presma",
+   "key": "t:audioandvisualspeechemotionactivatetheleftpresupplementarymotorarea",
+   "title": "Audio and visual speech emotion activate the left pre-supplementary motor area",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio and visual speech emotion activate the left pre-supplementary motor area | authors=Rovetti, Copelli, Russo |"
+  },
+  {
+   "pid": "pmc-10272218-semantic-eeg",
+   "key": "t:eegbasedbcidatasetofsemanticconceptsforimaginationandperceptiontasks",
+   "title": "EEG-based BCI Dataset of Semantic Concepts for Imagination and Perception Tasks",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10272218-semantic-eeg | title=EEG-based BCI Dataset of Semantic Concepts for Imagination and Perception Tas"
+  },
+  {
+   "pid": "pmc-10849751-covertcortical",
+   "key": "t:covertcorticalprocessingadiagnosisinsearchofadefinition",
+   "title": "Covert cortical processing: a diagnosis in search of a definition",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-10849751-covertcortical | title=Covert cortical processing: a diagnosis in search of a definition | authors"
+  },
+  {
+   "pid": "pmc-10913025-eegsem",
+   "key": "t:decodingsemanticsfromdynamicbrainactivationpatternsfromtrialstotaskineeg",
+   "title": "Decoding Semantics from Dynamic Brain Activation Patterns: From Trials to Task in EEG",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Semantics from Dynamic Brain Activation Patterns: From Trials to Task in EEG | authors=Magnabosco, Hauk |"
+  },
+  {
+   "pid": "pmc-11069338-scenefmri",
+   "key": "t:haveyoubeentherebeforedecodingrecognitionofspatialscenesfromfmrisignalsinprecune",
+   "title": "Have you been there before? Decoding recognition of spatial scenes from fMRI signals in precuneus",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Have you been there before? Decoding recognition of spatial scenes from fMRI signals in precuneus | authors=Bogler"
+  },
+  {
+   "pid": "pmc-11069509-roarpa",
+   "key": "t:rapidonlineassessmentofreadingandphonologicalawarenessroarpa",
+   "title": "Rapid online assessment of reading and phonological awareness (ROAR-PA)",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Rapid online assessment of reading and phonological awareness (ROAR-PA) | authors=Gijbels L, Burkhardt A, Ma WA |"
+  },
+  {
+   "pid": "pmc-11092550-autismlanguage",
+   "key": "t:factorsassociatedwithreceptiveandexpressivelanguageinautisticchildrenandsiblings",
+   "title": "Factors associated with receptive and expressive language in autistic children and siblings: A systematic review",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Factors associated with receptive and expressive language in autistic children and siblings: A systematic review |"
+  },
+  {
+   "pid": "pmc-11148270-predictivelang",
+   "key": "t:predictivelanguageprocessingintegratingcomprehensionandproductionandwhatatypical",
+   "title": "Predictive language processing: integrating comprehension and production, and what atypical populations can tell us",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Predictive language processing: integrating comprehension and production, and what atypical populations can tell u"
+  },
+  {
+   "pid": "pmc-11154148-crossmodalci",
+   "key": "t:crossmodalplasticityinchildrenwithcochlearimplantconvergingevidencefromeegandfun",
+   "title": "Cross-modal plasticity in children with cochlear implant: converging evidence from EEG and functional near-infrared spectroscopy",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Cross-modal plasticity in children with cochlear implant: converging evidence from EEG and functional near-infrare"
+  },
+  {
+   "pid": "pmc-11224314-imgchars",
+   "key": "t:temporalspatialcrossattentionnetworkforrecognizingimaginedcharacters",
+   "title": "Temporal-spatial cross attention network for recognizing imagined characters",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Temporal-spatial cross attention network for recognizing imagined characters | authors=Xu, Zhou, Shen | venue=Scie"
+  },
+  {
+   "pid": "pmc-11304553-fmri-semrec",
+   "key": "t:semanticreconstructionofcontinuouslanguagefromnoninvasivebrainrecordings",
+   "title": "Semantic reconstruction of continuous language from non-invasive brain recordings",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Semantic reconstruction of continuous language from non-invasive brain recordings | authors=Tang Jerry, LeBel Aman"
+  },
+  {
+   "pid": "pmc-11509453-encephlang",
+   "key": "t:howencephalopathyimpactslanguageabilityascopingreviewofthelinguisticabilitiesofa",
+   "title": "How Encephalopathy Impacts Language Ability: A Scoping Review of the Linguistic Abilities of Adults with Developmental and Epileptic Encephalopathy",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=How Encephalopathy Impacts Language Ability: A Scoping Review of the Linguistic Abilities of Adults with Developme"
+  },
+  {
+   "pid": "pmc-11564751-cue-inflation",
+   "key": "t:usingdatafromcuepresentationsresultsingrosslyoverestimatingsemanticbciperformanc",
+   "title": "Using data from cue presentations results in grossly overestimating semantic BCI performance",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11564751-cue-inflation | title=Using data from cue presentations results in grossly overestimating semantic"
+  },
+  {
+   "pid": "pmc-11592126-iph-eeg",
+   "key": "t:examiningtheneuralmarkersofspeechrhythminsilentreadingusingmassunivariatestatist",
+   "title": "Examining the Neural Markers of Speech Rhythm in Silent Reading Using Mass Univariate Statistics of EEG Single Trials",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11592126-iph-eeg | title=Examining the Neural Markers of Speech Rhythm in Silent Reading Using Mass Univari"
+  },
+  {
+   "pid": "pmc-11595501-hybdl-imgspeech",
+   "key": "t:decodingimaginedspeechfromeegdataahybriddeeplearningapproachtocapturingspatialan",
+   "title": "Decoding imagined speech from EEG data: a hybrid deep learning approach to capturing spatial and temporal features",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11595501-hybdl-imgspeech | title=Decoding imagined speech from EEG data: a hybrid deep learning approach to"
+  },
+  {
+   "pid": "pmc-11679664-eegrev",
+   "key": "t:systematicreviewofeegbasedimaginedspeechclassificationmethods",
+   "title": "Systematic Review of EEG-Based Imagined Speech Classification Methods",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Systematic Review of EEG-Based Imagined Speech Classification Methods | venue=Sensors (Basel) | doi=10.3390/s24248"
+  },
+  {
+   "pid": "pmc-11680895-megreading",
+   "key": "t:naturalisticreadingofmultipagetextselicitsspatiallyextendedmodulationofoscillato",
+   "title": "Naturalistic reading of multi-page texts elicits spatially extended modulation of oscillatory activity in the right hemisphere",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11680895-megreading | title=Naturalistic reading of multi-page texts elicits spatially extended modulation"
+  },
+  {
+   "pid": "pmc-11685728-eegsemantics",
+   "key": "t:differencesinspatiotemporaldynamicsforprocessingspecificsemanticcategoriesaneegs",
+   "title": "Differences in spatiotemporal dynamics for processing specific semantic categories: An EEG study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11685728-eegsemantics | title=Differences in spatiotemporal dynamics for processing specific semantic categ"
+  },
+  {
+   "pid": "pmc-11829918-speechmode",
+   "key": "t:braindynamicsofspeechmodesencodingloudandwhisperedspeechversusstandardspeech",
+   "title": "Brain Dynamics of Speech Modes Encoding: Loud and Whispered Speech Versus Standard Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain Dynamics of Speech Modes Encoding: Loud and Whispered Speech Versus Standard Speech | venue=Brain Topography"
+  },
+  {
+   "pid": "pmc-11844374-semieeg",
+   "key": "t:decodingsemanticsfromnaturalspeechusinghumanintracranialeeg",
+   "title": "Decoding semantics from natural speech using human intracranial EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding semantics from natural speech using human intracranial EEG | authors=semantics-iEEG group | Study.researc"
+  },
+  {
+   "pid": "pmc-11903136-crosssemdec",
+   "key": "t:semanticlanguagedecodingacrossparticipantsandstimulusmodalities",
+   "title": "Semantic language decoding across participants and stimulus modalities",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Semantic language decoding across participants and stimulus modalities | authors=Tang J, Huth AG | venue=Current B"
+  },
+  {
+   "pid": "pmc-11903136-cub",
+   "key": "t:semanticlanguagedecodingacrossparticipantsandstimulusmodalities",
+   "title": "Semantic language decoding across participants and stimulus modalities",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11903136-cub | title=Semantic language decoding across participants and stimulus modalities | authors=Jerry"
+  },
+  {
+   "pid": "pmc-12019108-headed-syntax",
+   "key": "t:decodingtheneuraldynamicsofheadedsyntacticstructurebuilding",
+   "title": "Decoding the Neural Dynamics of Headed Syntactic Structure Building",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding the Neural Dynamics of Headed Syntactic Structure Building | authors=Junyuan Zhao, et al. | venue=Journal"
+  },
+  {
+   "pid": "pmc-12032204-tmnred",
+   "key": "t:tmnredachineselanguageeegdatasetforfuzzysemantictargetidentificationinnaturalrea",
+   "title": "TMNRED, A Chinese Language EEG Dataset for Fuzzy Semantic Target Identification in Natural Reading Environments",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12032204-tmnred | title=TMNRED, A Chinese Language EEG Dataset for Fuzzy Semantic Target Identification in"
+  },
+  {
+   "pid": "pmc-12213747-hypoxia-listening",
+   "key": "t:exploringtheeegrepresentationofenglishlisteningcomprehensionunderhypoxicconditio",
+   "title": "Exploring the EEG representation of English listening comprehension under hypoxic conditions",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Exploring the EEG representation of English listening comprehension under hypoxic conditions | authors=Song Y, Yu"
+  },
+  {
+   "pid": "pmc-12252171-predcomm",
+   "key": "t:towardspredictivecommunicationthefusionoflargelanguagemodelsandbraincomputerinte",
+   "title": "Towards Predictive Communication: The Fusion of Large Language Models and Brain–Computer Interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12252171-predcomm | title=Towards Predictive Communication: The Fusion of Large Language Models and Brain–C"
+  },
+  {
+   "pid": "pmc-12319848-rsa-reading",
+   "key": "t:differentialweightingofinformationduringaloudandsilentreadingevidencefromreprese",
+   "title": "Differential weighting of information during aloud and silent reading: Evidence from representational similarity analysis of fMRI data",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12319848-rsa-reading | title=Differential weighting of information during aloud and silent reading: Evidenc"
+  },
+  {
+   "pid": "pmc-12333864-bci20",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12333864-bci20 | title=Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Le"
+  },
+  {
+   "pid": "pmc-12425163-fnirs-ci",
+   "key": "t:linkingbrainactivationtoclinicaloutcomesanfnirsstudyincochlearimplantusersandnor",
+   "title": "Linking brain activation to clinical outcomes: an fNIRS study in cochlear implant users and normal hearing individuals.",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Linking brain activation to clinical outcomes: an fNIRS study in cochlear implant users and normal hearing individ"
+  },
+  {
+   "pid": "pmc-12460843-lingdecode",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Progress, challenges and future of linguistic neural decoding with deep learning | authors=Wang, Liu, Wang, Xuan |"
+  },
+  {
+   "pid": "pmc-12460843-linguistic-neural-decoding",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12460843-linguistic-neural-decoding | title=Progress, challenges and future of linguistic neural decoding w"
+  },
+  {
+   "pid": "pmc-12495140-prosody-embodied",
+   "key": "t:neuralcorrelatesofembodiedandvibratorymechanismsassociatedwithemotionalprosodypr",
+   "title": "Neural correlates of embodied and vibratory mechanisms associated with emotional prosody production.",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural correlates of embodied and vibratory mechanisms associated with emotional prosody production. | authors=Sel"
+  },
+  {
+   "pid": "pmc-12526594-tsfnet",
+   "key": "t:tsfnettemporalspatialfusionnetworkforhybridbraincomputerinterface",
+   "title": "TSFNet: Temporal-Spatial Fusion Network for Hybrid Brain-Computer Interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12526594-tsfnet | title=TSFNet: Temporal-Spatial Fusion Network for Hybrid Brain-Computer Interface | autho"
+  },
+  {
+   "pid": "pmc-12526642-emg-eeg-ssi",
+   "key": "t:sentencelevelsilentspeechrecognitionusingawearableemgeegsensorsystemwithaidriven",
+   "title": "Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and Language Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sentence-Level Silent Speech Recognition Using a Wearable EMG/EEG Sensor System with AI-Driven Sensor Fusion and L"
+  },
+  {
+   "pid": "pmc-12539091-mcgurk-prestim",
+   "key": "t:prestimulusperiodicandaperiodicneuralactivityshapesmcgurkperception",
+   "title": "Prestimulus Periodic and Aperiodic Neural Activity Shapes McGurk Perception.",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Prestimulus Periodic and Aperiodic Neural Activity Shapes McGurk Perception. | authors=Singh VAV, Kumar VG, Banerj"
+  },
+  {
+   "pid": "pmc-12539240-avdev-minds",
+   "key": "t:growingmindsintegratingsensesneuralandcomputationalinsightsintoagerelatedchanges",
+   "title": "Growing minds, integrating senses: Neural and computational insights into age-related changes in audio-visual and tactile-visual learning in children.",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Growing minds, integrating senses: Neural and computational insights into age-related changes in audio-visual and"
+  },
+  {
+   "pid": "pmc-12553116-semtimescale",
+   "key": "t:fromspeechsemanticstobrainactivitytimescalesarekeyintheirinformationtransfer",
+   "title": "From Speech Semantics to Brain Activity-Timescales Are Key in Their Information Transfer.",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Speech Semantics to Brain Activity-Timescales Are Key in Their Information Transfer. | authors=Kumar S, Klar"
+  },
+  {
+   "pid": "pmc-12553116-timescales",
+   "key": "t:fromspeechsemanticstobrainactivitytimescalesarekeyintheirinformationtransfer",
+   "title": "From Speech Semantics to Brain Activity—Timescales Are Key in Their Information Transfer",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12553116-timescales | title=From Speech Semantics to Brain Activity—Timescales Are Key in Their Information"
+  },
+  {
+   "pid": "pmc-12561361-handwrite-b2t",
+   "key": "t:decodinghandwritingtrajectoriesfromintracorticalbrainsignalsforbraintotextcommun",
+   "title": "Decoding Handwriting Trajectories from Intracortical Brain Signals for Brain-to-Text Communication",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12561361-handwrite-b2t | title=Decoding Handwriting Trajectories from Intracortical Brain Signals for Brain"
+  },
+  {
+   "pid": "pmc-12588295-mindcap",
+   "key": "t:mindcaptioningevolvingdescriptivetextofmentalcontentfromhumanbrainactivity",
+   "title": "Mind captioning: evolving descriptive text of mental content from human brain activity",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12588295-mindcap | title=Mind captioning: evolving descriptive text of mental content from human brain acti"
+  },
+  {
+   "pid": "pmc-12592156-native-nonnative",
+   "key": "t:differentialelectroencephalographyresponsesinspeechperceptionbetweennativeandnon",
+   "title": "Differential electroencephalography responses in speech perception between native and non-native speakers",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12592156-native-nonnative | title=Differential electroencephalography responses in speech perception betwee"
+  },
+  {
+   "pid": "pmc-12617279-fnirs-ha-child",
+   "key": "t:howcannearinfraredspectroscopybeinformativeaboutthebrainactivationofchildrenusin",
+   "title": "How can near infrared spectroscopy be informative about the brain activation of children using a hearing implant? Preliminary case-control findings.",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=How can near infrared spectroscopy be informative about the brain activation of children using a hearing implant?"
+  },
+  {
+   "pid": "pmc-12638244-llmalign",
+   "key": "t:increasingalignmentoflargelanguagemodelswithlanguageprocessinginthehumanbrain",
+   "title": "Increasing alignment of large language models with language processing in the human brain",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Increasing alignment of large language models with language processing in the human brain | authors=Gao, Ma, Chen,"
+  },
+  {
+   "pid": "pmc-12658044-word-meg",
+   "key": "t:towardsdecodingindividualwordsfromnoninvasivebrainrecordings",
+   "title": "Towards decoding individual words from non-invasive brain recordings",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12658044-word-meg | title=Towards decoding individual words from non-invasive brain recordings | authors=S."
+  },
+  {
+   "pid": "pmc-12719063-wordread-fmri",
+   "key": "t:afmrineuroimagingdatasetofwordreadingwithsemanticandphonologicallocalizersinchil",
+   "title": "A fMRI neuroimaging dataset of word reading with semantic and phonological localizers in children and adolescents.",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A fMRI neuroimaging dataset of word reading with semantic and phonological localizers in children and adolescents."
+  },
+  {
+   "pid": "pmc-12721398-avattn-child",
+   "key": "t:neurocorticalsignaturesofattentioninuniandmultisensoryaudiovisualprocessinginchi",
+   "title": "Neuro-cortical signatures of attention in uni- and multi-sensory audio-visual processing in children.",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neuro-cortical signatures of attention in uni- and multi-sensory audio-visual processing in children. | authors=Pe"
+  },
+  {
+   "pid": "pmc-12730276-nvcomm",
+   "key": "t:nonverbalcommunicationprocessingindeafadultsanactivationlikelihoodestimationmeta",
+   "title": "Nonverbal Communication Processing in Deaf Adults: An Activation Likelihood Estimation Meta-Analysis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Nonverbal Communication Processing in Deaf Adults: An Activation Likelihood Estimation Meta-Analysis | venue=Brain"
+  },
+  {
+   "pid": "pmc-12770527-eegnoise",
+   "key": "t:evaluatingeegtotextmodelsthroughnoisebasedperformanceanalysis",
+   "title": "Evaluating EEG-to-text models through noise-based performance analysis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12770527-eegnoise | title=Evaluating EEG-to-text models through noise-based performance analysis | authors="
+  },
+  {
+   "pid": "pmc-12770527-eegtotext",
+   "key": "t:evaluatingeegtotextmodelsthroughnoisebasedperformanceanalysis",
+   "title": "Evaluating EEG-to-text models through noise-based performance analysis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evaluating EEG-to-text models through noise-based performance analysis | authors=Jo, Yang, Han, Duan, Xiong | venu"
+  },
+  {
+   "pid": "pmc-12864990-chineseeg2",
+   "key": "t:aneegdatasetformultimodalsemanticalignmentandneuraldecodingduringreadingandliste",
+   "title": "An EEG Dataset for Multimodal Semantic Alignment and Neural Decoding during Reading and Listening",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12864990-chineseeg2 | title=An EEG Dataset for Multimodal Semantic Alignment and Neural Decoding during Rea"
+  },
+  {
+   "pid": "pmc-12956258-absling",
+   "key": "t:arepresentationofabstractlinguisticcategoriesinthevisualsystemunderliessuccessfu",
+   "title": "A representation of abstract linguistic categories in the visual system underlies successful lipreading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A representation of abstract linguistic categories in the visual system underlies successful lipreading | doi=10.1"
+  },
+  {
+   "pid": "pmc-13081921-aph",
+   "key": "t:decodingconceptrepresentationsinaphasiaafterstroke",
+   "title": "Decoding concept representations in aphasia after stroke",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13081921-aph | title=Decoding concept representations in aphasia after stroke | authors=Jerry Tang, Carly M"
+  },
+  {
+   "pid": "pmc-13090028-semreps",
+   "key": "t:modalityagnosticdecodingofvisionandlanguagefromfmri",
+   "title": "Modality-agnostic decoding of vision and language from fMRI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Modality-agnostic decoding of vision and language from fMRI | authors=Nikolaus M; Mozafari M; Berry I; Asher N; Re"
+  },
+  {
+   "pid": "pmc-13116012-presem",
+   "key": "t:spatiotemporaldynamicsinprespeechsemanticcategorydecodinganintracranialeegstudy",
+   "title": "Spatiotemporal Dynamics in Prespeech Semantic Category Decoding: An Intracranial EEG Study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13116012-presem | title=Spatiotemporal Dynamics in Prespeech Semantic Category Decoding: An Intracranial EE"
+  },
+  {
+   "pid": "pmc-13160129-llmtrack",
+   "key": "t:largelanguagemodelsrevealtheneuraltrackingoflinguisticcontextinattendedandunatte",
+   "title": "Large Language Models Reveal the Neural Tracking of Linguistic Context in Attended and Unattended Multi-Talker Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Large Language Models Reveal the Neural Tracking of Linguistic Context in Attended and Unattended Multi-Talker Spe"
+  },
+  {
+   "pid": "pmc-13165879-mandarinverbs",
+   "key": "t:decodingmandarinactionverbsfromeegusingaduallstmnetworktowardspracticalassistive",
+   "title": "Decoding Mandarin Action Verbs from EEG Using a Dual-LSTM Network: Towards Practical Assistive Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Mandarin Action Verbs from EEG Using a Dual-LSTM Network: Towards Practical Assistive Brain-Computer Inte"
+  },
+  {
+   "pid": "pmc-13211074-imgrev",
+   "key": "t:imaginedspeechbraincomputerinterfaceataskorientedreviewofneuraldecoding",
+   "title": "Imagined Speech Brain–Computer Interface: A Task-Oriented Review of Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13211074-imgrev | title=Imagined Speech Brain–Computer Interface: A Task-Oriented Review of Neural Decoding"
+  },
+  {
+   "pid": "pmc-13211074-isbcirev",
+   "key": "t:imaginedspeechbraincomputerinterfaceataskorientedreviewofneuraldecoding",
+   "title": "Imagined Speech Brain-Computer Interface: A Task-Oriented Review of Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined Speech Brain-Computer Interface: A Task-Oriented Review of Neural Decoding | authors=Zhang, Siok, Wang, C"
+  },
+  {
+   "pid": "pmc-13254259-fm-is-review",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfromnoninvasivebrainsigna",
+   "title": "The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13254259-fm-is-review | title=The current status of foundation models in decoding inner speech from non-inv"
+  },
+  {
+   "pid": "pmc-13258914-diagpat",
+   "key": "t:diagpatanexplainablelanguagedetectionmodelusingeegsignals",
+   "title": "DiagPat: An Explainable Language Detection Model Using EEG Signals",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13258914-diagpat | title=DiagPat: An Explainable Language Detection Model Using EEG Signals | authors=Tugce"
+  },
+  {
+   "pid": "pmc-13275642-speechnp",
+   "key": "t:speechneurophysiologyinrealisticcontextsbighypeorbigleap",
+   "title": "Speech Neurophysiology in Realistic Contexts: Big Hype or Big Leap?",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Neurophysiology in Realistic Contexts: Big Hype or Big Leap? | venue=European Journal of Neuroscience | doi"
+  },
+  {
+   "pid": "pmc-13275642-spneuro",
+   "key": "t:speechneurophysiologyinrealisticcontextsbighypeorbigleap",
+   "title": "Speech Neurophysiology in Realistic Contexts: Big Hype or Big Leap?",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Neurophysiology in Realistic Contexts: Big Hype or Big Leap? | authors=Di Liberto, Ip (Trinity College Dubl"
+  },
+  {
+   "pid": "pmc-13278282-area55b",
+   "key": "t:acorticalgradientinarea55blinkslanguageandsomatocognitiveactionnetworks",
+   "title": "A cortical gradient in area 55b links language and somato-cognitive action networks",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13278282-area55b | title=A cortical gradient in area 55b links language and somato-cognitive action network"
+  },
+  {
+   "pid": "pmc-13283033-fnirscovert",
+   "key": "t:earlydetectionofcovertconsciousnesswithfunctionalnearinfraredspectroscopy",
+   "title": "Early Detection of Covert Consciousness With Functional Near-Infrared Spectroscopy",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13283033-fnirscovert | title=Early Detection of Covert Consciousness With Functional Near-Infrared Spectros"
+  },
+  {
+   "pid": "pmc-13306267-softrobot",
+   "key": "t:rethinkingbraincomputerinterfacesforsoftroboticsystemsaunifiedframeworkandperspe",
+   "title": "Rethinking Brain–Computer Interfaces for Soft Robotic Systems: A Unified Framework and Perspective",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13306267-softrobot | title=Rethinking Brain–Computer Interfaces for Soft Robotic Systems: A Unified Framewo"
+  },
+  {
+   "pid": "pmc-13335209-anarthria",
+   "key": "t:decodingintendedspeechwithanintracorticalbraincomputerinterfaceinapersonwithlong",
+   "title": "Decoding intended speech with an intracortical brain-computer interface in a person with long-standing anarthria and locked-in syndrome",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13335209-anarthria | title=Decoding intended speech with an intracortical brain-computer interface in a per"
+  },
+  {
+   "pid": "pmc-13346406-lingbrain",
+   "key": "t:linguisticsandhumanbrainaperspectiveofcomputationalneuroscience",
+   "title": "Linguistics and human brain: a perspective of computational neuroscience",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13346406-lingbrain | title=Linguistics and human brain: a perspective of computational neuroscience | autho"
+  },
+  {
+   "pid": "pmc-13369013-erpbci",
+   "key": "t:singlesubjectauditoryerpbciperformanceenhancementinalsviaanaicodingassistantprom",
+   "title": "Single-subject auditory ERP-BCI performance enhancement in ALS via an AI coding assistant prompt",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13369013-erpbci | title=Single-subject auditory ERP-BCI performance enhancement in ALS via an AI coding ass"
+  },
+  {
+   "pid": "pmc-13373405-aad",
+   "key": "t:linkingattentionalmodulationtoauditoryattentiondecodingusingcolocatedstimuliwith",
+   "title": "Linking attentional modulation to auditory attention decoding: using colocated stimuli with a fixed temporal structure",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13373405-aad | title=Linking attentional modulation to auditory attention decoding: using colocated stimuli"
+  },
+  {
+   "pid": "pmc-13373884-megbeta",
+   "key": "t:determininghemisphericlanguagedominancefrommegbetapowermodulationsconcordancewit",
+   "title": "Determining hemispheric language dominance from MEG beta-power modulations: Concordance with fMRI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Determining hemispheric language dominance from MEG beta-power modulations: Concordance with fMRI | doi=10.1016/j."
+  },
+  {
+   "pid": "pmc-13391774-megdecode",
+   "key": "t:megneuraldecodingpipelinetheissuesresidingwithinthedataandmethodstoimproveyourde",
+   "title": "MEG Neural Decoding Pipeline: The Issues Residing Within The Data and Methods to Improve Your Decoding Accuracy",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13391774-megdecode | title=MEG Neural Decoding Pipeline: The Issues Residing Within The Data and Methods to"
+  },
+  {
+   "pid": "pmc-13397126-aphasia-tracking",
+   "key": "t:corticalspeechenvelopetrackingreflectslesionsymptomprofilesinpoststrokeaphasia",
+   "title": "Cortical speech envelope tracking reflects lesion-symptom profiles in post-stroke aphasia",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13397126-aphasia-tracking | title=Cortical speech envelope tracking reflects lesion-symptom profiles in pos"
+  },
+  {
+   "pid": "pmc-13405265-avtiming",
+   "key": "t:articulatorytimingandformsupportdistinctneuralbenefitsduringaudiovisualspeech",
+   "title": "Articulatory timing and form support distinct neural benefits during audiovisual speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Articulatory timing and form support distinct neural benefits during audiovisual speech | authors=Aaron Nidiffer,"
+  },
+  {
+   "pid": "pmc-13461706-braincliplm",
+   "key": "t:braincliplmsemanticcompressionforeegtotextdecoding",
+   "title": "Brain-CLIPLM: semantic compression for EEG-to-text decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13461706-braincliplm | title=Brain-CLIPLM: semantic compression for EEG-to-text decoding | authors=Xiaoli Y"
+  },
+  {
+   "pid": "pmc-13461706-cliplm",
+   "key": "t:braincliplmsemanticcompressionforeegtotextdecoding",
+   "title": "Brain-CLIPLM: semantic compression for EEG-to-text decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13461706-cliplm | title=Brain-CLIPLM: semantic compression for EEG-to-text decoding | authors=Xiaoli Yang,"
+  },
+  {
+   "pid": "pmc-13494634-brainai",
+   "key": "t:brainaiconvergencecomparinginternalcomputationsacrossbiologicalandartificialsyst",
+   "title": "Brain-AI convergence: comparing internal computations across biological and artificial systems",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13494634-brainai | title=Brain-AI convergence: comparing internal computations across biological and artifi"
+  },
+  {
+   "pid": "pmc-13503367-bciethics",
+   "key": "t:ethicsofbraincomputerinterfaceinmentalhealthcare",
+   "title": "Ethics of brain-computer interface in mental healthcare",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13503367-bciethics | title=Ethics of brain-computer interface in mental healthcare | authors=Anonymous (JAT"
+  },
+  {
+   "pid": "pmc-13503920-concept2brain",
+   "key": "t:concept2brainanaimodelforpredictingneurophysiologicalresponsestotextandpictures",
+   "title": "Concept2Brain: an AI model for predicting neurophysiological responses to text and pictures",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13503920-concept2brain | title=Concept2Brain: an AI model for predicting neurophysiological responses to te"
+  },
+  {
+   "pid": "pmc-13504003-aad-persp",
+   "key": "t:fromselectivelisteningtobraincontrolledhearingaperspectiveonthefutureofauditoryt",
+   "title": "From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology | venue=J"
+  },
+  {
+   "pid": "pmc-13504003-aadhear",
+   "key": "t:fromselectivelisteningtobraincontrolledhearingaperspectiveonthefutureofauditoryt",
+   "title": "From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13504003-aadhear | title=From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future"
+  },
+  {
+   "pid": "pmc-13504003-brainhear",
+   "key": "t:fromselectivelisteningtobraincontrolledhearingaperspectiveonthefutureofauditoryt",
+   "title": "From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13504003-brainhear | title=From Selective Listening to Brain-Controlled Hearing: A Perspective on the Futur"
+  },
+  {
+   "pid": "pmc-13519811-aad",
+   "key": "p:pmc-13519811-aad",
+   "title": "基于双流时频卷积加性注意力网络的听觉注意力解码",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13519811-aad | title=基于双流时频卷积加性注意力网络的听觉注意力解码 | authors=Anonymous Author 1, Anonymous Author 2, Anonymous Au"
+  },
+  {
+   "pid": "pmc-13519811-aaddual",
+   "key": "t:dualstreamtemporalfrequencyconvolutionalnetworkwithadditiveattentionforauditorya",
+   "title": "基于双流时频卷积加性注意力网络的听觉注意力解码 (Dual-stream temporal-frequency convolutional network with additive attention for auditory attention decoding)",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=基于双流时频卷积加性注意力网络的听觉注意力解码 (Dual-stream temporal-frequency convolutional network with additive attention for auditory"
+  },
+  {
+   "pid": "pmc-13581289-llmalign",
+   "key": "t:largerlanguagemodelsbetteralignwithneuralrepresentationsofnaturallanguage",
+   "title": "Larger language models better align with neural representations of natural language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13581289-llmalign | title=Larger language models better align with neural representations of natural langua"
+  },
+  {
+   "pid": "pmc-13612846-llmasym",
+   "key": "t:leftrightasymmetryinpredictingbrainactivityfromllmsrepresentationsemergeswiththe",
+   "title": "Left-Right Asymmetry in Predicting Brain Activity From LLMs Representations Emerges With Their Formal Linguistic Competence",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13612846-llmasym | title=Left-Right Asymmetry in Predicting Brain Activity From LLMs Representations Emerge"
+  },
+  {
+   "pid": "pmc-13612903-anggyrus",
+   "key": "t:resolvingtheabstractconcreteparadoxintheangulargyrusamultimethodinvestigation",
+   "title": "Resolving the Abstract–Concrete Paradox in the Angular Gyrus: A Multimethod Investigation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13612903-anggyrus | title=Resolving the Abstract–Concrete Paradox in the Angular Gyrus: A Multimethod Inves"
+  },
+  {
+   "pid": "pmc-13615564-megsensor",
+   "key": "t:functionalidentificationoflanguageresponsivesensorsinindividualparticipantsinmeg",
+   "title": "Functional Identification of Language-Responsive Sensors in Individual Participants in MEG Investigations",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Functional Identification of Language-Responsive Sensors in Individual Participants in MEG Investigations | venue="
+  },
+  {
+   "pid": "pmc-13617028-grasp",
+   "key": "t:grasparesponselockedparadigmthatrevealslowbetadesynchronisationisaparticipantinv",
+   "title": "GRASP: a response-locked paradigm that reveals low-beta desynchronisation is a participant-invariant signature of semantic decoding in EEG",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13617028-grasp | title=GRASP: a response-locked paradigm that reveals low-beta desynchronisation is a parti"
+  },
+  {
+   "pid": "pmc-13618355-lips",
+   "key": "t:roleoftheleftintraparietalsulcusinthecomprehensionofactionintensitydescribedinse",
+   "title": "Role of the left intraparietal sulcus in the comprehension of action intensity described in sentences",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13618355-lips | title=Role of the left intraparietal sulcus in the comprehension of action intensity descri"
+  },
+  {
+   "pid": "pmc-13633113-b2qwerty",
+   "key": "t:noninvasivedecodingoftypedsentencesfromhumanbrainactivity",
+   "title": "Noninvasive decoding of typed sentences from human brain activity",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633113-b2qwerty | title=Noninvasive decoding of typed sentences from human brain activity | authors=Lévy"
+  },
+  {
+   "pid": "pmc-13633126-bitype",
+   "key": "t:restoringrapidnaturalbimanualtypingwithaneuroprosthesisafterparalysis",
+   "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633126-bitype | title=Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis | au"
+  },
+  {
+   "pid": "pmc-3398395-price20yr",
+   "key": "t:areviewandsynthesisofthefirst20yearsofpetandfmristudiesofheardspeechspokenlangua",
+   "title": "A review and synthesis of the first 20 years of PET and fMRI studies of heard speech, spoken language and reading",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3398395-price20yr | title=A review and synthesis of the first 20 years of PET and fMRI studies of heard spe"
+  },
+  {
+   "pid": "pmc-3398395-pricereview",
+   "key": "t:areviewandsynthesisofthefirst20yearsofpetandfmristudiesofheardspeechspokenlangua",
+   "title": "A review and synthesis of the first 20 years of PET and fMRI studies of heard speech, spoken language and reading",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A review and synthesis of the first 20 years of PET and fMRI studies of heard speech, spoken language and reading"
+  },
+  {
+   "pid": "pmc-3708957-native",
+   "key": "t:decodingspeechperceptionbynativeandnonnativespeakersusing",
+   "title": "Decoding Speech Perception by Native and Non-Native Speakers Using",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Speech Perception by Native and Non-Native Speakers Using | authors=native/non-native EEG group | Study.r"
+  },
+  {
+   "pid": "pmc-3989447-rsvpkbci",
+   "key": "t:braincomputerinterfacewithlanguagemodelelectroencephalographyfusionforlockedinsy",
+   "title": "Brain-computer interface with language model-electroencephalography fusion for locked-in syndrome",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-computer interface with language model-electroencephalography fusion for locked-in syndrome | authors=Oken B"
+  },
+  {
+   "pid": "pmc-4245107-storyfmri",
+   "key": "t:simultaneouslyuncoveringthepatternsofbrainregionsinvolvedindifferentstoryreading",
+   "title": "Simultaneously uncovering the patterns of brain regions involved in different story reading subprocesses",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4245107-storyfmri | title=Simultaneously uncovering the patterns of brain regions involved in different sto"
+  },
+  {
+   "pid": "pmc-4248808-vispathways",
+   "key": "t:neuralpathwaysforvisualspeechperception",
+   "title": "Neural pathways for visual speech perception",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4248808-vispathways | title=Neural pathways for visual speech perception | authors=Lynne E. Bernstein, Eina"
+  },
+  {
+   "pid": "pmc-4912924-alpha-ecog-scale",
+   "key": "t:alphapowerindexestaskrelatednetworksonlargeandsmallscalesamultimodalecogstudyinh",
+   "title": "Alpha power indexes task-related networks on large and small scales: A multimodal ECoG study in humans and a non-human primate.",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Alpha power indexes task-related networks on large and small scales: A multimodal ECoG study in humans and a non-h"
+  },
+  {
+   "pid": "pmc-5366324-eeg-errpred",
+   "key": "t:eegerrorpredictionasasolutionforcombiningtheadvantagesofretrievalpracticeanderro",
+   "title": "EEG Error Prediction as a Solution for Combining the Advantages of Retrieval Practice and Errorless Learning.",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG Error Prediction as a Solution for Combining the Advantages of Retrieval Practice and Errorless Learning. | au"
+  },
+  {
+   "pid": "pmc-5462535-localspeechenc",
+   "key": "t:contributionsoflocalspeechencodingandfunctionalconnectivitytoaudiovisualspeechpe",
+   "title": "Contributions of local speech encoding and functional connectivity to audio-visual speech perception",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Contributions of local speech encoding and functional connectivity to audio-visual speech perception | authors=Gio"
+  },
+  {
+   "pid": "pmc-5481359-zeroshot-neural",
+   "key": "t:featureselectionmethodsforzeroshotlearningofneuralactivity",
+   "title": "Feature Selection Methods for Zero-Shot Learning of Neural Activity.",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Feature Selection Methods for Zero-Shot Learning of Neural Activity. | authors=Caceres CA, Roos MJ, Rupp KM, Milsa"
+  },
+  {
+   "pid": "pmc-5483633-avasd",
+   "key": "t:electrophysiologicalindicesofaudiovisualspeechperceptioninthebroaderautismphenot",
+   "title": "Electrophysiological Indices of Audiovisual Speech Perception in the Broader Autism Phenotype",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Electrophysiological Indices of Audiovisual Speech Perception in the Broader Autism Phenotype | authors=Irwin J, A"
+  },
+  {
+   "pid": "pmc-5505730-langconn",
+   "key": "t:connectivityinlanguageareasofthebrainincochlearimplantusersasrevealedbyfnirs",
+   "title": "Connectivity in language areas of the brain in cochlear implant users as revealed by fNIRS",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Connectivity in language areas of the brain in cochlear implant users as revealed by fNIRS | authors=McKay CM, Sha"
+  },
+  {
+   "pid": "pmc-5543089-semips",
+   "key": "t:representationofsemanticsimilarityintheleftintraparietalsulcusfunctionalmagnetic",
+   "title": "Representation of Semantic Similarity in the Left Intraparietal Sulcus: Functional Magnetic Resonance Imaging Evidence.",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Representation of Semantic Similarity in the Left Intraparietal Sulcus: Functional Magnetic Resonance Imaging Evid"
+  },
+  {
+   "pid": "pmc-5553278-bimodalbil",
+   "key": "t:psycholinguisticcognitiveandneuralimplicationsofbimodalbilingualism",
+   "title": "Psycholinguistic, cognitive, and neural implications of bimodal bilingualism",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Psycholinguistic, cognitive, and neural implications of bimodal bilingualism | authors=Emmorey K, Giezen MR, Golla"
+  },
+  {
+   "pid": "pmc-5577186-crossmodalconn",
+   "key": "t:increasedcrossmodalfunctionalconnectivityincochlearimplantusers",
+   "title": "Increased cross-modal functional connectivity in cochlear implant users",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Increased cross-modal functional connectivity in cochlear implant users | authors=Chen LC, Puschmann S, Debener S"
+  },
+  {
+   "pid": "pmc-5609862-crossmodci",
+   "key": "t:auditorycrossmodalreorganizationincochlearimplantusersindicatesaudiovisualintegr",
+   "title": "Auditory cross-modal reorganization in cochlear implant users indicates audio-visual integration",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Auditory cross-modal reorganization in cochlear implant users indicates audio-visual integration | authors=Stropah"
+  },
+  {
+   "pid": "pmc-5618270-stgaudexp",
+   "key": "t:howauditoryexperiencedifferentiallyinfluencesthefunctionofleftandrightsuperiorte",
+   "title": "How Auditory Experience Differentially Influences the Function of Left and Right Superior Temporal Cortices",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=How Auditory Experience Differentially Influences the Function of Left and Right Superior Temporal Cortices | auth"
+  },
+  {
+   "pid": "pmc-5650628-coverteegmeg",
+   "key": "t:acomparativestudyonthedetectionofcovertattentionineventrelatedeegandmegsignalsto",
+   "title": "A Comparative Study on the Detection of Covert Attention in Event-Related EEG and MEG Signals to Control a BCI.",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Comparative Study on the Detection of Covert Attention in Event-Related EEG and MEG Signals to Control a BCI. |"
+  },
+  {
+   "pid": "pmc-5660237-langmeg",
+   "key": "t:noninvasivedetectionoflanguagerelatedprefrontalhighgammabandactivitywithbeamform",
+   "title": "Non-invasive detection of language-related prefrontal high gamma band activity with beamforming MEG.",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Non-invasive detection of language-related prefrontal high gamma band activity with beamforming MEG. | authors=Has"
+  },
+  {
+   "pid": "pmc-5681401-attnmodel",
+   "key": "t:agraphicalmodelforonlineauditoryscenemodulationusingeegevidenceforattention",
+   "title": "A Graphical Model for Online Auditory Scene Modulation Using EEG Evidence for Attention.",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Graphical Model for Online Auditory Scene Modulation Using EEG Evidence for Attention. | authors=Haghighi M, Mog"
+  },
+  {
+   "pid": "pmc-5735133-frontalpredict",
+   "key": "t:evidenceforcausaltopdownfrontalcontributionstopredictiveprocessesinspeechpercept",
+   "title": "Evidence for causal top-down frontal contributions to predictive processes in speech perception",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evidence for causal top-down frontal contributions to predictive processes in speech perception | authors=Cope TE,"
+  },
+  {
+   "pid": "pmc-5793830-stfaceproc",
+   "key": "t:functionalorganizationoffaceprocessinginthehumansuperiortemporalsulcusa7thighres",
+   "title": "Functional organization of face processing in the human superior temporal sulcus: a 7T high-resolution fMRI study",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Functional organization of face processing in the human superior temporal sulcus: a 7T high-resolution fMRI study"
+  },
+  {
+   "pid": "pmc-5808334-alphaegg",
+   "key": "t:decodingenglishalphabetlettersusingeegphaseinformation",
+   "title": "Decoding English Alphabet Letters Using EEG Phase Information.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding English Alphabet Letters Using EEG Phase Information. | authors=Wang Y, Wang P, Yu Y | venue=Frontiers in"
+  },
+  {
+   "pid": "pmc-5810272-eegbcirev",
+   "key": "t:eegbasedbraincomputerinterfacesforcommunicationandrehabilitationofpeoplewithmoto",
+   "title": "EEG-Based Brain-Computer Interfaces for Communication and Rehabilitation of People with Motor Impairment: A Novel Approach of the 21 (st) Century.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EEG-Based Brain-Computer Interfaces for Communication and Rehabilitation of People with Motor Impairment: A Novel"
+  },
+  {
+   "pid": "pmc-5810421-eegnirsds",
+   "key": "t:simultaneousacquisitionofeegandnirsduringcognitivetasksforanopenaccessdataset",
+   "title": "Simultaneous acquisition of EEG and NIRS during cognitive tasks for an open access dataset.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Simultaneous acquisition of EEG and NIRS during cognitive tasks for an open access dataset. | authors=Shin J, von"
+  },
+  {
+   "pid": "pmc-5826359-bcineff",
+   "key": "t:fastrecognitionofbciinefficientusersusingphysiologicalfeaturesfromeegsignalsascr",
+   "title": "Fast Recognition of BCI-Inefficient Users Using Physiological Features from EEG Signals: A Screening Study of Stroke Patients.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Fast Recognition of BCI-Inefficient Users Using Physiological Features from EEG Signals: A Screening Study of Stro"
+  },
+  {
+   "pid": "pmc-5829061-eegfnirs",
+   "key": "t:aternaryhybrideegnirsbraincomputerinterfacefortheclassificationofbrainactivation",
+   "title": "A Ternary Hybrid EEG-NIRS Brain-Computer Interface for the Classification of Brain Activation Patterns during Mental Arithmetic, Motor Imagery, and Idle State.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Ternary Hybrid EEG-NIRS Brain-Computer Interface for the Classification of Brain Activation Patterns during Ment"
+  },
+  {
+   "pid": "pmc-5829556-faceeeg",
+   "key": "t:theneuraldynamicsoffacialidentityprocessinginsightsfromeegbasedpatternanalysisan",
+   "title": "The Neural Dynamics of Facial Identity Processing: Insights from EEG-Based Pattern Analysis and Image Reconstruction.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The Neural Dynamics of Facial Identity Processing: Insights from EEG-Based Pattern Analysis and Image Reconstructi"
+  },
+  {
+   "pid": "pmc-5864853-narrativenirs",
+   "key": "t:narrativediscourseinyoungandolderadultsbehavioralandnirsanalyses",
+   "title": "Narrative Discourse in Young and Older Adults: Behavioral and NIRS Analyses",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Narrative Discourse in Young and Older Adults: Behavioral and NIRS Analyses | authors=Martin CO, Pontbriand-Drolet"
+  },
+  {
+   "pid": "pmc-5869206-imag3d",
+   "key": "t:decodingimagined3dhandmovementtrajectoriesfromeegevidencetosupporttheuseofmubeta",
+   "title": "Decoding Imagined 3D Hand Movement Trajectories From EEG: Evidence to Support the Use of Mu, Beta, and Low Gamma Oscillations.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Imagined 3D Hand Movement Trajectories From EEG: Evidence to Support the Use of Mu, Beta, and Low Gamma O"
+  },
+  {
+   "pid": "pmc-5928751-sharpboundary",
+   "key": "t:convergingevidencefromelectrocorticographyandboldfmriforasharpfunctionalboundary",
+   "title": "Converging Evidence From Electrocorticography and BOLD fMRI for a Sharp Functional Boundary in Superior Temporal Gyrus Related to Multisensory Speech Processing",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Converging Evidence From Electrocorticography and BOLD fMRI for a Sharp Functional Boundary in Superior Temporal G"
+  },
+  {
+   "pid": "pmc-5956463-lipphonology",
+   "key": "t:avisualcorticalnetworkforderivingphonologicalinformationfromintelligiblelipmovem",
+   "title": "A Visual Cortical Network for Deriving Phonological Information from Intelligible Lip Movements",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Visual Cortical Network for Deriving Phonological Information from Intelligible Lip Movements | authors=Hauswald"
+  },
+  {
+   "pid": "pmc-60877-audtemp",
+   "key": "t:speechcomprehensioniscorrelatedwithtemporalresponsepatternsrecordedfromauditoryc",
+   "title": "Speech comprehension is correlated with temporal response patterns recorded from auditory cortex",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech comprehension is correlated with temporal response patterns recorded from auditory cortex | authors=Ahissar"
+  },
+  {
+   "pid": "pmc-6300518-semanticword",
+   "key": "t:semanticfeaturesrevealdifferentnetworksduringwordprocessinganeegsourcelocalizati",
+   "title": "Semantic Features Reveal Different Networks During Word Processing: An EEG Source Localization Study.",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Semantic Features Reveal Different Networks During Word Processing: An EEG Source Localization Study. | authors=Fa"
+  },
+  {
+   "pid": "pmc-6542658-megarith",
+   "key": "t:decodingtheprocessingstagesofmentalarithmeticwithmagnetoencephalography",
+   "title": "Decoding the processing stages of mental arithmetic with magnetoencephalography",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding the processing stages of mental arithmetic with magnetoencephalography | authors=Pinheiro-Chagas P, Piazz"
+  },
+  {
+   "pid": "pmc-6694754-negation",
+   "key": "t:braininhibitorymechanismsareinvolvedintheprocessingofsententialnegationregardles",
+   "title": "Brain Inhibitory Mechanisms Are Involved in the Processing of Sentential Negation, Regardless of Its Content. Evidence From EEG Theta and Beta Rhythms.",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain Inhibitory Mechanisms Are Involved in the Processing of Sentential Negation, Regardless of Its Content. Evid"
+  },
+  {
+   "pid": "pmc-6819260-interpfmri",
+   "key": "t:interpretablehighlyaccuratebraindecodingofsubtlydistinctbrainstatesfromfunctiona",
+   "title": "Interpretable, highly accurate brain decoding of subtly distinct brain states from functional MRI using intrinsic functional networks and long short-term memory recurrent neural networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Interpretable, highly accurate brain decoding of subtly distinct brain states from functional MRI using intrinsic"
+  },
+  {
+   "pid": "pmc-6858272-spokenlang",
+   "key": "t:fromspeechandtalkerstothesocialworldtheneuralprocessingofhumanspokenlanguage",
+   "title": "From speech and talkers to the social world: The neural processing of human spoken language",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From speech and talkers to the social world: The neural processing of human spoken language | venue=Science (New Y"
+  },
+  {
+   "pid": "pmc-6865374-worddecode",
+   "key": "t:howarevisualwordsrepresentedinsightsfromeegbasedvisualworddecodingfeaturederivat",
+   "title": "How are visual words represented? Insights from EEG-based visual word decoding, feature derivation and image reconstruction",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=How are visual words represented? Insights from EEG-based visual word decoding, feature derivation and image recon"
+  },
+  {
+   "pid": "pmc-6873161-eespeech",
+   "key": "t:electroencephalographicsignaturesoftheneuralrepresentationofspeechduringselectiv",
+   "title": "Electroencephalographic Signatures of the Neural Representation of Speech during Selective Attention",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Electroencephalographic Signatures of the Neural Representation of Speech during Selective Attention | authors=Vis"
+  },
+  {
+   "pid": "pmc-7116612-complexscenes",
+   "key": "t:listeningincomplexacousticscenes",
+   "title": "Listening in complex acoustic scenes",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Listening in complex acoustic scenes | authors=King AJ, Walker KM | venue=Current opinion in physiology | Study.re"
+  },
+  {
+   "pid": "pmc-7267968-fmristates",
+   "key": "t:spatiotemporalanalysisofeventrelatedfmritorevealcognitivestates",
+   "title": "Spatiotemporal analysis of event-related fMRI to reveal cognitive states",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Spatiotemporal analysis of event-related fMRI to reveal cognitive states | authors=Fincham JM, Lee HS, Anderson JR"
+  },
+  {
+   "pid": "pmc-7358332-decodestates",
+   "key": "t:decodingtaskspecificcognitivestateswithslowdirectedfunctionalnetworksinthehumanb",
+   "title": "Decoding Task-Specific Cognitive States with Slow, Directed Functional Networks in the Human Brain",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Task-Specific Cognitive States with Slow, Directed Functional Networks in the Human Brain | authors=Ajmer"
+  },
+  {
+   "pid": "pmc-7446031-atlsemantics",
+   "key": "t:dynamicactivitypatternsintheanteriortemporalloberepresentsobjectsemantics",
+   "title": "Dynamic activity patterns in the anterior temporal lobe represents object semantics",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Dynamic activity patterns in the anterior temporal lobe represents object semantics | venue=Cognitive neuroscience"
+  },
+  {
+   "pid": "pmc-7512905-audobject",
+   "key": "t:identificationofauditoryobjectspecificattentionfromsingletrialelectroencephalogr",
+   "title": "Identification of Auditory Object-Specific Attention from Single-Trial Electroencephalogram Signals via Entropy Measures and Machine Learning",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Identification of Auditory Object-Specific Attention from Single-Trial Electroencephalogram Signals via Entropy Me"
+  },
+  {
+   "pid": "pmc-7600548-eegemotion2",
+   "key": "t:independentcomponentsofeegactivitycorrelatingwithemotionalstate",
+   "title": "Independent Components of EEG Activity Correlating with Emotional State",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Independent Components of EEG Activity Correlating with Emotional State | authors=Maruyama Y, Ogata Y, Martínez-Te"
+  },
+  {
+   "pid": "pmc-7731730-ieegcognition",
+   "key": "t:insightsintohumancognitionfromintracranialeegareviewofauditionmemoryinternalcogn",
+   "title": "Insights into human cognition from intracranial EEG: A review of audition, memory, internal cognition, and causality",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Insights into human cognition from intracranial EEG: A review of audition, memory, internal cognition, and causali"
+  },
+  {
+   "pid": "pmc-7772146-eegemotion",
+   "key": "t:electroencephalogramaccessforemotionrecognitionbasedonadeephybridnetwork",
+   "title": "Electroencephalogram Access for Emotion Recognition Based on a Deep Hybrid Network",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Electroencephalogram Access for Emotion Recognition Based on a Deep Hybrid Network | authors=Zhong Q, Zhu Y, Cai D"
+  },
+  {
+   "pid": "pmc-7815930-consumerpref",
+   "key": "t:decodingthreedifferentpreferencelevelsofconsumersusingconvolutionalneuralnetwork",
+   "title": "Decoding Three Different Preference Levels of Consumers Using Convolutional Neural Network: A Functional Near-Infrared Spectroscopy Study",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Three Different Preference Levels of Consumers Using Convolutional Neural Network: A Functional Near-Infr"
+  },
+  {
+   "pid": "pmc-7933462-mindlink",
+   "key": "t:mindlinkeumpyanopensourcepythontoolboxformultimodalemotionrecognition",
+   "title": "MindLink-Eumpy: An Open-Source Python Toolbox for Multimodal Emotion Recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MindLink-Eumpy: An Open-Source Python Toolbox for Multimodal Emotion Recognition | authors=Li R, Liang Y, Liu X |"
+  },
+  {
+   "pid": "pmc-8113416-fnirssoundcat",
+   "key": "t:decodingmultiplesoundcategoriesintheauditorycortexbyneuralnetworksanfnirsstudy",
+   "title": "Decoding Multiple Sound-Categories in the Auditory Cortex by Neural Networks: An fNIRS Study",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Multiple Sound-Categories in the Auditory Cortex by Neural Networks: An fNIRS Study | authors=Yoo SH, San"
+  },
+  {
+   "pid": "pmc-8277729-pitchaccent",
+   "key": "t:theneuralprocessingofpitchaccentsincontinuousspeech",
+   "title": "The neural processing of pitch accents in continuous speech",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The neural processing of pitch accents in continuous speech | authors=Llanos F, German JS, Gnanateja GN | venue=Ne"
+  },
+  {
+   "pid": "pmc-8418594-corticothalamiclang",
+   "key": "t:theroleofcorticothalamocorticalcircuitsinlanguagerecurrentcircuitsrevisited",
+   "title": "The Role of Cortico-Thalamo-Cortical Circuits in Language: Recurrent Circuits Revisited",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The Role of Cortico-Thalamo-Cortical Circuits in Language: Recurrent Circuits Revisited | venue=Neuropsychology re"
+  },
+  {
+   "pid": "pmc-8449118-dualchanlang",
+   "key": "t:adualchannellanguagedecodingfrombrainactivitywithprogressivetransfertraining",
+   "title": "A dual-channel language decoding from brain activity with progressive transfer training",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A dual-channel language decoding from brain activity with progressive transfer training | authors=Huang W, Yan H,"
+  },
+  {
+   "pid": "pmc-8722107-fmrireconsurvey",
+   "key": "t:naturalimagereconstructionfromfmriusingdeeplearningasurvey",
+   "title": "Natural Image Reconstruction From fMRI Using Deep Learning: A Survey",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Natural Image Reconstruction From fMRI Using Deep Learning: A Survey | authors=Rakhimberdina Z, Jodelet Q, Liu X |"
+  },
+  {
+   "pid": "pmc-9380591-meghyper",
+   "key": "t:magnetoencephalographyhyperscanningevidenceofdifferingcognitivestrategiesduetoso",
+   "title": "Magnetoencephalography Hyperscanning Evidence of Differing Cognitive Strategies Due to Social Role During Auditory Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Magnetoencephalography Hyperscanning Evidence of Differing Cognitive Strategies Due to Social Role During Auditory"
+  },
+  {
+   "pid": "pmc-9424256-langatlas",
+   "key": "t:probabilisticatlasforthelanguagenetworkbasedonprecisionfmridatafrom800individual",
+   "title": "Probabilistic atlas for the language network based on precision fMRI data from >800 individuals",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Probabilistic atlas for the language network based on precision fMRI data from >800 individuals | authors=Lipkin B"
+  },
+  {
+   "pid": "pmc-9461998-rapidpredict",
+   "key": "t:rapidadaptationofpredictivemodelsduringlanguagecomprehensionaperiodiceegslopeind",
+   "title": "Rapid adaptation of predictive models during language comprehension: Aperiodic EEG slope, individual alpha frequency and idea density modulate individual differences in real-time model updating",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Rapid adaptation of predictive models during language comprehension: Aperiodic EEG slope, individual alpha frequen"
+  },
+  {
+   "pid": "pmc-9505262-eegspeechai",
+   "key": "t:theroleofartificialintelligenceindecodingspeechfromeegsignalsascopingreview",
+   "title": "The Role of Artificial Intelligence in Decoding Speech from EEG Signals: A Scoping Review",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The Role of Artificial Intelligence in Decoding Speech from EEG Signals: A Scoping Review | authors=Shah U, Alzuba"
+  },
+  {
+   "pid": "pmc-9554110-hemostates",
+   "key": "t:hemodynamicfunctionalconnectivityoptimizationoffrequencyeegmicrostatesenablesatt",
+   "title": "Hemodynamic functional connectivity optimization of frequency EEG microstates enables attention LSTM framework to classify distinct temporal cortical communications",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hemodynamic functional connectivity optimization of frequency EEG microstates enables attention LSTM framework to"
+  },
+  {
+   "pid": "pmc-9588045-retinotopicmod",
+   "key": "t:layerspecificretinotopicallydiffusemodulationinhumanvisualcortexinresponsetoview",
+   "title": "Layer-specific, retinotopically-diffuse modulation in human visual cortex in response to viewing emotionally expressive faces",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Layer-specific, retinotopically-diffuse modulation in human visual cortex in response to viewing emotionally expre"
+  },
+  {
+   "pid": "pmc-9624066-eegfmricompare",
+   "key": "t:amultivariatecomparisonofelectroencephalogramandfunctionalmagneticresonanceimagi",
+   "title": "A multivariate comparison of electroencephalogram and functional magnetic resonance imaging to electrocorticogram using visual object representations in humans",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A multivariate comparison of electroencephalogram and functional magnetic resonance imaging to electrocorticogram"
+  },
+  {
+   "pid": "pmc-9671495-phasememory",
+   "key": "t:phaseseparationofcompetingmemoriesalongthehumanhippocampalthetarhythm",
+   "title": "Phase separation of competing memories along the human hippocampal theta rhythm",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Phase separation of competing memories along the human hippocampal theta rhythm | authors=Kerren C, van Bree S, Gr"
+  },
+  {
+   "pid": "pmc-PMC10634547",
+   "key": "t:inhibitorytmsovervisualareav5mtdisruptsvisualspeechrecognition",
+   "title": "Inhibitory TMS over Visual Area V5/MT Disrupts Visual Speech Recognition",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-PMC10634547 | doi=10.1523/JNEUROSCI.0975-23.2023 | title=Inhibitory TMS over Visual Area V5/MT Disrupts Vis"
+  },
+  {
+   "pid": "pmc-pmc11903136",
+   "key": "t:semanticlanguagedecodingacrossparticipantsandstimulusmodalities",
+   "title": "Semantic language decoding across participants and stimulus modalities",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-pmc11903136 | title=Semantic language decoding across participants and stimulus modalities | authors=Jerry"
+  },
+  {
+   "pid": "pmc-pmc12037164",
+   "key": "t:eyemovementsinsilentvisualspeechtrackunheardacousticsignalsandrelatetohearingexp",
+   "title": "Eye Movements in Silent Visual Speech Track Unheard Acoustic Signals and Relate to Hearing Experience",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-pmc12037164 | title=Eye Movements in Silent Visual Speech Track Unheard Acoustic Signals and Relate to Hear"
+  },
+  {
+   "pid": "pmc-pmc5551297",
+   "key": "t:icabasedimaginedconceptualwordsclassificationoneegsignals",
+   "title": "ICA-Based Imagined Conceptual Words Classification on EEG Signals",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-pmc5551297 | title=ICA-Based Imagined Conceptual Words Classification on EEG Signals | venue=Journal of Med"
+  },
+  {
+   "pid": "pmc12979642-wordclass",
+   "key": "t:predictionsyntaxandsemanticgroundinginthebrainandlargelanguagemodels",
+   "title": "Prediction, syntax and semantic grounding in the brain and large language models",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc12979642-wordclass | title=Prediction, syntax and semantic grounding in the brain and large language models"
+  },
+  {
+   "pid": "pmc13215671-mtcomp",
+   "key": "t:multitalkerspeechcomprehensionatdifferenttemporalscalesinlistenerswithnormalandi",
+   "title": "Multi-talker speech comprehension at different temporal scales in listeners with normal and impaired hearing",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13215671-mtcomp | title=Multi-talker speech comprehension at different temporal scales in listeners with nor"
+  },
+  {
+   "pid": "pmc13254361-lisp300",
+   "key": "t:anintelligenteegbasedensembleframeworkforcommunicationassistanceinlockedinsyndro",
+   "title": "An intelligent EEG-based ensemble framework for communication assistance in Locked-In Syndrome patients",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13254361-lisp300 | title=An intelligent EEG-based ensemble framework for communication assistance in Locked-"
+  },
+  {
+   "pid": "pmc13325525-surprisal",
+   "key": "t:quantifyingtheinfluenceoflexicalsurprisalonacousticspeechencodingwhilecontrollin",
+   "title": "Quantifying the influence of lexical surprisal on acoustic speech encoding while controlling for within-speaker variability",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13325525-surprisal | title=Quantifying the influence of lexical surprisal on acoustic speech encoding while"
+  },
+  {
+   "pid": "pmc13329805-wordenv",
+   "key": "t:enhancedtimelockeddecodingforspokenwordsbutnotenvironmentalsoundsinnaturallikeau",
+   "title": "Enhanced Time-Locked Decoding for Spoken Words but Not Environmental Sounds in Natural-Like Auditory Conditions",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13329805-wordenv | title=Enhanced Time-Locked Decoding for Spoken Words but Not Environmental Sounds in Natu"
+  },
+  {
+   "pid": "pmc13373884-megli",
+   "key": "t:determininghemisphericlanguagedominancefrommegbetapowermodulationsconcordancewit",
+   "title": "Determining hemispheric language dominance from MEG beta-power modulations: Concordance with fMRI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13373884-megli | title=Determining hemispheric language dominance from MEG beta-power modulations: Concordan"
+  },
+  {
+   "pid": "pmc13533204-form2c",
+   "key": "t:fromformtoconceptadynamicspatiotemporalbrainnetworkcascadesupportslanguagecompre",
+   "title": "From form to concept: a dynamic spatiotemporal brain network cascade supports language comprehension",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13533204-form2c | title=From form to concept: a dynamic spatiotemporal brain network cascade supports langua"
+  },
+  {
+   "pid": "pmc13564590-verbfmri",
+   "key": "t:silentverbgenerationduringfmrirevealspostradiotherapyalterationsincerebellarcere",
+   "title": "Silent Verb Generation During fMRI Reveals Post-Radiotherapy Alterations in Cerebellar-Cerebral Language Regions in Patients Treated for Medulloblastoma",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13564590-verbfmri | title=Silent Verb Generation During fMRI Reveals Post-Radiotherapy Alterations in Cerebe"
+  },
+  {
+   "pid": "pmc13569473-rotflang",
+   "key": "t:naturalisticfmrilanguagemappingwithrotationforest",
+   "title": "Naturalistic fMRI Language Mapping With Rotation Forest",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13569473-rotflang | title=Naturalistic fMRI Language Mapping With Rotation Forest | authors=Elaine Kuan, Vik"
+  },
+  {
+   "pid": "pmc13598105-agingtrf",
+   "key": "t:linguisticinformationmaycompensateforagerelateddeclineinattentionalfiltering",
+   "title": "Linguistic information may compensate for age-related decline in attentional filtering",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc13598105-agingtrf | title=Linguistic information may compensate for age-related decline in attentional filte"
+  },
+  {
+   "pid": "pmc8314009_eegnlp",
+   "key": "t:decodingeegbrainactivityformultimodalnaturallanguageprocessing",
+   "title": "Decoding EEG Brain Activity for Multi-Modal Natural Language Processing",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc8314009_eegnlp | title=Decoding EEG Brain Activity for Multi-Modal Natural Language Processing | authors=Nor"
+  },
+  {
+   "pid": "rs-10911750-handwrieeg",
+   "key": "t:supervisedcrosssubjectadaptationandlowlatencyconfidenceawaretriedecodingforeegba",
+   "title": "Supervised Cross-Subject Adaptation and Low-Latency Confidence-Aware Trie Decoding for EEG-Based Imagined Handwriting Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Supervised Cross-Subject Adaptation and Low-Latency Confidence-Aware Trie Decoding for EEG-Based Imagined Handwrit"
+  }
+ ],
+ "usual_approach": {
+  "design": "pretrained_neural_lm",
+  "n": 112,
+  "tier": "pattern match",
+  "pids": [
+   "acl2026-pred-fmri",
+   "arxiv-2601.13866",
+   "arxiv-2601.20447",
+   "arxiv-2603.03312",
+   "arxiv-2603.12628-ub2t"
+  ],
+  "population_unique": 335
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1038-s41593-023-01304-9",
+   "role": "target",
+   "loc": "Methods / Language model",
+   "quote": "We fine-tuned GPT on a corpus comprising Reddit comments (over 200 million total words) and 240 autobiographical stories from The Moth Radio Hour and Modern Love that were not used for decoder training or testing (over 400,000 total words)."
+  },
+  {
+   "pid": "arxiv-2009.04765",
+   "role": "prior",
+   "loc": "Figure 5",
+   "quote": "Our classiﬁcation decoder ﬁnds anchor points\nfor the language generation model (GPT-2), which generates\nthe next token given some initial context."
+  },
+  {
+   "pid": "arxiv-2403.17516",
+   "role": "sota",
+   "loc": "§3.2–§3.3; Figure 1",
+   "quote": "The model, implementing a beam search algorithm (Tillmann and Ney, 2003),\ngenerates multiple continuations for each sequence\nin the beam at each time step."
+  },
+  {
+   "pid": "arxiv-2607.12079",
+   "role": "prior",
+   "loc": "§4.2 fMRIFlamingo Results",
+   "quote": "Taken together,\nthese results show that although fMRIFlamingo\ncan produce non-trivial per-window outputs, its ap-\nparent ranking performance is largely an artifact of\nthe frozen LLM prior rather than successful fMRI-\nconditioned decoding."
+  },
+  {
+   "pid": "arxiv-2403.17516",
+   "role": "sota",
+   "loc": "§5.1 Reconstruction Results",
+   "quote": "Our model achieves an accuracy exceeding that\nof Tang’s method in the story-zscore of BLEU by\n77% (calculated by (11.14−4.77)/4.77+(10.31−\n6.87)/6.87 + (11.27− 7.61)/7.61≈ 77% ) and\nof METEOR by 54%."
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 6,
+  "found": 6,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2403.17516",
+  "year": 2024,
+  "metric": "story z-score BLEU against the null on the single LeBel et al. test story, subjects S1/S2/S3 (Tang et al. reproduced: 4.77/6.87/7.61)",
+  "value": "11.14/10.31/11.27",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 119,
+  "string_match_unique": 335,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "pretrained_neural_lm",
+   "n": 112,
+   "tier": "pattern match",
+   "population_unique": 335
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2403.17516",
+   "year": 2024,
+   "metric": "story z-score BLEU against the null on the single LeBel et al. test story, subjects S1/S2/S3 (Tang et al. reproduced: 4.77/6.87/7.61)",
+   "value": "11.14/10.31/11.27",
+   "timing": "later"
+  },
+  "read": 4,
+  "read_prior": [
+   "arxiv-2009.04765",
+   "arxiv-2607.12079"
+  ],
+  "unread": 395,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "design_counts_ledger_population": {
+  "base": "335 unique ledger matches",
+  "all_years": {
+   "pretrained_neural_lm": 112,
+   "ngram_lm": 49,
+   "beam_search": 30
+  },
+  "population_2022_or_earlier": 95,
+  "counts_2022_or_earlier": {
+   "pretrained_neural_lm": 3,
+   "ngram_lm": 8,
+   "beam_search": 3
+  }
+ },
+ "used_by": [
+  "semantic-reconstruction-of-continuous-language-from-non-invasive-brain-recordings"
+ ]
+}
