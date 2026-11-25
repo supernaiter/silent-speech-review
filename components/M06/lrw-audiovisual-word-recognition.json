@@ -1,0 +1,856 @@
+{
+ "topic": "lrw-audiovisual-word-recognition",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "\\A(?=[\\s\\S]*?(?:\\bLRW\\b(?!-1000)|lip reading in the wild))(?=[\\s\\S]*?(?:audio[- ]?visual|\\bAVSR\\b|\\bA ?\\+ ?V\\b))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies whose ledger names both the English LRW benchmark (Lip Reading in the Wild, 500 words) and audio-visual recognition, classified by the audio input and the fusion design their full text names: raw waveform into a learned front end, or spectral features (MFCC, log-Mel, filterbank, spectrogram); concatenation followed by a recurrent fusion network, or attention/Transformer fusion; a pre-trained self-supervised or ASR front end. Boundary: LRW-1000 and other-language LRW variants are excluded; a study counts under every design its text names, related-work mentions included (upper bound); versions count once by key.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 50,
+  "string_match_unique": 44,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 25,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2510.10069-synclipmae",
+     "doi-10.1109-cvpr52729.2023.01801",
+     "mdpi-math11071733",
+     "arxiv-2102.06657",
+     "cvpr21-ren"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 20,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2508.13576",
+     "mdpi-math11071733",
+     "pmc-9967234-mobavsr",
+     "pmc-9967234-mobileav",
+     "cvf-xu20-msr"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 16,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2205.10839-vsa-survey",
+     "doi-10.3390-s23042284",
+     "pmc-9967234-mobileav",
+     "arxiv-2204.01726",
+     "arxiv-2102.06657"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1109-cvpr52729.2023.01801",
+     "arxiv-1812.09336",
+     "arxiv-2301.10180",
+     "arxiv-2303.17480",
+     "arxiv-2308.08488"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 7,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2205.10839-vsa-survey",
+     "arxiv-2102.06657",
+     "cvpr21-ren",
+     "arxiv-2303.14307",
+     "doi-10.18653-v1-2022.acl-long.308"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2205.10839-vsa-survey",
+     "arxiv-1802.06424",
+     "arxiv-1810.06990",
+     "arxiv-1611.05358",
+     "arxiv-1912.08639"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=rescore",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "mdpi-math11071733",
+     "arxiv-2102.06657",
+     "arxiv-2211.10883",
+     "arxiv-2301.01456"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2205.10839-vsa-survey",
+     "pmc-9967234-mobavsr",
+     "arxiv-2204.01726",
+     "cvf-xu20-msr"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2204.01726",
+     "arxiv-1807.07860",
+     "arxiv-2211.10883"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=segment",
+    "n": 3,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1809.00496",
+     "arxiv-1811.01194",
+     "arxiv-2609.10394"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "attention_or_transformer_fusion",
+    "n": 32,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2508.13576",
+     "arxiv-2606.00751",
+     "arxiv-2606.07259",
+     "arxiv-2510.10069-synclipmae",
+     "arxiv-2205.10839-vsa-survey"
+    ]
+   },
+   {
+    "design": "spectral_audio_features",
+    "n": 29,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2508.13576",
+     "arxiv-2205.10839-vsa-survey",
+     "arxiv-2307.16584-av2acascade",
+     "doi-10.3390-s23042284",
+     "mdpi-math11071733"
+    ]
+   },
+   {
+    "design": "raw_waveform_audio",
+    "n": 18,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2307.16584-av2acascade",
+     "mdpi-math11071733",
+     "pmc-9963439-avsrnoisy",
+     "arxiv-2204.01726",
+     "arxiv-2102.06657"
+    ]
+   },
+   {
+    "design": "pretrained_ssl_frontend",
+    "n": 17,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2606.07259",
+     "arxiv-2510.10069-synclipmae",
+     "cvf-hong23-wol",
+     "doi-10.3390-s23042284",
+     "mdpi-math11071733"
+    ]
+   },
+   {
+    "design": "concat_then_recurrent_fusion",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-1802.06424",
+     "arxiv-1811.01194",
+     "arxiv-1812.09336",
+     "arxiv-2009.01225"
+    ]
+   }
+  ],
+  "metric_pattern": "LRW|lip reading in the wild",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "AVSR word-level accuracy on LRW test set, model-level fusion",
+   "value": 98.76,
+   "unit": "percent",
+   "raw": "AVSR accuracy for the LRW dataset equal to 98.76%",
+   "pid": "doi-10.3390-s23042284",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW CR % (A+V end-to-end)",
+   "value": 98.0,
+   "unit": "percent",
+   "raw": "LRW classification rate %, end-to-end audiovisual",
+   "pid": "arxiv-1802.06424",
+   "year": 2018,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW SOTA accuracy",
+   "value": 88.5,
+   "unit": "%",
+   "raw": "SOTA 88.5% on LRW (cross-modal mutual learning)",
+   "pid": "arxiv-2205.10839-vsa-survey",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS2 V WER +LRW pretrain",
+   "value": 46.2,
+   "unit": "percent",
+   "raw": "LRS2 V-WER +LRW pretraining",
+   "pid": "arxiv-2102.06657",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW benchmark 23.8% WER vs prior 38.9%",
+   "value": 23.8,
+   "unit": "percent",
+   "raw": "WER on LRW benchmark",
+   "pid": "arxiv-1611.05358",
+   "year": 2017,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW WER % (Ours-TC)",
+   "value": 18.7,
+   "unit": "percent",
+   "raw": "LRW WER %, Ours-TC (vs TC baseline 25.4)",
+   "pid": "cvpr21-ren",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW EER",
+   "value": 13.5,
+   "unit": "%",
+   "raw": "LRW EER 3D-CNN MFEC-3 (vs CNN MFCC-1 17.3%); AUC 95.4 AP 96.5",
+   "pid": "doi-10.1109-access.2017.2761539",
+   "year": 2017,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1611.05358",
+   "key": "t:lipreadingsentencesinthewild",
+   "title": "Lip Reading Sentences in the Wild",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip Reading Sentences in the Wild | authors=Joon Son Chung; Andrew Senior; Oriol Vinyals; Andrew Zisserman | venue"
+  },
+  {
+   "pid": "arxiv-1802.06424",
+   "key": "t:endtoendaudiovisualspeechrecognition",
+   "title": "End-to-End Audiovisual Speech Recognition",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1802.06424 | title=End-to-End Audiovisual Speech Recognition | authors=Stavros Petridis, Themos Stafylaki"
+  },
+  {
+   "pid": "arxiv-1807.07860",
+   "key": "p:arxiv-1807.07860",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=arXiv 1807.07860v2 AAAI 2019; Zhou, Liu, Liu, Luo, Wang; Chinese University of Hong Kong; SenseTime + RGC HK ITS/1"
+  },
+  {
+   "pid": "arxiv-1809.00496",
+   "key": "t:lrs3tedalargescaledatasetforvisualspeechrecognition",
+   "title": "LRS3-TED: a large-scale dataset for visual speech recognition",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1809.00496 | title=LRS3-TED: a large-scale dataset for visual speech recognition | authors=Triantafyllos"
+  },
+  {
+   "pid": "arxiv-1809.08001",
+   "key": "t:perfectmatchimprovedcrossmodalembeddingsforaudiovisualsynchronisation",
+   "title": "Perfect match: Improved cross-modal embeddings for audio-visual synchronisation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1809.08001 | title=Perfect match: Improved cross-modal embeddings for audio-visual synchronisation | Stud"
+  },
+  {
+   "pid": "arxiv-1810.06990",
+   "key": "t:lrw1000anaturallydistributedlargescalebenchmarkforlipreadinginthewild",
+   "title": "LRW-1000: A Naturally-Distributed Large-Scale Benchmark for Lip Reading in the Wild",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv/1810.06990 | title=LRW-1000: A Naturally-Distributed Large-Scale Benchmark for Lip Reading in the Wild |"
+  },
+  {
+   "pid": "arxiv-1811.01194",
+   "key": "t:pushingtheboundariesofaudiovisualwordrecognitionusingresidualnetworksandlstms",
+   "title": "Pushing the boundaries of audiovisual word recognition using Residual Networks and LSTMs",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1811.01194 | title=Pushing the boundaries of audiovisual word recognition using Residual Networks and LST"
+  },
+  {
+   "pid": "arxiv-1812.09336",
+   "key": "t:anempiricalanalysisofdeepaudiovisualmodelsforspeechrecognition",
+   "title": "An Empirical Analysis of Deep Audio-Visual Models for Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1812.09336 | title=An Empirical Analysis of Deep Audio-Visual Models for Speech Recognition | Study.resea"
+  },
+  {
+   "pid": "arxiv-1904.03760",
+   "key": "p:arxiv-1904.03760",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=extend TasNet to audio-visual multi-modal target-spe"
+  },
+  {
+   "pid": "arxiv-1912.08639",
+   "key": "p:arxiv-1912.08639",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=first detection method for adversarial attacks on au"
+  },
+  {
+   "pid": "arxiv-2009.01225",
+   "key": "t:seeingwakewordsaudiovisualkeywordspotting",
+   "title": "Seeing wake words: Audio-visual Keyword Spotting",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2009.01225 | title=Seeing wake words: Audio-visual Keyword Spotting | Study.research_objective=KWS-Net: o"
+  },
+  {
+   "pid": "arxiv-2102.06657",
+   "key": "t:endtoendaudiovisualspeechrecognitionwithconformers",
+   "title": "End-to-End Audio-Visual Speech Recognition with Conformers",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2102.06657 | title=End-to-End Audio-Visual Speech Recognition with Conformers | authors=Pingchuan Ma, Sta"
+  },
+  {
+   "pid": "arxiv-2104.05418",
+   "key": "t:contrastivelearningofgloballocalvideorepresentations",
+   "title": "Contrastive Learning of Global-Local Video Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2104.05418 | title=Contrastive Learning of Global-Local Video Representations | Study.research_objective="
+  },
+  {
+   "pid": "arxiv-2202.07428",
+   "key": "t:learningcontextuallyfusedaudiovisualrepresentationsforaudiovisualspeechrecogniti",
+   "title": "Learning Contextually Fused Audio-visual Representations for Audio-visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2202.07428 | title=Learning Contextually Fused Audio-visual Representations for Audio-visual Speech Recog"
+  },
+  {
+   "pid": "arxiv-2203.07996",
+   "key": "t:leveragingunimodalselfsupervisedlearningformultimodalaudiovisualspeechrecognitio",
+   "title": "Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2203.07996 | title=Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recogn"
+  },
+  {
+   "pid": "arxiv-2204.01726",
+   "key": "t:liptospeechsynthesiswithvisualcontextattentionalgan",
+   "title": "Lip to Speech Synthesis with Visual Context Attentional GAN",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2204.01726 | title=Lip to Speech Synthesis with Visual Context Attentional GAN | authors=Minsu Kim, Joann"
+  },
+  {
+   "pid": "arxiv-2205.10839-vsa-survey",
+   "key": "t:deeplearningforvisualspeechanalysisasurvey",
+   "title": "Deep Learning for Visual Speech Analysis: A Survey",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep Learning for Visual Speech Analysis: A Survey | authors=Sheng, Kuang, Bai, Hou, Guo, Xu, Pietikainen, Liu | v"
+  },
+  {
+   "pid": "arxiv-2211.10883",
+   "key": "t:audiovisualvideofacehallucinationwithfrequencysupervisionandcrossmodalitysupport",
+   "title": "Audio-visual video face hallucination with frequency supervision and cross modality support by speech based lip reading loss",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2211.10883 | title=Audio-visual video face hallucination with frequency supervision and cross modality su"
+  },
+  {
+   "pid": "arxiv-2301.01456",
+   "key": "t:audiovisualefficientconformerforrobustspeechrecognition",
+   "title": "Audio-Visual Efficient Conformer for Robust Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2301.01456 | title=Audio-Visual Efficient Conformer for Robust Speech Recognition | Study.research_object"
+  },
+  {
+   "pid": "arxiv-2301.10180",
+   "key": "t:amultipurposeaudiovisualcorpusformultimodalpersianspeechrecognitionthearmanavdat",
+   "title": "A Multi-Purpose Audio-Visual Corpus for Multi-Modal Persian Speech Recognition: the Arman-AV Dataset",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2301.10180 | title=A Multi-Purpose Audio-Visual Corpus for Multi-Modal Persian Speech Recognition: the Ar"
+  },
+  {
+   "pid": "arxiv-2303.14307",
+   "key": "p:arxiv-2303.14307",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vocabulary_regime=open_vocabulary | Study.study_design=controlled_experiment | task_family=sentence_recognition | Produc"
+  },
+  {
+   "pid": "arxiv-2303.17480",
+   "key": "p:arxiv-2303.17480",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=ICASSP 2023 (arXiv:2303.17480); Wang, Qian, Zhang, Tan, Li; NUS/USTB/UESTC/CUHK-SZ | task_encoding=natural_utteran"
+  },
+  {
+   "pid": "arxiv-2307.16584-av2acascade",
+   "key": "t:audiovisualvideotospeechsynthesiswithsynthesizedinputaudio",
+   "title": "Audio-visual video-to-speech synthesis with synthesized input audio",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2307.16584-av2acascade | title=Audio-visual video-to-speech synthesis with synthesized input audio | auth"
+  },
+  {
+   "pid": "arxiv-2308.08488",
+   "key": "t:improvingaudiovisualspeechrecognitionbylipsubwordcorrelationbasedvisualpretraini",
+   "title": "Improving Audio-Visual Speech Recognition by Lip-Subword Correlation Based Visual Pre-training and Cross-Modal Fusion Encoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2308.08488 | title=Improving Audio-Visual Speech Recognition by Lip-Subword Correlation Based Visual Pre-"
+  },
+  {
+   "pid": "arxiv-2405.12983",
+   "key": "t:multilingualaudiovisualspeechrecognitionwithhybridctcrnntfastconformer",
+   "title": "Multilingual Audio-Visual Speech Recognition with Hybrid CTC/RNN-T Fast Conformer",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2405.12983 | title=Multilingual Audio-Visual Speech Recognition with Hybrid CTC/RNN-T Fast Conformer | St"
+  },
+  {
+   "pid": "arxiv-2407.06606",
+   "key": "t:tailoreddesignofaudiovisualspeechrecognitionmodelsusingbranchformers",
+   "title": "Tailored Design of Audio-Visual Speech Recognition Models using Branchformers",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2407.06606 | title=Tailored Design of Audio-Visual Speech Recognition Models using Branchformers | Study."
+  },
+  {
+   "pid": "arxiv-2408.16564",
+   "key": "t:humaninspiredcomputingforrobustandefficientaudiovisualspeechrecognition",
+   "title": "Human-Inspired Computing for Robust and Efficient Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2408.16564 | title=Human-Inspired Computing for Robust and Efficient Audio-Visual Speech Recognition | St"
+  },
+  {
+   "pid": "arxiv-2409.00481",
+   "key": "t:dcimavsrefficientaudiovisualspeechrecognitionviadualconformerinteractionmodule",
+   "title": "DCIM-AVSR: Efficient Audio-Visual Speech Recognition via Dual Conformer Interaction Module",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2409.00481 | title=DCIM-AVSR: Efficient Audio-Visual Speech Recognition via Dual Conformer Interaction Mo"
+  },
+  {
+   "pid": "arxiv-2412.17129",
+   "key": "t:uncoveringthevisualcontributioninaudiovisualspeechrecognition",
+   "title": "Uncovering the Visual Contribution in Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2412.17129 | title=Uncovering the Visual Contribution in Audio-Visual Speech Recognition | Study.research"
+  },
+  {
+   "pid": "arxiv-2508.13576",
+   "key": "t:endtoendaudiovisuallearningforcochlearimplantsoundcodingsimulationsinnoisyenviro",
+   "title": "End-to-End Audio-Visual Learning for Cochlear Implant Sound Coding Simulations in Noisy Environments",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2508.13576 | doi=10.1121/10.0042198 | title=End-to-End Audio-Visual Learning for Cochlear Implant Sound C"
+  },
+  {
+   "pid": "arxiv-2510.10069-synclipmae",
+   "key": "t:synclipmaecontrastivemaskedpretrainingforaudiovisualtalkingfacerepresentations",
+   "title": "SyncLipMAE: Contrastive Masked Pretraining for Audio-Visual Talking-Face Representations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SyncLipMAE: Contrastive Masked Pretraining for Audio-Visual Talking-Face Representations | authors=Zeyu Ling, Xiao"
+  },
+  {
+   "pid": "arxiv-2606.00751",
+   "key": "t:headposeawarevisualspeechrecognitionwithfilmmodulation",
+   "title": "Head-Pose-Aware Visual Speech Recognition with FiLM Modulation",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2606.00751 | paper_version=2606.00751v2 | title=Head-Pose-Aware Visual Speech Recognition with FiLM Modul"
+  },
+  {
+   "pid": "arxiv-2606.07259",
+   "key": "t:assessingtruegeneralisabilityofaudiovisualspeechrecognisers",
+   "title": "Assessing True Generalisability of Audio-Visual Speech Recognisers",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2606.07259 | paper_version=2606.07259v2 | title=Assessing True Generalisability of Audio-Visual Speech Re"
+  },
+  {
+   "pid": "arxiv-2609.10394",
+   "key": "p:arxiv-2609.10394",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.research_objective=Build Candor-LR for conversational AVSR and evaluate generalization across data, modality, trai"
+  },
+  {
+   "pid": "cvf-burchi23-avec",
+   "key": "t:audiovisualefficientconformerforrobustspeechrecognition",
+   "title": "Audio-Visual Efficient Conformer for Robust Speech Recognition",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-burchi23-avec | title=Audio-Visual Efficient Conformer for Robust Speech Recognition | authors=M. Burchi, R"
+  },
+  {
+   "pid": "cvf-hong23-wol",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-hong23-wol | title=Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling"
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-ren21-master-kd | title=Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading"
+  },
+  {
+   "pid": "cvf-xu20-msr",
+   "key": "t:discriminativemultimodalityspeechrecognition",
+   "title": "Discriminative Multi-Modality Speech Recognition",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Discriminative Multi-Modality Speech Recognition | authors=Xu, Lu, Guo, Wang | Study.research_objective=Two-stage"
+  },
+  {
+   "pid": "cvpr21-ren",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading | authors=Sucheng Ren, Yong Du"
+  },
+  {
+   "pid": "doi-10.1109-access.2017.2761539",
+   "key": "t:3dconvolutionalneuralnetworksforcrossaudiovisualmatchingrecognition",
+   "title": "3D Convolutional Neural Networks for Cross Audio-Visual Matching Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-access.2017.2761539 | title=3D Convolutional Neural Networks for Cross Audio-Visual Matching Recogn"
+  },
+  {
+   "pid": "doi-10.1109-cvpr52729.2023.01801",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring |"
+  },
+  {
+   "pid": "doi-10.18653-v1-2022.acl-long.308",
+   "key": "t:leveragingunimodalselfsupervisedlearningformultimodalaudiovisualspeechrecognitio",
+   "title": "Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Leveraging Unimodal Self-Supervised Learning for Multimodal Audio-Visual Speech Recognition | intended_use_cases=o"
+  },
+  {
+   "pid": "doi-10.3390-s23042284",
+   "key": "t:audiovisualspeechandgesturerecognitionbysensorsofmobiledevices",
+   "title": "Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s23042284 | title=Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devices | author"
+  },
+  {
+   "pid": "isca-wu21e_interspeech",
+   "key": "t:audiovisualmultitalkerspeechrecognitioninacocktailparty",
+   "title": "Audio-Visual Multi-Talker Speech Recognition in A Cocktail Party",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Multi-Talker Speech Recognition in A Cocktail Party | intended_use_cases=noisy_environment, other | t"
+  },
+  {
+   "pid": "isca-yang23w_interspeech",
+   "key": "t:animprovedendtoendaudiovisualspeechrecognitionmodel",
+   "title": "An Improved End-to-End Audio-Visual Speech Recognition Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Improved End-to-End Audio-Visual Speech Recognition Model | venue=Proc. Interspeech 2023:3094-3098 | intended_u"
+  },
+  {
+   "pid": "mdpi-math11071733",
+   "key": "t:researchonrobustaudiovisualspeechrecognitionalgorithms",
+   "title": "Research on Robust Audio-Visual Speech Recognition Algorithms",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=mdpi-math11071733 | title=Research on Robust Audio-Visual Speech Recognition Algorithms | authors=Wenfeng Yang;"
+  },
+  {
+   "pid": "pmc-9963439-avsrnoisy",
+   "key": "t:improvingspeechrecognitionperformanceinnoisyenvironmentsbyenhancinglipreadingacc",
+   "title": "Improving Speech Recognition Performance in Noisy Environments by Enhancing Lip Reading Accuracy",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9963439-avsrnoisy | title=Improving Speech Recognition Performance in Noisy Environments by Enhancing Lip R"
+  },
+  {
+   "pid": "pmc-9967234-mobavsr",
+   "key": "t:audiovisualspeechandgesturerecognitionbysensorsofmobiledevices",
+   "title": "Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devices | authors=Ryumin D, Ivanko D, Ryumina E |"
+  },
+  {
+   "pid": "pmc-9967234-mobileav",
+   "key": "t:audiovisualspeechandgesturerecognitionbysensorsofmobiledevic",
+   "title": "Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devic",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Speech and Gesture Recognition by Sensors of Mobile Devic | authors=mobile-AV group | Study.research_"
+  },
+  {
+   "pid": "pmc-9967234-mobileavsr",
+   "key": "t:audiovisualspeechandgesturerecognitionbysensorsofmobiledevices",
+   "title": "Audio-visual speech and gesture recognition by sensors of mobile devices",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9967234-mobileavsr | title=Audio-visual speech and gesture recognition by sensors of mobile devices | autho"
+  }
+ ],
+ "usual_approach": {
+  "design": "spectral audio features (MFCC, log-Mel, filterbank or spectrogram)",
+  "n": 29,
+  "tier": "pattern match",
+  "population_unique": 44,
+  "pids": [
+   "arxiv-2508.13576",
+   "arxiv-2205.10839-vsa-survey",
+   "arxiv-2307.16584-av2acascade",
+   "doi-10.3390-s23042284",
+   "mdpi-math11071733"
+  ],
+  "note": "full-text pattern counts over 44 unique LRW audio-visual studies: attention or Transformer named 32, spectral audio features 29, raw waveform 18, pre-trained SSL/ASR front end 17, concatenation followed by a recurrent fusion network 4 (arxiv-1802.06424 and three later studies). Upper bounds; a study can match several designs."
+ },
+ "read_fulltext": [
+  {
+   "pid": "pmc-9967234-mobavsr",
+   "role": "sota",
+   "loc": "Sec. 4.3; Table 9",
+   "quote": "the model level fusion allows us to achieve an accuracy of 98.76% on the test set."
+  },
+  {
+   "pid": "arxiv-1811.01194",
+   "role": "prior",
+   "loc": "Table 8; Sec. 7.2",
+   "quote": "Relative improvement equal to 72.4% is attained by"
+  },
+  {
+   "pid": "arxiv-2102.06657",
+   "role": "prior",
+   "loc": "Sec. 5",
+   "quote": "By replacing the raw audio features with the log-Mel filter-bank features, we observe the same performance, WER 4.3 %"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 4,
+  "recall": 1.0,
+  "missed": []
+ },
+ "state_of_the_art": {
+  "pid": "pmc-9967234-mobavsr",
+  "year": 2023,
+  "metric": "LRW 500-word test accuracy, audio-visual, clean audio, log-Mel audio ResNet plus 2DCNN+BiLSTM visual model, model-level fusion",
+  "value": 98.76,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 44,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "spectral audio features (MFCC, log-Mel, filterbank or spectrogram)",
+   "n": 29,
+   "tier": "pattern match",
+   "population_unique": 44
+  },
+  "state_of_the_art": {
+   "pid": "pmc-9967234-mobavsr",
+   "year": 2023,
+   "metric": "LRW 500-word test accuracy, audio-visual, clean audio, log-Mel audio ResNet plus 2DCNN+BiLSTM visual model, model-level fusion",
+   "value": 98.76,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 3,
+  "read_prior": [
+   "arxiv-1811.01194",
+   "arxiv-2102.06657"
+  ],
+  "unread": 50,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "dated_counts_end-to-end-audiovisual-speech-recognition": {
+  "note": "Studies dated before 2018-02 (target first public) among the 44: arxiv-1611.05358 and doi-10.1109-access.2017.2761539, both matching spectral features only; raw waveform 0, concatenation plus recurrent fusion 0. All 17 other raw-waveform matches are later (dated 2018-07 or after by year or arXiv id). Related-work mentions are counted (upper bound).",
+  "prior_unique": 2,
+  "prior_spectral": 2,
+  "prior_raw_waveform": 0,
+  "later_raw_waveform": 17
+ },
+ "used_by": [
+  "end-to-end-audiovisual-speech-recognition"
+ ]
+}

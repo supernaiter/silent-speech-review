@@ -82,7 +82,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`avsr-audio-stream-input-representation.csv`](avsr-audio-stream-input-representation.csv) (7345 slot-filled, 349 pattern match, usual design in 182, 4 read in full)
 - Inclusion rule: Studies whose ledger names audio-visual speech recognition (AVSR), classified by the audio-stream input their full text names: raw waveform fed to a learned front-end, or hand-designed spectral features (log-Mel filterbank, MFCC, spectrogram). Boundary: a study counts under every representation its text names (upper bound); visual-only lip reading without an audio stream is out; audio-visual speech enhancement without recognition is out unless the ledger names AVSR; versions count once by key.
-- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/)
+- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/), [End-to-End Audiovisual Speech Recognition](../../reviews/end-to-end-audiovisual-speech-recognition/)
 
 ## causal-closed-loop-speech-synthesis
 
@@ -186,6 +186,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`lip-landmark-geometric-stream.csv`](lip-landmark-geometric-stream.csv) (7345 slot-filled, 1116 pattern match, usual design in 368, 5 read in full)
 - Inclusion rule: Visual or audio-visual speech recognition studies (lip reading, VSR, AVSR; word or sentence level) whose ledger names lip reading, VSR, AVSR or an LRS/LRW benchmark. The design compared is whether facial or lip landmarks (coordinates, distances, contours, shape-model parameters) enter the recognizer as a feature stream next to or instead of pixels, and how that stream is encoded (graph convolution over landmarks versus other encoders). Boundary: landmarks used only to detect, align or crop the mouth do not count; a study counts under every design its full text names (upper bound, related-work mentions included); reviews count as pattern matches only; versions of one study count once.
 - Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/)
+
+## lrw-audiovisual-word-recognition
+
+- Table: [`lrw-audiovisual-word-recognition.csv`](lrw-audiovisual-word-recognition.csv) (7345 slot-filled, 44 pattern match, usual design in 29, 3 read in full)
+- Inclusion rule: Studies whose ledger names both the English LRW benchmark (Lip Reading in the Wild, 500 words) and audio-visual recognition, classified by the audio input and the fusion design their full text names: raw waveform into a learned front end, or spectral features (MFCC, log-Mel, filterbank, spectrogram); concatenation followed by a recurrent fusion network, or attention/Transformer fusion; a pre-trained self-supervised or ASR front end. Boundary: LRW-1000 and other-language LRW variants are excluded; a study counts under every design its text names, related-work mentions included (upper bound); versions count once by key.
+- Used in: [End-to-End Audiovisual Speech Recognition](../../reviews/end-to-end-audiovisual-speech-recognition/)
 
 ## neural-encoder-decoder-text-decoding
 
