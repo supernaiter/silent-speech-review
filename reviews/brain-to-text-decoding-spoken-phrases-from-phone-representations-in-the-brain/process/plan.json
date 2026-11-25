@@ -1,0 +1,59 @@
+{
+ "target": "doi-10.3389-fnins.2015.00217",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M07",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt prompted read-aloud by epilepsy patients with clinical ECoG grids (ECoG clinical-research lineage)",
+  "M02": "Phone labels from forced alignment of the parallel acoustic audio with a broadcast-news ASR system and per-session MLLR (EMG-ASR lineage of the same group: parallel-audio alignment)",
+  "M03": "Per-session training; feature selection by KL divergence and LDA fitted inside each fold; no normalisation or seeds stated",
+  "M04": "Overt read-aloud speech",
+  "M05": "Clinical ECoG grids, broadband gamma 70-170 Hz log power, 50 ms windows, 450 ms stacked context",
+  "M08": "Word sequence (text)",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Reference phones from forced alignment of the audio to the prompted text",
+  "M13": "Implanted clinical grids; real-time use only proposed"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "subword-unit-text-decoding-with-lexicon",
+   "inclusion_rule": "Studies whose ledger records a recognition-to-text decoder for a speech-related signal (any modality: EMG, ECoG, intracortical, EEG, video, ultrasound, NAM) and names phones, a lexicon/dictionary, an n-gram/language model, an HMM or CTC; the design compared is how sub-word units become words: HMM/GMM phone models with a pronunciation dictionary and n-gram LM, CTC-trained neural networks, or LLM rescoring. Boundary: a study counts under every design its full text names (upper bound); closed-set word classifiers without a recognition-to-text route are outside; versions once.",
+   "pattern": "(?s)^(?=.*decoder_route=recognition_to_text)(?=.*(phon|language.model|n-gram|lexicon|dictionary|\\bhmm\\b|\\bctc\\b))",
+   "design_field": "M06 model_family (slot-filled) plus full-text regexes hmm_or_gmm_phone_models, neural_ctc, ngram_language_model, pronunciation_dictionary, llm_rescoring",
+   "metric": "WER (%), lower is better"
+  },
+  {
+   "slot": "M07",
+   "topic": "large-vocabulary-lm-for-neural-speech",
+   "reuse": "components/M07/large-vocabulary-lm-for-neural-speech.json",
+   "inclusion_rule": "Reused published table: neural speech decoders that constrain output with a vocabulary of at least 1,000 words via an n-gram or neural language model at use time; 50-word or command sets count as small vocabulary.",
+   "pattern": "published pattern",
+   "design_field": "published",
+   "metric": "WER at vocabulary size"
+  },
+  {
+   "slot": "M12",
+   "topic": "neural-text-unseen-sentence-test",
+   "reuse": "components/M12/neural-text-unseen-sentence-test.json",
+   "inclusion_rule": "Reused published table: neural text decoders; whether WER is measured on sentences absent from training or on repeats.",
+   "pattern": "published pattern",
+   "design_field": "published",
+   "metric": "WER on held-out sentences"
+  },
+  {
+   "slot": "M12",
+   "topic": "null-model-construction-neural-decoding",
+   "reuse": "components/M12/null-model-construction-neural-decoding.json",
+   "inclusion_rule": "Reused published table: neural decoding studies testing against an empirical null built by shuffling or permuting labels, trials, time or channels.",
+   "pattern": "published pattern",
+   "design_field": "published",
+   "metric": "null construction"
+  }
+ ]
+}
