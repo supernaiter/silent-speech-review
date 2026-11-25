@@ -393,4 +393,10 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`word-lipreading-temporal-backend.csv`](word-lipreading-temporal-backend.csv) (7345 slot-filled, 156 pattern match, usual design in 115, 6 read in full)
 - Inclusion rule: Studies whose ledger names the English LRW benchmark or the Mandarin LRW-1000 / CAS-VSR-W1K benchmark (word-level lip reading), classified by the temporal back end their full text names: recurrent (LSTM or GRU), temporal convolution (TCN, MS-TCN, DC-TCN or a temporal-convolution back end), Transformer, Conformer. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); audio-visual studies stay in; versions count once by key; dated split by first public month (prior before 2019-07, [concurrent] 2019-07 to 2020-07, [later] after).
-- Used in: [Lipreading using Temporal Convolutional Networks](../../reviews/lipreading-using-temporal-convolutional-networks/)
+- Used in: [Combining Residual Networks with LSTMs for Lipreading](../../reviews/combining-residual-networks-with-lstms-for-lipreading/), [Lipreading using Temporal Convolutional Networks](../../reviews/lipreading-using-temporal-convolutional-networks/)
+
+## word-lipreading-visual-frontend
+
+- Table: [`word-lipreading-visual-frontend.csv`](word-lipreading-visual-frontend.csv) (7345 slot-filled, 156 pattern match, usual design in 106, 6 read in full)
+- Inclusion rule: Studies whose ledger names the English LRW benchmark or the Mandarin LRW-1000 / CAS-VSR-W1K benchmark (word-level lip reading), classified by the visual front end their full text names: spatiotemporal (3D) convolution, ResNet trunk, VGG trunk, ViT or patch transformer. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); audio-visual studies stay in; versions count once by ledger key (the target has three keys); dated by first public month (prior before 2016-09, [concurrent] 2016-09 to 2017-09, [later] after).
+- Used in: [Combining Residual Networks with LSTMs for Lipreading](../../reviews/combining-residual-networks-with-lstms-for-lipreading/)

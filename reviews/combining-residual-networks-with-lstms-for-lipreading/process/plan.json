@@ -1,0 +1,81 @@
+{
+ "target": "isca-stafylakis17-resnetlstm",
+ "versions": [
+  "isca-stafylakis17-resnetlstm",
+  "arxiv-1703.04105",
+  "isca-stafylakis17_lipread",
+  "isca-stafylakis17_interspeech"
+ ],
+ "first_public": "2017-03",
+ "first_public_note": "arXiv:1703.04105 v1 (March 2017) precedes the Interspeech 2017 proceedings (2017-08).",
+ "chronology": "prior = first public before 2016-09; [concurrent] = 2016-09 to 2017-09; [later] = after 2017-09",
+ "changed": [
+  "M06",
+  "M03"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "LRW broadcast speech video (overt, voiced); no own recording",
+  "M02": "Word-class labels only; no audio or other training-only teacher",
+  "M04": "Overt speech of TV speakers, audio unused, no word boundaries",
+  "M05": "Grayscale 112x112 mouth crop from 66 facial landmarks (LRW lineage)",
+  "M07": "None: closed 500-class softmax, no language model",
+  "M08": "One word class per clip",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "LRW labels and splits as distributed",
+  "M13": "Single 12 GB GPU for training; parameter counts given; no latency"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "word-lipreading-visual-frontend",
+   "new": true,
+   "inclusion_rule": "Studies whose ledger names the English LRW benchmark or the Mandarin LRW-1000 / CAS-VSR-W1K benchmark (word-level lip reading), classified by the visual front end their full text names: spatiotemporal (3D) convolution, ResNet trunk, VGG trunk, ViT or patch transformer. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); audio-visual studies stay in; versions count once by key (the target has three keys); dated by first public month (prior before 2016-09, [concurrent] 2016-09 to 2017-09, [later] after).",
+   "pattern": "\\blrw\\b|lip reading in the wild|lrw-1000|cas-vsr-w1k",
+   "design_field": "full-text design regexes (front end)",
+   "metric": "LRW top-1 accuracy (visual only)"
+  },
+  {
+   "slot": "M06",
+   "topic": "word-lipreading-temporal-backend",
+   "reuse": "components/M06/word-lipreading-temporal-backend.json",
+   "inclusion_rule": "Reused published table (same LRW / LRW-1000 population, classified by temporal back end); this run adds a dated split against 2017-03.",
+   "pattern": "published",
+   "design_field": "published",
+   "metric": "LRW top-1 accuracy"
+  },
+  {
+   "slot": "M03",
+   "topic": "word-lipreading-temporal-augmentation",
+   "reuse": "components/M03/word-lipreading-temporal-augmentation.json",
+   "inclusion_rule": "Reused published table; this run adds a pattern count for a word loss applied at every time step and a dated split against 2017-03.",
+   "pattern": "published",
+   "design_field": "published",
+   "metric": "LRW top-1 accuracy"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrw-word-accuracy",
+   "reuse": "components/M12/lrw-word-accuracy.json",
+   "inclusion_rule": "Reused published table: visual-only word-level lip reading on English LRW with top-1 test accuracy.",
+   "pattern": "published",
+   "design_field": "published",
+   "metric": "LRW top-1 accuracy"
+  }
+ ],
+ "deciding_priors": {
+  "M06": [
+   "arxiv-1601.08188 (prior: LSTM back end for lipreading, GRID)",
+   "arxiv-1611.01599 ([concurrent]: STCNN + Bi-GRU)",
+   "w2594690981-lrw ([concurrent]: VGG-M LRW baseline)",
+   "arxiv-1611.05358 ([concurrent]: WAS, LRW comparator)"
+  ],
+  "sota": [
+   "arxiv-2406.12233 (SyncVSR, LRW)",
+   "arxiv-2209.01383 (training strategies, LRW)"
+  ]
+ }
+}
