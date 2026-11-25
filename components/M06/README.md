@@ -88,7 +88,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`causal-closed-loop-speech-synthesis.csv`](causal-closed-loop-speech-synthesis.csv) (7345 slot-filled, 87 pattern match, usual design in 24, 3 read in full)
 - Inclusion rule: Studies that synthesize speech acoustics from a non-acoustic signal (neural, EMG, articulography, ultrasound, video) online, in real time, with the audio played back to the user while or right after they speak. Boundary: include formant or vocoder synthesis of vowels, words or sentences, and offline studies only when they simulate causal frame-level inference; exclude offline acausal reconstruction, text decoding read out by TTS, and conversion from acoustic input; count versions once.
-- Used in: [An instantaneous voice-synthesis neuroprosthesis](../../reviews/an-instantaneous-voice-synthesis-neuroprosthesis/), [Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding](../../reviews/brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding/)
+- Used in: [A Wireless Brain-Machine Interface for Real-Time Speech Synthesis](../../reviews/a-wireless-brain-machine-interface-for-real-time-speech-synthesis/), [An instantaneous voice-synthesis neuroprosthesis](../../reviews/an-instantaneous-voice-synthesis-neuroprosthesis/), [Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding](../../reviews/brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding/)
 
 ## closed-vocabulary-word-classification
 
