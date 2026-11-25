@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## emg-recognition-grammar-and-language-model
+
+- Table: [`emg-recognition-grammar-and-language-model.csv`](emg-recognition-grammar-and-language-model.csv) (119 slot-filled, 64 pattern match, usual design in 21, 2 read in full)
+- Inclusion rule: Surface-EMG decoders scored with WER or CER (the 64-study population of the M12 unseen-sentence table), classified by the use-time linguistic constraint their full text names: hand-written or rule grammar, n-gram language model, neural or large language model, or no language model. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); versions once; acoustic-only ASR excluded.
+- Used in: [Development of sEMG sensors and algorithms for silent speech recognition](../../reviews/development-of-semg-sensors-and-algorithms-for-silent-speech-recognition/)
+
 ## large-vocabulary-lm-for-neural-speech
 
 - Table: [`large-vocabulary-lm-for-neural-speech.csv`](large-vocabulary-lm-for-neural-speech.csv) (119 slot-filled, 1162 pattern match, usual design in 152, 4 read in full)

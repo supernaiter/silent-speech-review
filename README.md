@@ -22,7 +22,7 @@ Topics covered: silent speech recognition, lip reading and visual speech recogni
 
 ## Latest component reviews
 
-Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 120; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
+Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 121; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
 
 - [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/) (2026). Event input and a two-step OT-CFM decoder are standard; the DVS-Lip evaluation is behind: WER on an isolated-word set with no split details or seeds, and baselines that do not match their sources.
 - [A cross-species neural foundation model for end-to-end speech decoding](reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/) (2026). Cascaded decoding with the pretrained encoder is a strong standard result; the end-to-end audio-LLM path beats the prior end-to-end entry but trails RNN cascades, and the cross-species gain is small.
@@ -133,7 +133,7 @@ Every speech-intention decoder, whatever its sensor, can be described by the sam
 | 2021 | [An Improved Model for Voicing Silent Speech](reviews/an-improved-model-for-voicing-silent-speech/) | Speech synthesis from silent EMG | Open vocabulary | Speaker-dependent | Not stated | Offline | 42.2% automatic WER (DeepSpeech) from 68.0%, single runs; 32.3% mean human WER from two listeners on 40 samples; a later rerun of the model scores 25.74% under Whisper; one speaker, open vocabulary |
 | 2020 | [Digital Voicing of Silent Speech](reviews/digital-voicing-of-silent-speech/) | Speech synthesis from silent EMG | Closed dates/times set; open vocabulary of 9828 words | Speaker-dependent | Not stated | Offline | 3.6% human WER closed vocabulary; 74.8% human WER open vocabulary |
 | 2018 | [AlterEgo: A Personalized Wearable Silent Speech Interface](reviews/alterego-a-personalized-wearable-silent-speech-interface/) | Closed-vocabulary silent word/command recognition | Small task vocabularies (about 20 words per application, per MIT News) | Speaker-dependent | Not stated | Not stated | 92% median word accuracy in user studies (abstract) |
-| 2018 | [Development of sEMG sensors and algorithms for silent speech recognition](reviews/development-of-semg-sensors-and-algorithms-for-silent-speech-recognition/) | Silent speech recognition to text | 2,200-word vocabulary, 1,200+ phrases | Not stated | Not stated | Not stated | 8.9% WER (91.1% recognition rate), 2,200-word vocabulary |
+| 2018 | [Development of sEMG sensors and algorithms for silent speech recognition](reviews/development-of-semg-sensors-and-algorithms-for-silent-speech-recognition/) | Silent speech recognition to text | 2,200-word vocabulary, 1,200+ phrases | Subject-dependent; 19 enrolled, 3 excluded, 5 tabulated for the final system | Single sessions of 4-6 h per subject; no cross-session test | Silently mouthed (subvocal); Corpus 1 also vocalized | 8.9% mean WER over five tabulated subjects on 1,200 continuous phrases from a 2,200-word corpus; the same system's 2014 six-subject mean is 11.2%, and the best 8 of 11 sensors give 10.4% WER. |
 
 ## Brain signals (EEG, MEG, intracortical)
 
