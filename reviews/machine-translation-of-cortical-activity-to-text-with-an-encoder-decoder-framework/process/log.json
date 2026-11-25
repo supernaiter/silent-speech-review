@@ -1,6 +1,6 @@
 {
  "slug": "machine-translation-of-cortical-activity-to-text-with-an-encoder-decoder-framework",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,31 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-25T12:53:41+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-25T12:55:51+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "11 applied (including 2 where the original claim was kept with new support or a narrowed wording), 1 rejected (#7, the claim was supported; wording narrowed), 0 unverified, 1 no action needed (#13).",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-25T13:01:14+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 97 found, 0 missing, 11 unchecked (unstated, figure-only or no source)",
+  "topic counts M02-auxiliary-speech-feature-regression": "ok",
+  "topic counts M03-cross-subject-pooled-training": "ok",
+  "topic counts M06-neural-encoder-decoder-text-decoding": "ok",
+  "topic counts M08-neural-text-output-unit": "ok",
+  "topic counts M12-neural-text-unseen-sentence-test": "ok"
+ },
  "inputs": {
   "notes_sha256": "6aa7f9d46bf3537219399df790376ffaccc53d110365f1151bfcde89f498c29d",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +62,6 @@
  },
  "body_chars": {
   "draft": 15725,
-  "final": null
+  "final": 16039
  }
 }

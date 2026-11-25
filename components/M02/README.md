@@ -52,7 +52,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`auxiliary-speech-feature-regression.csv`](auxiliary-speech-feature-regression.csv) (31 slot-filled, 16 pattern match, usual design in 5, 3 read in full)
 - Inclusion rule: Text or speech-unit decoders from a non-acoustic signal (neural, EMG, articulography, ultrasound, video) whose training adds a loss that regresses acoustic or articulatory features of the paired produced speech (MFCC, mel spectrogram, kinematic trajectories) from an intermediate layer, discarded at use time. Boundary: exclude decoders whose output is the acoustic feature (synthesis); exclude targets taken from a pretrained speech encoder (counted under auxiliary-representation-prediction); count versions once.
-- Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
+- Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/), [Machine translation of cortical activity to text with an encoder-decoder framework](../../reviews/machine-translation-of-cortical-activity-to-text-with-an-encoder-decoder-framework/)
 
 ## auxiliary-ssl-loss-in-neural-fine-tuning
 

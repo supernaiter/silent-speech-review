@@ -70,7 +70,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`neural-text-output-unit.csv`](neural-text-output-unit.csv) (3268 slot-filled, 145 pattern match, usual design in 63, 5 read in full)
 - Inclusion rule: Neural decoders (ECoG, intracortical, sEEG, EEG, MEG) that output text and report a word, character or phoneme error rate. The design compared is the unit the decoder emits before any lexicon or language model: characters, phonemes, or whole words / sentence classes. Boundary: a paper is counted under every unit its text names; handwriting and spelling BCIs count as characters; count versions once.
-- Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/)
+- Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/), [Machine translation of cortical activity to text with an encoder-decoder framework](../../reviews/machine-translation-of-cortical-activity-to-text-with-an-encoder-decoder-framework/)
 
 ## paralinguistic-output-from-production-signals
 

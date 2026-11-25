@@ -4,59 +4,59 @@ Makin, Moses, Chang. Nature Neuroscience 23(4), 575–582 (2020). [doi:10.1038/s
 
 ## Verdict
 
-Makin et al. [[1]](#ref-1) changed the decoder (M06, an autoregressive encoder–decoder), the output unit (M08, words), the training-only targets (M02, MFCC regression) and the training data (M03, transfer); all four are standard. An attention encoder–decoder had already decoded EEG to text [[2]](#ref-2), and Brain2Char [[3]](#ref-3) [concurrent] used the same MFCC loss. The internal protocol is strong: 30 models per condition, matched held-out blocks, corrected tests and a length-only noise control. The headline 3% WER comes from held-out repeats of the same 50 sentences, so the claimed gain over the cited 60% baseline [[4]](#ref-4), tested leave-one-phrase-out, compares unlike protocols. Unseen sentences and participants were never tested; today's reference is 23.8% WER on never-repeated sentences with 125,000 words [[5]](#ref-5).
+Makin et al. [[1]](#ref-1) changed the decoder (M06, encoder–decoder), output unit (M08, words), training-only targets (M02, MFCC) and training data (M03, transfer); all four are standard, none ahead: Krishna et al. [[2]](#ref-2) trained an attention encoder–decoder on EEG seven months earlier, and Brain2Char [[3]](#ref-3) [concurrent], from the same lab, used the same MFCC loss. The protocol is strong: 30 models per condition paired on random held-out blocks, corrected tests, a noise control. The headline 3% WER comes from held-out repeats of the same 50 sentences; the cited 60% [[4]](#ref-4) came from held-out phrases, so the gap compares unlike tests. Unseen sentences and participants were never tested; on sentences never duplicated in training the reference is 23.8% WER with 125,000 words [[5]](#ref-5).
 
 ## Against the field, component by component
 
 ### M06 Decoding: autoregressive encoder–decoder
 
-**Usual approach:** Of 145 neural text-decoding studies (pattern match, unique studies), 63 name CTC, 46 an encoder–decoder and 43 HMM or Viterbi decoding (upper bounds, Appendix). Makin et al. decode greedily with no language model (Methods, Testing).
+**Usual approach:** Of 145 neural text-decoding studies (pattern match, unique studies), 63 name CTC, 46 an encoder–decoder, 43 HMM or Viterbi; of 29 up to 2019, 1, 0 and 7 (Appendix). Makin et al. leave the 2020 default, decoding greedily without a language model.
 
-**State of the art:** 2.5% online WER over the final five sessions, decoding a phoneme every 80 ms, with a 125,000-word vocabulary from day two (2024) [[6]](#ref-6) [later].
+**State of the art:** 2.5% online WER over the final five sessions on predetermined evaluation blocks (train-test sentence overlap unstated), a phoneme every 80 ms, 125,000-word vocabulary from day two (2024) [[6]](#ref-6) [later].
 
-Krishna et al. [[2]](#ref-2) (2019-08) trained an attention RNN encoder–decoder on EEG for 9 or 30 repeated sentences: 70% WER from two electrodes (Sec. 7). The design is prior; Makin et al. add ECoG and a far stronger result, cutting WER from about 33% for a phoneme-HMM sentence classifier to about 3% (Fig. 2a), 91% relative (inference). Since 2023, encoder–decoders appear in 30 of 82 studies and CTC in 45 (Appendix); the best systems decode phonemes with a language model [[6]](#ref-6) [[7]](#ref-7). Verdict: standard.
+Krishna et al. [[2]](#ref-2) (arXiv 2019-08; the target gives no received date) trained an attention encoder–decoder on EEG: 70% WER on 9 sentences from electrodes T7 and T8 (Sec. 7). So ahead fails, though the gain over HMM is real: about 33% for a phoneme-HMM sentence classifier against about 3% (Fig. 2a), 91% relative (inference). Verdict: standard.
 
 ### M08 Output: whole words
 
-**Usual approach:** Of the 145 studies, 63 name phonemes, 49 characters and 25 words or sentence classes (pattern match, upper bounds, Appendix). Makin et al. use a 1,806-class word softmax (Methods).
+**Usual approach:** Of the 145 studies, 63 name phonemes, 49 characters, 25 words or sentence classes; up to 2019, 4, 0 and 3 of 29 (pattern match, Appendix). Makin et al. use a 1,806-word softmax (Methods).
 
-**State of the art:** phonemes combined into words by a language model, 2.5% WER (2024) [[6]](#ref-6) [later].
+**State of the art:** phonemes combined into words by a language model, 2.5% WER (2024) [[6]](#ref-6) [later], test as in M06.
 
-A word softmax emits only words seen in training (Methods), and the authors report whole training sentences substituted (Discussion). Verdict: standard for a 250-word closed task.
+The softmax covers only the 1,806-word MOCHA-TIMIT vocabulary, and errors often substitute whole training sentences (Discussion). Verdict: standard for a 250-word closed task. Without a language model (M07), the decoder is the sentence prior; the M07 count is no matched comparison, so M07 is standard.
 
 ### M02 Training-only targets: MFCC regression
 
-**Usual approach:** 16 studies match auxiliary acoustic or articulatory losses (pattern match, unique studies); paired audio in 5 of 11 slot-filled records (Appendix).
+**Usual approach:** 16 studies match auxiliary acoustic or articulatory losses (pattern match, unique studies), 5 dated up to 2019; paired audio in 5 of 11 slot-filled records (Appendix).
 
-**State of the art:** grapheme-to-phoneme labels with no audio target: 25.5% WER from ECoG on 249 sentences never used as training targets, 1,024 words (2023) [[7]](#ref-7) [later].
+**State of the art:** grapheme-to-phoneme labels, no audio, same lab: 25.5% WER from ECoG on 249 untrained sentences, 1,024 words (2023) [[7]](#ref-7) [later].
 
-Brain2Char [[3]](#ref-3) [concurrent] adds the same MFCC loss to a CTC decoder. Without MFCCs, errors rise several-fold (Results). Verdict: standard; the target needs overt speech, which the authors concede a prosthesis user may lack (Discussion).
+Brain2Char [[3]](#ref-3) [concurrent] adds the same MFCC loss to CTC. Without MFCCs, errors are "several times greater" (Results). Verdict: standard; it needs overt speech, which a prosthesis user may lack (Discussion).
 
 ### M03 Training data: transfer
 
-**Usual approach:** a model per participant, 90 of 379 studies (pattern match, unique studies).
+**Usual approach:** Of 379 studies (pattern match, unique studies; 79 up to 2019), the most frequent design is a per-participant model (90), then leave-one-subject-out tests (75) and subject-specific layers (34).
 
-**State of the art:** a sequence-to-sequence sEEG phoneme decoder from a 25-patient cohort, transferred to a held-out subject: PER from 57% within-subject to 49%, 45% with four source subjects (2025) [[8]](#ref-8) [later].
+**State of the art:** a sEEG sequence-to-sequence phoneme decoder (25-patient cohort) transferred to a held-out subject: PER 57% within-subject, 49% after transfer, 45% with four sources (2025) [[8]](#ref-8) [later].
 
-For participant a, task transfer cut WER by 31% and cross-participant pretraining by about 17% (Fig. 3a); combining them did not beat task transfer alone, and cross-participant transfer did not help either picture-description participant (Results). Verdict: standard.
+For participant a, task transfer cut WER by 31% and participant transfer by about 17% (Fig. 3a); dual transfer (36%) did not beat task transfer significantly, and neither picture-description participant gained. Verdict: standard.
 
 ### M12 Evaluation: repeats, not unseen sentences
 
-**Usual approach:** Of the 145 studies, 21 describe a sentence-disjoint test and 10 repeated training sentences (pattern match, upper bounds). Makin et al. hold out repeat blocks, about 10% of data (Methods).
+**Usual approach:** Of the 145 studies, 21 describe a sentence-disjoint test, 10 repeated sentences (pattern match, upper bounds); none of 29 up to 2019 matches either (Appendix). Makin et al. hold out random repeat blocks, about 10% of data.
 
-**State of the art:** 23.8% online WER on sentences never duplicated in training, 125,000 words (2023) [[5]](#ref-5) [later]; 25.5% from ECoG [[7]](#ref-7) [later].
+**State of the art:** 23.8% online WER on sentences never duplicated in training, 125,000 words (2023) [[5]](#ref-5) [later]; from ECoG, 25.5% on 249 untrained sentences [[7]](#ref-7) [later].
 
-Herff et al. [[4]](#ref-4) had already decoded each held-out phrase with models trained on the rest of the session. Against such tests, 3% on repeats of a 250-word set is not comparable. Verdict: standard for 2020; the repeat-only test is the paper's main limit.
+That majority is later work; behind needs 3 earlier comparable studies, and only Herff et al. [[4]](#ref-4) (held-out phrases) is known. Verdict: standard, not behind; by today's practice the repeat-only test is the main limit.
 
 ## The 13 components
 
 | Component | This paper | Usual approach (count) | State of the art | Verdict |
 |---|---|---|---|---|
 | M01 Training-time action | Overt reading | Cued or overt speech (slot-filled 3,882) | – | standard |
-| M02 Training-only supervision | MFCC regression | Paired audio (5 of 11) (pattern match 16) | No audio target [[7]](#ref-7) | standard |
-| M03 Training and adaptation | Cross-participant, cross-task transfer | Per-subject model (90 of 379) (pattern match 379) | Group transfer, 45% PER [[8]](#ref-8) | standard |
+| M02 Training-only supervision | MFCC loss | Paired audio (5 of 11) (pattern match 16) | No audio target [[7]](#ref-7) | standard |
+| M03 Training and adaptation | Transfer | Per-subject model (90 of 379) (pattern match 379) | Group transfer, 45% PER [[8]](#ref-8) | standard |
 | M04 Use-time action | Overt reading | Cued or overt speech (slot-filled 5,595) | – | standard |
-| M05 Sensors | Clinical ECoG | ECoG (233 of 246) (slot-filled 7,329) | 253-electrode ECoG [[7]](#ref-7) | standard |
+| M05 Sensors | High-density ECoG, 4 mm | ECoG (233 of 246) (slot-filled 7,329) | 253-electrode ECoG [[7]](#ref-7) | standard |
 | M06 Processing and decoding | Encoder–decoder, no LM | CTC 63 of 145 (pattern match 145) | 2.5% WER [[6]](#ref-6) | standard |
 | M07 Lexicon and LM | None | n-gram or neural LM (slot-filled 119) | – | standard |
 | M08 Output | Words, 1,806 classes | Phonemes 63 of 145 (pattern match 145) | Phonemes, 2.5% WER [[6]](#ref-6) | standard |
@@ -68,31 +68,28 @@ Herff et al. [[4]](#ref-4) had already decoded each held-out phrase with models 
 
 ## Where the claims outrun the evidence
 
-- "Previous state-of-the-art" 60% WER (Results) mixes protocols: Herff et al. report WER as low as 25% leave-one-phrase-out [[4]](#ref-4).
-- The 3% figure and the fourfold (64 channels) and eightfold (no convolution) ablations are quantified for one example participant (Fig. 2a); the other three are only "quite similar" (Supplementary Fig. 1). Participant a, with about four minutes of MOCHA-1 data, starts at about 53% (Fig. 3a).
-- Generalization to new sentences is inferred from transfer gains (Fig. 3, Discussion); every test stays on MOCHA-1.
-- The tuning block stayed in the final tests, and no seeds are given; the public code sets none (Methods).
+- The cited 60% (ref. 9, [[4]](#ref-4)) is a 100-word result on held-out phrases; Herff's 25% needs a 10-word dictionary. Against 3% on repeats of 250 words, vocabulary favours Herff, the test favours Makin et al.
+- The 3% and the fourfold (64 of 256 channels) and eightfold (no convolution) ablations are for one example participant (Fig. 2a); the other three are "quite similar" (Supplementary Fig. 1). Participant a (about four minutes of MOCHA-1) starts at about 53% (Fig. 3a).
+- New-sentence generalization is inferred from transfer gains (Fig. 3); every test stays on MOCHA-1.
+- The tuning block was not excluded from the final tests (Methods), no seeds are given, and the public training code shuffles without a seed (sequence_networks.py, line 1904).
 
 ## What the field needs next
 
-- M12 and M06: encoder–decoder against phoneme CTC with a language model on the same ECoG data, sentence-disjoint.
+- M12 and M06: encoder–decoder against phoneme CTC plus language model on the same ECoG data, sentence-disjoint.
 - M02: MFCC against text-derived phone targets in the same participants.
-- M03: a held-out-participant test.
 
 ## Questions for the authors
 
-- Were training and held-out blocks recorded on different days?
-- Is the 30-s z-scoring window causal, and does it cross block boundaries?
-- What is each ablation's WER for all four participants?
-- Does the MOCHA-1 decoder emit words outside the MOCHA-1 vocabulary?
+- Is the 30-s z-scoring window causal, and does it cross blocks?
+- Does the decoder emit words outside the MOCHA-1 vocabulary?
 
 ## Appendix: literature search
 
-- M06 neural-encoder-decoder-text-decoding. Inclusion rule: same population as the M08 output-unit topic; the design compared is the sequence decoder (autoregressive encoder–decoder, CTC, or HMM/Viterbi); a paper counts under every decoder its full text names. Ledger counts: 7,345 slot-filled; 145 pattern match (unique studies). Usual design: CTC 63, encoder–decoder 46, HMM or Viterbi 43 (pattern match, upper bounds); 2023 onward (82 studies): encoder–decoder 30, CTC 45, HMM or Viterbi 22. Read in full: [[2]](#ref-2), [[4]](#ref-4) (deciding priors), [[6]](#ref-6) (state of the art), [[8]](#ref-8). Known-item recall 0.6 (5 seeds).
-- M08 neural-text-output-unit (reused topic table). Inclusion rule as published: neural decoders that output text and report WER, CER or PER; the design compared is the unit emitted before any lexicon or language model. Ledger counts: 3,268 slot-filled; 145 pattern match (unique studies). Usual design: phonemes 63, characters 49, words or sentence classes 25 (pattern match, upper bounds). Read in full: [[6]](#ref-6) (state of the art), [[7]](#ref-7), [[5]](#ref-5). Known-item recall 0.8 (as published).
-- M02 auxiliary-speech-feature-regression (reused topic table). Inclusion rule as published: non-acoustic text or speech-unit decoders whose training adds a loss regressing acoustic or articulatory features of the paired speech, discarded at use time. Ledger counts: 31 slot-filled (sparse slot); 16 pattern match (unique studies). Usual design from M03 supervision kind: paired audio, 5 of 11 (slot-filled). Read in full: [[3]](#ref-3) (deciding prior), [[7]](#ref-7) (state of the art). Known-item recall 0.0 (as published).
-- M03 cross-subject-pooled-training (reused topic table). Inclusion rule as published: speech or language decoders from neural or other biosignals trained on data pooled across participants; transfer by fine-tuning from another participant counts. Ledger counts: 1,526 slot-filled; 370 pattern match in the ledger, 379 with full-text hits (unique studies). Usual design: per-subject model, 90 of 379 (pattern match). Read in full: [[8]](#ref-8) (state of the art for this review). Known-item recall 1.0 (as published).
-- M12 neural-text-unseen-sentence-test (reused topic table). Inclusion rule as published: same population as M08; the design compared is whether WER is measured on sentences absent from training or on repeats. Ledger counts: 6,960 slot-filled; 145 pattern match (unique studies). Usual design: sentence-disjoint test 21, repeated training sentences 10 (pattern match, upper bounds). Read in full: [[5]](#ref-5) (state of the art), [[7]](#ref-7), [[4]](#ref-4), [[2]](#ref-2). Known-item recall 0.8 (as published).
+- M06 neural-encoder-decoder-text-decoding. Inclusion rule: same population as the M08 output-unit topic; the design compared is the sequence decoder (autoregressive encoder–decoder, CTC, or HMM/Viterbi); a paper counts under every decoder its full text names. Ledger counts: 7,345 slot-filled; 145 pattern match (unique studies). Usual design: CTC 63, encoder–decoder 46, HMM or Viterbi 43 (pattern match, upper bounds); 2023 onward (82 studies): encoder–decoder 30, CTC 45, HMM or Viterbi 22. Studies dated up to 2019 (29): HMM or Viterbi 7, CTC 1, encoder–decoder 0; [[2]](#ref-2) (arXiv 2019-08) is indexed under 2020. Read in full: [[2]](#ref-2), [[4]](#ref-4) (deciding priors), [[6]](#ref-6) (state of the art), [[8]](#ref-8). Known-item recall 0.6 (5 seeds).
+- M08 neural-text-output-unit (reused topic table). Inclusion rule as published: neural decoders that output text and report WER, CER or PER; the design compared is the unit emitted before any lexicon or language model. Ledger counts: 3,268 slot-filled; 145 pattern match (unique studies). Usual design: phonemes 63, characters 49, words or sentence classes 25 (pattern match, upper bounds); up to 2019 (29 studies): phonemes 4, words 3, characters 0. Read in full: [[6]](#ref-6) (state of the art), [[7]](#ref-7), [[5]](#ref-5). Known-item recall 0.8 (as published).
+- M02 auxiliary-speech-feature-regression (reused topic table). Inclusion rule as published: non-acoustic text or speech-unit decoders whose training adds a loss regressing acoustic or articulatory features of the paired speech, discarded at use time. Ledger counts: 31 slot-filled (sparse slot); 16 pattern match (unique studies), 5 dated up to 2019. Usual design from M03 supervision kind: paired audio, 5 of 11 (slot-filled). Read in full: [[3]](#ref-3) (deciding prior), [[7]](#ref-7) (state of the art). Known-item recall 0.0 (as published).
+- M03 cross-subject-pooled-training (reused topic table). Inclusion rule as published: speech or language decoders from neural or other biosignals trained on data pooled across participants; transfer by fine-tuning from another participant counts. Ledger counts: 1,526 slot-filled; 370 pattern match in the ledger, 379 with full-text hits (unique studies). Usual design: per-subject model 90, leave-one-subject-out 75, subject-specific layer 34 (pattern match, of 379); 79 studies dated up to 2019. Read in full: [[8]](#ref-8) (state of the art for this review). Known-item recall 1.0 (as published).
+- M12 neural-text-unseen-sentence-test (reused topic table). Inclusion rule as published: same population as M08; the design compared is whether WER is measured on sentences absent from training or on repeats. Ledger counts: 6,960 slot-filled; 145 pattern match (unique studies). Usual design: sentence-disjoint test 21, repeated training sentences 10 (pattern match, upper bounds); up to 2019 (29 studies): 0 and 0. Read in full: [[5]](#ref-5) (state of the art), [[7]](#ref-7), [[4]](#ref-4), [[2]](#ref-2). Known-item recall 0.8 (as published).
 
 ## References
 
