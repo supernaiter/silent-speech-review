@@ -1,0 +1,1420 @@
+{
+ "topic": "grid-sentence-lipreading-protocol",
+ "slot": "M12",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*modalities=[^|]*optical_camera)(?=.*(?-i:GRID)|.*grid (audio-?visual )?(corpus|dataset))(?=.*(lip[- ]?read|visual speech recognition|\\bvsr\\b|sentence_recognition))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Lip-reading or VSR studies whose ledger names optical-camera input and the GRID corpus, classified by the evaluation partition their full text names: an unseen-speaker (speaker-independent or held-out speaker) split, an overlapped-speaker (seen-speaker or speaker-dependent) split, or explicit reuse of the held-out speakers 1, 2, 20 and 22. A separate regex counts studies that report a standard deviation, a confidence interval or a significance test. Boundary: audio-only GRID work and GRID studies without a recognition or synthesis decoder are excluded; a study counts under every partition its text names (upper bound); versions count once by key.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8381,
+  "slot_filled_unique": 6960,
+  "string_match_folders": 117,
+  "string_match_unique": 93,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M11",
+  "design_slot_fill": 0.027,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "Reference.reference_kind=verbatim_transcript",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "etasr-17799-dyslip",
+     "mjcs-38-4-lipcoordnet",
+     "zenodo-19695887-lipsynclite",
+     "irjmets-86256-lipread",
+     "hal-4183135-neurolip"
+    ]
+   },
+   {
+    "design": "reference_construction=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.24391"
+    ]
+   },
+   {
+    "design": "reference_construction=task_inferred",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-shao06_interspeech"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "unseen_speaker_split",
+    "n": 54,
+    "tier": "pattern match",
+    "pids": [
+     "aaai-38133-linprovsr",
+     "arxiv-2601-20881-malipnet",
+     "arxiv-2601.20881-malipnet",
+     "arxiv-2609-24391-navir",
+     "doi-10.1038-s41598-026-62988-0"
+    ]
+   },
+   {
+    "design": "overlapped_speaker_split",
+    "n": 41,
+    "tier": "pattern match",
+    "pids": [
+     "aaai-38133-linprovsr",
+     "arxiv-2609-24391-navir",
+     "doi-10.21203-rs.3.rs-10510743-v1",
+     "doi-10.22452-mjcs.vol38no4.4",
+     "doi-10.3126-joeis.v4i1.81574"
+    ]
+   },
+   {
+    "design": "variability_or_significance",
+    "n": 26,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609-24391-navir",
+     "cmc-nestlipgnn",
+     "doi-10.1038-s41598-026-62988-0",
+     "etasr-17799-dyslip",
+     "njsap-02-03-04-attention-av-fusion"
+    ]
+   },
+   {
+    "design": "lipnet_split_reused",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2208.04498",
+     "arxiv-2302.08102",
+     "arxiv-2310.05058"
+    ]
+   }
+  ],
+  "metric_pattern": "unseen.*WER|WER.*unseen",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "GRID unseen WER 8.6→7.3 (UBM_PH); Korean 4.60→4.20; 15/10% rel",
+   "value": 7.3,
+   "unit": "%",
+   "raw": "GRID unseen-speaker WER: baseline 8.6 → 7.7 (GMM-UBM) / 7.6 (TS) / 7.3 (PH); Korean 4.60→4.20; ~15/10% relative gains",
+   "pid": "isca-kandala19_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ours unseen WER",
+   "value": 10.21,
+   "unit": "percent",
+   "raw": "10.21",
+   "pid": "arxiv-2403.16071",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "T2 unseen WER lipnet",
+   "value": 11.4,
+   "unit": "percent",
+   "raw": "11.4",
+   "pid": "arxiv-1611.01599",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "unseen-speaker WER 16.341%; baseline cut by 5.681% CER / 11.282% WER",
+   "value": 16.341,
+   "unit": "percent",
+   "raw": "16.341% WER",
+   "pid": "doi-10.3390-s22010072",
+   "year": 2021,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "aaai-38133-linprovsr",
+   "key": "t:linprovsrlinguisticsknowledgeguidedprogressivedisambiguationnetworkforvisualspee",
+   "title": "LinProVSR: Linguistics-Knowledge Guided Progressive Disambiguation Network for Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LinProVSR: Linguistics-Knowledge Guided Progressive Disambiguation Network for Visual Speech Recognition | authors"
+  },
+  {
+   "pid": "arxiv-1601.08188",
+   "key": "t:lipreadingwithlongshorttermmemoryicassp2016",
+   "title": "Lipreading with Long Short-Term Memory (ICASSP 2016)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1601.08188 | title=Lipreading with Long Short-Term Memory (ICASSP 2016) | Study.research_objective=first"
+  },
+  {
+   "pid": "arxiv-1611.01599",
+   "key": "t:lipnetendtoendsentencelevellipreading2016",
+   "title": "LipNet: End-to-End Sentence-level Lipreading (2016)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1611.01599 | title=LipNet: End-to-End Sentence-level Lipreading (2016) | Study.research_objective=LipNet:"
+  },
+  {
+   "pid": "arxiv-1611.02879",
+   "key": "t:audiovisualspeechrecognitionusingdeeprecurrentneuralnetworks2016",
+   "title": "Audio Visual Speech Recognition using Deep Recurrent Neural Networks (2016)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1611.02879 | title=Audio Visual Speech Recognition using Deep Recurrent Neural Networks (2016) | Study.re"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "key": "t:lipreadingsentencesinthewild",
+   "title": "Lip Reading Sentences in the Wild",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip Reading Sentences in the Wild | authors=Joon Son Chung; Andrew Senior; Oriol Vinyals; Andrew Zisserman | venue"
+  },
+  {
+   "pid": "arxiv-1703.04105",
+   "key": "t:combiningresidualnetworkswithlstmsforlipreadinginterspeech2017",
+   "title": "Combining Residual Networks with LSTMs for Lipreading (Interspeech 2017)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1703.04105 | title=Combining Residual Networks with LSTMs for Lipreading (Interspeech 2017) | Study.resea"
+  },
+  {
+   "pid": "arxiv-1708.01565",
+   "key": "t:improvingspeakerindependentlipreadingwithdomainadversarialtrainingwandschmidhube",
+   "title": "Improving Speaker-Independent Lipreading with Domain-Adversarial Training (Wand & Schmidhuber)",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1708.01565 | title=Improving Speaker-Independent Lipreading with Domain-Adversarial Training (Wand & Schm"
+  },
+  {
+   "pid": "arxiv-1711.08789",
+   "key": "t:visualspeechenhancement",
+   "title": "Visual Speech Enhancement",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1711.08789 | title=Visual Speech Enhancement | Study.research_objective=Ephrat/Mosseri/Lang/Halperin/T. W"
+  },
+  {
+   "pid": "arxiv-1803.04988",
+   "key": "t:lcanetendtoendlipreadingwithcascadedattentionctc",
+   "title": "LCANet: End-to-End Lipreading with Cascaded Attention-CTC",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1803.04988 | title=LCANet: End-to-End Lipreading with Cascaded Attention-CTC | Study.research_objective=L"
+  },
+  {
+   "pid": "arxiv-1805.12371",
+   "key": "t:lipreadingusingconvolutionalautoencodersasfeatureextractor",
+   "title": "Lip Reading Using Convolutional Auto Encoders as Feature Extractor",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1805.12371 | title=Lip Reading Using Convolutional Auto Encoders as Feature Extractor | Study.research_ob"
+  },
+  {
+   "pid": "arxiv-1809.00496",
+   "key": "t:lrs3tedalargescaledatasetforvisualspeechrecognition",
+   "title": "LRS3-TED: a large-scale dataset for visual speech recognition",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1809.00496 | title=LRS3-TED: a large-scale dataset for visual speech recognition | authors=Triantafyllos"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "key": "t:deepaudiovisualspeechrecognition",
+   "title": "Deep Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1809.02108 | title=Deep Audio-Visual Speech Recognition | Study.research_objective=TM-CTC and TM-seq2seq"
+  },
+  {
+   "pid": "arxiv-1810.06178",
+   "key": "t:3dfeaturepyramidattentionmoduleforrobustvisualspeechrecognition",
+   "title": "3D Feature Pyramid Attention Module for Robust Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1810.06178 | title=3D Feature Pyramid Attention Module for Robust Visual Speech Recognition | Study.resea"
+  },
+  {
+   "pid": "arxiv-1810.10597",
+   "key": "t:thespeakerindependentlipreadingplayoffasurveyoflipreadingmachines",
+   "title": "The speaker-independent lipreading play-off; a survey of lipreading machines",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1810.10597 | title=The speaker-independent lipreading play-off; a survey of lipreading machines | Study.r"
+  },
+  {
+   "pid": "arxiv-1903.09616",
+   "key": "t:ontheimportanceofvideoactionrecognitionforvisuallipreading",
+   "title": "On the Importance of Video Action Recognition for Visual Lipreading",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1903.09616 | doi=10.48550/arxiv.1903.09616 | title=On the Importance of Video Action Recognition for Visu"
+  },
+  {
+   "pid": "arxiv-1906.02112",
+   "key": "t:investigatingthelombardeffectinfluenceonendtoendaudiovisualspeechrecognition",
+   "title": "Investigating the Lombard Effect Influence on End-to-End Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1906.02112 | title=Investigating the Lombard Effect Influence on End-to-End Audio-Visual Speech Recogniti"
+  },
+  {
+   "pid": "arxiv-1912.08639",
+   "key": "p:arxiv-1912.08639",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=first detection method for adversarial attacks on au"
+  },
+  {
+   "pid": "arxiv-2003.03206",
+   "key": "t:canwereadspeechbeyondthelipsrethinkingroiselectionfordeepvisualspeechrecognition",
+   "title": "Can We Read Speech Beyond the Lips? Rethinking RoI Selection for Deep Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2003.03206 | title=Can We Read Speech Beyond the Lips? Rethinking RoI Selection for Deep Visual Speech Re"
+  },
+  {
+   "pid": "arxiv-2003.03983",
+   "key": "t:pseudoconvolutionalpolicygradientforsequencetosequencelipreading",
+   "title": "Pseudo-Convolutional Policy Gradient for Sequence-to-Sequence Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2003.03983 | title=Pseudo-Convolutional Policy Gradient for Sequence-to-Sequence Lip-Reading | Study.rese"
+  },
+  {
+   "pid": "arxiv-2008.02516",
+   "key": "t:fastlrnonautoregressivelipreadingmodelwithintegrateandfire",
+   "title": "FastLR: Non-Autoregressive Lipreading Model with Integrate-and-Fire",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2008.02516 | title=FastLR: Non-Autoregressive Lipreading Model with Integrate-and-Fire | Study.research_o"
+  },
+  {
+   "pid": "arxiv-2009.05784",
+   "key": "t:duallipasystemforjointlipreadingandgeneration",
+   "title": "DualLip: A System for Joint Lip Reading and Generation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2009.05784 | title=DualLip: A System for Joint Lip Reading and Generation | Study.research_objective=Task"
+  },
+  {
+   "pid": "arxiv-2108.13630",
+   "key": "t:simullrsimultaneouslipreadingtransducerwithattentionguidedadaptivememory",
+   "title": "SimulLR: Simultaneous Lip Reading Transducer with Attention-Guided Adaptive Memory",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2108.13630 | title=SimulLR: Simultaneous Lip Reading Transducer with Attention-Guided Adaptive Memory | S"
+  },
+  {
+   "pid": "arxiv-2110.07879",
+   "key": "t:advancesandchallengesindeeplipreading",
+   "title": "Advances and Challenges in Deep Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2110.07879 | title=Advances and Challenges in Deep Lip Reading | venue=survey (arXiv v1) | Study.research"
+  },
+  {
+   "pid": "arxiv-2112.04748",
+   "key": "t:lipsound2selfsupervisedpretrainingforliptospeechreconstructionandlipreading",
+   "title": "LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2112.04748 | title=LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Readi"
+  },
+  {
+   "pid": "arxiv-2204.01265",
+   "key": "t:multimodalityassociativebridgingthroughmemoryspeechsoundrecollectedfromfacevideo",
+   "title": "Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2204.01265 | title=Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face"
+  },
+  {
+   "pid": "arxiv-2204.01726",
+   "key": "t:liptospeechsynthesiswithvisualcontextattentionalgan",
+   "title": "Lip to Speech Synthesis with Visual Context Attentional GAN",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2204.01726 | title=Lip to Speech Synthesis with Visual Context Attentional GAN | authors=Minsu Kim, Joann"
+  },
+  {
+   "pid": "arxiv-2205.10839",
+   "key": "t:deeplearningforvisualspeechanalysisasurvey",
+   "title": "Deep Learning for Visual Speech Analysis: A Survey",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2205.10839 | title=Deep Learning for Visual Speech Analysis: A Survey | Study.research_objective=survey o"
+  },
+  {
+   "pid": "arxiv-2208.04498",
+   "key": "t:speakeradaptivelipreadingwithuserdependentpadding",
+   "title": "Speaker-adaptive Lip Reading with User-dependent Padding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2208.04498 | title=Speaker-adaptive Lip Reading with User-dependent Padding | Study.research_objective=us"
+  },
+  {
+   "pid": "arxiv-2211.10883",
+   "key": "t:audiovisualvideofacehallucinationwithfrequencysupervisionandcrossmodalitysupport",
+   "title": "Audio-visual video face hallucination with frequency supervision and cross modality support by speech based lip reading loss",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2211.10883 | title=Audio-visual video face hallucination with frequency supervision and cross modality su"
+  },
+  {
+   "pid": "arxiv-2302.02141",
+   "key": "t:lipformerlearningtolipreadunseenspeakersbasedonvisuallandmarktransformers",
+   "title": "LipFormer: Learning to Lipread Unseen Speakers based on Visual-Landmark Transformers",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2302.02141 | title=LipFormer: Learning to Lipread Unseen Speakers based on Visual-Landmark Transformers |"
+  },
+  {
+   "pid": "arxiv-2302.08102",
+   "key": "t:prompttuningofdeepneuralnetworksforspeakeradaptivevisualspeechrecognition",
+   "title": "Prompt Tuning of Deep Neural Networks for Speaker-adaptive Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2302.08102 | title=Prompt Tuning of Deep Neural Networks for Speaker-adaptive Visual Speech Recognition |"
+  },
+  {
+   "pid": "arxiv-2310.05058",
+   "key": "t:learningseparablehiddenunitcontributionsforspeakeradaptivelipreading",
+   "title": "Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2310.05058 | title=Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading | Study."
+  },
+  {
+   "pid": "arxiv-2403.16071",
+   "key": "t:landmarkguidedcrossspeakerlipreadingwithmutualinformationregularization",
+   "title": "Landmark-Guided Cross-Speaker Lip Reading with Mutual Information Regularization",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2403.16071 | title=Landmark-Guided Cross-Speaker Lip Reading with Mutual Information Regularization | aut"
+  },
+  {
+   "pid": "arxiv-2409.19575",
+   "key": "t:quantitativeanalysisofaudiovisualtasksaninformationtheoreticperspective",
+   "title": "Quantitative Analysis of Audio-Visual Tasks: An Information-Theoretic Perspective",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2409.19575 | title=Quantitative Analysis of Audio-Visual Tasks: An Information-Theoretic Perspective | St"
+  },
+  {
+   "pid": "arxiv-2501.05213",
+   "key": "t:glamsigngreeklanguagemultimodallipreadingwithintegratedsignlanguageaccessibility",
+   "title": "GLaM-Sign: Greek Language Multimodal Lip Reading with Integrated Sign Language Accessibility",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2501.05213 | title=GLaM-Sign: Greek Language Multimodal Lip Reading with Integrated Sign Language Accessi"
+  },
+  {
+   "pid": "arxiv-2506.07572",
+   "key": "t:learningspeakerinvariantvisualfeaturesforlipreading",
+   "title": "Learning Speaker-Invariant Visual Features for Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2506.07572 | title=Learning Speaker-Invariant Visual Features for Lipreading | Study.research_objective=S"
+  },
+  {
+   "pid": "arxiv-2601-20881-malipnet",
+   "key": "t:malipnetmultidimensionalattentionnetworksforrobustlipreading",
+   "title": "MA-LipNet: Multi-Dimensional Attention Networks for Robust Lipreading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MA-LipNet: Multi-Dimensional Attention Networks for Robust Lipreading | authors=Rossi (Maharaja Agrasen University"
+  },
+  {
+   "pid": "arxiv-2601.20881",
+   "key": "t:malipnetmultidimensionalattentionnetworksforrobustlipreading",
+   "title": "MA-LipNet: Multi-Dimensional Attention Networks for Robust Lipreading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2601.20881 | title=MA-LipNet: Multi-Dimensional Attention Networks for Robust Lipreading | venue=conferen"
+  },
+  {
+   "pid": "arxiv-2601.20881-malipnet",
+   "key": "t:multidimensionalattentionnetworksforrobustlipreading",
+   "title": "Multi-Dimensional Attention Networks for Robust Lipreading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2601.20881-malipnet | title=Multi-Dimensional Attention Networks for Robust Lipreading | authors=Matteo R"
+  },
+  {
+   "pid": "arxiv-2609-24391-navir",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Interaction on Edge Hardware",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Interaction on Edge Hardware | authors="
+  },
+  {
+   "pid": "arxiv-2609.10366-avsrbench",
+   "key": "t:avsrbenchamulticonditionavsrbenchmark",
+   "title": "AVSRBench: A Multi-Condition AVSR Benchmark",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.10366-avsrbench | title=AVSRBench: A Multi-Condition AVSR Benchmark | authors=Rishabh Jain, Naomi Ha"
+  },
+  {
+   "pid": "arxiv-2609.24391",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human–Robot Interaction on Edge Hardware",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=NAVIR GRID float clean audio | system_name=NAVIR GRID float noisy audio | system_name=NAVIR GRID float video"
+  },
+  {
+   "pid": "arxiv-2609.24391-navir",
+   "key": "t:navirneuromorphicaudiovisualspeechrecognitionforrobusthumanrobotinteractiononedg",
+   "title": "NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Interaction on Edge Hardware",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.24391-navir | title=NAVIR: Neuromorphic Audio-Visual Speech Recognition for Robust Human-Robot Inter"
+  },
+  {
+   "pid": "asee-45521-tensorflow-vsr",
+   "key": "t:atensorflowpoweredvisualspeechrecognitionmodelforimprovingeducationalaccessibili",
+   "title": "A TensorFlow-Powered Visual Speech Recognition Model for Improving Educational Accessibility",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=asee-45521-tensorflow-vsr | title=A TensorFlow-Powered Visual Speech Recognition Model for Improving Educationa"
+  },
+  {
+   "pid": "bmvc23-separable-vsr",
+   "key": "t:learningseparablehiddenunitcontributionsforspeakeradaptivelipreading",
+   "title": "Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Learning Separable Hidden Unit Contributions for Speaker-Adaptive Lip-Reading | authors=Luo S, Yang S, Shan S, Che"
+  },
+  {
+   "pid": "cmc-nestlipgnn",
+   "key": "t:nestlipgnnahierarchicalgraphneuralnetworkframeworkwithnestedmultigranularitylear",
+   "title": "NestLipGNN: A Hierarchical Graph Neural Network Framework with Nested Multi-Granularity Learning for Robust Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=NestLipGNN: A Hierarchical Graph Neural Network Framework with Nested Multi-Granularity Learning for Robust Visual"
+  },
+  {
+   "pid": "cseij-15110-hybatten",
+   "key": "t:hybridattentionmechanismsin3dcnnfornoiseresilientlipreadingincomplexenvironments",
+   "title": "Hybrid Attention Mechanisms in 3D CNN for Noise-Resilient Lip Reading in Complex Environments",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hybrid Attention Mechanisms in 3D CNN for Noise-Resilient Lip Reading in Complex Environments | authors=Metipatil,"
+  },
+  {
+   "pid": "cvf-kim21-mabm",
+   "key": "t:multimodalityassociativebridgingthroughmemoryspeechsoundrecollectedfromfacevideo",
+   "title": "Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face Video",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-kim21-mabm | title=Multi-modality Associative Bridging through Memory: Speech Sound Recollected from Face V"
+  },
+  {
+   "pid": "cvf-prajwal20-lip2wav",
+   "key": "t:learningindividualspeakingstylesforaccurateliptospeechsynthesis",
+   "title": "Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-prajwal20-lip2wav | title=Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis | author"
+  },
+  {
+   "pid": "cvf-zhang19-stfcsl",
+   "key": "t:spatiotemporalfusionbasedconvolutionalsequencelearningforlipreading",
+   "title": "Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading | authors=Zhang, Cheng, Wang | Study."
+  },
+  {
+   "pid": "doi-10.1038-s41598-022-26155-5",
+   "key": "t:twostagevisualspeechrecognitionforintensivecarepatients",
+   "title": "Two-stage visual speech recognition for intensive care patients",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41598-022-26155-5 | title=Two-stage visual speech recognition for intensive care patients | authors=He"
+  },
+  {
+   "pid": "doi-10.1038-s41598-026-62988-0",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce video & content understanding via vision: a comprehensive study on lip reading and visual speech recognition for enhanced shopping experience",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-026-62988-0 | title=E-commerce video & content understanding via vision: a comprehensive stu"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3036865",
+   "key": "t:asurveyofresearchonlipreadingtechnology",
+   "title": "A Survey of Research on Lipreading Technology",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-access.2020.3036865 | title=A Survey of Research on Lipreading Technology | authors=Minglei Hao, Ri"
+  },
+  {
+   "pid": "doi-10.1109-access.2021.3107946",
+   "key": "t:deeplearningbasedautomatedlipreadingasurvey",
+   "title": "Deep Learning-Based Automated Lip-Reading: A Survey",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1109-access.2021.3107946 | title=Deep Learning-Based Automated Lip-Reading: A Survey | authors=Souheil F"
+  },
+  {
+   "pid": "doi-10.1109-icassp.2016.7472852",
+   "key": "t:lipreadingwithlongshorttermmemory",
+   "title": "Lipreading with Long Short-Term Memory",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lipreading with Long Short-Term Memory | authors=Michael Wand; Jan Koutnik; Jürgen Schmidhuber | Study.research_ob"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2716178",
+   "key": "p:doi-10.1109-taslp-2017-2716178",
+   "title": null,
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=IEEE/ACM TASLP 2017 (UEA ePrints author ms) | needs_manual_check=Tables II-VII ESTOI/PESQ grids partially captured"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2716178",
+   "key": "t:generatingintelligibleaudiospeechfromvisualspeech",
+   "title": "Generating Intelligible Audio Speech from Visual Speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Generating Intelligible Audio Speech from Visual Speech | authors=Thomas Le Cornu; Ben Milner | venue=IEEE/ACM Tra"
+  },
+  {
+   "pid": "doi-10.1109-tcsvt.2023.3282224",
+   "key": "t:lipformerlearningtolipreadunseenspeakersbasedonvisuallandmarktransformers",
+   "title": "LipFormer: Learning to Lipread Unseen Speakers based on Visual-Landmark Transformers",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipFormer: Learning to Lipread Unseen Speakers based on Visual-Landmark Transformers | authors=Feng Xue; Yu Li; De"
+  },
+  {
+   "pid": "doi-10.1109-tnnls.2022.3191677",
+   "key": "t:lipsound2selfsupervisedpretrainingforliptospeechreconstructionandlipreading",
+   "title": "LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading | authors=L. Qu; C. Weber"
+  },
+  {
+   "pid": "doi-10.1155-2011-294010",
+   "key": "t:onthesoftfusionofprobabilitymassfunctionsformultimodalspeechprocessing",
+   "title": "On the Soft Fusion of Probability Mass Functions for Multimodal Speech Processing",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1155/2011/294010 | title=On the Soft Fusion of Probability Mass Functions for Multimodal Speech Processi"
+  },
+  {
+   "pid": "doi-10.14569-ijacsa.2024.01506156",
+   "key": "t:textextractionandtranslationthroughlipreadingusingdeeplearning",
+   "title": "Text Extraction and Translation Through Lip Reading using Deep Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.14569-ijacsa.2024.01506156 | title=Text Extraction and Translation Through Lip Reading using Deep Learni"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-10510743-v1",
+   "key": "t:cmtdcascadedmultitokendisambiguationmodelforlipreading",
+   "title": "CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21203/rs.3.rs-10510743/v1 | title=CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading | authors="
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-10510743.v1",
+   "key": "t:cmtdcascadedmultitokendisambiguationmodelforlipreading",
+   "title": "CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.21203/rs.3.rs-10510743/v1 | title=CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading | auth"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-10510743v1",
+   "key": "t:cmtdcascadedmultitokendisambiguationmodelforlipreading",
+   "title": "CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21203/rs.3.rs-10510743/v1 | title=CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading | authors="
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-2932736-v1",
+   "key": "t:lipreadingofsentencewithcombinedmodeloflongshorttermmemorynetworkandtemporalconv",
+   "title": "Lip reading of Sentence with combined model of long short-term memory network and temporal convolutional network",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-2932736-v1 | title=Lip reading of Sentence with combined model of long short-term memory n"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-3852300-v1",
+   "key": "t:lip2textsentencelevellipreadingonenglishspeakersusingthedeeplearningapproach",
+   "title": "Lip2Text: Sentence-Level Lipreading on English Speakers Using the Deep Learning Approach",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-3852300-v1 | title=Lip2Text: Sentence-Level Lipreading on English Speakers Using the Deep"
+  },
+  {
+   "pid": "doi-10.22452-mjcs.vol38no4.4",
+   "key": "t:lipcoordnetadualstreamdeeplearningarchitectureforvisualspeechrecognitionusingfac",
+   "title": "LIPCOORDNET: A Dual-Stream Deep Learning Architecture for Visual Speech Recognition Using Facial Landmarks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.22452-mjcs.vol38no4.4 | title=LIPCOORDNET: A Dual-Stream Deep Learning Architecture for Visual Speech Re"
+  },
+  {
+   "pid": "doi-10.3126-joeis.v4i1.81574",
+   "key": "t:lipreadingusingconvolutionalneuralnetworks",
+   "title": "Lip Reading Using Convolutional Neural Networks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3126-joeis.v4i1.81574 | title=Lip Reading Using Convolutional Neural Networks | authors=Chirag Khatiwada"
+  },
+  {
+   "pid": "doi-10.3390-e22121367",
+   "key": "t:visualspeechrecognitionwithlightweightpsychologicallymotivatedgaborfeatures",
+   "title": "Visual Speech Recognition with Lightweight Psychologically Motivated Gabor Features",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-e22121367 | title=Visual Speech Recognition with Lightweight Psychologically Motivated Gabor Featur"
+  },
+  {
+   "pid": "doi-10.3390-s21041399",
+   "key": "t:biosignalsensorsanddeeplearningbasedspeechrecognitionareview",
+   "title": "Biosignal Sensors and Deep Learning-Based Speech Recognition: A Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s21041399 | doi=10.3390/s21041399 | title=Biosignal Sensors and Deep Learning-Based Speech Recognit"
+  },
+  {
+   "pid": "doi-10.3390-s22010072",
+   "key": "t:lipreadingarchitecturebasedonmultipleconvolutionalneuralnetworksforsentencelevel",
+   "title": "Lipreading Architecture Based on Multiple Convolutional Neural Networks for Sentence-Level Visual Speech Recognition",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s22010072 | title=Lipreading Architecture Based on Multiple Convolutional Neural Networks for Sente"
+  },
+  {
+   "pid": "doi-10.5194-isprs-archives-xliv-2-w1-2021-85-2021",
+   "key": "t:anoveltaskorientedapproachtowardautomatedlipreadingsystemimplementation",
+   "title": "A Novel Task-Oriented Approach Toward Automated Lip-Reading System Implementation",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.5194-isprs-archives-xliv-2-w1-2021-85-2021 | title=A Novel Task-Oriented Approach Toward Automated Lip-R"
+  },
+  {
+   "pid": "doi-10.64388-irev9i6-1713196",
+   "key": "t:visionbasedsilentspeechrecognitionusinghybrid3dcnnandbilstmarchitecture",
+   "title": "Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Architecture",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.64388/IREV9I6-1713196 | title=Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Archite"
+  },
+  {
+   "pid": "ecva-kim22-udp",
+   "key": "t:speakeradaptivelipreadingwithuserdependentpadding",
+   "title": "Speaker-adaptive Lip Reading with User-dependent Padding",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-adaptive Lip Reading with User-dependent Padding | authors=Kim, Kim, Ro | Study.research_objective=Speaker"
+  },
+  {
+   "pid": "etasr-17799-dyslip",
+   "key": "t:arobustandintegratedspeechrecognitiontoolfordysarthriapatientsusinglipmovementre",
+   "title": "A Robust and Integrated Speech Recognition Tool for Dysarthria Patients Using Lip Movement Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Robust and Integrated Speech Recognition Tool for Dysarthria Patients Using Lip Movement Recognition | authors=M"
+  },
+  {
+   "pid": "hal-4183135-neurolip",
+   "key": "t:endtoendneuromorphiclipreading",
+   "title": "End-to-end Neuromorphic Lip Reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-end Neuromorphic Lip Reading | authors=Bulzomi Hugo, Schweiker Marcel, Gruel Amelie, Martinet Jean | venue="
+  },
+  {
+   "pid": "ijcisim-2026-2986",
+   "key": "t:adeeplearningframeworkforvisualspeechrecognitionusing3dconvolutionalnetworksanda",
+   "title": "A Deep Learning Framework for Visual Speech Recognition Using 3D Convolutional Networks and Attention Mechanisms",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ijcisim-2026-2986 | title=A Deep Learning Framework for Visual Speech Recognition Using 3D Convolutional Networ"
+  },
+  {
+   "pid": "ijcisim-2986-3dconv",
+   "key": "t:adeeplearningframeworkforvisualspeechrecognitionusing3dconvolutionalnetworksanda",
+   "title": "A Deep Learning Framework for Visual Speech Recognition Using 3D Convolutional Networks and Attention Mechanisms",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Deep Learning Framework for Visual Speech Recognition Using 3D Convolutional Networks and Attention Mechanisms |"
+  },
+  {
+   "pid": "ijfmr-62938-lip-reading-ai",
+   "key": "t:aiforsilentspeechrecognitionlipreadingai",
+   "title": "AI for Silent Speech Recognition ( Lip Reading AI )",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=ijfmr-62938-lip-reading-ai | title=AI for Silent Speech Recognition ( Lip Reading AI ) | authors=Dhvaneeth P Ba"
+  },
+  {
+   "pid": "irej-1713196-hybrid",
+   "key": "t:visionbasedsilentspeechrecognitionusinghybrid3dcnnandbilstmarchitecture",
+   "title": "Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Architecture",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Vision-Based Silent Speech Recognition Using Hybrid 3D-CNN and Bi-LSTM Architecture | authors=Kumar, Gokul, Bharad"
+  },
+  {
+   "pid": "irjmets-86256-lipmodel",
+   "key": "t:lipreadingmodelconvertsilentvideototext",
+   "title": "LIP READING MODEL - CONVERT SILENT VIDEO TO TEXT",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LIP READING MODEL - CONVERT SILENT VIDEO TO TEXT | authors=Kasture, Chaudhari, Patil, Chougule (RMD Sinhgad Techni"
+  },
+  {
+   "pid": "irjmets-86256-lipread",
+   "key": "t:lipreadingmodelconvertsilentvideototext",
+   "title": "LIP READING MODEL – CONVERT SILENT VIDEO TO TEXT",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LIP READING MODEL – CONVERT SILENT VIDEO TO TEXT | authors=Pradnya Kasture, Titiksha Chaudhari, Vishwa Patil, Sneh"
+  },
+  {
+   "pid": "irjmets-88433-silent2sound",
+   "key": "t:silent2soundvisualtosoundaudiospeechreconstructionusinglipreadingai",
+   "title": "Silent2Sound: Visual-to-Sound Audio Speech Reconstruction Using Lip-Reading AI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent2Sound: Visual-to-Sound Audio Speech Reconstruction Using Lip-Reading AI | authors=Tabassum; Barakey; Rao; F"
+  },
+  {
+   "pid": "isca-abdelaziz17_turboavsr",
+   "key": "t:turbodecodersforaudiovisualcontinuousspeechrecognition",
+   "title": "Turbo Decoders for Audio-visual Continuous Speech Recognition",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-abdelaziz17_turboavsr | title=Turbo Decoders for Audio-visual Continuous Speech Recognition | authors=Ahme"
+  },
+  {
+   "pid": "isca-barker07_avsp",
+   "key": "p:isca-barker07_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=sentence_recognition | vocabulary_regime=finite_command_set | demonstrated_use_cases=noisy_environment | mod"
+  },
+  {
+   "pid": "isca-cornu15_interspeech",
+   "key": "t:reconstructingintelligibleaudiospeechfromvisualspeechfeatures",
+   "title": "Reconstructing intelligible audio speech from visual speech features",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/cornu15-interspeech | title=Reconstructing intelligible audio speech from visual speech features | authors"
+  },
+  {
+   "pid": "isca-gabbay18_interspeech",
+   "key": "p:isca-gabbay18_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2018 | task_family=intermediate_signal_processing | vocabulary_regime=open_vocabulary | scope_limits=s"
+  },
+  {
+   "pid": "isca-gan07-af",
+   "key": "t:anaudiovisualspeechrecognitionframeworkbasedonarticulatoryfeatures",
+   "title": "An Audio-Visual Speech Recognition Framework based on Articulatory Features",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-gan07-af | title=An Audio-Visual Speech Recognition Framework based on Articulatory Features | authors=Tia"
+  },
+  {
+   "pid": "isca-gan07-afavsr",
+   "key": "t:anaudiovisualspeechrecognitionframeworkbasedonarticulatoryfeatures",
+   "title": "An audio-visual speech recognition framework based on articulatory features",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-gan07-afavsr | title=An audio-visual speech recognition framework based on articulatory features | authors"
+  },
+  {
+   "pid": "isca-gan07_avsp",
+   "key": "p:isca-gan07_avsp",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=sentence_recognition | vocabulary_regime=finite_command_set | modalities=microphone, optical_camera | extra."
+  },
+  {
+   "pid": "isca-gergen16_interspeech",
+   "key": "p:isca-gergen16_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2016 | task_family=sentence_recognition | vocabulary_regime=finite_command_set | scope_limits=speaker-"
+  },
+  {
+   "pid": "isca-kandala19_interspeech",
+   "key": "t:speakeradaptationforlipreadingusingvisualidentityvectors",
+   "title": "Speaker Adaptation for Lip-reading Using Visual Identity Vectors",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker Adaptation for Lip-reading Using Visual Identity Vectors | system_name=lip-reading speaker adaptation via"
+  },
+  {
+   "pid": "isca-kolossa10-manychmm",
+   "key": "t:efficientmanycorechmmspeechrecognitionforaudiovisualandmultistreamdata",
+   "title": "Efficient Manycore CHMM Speech Recognition for Audiovisual and Multistream Data",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Efficient Manycore CHMM Speech Recognition for Audiovisual and Multistream Data | authors=Kolossa, Klimke, Zeiler,"
+  },
+  {
+   "pid": "isca-kolossa12_avenh",
+   "key": "t:inventorybasedaudiovisualspeechenhancement",
+   "title": "Inventory-Based Audio-Visual Speech Enhancement",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-kolossa12_avenh | title=Inventory-Based Audio-Visual Speech Enhancement | authors=Dorothea Kolossa, Robert"
+  },
+  {
+   "pid": "isca-ma19b_interspeech",
+   "key": "p:isca-ma19b_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2019 | task_family=sentence_recognition | vocabulary_regime=finite_command_set | scope_limits=babble n"
+  },
+  {
+   "pid": "isca-michelsanti20_interspeech",
+   "key": "t:vocoderbasedspeechsynthesisfromsilentvideos",
+   "title": "Vocoder-Based Speech Synthesis from Silent Videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Vocoder-Based Speech Synthesis from Silent Videos | system_name=vid2voc: video→WORLD-vocoder-features (F0/VUV/AP/S"
+  },
+  {
+   "pid": "isca-qu19_interspeech",
+   "key": "t:lipsoundneuralmelspectrogramreconstructionforlipreading",
+   "title": "LipSound: Neural Mel-spectrogram Reconstruction for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipSound: Neural Mel-spectrogram Reconstruction for Lip Reading | system_name=LipSound: video frames (75@25fps gra"
+  },
+  {
+   "pid": "isca-shao06_interspeech",
+   "key": "p:isca-shao06_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=healthy_volunteers | task_family=sentence_recognition | int"
+  },
+  {
+   "pid": "isca-stafylakis17_lipread",
+   "key": "t:combiningresidualnetworkswithlstmsforlipreading",
+   "title": "Combining Residual Networks with LSTMs for Lipreading",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-stafylakis17_lipread | title=Combining Residual Networks with LSTMs for Lipreading | authors=Themos Stafyl"
+  },
+  {
+   "pid": "isca-wand17_dalip",
+   "key": "t:improvingspeakerindependentlipreadingwithdomainadversarialtraining",
+   "title": "Improving Speaker-Independent Lipreading with Domain-Adversarial Training",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wand17_dalip | title=Improving Speaker-Independent Lipreading with Domain-Adversarial Training | authors=M"
+  },
+  {
+   "pid": "isca-wand17_interspeech",
+   "key": "p:isca-wand17_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2017 | task_family=isolated_word_recognition | vocabulary_regime=closed_lexicon | scope_limits=English"
+  },
+  {
+   "pid": "isca-wand17_lipread",
+   "key": "t:improvingspeakerindependentlipreadingwithdomainadversarialtraining",
+   "title": "Improving Speaker-Independent Lipreading with Domain-Adversarial Training",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-wand17_lipread | title=Improving Speaker-Independent Lipreading with Domain-Adversarial Training | authors"
+  },
+  {
+   "pid": "mdpi-s25082366_ptm",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=mdpi-s25082366_ptm | title=A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and"
+  },
+  {
+   "pid": "mjcs-38-4-lipcoordnet",
+   "key": "t:lipcoordnetadualstreamdeeplearningarchitectureforvisualspeechrecognitionusingfac",
+   "title": "LIPCOORDNET: A Dual-Stream Deep Learning Architecture for Visual Speech Recognition Using Facial Landmarks",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LIPCOORDNET: A Dual-Stream Deep Learning Architecture for Visual Speech Recognition Using Facial Landmarks | autho"
+  },
+  {
+   "pid": "nepjol-81574-cnnlip",
+   "key": "t:lipreadingusingconvolutionalneuralnetworks",
+   "title": "Lip Reading Using Convolutional Neural Networks",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip Reading Using Convolutional Neural Networks | authors=Khatiwada, Pokharel, Rawal, Maharjan (Khwopa College of"
+  },
+  {
+   "pid": "njsap-02-03-04-attention-av-fusion",
+   "key": "t:attentionguidedaudiovisualfusionmodelfornoiserobustspeechrecognition",
+   "title": "Attention-Guided Audio-Visual Fusion Model for Noise-Robust Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=njsap-02-03-04-attention-av-fusion | title=Attention-Guided Audio-Visual Fusion Model for Noise-Robust Speech R"
+  },
+  {
+   "pid": "pmc-11220857-lumina",
+   "key": "t:luminalinguisticunifiedmultimodalindonesiannaturalaudiovisualdataset",
+   "title": "LUMINA: Linguistic unified multimodal Indonesian natural audio-visual dataset",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11220857-lumina | title=LUMINA: Linguistic unified multimodal Indonesian natural audio-visual dataset | aut"
+  },
+  {
+   "pid": "pmc-12031098-ptmst3d",
+   "key": "t:anovelapproachforvisualspeechrecognitionusingthepartitiontimemaskingandswintrans",
+   "title": "A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking and Swin Transformer 3D Convolutional Model",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12031098-ptmst3d | title=A Novel Approach for Visual Speech Recognition Using the Partition-Time Masking an"
+  },
+  {
+   "pid": "pmc-7761847-gabor-vsr",
+   "key": "t:visualspeechrecognitionwithlightweightpsychologicallymotivatedgaborfeatures",
+   "title": "Visual Speech Recognition with Lightweight Psychologically Motivated Gabor Features",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Visual Speech Recognition with Lightweight Psychologically Motivated Gabor Features | authors=Zhang Xuejie, Xu Yan"
+  },
+  {
+   "pid": "pmc-9609693-mavsr",
+   "key": "t:noiserobustmultimodalaudiovisualspeechrecognitionsystemforspeechbasedinteraction",
+   "title": "Noise-Robust Multimodal Audio-Visual Speech Recognition System for Speech-Based Interaction Applications",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Noise-Robust Multimodal Audio-Visual Speech Recognition System for Speech-Based Interaction Applications | doi=10."
+  },
+  {
+   "pid": "pmc-9844948-vsricu",
+   "key": "t:twostagevisualspeechrecognitionforintensivecarepatients",
+   "title": "Two-stage visual speech recognition for intensive care patients",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9844948-vsricu | title=Two-stage visual speech recognition for intensive care patients | authors=H. Laux, A"
+  },
+  {
+   "pid": "pmc2700967_avstats",
+   "key": "t:thenaturalstatisticsofaudiovisualspeech",
+   "title": "The Natural Statistics of Audiovisual Speech",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc2700967_avstats | title=The Natural Statistics of Audiovisual Speech | authors=Chandramouli Chandrasekaran,"
+  },
+  {
+   "pid": "rs-10510743-cmtd",
+   "key": "t:cmtdcascadedmultitokendisambiguationmodelforlipreading",
+   "title": "CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading | authors=Fang, Xue, Chen, Li (Hefei University of"
+  },
+  {
+   "pid": "rsquare-10510743-cmtd",
+   "key": "t:cmtdcascadedmultitokendisambiguationmodelforlipreading",
+   "title": "CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=CMTD: Cascaded Multi-Token Disambiguation Model for Lip Reading | venue=Research Square preprint | doi=10.21203/rs"
+  },
+  {
+   "pid": "scirep-62988-livevsr-net",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=scirep-62988-livevsr-net | title=E-commerce Video & Content Understanding via Vision: A Comprehensive Study on"
+  },
+  {
+   "pid": "zenodo-19695886-lipsynclite",
+   "key": "t:lipsyncliteanefficientlipmovementbasedvisualspeechrecognition",
+   "title": "LipSyncLite: An Efficient Lip-movement-based Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipSyncLite: An Efficient Lip-movement-based Visual Speech Recognition | authors=Madhavi; Vamsi; Veeraiah (JNTUK N"
+  },
+  {
+   "pid": "zenodo-19695887-lipsynclite",
+   "key": "t:lipsyncliteanefficientlipmovementbasedvisualspeechrecognition",
+   "title": "LipSyncLite - An Efficient Lip-movement-based Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipSyncLite - An Efficient Lip-movement-based Visual Speech Recognition | venue=IJERT (Zenodo deposit 19695887) |"
+  }
+ ],
+ "usual_approach": {
+  "design": "unseen-speaker (speaker-independent) GRID split",
+  "n": 54,
+  "tier": "pattern match",
+  "population_unique": 93,
+  "pids": [
+   "arxiv-1611.01599",
+   "arxiv-1611.05358",
+   "arxiv-1803.04988",
+   "arxiv-2403.16071",
+   "aaai-38133-linprovsr"
+  ],
+  "note": "full-text pattern counts over the 93 unique GRID lip-reading studies: unseen-speaker split 54, overlapped-speaker split 41, explicit reuse of speakers 1, 2, 20 and 22 three, variability or significance reporting 26."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-1611.01599",
+   "role": "target",
+   "loc": "Table 2; Sec. 4.1",
+   "quote": "LipNet 6.4% 11.4% 1.9% 4.8%"
+  },
+  {
+   "pid": "arxiv-1601.08188",
+   "role": "prior",
+   "loc": "Table 1; Sec. 5.2",
+   "quote": "The LSTM lipreader yields statistically signiﬁcant improvement (one-tailed t-test with p = 0.05) over the conventional features combined with the SVM classiﬁer."
+  },
+  {
+   "pid": "isca-gergen16-streamw",
+   "role": "prior",
+   "loc": "Sec. 4",
+   "quote": "We divided the dataset into a training set (90% of the data) for speaker-dependent model training and a development set (5% of the data) for the stream weight estimation."
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "sota",
+   "loc": "Sec. 5.4; Table 8",
+   "quote": "the data is randomly divided into train, validation and test sets, where the latter contains 255 utterances for each speaker",
+   "note": "[concurrent]; adopts the target's protocol"
+  },
+  {
+   "pid": "aaai-38133-linprovsr",
+   "role": "sota",
+   "loc": "Table 2; Table 3",
+   "quote": "LinProVSR 23.34 0.99"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 5,
+  "found": 5,
+  "recall": 1.0,
+  "missed": []
+ },
+ "pattern_counts_before_target": {
+  "cutoff": "2016-11",
+  "population_unique": 93,
+  "dated_before_cutoff": 12,
+  "counts": {
+   "unseen_speaker_split": 5,
+   "overlapped_speaker_split": 6,
+   "variability_or_significance": 4
+  },
+  "unique_studies_with_variability_or_significance": 3,
+  "note": "writer-run full-text regex count over the 12 GRID studies of this population first public before 2016-11. The 4 variability hits are 3 unique studies, because Wand et al. 2016 is held twice under different keys (arxiv-1601.08188 and doi-10.1109-icassp.2016.7472852); the third is an audio-visual statistics study without a decoder (pmc2700967_avstats), so only 2 earlier decoder studies report variability or a significance test."
+ },
+ "state_of_the_art": {
+  "pid": "aaai-38133-linprovsr",
+  "year": 2026,
+  "metric": "GRID WER, 24,750 training and 8,250 test utterances, 51-word vocabulary, visual-only (split type not named); next best CFLip 1.01%",
+  "value": 0.99,
+  "unit": "% WER",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "tally": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 93,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "unseen-speaker (speaker-independent) GRID split",
+   "n": 54,
+   "tier": "pattern match",
+   "population_unique": 93
+  },
+  "state_of_the_art": {
+   "pid": "aaai-38133-linprovsr",
+   "year": 2026,
+   "metric": "GRID WER, 24,750 training and 8,250 test utterances, 51-word vocabulary, visual-only (split type not named); next best CFLip 1.01%",
+   "value": 0.99,
+   "unit": "% WER",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 5,
+  "read_prior": [
+   "arxiv-1601.08188",
+   "isca-gergen16-streamw"
+  ],
+  "unread": 117,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "used_by": [
+  "lipnet-end-to-end-sentence-level-lipreading"
+ ]
+}

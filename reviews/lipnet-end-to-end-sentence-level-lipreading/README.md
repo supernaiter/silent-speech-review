@@ -1,94 +1,144 @@
 # LipNet: End-to-End Sentence-level Lipreading
 
-Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, Nando de Freitas  
-arXiv 2016 · [arXiv](https://arxiv.org/abs/1611.01599)
+Assael, Y. M., Shillingford, B., Whiteson, S., de Freitas, N. · arXiv preprint · 2016 · [arXiv:1611.01599](https://arxiv.org/abs/1611.01599)
 
-**Section:** [Lip & face video](../../README.md#lip--face-video) · **Format:** itemized summary (earlier format; see the [component reviews](../../README.md#component-reviews))
 
-A structured review of *LipNet: End-to-End Sentence-level Lipreading* (Yannis M. Assael et al., arXiv 2016) for the silent speech interface field: sensor, task, evaluation conditions, results and limitations.
+**Section:** [Lip & face video](../../README.md#lip--face-video)
 
-End-to-end lipreader (spatiotemporal CNN, Bi-GRU, CTC) decoding GRID sentences from video; 4.8% WER on overlapped speakers and 11.4% on unseen speakers.
+## Figures
 
-## Evaluation conditions
+### This paper in the 13 components, against the field
 
-| | |
-| --- | --- |
-| Sensor | Camera (frontal face/lip video) |
-| Task | Sentence-level lipreading |
-| Vocabulary | GRID closed grammar (64,000 possible sentences) |
-| Speaker | Both |
-| Session | Not stated |
-| Online / offline | Offline |
-| Key result | 4.8% WER overlapped speakers, 11.4% WER unseen speakers on GRID |
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
 
-**Limitations.** Only GRID's tiny fixed grammar with vocalized speech; no open vocabulary, in-the-wild, silent-articulation or real-time evaluation.
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
 
-## Full review
+<details><summary>Data</summary>
 
-### In short
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Overt GRID sentences | Overt speech | 4,015 of 8,995 | ● Standard (Inherited.) |
+| M02 Teacher signal | Transcripts; augmentation | Transcript labels | 31 of 8,995 | ● Standard (Inherited.) |
+| M03 Train / calibrate | Scratch; word-first curriculum | Supervised | 3,216 of 8,995 | ● Standard (Curriculum aids convergence only.) |
+| M04 Use-time act | Overt speech video | Overt speech video | 753 of 8,995 | ● Standard (Silent dictation claimed but untested; in claims section.) |
+| M05 Sensing | RGB camera, mouth crop | Mouth crop | 8,898 of 8,995 | ● Standard (Inherited.) |
+| M06 Decoding | STCNN, Bi-GRU, character CTC | HMM in 2016 | 633 of 8,995 | ● Standard (New design; one corpus, one run per split.) |
+| M07 Runtime aids | Character 5-gram | Grammar or lexicon | 633 of 8,995 | ● Standard (Worth about 1.2x.) |
+| M08 Output | Character transcript | Text | 3,760 of 8,995 | ● Standard (Inherited.) |
+| M09 Confirmation | None | Mostly absent | 82 of 8,995 | – Not applicable (Offline.) |
+| M10 Correction | None | Mostly absent | 82 of 8,995 | – Not applicable (Offline.) |
+| M11 Eval reference | GRID transcripts; two splits | Benchmark splits | 239 of 8,995 | ● Standard (Split seed unstated.) |
+| M12 Evaluation | WER/CER; human panel | Unseen-speaker split | 93 of 8,995 | ● Standard (Single run; no interval.) |
+| M13 Hardware & limits | Offline; no device | Offline benchmark | 6,721 of 8,995 | ● Standard (Inherited.) |
 
-Historic first end-to-end sentence-level lipreader, but only on the tiny, rigid GRID grammar.
+</details>
 
-### Review
+## Verdict
 
-LipNet showed that spatiotemporal convolutions, bidirectional GRUs and CTC could be trained end to end to map lip video to character sequences, removing hand-crafted features and frame alignments. On GRID it reports 4.8% WER on the overlapped-speaker split and 11.4% on held-out speakers, with clear gains over its own LSTM and 2D-CNN baselines and over three hearing-impaired lipreaders (47.7% average WER). The weakness is the benchmark: GRID is a fixed six-slot grammar with a few dozen words, so the result says little about open-vocabulary lipreading, and the headline comparison to a prior word-level 86.4% accuracy is not like-for-like. For SSI, it is mainly the architectural template that later camera-based silent speech systems built on.
+LipNet [[1]](#ref-1) changes one component, the decoder (M06): spatiotemporal convolutions, Bi-GRUs and a character CTC loss in one model. The design is new, since of the 67 sentence-level lip-reading studies first public before 2016-11, 41 name hidden Markov models and none a CTC or attention decoder (Appendix), but the evidence supports only standard: one corpus, one run per split, no seed or interval, and an ablation that puts the gain in the 3D front end, not in CTC (Table 2). The headline comparisons do not hold: the 86.4% "state-of-the-art" is a video-only accuracy from speaker-dependent word HMMs with the full GRID grammar [[2]](#ref-2), so the 2.8× claim crosses task level, split and decoder constraint, and the "experienced human lipreaders" are three hearing-impaired students given ten minutes of annotated video (§4.2). Silent dictation is named as the use that demands video only (§5), yet no silent articulation is tested, though overt-trained lip-video recognisers lose accuracy on it [[3]](#ref-3). The lasting contribution is the GRID protocol (M12), whose reporting is weak.
 
-### Why it matters
+## Against the field, component by component
 
-Established the end-to-end sequence lipreading template (STCNN + RNN + CTC) that later visual SSI work inherited.
+### M06 Decoding: spatiotemporal convolution and a character CTC loss
 
-### Prior state of the art
+**Usual approach:** Of 633 sentence-level lip-reading studies (pattern match, Appendix) 291 name an attention decoder and 288 CTC; of the 67 first public before 2016-11, 41 name HMMs and none CTC. The closest earlier sentence-level design is a context-dependent HMM with 2,808 states [[4]](#ref-4).
 
-Lipreading was mostly word classification or relied on hand-engineered visual features and separate sequence models.
+**State of the art:** visual-only LRS3 WER 17.6% with hybrid CTC/attention and about 2,500 hours of unlabelled video (2026, [later]) [[5]](#ref-5), 12.8% with 100k hours of transcribed video (2023, [later]) [[6]](#ref-6); GRID 0.99% WER on a split the source does not name (2026, [later]) [[7]](#ref-7).
 
-### What changed
+The comparators classify words: Wand et al. cut single words from the GRID alignments [[8]](#ref-8), and the only [concurrent] study with a spatiotemporal front end classifies 500 words and concludes "the 2D convolutions are superior to their 3D counterparts" [[9]](#ref-9). The ablation puts the gain in the front end: 2D convolutions instead of the STCNN give 11.6% against 4.8% WER overlapped and 26.7% against 11.4% unseen (Table 2), while the 5-gram is worth about 1.2× (§4.3). The CTC objective is never isolated, and a [concurrent] attention model reached 3.0% GRID WER under this protocol [[10]](#ref-10). Verdict: standard; a new design, but one corpus and one run per split are not the repetition a stronger call needs.
 
-Trains a single network end to end from video frames to character sequences with CTC, at sentence level.
+### M12 Evaluation: the GRID protocol it created and its human panel
 
-### Position in the field
+**Usual approach:** Of 93 GRID lip-reading studies 54 name an unseen-speaker and 41 an overlapped-speaker split (pattern match, Appendix), the protocol defined here and already followed by a [concurrent] paper [[10]](#ref-10); of 62 machine-against-human studies 40 use hearing-impaired panels and 6 professionals.
 
-Seminal deep lipreading paper; background for camera-based SSI rather than an SSI system itself.
+**State of the art:** professional readers at 92.9% WER without context and 86.4% with it on open-vocabulary clips, against 40.9% for the model, with bootstrap intervals (2018, [later]) [[11]](#ref-11).
 
-### Practical value
+The protocol is the paper's lasting contribution; the reporting is weak. The study reimplemented as Baseline-LSTM reports a spread across speakers, 79.6% ± 4.3%, and a one-tailed t-test [[8]](#ref-8); Table 2 gives single numbers and the 255-utterance draw no seed or item list (§4.1). The panel is three hearing-impaired students who labelled 300 clips after ten minutes of annotated video (§4.2), against a professional of ten years' experience [[10]](#ref-10). Verdict: standard.
 
-Architectural reference and GRID baseline; limited direct value for real silent-speech use.
+## The 13 components
 
-### Advanced
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training action | Overt GRID sentences | Overt speech (slot-filled 4,015) | – | standard |
+| M02 Supervision | Transcripts; augmentation | Transcript labels (slot-filled 31) | – | standard |
+| M03 Training/adaptation | Scratch; word-first curriculum | Supervised (slot-filled 3,216) | – | standard |
+| M04 Use-time action | Overt speech video | Overt speech video (slot-filled 753) | – | standard |
+| M05 Sensors | RGB camera, mouth crop | Mouth crop (slot-filled 8,898) | – | standard |
+| M06 Decoding | STCNN, Bi-GRU, character CTC | HMM before 2016-11; CTC or attention today (pattern match 633) | [[5]](#ref-5) 17.6% LRS3 | standard |
+| M07 Lexicon/LM | Character 5-gram | Grammar or lexicon (pattern match 633) | – | standard |
+| M08 Output | Character transcript | Text (slot-filled 3,760) | – | standard |
+| M09 Confirmation | None | Mostly absent (slot-filled 82) | – | not applicable |
+| M10 Correction | None | Mostly absent (slot-filled 82) | – | not applicable |
+| M11 Reference | GRID transcripts; two splits | Benchmark splits (slot-filled 239) | – | standard |
+| M12 Evaluation | WER/CER; human panel | Unseen-speaker split (pattern match 93) | [[11]](#ref-11) 40.9% vs 92.9% | standard |
+| M13 Device/cost | Offline; no device | Offline benchmark (slot-filled 6,721) | – | standard |
 
-end_to_end_modeling; sentence_level_decoding
+## Where the claims outrun the evidence
 
-### Unresolved
+- Silent dictation is the named use (§5), but every utterance is overtly spoken; with ultrasound and lip video, "vocalized training data cannot be used directly to train the silent speech recognition system" [[12]](#ref-12), and an overt-trained lip-video model falls from 69.7% to 61.2% on silent phrases, where silent training gives 64.4% (2018, [later]) [[3]](#ref-3).
+- The Table 1 caption says the [concurrent] GRID system "consider[s] only the simpler case of predicting isolated words", but its composite HMM decodes the whole six-slot sentence [[2]](#ref-2).
+- Three ratios stand for two experiments: 2.8× on the overlapped split (§5), 4.1× against humans on the unseen split, 47.7% against 11.4% WER (§4.3), 1.69× in accuracies (§1).
+- The panel was told to pick the most probable answer (§4.2), making it a grammar-prior baseline; no chance or grammar-only baseline is reported for the 64,000 admissible sentences (§2).
+- Generalisation rests on 4 held-out speakers of 34 (§4.1); a 2001 system already tested on 26 unseen subjects [[4]](#ref-4).
 
-Open vocabulary; in-the-wild video; truly silent articulation
+## What the field needs next
 
-### Evaluation details
+- M06 and M12: a GRID ablation holding data and front end fixed, swapping only CTC for attention over several seeds on a fixed test list, to separate what this paper and [[10]](#ref-10) conflate and make the 54 unseen-speaker and 41 overlapped-speaker studies comparable.
+- M04: this architecture trained on vocalised GRID and tested on silent articulation by the same speakers [[3]](#ref-3).
 
-| Item | Details |
-| --- | --- |
-| Task | speech-recognition |
-| Input | video |
-| Sensor | camera (GRID frontal face video) |
-| Body site | face; lip |
-| Output | text |
-| Vocabulary type | closed grammar (GRID command + color + preposition + letter + digit + adverb) |
-| Vocabulary size | GRID grammar with 64,000 possible sentences |
-| Metrics and results | GRID WER 4.8% / CER 1.9% overlapped speakers (95.2% sentence-level accuracy); WER 11.4% / CER 6.4% unseen speakers; hearing-impaired lipreaders 47.7% WER |
-| Evaluation protocol | GRID overlapped-speaker and unseen-speaker splits; baselines and human lipreader comparison |
+## Questions for the authors
 
-### Limits
+- Which seed and which 255 sentences per speaker define the overlapped split, and what is the spread across runs?
+- Was a validation partition held out for checkpoint and hyperparameter selection?
+- Do the Table 2 baselines share LipNet's beam width, language model and augmentation?
 
-- **Technical:** Video-only model trained on GRID's restricted grammar; unseen-speaker WER (11.4%) is more than twice the overlapped-speaker WER (4.8%).
-- **Evaluation:** Single constrained dataset; human baseline is 3 people on 300 videos; the 86.4% prior comparison is word-level and speaker-dependent.
-- **Deployment:** Offline evaluation on recorded frontal video; no real-time or silent-speaker testing.
-- **Scope of this review:** Lipreading of vocalized speech video on GRID; not silent speech specifically.
+## Appendix: literature search
 
-### Evidence
+- M06, sentence-lipreading-sequence-objective (new). Inclusion rule: studies that decode sentence-level or open-vocabulary speech from lip or face video (ledger names lip reading, VSR, AVSR or an LRS2/LRS3 benchmark together with sentence-level, continuous or open-vocabulary recognition), classified by the sequence objective their full text names; isolated-word classification without a sentence-level result is excluded, audio-only ASR is out of scope, reviews count as pattern matches, every named objective counts (upper bound), versions count once. Ledger: 7,345 unique studies slot-filled for M06; 633 unique studies pattern match. Designs: attention or sequence-to-sequence 291, CTC 288, HMM 196, hybrid CTC/attention 134, transducer 118 (pattern match). First public before 2016-11 (the target month): 67 unique studies, HMM 41, CTC 0, attention 0, end-to-end 2; the two end-to-end hits mention end-to-end ASR only as background or future work (doi-10.1109-icassp.2016.7472852, the ICASSP version of [[8]](#ref-8); isca-miao16-opendomain, a hybrid audio-visual ASR system). First public before 2016-05 (prior, outside the [concurrent] window): 57 unique studies, HMM 36, CTC 0, attention 0, end-to-end 0. Recall check: a full-text search for CTC over all 2,089 wiki studies with text first public before 2016-11 returns 3 hits, all read as snippets: one audio-only ASR paper using CTC for articulatory features (isca-abraham16_interspeech) and two neuroscience papers using "CTC" for communication-through-coherence; 0 use CTC for visual or biosignal speech. Front-end counts from the published table components/M06/articulator-video-spatiotemporal-front-end.json: 3D convolution 380 of 1,342 studies today (pattern match), and 4 pattern hits among the 378 studies dated 2016-11 or earlier, 3 of them the C3D motion-capture file format in speech-animation papers, leaving only [[9]](#ref-9) [concurrent]. Read in full: [[4]](#ref-4) (prior, closest sentence-level design), [[8]](#ref-8) (prior, word level), [[9]](#ref-9) and [[2]](#ref-2) ([concurrent]), [[10]](#ref-10), [[5]](#ref-5), [[6]](#ref-6). Known-item recall 1.0.
+- M07, use-time-language-model-visual-speech (new). Inclusion rule: the same 633 studies, classified by the use-time language information their full text names (character or word n-gram, neural language model or LLM rescoring, explicit absence of an external model), with grammar, lexicon and dictionary constraints counted separately for the earlier period; M07 is slot-filled for about 1% of the wiki, so every count is pattern match and an upper bound. Ledger: 119 unique studies slot-filled for M07; 633 unique studies pattern match. Designs: neural language model or LLM rescoring 143, n-gram 28, no external model 21. Before 2016-11: 67 unique studies, grammar or lexicon 29, n-gram 1, no external model 1. Read in full: [[2]](#ref-2), [[11]](#ref-11), [[5]](#ref-5). Known-item recall 1.0.
+- M04, overt-to-silent-transfer (published table, reused). Inclusion rule: studies that apply a decoder trained only on overt or attempted overt speech to silent, mouthed or imagined speech and report the result, any signal; studies that also train on silent data count when they report an overt-training-only condition; alignment-only use and perception-to-imagery transfer are excluded; versions count once. Ledger: 5,595 unique studies slot-filled for M04; 33 unique studies pattern match, 23 confirmed. Design inside this topic: overt-trained decoder applied to silent speech and reported as a degradation, 23 confirmed studies. First public before 2016-11, recomputed for this target: 4 confirmed studies, [[12]](#ref-12) (2010, ultrasound and lip video), two surface-EMG studies (2010, 2011) and one ECoG study (2014); the published table's count of 7 earlier studies is relative to its own target. Only [[12]](#ref-12) uses video, so this topic supports the claims item, not a verdict on M04; among camera studies in the ledger the usual use-time action is overt speech (753 slot-filled folders). Read in full: [[12]](#ref-12), [[3]](#ref-3). Known-item recall 1.0.
+- M12, grid-sentence-lipreading-protocol (new). Inclusion rule: lip-reading or VSR studies whose ledger names optical-camera input and the GRID corpus, classified by the evaluation partition their full text names (unseen-speaker, overlapped-speaker, explicit reuse of speakers 1, 2, 20 and 22), with a separate count of studies reporting a standard deviation, an interval or a significance test; audio-only GRID work and GRID studies without a decoder are excluded; versions count once. Ledger: 6,960 unique studies slot-filled for M12; 93 unique studies pattern match. Designs: unseen-speaker split 54, overlapped-speaker split 41, variability or significance reporting 26, explicit reuse of the four held-out speakers 3 (pattern match). Before 2016-11: 12 unique studies, unseen-speaker 5, overlapped-speaker 6, variability or significance 3 unique studies of which 2 are decoder studies. Read in full: [[8]](#ref-8), [[2]](#ref-2), [[10]](#ref-10), [[7]](#ref-7). Known-item recall 1.0.
+- M12, human-lipreader-baseline (published table, reused). Inclusion rule: studies that put machine lipreading or silent speech recognition and human lipreaders on the same metric over the same data; listener tests of reconstructed speech, literature-only human figures and human-only lipreading studies are excluded; versions count once. Ledger: 6,960 unique studies slot-filled for M12; 64 unique studies pattern match, 7 confirmed. Panels: hearing-impaired or deaf participants 40, untrained or lay participants 12, professional or expert readers 6 of 62 studies (pattern match); two confirmed studies are earlier than this paper. Read in full: [[10]](#ref-10), [[11]](#ref-11). Known-item recall 0.8.
 
-- The paper presents LipNet as an end-to-end sentence-level lipreading model combining spatiotemporal convolutions, a recurrent network and CTC loss. (Abstract; Section 3)
-- Table 2 reports LipNet WER 4.8% (CER 1.9%) on overlapped speakers and 11.4% (CER 6.4%) on unseen speakers, versus Baseline-NoLM 5.6%/13.6%. (Section 4.3, Table 2)
-- The unseen-speaker split holds out speakers 1, 2, 20 and 22 (3,971 test videos); the overlapped split holds out 255 random sentences per speaker. (Section 4, dataset description)
-- Three hearing-impaired lipreaders average 47.7% WER on unseen-speaker GRID videos (300 videos). (Section 4.3)
-- Evaluation is limited to GRID, whose grammar allows only 64,000 sentences; audio-visual integration and larger datasets are left to future work. (Sections 4 and 5)
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Assael, Y. M., Shillingford, B., Whiteson, S., de Freitas, N. “LipNet: End-to-End Sentence-level Lipreading.” *arXiv preprint*, 2016. arXiv:[1611.01599](https://arxiv.org/abs/1611.01599). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/lipnet-end-to-end-sentence-level-lipreading) [wiki: arxiv-1611.01599](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1611.01599/article.md)
+2. <a id="ref-2"></a>Gergen, S., Zeiler, S., Hussen Abdelaziz, A., Nickel, R., Kolossa, D. “Dynamic Stream Weighting for Turbo-Decoding-Based Audiovisual ASR.” *Interspeech*, 2016. doi:[10.21437/Interspeech.2016-166](https://doi.org/10.21437/Interspeech.2016-166). [concurrent] [wiki: isca-gergen16-streamw](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-gergen16-streamw/article.md)
+3. <a id="ref-3"></a>Petridis, S., Shen, J., Cetin, D., Pantic, M. “Visual-Only Recognition of Normal, Whispered and Silent Speech.” *ICASSP*, 2018. arXiv:[1802.06399](https://arxiv.org/abs/1802.06399). [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/visual-only-recognition-of-normal-whispered-and-silent-speech) [wiki: arxiv-1802.06399](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1802.06399/article.md)
+4. <a id="ref-4"></a>Potamianos, G., Neti, C., Iyengar, G., Helmuth, E. “Large-Vocabulary Audio-Visual Speech Recognition by Machines and Humans.” *Eurospeech*, 2001. doi:[10.21437/Eurospeech.2001-294](https://doi.org/10.21437/Eurospeech.2001-294). [wiki: isca-potamianos01_eurospeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-potamianos01_eurospeech/article.md)
+5. <a id="ref-5"></a>Haliassos, A., Mira, R., Petridis, S. “Pay Attention to CTC: Fast and Robust Pseudo-Labelling for Unified Speech Recognition.” *ICLR*, 2026. arXiv:[2602.19316](https://arxiv.org/abs/2602.19316). [later] [wiki: arxiv-2602.19316](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2602.19316/article.md)
+6. <a id="ref-6"></a>Chang, O., Liao, H., Serdyuk, D., Shah, A., Siohan, O. “Conformers are All You Need for Visual Speech Recognition.” *arXiv preprint*, 2023. arXiv:[2302.10915](https://arxiv.org/abs/2302.10915). [later] [wiki: arxiv-2302.10915](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2302.10915/article.md)
+7. <a id="ref-7"></a>Xue, F., Zhu, B., Jia, W., Li, S., Li, Y., Zhang, J., et al. “LinProVSR: Linguistics-Knowledge Guided Progressive Disambiguation Network for Visual Speech Recognition.” *AAAI*, 2026. doi:[10.1609/aaai.v40i14.38133](https://doi.org/10.1609/aaai.v40i14.38133). [later] [wiki: aaai-38133-linprovsr](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/aaai-38133-linprovsr/article.md)
+8. <a id="ref-8"></a>Wand, M., Koutnik, J., Schmidhuber, J. “Lipreading with Long Short-Term Memory.” *ICASSP*, 2016. arXiv:[1601.08188](https://arxiv.org/abs/1601.08188). [wiki: arxiv-1601.08188](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1601.08188/article.md)
+9. <a id="ref-9"></a>Chung, J. S., Zisserman, A. “Lip Reading in the Wild.” *ACCV*, 2016. doi:[10.1007/978-3-319-54427-4_7](https://doi.org/10.1007/978-3-319-54427-4_7). [concurrent] [wiki: w2594690981-lrw](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/w2594690981-lrw/article.md)
+10. <a id="ref-10"></a>Chung, J. S., Senior, A., Vinyals, O., Zisserman, A. “Lip Reading Sentences in the Wild.” *CVPR*, 2017. arXiv:[1611.05358](https://arxiv.org/abs/1611.05358). [concurrent] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/lip-reading-sentences-in-the-wild) [wiki: arxiv-1611.05358](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1611.05358/article.md)
+11. <a id="ref-11"></a>Shillingford, B., Assael, Y., Hoffman, M. W., Paine, T., Hughes, C., Prabhu, U., et al. “Large-Scale Visual Speech Recognition.” *arXiv preprint*, 2018. arXiv:[1807.05162](https://arxiv.org/abs/1807.05162). [later] [wiki: arxiv-1807.05162](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1807.05162/article.md)
+12. <a id="ref-12"></a>Florescu, V., Crevier-Buchman, L., Denby, B., Hueber, T., Pillot-Loiseau, C., Roussel, P., et al. “Silent vs Vocalized Articulation for a Portable Ultrasound-Based Silent Speech Interface.” *Interspeech*, 2010. <https://www.isca-archive.org/interspeech_2010/florescu10_interspeech.html> [wiki: isca-florescu10](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-florescu10/article.md)
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`process/log.json`](process/log.json): process record: each step, who did it (reader, script, writer, evaluator), when, the checks run and the input versions
+- [`process/notes.json`](process/notes.json): reading notes on the target and comparator papers: claims, numbers, conditions and what is not stated, with locations
+- [`process/plan.json`](process/plan.json): plan: which components the paper changes and the topics it is compared on
+- [`process/draft.md`](process/draft.md): the review as first written, before the independent evaluation
+- [`process/claims-draft.md`](process/claims-draft.md): claim table of the draft: every claim mapped to a note or a count
+- [`process/claims.md`](process/claims.md): claim table of the published review
+- [`components/M04/overt-to-silent-transfer.csv`](../../components/M04/overt-to-silent-transfer.csv): M04 topic "overt-to-silent-transfer", every candidate paper with its decision (5595 slot-filled, 33 pattern match, usual design in 23, 104 read in full)
+- [`components/M06/sentence-lipreading-sequence-objective.csv`](../../components/M06/sentence-lipreading-sequence-objective.csv): M06 topic "sentence-lipreading-sequence-objective", every candidate paper with its decision (7345 slot-filled, 633 pattern match, usual design in 291, 6 read in full)
+- [`components/M07/use-time-language-model-visual-speech.csv`](../../components/M07/use-time-language-model-visual-speech.csv): M07 topic "use-time-language-model-visual-speech", every candidate paper with its decision (119 slot-filled, 633 pattern match, usual design in 143, 4 read in full)
+- [`components/M12/grid-sentence-lipreading-protocol.csv`](../../components/M12/grid-sentence-lipreading-protocol.csv): M12 topic "grid-sentence-lipreading-protocol", every candidate paper with its decision (6960 slot-filled, 93 pattern match, usual design in 54, 5 read in full)
+- [`components/M12/human-lipreader-baseline.csv`](../../components/M12/human-lipreader-baseline.csv): M12 topic "human-lipreader-baseline", every candidate paper with its decision (6960 slot-filled, 64 pattern match, usual design in 40, 116 read in full)
+
 
 ## More reviews in Lip & face video
 

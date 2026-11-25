@@ -56,11 +56,17 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding | 2026 | Sec. 3.2 |
 | An Improved Model for Voicing Silent Speech |  | Sec. 1 |
 
+## grid-sentence-lipreading-protocol
+
+- Table: [`grid-sentence-lipreading-protocol.csv`](grid-sentence-lipreading-protocol.csv) (6960 slot-filled, 93 pattern match, usual design in 54, 5 read in full)
+- Inclusion rule: Lip-reading or VSR studies whose ledger names optical-camera input and the GRID corpus, classified by the evaluation partition their full text names: an unseen-speaker (speaker-independent or held-out speaker) split, an overlapped-speaker (seen-speaker or speaker-dependent) split, or explicit reuse of the held-out speakers 1, 2, 20 and 22. A separate regex counts studies that report a standard deviation, a confidence interval or a significance test. Boundary: audio-only GRID work and GRID studies without a recognition or synthesis decoder are excluded; a study counts under every partition its text names (upper bound); versions count once by key.
+- Used in: [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/)
+
 ## human-lipreader-baseline
 
-- Table: [`human-lipreader-baseline.csv`](human-lipreader-baseline.csv) (7 confirmed, 116 candidates read, 0 unread)
+- Table: [`human-lipreader-baseline.csv`](human-lipreader-baseline.csv) (6960 slot-filled, 64 pattern match, usual design in 40, 116 read in full)
 - Inclusion rule: Include studies that place, on the same metric, the results of machine lipreading or silent speech recognition alongside the results of human lipreaders (experts, people with hearing impairment, or general participants) reading the same data (the same test set or a subset of it). Boundary: exclude intelligibility assessments in which people listen to reconstructed speech. Exclude those that only cite human performance as literature values. Exclude studies of lipreading ability among humans with no machine results. Count different versions of the same study as one item.
-- Used in: [Lip Reading Sentences in the Wild](../../reviews/lip-reading-sentences-in-the-wild/)
+- Used in: [Lip Reading Sentences in the Wild](../../reviews/lip-reading-sentences-in-the-wild/), [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |

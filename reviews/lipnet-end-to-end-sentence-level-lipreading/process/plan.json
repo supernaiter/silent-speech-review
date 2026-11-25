@@ -1,0 +1,93 @@
+{
+ "target": "arxiv-1611.01599",
+ "note": "No prep.done and no prep/ directory existed; plan, audits, comparator selection and notes merges were all built by the writer in this run. notes.json (reader output, 66 entries, verify_quotes 48 found / 0 missing) was reused as supplied.",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M04",
+  "M07",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt (vocalized) sentence reading from the GRID audio-visual corpus; no silent articulation anywhere in training",
+  "M02": "Character transcripts of the GRID prompts; word-boundary timings supplied with GRID are reused to cut extra training clips",
+  "M03": "Single training run per configuration on GRID only (28,775 videos for the unseen-speaker split), Adam 1e-4, mirroring, frame deletion/duplication, word clips; no seeds, no validation/selection set stated",
+  "M04": "Use-time action is overtly spoken sentence reading in front of a frontal camera; silent dictation is proposed as an application but never evaluated",
+  "M05": "Frontal video, 100x50 mouth crop at 25 fps from DLib/iBug landmarks with Kalman smoothing (GRID recording conditions)",
+  "M07": "Character 5-gram language model inside CTC beam search (beam 200, alpha 1, beta 1.5), taken from lexicon-free ASR decoding",
+  "M08": "27 characters plus the CTC blank, 28 softmax outputs; sentence text",
+  "M09": "Offline benchmark; no presentation, confirmation or commit step",
+  "M10": "Offline benchmark; no correction or re-entry step",
+  "M11": "GRID prompts as verbatim references; speaker-held-out and speaker-overlapped partitions defined by the authors",
+  "M12": "CER and WER on two GRID speaker partitions, three in-paper ablations and a three-person human panel; single run, no variance",
+  "M13": "Offline GPU evaluation; no latency, model-size or on-device figures"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "sentence-lipreading-sequence-objective",
+   "inclusion_rule": "Studies that decode sentence-level or open-vocabulary speech from lip or face video (lip reading, VSR, AVSR; ledger names lip reading/VSR/AVSR/LRS2/LRS3 and sentence-level, continuous or open-vocabulary recognition), classified by the sequence objective their full text names: CTC, attention sequence-to-sequence, hybrid CTC/attention, HMM, transducer. Boundary: isolated-word classification only is excluded; a study counts under every objective its text names (upper bound); reviews count as pattern matches; versions count once.",
+   "pattern": "sentence-level VSR population (see audit)",
+   "design_field": "full-text regexes ctc, attention_seq2seq, hybrid_ctc_attention, hmm, transducer",
+   "metric": "visual-only LRS3 WER; GRID WER for the same-corpus comparison",
+   "period_split": "writer-run full-text count over the 67 unique studies of this population first public before 2016-11 (dates from the arXiv id, the index year, or the ISCA key); plus a wiki-wide scan of all 2,048 pre-2016-05 studies with text"
+  },
+  {
+   "slot": "M06",
+   "topic": "articulator-video-spatiotemporal-front-end",
+   "reuse": "components/M06/articulator-video-spatiotemporal-front-end.json",
+   "inclusion_rule": "Reused published table: studies that decode text, speech or acoustic features from articulator video with a trained network, classified by how temporal context enters the image front end (3D convolution, factorized (2+1)D, 2D CNN plus recurrent layer, TCN, ConvLSTM).",
+   "pattern": "published pattern",
+   "design_field": "published full-text front-end counts",
+   "metric": "presence of the design"
+  },
+  {
+   "slot": "M04",
+   "topic": "overt-to-silent-transfer",
+   "reuse": "components/M04/overt-to-silent-transfer.json",
+   "inclusion_rule": "Reused published table: studies that apply a decoder trained only on overt (or attempted overt) speech to silent, mouthed or imagined speech and report the result; any signal; chronology labels in the published table are relative to its own target and are recomputed here against 2016-11.",
+   "pattern": "published pattern",
+   "design_field": "published confirmed decisions",
+   "metric": "reported overt-to-silent degradation"
+  },
+  {
+   "slot": "M07",
+   "topic": "use-time-language-model-visual-speech",
+   "inclusion_rule": "The same sentence-level VSR population as M06, classified by the use-time information its full text names: an n-gram language model (character or word), a neural language model or LLM rescoring, or an explicit statement that no external language model is used; a grammar, lexicon or dictionary constraint is counted separately for the pre-target period. A study counts under every design its text names (upper bound); M07 is slot-filled for 1% of the wiki, so all counts are pattern match.",
+   "pattern": "sentence-level VSR population (see audit)",
+   "design_field": "full-text regexes ngram_lm, neural_lm_or_llm, no_external_lm, grammar_or_lexicon",
+   "metric": "WER with and without the use-time language model"
+  },
+  {
+   "slot": "M12",
+   "topic": "grid-sentence-lipreading-protocol",
+   "inclusion_rule": "Lip-reading or VSR studies whose ledger names optical-camera input and the GRID corpus, classified by the evaluation partition their full text names: an unseen-speaker (speaker-independent, held-out speaker) split, an overlapped-speaker (seen-speaker, speaker-dependent) split, or explicit reuse of the held-out set speakers 1, 2, 20 and 22. Boundary: audio-only GRID work and GRID studies without a recognition or synthesis decoder are excluded; a study counts under every partition its text names; versions count once.",
+   "pattern": "GRID + optical camera + lip reading/VSR ledger pattern",
+   "design_field": "full-text regexes unseen_speaker_split, overlapped_speaker_split, lipnet_split_reused",
+   "metric": "GRID unseen-speaker WER"
+  },
+  {
+   "slot": "M12",
+   "topic": "human-lipreader-baseline",
+   "reuse": "components/M12/human-lipreader-baseline.json",
+   "inclusion_rule": "Reused published table: studies that put machine lipreading or silent speech recognition and human lipreaders on the same metric over the same data, classified by who the human readers are (professional or expert readers, hearing-impaired or deaf participants, untrained or lay participants).",
+   "pattern": "published pattern",
+   "design_field": "full-text regexes professional_or_expert_readers, hearing_impaired_or_deaf_participants, untrained_or_lay_participants",
+   "metric": "human WER against machine WER on the same items"
+  }
+ ],
+ "comparators": {
+  "read_this_run": [
+   "arxiv-1601.08188",
+   "w2594690981-lrw",
+   "isca-gergen16-streamw",
+   "arxiv-1611.05358",
+   "aaai-38133-linprovsr"
+  ],
+  "reused_published_read_fulltext": [
+   "isca-florescu10 (M04 table)",
+   "arxiv-2602.19316 (M08 vsr-output-token-unit table)"
+  ]
+ }
+}
