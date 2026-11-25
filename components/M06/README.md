@@ -187,6 +187,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Visual or audio-visual speech recognition studies (lip reading, VSR, AVSR; word or sentence level) whose ledger names lip reading, VSR, AVSR or an LRS/LRW benchmark. The design compared is whether facial or lip landmarks (coordinates, distances, contours, shape-model parameters) enter the recognizer as a feature stream next to or instead of pixels, and how that stream is encoded (graph convolution over landmarks versus other encoders). Boundary: landmarks used only to detect, align or crop the mouth do not count; a study counts under every design its full text names (upper bound, related-work mentions included); reviews count as pattern matches only; versions of one study count once.
 - Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/)
 
+## neural-encoder-decoder-text-decoding
+
+- Table: [`neural-encoder-decoder-text-decoding.csv`](neural-encoder-decoder-text-decoding.csv) (7345 slot-filled, 145 pattern match, usual design in 63, 4 read in full)
+- Inclusion rule: Same population as neural-text-output-unit: neural decoders (ECoG, intracortical, sEEG, EEG, MEG) that output text and report a word, character or phoneme error rate. The design compared is the sequence decoder: an autoregressive encoder-decoder (sequence-to-sequence, attention or Transformer decoder), a CTC-trained network, or HMM/Viterbi decoding. Boundary: a paper is counted under every decoder its full text names (upper bounds, including mentions of other work); reviews count as pattern matches only; versions count once.
+- Used in: [Machine translation of cortical activity to text with an encoder-decoder framework](../../reviews/machine-translation-of-cortical-activity-to-text-with-an-encoder-decoder-framework/)
+
 ## non-acoustic-speech-activity-detection
 
 - Table: [`non-acoustic-speech-activity-detection.csv`](non-acoustic-speech-activity-detection.csv) (7345 slot-filled, 119 pattern match, usual design in 74, 4 read in full)

@@ -1,0 +1,67 @@
+{
+ "slug": "machine-translation-of-cortical-activity-to-text-with-an-encoder-decoder-framework",
+ "stage": "final",
+ "steps": [
+  {
+   "step": "reading",
+   "by": "reader (language model)",
+   "output": "notes.json",
+   "what": "claims, numbers, conditions and unstated items of the target and comparator papers, each with a quote and location",
+   "finished": "2026-11-25T12:57:57+00:00"
+  },
+  {
+   "step": "plan",
+   "by": "writer (language model)",
+   "output": "plan.json",
+   "what": "which of the 13 components the paper changes, and the topics to compare on",
+   "finished": "2026-11-25T12:48:37+00:00"
+  },
+  {
+   "step": "field counts",
+   "by": "script",
+   "output": "topic tables under components/",
+   "what": "ledger search per topic: population, usual approach, candidate state of the art",
+   "finished": "2026-11-25T12:59:09+00:00"
+  },
+  {
+   "step": "draft",
+   "by": "writer (language model)",
+   "output": "draft.md, claims-draft.md",
+   "what": "review written from the notes and counts only; every claim mapped to a note or a count",
+   "finished": "2026-11-25T12:53:41+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-25T12:55:51+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "11 applied (including 2 where the original claim was kept with new support or a narrowed wording), 1 rejected (#7, the claim was supported; wording narrowed), 0 unverified, 1 no action needed (#13).",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-25T13:01:14+00:00"
+  }
+ ],
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 97 found, 0 missing, 11 unchecked (unstated, figure-only or no source)",
+  "topic counts M02-auxiliary-speech-feature-regression": "ok",
+  "topic counts M03-cross-subject-pooled-training": "ok",
+  "topic counts M06-neural-encoder-decoder-text-decoding": "ok",
+  "topic counts M08-neural-text-output-unit": "ok",
+  "topic counts M12-neural-text-unseen-sentence-test": "ok"
+ },
+ "inputs": {
+  "notes_sha256": "6aa7f9d46bf3537219399df790376ffaccc53d110365f1151bfcde89f498c29d",
+  "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+  "method_sha256": "e8a70a09aa6de9f44dabca89b49999dd1a33f4b014759fcb8827e7a2a8c2747a",
+  "method": "pipeline/SKILL.md"
+ },
+ "body_chars": {
+  "draft": 15725,
+  "final": 16039
+ }
+}
