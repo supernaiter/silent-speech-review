@@ -90,6 +90,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same ledger population as the M13 online-imagined-speech-eeg table); the design compared is whether reported accuracy is referenced against chance: a stated chance level or above-chance test, or an empirical permutation null. Boundary: full-text pattern counts are upper bounds (a chance mention in related work counts); a study whose full text never uses the word 'chance' is counted as giving no chance reference; versions count once.
 - Used in: [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/), [Towards Neural Decoding of Imagined Speech based on Spoken Speech](../../reviews/towards-neural-decoding-of-imagined-speech-based-on-spoken-speech/)
 
+## intracortical-communication-rate-benchmark
+
+- Table: [`intracortical-communication-rate-benchmark.csv`](intracortical-communication-rate-benchmark.csv) (6960 slot-filled, 33 pattern match, usual design in 5, 2 read in full)
+- Inclusion rule: Same 33-study intracortical text-entry population as the M06 topic; the design compared is the rate metric reported for communication: achieved bitrate on a cued grid, information transfer rate (ITR), correct characters per minute (ccpm), words per minute, word error rate alongside the rate. Boundary: full-text pattern counts with the reference list removed (upper bound; definitions and related-work mentions count); a study counts under every metric it names; the target is included.
+- Used in: [High performance communication by people with paralysis using an intracortical brain-computer interface](../../reviews/high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf/)
+
 ## intracranial-speech-test-partition
 
 - Table: [`intracranial-speech-test-partition.csv`](intracranial-speech-test-partition.csv) (6960 slot-filled, 618 pattern match, usual design in 132, 2 read in full)

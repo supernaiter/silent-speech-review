@@ -169,6 +169,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that decode imagined, covert or inner speech (or contrast it with other conditions) from MEG and report a classification score. Boundary: perceived-speech-only and overt-only MEG decoding are excluded; EEG-only studies are excluded; reviews remain as pattern matches (upper bound); versions of one study count once.
 - Used in: [Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech](../../reviews/transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech/)
 
+## intracortical-cursor-click-communication-decoder
+
+- Table: [`intracortical-cursor-click-communication-decoder.csv`](intracortical-cursor-click-communication-decoder.csv) (7345 slot-filled, 33 pattern match, usual design in 10, 4 read in full)
+- Inclusion rule: Intracortical BCI studies (ledger population: 33 unique studies (46 folders) whose ledger text names an intracortical recording (intracortical, Utah array, microelectrode array) together with cursor, point-and-click, keyboard, typing, text entry, characters per minute, ccpm or grid task); the design compared is the decoder that turns neural activity into text-entry selections: continuous Kalman-family cursor decoder (ReFIT-KF or Kalman filter), discrete click decoder (HMM or LDA state classifier), dwell selection, recurrent-network decoders of characters or words. Boundary: full-text pattern counts with the reference list removed, so related-work mentions and reviews count (upper bound); a study counts under every design it names; the target is included; versions counted once.
+- Used in: [High performance communication by people with paralysis using an intracortical brain-computer interface](../../reviews/high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf/)
+
 ## intracranial-synthesis-decoder-architecture
 
 - Table: [`intracranial-synthesis-decoder-architecture.csv`](intracranial-synthesis-decoder-architecture.csv) (7345 slot-filled, 180 pattern match, usual design in 79, 4 read in full)
