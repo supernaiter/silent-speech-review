@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced LRS3 and English VoxCeleb2 video"
+  ],
+  "field": "Voiced speech recorded for training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Subword transcripts, 30 h or 433 h of LRS3"
+  ],
+  "field": "Text labels",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited; audio is a use-time input, not training-only supervision.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "AV-HuBERT pre-training; noise in pre-training and fine-tuning"
+  ],
+  "field": "No self-supervised pre-training before 2022-01",
+  "n": 143,
+  "matched": 141,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "New design (0 of 143 earlier AVSR studies) without repetition across seeds or datasets.",
+  "sota": "[@haliassos2026usr2] 2.2% clean AVSR WER at 30 h (Large)"
+ },
+ "M04": {
+  "choice": [
+   "Voiced speech video with added noise at test"
+  ],
+  "field": "Voiced speech at use time",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Lip video and one microphone; MUSAN and LRS3 noise"
+  ],
+  "field": "Camera mouth region plus microphone",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited from AV-HuBERT preprocessing.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "AV-HuBERT LARGE encoder, 9-layer Transformer decoder"
+  ],
+  "field": "CNN front end plus sequence model",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited (AV-HuBERT lineage).",
+  "sota": "–"
+ },
+ "M07": {
+  "choice": [
+   "No external LM (released config; paper silent)"
+  ],
+  "field": "LM in decoding varies",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Paper does not state it; code sets LM weight 0.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Text (subwords)"
+  ],
+  "field": "Text output",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "LRS3 test set; MUSAN and LRS3 noise pools"
+  ],
+  "field": "Public benchmark split",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Validation and test babble share one file in the released code.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Four noise types, five SNRs, no variability"
+  ],
+  "field": "Noise test at stated SNRs, no run variability",
+  "n": 349,
+  "matched": 183,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "behind",
+  "note": "Behind the best comparable work: earlier AVSR studies gave 95% CIs or repeated runs.",
+  "sota": "[@rouditchenko2024whisperflamingo] 0.76% clean"
+ },
+ "M13": {
+  "choice": [
+   "64 V100 GPUs; no runtime"
+  ],
+  "field": "Offline GPU training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ }
+}

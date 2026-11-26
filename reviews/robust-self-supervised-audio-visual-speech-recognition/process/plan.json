@@ -1,0 +1,48 @@
+{
+ "target": "isca-shi22-robustav",
+ "versions": [
+  "isca-shi22-robustav",
+  "isca-shi22_interspeech",
+  "arxiv-2201.01763"
+ ],
+ "first_public": "2022-01",
+ "prep": "no prep/ directory and no prep.done for this slug; plan and audits built by the writer",
+ "changed": [
+  "M03"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Voiced TED (LRS3) and YouTube (VoxCeleb2 English) speech video",
+  "M02": "Subword text transcripts (30 h or 433 h LRS3); audio is a use-time input, not training-only supervision",
+  "M04": "Voiced speech video with added noise at test",
+  "M05": "Lip region video plus single microphone audio (AV-HuBERT preprocessing); MUSAN and LRS3 noise pools",
+  "M06": "AV-HuBERT LARGE encoder (24 Transformer blocks) with a 9-layer Transformer decoder (AV-HuBERT lineage)",
+  "M07": "No external language model (code default; the paper is silent)",
+  "M08": "Text (SentencePiece subwords per the code)",
+  "M09": "Offline benchmark study",
+  "M10": "Offline benchmark study",
+  "M11": "LRS3 test set and transcripts; noise test pools built from MUSAN and LRS3",
+  "M13": "64 V100 GPUs for pre-training; no runtime figures"
+ },
+ "topics": [
+  {
+   "slot": "M03",
+   "topic": "avsr-self-supervised-and-noise-augmented-training",
+   "inclusion_rule": "Studies whose ledger names AVSR (the 349-study population of M06/avsr-audio-stream-input-representation), classified by training regime named in the full text: self-supervised pre-training, noise added during training, noise added during pre-training; state at the target's time from studies dated before 2022-01. Boundary: upper-bound pattern counts with related-work mentions; visual-only lip reading out; versions once.",
+   "pattern": "audio[- ]visual speech recognition|audiovisual speech recognition|\\bavsr\\b",
+   "design_field": "full-text regexes self_supervised_pretraining, noise_augmented_training, noise_in_pretraining",
+   "metric": "LRS3 AVSR WER at 30 h labels, clean and babble"
+  },
+  {
+   "slot": "M12",
+   "topic": "avsr-noise-and-run-variability-protocol",
+   "reuse": "components/M12/avsr-noise-and-run-variability-protocol.json",
+   "inclusion_rule": "Reused published table (349 AVSR studies) classified by evaluation protocol; appended an interfering-speech noise count and three read priors with run or test-set variability.",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts plus interfering_speech_noise",
+   "metric": "presence of the protocol; LRS3 AVSR WER in babble at 0 dB"
+  }
+ ]
+}
