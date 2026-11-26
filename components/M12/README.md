@@ -114,6 +114,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Camera-based lip-reading or silent-speech studies whose ledger names word, phrase or command classification (closed lexicon); the design compared is how test data are separated from enrollment or training data (speaker-disjoint, within-speaker, session- or condition-disjoint) and whether chance level is reported. Boundary: a study counts under every split its full text (reference list removed) names (upper bound); human lipreading perception studies are pattern hits only; versions count once.
 - Used in: [LipLearner: Customizable Silent Speech Interactions on Mobile Devices](../../reviews/liplearner-customizable-silent-speech-interactions-on-mobile-devices/)
 
+## lipreading-speaker-dependence-protocol
+
+- Table: [`lipreading-speaker-dependence-protocol.csv`](lipreading-speaker-dependence-protocol.csv) (6960 slot-filled, 975 pattern match, usual design in 52, 1 read in full)
+- Inclusion rule: Same lip-reading population as M06, classified by the evaluation partition the full text names (speaker-dependent / same or seen speakers, versus speaker-independent / unseen or held-out speakers) and by whether it reports a standard deviation, confidence interval or significance test. Boundary: a study counts under every partition its text names, related-work mentions included (upper bound); versions count once; dated against 2016-01.
+- Used in: [Lipreading with Long Short-Term Memory](../../reviews/lipreading-with-long-short-term-memory/)
+
 ## listener-intelligibility-test
 
 - Table: [`listener-intelligibility-test.csv`](listener-intelligibility-test.csv) (6960 slot-filled, 37 pattern match, usual design in 15, 5 read in full)
