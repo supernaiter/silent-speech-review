@@ -1,6 +1,6 @@
 {
  "slug": "generalizable-spelling-using-a-speech-neuroprosthesis-in-an-individual-with-severe-limb-and-vocal-pa",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,30 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-26T21:47:48+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-26T21:52:57+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-26T22:00:18+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 80 found, 0 missing, 4 unchecked (unstated, figure-only or no source)",
+  "topic counts M04-speech-or-motor-spelling-action": "ok",
+  "topic counts M07-spelling-language-assistance": "ok",
+  "topic counts M09-spelling-selection-and-termination-command": "ok",
+  "topic counts M12-spelling-rate-and-error-metrics": "ok"
+ },
  "inputs": {
   "notes_sha256": "fbbc4c98919b4cae6266c5b5b28e271100d191eda2b68604dc8d43340d3e2c1a",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +61,6 @@
  },
  "body_chars": {
   "draft": 17390,
-  "final": null
+  "final": 18092
  }
 }
