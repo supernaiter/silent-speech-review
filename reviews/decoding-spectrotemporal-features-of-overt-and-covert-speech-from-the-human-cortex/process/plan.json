@@ -1,0 +1,65 @@
+{
+ "target": "doi-10.3389-fneng.2014.00014",
+ "changed": [
+  "M04",
+  "M08",
+  "M11"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt-trained ECoG spectrotemporal-reconstruction lineage: participants read aloud to provide the training recordings.",
+  "M02": "Overt-trained ECoG spectrotemporal-reconstruction lineage: paired acoustic features of self-generated overt speech supervise the neural decoder; no covert target is used for fitting.",
+  "M03": "Overt-trained ECoG spectrotemporal-reconstruction lineage: iterative linear fitting, early stopping, and jackknife parameter averaging.",
+  "M05": "Clinical ECoG speech-decoding lineage: implanted subdural arrays and high-gamma recordings; the paper reports no new sensor or electrode-layout design.",
+  "M06": "Overt-trained ECoG spectrotemporal-reconstruction lineage: lagged linear neural-to-feature mapping; DTW is used for reference alignment, not as a new decoder architecture.",
+  "M07": "Offline acoustic-feature reconstruction lineage: no use-time lexicon, language model, or auxiliary linguistic prior is specified.",
+  "M09": "Offline ECoG feature-reconstruction lineage: no user-facing presentation, confirmation, or commit step is part of the evaluated pipeline.",
+  "M10": "Offline ECoG feature-reconstruction lineage: no user correction, re-entry, or error-repair interaction is part of the evaluated pipeline.",
+  "M13": "Clinical epilepsy-monitoring ECoG lineage, offline analysis; communication use is proposed as future work, so deployment constraints are outside this study type."
+ },
+ "topics": [
+  {
+   "slot": "M04",
+   "topic": "overt-to-silent-transfer",
+   "reuse": "components/M04/overt-to-silent-transfer.json",
+   "inclusion_rule": "Include studies that apply a decoder trained only on overt (or attempted overt) speech to silent speech (mouthed, silently articulated, inner or imagined speech) without retraining and report the results. Any signal qualifies (neural, EMG, ultrasound, video, etc.). Boundary: those that also train on silent data (such as methods that transfer audible-side targets) are included if they separately report an audible-training-only baseline condition. Exclude those that use an audible model only for time alignment or initialization of silent data. Exclude transfer between whispered and normal voice in acoustic speech. Exclude transfer from listening (perception) to inner speech. Exclude those that only analyse similarity of neural activity without applying a decoder. Exclude matches in reviews or citations only. Count different versions of the same study as one item.",
+   "pattern": "(audible|vocali[sz]ed|overt|voiced|aloud|phonated)[^|]{0,60}(->|→| to )[^|]{0,10}(silent|mimed|covert|mouthed)|\\bcross[- ]mode\\b|not trained on (mimed|silent)|train\\w*[^|]{0,30}(audible|vocali[sz]ed|overt|voiced)[^|]{0,80}test\\w*[^|]{0,40}(silent|mimed|covert|mouthed)",
+   "metric_pattern": "WER|accuracy",
+   "better": "lower"
+  },
+  {
+   "slot": "M08",
+   "topic": "neural-speech-synthesis",
+   "reuse": "components/M08/neural-speech-synthesis.json",
+   "inclusion_rule": "Include studies that decode continuous acoustic representations (spectrograms, MFCC or vocoder features, formants) from non-acoustic neural signals (ECoG, sEEG, intracortical electrodes, EEG, MEG, etc.) associated with speech production (overt, mouthed, attempted, imagined) and either output them as speech or evaluate them in a form convertible to speech. Boundary: exclude studies that reconstruct heard speech from activity during listening (perception). Exclude those that only decode text and then read it aloud with a standard speech synthesizer. Exclude BCIs that operate a synthesizer through limb motor imagery or the like, since this is not activity associated with speech production. Exclude matches in reviews, ethics papers or citations only. Count different versions of the same study as one item.",
+   "pattern": "^(?=[\\s\\S]*modalities=(ecog|scalp_eeg|meg|intracortical_microelectrode|fmri|fnirs))(?=[\\s\\S]*(output_types=audio|direct_signal_to_audio|synthesi[sz]e\\w* (audible |intelligible )?speech|speech synthesis))",
+   "metric_pattern": null,
+   "better": "lower"
+  },
+  {
+   "slot": "M12",
+   "topic": "neural-speech-reconstruction-identification-test",
+   "reuse": "components/M12/neural-speech-reconstruction-identification-test.json",
+   "inclusion_rule": "Studies that reconstruct a continuous acoustic speech representation (spectrogram, mel features, envelope or waveform) from neural recordings (EEG, MEG, ECoG, sEEG or intracortical) during perceived, produced, mimed or imagined speech and evaluate the reconstruction. Boundary: classification-only and text-only decoders are excluded; auditory attention decoding that only tracks an envelope to select a talker is counted by the ledger pattern but is not a reconstruction study; versions of one study count once. Design categories are full-text pattern matches and overlap: correlation, identification among candidates, mel-cepstral distortion, human listening test, STOI.",
+   "pattern": "(?s)^(?=.*\\b(eeg|meg|ecog|seeg|stereo-?eeg|intracortical|intracranial|microelectrode)\\b)(?=.*(spectrogram|mel[- ]|envelope|waveform|vocoder|acoustic feature)).*?(reconstruct\\w*|synthesi[sz]\\w*|brain[- ]to[- ]speech)",
+   "metric_pattern": "identif|rank",
+   "better": "higher"
+  },
+  {
+   "slot": "M11",
+   "topic": "covert-neural-reconstruction-reference",
+   "inclusion_rule": "Neural (ECoG, sEEG, intracortical, EEG, MEG) studies of covert, imagined, mimed, inner or silent speech that decode or reconstruct speech and state how the covert ground truth is constructed. Design of interest: a continuous acoustic reconstruction scored against the same participant's overt recording of the same text, time-aligned (e.g. DTW). Boundary: class-label references, heard-stimulus references in perception studies and text-only references are other designs; acoustic whisper or NAM conversion is not neural; versions of one study count once.",
+   "pattern": "neural modality AND covert/imagined/mimed/silent AND acoustic reconstruction terms (ledger text)",
+   "design_regex": [
+    "overt_audio_reference",
+    "dtw_alignment",
+    "label_only"
+   ],
+   "metric_pattern": "PCC|correlation|Pearson",
+   "better": "higher"
+  }
+ ],
+ "notes_writer": "Prep defects fixed: M11 topic rebuilt (prep pattern embedded the design in the population; sparse slot) as covert-neural-reconstruction-reference with design regexes and a whole-wiki full-text recall check; M13 topic dropped (no usual approach; offline study, not_applicable); EPFL thesis doi-10.5075-epfl-thesis-7740 is the first author thesis reporting the same seven-patient study, so it is a version duplicate, not a state of the art; arxiv-2510.27247 PCC 0.423 is a phoneme-accuracy/W-score correlation, not a reconstruction score, so it is not used as a value. Usual approaches judged at the target time (prior = first public before 2013-11)."
+}
