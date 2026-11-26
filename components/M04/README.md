@@ -87,3 +87,9 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Decoding spectrotemporal features of overt and covert speech from the human cortex | 2014 | Introduction; Methods (Dynamic time warping) |
 | doi-10.1038-s41586-019-1119-1 |  | Results, "Synthesizing mimed speech" |
 | doi-10.1038-s41586-019-1119-1 |  | Results, "Synthesizing mimed speech" |
+
+## speech-or-motor-spelling-action
+
+- Table: [`speech-or-motor-spelling-action.csv`](speech-or-motor-spelling-action.csv) (5595 slot-filled, 0 pattern match, usual design in 8, 7 read in full)
+- Inclusion rule: Setting (one definition for all four topics): text entry by spelling, in any signal type in the wiki (neural, EMG, EOG, EPG, video, ultrasound and others): studies whose full text, reference list removed, names a speller, letter-by-letter entry, or spelling out words, letters or sentences. Boundary: acoustic-only systems are outside the wiki; mentions in related work, reviews and unrelated uses of 'spelling' enter, so every count is an upper bound (pattern match); versions are counted once; the target's three versions are excluded; the usual approach is counted at the target's time (index year 2022 or earlier, target first public 2022-11). Design compared: the user action that selects each letter: evoked-potential speller (P300, SSVEP, RSVP), motor or cursor selection (point-and-click, virtual keyboard, motor imagery), attempted handwriting, NATO or radio-alphabet code words, other speech production of letters. A study counts under every action its text names.
+- Used in: [Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis](../../reviews/generalizable-spelling-using-a-speech-neuroprosthesis-in-an-individual-with-severe-limb-and-vocal-pa/)

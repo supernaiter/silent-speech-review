@@ -251,6 +251,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that report recognition or reconstruction results on the Silent Speech Challenge archive (single speaker, silent TIMIT training, 100 WSJ0 5k test sentences) or that test on the same 100 SSC sentences with a new recording. Boundary: exclude studies that only cite the SSC, surveys that restate its numbers (kept in the pattern match), and studies on other ultrasound corpora; count versions once.
 - Used in: [Denoising Convolutional Autoencoder Based B-mode Ultrasound Tongue Image Feature Extraction](../../reviews/denoising-convolutional-autoencoder-based-b-mode-ultrasound-tongue-image-feature-extraction/), [Updating the Silent Speech Challenge benchmark with deep learning](../../reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/)
 
+## spelling-rate-and-error-metrics
+
+- Table: [`spelling-rate-and-error-metrics.csv`](spelling-rate-and-error-metrics.csv) (6960 slot-filled, 0 pattern match, usual design in 7, 2 read in full)
+- Inclusion rule: Setting (one definition for all four topics): text entry by spelling, in any signal type in the wiki (neural, EMG, EOG, EPG, video, ultrasound and others): studies whose full text, reference list removed, names a speller, letter-by-letter entry, or spelling out words, letters or sentences. Boundary: acoustic-only systems are outside the wiki; mentions in related work, reviews and unrelated uses of 'spelling' enter, so every count is an upper bound (pattern match); versions are counted once; the target's three versions are excluded; the usual approach is counted at the target's time (index year 2022 or earlier, target first public 2022-11). Design compared: the metric reported for the speller: information transfer rate or bits per minute, characters per minute, words per minute, character error rate, word error rate. A study counts under every metric its text names.
+- Used in: [Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis](../../reviews/generalizable-spelling-using-a-speech-neuroprosthesis-in-an-individual-with-severe-limb-and-vocal-pa/)
+
 ## text-and-video-to-speech-evaluation
 
 - Table: [`text-and-video-to-speech-evaluation.csv`](text-and-video-to-speech-evaluation.csv) (6960 slot-filled, 9 pattern match, usual design in 6, 4 read in full)
