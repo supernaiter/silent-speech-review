@@ -2394,6 +2394,34 @@
    "loc": "Introduction",
    "quote": "up to 72.5% top-10 accuracy (out of 1,594",
    "by": "reconstructing-speech-from-human-auditory-cortex"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-60277-2",
+   "role": "sota",
+   "loc": "Abstract; Results",
+   "quote": "Evaluation of the intelligibility of the synthesized speech indicates that 80% of the words can be correctly recognized by human listeners.",
+   "by": "towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex"
+  },
+  {
+   "pid": "isca-yang15c_interspeech",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "We compared the reconstructed spectrograms estimated with two different models: a linear regression model and a deep neural network.",
+   "by": "towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex"
+  },
+  {
+   "pid": "doi-10.1038-s41586-025-09127-3",
+   "role": "sota",
+   "loc": "Results; Fig. 2l",
+   "quote": "The mean and median accuracies were 94.34% and 100%, respectively",
+   "by": "towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex"
+  },
+  {
+   "pid": "doi-10.1101-2024.12.16.628596",
+   "role": "sota",
+   "loc": "Abstract; Results, Fig. 4a",
+   "quote": "with phoneme error rate (PER) at 28.6%, and human listeners were able to recognize 71.6% of the words in the re-synthesized speech.",
+   "by": "towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex"
   }
  ],
  "known_item_recall": {
@@ -2414,7 +2442,8 @@
  "used_by": [
   "reconstructing-speech-from-human-auditory-cortex",
   "relating-the-neural-representations-of-vocalized-mimed-and-imagined-speech",
-  "speech-synthesis-from-ecog-using-densely-connected-3d-convolutional-neural-networks"
+  "speech-synthesis-from-ecog-using-densely-connected-3d-convolutional-neural-networks",
+  "towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex"
  ],
  "tally": {
   "slot_filled_unique": 6960,
@@ -2618,5 +2647,108 @@
   "n": 2,
   "matched": 0,
   "tier": "pattern match"
+ },
+ "prior_time_tally_towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex": {
+  "cutoff": "first public 2017 or earlier (index year <= 2017; 2017 month unresolved)",
+  "population_keys": 19,
+  "reconstruction_evaluations": 10,
+  "included_pids": [
+   "pmc-3269422-speechrecon",
+   "doi-10.3389-fneng.2014.00014",
+   "arxiv-1507.05869",
+   "doi-10.25777-he41-jj63",
+   "isca-yang15c_interspeech",
+   "doi-10.1523-jneurosci.1396-16.2016",
+   "oa-W2913918387",
+   "pmc-5187421-restoration",
+   "doi-10.5075-epfl-thesis-7740",
+   "doi-10.1038-nature11020"
+  ],
+  "excluded": {
+   "doi-10.1016-j.specom.2009.08.002": "review",
+   "doi-10.3389-fnins.2016.00429": "review",
+   "pmc-3096823-phoneme-intracortical": "phoneme classifier",
+   "isca-sadakata13_interspeech": "ERP study",
+   "isca-brumberg15_interspeech": "readiness-potential classifier",
+   "gatech-matthews-201212-phd": "discrete-state (classification) decoding",
+   "doi-10.3389-fnins.2016.00349": "attention decoding to select a talker (excluded by the inclusion rule)",
+   "pmc-4786411-motorauditory": "encoding study",
+   "pmc-5462535-avspeech": "encoding / information analysis",
+   "pmc-5624994-eeghier": "entrainment, no reconstruction"
+  },
+  "note": "doi-10.1038-nature11020 is undated in the index and not a ledger pattern match; added from the M06 evaluation as a known heard-speech reconstruction (2012).",
+  "design_counts": [
+   {
+    "design": "correlation",
+    "n": 10,
+    "of": 10,
+    "tier": "pattern match"
+   },
+   {
+    "design": "listener_rating_of_decoded_audio",
+    "n": 0,
+    "of": 10,
+    "tier": "pattern match",
+    "note": "whole-wiki sentence-level check, recall_check in the M06 audit; the authors state the same (Introduction)"
+   }
+  ]
+ },
+ "usual_approach_at_target_time_towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex": {
+  "design": "correlation between reconstructed and original acoustic representation",
+  "n": 10,
+  "matched": 10,
+  "population": 10,
+  "tier": "pattern match"
+ },
+ "state_of_the_art_towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex": {
+  "pid": "doi-10.1038-s41586-025-09127-3",
+  "year": 2025,
+  "metric": "listener six-sentence transcript match and open transcription of instantaneously synthesized speech, attempted speech, one participant with ALS, intracortical",
+  "value": "94.34% mean match; median WER 43.75%",
+  "timing": "later",
+  "heard_speech": {
+   "pid": "doi-10.1101-2024.12.16.628596",
+   "value": "71.6% open-transcription word recognition",
+   "timing": "later"
+  },
+  "concurrent": {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "value": "median 31% WER, 25-word pool",
+   "timing": "concurrent (bioRxiv 2018-11)"
+  },
+  "superseded_writer_choice": "doi-10.1038-s41598-024-60277-2 replaced after evaluation"
+ },
+ "target_designs_towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex": {
+  "correlation": true,
+  "human_listening_test": true,
+  "stoi": true,
+  "note": "ESTOI on 8 averaged sentences; 11 listeners, 40 TI-46 digit tokens per model, MOS and gender."
+ },
+ "tally_towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 173,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "correlation",
+   "n": 122,
+   "tier": "pattern match",
+   "population_unique": 173
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1088-1741-2552-ace8be",
+   "year": 2023,
+   "metric": "word identification from reconstructed spectrograms by a classifier trained on target audio, plus listener judgments; 12 words, five subjects, leave-one-out",
+   "value": "92-100% (chance 8%)",
+   "timing": "prior"
+  },
+  "read": 7,
+  "read_prior": [
+   "doi-10.1038-s41586-019-1119-1",
+   "doi-10.3389-fneng.2014.00014",
+   "isca-yang15c_interspeech"
+  ],
+  "unread": 221,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.67
  }
 }

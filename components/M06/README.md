@@ -155,7 +155,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`heard-speech-reconstruction-target-representation.csv`](heard-speech-reconstruction-target-representation.csv) (7345 slot-filled, 64 pattern match, usual design in 24, 4 read in full)
 - Inclusion rule: Studies whose ledger text names intracranial or auditory-cortex recordings, a listening or perception condition, an acoustic representation (spectrogram, temporal modulation, envelope or vocoder features) and reconstruction, decoding or synthesis. The design of interest is the acoustic representation that the decoder reconstructs from neural activity during heard speech: auditory/linear spectrogram, temporal-modulation energy, envelope only, or vocoder parameters. Boundary: production-only synthesis studies and encoding-only studies admitted by the pattern are counted but are not heard-speech reconstruction; full-text design regexes overlap and are upper bounds; versions of one study count once.
-- Used in: [Reconstructing Speech from Human Auditory Cortex](../../reviews/reconstructing-speech-from-human-auditory-cortex/)
+- Used in: [Reconstructing Speech from Human Auditory Cortex](../../reviews/reconstructing-speech-from-human-auditory-cortex/), [Towards reconstructing intelligible speech from the human auditory cortex](../../reviews/towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex/)
 
 ## heterogeneous-electrode-configuration-input
 

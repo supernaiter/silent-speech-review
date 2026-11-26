@@ -1,0 +1,20 @@
+# Triage of the evaluation (2026-11-26)
+
+| # | Verdict | Evidence | Where applied |
+|---|---|---|---|
+| H1 | applied | Wairagkar et al. 2025 (wiki doi-10.1038-s41586-025-09127-3, Results): 94.34% mean six-sentence match, median open-transcription WER 43.75%; production, one participant. Li et al. 2024 (wiki doi-10.1101-2024.12.16.628596, Abstract, Introduction, Results): 9 participants listening to TIMIT, frozen pre-trained wav2vec 2.0 latent and HiFi-GAN, 71.6% word recognition, PER 28.6%, ESTOI 0.377. | M06 and M12 State of the art; slots M06/M12 sota; Appendix; refs (Angrick 2024 removed); audits state_of_the_art_<slug>; notes c10-c16 |
+| H2 | applied | The target's reference list includes "Progress in speech decoding from the electrocorticogram" (Chakrabarti et al. 2015 review) and Herff et al. 2016 "Towards direct speech synthesis from ECoG: A pilot study". Guenther 2009 and the Chakrabarti thesis themselves are not cited. | "a lineage the paper does not cite" removed; Priority bullet now notes the cited review and pilot; notes t70, t71 |
+| M1 | applied | Mesgarani & Chang 2012 Abstract: spectrograms reconstructed from ECoG responses to heard two-talker mixtures; undated in the index, so missed by the year cutoff. Pasley 2012 modulation target from its published review. Verdict unchanged: 0 of 5 heard-speech priors decode vocoder parameters or a compressed code. | M06 Usual approach, Verdict, Appendix (5 of 5), slots M06 matched 5; audit prior_time_tally_<slug>; ref mesgarani2012; notes c17 |
+| M2 | applied | Re-checked the 19 pre-2018 M12 keys: excluded cEEGrid attention decoding, Cheung 2016 encoding, AV-speech MEG encoding, EEG entrainment, Matthews 2012 discrete-state decoding plus the 5 earlier exclusions; 9 remain, plus Mesgarani & Chang 2012 = 10, all correlation. Ids listed in the audit. | M12 Usual approach, Appendix, slots M12 matched 10; audit prior_time_tally_<slug> |
+| M3 | applied | SKILL verdict rule: standard when the difference is not supported well enough. Listener tokens from an unnamed patient or aggregation; no per-patient repetition. | Verdict; M12 closing paragraph |
+| M4 | applied | Supplementary Table 2 (notes t56): raw 0.30, network spectrogram 0.40, coded 0.47 isolates coding, not corpus or compression. | Verdict; M06 evidence ("credited to the externally pretrained compressed target") |
+| M5 | applied | Target Fig. 1 caption (t67): all models take low-frequency plus high-gamma input; Fig. 5A band gain (t36). | Verdict names M05; M06 evidence sentence; slots M05 note. M05 kept standard (no topic audit, band gain shown for one model) |
+| M6 | applied | Recall output: 18 keys, versions not merged; neural decoders before 2018-06 are Guenther 2009, Brumberg 2009, Guenther 2011, Matthews 2012 (one lineage) and Chakrabarti 2015; Brumberg 2018 EEG imagery is [concurrent]; the rest are reviews, mentions or non-neural. | M06 evidence; Appendix; audit recall_check_<slug> |
+| L1 | applied | Target Methods (t69): 256 chosen for objective and subjective accuracy; subjective comparison not tabulated. | Bottleneck bullet |
+| L2 | partly applied | Cutoff wording now "first public 2017 or earlier (target bioRxiv 2018-06; 2018 works counted as [concurrent])". prep/target.json not edited: it belongs to the prep process and its 2019-01 date does not reach the review. | M06 Usual approach; verification_status |
+| L3 | applied | Target Introduction (t66): "evaluated only using objective measures such as correlation or recognition accuracy". | M12 Usual approach |
+| L4 | applied | Method restatement in M12 removed; search narration in the M06 body shortened to the finding with Appendix reference. | M12, M06 |
+| L5 | partly applied | Contradictory t19 condition corrected (values in Supplementary Table 2, t56). The supplementary PDF is not in the wiki, so no verifiable quote with numbers can be added; the review gives the table locations. | notes t19; verification_status |
+| L6 | applied | Target Results (t68): 128 randomly chosen electrodes for the 10-30 minute sweep. | Pooling bullet; slots M03 note |
+
+Counts: 12 applied, 2 partly applied, 0 rejected.

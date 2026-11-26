@@ -1,6 +1,6 @@
 {
  "slug": "towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,28 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-26T09:12:34+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-26T09:21:33+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "12 applied, 2 partly applied, 0 rejected.",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-26T09:26:46+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 80 found, 0 missing, 8 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-heard-speech-reconstruction-target-representation": "ok",
+  "topic counts M12-neural-speech-reconstruction-identification-test": "ok"
+ },
  "inputs": {
   "notes_sha256": "965e71f662a2263680c3a5a824e2fb2d29631e941afeea7df0f1e423808bc6b6",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +59,6 @@
  },
  "body_chars": {
   "draft": 15955,
-  "final": null
+  "final": 17570
  }
 }
