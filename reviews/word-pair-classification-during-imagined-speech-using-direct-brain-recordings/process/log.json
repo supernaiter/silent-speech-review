@@ -1,6 +1,6 @@
 {
  "slug": "word-pair-classification-during-imagined-speech-using-direct-brain-recordings",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,29 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-26T18:16:12+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-26T18:24:52+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-26T18:32:20+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 112 found, 0 missing, 16 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-intracranial-imagined-speech-decoder-time-alignment": "ok",
+  "topic counts M08-intracranial-imagined-speech-output-unit": "ok",
+  "topic counts M12-intracranial-imagined-speech-test-partition": "ok"
+ },
  "inputs": {
   "notes_sha256": "c3662217dc6f8db7caf14e0a756fa80272f09e30741257ba19e960dc2c260c56",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +60,6 @@
  },
  "body_chars": {
   "draft": 17462,
-  "final": null
+  "final": 19055
  }
 }
