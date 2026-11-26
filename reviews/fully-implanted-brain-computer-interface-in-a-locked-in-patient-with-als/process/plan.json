@@ -1,0 +1,64 @@
+{
+ "target": "pmc-5326682-als-implant-bci",
+ "source": "corrected from prep/plan/out.json (prep partial, no prep.done): key=value design regexes and the narrow ALS-only home-use patterns replaced; M04 moved to inherited; M07 and M11 kept as table rows only",
+ "changed": [
+  {
+   "slot": "M13",
+   "topics": [
+    {
+     "topic": "wireless-implanted-speech-bci",
+     "reuse": "components/M13/wireless-implanted-speech-bci.json",
+     "inclusion_rule": "Speech or communication studies that record from implanted neural sensors (intracortical, ECoG, sEEG, depth) in humans or animals, classified by how the signal leaves the body: percutaneous connector or pedestal, wireless telemetry (including a transmitter mounted on a percutaneous pedestal), or a fully implanted system with no skin-penetrating hardware. Boundary: reviews and related-work mentions inflate the full-text counts (upper bounds); wearable EMG/EEG wireless devices are outside the population (ledger modality filter).",
+     "pattern": "(?s)^(?=.*modalities=[^|]*(intracortical_microelectrode|ecog|seeg|intracranial|depth))(?=.*(speech|phonem|vowel|articulat|vocali|spell|communicat))",
+     "design_regex": [
+      "percutaneous_connector=percutaneous|pedestal",
+      "wireless_telemetry=wireless|telemetr",
+      "fully_implanted=fully[- ]implant|totally[- ]implant|fully implantable"
+     ],
+     "metric": "skin-closed communication use"
+    },
+    {
+     "topic": "implanted-communication-bci-home-use",
+     "inclusion_rule": "Same population as M13/wireless-implanted-speech-bci (implanted neural sensors, speech or communication); the design compared is where and by whom the system is operated: hospital or laboratory sessions (epilepsy monitoring, bedside, laboratory), sessions at the participant's home, and use without investigators present (independent use). Boundary: full-text pattern counts with the reference list removed, so related-work mentions count (upper bounds); a study counts under every setting it names; versions counted once.",
+     "pattern": "(?s)^(?=.*modalities=[^|]*(intracortical_microelectrode|ecog|seeg|intracranial|depth))(?=.*(speech|phonem|vowel|articulat|vocali|spell|communicat))",
+     "design_regex": [
+      "hospital_or_laboratory",
+      "home_use",
+      "independent_home_use"
+     ],
+     "metric": "duration of independent home use"
+    }
+   ]
+  }
+ ],
+ "incidental": [
+  {
+   "slot": "M12",
+   "topics": [
+    {
+     "topic": "implanted-communication-bci-chance-and-false-positives",
+     "inclusion_rule": "Same population as M13/wireless-implanted-speech-bci; the design compared is the floor reported for decoding or selection accuracy: a chance level or shuffled or permutation null, and a false-positive (unintended selection) rate. Boundary: full-text pattern counts with the reference list removed (upper bounds; offline classification studies count); a study counts under every design it names.",
+     "pattern": "(?s)^(?=.*modalities=[^|]*(intracortical_microelectrode|ecog|seeg|intracranial|depth))(?=.*(speech|phonem|vowel|articulat|vocali|spell|communicat))",
+     "design_regex": [
+      "chance_level",
+      "false_positive_rate"
+     ],
+     "metric": "online task accuracy"
+    }
+   ]
+  }
+ ],
+ "inherited": {
+  "M01": "Attempted-hand-movement practice tasks (motor-attempt ECoG BCI lineage).",
+  "M02": "Task cues as labels; not described.",
+  "M03": "Single-user parameter tuning, then fixed settings (day 157).",
+  "M04": "Attempted hand movement as a brain click in a scanning speller (switch-scanning AAC lineage).",
+  "M05": "Subdural ECoG strips over hand motor cortex; 2 strips connected to the implant.",
+  "M06": "Automated ECoG feature extraction to a click; decoder not specified in the main text.",
+  "M07": "Word prediction of the commercial speller (Communicator 5); configuration not given.",
+  "M08": "Letters typed by row/column scanning.",
+  "M09": "No separate confirmation beyond the scanning selection.",
+  "M10": "No correction procedure described.",
+  "M11": "Dictated words with active and inactive scan steps scored together."
+ }
+}
