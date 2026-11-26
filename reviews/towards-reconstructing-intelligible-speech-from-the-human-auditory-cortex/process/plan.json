@@ -1,0 +1,45 @@
+{
+ "target": "doi-10.1038-s41598-018-37359-z",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Passive listening to continuous speech during neural data collection, inherited from auditory-cortex speech-perception paradigms; no new participant training action is introduced.",
+  "M02": "Paired neural responses and acoustic targets follow the neural-to-speech reconstruction lineage; no separate training-only auxiliary phoneme, CTC, or text supervision is reported.",
+  "M04": "Offline reconstruction from neural responses to heard speech, without a new use-time user action, follows the auditory-cortex decoding lineage.",
+  "M07": "Direct acoustic-parameter prediction and vocoder synthesis are used without a use-time lexicon or language model, as in the acoustic-reconstruction lineage.",
+  "M08": "Audio speech synthesized from WORLD vocoder parameters is the established output form; the paper changes the neural decoding representation, not the output modality.",
+  "M09": "The offline reconstruction and listening-evaluation lineage has no live presentation, confirmation, or commit interface.",
+  "M10": "The offline reconstruction lineage has no interactive correction, re-entry, or action-adjustment stage.",
+  "M13": "Clinical invasive-ECoG access and limited cortical coverage are inherited operating constraints; the paper introduces no new device, cost, power, latency, or safety specification.",
+  "M03": "Per-patient training on 30 minutes of story listening, as in the auditory-cortex reconstruction lineage (Pasley 2012, Yang 2015); the duration sweep is an analysis, not a new training design.",
+  "M05": "Clinical subdural and depth ECoG with high-gamma features, as in the lineage; the low-frequency band and electrode-count sweeps are analyses kept to the table and the claims section.",
+  "M11": "Presented stimulus as reference, responses averaged over repetitions; the repetition-count inconsistency goes to the claims section."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "heard-speech-reconstruction-target-representation",
+   "reuse": "components/M06/heard-speech-reconstruction-target-representation.json",
+   "inclusion_rule": "Studies whose ledger text names intracranial or auditory-cortex recordings, a listening or perception condition, an acoustic representation (spectrogram, temporal modulation, envelope or vocoder features) and reconstruction, decoding or synthesis. The design of interest is the acoustic representation that the decoder reconstructs from neural activity during heard speech: auditory/linear spectrogram, temporal-modulation energy, envelope only, or vocoder parameters. Boundary: production-only synthesis studies and encoding-only studies admitted by the pattern are counted but are not heard-speech reconstruction; full-text design regexes overlap and are upper bounds; versions of one study count once.",
+   "pattern": "(?is)^(?=.*(?:ECoG|electrocorticograph|intracranial|sEEG|stereo-?EEG|depth electrode|auditory cortex|superior temporal))(?=.*(?:listening|perception|perceived|heard|passive))(?=.*(?:spectrogram|temporal modulation|modulation energy|envelope|vocoder))(?=.*(?:reconstruct|decod|synthesi))",
+   "design_of_interest": "decoding target (spectrogram / envelope / modulation / synthesizer or vocoder parameters / compressed latent) and regression family (linear / DNN), counted at the target's first public date 2019-01 over deduplicated heard-speech neural reconstruction studies; off-population matches (behavioural, encoding-only, attention decoding, production, non-neural) excluded by inspection.",
+   "metric": "listener digit accuracy / ESTOI; SOTA from sota_candidates with listener intelligibility of neural speech synthesis.",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "neural-speech-reconstruction-identification-test",
+   "reuse": "components/M12/neural-speech-reconstruction-identification-test.json",
+   "inclusion_rule": "Studies that reconstruct a continuous acoustic speech representation (spectrogram, mel features, envelope or waveform) from neural recordings (EEG, MEG, ECoG, sEEG or intracortical) during perceived, produced, mimed or imagined speech and evaluate the reconstruction. Boundary: classification-only and text-only decoders are excluded; auditory attention decoding that only tracks an envelope to select a talker is counted by the ledger pattern but is not a reconstruction study; versions of one study count once. Design categories are full-text pattern matches and overlap: correlation, identification among candidates, mel-cepstral distortion, human listening test, STOI.",
+   "pattern": "(?s)^(?=.*\\b(eeg|meg|ecog|seeg|stereo-?eeg|intracortical|intracranial|microelectrode)\\b)(?=.*(spectrogram|mel[- ]|envelope|waveform|vocoder|acoustic feature)).*?(reconstruct\\w*|synthesi[sz]\\w*|brain[- ]to[- ]speech)",
+   "design_of_interest": "human listener test of reconstructed audio versus correlation-only evaluation, counted before 2019-01 over deduplicated reconstruction-evaluation studies.",
+   "metric": "listener closed-set word recognition %",
+   "better": "higher"
+  }
+ ],
+ "prep_used": "prep/plan.draft.json corrected: M06 topic replaced by the published heard-speech target-representation table (prep topic pattern was overbroad lookahead conjunction without design counts); M03/M05/M11 topics dropped (table-only, inherited analyses); M12 kept as the published table. No prep.done, no notes.merged.json, no comparators: deciding priors chosen by the writer."
+}
