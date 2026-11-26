@@ -175,6 +175,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Intracortical BCI studies (ledger population: 33 unique studies (46 folders) whose ledger text names an intracortical recording (intracortical, Utah array, microelectrode array) together with cursor, point-and-click, keyboard, typing, text entry, characters per minute, ccpm or grid task); the design compared is the decoder that turns neural activity into text-entry selections: continuous Kalman-family cursor decoder (ReFIT-KF or Kalman filter), discrete click decoder (HMM or LDA state classifier), dwell selection, recurrent-network decoders of characters or words. Boundary: full-text pattern counts with the reference list removed, so related-work mentions and reviews count (upper bound); a study counts under every design it names; the target is included; versions counted once.
 - Used in: [High performance communication by people with paralysis using an intracortical brain-computer interface](../../reviews/high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf/)
 
+## intracranial-phoneme-inventory-classification
+
+- Table: [`intracranial-phoneme-inventory-classification.csv`](intracranial-phoneme-inventory-classification.csv) (7345 slot-filled, 101 pattern match, usual design in 4, 5 read in full)
+- Inclusion rule: Studies whose ledger text names an intracranial signal (ECoG, sEEG, intracortical, Utah array) together with phonemes, vowels, consonants or syllables (the population of the published topic intracranial-speech-unit-classification); the design of interest is the size of the speech-unit class set: the full phoneme inventory of a language (all phonemes, 38-44 classes) versus a small subset of two to six phonemes, vowels or syllables. Boundary: listening-only, mapping-only and review papers matched by the pattern stay in the count (upper bound); a study counts under every design its full text names; versions of one study count once; usual approach judged on studies first public before 2013-11 (more than six months before the target).
+- Used in: [Direct classification of all American English phonemes using signals from functional speech motor cortex](../../reviews/direct-classification-of-all-american-english-phonemes-using-signals-from-functional-speech-motor-co/)
+
 ## intracranial-speech-unit-classification
 
 - Table: [`intracranial-speech-unit-classification.csv`](intracranial-speech-unit-classification.csv) (7345 slot-filled, 101 pattern match, usual design in 2, 3 read in full)
@@ -400,6 +406,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Table: [`whisper-conversion-intermediate-representation.csv`](whisper-conversion-intermediate-representation.csv) (7345 slot-filled, 60 pattern match, usual design in 50, 5 read in full)
 - Inclusion rule: Same population as M02/whisper-to-normal-training-pairing (unvoiced or whispered acoustic or body-conducted speech converted to voiced speech audio); classify the intermediate representation the converter maps through: frame-level spectral features (MCEP, mel spectrogram, GMM/DNN mapping), self-supervised speech units or features (HuBERT, wav2vec, ContentVec), or an ASR-to-TTS text cascade. Boundary: an SSL model used only for evaluation does not count; recognition-only and normal-to-whisper studies are excluded; count versions once.
 - Used in: [WESPER: Zero-shot and Realtime Whisper to Normal Voice Conversion for Whisper-based Speech Interactions](../../reviews/wesper-zero-shot-and-realtime-whisper-to-normal-voice-conversion-for-whisper-based-speech-interactions/)
+
+## within-word-phoneme-onset-classification
+
+- Table: [`within-word-phoneme-onset-classification.csv`](within-word-phoneme-onset-classification.csv) (7345 slot-filled, 51 pattern match, usual design in 27, 5 read in full)
+- Inclusion rule: Studies in the wiki first public before 2013-11 (index year, else manifest date; every 2013 item checked by month, one with an unresolved month excluded) whose full text names an intracranial recording (ECoG, intracortical, sEEG, Utah or microelectrode array, single units, depth electrodes) and a speech unit (phoneme, vowel, consonant, syllable); the design of interest is whether analysis windows are aligned to the onset of each phoneme inside a produced word (phoneme events within words) or to the trial cue, stimulus or word or speech onset. Boundary: perception, review and mapping papers stay in the population (upper bound); versions merged by title; target and its duplicate folder excluded;
+- Used in: [Direct classification of all American English phonemes using signals from functional speech motor cortex](../../reviews/direct-classification-of-all-american-english-phonemes-using-signals-from-functional-speech-motor-co/)
 
 ## word-lipreading-temporal-backend
 

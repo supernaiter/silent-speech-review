@@ -9259,6 +9259,7 @@
  "deciding_priors_note": "Held-out-subject testing of a multi-subject intracranial speech decoder predates the target (Chen et al., bioRxiv 2024-03, read).",
  "used_by": [
   "decoding-vowels-and-consonants-in-spoken-and-imagined-words-using-electrocorticographic-signals-in-h",
+  "direct-classification-of-all-american-english-phonemes-using-signals-from-functional-speech-motor-co",
   "towards-unified-neural-decoding-with-brain-functional-network-modeling"
  ],
  "tally": {
@@ -9344,5 +9345,68 @@
   "correction": "folder doi-10.1016-j.neuron.2010.10.029 duplicates the text of doi-10.1523-jneurosci.1809-10.2010 (wiki defect): 16 index keys are 15 unique studies; k_fold_cross_validation 3 of 15, random_trial_split 0, held_out_session_or_day 0, held_out_subject 0 (pattern match). The read prior Kellis 2010 used a fixed 15/15 split of adjacent trials per word.",
   "population_unique_corrected": 13,
   "correction_triage": "Triage 2026-11-26: pmc-3342676-gammaev (epub May 2012) and pmc-3321121-revspeech (epub Feb 2012) carry index year 2010 but are 2012 papers; with the neuron-folder duplicate removed the prior base is 13 unique studies; k_fold_cross_validation 3 of 13 (pattern match)."
+ },
+ "prior_tally_direct-classification-of-all-american-english-phonemes-using-signals-from-functional-speech-motor-co": {
+  "basis": "ledger pattern-match candidates of the published population first public before 2013-11 (index year or manifest date; all 2013 items checked to fall before November), target and duplicate folder excluded, 18 undated excluded; versions merged (Brumberg 2011: 3 folders; Pei 2011: 2; Pei 2011b NeuroImage: 2; the neuron-folder duplicate of doi-10.1523-jneurosci.1809-10.2010; Pasley 2012: pmc-3269422-pasley and doi-10.1371-journal.pbio.1001251); design counts are full-text pattern matches with reference lists removed",
+  "population_unique": 33,
+  "design_regex": {
+   "k_fold_cross_validation": "\\b(\\d+|two|three|four|five|six|seven|eight|nine|ten)[- ]fold\\b|leave[- ]one[- ](trial|out)\\b",
+   "random_trial_split": "random(ly)?\\s+(split|partition|divided|assigned|selected)",
+   "held_out_session_or_day": "(held[- ]out|different|separate|subsequent|later|another)\\s+(recording\\s+)?(session|day)s?\\b|across\\s+(sessions|days)",
+   "held_out_subject": "leave[- ]one[- ](subject|participant|patient|speaker)[- ]out|(held[- ]out|unseen|new)\\s+(subject|participant|patient)s?\\b"
+  },
+  "design_counts": [
+   {
+    "design": "k_fold_cross_validation",
+    "n": 9,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1371-journal.pone.0008218",
+     "doi-10.1016-j.specom.2009.08.002",
+     "doi-10.1038-nn.2641",
+     "doi-10.1088-1741-2560-8-4-046028",
+     "doi-10.1093-cercor-bhr014",
+     "doi-10.3389-fnins.2011.00065",
+     "pmc-3637898-guenther",
+     "gatech-matthews-201212-phd",
+     "pmc-3269422-pasley"
+    ]
+   },
+   {
+    "design": "random_trial_split",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "isca-brumberg09_bcisynth",
+     "doi-10.1016-j.specom.2009.08.002",
+     "doi-10.1016-j.specom.2010.01.001",
+     "pmc-2829990-bcispeech",
+     "doi-10.3389-fnins.2011.00065",
+     "pmc-3637898-guenther",
+     "gatech-matthews-201212-phd",
+     "pmc-3269422-pasley"
+    ]
+   },
+   {
+    "design": "held_out_session_or_day",
+    "n": 5,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1371-journal.pone.0008218",
+     "doi-10.1371-journal.pone.0014744",
+     "doi-10.1038-ncomms1995",
+     "gatech-matthews-201212-phd",
+     "doi-10.1007-s10162-013-0382-3"
+    ]
+   },
+   {
+    "design": "held_out_subject",
+    "n": 0,
+    "tier": "pattern match",
+    "pids": []
+   }
+  ],
+  "note": "Held-out-session hits are wording matches (for example sessions mentioned in a multi-session recording) and were not read as test partitions; no behind verdict rests on them.",
+  "cutoff": "2013-11"
  }
 }
