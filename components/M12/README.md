@@ -106,7 +106,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`intracranial-speech-test-partition.csv`](intracranial-speech-test-partition.csv) (6960 slot-filled, 618 pattern match, usual design in 132, 2 read in full)
 - Inclusion rule: Speech or language decoding studies from intracranial recordings (sEEG, ECoG, intracortical arrays) whose ledger text names the signal and a speech unit; the design of interest is how test data are separated from training data: random trial split, k-fold cross-validation, held-out session or day, or held-out subject. Boundary: the ledger pattern also admits reviews, listening studies and non-intracranial papers that mention intracranial work, so counts are upper bounds; versions of one study count once.
-- Used in: [Towards Unified Neural Decoding with Brain Functional Network Modeling](../../reviews/towards-unified-neural-decoding-with-brain-functional-network-modeling/)
+- Used in: [Decoding Vowels and Consonants in Spoken and Imagined Words Using Electrocorticographic Signals in Humans](../../reviews/decoding-vowels-and-consonants-in-spoken-and-imagined-words-using-electrocorticographic-signals-in-h/), [Towards Unified Neural Decoding with Brain Functional Network Modeling](../../reviews/towards-unified-neural-decoding-with-brain-functional-network-modeling/)
 
 ## lip-command-recognition-test-split
 

@@ -175,6 +175,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Intracortical BCI studies (ledger population: 33 unique studies (46 folders) whose ledger text names an intracortical recording (intracortical, Utah array, microelectrode array) together with cursor, point-and-click, keyboard, typing, text entry, characters per minute, ccpm or grid task); the design compared is the decoder that turns neural activity into text-entry selections: continuous Kalman-family cursor decoder (ReFIT-KF or Kalman filter), discrete click decoder (HMM or LDA state classifier), dwell selection, recurrent-network decoders of characters or words. Boundary: full-text pattern counts with the reference list removed, so related-work mentions and reviews count (upper bound); a study counts under every design it names; the target is included; versions counted once.
 - Used in: [High performance communication by people with paralysis using an intracortical brain-computer interface](../../reviews/high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf/)
 
+## intracranial-speech-unit-classification
+
+- Table: [`intracranial-speech-unit-classification.csv`](intracranial-speech-unit-classification.csv) (7345 slot-filled, 101 pattern match, usual design in 2, 3 read in full)
+- Inclusion rule: Studies whose ledger text names an intracranial signal (ECoG, sEEG, intracortical, Utah array) together with phonemes, vowels, consonants or syllables; the design of interest is whether speech units are decoded from each electrode separately (with the best location reported) or from several electrodes jointly. Boundary: listening-only and review papers matched by the pattern stay in the count (upper bound); word-level intracranial decoders are outside the pattern and are used only as read priors; versions of one study count once; usual approach judged on studies first public before 2011.
+- Used in: [Decoding Vowels and Consonants in Spoken and Imagined Words Using Electrocorticographic Signals in Humans](../../reviews/decoding-vowels-and-consonants-in-spoken-and-imagined-words-using-electrocorticographic-signals-in-h/)
+
 ## intracranial-synthesis-decoder-architecture
 
 - Table: [`intracranial-synthesis-decoder-architecture.csv`](intracranial-synthesis-decoder-architecture.csv) (7345 slot-filled, 180 pattern match, usual design in 79, 4 read in full)

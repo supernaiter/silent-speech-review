@@ -2,6 +2,12 @@
 
 Topics searched for this component across the whole field, and the confirmed papers. Each table lists every candidate found in the ledgers and full texts, read and marked include or exclude.
 
+## covert-speech-decoding-with-paired-overt-condition
+
+- Table: [`covert-speech-decoding-with-paired-overt-condition.csv`](covert-speech-decoding-with-paired-overt-condition.csv) (5595 slot-filled, 777 pattern match, usual design in 10, 6 read in full)
+- Inclusion rule: Studies whose ledger text names decoding, classification or recognition together with imagined, covert, inner or unspoken speech (any signal: EEG, MEG, ECoG, sEEG, intracortical, EMG, video). The design of interest is a decoder trained and tested on imagined-speech trials, with an overt condition on the same items in the same participants, from intracranial recordings. Boundary: attempted speech by paralysed users is a different action and is not counted as imagined speech; the ledger pattern also admits lip-reading and perception studies that mention covert speech, so counts are upper bounds; versions of one study count once; usual approach judged on studies first public before 2011.
+- Used in: [Decoding Vowels and Consonants in Spoken and Imagined Words Using Electrocorticographic Signals in Humans](../../reviews/decoding-vowels-and-consonants-in-spoken-and-imagined-words-using-electrocorticographic-signals-in-h/)
+
 ## imagined-speech-test-trial-averaging
 
 - Table: [`imagined-speech-test-trial-averaging.csv`](imagined-speech-test-trial-averaging.csv) (5595 slot-filled, 68 pattern match, usual design in 9, 1 read in full)
