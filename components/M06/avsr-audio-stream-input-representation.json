@@ -5300,6 +5300,33 @@
    "role": "prior",
    "loc": "Sec. 5",
    "quote": "By replacing the raw audio features with the log-Mel filter-bank features, we observe the same performance, WER 4.3 %"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "3.1 Audio Features",
+   "quote": "Since the video is sampled at 25 fps (40 ms per frame), every video input frame corresponds to 4 acoustic feature frames.",
+   "timing": "prior",
+   "note": "25 fps, 4 audio frames per video frame",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1810.00108",
+   "role": "prior",
+   "loc": "6. RESULTS",
+   "quote": "It should be noted that the results shown cor- respond to visual features upsampled to 50 fps using linear interpolation.",
+   "timing": "prior",
+   "note": "visual features upsampled to 50 fps",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2012.07467",
+   "role": "prior",
+   "loc": "2.7. Comparison to related work",
+   "quote": "They report tailoring the audio feature extraction strategy to match the video frame rate by shifting the spectral analysis window with variable increments.",
+   "timing": "later",
+   "note": "describes the target variable-increment audio window; [later] work (2020-12), role field limited to target|sota|prior",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
   }
  ],
  "known_item_recall": {
@@ -5320,7 +5347,8 @@
  },
  "used_by": [
   "end-to-end-audio-visual-speech-recognition-with-conformers",
-  "end-to-end-audiovisual-speech-recognition"
+  "end-to-end-audiovisual-speech-recognition",
+  "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
  ],
  "tally": {
   "slot_filled_unique": 7345,
@@ -5345,10 +5373,50 @@
    "arxiv-1802.06424",
    "arxiv-1810.00108",
    "arxiv-1911.04890",
-   "arxiv-2102.06657"
+   "arxiv-2102.06657",
+   "arxiv-1809.02108",
+   "arxiv-2012.07467"
   ],
   "unread": 499,
   "confirmed_unique": 0,
   "known_item_recall": 0.8
+ },
+ "counts_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "regex": {
+   "video_upsampling": "upsampl\\w*[^.]{0,60}(video|visual|frames)|(video|visual)[^.]{0,60}upsampl|interpolat\\w*[^.]{0,60}(video|visual) (frames|features|stream)|(video|visual) (frames|features|stream)[^.]{0,40}interpolat",
+   "variable_frame_rate": "variable[- ](video )?frame[- ]rates?|frame[- ]rates?[^.]{0,60}(vary|varies|varying|variable)",
+   "filterbank_mfcc": "filter[- ]?banks?|\\bfbank\\b|log[- ]mel|\\bmfccs?\\b|mel[- ]frequency cepstral|spectrogram"
+  },
+  "date_rule": "first-public month from the arXiv id, year from the index or the ISCA id; a study dated only to 2019 is checked separately; versions merged by key; full text with the reference list removed",
+  "tier": "pattern match (unique studies, upper bound)",
+  "cutoff": "2019-11",
+  "before_2019_11": {
+   "population": 107,
+   "video_upsampling": 11,
+   "variable_frame_rate": 0,
+   "filterbank_mfcc": 67
+  },
+  "all_dates": {
+   "population": 349,
+   "filterbank_mfcc": 182,
+   "video_upsampling": 28,
+   "variable_frame_rate": 2,
+   "audio_downsampled": 3
+  },
+  "variable_frame_rate_all_dates_studies": [
+   "arxiv-1911.04890 (target)",
+   "arxiv-2012.07467 (describes the target)"
+  ]
+ },
+ "usual_approach_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "design": "fixed common rate: video features upsampled or interpolated to the audio rate (or video downsampled to 25 fps with stacked audio, Afouras et al.)",
+  "n": 11,
+  "tier": "pattern match",
+  "population_unique": 107,
+  "pids": [
+   "arxiv-1810.00108",
+   "arxiv-1804.11127",
+   "arxiv-1809.02108"
+  ]
  }
 }

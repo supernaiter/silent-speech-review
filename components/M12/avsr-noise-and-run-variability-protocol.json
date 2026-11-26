@@ -5348,6 +5348,33 @@
    "role": "sota",
    "loc": "Table 13",
    "quote": "Mean and standard deviation over three random seeds are reported for the"
+  },
+  {
+   "pid": "arxiv-2406.10082",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "Our models achieve state-of-the-art ASR WER (0.68%) and A VSR WER (0.76%) on LRS3, and state- of-the-art ASR WER (1.3%) and A VSR WER (1.4%) on LRS2.",
+   "timing": "later",
+   "note": "",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "TM-seq2seq V 49.8% 48.3% 59.9% 58.9% TM-seq2seq A 10.5% 9.7% 9.0% 8.3% TM-seq2seq A V 9.4% 8.5% 8.0% 7.2%",
+   "timing": "prior",
+   "note": "external-LM columns",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2406.10082",
+   "role": "sota",
+   "loc": "Table 3",
+   "quote": "LP Conformer [28] NoiseX - 100k - - 0.9 1.9",
+   "timing": "later",
+   "note": "0 dB babble table",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
   }
  ],
  "state_of_the_art": {
@@ -5361,6 +5388,7 @@
  "used_by": [
   "end-to-end-audio-visual-speech-recognition-with-conformers",
   "end-to-end-audiovisual-speech-recognition",
+  "recurrent-neural-network-transducer-for-audio-visual-speech-recognition",
   "robust-self-supervised-audio-visual-speech-recognition"
  ],
  "tally": {
@@ -5458,5 +5486,51 @@
   "value": "2.9 ± 0.1",
   "unit": "% WER",
   "timing": "later"
+ },
+ "counts_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "regex": "the published regexes in counts_robust-self-supervised-audio-visual-speech-recognition",
+  "date_rule": "first-public month from the arXiv id, year from the index or the ISCA id; a study dated only to 2019 is checked separately; versions merged by key; full text with the reference list removed",
+  "tier": "pattern match (unique studies, upper bound)",
+  "cutoff": "2019-11",
+  "before_2019_11": {
+   "population": 107,
+   "babble_noise": 38,
+   "interfering_speech_noise": 10,
+   "additive_noise_snr": 56,
+   "variability_estimate": 9,
+   "additive_noise_without_variability": 50,
+   "variability_pids": [
+    "doi-10.1007-s10844-016-0438-z",
+    "doi-10.1016-j.specom.2017.01.005",
+    "doi-10.1109-tsp.2009.2026513",
+    "doi-10.5772-6364",
+    "isca-lucey01_eurospeech",
+    "isca-potamianos01_eurospeech",
+    "isca-seymour05_postfusion",
+    "oa-W2257285929",
+    "openaccess_avsp_talle99"
+   ],
+   "no_additive_noise_snr": 51
+  },
+  "note": "all 9 variability matches before 2019-11 are dated 2017 or earlier; none is a neural sentence-level AVSR study"
+ },
+ "usual_approach_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "design": "largest group: additive-noise test at stated SNRs without a variability estimate (51 of 107 state no SNR test)",
+  "n": 50,
+  "tier": "pattern match",
+  "population_unique": 107,
+  "pids": [
+   "arxiv-1809.02108",
+   "arxiv-1810.00108"
+  ]
+ },
+ "state_of_the_art_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "pid": "arxiv-2302.10915",
+  "year": 2023,
+  "metric": "LRS3 AVSR WER, 0 dB babble (NoiseX), as tabulated by arxiv-2406.10082 Table 3; Whisper-Flamingo 5.6% with LRS3 babble; noise sets differ",
+  "value": 1.9,
+  "unit": "% WER",
+  "timing": "later",
+  "source": "arxiv-2406.10082 Table 3"
  }
 }

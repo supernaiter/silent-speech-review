@@ -1,0 +1,133 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Voiced speech in public YouTube videos"
+     ],
+     "field": "Voiced speech recorded for training",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M02": {
+     "choice": [
+      "31k h YouTube video, ASR-checked captions"
+     ],
+     "field": "No single corpus of 1,000 h or more; of 361 before 2019-11",
+     "n": 361,
+     "matched": 360,
+     "verdict": "standard",
+     "note": "Scale-up of the V2P pipeline (3,886 h) [@shillingford2018v2p]; corpus not released."
+    },
+    "M03": {
+     "choice": [
+      "Audio dropout; competing speech in 10% of training"
+     ],
+     "field": "No noise, competing speech or modality dropout; of 107 before 2019-11",
+     "n": 107,
+     "matched": 80,
+     "verdict": "standard",
+     "note": "Competing-speaker training predates it on GRID [@chao2016speaker]; modality dropout credited to the authors' ref. [32]; one run, one test set."
+    },
+    "M04": {
+     "choice": [
+      "Voiced speech; noise added at test"
+     ],
+     "field": "Voiced speech at use time",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Mouth crops, 23 to 30 fps; 16 kHz audio"
+     ],
+     "field": "Camera mouth region plus microphone",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited from the V2P front end."
+    },
+    "M06": {
+     "choice": [
+      "RNN-T; audio shift tied to video frame rate"
+     ],
+     "field": "CTC or attention decoders (neural systems, 2018)",
+     "matched": null,
+     "verdict": "standard",
+     "note": "No earlier neural transducer in the ledger (Appendix), but no comparison with CTC or attention on the same data."
+    },
+    "M07": {
+     "choice": [
+      "External LM not stated; characters, no lexicon; beam 4"
+     ],
+     "field": "LM in decoding varies",
+     "matched": null,
+     "verdict": "missing",
+     "note": "Character outputs and beam width are reported; external LM use is not (Sec. 1, Sec. 4)."
+    },
+    "M08": {
+     "choice": [
+      "Characters (75 symbols)"
+     ],
+     "field": "Text output",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "None (offline)"
+     ],
+     "field": "Mostly absent",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None (offline)"
+     ],
+     "field": "Mostly absent",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Non-public YTD EV18; LRS3-TED test"
+     ],
+     "field": "Public benchmark split",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Video-ID exclusion only; speakers not reported."
+    },
+    "M12": {
+     "choice": [
+      "Babble, competing speech, 95% CIs; one run"
+     ],
+     "field": "Largest group: noise at stated SNRs, no variability estimate; of 107 before 2019-11",
+     "n": 107,
+     "matched": 50,
+     "verdict": "standard",
+     "note": "Test-set intervals are rare before 2019-11 (Appendix); no seeds or repeated runs."
+    },
+    "M13": {
+     "choice": [
+      "128 TPU cores; data and models restricted"
+     ],
+     "field": "Offline GPU or TPU training",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    }
+   }
+  }
+ ]
+}

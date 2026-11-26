@@ -5300,6 +5300,60 @@
    "role": "prior",
    "loc": "Sec. 4 (noisy samples)",
    "quote": "the babble noise with SNR from -10 dB to 10 dB is added to audio stream with probabil- ity pn = 0.25"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "5.3 Training with noisy audio & multi-modal training",
+   "quote": "To help prevent this from happening, we add babble noise with 0dB SNR to the audio stream with probability pn = 0.25 during training.",
+   "timing": "prior",
+   "note": "babble 0 dB, p=0.25 in training",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "isca-chao16-spktarget",
+   "role": "prior",
+   "loc": "Sec. 3.1",
+   "quote": "we mix the target speaker and a background speaker’s utterances with equal weights",
+   "timing": "prior",
+   "note": "competing speaker mixed into GRID training audio",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Sec. 5.3",
+   "quote": "We synthesize the babble noise samples by mixing the signals of 20 different audio samples from the LRS2-BBC dataset.",
+   "timing": "prior",
+   "note": "babble from 20 LRS2 speech samples",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1810.00108",
+   "role": "prior",
+   "loc": "Sec. 5",
+   "quote": "During training babble noise at different SNR levels (0 dB, 5 dB and 10 dB) from the NOISEX database [28] might be added to the original audio clip.",
+   "timing": "prior",
+   "note": "NOISEX babble in training",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1811.05250",
+   "role": "prior",
+   "loc": "Sec. 3.3",
+   "quote": "We also add noise to original wav ﬁles wit h one of the 4 SNR randomly.",
+   "timing": "prior",
+   "note": "multi-condition training",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2302.10915",
+   "role": "sota",
+   "loc": "Sec. 5.3",
+   "quote": "We train the LP Conformer on YT by randomly dropping the video with 50% probability",
+   "timing": "later",
+   "note": "50% video dropout",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
   }
  ],
  "known_item_recall": {
@@ -5341,13 +5395,123 @@
   "read_prior": [
    "arxiv-1809.02108",
    "arxiv-2102.06657",
-   "cvf-xu20-msr"
+   "cvf-xu20-msr",
+   "arxiv-1810.00108",
+   "arxiv-1811.05250",
+   "isca-chao16-spktarget"
   ],
   "unread": 499,
   "confirmed_unique": 0,
   "known_item_recall": 0.5
  },
  "used_by": [
+  "recurrent-neural-network-transducer-for-audio-visual-speech-recognition",
   "robust-self-supervised-audio-visual-speech-recognition"
- ]
+ ],
+ "counts_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "regex": {
+   "modality_dropout": "modality[- ]dropout|moddrop|drop(ping|s|ped)? (out )?(the |one |either )?(entire )?(audio|visual|video|acoustic) (modality|stream|input|channel)|(audio|visual|video) (stream |modality )?drop[- ]?out|randomly (drop|mask|zero|remov)\\w* (out )?(one|either|the audio|the visual|the video|a) (modality|stream|input)|zero(ed|ing|s)? out (the )?(audio|visual|video)",
+   "noise_in_training": "(add|mix|corrupt|augment|contaminat)\\w*[^.]{0,100}(noise|babble)[^.]{0,100}(train|during training)|(train\\w*)[^.]{0,80}(noise|babble)[^.]{0,40}(added|augment|mixed|corrupt)|multi[- ]?(condition|style) training|noise augmentation|augment\\w*[^.]{0,60}noise",
+   "interfering_speech_in_training": "(mix|add|overlap)\\w*[^.]{0,80}(another|second|competing|interfering|random(ly selected)?) (training )?(utterance|speaker|talker|speech)[^.]{0,160}train|train\\w*[^.]{0,160}(mix|add|overlap)\\w*[^.]{0,80}(another|second|competing|interfering|random(ly selected)?) (training )?(utterance|speaker|talker|speech)"
+  },
+  "date_rule": "first-public month from the arXiv id, year from the index or the ISCA id; a study dated only to 2019 is checked separately; versions merged by key; full text with the reference list removed",
+  "tier": "pattern match (unique studies, upper bound)",
+  "cutoff": "2019-11",
+  "before_2019_11": {
+   "population": 107,
+   "modality_dropout": 0,
+   "noise_in_training": 7,
+   "interfering_speech_in_training": 0,
+   "neither_noise_nor_modality_dropout": 100,
+   "noise_in_training_pids": [
+    "arxiv-1611.05358",
+    "arxiv-1611.06986",
+    "arxiv-1809.02108",
+    "doi-10.5772-6364",
+    "isca-lucey02_icslp",
+    "isca-potamianos03_eurospeech",
+    "isca-yoshida10-twolayer"
+   ]
+  },
+  "all_dates": {
+   "population": 349,
+   "modality_dropout": 31,
+   "noise_in_training": 82,
+   "interfering_speech_in_training": 2
+  },
+  "recall_check": {
+   "scope": "all wiki studies with text first public before 2019-11",
+   "scanned": 2671,
+   "modality_dropout_hits": 0
+  },
+  "note": "The target adopts sentence-level modality dropout \"as in\" its reference [32] (Zhang et al., ICASSP 2019, bimodal DFSMN), which is not in the wiki; the design is credited to [32].",
+  "triage_2026_11_26": {
+   "regex_broadened": {
+    "noise_in_training_broad": "see tools/count_before.py run m03_before_v2",
+    "interfering_speech_training_broad": "(mix|overlap)\\w*[^.]{0,80}(target|background|second|another|competing|interfering)[^.]{0,30}(speaker|talker)|(two|2)[- ]speaker (mixture|dataset|speech)|overlapping speech[^.]{0,80}train|train\\w*[^.]{0,80}overlapping speech"
+   },
+   "before_2019_11": {
+    "population": 107,
+    "noise_in_training": 25,
+    "competing_speaker_in_training": 2,
+    "modality_dropout": 0,
+    "any": 27,
+    "none_lower_bound": 80,
+    "competing_speaker_pids": [
+     "isca-chao16-spktarget",
+     "isca-gabbay18_interspeech"
+    ],
+    "note": "isca-chao16-spktarget is an AVSR recognizer trained on two-speaker GRID mixtures; isca-gabbay18_interspeech is speech enhancement"
+   },
+   "all_dates": {
+    "population": 349,
+    "noise_in_training": 117,
+    "competing_speaker_in_training": 26,
+    "modality_dropout": 31
+   },
+   "recall_check_competing_speaker": {
+    "scope": "all wiki studies with text first public before 2019-11",
+    "scanned": 2671,
+    "hits": [
+     "arxiv-1711.08789",
+     "arxiv-1811.02480",
+     "arxiv-1904.03760",
+     "arxiv-1909.07352",
+     "doi-10.1109-taslp.2018.2835719",
+     "isca-aihara13_interspeech",
+     "isca-chao16-spktarget",
+     "isca-gabbay18_interspeech",
+     "isca-khan13-vissep",
+     "isca-khan13_avsp",
+     "isca-khan15-avsep",
+     "pmc-3810281-talkerxmod",
+     "pmc-5805380-attnselect",
+     "pmc3810281",
+     "yakel-2000-talkervar"
+    ],
+    "recognizers": [
+     "isca-chao16-spktarget"
+    ]
+   },
+   "replaces": "the earlier before_2019_11 noise_in_training 7 / interfering 0 / neither 100 values, which missed read priors arxiv-1810.00108, arxiv-1811.05250 and isca-chao16-spktarget"
+  }
+ },
+ "usual_approach_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "design": "no noise, competing speech or modality dropout named in training (lower bound)",
+  "n": 80,
+  "tier": "pattern match",
+  "population_unique": 107,
+  "pids": [
+   "arxiv-1807.05162"
+  ]
+ },
+ "state_of_the_art_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "pid": "arxiv-2302.10915",
+  "year": 2023,
+  "metric": "LRS3 AVSR WER, trained with 50% video dropout",
+  "value": 0.9,
+  "unit": "% WER",
+  "timing": "later",
+  "confirmed_in_text": true
+ }
 }
