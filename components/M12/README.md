@@ -72,7 +72,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`human-lipreader-baseline.csv`](human-lipreader-baseline.csv) (6960 slot-filled, 64 pattern match, usual design in 40, 116 read in full)
 - Inclusion rule: Include studies that place, on the same metric, the results of machine lipreading or silent speech recognition alongside the results of human lipreaders (experts, people with hearing impairment, or general participants) reading the same data (the same test set or a subset of it). Boundary: exclude intelligibility assessments in which people listen to reconstructed speech. Exclude those that only cite human performance as literature values. Exclude studies of lipreading ability among humans with no machine results. Count different versions of the same study as one item.
-- Used in: [Lip Reading Sentences in the Wild](../../reviews/lip-reading-sentences-in-the-wild/), [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/)
+- Used in: [Large-Scale Visual Speech Recognition](../../reviews/large-scale-visual-speech-recognition/), [Lip Reading Sentences in the Wild](../../reviews/lip-reading-sentences-in-the-wild/), [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |

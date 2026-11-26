@@ -1,0 +1,110 @@
+{
+ "target": "arxiv-1807.05162",
+ "versions": [
+  "arxiv-1807.05162",
+  "isca-shillingford19-largescale",
+  "isca-shillingford19_interspeech"
+ ],
+ "first_public": "2018-07",
+ "window": {
+  "prior": "first public before 2018-01",
+  "concurrent": "2018-01 to 2019-01",
+  "later": "after 2019-01"
+ },
+ "setting": "sentence-level or open-vocabulary lip reading / VSR / AVSR: the 633-study ledger population of components/M06/sentence-lipreading-sequence-objective; 59 machine-recognition studies dated before 2018-01 after removing 29 human-perception or neuroscience entries and one version duplicate; used for every audited slot",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "voiced speech in public video (LRS, LipNet GRID)"
+  },
+  "M02": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "asr-transcribed-unlabelled-video-training",
+     "reuse": "components/M02/asr-transcribed-unlabelled-video-training.json",
+     "inclusion_rule": "Published rule (training-label source for unlabelled lip video), restricted here to the 633-study sentence-level population and classified by a named video corpus of 1,000 hours or more, YouTube as source, and forced-aligned labels. Boundary: formula or citation hits are read and dropped; audio-only corpora do not count; versions once.",
+     "design_regex": {
+      "over_1000_hours": "published regex",
+      "youtube": "youtube",
+      "forced_align": "forced[- ]align"
+     },
+     "metric": "LRS3 visual-only WER"
+    }
+   ]
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "supervised training from scratch with length curriculum (WLAS curriculum learning)"
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "voiced speech at test"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "mouth-region video, face-angle filter within +-30 deg following Chung et al. 2017"
+  },
+  "M06": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "sentence-lipreading-sequence-objective",
+     "reuse": "components/M06/sentence-lipreading-sequence-objective.json",
+     "inclusion_rule": "Published rule (sequence objective named in the full text) over the same 633-study population; here also WFST decoding, Kaldi, DNN-HMM hybrids and phoneme units. Boundary: mentions counted (upper bound); hits for CTC and WFST read.",
+     "design_regex": {
+      "ctc": "published",
+      "attention_seq2seq": "published",
+      "hmm": "published",
+      "wfst": "\\bWFSTs?\\b|weighted finite[- ]state|finite[- ]state transducer|\\bHCLG\\b",
+      "dnn_hmm": "DNN/ANN/MLP-HMM, hybrid, tandem",
+      "phoneme_unit": "phoneme recognition/posterior/unit/PER"
+     },
+     "metric": "LRS3 visual-only WER"
+    }
+   ]
+  },
+  "M07": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "use-time-language-model-visual-speech",
+     "reuse": "components/M07/use-time-language-model-visual-speech.json",
+     "inclusion_rule": "Published rule and regexes over the same population, split at the target's window.",
+     "metric": "LRS3 visual-only WER"
+    }
+   ]
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "word sequences (phonemes as intermediate units)"
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "not applicable, offline"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "not applicable, offline"
+  },
+  "M11": {
+   "class": "incidental",
+   "note": "held-out LSVSR split construction and speaker/video overlap not stated; no section, row and questions only"
+  },
+  "M12": {
+   "class": "incidental",
+   "topics": [
+    {
+     "topic": "human-lipreader-baseline",
+     "reuse": "components/M12/human-lipreader-baseline.json",
+     "inclusion_rule": "Published rule (machine and human lipreaders on the same items) over the same population; also bootstrap and run-variability patterns.",
+     "metric": "WER"
+    }
+   ]
+  },
+  "M13": {
+   "class": "inherited",
+   "lineage": "offline benchmark"
+  }
+ }
+}

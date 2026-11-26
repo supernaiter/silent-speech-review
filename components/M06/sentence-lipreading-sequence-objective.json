@@ -9559,6 +9559,20 @@
    "loc": "Sec. 4.C",
    "quote": "we tried different λ values (from 0.1 to 0.9) and only report the best result here",
    "by": "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture"
+  },
+  {
+   "pid": "isca-thangthai17_interspeech",
+   "role": "prior",
+   "loc": "Sec. 5",
+   "quote": "the TCD-TIMIT pronunciation dictionary and the word bi-gram language model",
+   "by": "large-scale-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1611.06986",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "In place of the HMM, a series of three Weighted Finite State Transducers (WFSTs) is used",
+   "by": "large-scale-visual-speech-recognition"
   }
  ],
  "known_item_recall": {
@@ -9646,7 +9660,8 @@
    "isca-potamianos01_eurospeech",
    "arxiv-1611.05358",
    "arxiv-1611.06986",
-   "arxiv-1803.04988"
+   "arxiv-1803.04988",
+   "isca-thangthai17_interspeech"
   ],
   "unread": 900,
   "confirmed_unique": 0,
@@ -9673,6 +9688,7 @@
  "triage_2026_11_25": "verdict M06 changed ahead -> standard (no repetition across seeds, subjects or datasets); chronology split into before-target and prior counts; recall check added",
  "used_by": [
   "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture",
+  "large-scale-visual-speech-recognition",
   "lipnet-end-to-end-sentence-level-lipreading",
   "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
  ],
@@ -9882,5 +9898,146 @@
   "timing": "later",
   "confirmed_in_text": true,
   "condition": "same objective; at the target's 380 h, CM-seq2seq (arxiv-2102.06657) reaches 3.9% (Auto-AVSR Table 3)"
+ },
+ "counts_large-scale-visual-speech-recognition": {
+  "population": {
+   "definition": "sentence-level lip-reading / VSR / AVSR: the 633-study ledger population of M06/sentence-lipreading-sequence-objective",
+   "window": "prior = first public before 2018-01; [concurrent] = 2018-01 to 2019-01; dated only to 2018 = date unresolved",
+   "raw": {
+    "prior": 88,
+    "concurrent": 18,
+    "unresolved_2018_or_undated": 11
+   },
+   "excluded": {
+    "off_population_human_perception_or_neuroscience": [
+     "doi-10.1037-pag0000094",
+     "doi-10.1044-1092-4388-2009-08-0137",
+     "doi-10.1044-1092-4388-2012-12-0039",
+     "doi-10.1044-2015_jslhr-h-14-0360",
+     "doi-10.1371-journal.pone.0114439",
+     "doi-10.1523-jneurosci.1950-09.2010",
+     "doi-10.3389-fnhum.2016.00679",
+     "doi-10.3758-s13423-014-0774-3",
+     "doi-10.7888-juoeh.26.215",
+     "ioa-23430-lipread-f0",
+     "isca-gagne98_avsp",
+     "isca-mahajan14b-elderlyav",
+     "isca-sakamoto07-timexp",
+     "isca-siciliano03_avsp",
+     "oa-W2884698322",
+     "pmc-2645675-lipbayes",
+     "pmc-3810281-talkerxmod",
+     "pmc-3837007-silentconn",
+     "pmc-4303247-noawarn",
+     "pmc-4900800-lipmeg",
+     "pmc-4910521-lifespan",
+     "pmc-5193434-avasynch",
+     "pmc-5225113-visentrain",
+     "pmc-5350153-vspitg",
+     "pmc-5371603-lipmanual",
+     "pmc-5703212-crossmask",
+     "pmc-5736322-lipreadchildren",
+     "pmc-pmc3155585",
+     "doi-10.1111-lang.12264",
+     "doi-10.1111-lang.12281",
+     "pmc-5928751-stgboundary",
+     "pmc-5956463-visphonmap"
+    ],
+    "version_duplicates": {
+     "isca-huang09b_interspeech": "isca-huang09b_combineddt",
+     "isca-shillingford19_interspeech": "arxiv-1807.05162 (target)",
+     "isca-su18b_interspeech": "isca-su18b-crossdomain"
+    },
+    "target": [
+     "arxiv-1807.05162"
+    ]
+   },
+   "prior_unique": 59,
+   "concurrent_unique": 17,
+   "date_unresolved_unique": 6,
+   "date_rule": "first-public month from the arXiv id, year from the index or the ISCA id; versions merged by key; full text with reference list removed",
+   "tier": "pattern match (unique studies, upper bound, mentions included)"
+  },
+  "regex": {
+   "ctc": "\\bCTC\\b|connectionist temporal classi(f|ﬁ)ication",
+   "attention_seq2seq": "sequence[- ]to[- ]sequence|seq2seq|attention[- ]based (encoder|decoder|model|sequence)|encoder[- ]decoder|listen,? attend",
+   "hmm": "\\bHMMs?\\b|hidden markov",
+   "wfst": "\\bWFSTs?\\b|weighted finite[- ]state|finite[- ]state transducer|\\bHCLG\\b",
+   "kaldi": "\\bkaldi\\b",
+   "dnn_hmm": "\\b(DNN|ANN|MLP)[- /]HMMs?\\b|hybrid (DNN|ANN|neural network)[- /]HMM|\\btandem\\b",
+   "phoneme_unit": "phonem\\w* (recogni|classif|posterior|label|level|unit|sequence|output|error rate)|\\bPER\\b"
+  },
+  "prior_59": {
+   "hmm": 57,
+   "phoneme_unit": 52,
+   "dnn_hmm": 14,
+   "wfst": 7,
+   "kaldi": 5,
+   "ctc": 5,
+   "attention_seq2seq": 1
+  },
+  "ctc_prior_read": {
+   "designs": {
+    "arxiv-1611.01599": "character CTC, visual-only, GRID, beam search with character LM",
+    "arxiv-1611.02879": "character CTC, audio-visual, token WFST",
+    "arxiv-1611.06986": "phoneme/viseme CTC decoded through token, lexicon and LM WFSTs (Eesen), audio-visual IBM ViaVoice; video-only scored in viseme accuracy"
+   },
+   "mentions": [
+    "arxiv-1611.05358",
+    "isca-thangthai17_interspeech"
+   ]
+  },
+  "wfst_prior_read": {
+   "isca-thangthai17_interspeech": "visual-only DNN-HMM phoneme models, pronunciation dictionary and word bigram compiled as a Kaldi HCLG WFST (TCD-TIMIT)",
+   "arxiv-1611.06986": "CTC + Eesen WFSTs, audio-visual",
+   "arxiv-1611.02879": "CTC + token WFST, characters, audio-visual",
+   "others": "HMM-era WFST decoders (doi-10.1016-j.imavis.2016.03.003, isca-abdelaziz17b_interspeech, isca-kolossa10-manychmm) and isca-miao16-opendomain (scene features, not lips)"
+  },
+  "visual_only_ctc_phoneme_wfst_prior": 0,
+  "concurrent_17": {
+   "ctc": 10,
+   "attention_seq2seq": 8,
+   "hmm": 12,
+   "dnn_hmm": 2,
+   "wfst": 0
+  },
+  "date_unresolved_6": {
+   "dnn_hmm_wfst": [
+    "isca-thangthai18-largevocab"
+   ]
+  }
+ },
+ "usual_approach_large-scale-visual-speech-recognition": {
+  "design": "HMM-based decoding (mentioned by 57 of 59 prior studies); 3 prior neural CTC designs, 1 attention design",
+  "n": 57,
+  "tier": "pattern match",
+  "population_unique": 59,
+  "pids": [
+   "isca-thangthai17_interspeech",
+   "arxiv-1611.06986",
+   "arxiv-1611.01599",
+   "arxiv-1611.05358"
+  ]
+ },
+ "recall_check_large-scale-visual-speech-recognition": {
+  "scope": "all wiki studies with text first public before 2018-01",
+  "scanned": 2209,
+  "regex": "CTC AND (WFST|weighted finite-state|finite-state transducer|HCLG|Eesen) AND (lip|visual speech|video|mouth)",
+  "hits": [
+   "arxiv-1611.02879",
+   "arxiv-1611.06986",
+   "doi-10.1109-taslp-2017-2758999",
+   "isca-koumparoulis17_avsp",
+   "isca-thangthai17-dnnsdt"
+  ],
+  "decisions": {
+   "arxiv-1611.02879": "design: character CTC + token WFST, audio-visual",
+   "arxiv-1611.06986": "design: phoneme/viseme CTC + Eesen WFSTs, audio-visual; read",
+   "doi-10.1109-taslp-2017-2758999": "articulatory-movement recognizer; CTC named as alternative to HMM (mention)",
+   "isca-koumparoulis17_avsp": "visual-only CTC on connected digits; WFST named only as a hybrid alternative (mention)",
+   "isca-thangthai17-dnnsdt": "reference-list mention of CTC; its own decoder is DNN-HMM + Kaldi WFST (read)"
+  },
+  "visual_only_ctc_phoneme_wfst": 0,
+  "snippets_read": true
  }
 }
