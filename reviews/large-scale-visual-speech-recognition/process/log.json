@@ -1,6 +1,6 @@
 {
  "slug": "large-scale-visual-speech-recognition",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,30 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-26T17:40:34+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-26T17:48:09+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-26T17:51:30+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 100 found, 0 missing, 13 unchecked (unstated, figure-only or no source)",
+  "topic counts M02-asr-transcribed-unlabelled-video-training": "ok",
+  "topic counts M06-sentence-lipreading-sequence-objective": "ok",
+  "topic counts M07-use-time-language-model-visual-speech": "ok",
+  "topic counts M12-human-lipreader-baseline": "ok"
+ },
  "inputs": {
   "notes_sha256": "fa9074727fd545737617e1c6b0c01a9005c41836aff7ec5d8ad9ff79b7fba4bf",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +61,6 @@
  },
  "body_chars": {
   "draft": 16373,
-  "final": null
+  "final": 17603
  }
 }

@@ -9417,6 +9417,7 @@
  "used_by": [
   "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture",
   "end-to-end-audio-visual-speech-recognition-with-conformers",
+  "large-scale-visual-speech-recognition",
   "lipnet-end-to-end-sentence-level-lipreading"
  ],
  "pattern_counts_before_target_end-to-end-audio-visual-speech-recognition-with-conformers": {
@@ -9517,5 +9518,94 @@
   "timing": "later",
   "confirmed_in_text": true,
   "note": "Auto-AVSR uses this LM for visual-only models only; its ASR and AV-ASR models use no LM (Sec. 3.3)"
+ },
+ "counts_large-scale-visual-speech-recognition": {
+  "population": {
+   "definition": "sentence-level lip-reading / VSR / AVSR: the 633-study ledger population of M06/sentence-lipreading-sequence-objective",
+   "window": "prior = first public before 2018-01; [concurrent] = 2018-01 to 2019-01; dated only to 2018 = date unresolved",
+   "raw": {
+    "prior": 88,
+    "concurrent": 18,
+    "unresolved_2018_or_undated": 11
+   },
+   "excluded": {
+    "off_population_human_perception_or_neuroscience": [
+     "doi-10.1037-pag0000094",
+     "doi-10.1044-1092-4388-2009-08-0137",
+     "doi-10.1044-1092-4388-2012-12-0039",
+     "doi-10.1044-2015_jslhr-h-14-0360",
+     "doi-10.1371-journal.pone.0114439",
+     "doi-10.1523-jneurosci.1950-09.2010",
+     "doi-10.3389-fnhum.2016.00679",
+     "doi-10.3758-s13423-014-0774-3",
+     "doi-10.7888-juoeh.26.215",
+     "ioa-23430-lipread-f0",
+     "isca-gagne98_avsp",
+     "isca-mahajan14b-elderlyav",
+     "isca-sakamoto07-timexp",
+     "isca-siciliano03_avsp",
+     "oa-W2884698322",
+     "pmc-2645675-lipbayes",
+     "pmc-3810281-talkerxmod",
+     "pmc-3837007-silentconn",
+     "pmc-4303247-noawarn",
+     "pmc-4900800-lipmeg",
+     "pmc-4910521-lifespan",
+     "pmc-5193434-avasynch",
+     "pmc-5225113-visentrain",
+     "pmc-5350153-vspitg",
+     "pmc-5371603-lipmanual",
+     "pmc-5703212-crossmask",
+     "pmc-5736322-lipreadchildren",
+     "pmc-pmc3155585",
+     "doi-10.1111-lang.12264",
+     "doi-10.1111-lang.12281",
+     "pmc-5928751-stgboundary",
+     "pmc-5956463-visphonmap"
+    ],
+    "version_duplicates": {
+     "isca-huang09b_interspeech": "isca-huang09b_combineddt",
+     "isca-shillingford19_interspeech": "arxiv-1807.05162 (target)",
+     "isca-su18b_interspeech": "isca-su18b-crossdomain"
+    },
+    "target": [
+     "arxiv-1807.05162"
+    ]
+   },
+   "prior_unique": 59,
+   "concurrent_unique": 17,
+   "date_unresolved_unique": 6,
+   "date_rule": "first-public month from the arXiv id, year from the index or the ISCA id; versions merged by key; full text with reference list removed",
+   "tier": "pattern match (unique studies, upper bound, mentions included)"
+  },
+  "regex": {
+   "ngram_lm": "n-gram|\\b[2-5]-gram|trigram|bigram language",
+   "neural_lm": "(rnn|lstm|neural|recurrent|character[- ]level|transformer)[- ](based )?(character )?language model|\\brnn[- ]?lm\\b|\\blstm[- ]?lm\\b|shallow fusion",
+   "no_external_lm": "without (an |any )?(external )?language model|no (external )?language model",
+   "grammar_or_lexicon": "grammar|lexicon|dictionary|pronunciation"
+  },
+  "prior_59": {
+   "grammar_or_lexicon": 33,
+   "ngram_lm": 7,
+   "neural_lm": 0,
+   "no_external_lm": 1
+  },
+  "concurrent_17": {
+   "neural_lm": 3,
+   "ngram_lm": 1,
+   "no_external_lm": 2,
+   "grammar_or_lexicon": 9
+  }
+ },
+ "usual_approach_large-scale-visual-speech-recognition": {
+  "design": "grammar, lexicon or dictionary constraint; n-gram word LM in 7",
+  "n": 33,
+  "tier": "pattern match",
+  "population_unique": 59,
+  "pids": [
+   "isca-thangthai17_interspeech",
+   "arxiv-1611.06986",
+   "arxiv-1611.05358"
+  ]
  }
 }

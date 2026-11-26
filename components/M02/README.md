@@ -12,7 +12,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`asr-transcribed-unlabelled-video-training.csv`](asr-transcribed-unlabelled-video-training.csv) (31 slot-filled, 1049 pattern match, usual design in 45, 4 read in full)
 - Inclusion rule: Studies whose ledger text names lip reading, visual speech recognition (VSR), AVSR or audio-visual speech recognition, classified from the full text (reference list removed) by the training-label source for unlabelled video: transcripts produced by an audio ASR model or other automatic labeller (pseudo-labels), self-supervised pretraining, or cross-modal teacher distillation. Boundary: a study counts under every design its text names, mentions in related work included (upper bound); papers that only cite or reuse Auto-AVSR as a checkpoint or scorer stay in the population; video-to-speech synthesis is in the population only when its ledger names VSR or AVSR; versions counted once.
-- Used in: [Auto-AVSR: Audio-Visual Speech Recognition with Automatic Labels](../../reviews/auto-avsr-audio-visual-speech-recognition-with-automatic-labels/), [Recurrent Neural Network Transducer for Audio-Visual Speech Recognition](../../reviews/recurrent-neural-network-transducer-for-audio-visual-speech-recognition/)
+- Used in: [Auto-AVSR: Audio-Visual Speech Recognition with Automatic Labels](../../reviews/auto-avsr-audio-visual-speech-recognition-with-automatic-labels/), [Large-Scale Visual Speech Recognition](../../reviews/large-scale-visual-speech-recognition/), [Recurrent Neural Network Transducer for Audio-Visual Speech Recognition](../../reviews/recurrent-neural-network-transducer-for-audio-visual-speech-recognition/)
 
 ## audio-derived-speech-activity-labels
 
