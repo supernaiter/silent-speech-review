@@ -1,0 +1,63 @@
+{
+ "target": [
+  "doi-10.1088-1741-2560-8-4-046028",
+  "pmc-3772685-vowelcons"
+ ],
+ "first_public": "2011-07",
+ "changed": [
+  "M04",
+  "M06"
+ ],
+ "incidental": [
+  "M03",
+  "M11",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Training data come from the same prompted overt or covert word-repetition runs that are tested; no separate training-time action.",
+  "M02": "No training-only signal: labels are the displayed word's vowel or consonant pair; the microphone is not used as a target.",
+  "M05": "Clinical subdural grids (48 or 64 contacts, 1 cm spacing) recorded with BCI2000 and g.USBamp, the Leuthardt/Schalk ECoG lineage.",
+  "M07": "No language model or lexicon; closed-set four-class classification.",
+  "M08": "Class label (vowel or consonant-pair group).",
+  "M09": "Offline study: no presentation or confirmation step.",
+  "M10": "Offline study: no correction loop.",
+  "M13": "Bedside epilepsy-monitoring recordings, offline analysis, no released analysis code."
+ },
+ "topics": [
+  {
+   "slot": "M04",
+   "topic": "covert-speech-decoding-with-paired-overt-condition",
+   "reuse": null,
+   "inclusion_rule": "Studies whose ledger text names decoding, classification or recognition together with imagined, covert, inner or unspoken speech (any signal: EEG, MEG, ECoG, sEEG, intracortical, EMG, video). The design of interest is a decoder trained and tested on imagined-speech trials, with an overt condition on the same items in the same participants, from intracranial recordings. Boundary: attempted speech by paralysed users is a different action and is not counted as imagined speech; the ledger pattern also admits lip-reading and perception studies that mention covert speech, so counts are upper bounds; versions of one study count once; usual approach judged on studies first public before 2011.",
+   "pattern": "(?s)^(?=.*\\b(decod|classif|recogni))(?=.*((imagined|covert|inner|unspoken)[ _-]?(speech|words?|vowels?|syllables?|phonemes?)|speech[ _]imagery|instructed_imagery|task_evoked_inner_speech))",
+   "design_regex": [
+    "paired_overt_and_covert",
+    "ecog_recording",
+    "intracranial_recording",
+    "scalp_eeg"
+   ],
+   "metric": "Imagined-speech decoding accuracy against chance, with the overt condition in the same participants."
+  },
+  {
+   "slot": "M06",
+   "topic": "intracranial-speech-unit-classification",
+   "reuse": null,
+   "inclusion_rule": "Studies whose ledger text names an intracranial signal (ECoG, sEEG, intracortical, Utah array) together with phonemes, vowels, consonants or syllables; the design of interest is whether speech units are decoded from each electrode separately (with the best location reported) or from several electrodes jointly. Boundary: listening-only and review papers matched by the pattern stay in the count (upper bound); word-level intracranial decoders are outside the pattern and are used only as read priors; versions of one study count once; usual approach judged on studies first public before 2011.",
+   "pattern": "(\\becog\\b|electrocorticogra|intracortical|\\bseeg\\b|stereo-?eeg|utah array)[^|]{0,300}(phonem|vowel|consonant|syllab)|(phonem|vowel|consonant|syllab)[^|]{0,300}(\\becog\\b|electrocorticogra|intracortical|\\bseeg\\b|stereo-?eeg|utah array)",
+   "design_regex": [
+    "single_electrode_decoding",
+    "multi_electrode_decoding"
+   ],
+   "metric": "Speech-unit classification accuracy against chance; electrode use."
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-speech-test-partition",
+   "reuse": "components/M12/intracranial-speech-test-partition.json",
+   "inclusion_rule": "Published rule kept: intracranial speech or language decoding studies; the design of interest is how test data are separated from training data (random trial split, k-fold cross-validation, held-out session or day, held-out subject). This review adds a prior-time tally (first public before 2011) under prior_tally_<slug>.",
+   "metric": "Test partition design (categorical)."
+  }
+ ],
+ "notes": "M03 (selection nesting, normalization, folds) and M11 (prompt-defined covert labels) are judged from the target's own text without an audit; their table counts are null.",
+ "prep_used": "No prep directory existed; plan, audits and comparator reading built from scratch."
+}
