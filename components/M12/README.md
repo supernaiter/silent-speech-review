@@ -90,6 +90,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same ledger population as the M13 online-imagined-speech-eeg table); the design compared is whether reported accuracy is referenced against chance: a stated chance level or above-chance test, or an empirical permutation null. Boundary: full-text pattern counts are upper bounds (a chance mention in related work counts); a study whose full text never uses the word 'chance' is counted as giving no chance reference; versions count once.
 - Used in: [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/), [Towards Neural Decoding of Imagined Speech based on Spoken Speech](../../reviews/towards-neural-decoding-of-imagined-speech-based-on-spoken-speech/)
 
+## implanted-communication-bci-chance-and-false-positives
+
+- Table: [`implanted-communication-bci-chance-and-false-positives.csv`](implanted-communication-bci-chance-and-false-positives.csv) (6960 slot-filled, 382 pattern match, usual design in 169, 1 read in full)
+- Inclusion rule: Same population as M13/wireless-implanted-speech-bci; the design compared is the floor reported for decoding or selection accuracy: a chance level or shuffled or permutation null, and a false-positive (unintended selection) rate. Boundary: full-text pattern counts with the reference list removed (upper bounds; offline classification studies count); a study counts under every design it names.
+- Used in: [Fully Implanted Brain-Computer Interface in a Locked-In Patient with ALS](../../reviews/fully-implanted-brain-computer-interface-in-a-locked-in-patient-with-als/)
+
 ## intracortical-communication-rate-benchmark
 
 - Table: [`intracortical-communication-rate-benchmark.csv`](intracortical-communication-rate-benchmark.csv) (6960 slot-filled, 33 pattern match, usual design in 5, 2 read in full)
