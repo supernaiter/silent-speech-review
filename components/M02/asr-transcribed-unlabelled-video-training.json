@@ -15071,6 +15071,42 @@
    "role": "sota",
    "loc": "Sec. 1",
    "quote": "which uses additional 2,630 hours of ASR pseudo-labeled"
+  },
+  {
+   "pid": "arxiv-1807.05162",
+   "role": "prior",
+   "loc": "2 RELATED WORK",
+   "quote": "In comparison, our dataset (LSVSR) is an order of magnitude greater than any previous dataset with 3,886 hours of audio-video-text pairs.",
+   "timing": "prior",
+   "note": "3,886 h",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1807.05162",
+   "role": "prior",
+   "loc": "3 A DATA PIPELINE FOR LARGE-SCALE VISUAL SPEECH RECOGNITION",
+   "quote": "In our case, we build on the work of Liao et al. (2013) to extract audio clips paired with transcripts, yielding 140,000 hours of audio segments.",
+   "timing": "prior",
+   "note": "Liao et al. 2013 pipeline, 140,000 h audio",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 1 (LRS3-TED statistics)",
+   "quote": "Pre-train - 5,075 132k 4.2M 52k 444",
+   "timing": "prior",
+   "note": "LRS3 pre-train 444 h",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2302.10915",
+   "role": "sota",
+   "loc": "4.2 Data",
+   "quote": "The YT dataset contains 100k hours of transcribed video segments that are up to 15 seconds long.",
+   "timing": "later",
+   "note": "100k h",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
   }
  ],
  "known_item_recall": {
@@ -15089,7 +15125,8 @@
  },
  "deciding_priors_note": "ASR-generated transcripts as training labels for unlabelled video predate the target: Afouras et al. 2020 (CTC on teacher-ASR transcripts of VoxCeleb2, plus distillation) and Ma et al. 2022 (641 h AVSpeech with automatic transcriptions, same group); the non-public Google line filters YouTube captions with an ASR (LP Conformer 100k h). arxiv-2302.10915 is [concurrent] (2023-02) and is listed for the design, not as prior.",
  "used_by": [
-  "auto-avsr-audio-visual-speech-recognition-with-automatic-labels"
+  "auto-avsr-audio-visual-speech-recognition-with-automatic-labels",
+  "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
  ],
  "tally": {
   "slot_filled_unique": 31,
@@ -15112,10 +15149,52 @@
   "read": 4,
   "read_prior": [
    "arxiv-1911.12747",
-   "arxiv-2202.13084"
+   "arxiv-2202.13084",
+   "arxiv-1807.05162",
+   "arxiv-1809.02108"
   ],
   "unread": 1478,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
+ },
+ "counts_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "regex": {
+   "over_1000_hours": "\\b(\\d{1,3}(,\\d{3})+|[1-9]\\d{3,})\\s*(hours|hrs|h)\\b|\\b\\d+(\\.\\d+)?\\s?k\\s*(hours|hrs|h)\\b"
+  },
+  "date_rule": "first-public month from the arXiv id, year from the index or the ISCA id; a study dated only to 2019 is checked separately; versions merged by key; full text with the reference list removed",
+  "tier": "pattern match (unique studies, upper bound)",
+  "cutoff": "2019-11",
+  "before_2019_11": {
+   "population": 361,
+   "over_1000_hours": 5,
+   "no_corpus_over_1000_hours": 356,
+   "single_video_corpus_over_1000_hours_read": 1,
+   "no_single_video_corpus_over_1000_hours": 360
+  },
+  "all_dates": {
+   "population": 1049,
+   "over_1000_hours": 147
+  },
+  "hits_before_read": "5 snippets read: one video training corpus of 1,000 h or more (arxiv-1807.05162, 3,886 h, same YouTube caption pipeline); two convolution formulas (arxiv-1611.01599, arxiv-1802.05521), one audio-only voicemail corpus (isca-ljolje11-visvoicemail), one citation of LRS (isca-thangthai17-dnnsdt). arxiv-1809.02108 reaches about 1.4k h only by combining corpora (target Table 7) and is not a pattern hit."
+ },
+ "usual_approach_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "design": "no single video training corpus of 1,000 hours or more (5 pattern hits read; one real)",
+  "n": 360,
+  "tier": "pattern match",
+  "population_unique": 361,
+  "pids": [
+   "arxiv-1809.02108",
+   "arxiv-1810.00108",
+   "arxiv-1811.05250"
+  ]
+ },
+ "state_of_the_art_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "pid": "arxiv-2302.10915",
+  "year": 2023,
+  "metric": "TED-LRS3 VSR WER, 100k h transcribed YouTube, then fine-tuned on TED-LRS3",
+  "value": 12.8,
+  "unit": "% WER",
+  "timing": "later",
+  "confirmed_in_text": true
  }
 }

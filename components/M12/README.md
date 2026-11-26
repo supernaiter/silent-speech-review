@@ -18,7 +18,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`avsr-noise-and-run-variability-protocol.csv`](avsr-noise-and-run-variability-protocol.csv) (6960 slot-filled, 349 pattern match, usual design in 183, 3 read in full)
 - Inclusion rule: The same 349-study AVSR population as M06/avsr-audio-stream-input-representation, classified by evaluation protocol its full text names: additive-noise test at stated SNRs, babble noise in particular, and run-to-run variability (seeds, repeated runs, standard deviation, confidence intervals). Boundary: a study counts under every protocol its text names (upper bound, related-work mentions included); versions count once by key.
-- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/), [End-to-End Audiovisual Speech Recognition](../../reviews/end-to-end-audiovisual-speech-recognition/), [Robust Self-Supervised Audio-Visual Speech Recognition](../../reviews/robust-self-supervised-audio-visual-speech-recognition/)
+- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/), [End-to-End Audiovisual Speech Recognition](../../reviews/end-to-end-audiovisual-speech-recognition/), [Recurrent Neural Network Transducer for Audio-Visual Speech Recognition](../../reviews/recurrent-neural-network-transducer-for-audio-visual-speech-recognition/), [Robust Self-Supervised Audio-Visual Speech Recognition](../../reviews/robust-self-supervised-audio-visual-speech-recognition/)
 
 ## bci2020-imagined-speech-benchmark
 

@@ -15,9 +15,9 @@
   "choice": [
    "31k h YouTube video, ASR-checked captions"
   ],
-  "field": "No corpus of 1,000 h or more; of 361 studies before 2019-11",
+  "field": "No single corpus of 1,000 h or more; of 361 before 2019-11",
   "n": 361,
-  "matched": 356,
+  "matched": 360,
   "matched_tier": "pattern match (unique studies)",
   "verdict": "standard",
   "note": "Scale-up of the V2P pipeline (3,886 h) [@shillingford2018v2p]; corpus not released.",
@@ -25,15 +25,15 @@
  },
  "M03": {
   "choice": [
-   "Audio dropout; overlapping-speech mixing"
+   "Audio dropout; competing speech in 10% of training"
   ],
-  "field": "No training noise or modality dropout; of 107 AVSR studies before 2019-11",
+  "field": "No noise, competing speech or modality dropout; of 107 before 2019-11",
   "n": 107,
-  "matched": 100,
+  "matched": 80,
   "matched_tier": "pattern match (unique studies)",
   "verdict": "standard",
-  "note": "Interfering-speech training new in the AVSR ledger (0 of 107); modality dropout credited to the authors' ref. [32]; one run, one test set.",
-  "sota": "[@chang2023lpconformer] 0.9% AVSR WER"
+  "note": "Competing-speaker training predates it on GRID [@chao2016speaker]; modality dropout credited to the authors' ref. [32]; one run, one test set.",
+  "sota": "[@chang2023lpconformer] 50% video dropout, 0.9%"
  },
  "M04": {
   "choice": [
@@ -63,24 +63,24 @@
   "choice": [
    "RNN-T; audio shift tied to video frame rate"
   ],
-  "field": "HMM decoding; of 123 studies before 2019-11",
-  "n": 123,
-  "matched": 79,
+  "field": "CTC or attention decoders (neural systems, 2018)",
+  "n": null,
+  "matched": null,
   "matched_tier": "pattern match (unique studies)",
   "verdict": "standard",
   "note": "No earlier neural transducer in the ledger (Appendix), but no comparison with CTC or attention on the same data.",
-  "sota": "[@chang2023lpconformer] RNN-T, 0.9% LRS3 AVSR WER"
+  "sota": "[@rouditchenko2024whisperflamingo] 0.76% (attention); RNN-T [@chang2023lpconformer] 0.9%"
  },
  "M07": {
   "choice": [
-   "Not stated"
+   "External LM not stated; characters, no lexicon; beam 4"
   ],
   "field": "LM in decoding varies",
   "n": null,
   "matched": null,
   "matched_tier": "slot-filled (unique studies)",
   "verdict": "not_reported",
-  "note": "External LM use and weights not given (Sec. 1, Sec. 4).",
+  "note": "Character outputs and beam width are reported; external LM use is not (Sec. 1, Sec. 4).",
   "sota": "–"
  },
  "M08": {
@@ -135,13 +135,13 @@
   "choice": [
    "Babble, competing speech, 95% CIs; one run"
   ],
-  "field": "Noise at stated SNRs, no variability estimate; of 107 AVSR studies before 2019-11",
+  "field": "Largest group: noise at stated SNRs, no variability estimate; of 107 before 2019-11",
   "n": 107,
   "matched": 50,
   "matched_tier": "pattern match (unique studies)",
   "verdict": "standard",
   "note": "Test-set intervals are rare before 2019-11 (Appendix); no seeds or repeated runs.",
-  "sota": "[@rouditchenko2024whisperflamingo] 0.76% LRS3 AVSR WER"
+  "sota": "[@chang2023lpconformer] 1.9% at 0 dB babble"
  },
  "M13": {
   "choice": [

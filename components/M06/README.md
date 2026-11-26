@@ -82,7 +82,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`avsr-audio-stream-input-representation.csv`](avsr-audio-stream-input-representation.csv) (7345 slot-filled, 349 pattern match, usual design in 182, 4 read in full)
 - Inclusion rule: Studies whose ledger names audio-visual speech recognition (AVSR), classified by the audio-stream input their full text names: raw waveform fed to a learned front-end, or hand-designed spectral features (log-Mel filterbank, MFCC, spectrogram). Boundary: a study counts under every representation its text names (upper bound); visual-only lip reading without an audio stream is out; audio-visual speech enhancement without recognition is out unless the ledger names AVSR; versions count once by key.
-- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/), [End-to-End Audiovisual Speech Recognition](../../reviews/end-to-end-audiovisual-speech-recognition/)
+- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/), [End-to-End Audiovisual Speech Recognition](../../reviews/end-to-end-audiovisual-speech-recognition/), [Recurrent Neural Network Transducer for Audio-Visual Speech Recognition](../../reviews/recurrent-neural-network-transducer-for-audio-visual-speech-recognition/)
 
 ## causal-closed-loop-speech-synthesis
 
@@ -269,7 +269,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`sentence-lipreading-sequence-objective.csv`](sentence-lipreading-sequence-objective.csv) (7345 slot-filled, 633 pattern match, usual design in 291, 6 read in full)
 - Inclusion rule: Studies that decode sentence-level or open-vocabulary speech from lip or face video (ledger names lip reading, VSR, AVSR or an LRS2/LRS3 benchmark together with sentence-level, continuous or open-vocabulary recognition), classified by the sequence objective their full text names: CTC, attention sequence-to-sequence, hybrid CTC/attention, HMM, or transducer. Boundary: isolated-word classification without a sentence-level result is excluded; audio-only ASR is out of scope; reviews count as pattern matches only; a study counts under every objective its text names (upper bound); versions of one study count once by key.
-- Used in: [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/)
+- Used in: [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/), [Recurrent Neural Network Transducer for Audio-Visual Speech Recognition](../../reviews/recurrent-neural-network-transducer-for-audio-visual-speech-recognition/)
 
 ## silent-command-activation
 

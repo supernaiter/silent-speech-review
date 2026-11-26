@@ -9421,6 +9421,96 @@
    "loc": "Sec. 3; Table 2",
    "quote": "CONFORMER 100K 12.8",
    "note": "lowest LRS3 visual-only WER read, with 100k hours of transcribed non-public video; arxiv-2602.19316 (17.6%) kept as state_of_the_art for public data"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "1 INTRODUCTION",
+   "quote": "We compare two models: one using a Connectionist Temporal Classiﬁcation (CTC) loss [22], and the other using a sequence-to-sequence (seq2seq) loss [9, 46].",
+   "timing": "prior",
+   "note": "CTC and seq2seq compared on one front end",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1807.05162",
+   "role": "prior",
+   "loc": "4 AN EFFICIENT SPATIOTEMPORAL MODEL OF VISUAL SPEECH RECOGNITION",
+   "quote": "Given input video clips and target phoneme sequences the model is trained using the CTC loss function.",
+   "timing": "prior",
+   "note": "CTC",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1807.05162",
+   "role": "prior",
+   "loc": "4 AN EFFICIENT SPATIOTEMPORAL MODEL OF VISUAL SPEECH RECOGNITION",
+   "quote": "Finally, at test-time, a decoder based on ﬁnite state transducers (FSTs) is used to produce a word sequence given a sequence of phoneme distributions.",
+   "timing": "prior",
+   "note": "FST decoding",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1811.05250",
+   "role": "prior",
+   "loc": "2.1 End-to-end Model",
+   "quote": "The attention based Seq2seq architecture [8] consists of a s equence encoder, a sequence decoder and an attender.",
+   "timing": "prior",
+   "note": "attention seq2seq",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1811.05250",
+   "role": "prior",
+   "loc": "1. INTRODUCTION",
+   "quote": "Connectionist temporal classiﬁcation (CTC) [3, 4], RNN tra nsducer (RNN-T) [5, 6, 7] and attention based encoder-decoder [8, 9, 10] are the three main approaches.",
+   "timing": "prior",
+   "note": "RNN-T named, not used",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1810.00108",
+   "role": "prior",
+   "loc": "1. INTRODUCTION",
+   "quote": "In this paper, we use the recently proposed hybrid CTC/attention architecture for audio-visual recognition of speech in-the-wild.",
+   "timing": "prior",
+   "note": "hybrid CTC/attention",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2302.10915",
+   "role": "sota",
+   "loc": "5.1 Visual Speech Recognition",
+   "quote": "For the decoder, we use RNN-T, a 9-layer LSTM with cell size 2048, embedding dimension 128, and beam width 8.",
+   "timing": "later",
+   "note": "",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2302.10915",
+   "role": "sota",
+   "loc": "5.3 Robustness to Missing Video",
+   "quote": "The LP Conformer obtains state-of-the-art results on A VSR for TED-LRS3, achieving0.9% WER when trained and tested on the full audio-visual input (c.f. Table 2).",
+   "timing": "later",
+   "note": "",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2012.07467",
+   "role": "prior",
+   "loc": "2.7. Comparison to related work",
+   "quote": "Instead, AV Taris uses the seq2seq architecture as a back-end for sequence modelling, avoiding the training diﬃculties speciﬁc to the RNN-T.",
+   "timing": "later",
+   "note": "seq2seq chosen to avoid RNN-T training difficulties; [later] work (2020-12), role field limited to target|sota|prior",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2302.10915",
+   "role": "sota",
+   "loc": "Table 2; ref. [1]",
+   "quote": "VGG C ONFORMER [1] VGG C ONFORMER 100K - 0.9",
+   "timing": "later",
+   "note": "VGG Conformer 0.9% (2022)",
+   "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
   }
  ],
  "known_item_recall": {
@@ -9492,13 +9582,20 @@
    "value": 17.6,
    "unit": "% WER",
    "timing": "later",
-   "confirmed_in_text": true
+   "confirmed_in_text": true,
+   "condition": "public labelled data plus about 2,500 hours of unlabelled video; 12.8% (arxiv-2302.10915) with 100k hours of transcribed video"
   },
   "read": 6,
   "read_prior": [
    "arxiv-1601.08188",
    "isca-gergen16-streamw",
-   "w2594690981-lrw"
+   "w2594690981-lrw",
+   "arxiv-1807.05162",
+   "arxiv-1809.02108",
+   "arxiv-1810.00108",
+   "arxiv-1811.05250",
+   "arxiv-2012.07467",
+   "isca-potamianos01_eurospeech"
   ],
   "unread": 900,
   "confirmed_unique": 0,
@@ -9524,6 +9621,69 @@
  },
  "triage_2026_11_25": "verdict M06 changed ahead -> standard (no repetition across seeds, subjects or datasets); chronology split into before-target and prior counts; recall check added",
  "used_by": [
-  "lipnet-end-to-end-sentence-level-lipreading"
- ]
+  "lipnet-end-to-end-sentence-level-lipreading",
+  "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+ ],
+ "counts_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "regex": {
+   "transducer": "\\bRNN[- ]?T\\b|recurrent neural network transducer|\\btransducers?\\b",
+   "ctc": "\\bCTC\\b|connectionist temporal classi(f|ﬁ)ication",
+   "attention_seq2seq": "sequence[- ]to[- ]sequence|seq2seq|attention[- ]based (encoder|decoder|model|sequence)|encoder[- ]decoder|listen,? attend",
+   "hmm": "\\bHMMs?\\b|hidden markov"
+  },
+  "date_rule": "first-public month from the arXiv id, year from the index or the ISCA id; a study dated only to 2019 is checked separately; versions merged by key; full text with the reference list removed",
+  "tier": "pattern match (unique studies, upper bound)",
+  "cutoff": "2019-11",
+  "before_2019_11": {
+   "population": 123,
+   "hmm": 79,
+   "ctc": 20,
+   "transducer": 16,
+   "attention_seq2seq": 16
+  },
+  "all_dates": {
+   "population": 633,
+   "ctc": 288,
+   "attention_seq2seq": 281,
+   "transducer": 119,
+   "hmm": 196
+  },
+  "undated_2019_checked": 21,
+  "transducer_hits_before_read": "16 snippets read: none trains a neural transducer. arxiv-1811.05250 names RNN-T as one of three end-to-end approaches and uses attention; arxiv-1611.05358 calls its attention speller an LSTM transducer; arxiv-1807.05162, arxiv-1809.02108, arxiv-1611.06986 and 4 HMM-era studies use or cite (weighted) finite-state transducers; the rest are ultrasound probes or sound-delivery transducers. The 21 studies dated only to 2019 name no RNN-T.",
+  "neural_transducer_before": 0
+ },
+ "recall_check_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "scope": "all wiki studies with text first public before 2019-11",
+  "scanned": 2671,
+  "regex": "\\bRNN[- ]?T\\b|recurrent neural network transducer|neural transducer",
+  "hits": [
+   "arxiv-1811.05250",
+   "arxiv-1908.05743-eegasr"
+  ],
+  "note": "arxiv-1811.05250: mention only (attention model); arxiv-1908.05743: EEG speech recognition with an RNN transducer, first public 2019-08, [concurrent], not visual",
+  "snippets_read": true
+ },
+ "usual_approach_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "design": "HMM decoding named (neural sentence-level systems: CTC or attention sequence-to-sequence); no neural transducer",
+  "n": 79,
+  "tier": "pattern match",
+  "population_unique": 123,
+  "pids": [
+   "arxiv-1809.02108",
+   "arxiv-1807.05162",
+   "arxiv-1810.00108",
+   "arxiv-1811.05250"
+  ],
+  "note": "Triage 2026-11-26: the HMM count (79 of 123) counts mentions anywhere in the text, not decoders used; all four read neural priors are among the 79. The review table gives no count for M06 (matched null); the usual neural design in 2018 is CTC or attention, from the read priors."
+ },
+ "state_of_the_art_recurrent-neural-network-transducer-for-audio-visual-speech-recognition": {
+  "pid": "arxiv-2302.10915",
+  "year": 2023,
+  "metric": "TED-LRS3 AVSR WER, LP Conformer encoder with LSTM RNN-T decoder, 100k h YouTube; VSR 12.8%",
+  "value": 0.9,
+  "unit": "% WER",
+  "timing": "later",
+  "confirmed_in_text": true,
+  "note": "0.9% first reported by a 2022 VGG Conformer listed in arxiv-2302.10915 Table 2; lowest LRS3 AVSR WER 0.76% (arxiv-2406.10082, attention decoder)"
+ }
 }

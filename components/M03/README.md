@@ -30,7 +30,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`avsr-self-supervised-and-noise-augmented-training.csv`](avsr-self-supervised-and-noise-augmented-training.csv) (1526 slot-filled, 349 pattern match, usual design in 141, 4 read in full)
 - Inclusion rule: Studies whose ledger names audio-visual speech recognition (AVSR) (the 349-study population of M06/avsr-audio-stream-input-representation), classified by the training regime their full text names: self-supervised pre-training (masked prediction, HuBERT/wav2vec-type, contrastive, unlabelled audio-visual data), noise added during training, and noise added during pre-training. Boundary: a study counts under every regime its text names (upper bound, related-work mentions included); for the state at the target's time only studies dated before 2022-01 count (year from the index, month from the arXiv id; ISCA ids give the year); visual-only lip reading without an audio stream is out; versions count once by key.
-- Used in: [Robust Self-Supervised Audio-Visual Speech Recognition](../../reviews/robust-self-supervised-audio-visual-speech-recognition/)
+- Used in: [Recurrent Neural Network Transducer for Audio-Visual Speech Recognition](../../reviews/recurrent-neural-network-transducer-for-audio-visual-speech-recognition/), [Robust Self-Supervised Audio-Visual Speech Recognition](../../reviews/robust-self-supervised-audio-visual-speech-recognition/)
 
 ## cross-lingual-encoder-transfer-to-video-speech
 
