@@ -1,0 +1,1734 @@
+{
+ "topic": "intracranial-imagined-speech-decoder-time-alignment",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*(\\becog\\b|electrocortico|\\bseeg\\b|stereo-?eeg|stereoelectro|intracranial|\\bieeg\\b|intracortical|utah array|microelectrode array|depth electrode))(?=.*(imagin\\w* (speech|speaking|word|syllab|vowel|phonem|articulat|sentence)|covert(ly)? (speech|speak|articulat|read|word|naming)|inner speech|speech imagery|silent(ly)? read|mental (speech|rehearsal)|internal(ly)? (speech|verbal)))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Human intracranial decoders of imagined, covert or inner speech (pattern as in the published M06/M12 intracranial imagined-speech topics). Design of interest: how the decoder handles trial-to-trial timing variability: time-averaged or fixed-window features, lagged linear model, sequence model (HMM), or explicit temporal alignment (DTW or other warping) inside the classifier. Boundary: DTW used only to align a decoded output with a reference for scoring (Pasley 2012, Martin 2014) is evaluation, not decoder alignment. Population: human intracranial (ECoG, sEEG, depth, intracortical) decoders of imagined, covert or inner speech; excluded are attempted speech decoded from unit firing (Guenther 2009, Brumberg 2011), scalp EEG/MEG, listening-only reconstruction, overt-only studies, analyses without a decoder and reviews; versions count once. Priors: first public before 2015-11; [concurrent] 2015-11 to 2016-11. Pattern-match studies first public up to 2015 (Leuthardt 2011 undated in the index, resolved from its text): 8 unique; excluded listening-only (Pasley 2012, Yang 2015), no decoder (Leuthardt 2012 gamma time course), overt-only (Lotte 2015), leaving 4 decoders.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 127,
+  "string_match_unique": 89,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "ProcessingStep.step_role=decode",
+    "n": 47,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-22597-vmi",
+     "arxiv-2609-36736-speechbcirev",
+     "arxiv-2609.31992",
+     "cognneurodyn-42787344-seeginternal",
+     "doi-10.3389-fnhum.2026.1838064"
+    ]
+   },
+   {
+    "design": "model_family=other",
+    "n": 24,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.16441",
+     "arxiv-2609.31992",
+     "cognneurodyn-42787344-seeginternal",
+     "pmc-13211074-isbcirev",
+     "arxiv-2509.24700"
+    ]
+   },
+   {
+    "design": "model_family=linear_model",
+    "n": 12,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-22597-vmi",
+     "arxiv-2609.31992",
+     "lirias-90c2-ecogmode",
+     "arxiv-2406.11568",
+     "doi-10.1038-s41562-024-01867-y"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=encode",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751",
+     "arxiv-2609.31992",
+     "arxiv-2512.09524",
+     "pmc-11847940-fusiform",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "model_family=rnn",
+    "n": 10,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602-01247-mechint",
+     "arxiv-2609-36736-speechbcirev",
+     "arxiv-2609.31992",
+     "cell-40816265-innersp",
+     "arxiv-2406.11568"
+    ]
+   },
+   {
+    "design": "model_family=transformer",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751",
+     "arxiv-2609-36736-speechbcirev",
+     "arxiv-2509.24700",
+     "arxiv-2406.11568",
+     "doi-10.1109-msp.2024.3484629"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=preprocess",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751",
+     "doi-10.3389-fnhum.2026.1838064",
+     "doi-10.1038-s41598-025-18537-2",
+     "arxiv-2406.11568",
+     "doi-10.1016-j.celrep.2025.116241"
+    ]
+   },
+   {
+    "design": "ProcessingStep.step_role=generate",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751",
+     "doi-10.1101-2025.05.27.656311",
+     "doi-10.1101-2024.08.21.608927",
+     "doi-10.1038-s42003-021-02578-0",
+     "arxiv-2511.21740"
+    ]
+   },
+   {
+    "design": "decoder_route=closed_set_classification",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2509.24700",
+     "doi-10.1101-2024.03.21.586130",
+     "doi-10.1088-1741-2560-8-3-036004",
+     "doi-10.1088-1741-2560-8-4-046028",
+     "doi-10.3389-fnhum.2014.00125"
+    ]
+   },
+   {
+    "design": "model_family=cnn",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2602.01247",
+     "arxiv-2609.31992",
+     "arxiv-2512.09524",
+     "doi-10.1109-msp.2024.3484629",
+     "doi-10.1088-1741-2552-ab0c59"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "dtw_or_time_warping",
+    "n": 23,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.01247",
+     "cell-40816265-innersp",
+     "pmc-12009324-vocalmind",
+     "pmc12009324_vocalmind",
+     "doi-10.1038-s42003-024-06518-6"
+    ]
+   },
+   {
+    "design": "hidden_markov_model",
+    "n": 17,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604.16441",
+     "arxiv-2609-36736-speechbcirev",
+     "arxiv-2508.18127",
+     "doi-10.3389-fnhum.2025.1637174",
+     "doi-10.1038-s41598-024-62230-9"
+    ]
+   },
+   {
+    "design": "lagged_linear_or_temporal_receptive_field",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602-22597-vmi",
+     "arxiv-2602.22597-vmi",
+     "pmc-13596444-megplan",
+     "doi-10.1101-2025.05.27.656311",
+     "doi-10.3389-fnhum.2025.1637174"
+    ]
+   }
+  ],
+  "metric_pattern": "accuracy",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "best pair accuracy /a/-/i/",
+   "value": 100,
+   "unit": "percent",
+   "raw": "100%",
+   "pid": "doi-10.1155-2016-2618265",
+   "year": 2016,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "global-scale accuracy maximum (all contacts)",
+   "value": 93.79,
+   "unit": "percent",
+   "raw": "between 60.13% and 93.79%",
+   "pid": "doi-10.1016-j.celrep.2025.116241",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "phoneme accuracy",
+   "value": 92.14,
+   "unit": "percent",
+   "raw": "92.14%",
+   "pid": "arxiv-2604.16441",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Kanas detection accuracy",
+   "value": 92,
+   "unit": "%",
+   "raw": "92",
+   "pid": "doi-10.3389-fnhum.2023.1298129",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "listening/overt mean accuracy",
+   "value": 89,
+   "unit": "percent",
+   "raw": "89%",
+   "pid": "doi-10.1038-srep25803",
+   "year": 2016,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "example pairwise imagined accuracy",
+   "value": 88,
+   "unit": "percent",
+   "raw": "88%",
+   "pid": "doi-10.3389-fnins.2018.00422",
+   "year": 2018,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "top-1 accuracy subj-01 (%)",
+   "value": 76.24,
+   "unit": "percent",
+   "raw": "subj-01 76.24±2.62%",
+   "pid": "arxiv-2509.24700",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "72% single-ECoG-strip word accuracy",
+   "value": 72,
+   "unit": "%",
+   "raw": "mean 26+1-word accuracy from single ECoG strip (8 channels), P2",
+   "pid": "doi-10.1101-2022.06.07.495084",
+   "year": 2022,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "three-way classification accuracy",
+   "value": 72,
+   "unit": "percent accuracy",
+   "raw": "72 +/- 9,34% three-class classification",
+   "pid": "doi-10.21203-rs.3.rs-7306546-v1",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "cited SVM vowel accuracy",
+   "value": 59.7,
+   "unit": "percent",
+   "raw": "59.70%",
+   "pid": "doi-10.31258-jamt.2.2.74-84",
+   "year": 2019,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2406.11568",
+   "key": "t:towardsanendtoendframeworkforinvasivebrainsignaldecodingwithlargelanguagemodels",
+   "title": "Towards an End-to-End Framework for Invasive Brain Signal Decoding with Large Language Models",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2406.11568 | paper_version=2406.11568v1 | title=Towards an End-to-End Framework for Invasive Brain Signal"
+  },
+  {
+   "pid": "arxiv-2508.18127",
+   "key": "t:anintroductiontosilentparalinguistics",
+   "title": "An Introduction to Silent Paralinguistics",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2508.18127 | paper_version=2508.18127v1 | title=An Introduction to Silent Paralinguistics | authors=Zhao"
+  },
+  {
+   "pid": "arxiv-2509.24700",
+   "key": "t:arobustmultiscaleframeworkwithtesttimeadaptationforseegbasedspeechdecoding",
+   "title": "A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2509.24700v1 | title=A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decod"
+  },
+  {
+   "pid": "arxiv-2511.21740",
+   "key": "t:acrossspeciesneuralfoundationmodelforendtoendspeechdecoding",
+   "title": "A cross-species neural foundation model for end-to-end speech decoding",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2511.21740 | title=A cross-species neural foundation model for end-to-end speech decoding | venue=arXiv 2"
+  },
+  {
+   "pid": "arxiv-2512.09524",
+   "key": "t:neurosketchapracticaldesignrecipeforneuraldecoding",
+   "title": "NeuroSketch: A Practical Design Recipe for Neural Decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2512.09524 | title=NeuroSketch: A Practical Design Recipe for Neural Decoding | authors=Gaorui Zhang, Zhi"
+  },
+  {
+   "pid": "arxiv-2602-01247-mechint",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes | authors=Maryam Maghsoudi, Ayushi Mish"
+  },
+  {
+   "pid": "arxiv-2602-22597-vmi",
+   "key": "t:relatingtheneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech | authors=Maghsoudi, Chillale, Shamma"
+  },
+  {
+   "pid": "arxiv-2602.01247",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01247 | paper_version=2602.01247v1 | title=Mechanistic Interpretability of Brain-to-Speech Models Ac"
+  },
+  {
+   "pid": "arxiv-2602.01247-mib2s",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.01247-mib2s | title=Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes | aut"
+  },
+  {
+   "pid": "arxiv-2602.22597",
+   "key": "t:relatingtheneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.22597 | title=Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech | venue=I"
+  },
+  {
+   "pid": "arxiv-2602.22597-vmi",
+   "key": "t:investigatingneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Investigating Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2602.22597-vmi | title=Investigating Neural Representations of Vocalized, Mimed, and Imagined Speech | au"
+  },
+  {
+   "pid": "arxiv-2603.18299",
+   "key": "t:alignadversariallearningforgeneralizablespeechneuroprosthesis",
+   "title": "ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2603.18299v1 | title=ALIGN: Adversarial Learning for Generalizable Speech Neuroprosthesis | authors=Zhanqi"
+  },
+  {
+   "pid": "arxiv-2604.05751",
+   "key": "t:braintospeechprosodyfeatureengineeringandtransformerbasedreconstruction",
+   "title": "Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.05751 | paper_version=arXiv:2604.05751v1; Springer edited-volume chapter PDF | title=Brain-to-Speech"
+  },
+  {
+   "pid": "arxiv-2604.16441",
+   "key": "t:iphonemebraintotextcommunicationforalsusingconformerxldecoding",
+   "title": "iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv:2604.16441 | paper_version=2604.16441v1 | title=iPhoneme: Brain-to-Text Communication for ALS Using Confo"
+  },
+  {
+   "pid": "arxiv-2607.26751",
+   "key": "t:phonemevscharacterleveltargetsandselectivestatespacemodelsforintracorticalbraint",
+   "title": "Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Phoneme- vs. Character-Level Targets and Selective State-Space Models for Intracortical Brain-to-Text | arxiv_id=2"
+  },
+  {
+   "pid": "arxiv-2609-36736-speechbcirev",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Neurons to Conversation: Speech Brain-Computer Interfaces | authors=Khajehnejad, Habibollahi, Boccato, Sousa,"
+  },
+  {
+   "pid": "arxiv-2609.31992",
+   "key": "t:mechanisticinterpretabilityrevealssharedcausalsubspacesinbraintospeechdecoders",
+   "title": "Mechanistic Interpretability Reveals Shared Causal Subspaces in Brain-to-Speech Decoders",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.31992 | paper_version=arXiv:2609.31992v1 [cs.LG], 25 Sep 2026 (PDF, 5 pages) | title=Mechanistic Int"
+  },
+  {
+   "pid": "cell-40816265-innersp",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Inner speech in motor cortex and implications for speech neuroprostheses | authors=Kunz, Krasa, Kamdar, ... Hender"
+  },
+  {
+   "pid": "cognneurodyn-42787344-seeginternal",
+   "key": "t:astereoencephalographystudyofinternalspeech",
+   "title": "A stereoencephalography study of internal speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A stereoencephalography study of internal speech | authors=Naumov AV, Soghoyan GA, Makarova AV | venue=Cognitive N"
+  },
+  {
+   "pid": "doi-10.1001-jama.2019.19813",
+   "key": "t:towardaspeechneuroprosthesis",
+   "title": "Toward a Speech Neuroprosthesis",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1001-jama.2019.19813 | doi=10.1001/jama.2019.19813 | title=Toward a Speech Neuroprosthesis | venue=JAMA"
+  },
+  {
+   "pid": "doi-10.1016-j.cell.2025.06.015",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1016/j.cell.2025.06.015 | title=Inner speech in motor cortex and implications for speech neuroprostheses | a"
+  },
+  {
+   "pid": "doi-10.1016-j.celrep.2025.116241",
+   "key": "t:movingbeyondthemotorcortexabrainwideevaluationoftargetlocationsforintracranialsp",
+   "title": "Moving beyond the motor cortex: A brain-wide evaluation of target locations for intracranial speech neuroprostheses",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.celrep.2025.116241 | doi=10.1016/j.celrep.2025.116241 | title=Moving beyond the motor cortex: A b"
+  },
+  {
+   "pid": "doi-10.1016-j.clinph.2025.2110942",
+   "key": "t:emergenttechnologiesinclinicalneurophysiologytostudythecentralnervoussystemifcnh",
+   "title": "Emergent technologies in clinical neurophysiology to study the central nervous system: IFCN handbook chapter",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1016/j.clinph.2025.2110942 | title=Emergent technologies in clinical neurophysiology to study the central ne"
+  },
+  {
+   "pid": "doi-10.1016-j.jphysparis.2017.07.002",
+   "key": "t:keyconsiderationsindesigningaspeechbraincomputerinterface",
+   "title": "Key considerations in designing a speech brain-computer interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.jphysparis.2017.07.002 | doi=10.1016/j.jphysparis.2017.07.002 | title=Key considerations in desig"
+  },
+  {
+   "pid": "doi-10.1016-j.neuroimage.2023.120190",
+   "key": "t:mappingcorticalactivationsunderlyingcovertandovertlanguageproductionusinghighden",
+   "title": "Mapping cortical activations underlying covert and overt language production using high-density diffuse optical tomography",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1016/j.neuroimage.2023.120190 | title=Mapping cortical activations underlying covert and overt language prod"
+  },
+  {
+   "pid": "doi-10.1016-j.tics.2023.08.014",
+   "key": "t:innerspeechaslanguageprocessandcognitivetool",
+   "title": "Inner speech as language process and cognitive tool",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Trends in Cognitive Sciences 27(12):1180-1192 (Dec 2023), Review article, CC BY open access | title=Inner speech a"
+  },
+  {
+   "pid": "doi-10.1016-j.xcrm.2023.101115",
+   "key": "t:reconstructinglanguagefrombrainsignalsanddeconstructingadversarialthoughtreading",
+   "title": "Reconstructing language from brain signals and deconstructing adversarial thought-reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.xcrm.2023.101115 | doi=10.1016/j.xcrm.2023.101115 | title=Reconstructing language from brain sign"
+  },
+  {
+   "pid": "doi-10.1038-s41467-021-27725-3",
+   "key": "t:imaginedspeechcanbedecodedfromlowandcrossfrequencyintracranialeegfeatures",
+   "title": "Imagined speech can be decoded from low- and cross-frequency intracranial EEG features",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41467-021-27725-3 | doi=10.1038/s41467-021-27725-3 | title=Imagined speech can be decoded from low"
+  },
+  {
+   "pid": "doi-10.1038-s41562-024-01867-y",
+   "key": "t:representationofinternalspeechbysingleneuronsinhumansupramarginalgyrus",
+   "title": "Representation of internal speech by single neurons in human supramarginal gyrus",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41562-024-01867-y | title=Representation of internal speech by single neurons in human supramargin"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-62230-9",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-024-62230-9 | doi=10.1038/s41598-024-62230-9 | title=Feasibility of decoding covert speech i"
+  },
+  {
+   "pid": "doi-10.1038-s41598-025-18537-2",
+   "key": "t:mimedspeechasanintermediarystatebetweenovertandimaginedspeechproductioninanelect",
+   "title": "Mimed speech as an intermediary state between overt and imagined speech production in an electrocorticography study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s41598-025-18537-2 | title=Mimed speech as an intermediary state between overt and imagined speech prod"
+  },
+  {
+   "pid": "doi-10.1038-s42003-021-02578-0",
+   "key": "t:realtimesynthesisofimaginedspeechprocessesfromminimallyinvasiverecordingsofneura",
+   "title": "Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42003-021-02578-0 | doi=10.1038-s42003-021-02578-0 | title=Real-time synthesis of imagined speech"
+  },
+  {
+   "pid": "doi-10.1038-s42003-024-06518-6",
+   "key": "t:imaginedspeecheventdetectionfromelectrocorticographyanditstransferbetweenspeechm",
+   "title": "Imagined speech event detection from electrocorticography and its transfer between speech modes and subjects",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s42003-024-06518-6 | doi=10.1038/s42003-024-06518-6 | title=Imagined speech event detection from el"
+  },
+  {
+   "pid": "doi-10.1038-srep25803",
+   "key": "t:wordpairclassificationduringimaginedspeechusingdirectbrainrecordings",
+   "title": "Word pair classification during imagined speech using direct brain recordings",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-srep25803 | doi=10.1038/srep25803 | title=Word pair classification during imagined speech using dir"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ab0c59",
+   "key": "p:doi-10.1088-1741-2552-ab0c59",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=DenseNet3D ECoG-to-logMel synthesizer + WaveNet | task_family=speech_reconstruction | intended_use_cases=spe"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ae3a1b",
+   "key": "t:wordclassificationacrossspeechmodesfromlowdensityelectrocorticographysignals",
+   "title": "Word classification across speech modes from low-density electrocorticography signals",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1088/1741-2552/ae3a1b | title=Word classification across speech modes from low-density electrocorticography"
+  },
+  {
+   "pid": "doi-10.1088-1741-2560-8-3-036004",
+   "key": "p:doi-10.1088-1741-2560-8-3-036004",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=ECoG phoneme-driven 1D cursor BCI | intended_use_cases=device_control, speech_restoration | observed_quantit"
+  },
+  {
+   "pid": "doi-10.1088-1741-2560-8-4-046028",
+   "key": "p:doi-10.1088-1741-2560-8-4-046028",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=ECoG vowel/consonant discriminator (gamma+mu features) | task_family=inner_experience_analysis | intended_us"
+  },
+  {
+   "pid": "doi-10.1093-jmp-jhac011",
+   "key": "t:speakerresponsibilityforsyntheticspeechderivedfromneuralactivity",
+   "title": "Speaker Responsibility for Synthetic Speech Derived from Neural Activity",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1093-jmp-jhac011 | doi=10.1093/jmp/jhac011 | title=Speaker Responsibility for Synthetic Speech Derived f"
+  },
+  {
+   "pid": "doi-10.1101-2021.01.26.428315",
+   "key": "t:imaginedspeechcanbedecodedfromlowandcrossfrequencyfeaturesinperceptualspace",
+   "title": "Imagined speech can be decoded from low- and cross-frequency features in perceptual space",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2021.01.26.428315 | doi=10.1101/2021.01.26.428315 | title=Imagined speech can be decoded from low-"
+  },
+  {
+   "pid": "doi-10.1101-2022.06.07.495084",
+   "key": "t:speechdecodingfromasmallsetofspatiallysegregatedminimallyinvasiveintracranialeeg",
+   "title": "Speech decoding from a small set of spatially segregated minimally invasive intracranial EEG electrodes with a compact and interpretable neural network",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1101/2022.06.07.495084 | title=Speech decoding from a small set of spatially segregated minimally invasive i"
+  },
+  {
+   "pid": "doi-10.1101-2022.08.04.502829",
+   "key": "t:thenestedhierarchyofovertmouthedandimaginedspeechactivityevidentinintracranialre",
+   "title": "The Nested Hierarchy of Overt, Mouthed, and Imagined Speech Activity Evident in Intracranial Recordings",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2022.08.04.502829 | doi=10.1101/2022.08.04.502829 | title=The Nested Hierarchy of Overt, Mouthed, a"
+  },
+  {
+   "pid": "doi-10.1101-2024.02.05.578911",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.02.05.578911 | doi=10.1101/2024.02.05.578911 (published: 10.1038/s41598-024-62230-9) | title=F"
+  },
+  {
+   "pid": "doi-10.1101-2024.03.21.586130",
+   "key": "t:evidenceforcommonspikebasedtemporalcodingofovertandcovertspeechinparstriangulari",
+   "title": "Evidence for common spike-based temporal coding of overt and covert speech in pars triangularis of human Broca's area",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.03.21.586130 | title=Evidence for common spike-based temporal coding of overt and covert speec"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.21.608927",
+   "key": "t:speechsynthesisfromelectrocorticogramduringimaginedspeechusingatransformerbasedd",
+   "title": "Speech Synthesis from Electrocorticogram During Imagined Speech Using a Transformer-Based Decoder and Pretrained Vocoder",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.08.21.608927 | doi=10.1101/2024.08.21.608927 | title=Speech Synthesis from Electrocorticogram"
+  },
+  {
+   "pid": "doi-10.1101-2024.10.04.616375",
+   "key": "t:representationofverbalthoughtinmotorcortexandimplicationsforspeechneuroprosthese",
+   "title": "Representation of verbal thought in motor cortex and implications for speech neuroprostheses",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.10.04.616375 | doi=10.1101/2024.10.04.616375 | title=Representation of verbal thought in motor"
+  },
+  {
+   "pid": "doi-10.1101-2025.05.27.656311",
+   "key": "t:neuralhierarchyforcodingarticulatorydynamicsinspeechimageryandproduction",
+   "title": "Neural hierarchy for coding articulatory dynamics in speech imagery and production",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2025.05.27.656311 | doi=10.1101/2025.05.27.656311 | title=Neural hierarchy for coding articulatory"
+  },
+  {
+   "pid": "doi-10.1109-msp.2024.3484629",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1109/msp.2024.3484629 | title=Emerging Brain-to-Content Technologies from Generative AI and Deep Representat"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2022.3207624",
+   "key": "p:doi-10.1109-tnsre.2022.3207624",
+   "title": null,
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "task_family=speech_activity_detection | production_labels=ordinary_voiced_speech | Cohort.demographics=5 pharmacoresista"
+  },
+  {
+   "pid": "doi-10.1155-2016-2618265",
+   "key": "t:vowelimagerydecodingtowardsilentspeechbciusingextremelearningmachinewithelectroe",
+   "title": "Vowel Imagery Decoding toward Silent Speech BCI Using Extreme Learning Machine with Electroencephalogram",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1155-2016-2618265 | doi=10.1155/2016/2618265 | title=Vowel Imagery Decoding toward Silent Speech BCI Usi"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0166872",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1371-journal.pone.0166872 | title=Spatio-Temporal Progression of Cortical Activity Related to Continuous"
+  },
+  {
+   "pid": "doi-10.14569-ijacsa.2024.0150242",
+   "key": "t:areviewonapplicationsofelectroencephalogramincludesimaginedspeech",
+   "title": "A Review on Applications of Electroencephalogram: Includes Imagined Speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.14569-ijacsa.2024.0150242 | doi=10.14569/IJACSA.2024.0150242 | title=A Review on Applications of Electro"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-3927907-v1",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.21203-rs.3.rs-3927907-v1 | title=Feasibility of decoding covert speech in ECoG with a Transformer traine"
+  },
+  {
+   "pid": "doi-10.21203-rs.3.rs-7306546-v1",
+   "key": "t:astereoencephalographystudyofinternalspeech",
+   "title": "A stereoencephalography study of internal speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.21203/rs.3.rs-7306546/v1 | title=A stereoencephalography study of internal speech | authors=Naumov A, Soghoy"
+  },
+  {
+   "pid": "doi-10.31258-jamt.2.2.74-84",
+   "key": "t:electroencephalogrameegbasedimaginedspeechdecodingandrecognition",
+   "title": "Electroencephalogram (EEG) Based Imagined Speech Decoding and Recognition",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.31258-jamt.2.2.74-84 | doi=10.31258/jamt.2.2.74-84 | title=Electroencephalogram (EEG) Based Imagined Spe"
+  },
+  {
+   "pid": "doi-10.3389-fneng.2014.00014",
+   "key": "t:decodingspectrotemporalfeaturesofovertandcovertspeechfromthehumancortex",
+   "title": "Decoding spectrotemporal features of overt and covert speech from the human cortex",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.3389/fneng.2014.00014 | title=Decoding spectrotemporal features of overt and covert speech from the huma"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2014.00125",
+   "key": "p:doi-10.3389-fnhum.2014.00125",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "system_name=ECoG covert-vowel decoder (Ikeda/NAIST) | task_family=inner_experience_analysis | intended_use_cases=speech_"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2022.867281",
+   "key": "t:astateoftheartreviewofeegbasedimaginedspeechdecoding",
+   "title": "A State-of-the-Art Review of EEG-Based Imagined Speech Decoding",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnhum.2022.867281 | title=A State-of-the-Art Review of EEG-Based Imagined Speech Decoding | authors=Die"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2023.1298129",
+   "key": "t:recommendationsforpromotinguseragencyinthedesignofspeechneuroprostheses",
+   "title": "Recommendations for promoting user agency in the design of speech neuroprostheses",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2023.1298129 | doi=10.3389/fnhum.2023.1298129 | title=Recommendations for promoting user agen"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2024.1420334",
+   "key": "t:theethicalsignificanceofusercontrolinaidrivenspeechbcisanarrativereview",
+   "title": "The ethical significance of user-control in AI-driven speech-BCIs: a narrative review",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.3389/fnhum.2024.1420334 | title=The ethical significance of user-control in AI-driven speech-BCIs: a nar"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2025.1637174",
+   "key": "t:neuralsignalsmachinelearningandthefutureofinnerspeechrecognition",
+   "title": "Neural signals, machine learning, and the future of inner speech recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2025.1637174 | doi=10.3389/fnhum.2025.1637174 | title=Neural signals, machine learning, and t"
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2026.1838064",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfromnoninvasivebrainsigna",
+   "title": "The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.3389/fnhum.2026.1838064 | title=The current status of foundation models in decoding inner speech from no"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2016.00429",
+   "key": "t:automaticspeechrecognitionfromneuralsignalsafocusedreview",
+   "title": "Automatic Speech Recognition from Neural Signals: A Focused Review",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2016.00429 | title=Automatic Speech Recognition from Neural Signals: A Focused Review | autho"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2018.00422",
+   "key": "t:decodinginnerspeechusingelectrocorticographyprogressandchallengestowardaspeechpr",
+   "title": "Decoding Inner Speech Using Electrocorticography: Progress and Challenges Toward a Speech Prosthesis",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2018.00422 | doi=10.3389/fnins.2018.00422 | title=Decoding Inner Speech Using Electrocorticog"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2021.642251",
+   "key": "t:decodingcovertspeechfromeegacomprehensivereview",
+   "title": "Decoding Covert Speech From EEG-A Comprehensive Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnins.2021.642251 | doi=10.3389/fnins.2021.642251 | title=Decoding Covert Speech From EEG-A Compreh"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2024.1345308",
+   "key": "t:speechdecodingusingcorticalandsubcorticalelectrophysiologicalsignals",
+   "title": "Speech decoding using cortical and subcortical electrophysiological signals",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2024.1345308 | title=Speech decoding using cortical and subcortical electrophysiological signals"
+  },
+  {
+   "pid": "doi-10.3390-s26103212",
+   "key": "t:imaginedspeechbraincomputerinterfaceataskorientedreviewofneuraldecoding",
+   "title": "Imagined Speech Brain–Computer Interface: A Task-Oriented Review of Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3390-s26103212 | title=Imagined Speech Brain–Computer Interface: A Task-Oriented Review of Neural Decodi"
+  },
+  {
+   "pid": "doi-10.64898-2026.01.02.697428-speechgrasp",
+   "key": "t:neuralmechanismsofmixedspeechandgrasprepresentationinsensorimotorcortices",
+   "title": "Neural Mechanisms of Mixed Speech and Grasp Representation in Sensorimotor Cortices",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural Mechanisms of Mixed Speech and Grasp Representation in Sensorimotor Cortices | authors=Foli C; Conlan EC; M"
+  },
+  {
+   "pid": "doi-10.7507-1001-5515.202107018",
+   "key": "t:keytechnologyofbraincomputerinteractionbasedonspeechimagery",
+   "title": "[Key technology of brain-computer interaction based on speech imagery] 基于言语想象的脑机交互关键技术",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.7507-1001-5515.202107018 | doi=10.7507/1001-5515.202107018 | title=[Key technology of brain-computer int"
+  },
+  {
+   "pid": "iber24-seegovc",
+   "key": "t:comparativeanalysisofpowerdynamicsfrominvasiveeegrecordingsduringovertandcoverts",
+   "title": "Comparative Analysis of Power Dynamics from Invasive EEG Recordings During Overt and Covert Speech Production in Epilepsy Patients",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=iber24-seegovc | title=Comparative Analysis of Power Dynamics from Invasive EEG Recordings During Overt and Cov"
+  },
+  {
+   "pid": "isca-maghsoudi26_interspeech",
+   "key": "t:relatingtheneuralrepresentationsofvocalizedmimedandimaginedspeech",
+   "title": "Relating the Neural Representations of Vocalized, Mimed, and Imagined Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-maghsoudi26_interspeech | title=Relating the Neural Representations of Vocalized, Mimed, and Imagined Spee"
+  },
+  {
+   "pid": "isca-yang15c_interspeech",
+   "key": "t:speechreconstructionfromhumanauditorycortexwithdeepneuralnetworks",
+   "title": "Speech Reconstruction from Human Auditory Cortex with Deep Neural Networks",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/yang15c-interspeech | title=Speech Reconstruction from Human Auditory Cortex with Deep Neural Networks | a"
+  },
+  {
+   "pid": "lirias-90c2-ecogmode",
+   "key": "t:speechmodeclassificationfromelectrocorticographytransferbetweenelectrodesandpart",
+   "title": "Speech mode classification from electrocorticography: transfer between electrodes and participants",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech mode classification from electrocorticography: transfer between electrodes and participants | authors=de Bo"
+  },
+  {
+   "pid": "nemar-251-vocalmind",
+   "key": "t:vocalmindastereotacticeegdatasetforvocalizedmimedandimaginedspeechintonallanguag",
+   "title": "VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech in Tonal Language",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech in Tonal Language | Study.study_de"
+  },
+  {
+   "pid": "pmc-10950764-speechimgrev",
+   "key": "t:keytechnologyofbraincomputerinteractionbasedonspeechimagery",
+   "title": "Key technology of brain-computer interaction based on speech imagery",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Key technology of brain-computer interaction based on speech imagery | authors=Liu Y, Gong A, Ding P, Zhao L, Qian"
+  },
+  {
+   "pid": "pmc-11106343-covert",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformer",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Feasibility of decoding covert speech in ECoG with a Transformer | authors=covert-speech group | Study.research_ob"
+  },
+  {
+   "pid": "pmc-11106343-coverttransf",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrain",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer train",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Feasibility of decoding covert speech in ECoG with a Transformer train | authors=covert-transformer group | Study."
+  },
+  {
+   "pid": "pmc-11106343-ecogtransformer",
+   "key": "t:feasibilityofdecodingcovertspeechinecogwithatransformertrainedonovertspeech",
+   "title": "Feasibility of decoding covert speech in ECoG with a Transformer trained on overt speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11106343-ecogtransformer | title=Feasibility of decoding covert speech in ECoG with a Transformer trained o"
+  },
+  {
+   "pid": "pmc-11199147-internalsmg",
+   "key": "t:representationofinternalspeechbysingleneuronsinhumansupramarginalgyrus",
+   "title": "Representation of internal speech by single neurons in human supramarginal gyrus",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Representation of internal speech by single neurons in human supramarginal gyrus | authors=Wandelt, Bjånes, Pejsa"
+  },
+  {
+   "pid": "pmc-11226700-ecogevent",
+   "key": "t:imaginedspeecheventdetectionfromelectrocorticographyanditstransferbetweenspeechm",
+   "title": "Imagined speech event detection from electrocorticography and its transfer between speech modes and subjects",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined speech event detection from electrocorticography and its transfer between speech modes and subjects | aut"
+  },
+  {
+   "pid": "pmc-11226700-imagineddetect",
+   "key": "t:imaginedspeecheventdetectionfromelectrocorticographyanditstransferbetweenspeechm",
+   "title": "Imagined speech event detection from electrocorticography and its transfer between speech modes and subjects",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11226700-imagineddetect | title=Imagined speech event detection from electrocorticography and its transfer"
+  },
+  {
+   "pid": "pmc-11847940-fusiform",
+   "key": "t:memorabilityofnovelwordscorrelateswithanteriorfusiformactivityduringreading",
+   "title": "Memorability of novel words correlates with anterior fusiform activity during reading",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Memorability of novel words correlates with anterior fusiform activity during reading | authors=Woolnough, Tandon"
+  },
+  {
+   "pid": "pmc-12009324-vocalmind",
+   "key": "t:vocalmindastereotacticeegdatasetforvocalizedmimedandimaginedspeech",
+   "title": "VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech | authors=VocalMind group | Study."
+  },
+  {
+   "pid": "pmc-12026362-invasive-bci-communication",
+   "key": "t:invasivebraincomputerinterfaceforcommunicationascopingreview",
+   "title": "Invasive Brain–Computer Interface for Communication: A Scoping Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12026362-invasive-bci-communication | title=Invasive Brain–Computer Interface for Communication: A Scoping"
+  },
+  {
+   "pid": "pmc-12287026-innspeech",
+   "key": "t:neuralsignalsmachinelearningandthefutureofinnerspeechrecognition",
+   "title": "Neural signals, machine learning, and the future of inner speech recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural signals, machine learning, and the future of inner speech recognition | authors=Chowdhury; Hassanein; Al Sh"
+  },
+  {
+   "pid": "pmc-12287026-isrrev",
+   "key": "t:neuralsignalsmachinelearningandthefutureofinnerspeechrecognition",
+   "title": "Neural signals, machine learning, and the future of inner speech recognition",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural signals, machine learning, and the future of inner speech recognition | authors=Chowdhury, Hassanein, Al Sh"
+  },
+  {
+   "pid": "pmc-12333864-bci20",
+   "key": "t:emergingbraintocontenttechnologiesfromgenerativeaianddeeprepresentationlearning",
+   "title": "Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Learning",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12333864-bci20 | title=Emerging Brain-to-Content Technologies from Generative AI and Deep Representation Le"
+  },
+  {
+   "pid": "pmc-12337102-sharedpercept",
+   "key": "t:implicationsofsharedmotorandperceptualactivationsonthesensorimotorcortexforneuro",
+   "title": "Implications of shared motor and perceptual activations on the sensorimotor cortex for neuroprosthetic decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12337102-sharedpercept | title=Implications of shared motor and perceptual activations on the sensorimotor"
+  },
+  {
+   "pid": "pmc-12360486-inner-motor",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12360486-inner-motor | title=Inner speech in motor cortex and implications for speech neuroprostheses | aut"
+  },
+  {
+   "pid": "pmc-12360486-innercell",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Inner speech in motor cortex and implications for speech neuroprostheses | authors=Kunz, Abramovich Krasa, Kamdar,"
+  },
+  {
+   "pid": "pmc-12360486-innermtrcx",
+   "key": "t:innerspeechinmotorcortexandimplicationsforspeechneuroprostheses",
+   "title": "Inner speech in motor cortex and implications for speech neuroprostheses",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12360486-innermtrcx | title=Inner speech in motor cortex and implications for speech neuroprostheses | auth"
+  },
+  {
+   "pid": "pmc-12480242-mimedecog",
+   "key": "t:mimedspeechasanintermediarystatebetweenovertandimaginedspeechproductioninanelect",
+   "title": "Mimed speech as an intermediary state between overt and imagined speech production in an electrocorticography study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12480242-mimedecog | title=Mimed speech as an intermediary state between overt and imagined speech producti"
+  },
+  {
+   "pid": "pmc-13191437-somato",
+   "key": "t:towardsanunderstandingofsomatosensoryperturbationoncovertspeechproductionafuncti",
+   "title": "Towards an understanding of somatosensory perturbation on covert speech production: a functional near infrared spectroscopy study",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13191437-somato | title=Towards an understanding of somatosensory perturbation on covert speech production:"
+  },
+  {
+   "pid": "pmc-13194996-seeg-ssd",
+   "key": "t:distributedcorticosubcorticalnetworksenablerobustspeechstatedetectionfromsparsei",
+   "title": "Distributed cortico-subcortical networks enable robust speech state detection from sparse intracranial recordings",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13194996-seeg-ssd | title=Distributed cortico-subcortical networks enable robust speech state detection fro"
+  },
+  {
+   "pid": "pmc-13211074-isbcirev",
+   "key": "t:imaginedspeechbraincomputerinterfaceataskorientedreviewofneuraldecoding",
+   "title": "Imagined Speech Brain-Computer Interface: A Task-Oriented Review of Neural Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined Speech Brain-Computer Interface: A Task-Oriented Review of Neural Decoding | authors=Zhang, Siok, Wang, C"
+  },
+  {
+   "pid": "pmc-13254259-fminner",
+   "key": "t:thecurrentstatusoffoundationmodelsindecodinginnerspeechfromnoninvasivebrainsigna",
+   "title": "The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The current status of foundation models in decoding inner speech from non-invasive brain signals: a mini review |"
+  },
+  {
+   "pid": "pmc-13596444-megplan",
+   "key": "t:spatiotemporaldynamicsoflexicalandmorphosyntacticplanningduringlanguageproductio",
+   "title": "Spatiotemporal dynamics of lexical and morphosyntactic planning during language production revealed by magnetoencephalography",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13596444-megplan | title=Spatiotemporal dynamics of lexical and morphosyntactic planning during language pr"
+  },
+  {
+   "pid": "pmc-13601420-seeginner",
+   "key": "t:astereoencephalographystudyofinternalspeech",
+   "title": "A stereoencephalography study of internal speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13601420-seeginner | title=A stereoencephalography study of internal speech | authors=A. V. Naumov, G. A. S"
+  },
+  {
+   "pid": "pmc-3269422-speechrecon",
+   "key": "t:reconstructingspeechfromhumanauditorycortex",
+   "title": "Reconstructing speech from human auditory cortex",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3269422-speechrecon | title=Reconstructing speech from human auditory cortex | authors=B. N. Pasley, S. V."
+  },
+  {
+   "pid": "pmc-3342676-gammaevol",
+   "key": "t:temporalevolutionofgammaactivityinhumancortexduringanovertandcovertwordrepetitio",
+   "title": "Temporal evolution of gamma activity in human cortex during an overt and covert word repetition task",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-3342676-gammaevol | title=Temporal evolution of gamma activity in human cortex during an overt and covert w"
+  },
+  {
+   "pid": "pmc-3772685-vowelcons",
+   "key": "t:decodingvowelsandconsonantsinspokenandimaginedwordsusingelectrocorticographic",
+   "title": "Decoding Vowels and Consonants in Spoken and Imagined Words Using Electrocorticographic",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Vowels and Consonants in Spoken and Imagined Words Using Electrocorticographic | authors=vowel-consonant"
+  },
+  {
+   "pid": "pmc-3945950-covertvowel",
+   "key": "t:neuraldecodingofsinglevowelsduringcovertarticulationusing",
+   "title": "Neural decoding of single vowels during covert articulation using",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural decoding of single vowels during covert articulation using | authors=covert-vowel group | Study.research_ob"
+  },
+  {
+   "pid": "pmc-3945950-covertvowl",
+   "key": "t:neuraldecodingofsinglevowelsduringcovertarticulationusingelec",
+   "title": "Neural decoding of single vowels during covert articulation using elec",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural decoding of single vowels during covert articulation using elec | authors=covert-vowel group | Study.resear"
+  },
+  {
+   "pid": "pmc-4034498-overtcovert",
+   "key": "t:decodingspectrotemporalfeaturesofovertandcovertspeechfromthehumancortex",
+   "title": "Decoding spectrotemporal features of overt and covert speech from the human cortex",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4034498-overtcovert | title=Decoding spectrotemporal features of overt and covert speech from the human cor"
+  },
+  {
+   "pid": "pmc-4338752-segfeat",
+   "key": "t:electrocorticographicrepresentationsofsegmentalfeaturesincontinuousspeech",
+   "title": "Electrocorticographic representations of segmental features in continuous speech",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Electrocorticographic representations of segmental features in continuous speech | authors=Lotte F, Brumberg JS, B"
+  },
+  {
+   "pid": "pmc-4863149-ecog-word-pairs",
+   "key": "t:wordpairclassificationduringimaginedspeechusingdirectbrainrecordings",
+   "title": "Word pair classification during imagined speech using direct brain recordings",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-4863149-ecog-word-pairs | title=Word pair classification during imagined speech using direct brain recordin"
+  },
+  {
+   "pid": "pmc-5119784-cortprog",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Rea"
+  },
+  {
+   "pid": "pmc-5119784-spatio",
+   "key": "t:spatiotemporalprogressionofcorticalactivityrelatedtocontinuousovertandcovertspee",
+   "title": "Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Covert Speech Production in a Reading Task",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5119784-spatio | title=Spatio-Temporal Progression of Cortical Activity Related to Continuous Overt and Cov"
+  },
+  {
+   "pid": "pmc-6021529-innerecog",
+   "key": "t:decodinginnerspeechusingelectrocorticographyprogressandchallenges",
+   "title": "Decoding Inner Speech Using Electrocorticography: Progress and Challenges",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Inner Speech Using Electrocorticography: Progress and Challenges | authors=inner-ECoG group | Study.resea"
+  },
+  {
+   "pid": "pmc-6021529-innerecogrev",
+   "key": "t:decodinginnerspeechusingelectrocorticographyprogressandchallen",
+   "title": "Decoding Inner Speech Using Electrocorticography: Progress and Challen",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Inner Speech Using Electrocorticography: Progress and Challen | authors=inner-ECoG group | Study.research"
+  },
+  {
+   "pid": "pmc-6021529-innerspeechreview",
+   "key": "t:decodinginnerspeechusingelectrocorticographyprogressandchallengestowardaspeechpr",
+   "title": "Decoding Inner Speech Using Electrocorticography: Progress and Challenges Toward a Speech Prosthesis",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6021529-innerspeechreview | title=Decoding Inner Speech Using Electrocorticography: Progress and Challenges"
+  },
+  {
+   "pid": "pmc-6174918-dsbci",
+   "key": "t:neurolinguisticsresearchadvancingdevelopmentofadirectspeechbraincomputerinterfac",
+   "title": "Neurolinguistics Research Advancing Development of a Direct-Speech Brain-Computer Interface",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neurolinguistics Research Advancing Development of a Direct-Speech Brain-Computer Interface | authors=Cooney C, Fo"
+  },
+  {
+   "pid": "pmc-6174918-dsbci-review",
+   "key": "t:neurolinguisticsresearchadvancingdevelopmentofadirectspeechbraincomputerinterfac",
+   "title": "Neurolinguistics Research Advancing Development of a Direct-Speech Brain-Computer Interface",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6174918-dsbci-review | title=Neurolinguistics Research Advancing Development of a Direct-Speech Brain-Compu"
+  },
+  {
+   "pid": "pmc-6805153-meg-inner-counting",
+   "key": "t:neuraltrackingofspeechmentalimageryduringrhythmicinnercounting",
+   "title": "Neural tracking of speech mental imagery during rhythmic inner counting",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-6805153-meg-inner-counting | title=Neural tracking of speech mental imagery during rhythmic inner counting"
+  },
+  {
+   "pid": "pmc-7824107-bci50y",
+   "key": "t:summaryofoverfiftyyearswithbraincomputerinterfacesareview",
+   "title": "Summary of over fifty years with brain-computer interfaces—a review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-7824107-bci50y | title=Summary of over fifty years with brain-computer interfaces—a review | authors=A. Kaw"
+  },
+  {
+   "pid": "pmc-8116487-coverteeg-review",
+   "key": "t:decodingcovertspeechfromeegacomprehensivereview",
+   "title": "Decoding Covert Speech From EEG—A Comprehensive Review",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Decoding Covert Speech From EEG—A Comprehensive Review | authors=Panachakel JT, Ramakrishnan AG | venue=Frontiers"
+  },
+  {
+   "pid": "pmc-8460739-realtimesynth",
+   "key": "t:realtimesynthesisofimaginedspeechprocessesfromminimallyinvasiverecordingsofneura",
+   "title": "Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8460739-realtimesynth | title=Real-time synthesis of imagined speech processes from minimally invasive reco"
+  },
+  {
+   "pid": "pmc-8748882-cfc",
+   "key": "t:imaginedspeechcanbedecodedfromlowandcrossfrequencyintracranialeegfeatures",
+   "title": "Imagined speech can be decoded from low- and cross-frequency intracranial EEG features",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8748882-cfc | title=Imagined speech can be decoded from low- and cross-frequency intracranial EEG features"
+  },
+  {
+   "pid": "pmc-8748882-imaginedecog",
+   "key": "t:imaginedspeechcanbedecodedfromlowandcrossfrequencyintracranialeegfeatures",
+   "title": "Imagined speech can be decoded from low- and cross-frequency intracranial EEG features",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-8748882-imaginedecog | title=Imagined speech can be decoded from low- and cross-frequency intracranial EEG"
+  },
+  {
+   "pid": "pmc-8748882-lcf",
+   "key": "t:imaginedspeechcanbedecodedfromlowandcrossfrequencyintracranialeeg",
+   "title": "Imagined speech can be decoded from low- and cross-frequency intracranial EEG",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Imagined speech can be decoded from low- and cross-frequency intracranial EEG | authors=intracranial imagined-spee"
+  },
+  {
+   "pid": "pmc-9086783-eegimgspeech",
+   "key": "t:astateoftheartreviewofeegbasedimaginedspeechdecoding",
+   "title": "A state-of-the-art review of EEG-based imagined speech decoding",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-9086783-eegimgspeech | title=A state-of-the-art review of EEG-based imagined speech decoding | authors=D. L"
+  },
+  {
+   "pid": "pmc-9130409-bcispeechrev",
+   "key": "t:braincomputerinterfaceapplicationstospeechdecodingandsynthesistoaugmentcommunica",
+   "title": "Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication | authors=Luo S,"
+  },
+  {
+   "pid": "pmc-pmc4863149",
+   "key": "t:wordpairclassificationduringimaginedspeechusingdirectbrainrecordings",
+   "title": "Word pair classification during imagined speech using direct brain recordings",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-pmc4863149 | title=Word pair classification during imagined speech using direct brain recordings | authors="
+  },
+  {
+   "pid": "pmc12009324_vocalmind",
+   "key": "t:vocalmindastereotacticeegdatasetforvocalizedmimedandimaginedspeechintonallanguag",
+   "title": "VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech in Tonal Language",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc12009324_vocalmind | title=VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech i"
+  },
+  {
+   "pid": "pmc12929501-indivbci",
+   "key": "t:individualizedbraincomputerinterfaceforpeoplewithdisabilitiesareview",
+   "title": "Individualized brain-computer interface for people with disabilities: a review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc12929501-indivbci | title=Individualized brain-computer interface for people with disabilities: a review | a"
+  },
+  {
+   "pid": "rs-7306546-seeg-innerspeech",
+   "key": "t:astereoencephalographystudyofinternalspeech",
+   "title": "A stereoencephalography study of internal speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A stereoencephalography study of internal speech | authors=Naumov A, Soghoyan G, Makarova A, Syrov N, Skripnikov A"
+  },
+  {
+   "pid": "rs-7306546-seegint",
+   "key": "t:astereoencephalographystudyofinternalspeech",
+   "title": "A stereoencephalography study of internal speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A stereoencephalography study of internal speech | authors=Naumov, Soghoyan, Makarova, Syrov, Skripnikov, Kustov,"
+  }
+ ],
+ "usual_approach": {
+  "design": "time-averaged or fixed-window spectral power features without temporal alignment (3 of 4); lagged linear model (1 of 4); alignment inside the decoder 0 of 4",
+  "n": 3,
+  "tier": "confirmed",
+  "population_unique": 4,
+  "pids": [
+   "doi-10.1088-1741-2560-8-3-036004",
+   "pmc-3772685-vowelcons",
+   "pmc-3945950-covertvowel"
+  ],
+  "note": "prior population at the target time (first public before 2015-11), all four read; all-years full-text pattern counts over the 89 unique pattern-match studies, mentions included: dtw_or_time_warping 23, hidden_markov_model 17, lagged_linear_or_temporal_receptive_field 12"
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1088-1741-2560-8-3-036004",
+   "role": "prior",
+   "loc": "2.4. Closed-Loop Control Experiments; Table 2. Closed Loop Speech BCI Performance Data",
+   "quote": "The power levels of the identified ECoG features (i.e., the power in the particular frequency bin at the particular electrode) were weighted and summed in order to provide the patient an intuitive means of cursor control."
+  },
+  {
+   "pid": "doi-10.1088-1741-2560-8-3-036004",
+   "role": "prior",
+   "loc": "2.3 Screening for Control Features",
+   "quote": "Patients underwent initial screening to identify control features for use in subsequent closed-loop control experiments."
+  },
+  {
+   "pid": "pmc-3772685-vowelcons",
+   "role": "prior",
+   "loc": "2.5. Feature Extraction and Classification",
+   "quote": "We then averaged these spectral amplitudes in three different frequency ranges, i.e., 8–12 Hz, 18–26 Hz, and 70–170 Hz (excluding 116–124 Hz)."
+  },
+  {
+   "pid": "pmc-3772685-vowelcons",
+   "role": "prior",
+   "loc": "2.5. Feature Extraction and Classification",
+   "quote": "The decoder for each vowel (i.e., including all nine different words with different consonant pairs) was constructed by modeling ECoG features associated with that vowel using a Naive Bayes classifier."
+  },
+  {
+   "pid": "doi-10.3389-fneng.2014.00014",
+   "role": "prior",
+   "loc": "Figure 3 caption, p. 5",
+   "quote": "The overall reconstruction\naccuracy was then quantiﬁed by computing the correlation coefﬁcient\n(Pearson’s r) between the covert speech reconstruction and the original speech\nrepresentation."
+  },
+  {
+   "pid": "doi-10.3389-fneng.2014.00014",
+   "role": "prior",
+   "loc": "Covert speech decoding, p. 5",
+   "quote": "the decoding model was trained using data from\nthe overt speaking condition. Second, the same model"
+  },
+  {
+   "pid": "pmc-3945950-covertvowel",
+   "role": "prior",
+   "loc": "2.5. Evaluation",
+   "quote": "Individual weights and biases were determined using a support vector machine (SVM) with the linear kernel applied to the training trials (Vapnik, 1998 )."
+  },
+  {
+   "pid": "pmc-3945950-covertvowel",
+   "role": "prior",
+   "loc": "2.4. Feature extraction",
+   "quote": "The power spectra were used as feature vectors for decoding analyses."
+  },
+  {
+   "pid": "doi-10.5220-0003786100910100",
+   "role": "prior",
+   "loc": "Sec. 4.4 Classification",
+   "quote": "For this initial stage of research, the Dynamic Time"
+  },
+  {
+   "pid": "isca-wan05b_interspeech",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "sequence kernel based on dynamic time warping (DTW) for"
+  },
+  {
+   "pid": "doi-10.1016-j.cell.2025.06.015",
+   "role": "sota",
+   "loc": "STAR Methods",
+   "quote": "we used a connectionist temporal classification (CTC) loss"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 5,
+  "found": 5,
+  "recall": 1.0,
+  "missed": []
+ },
+ "prior_tally": {
+  "basis": "Population: human intracranial (ECoG, sEEG, depth, intracortical) decoders of imagined, covert or inner speech; excluded are attempted speech decoded from unit firing (Guenther 2009, Brumberg 2011), scalp EEG/MEG, listening-only reconstruction, overt-only studies, analyses without a decoder and reviews; versions count once. Priors: first public before 2015-11; [concurrent] 2015-11 to 2016-11. Pattern-match studies first public up to 2015 (Leuthardt 2011 undated in the index, resolved from its text): 8 unique; excluded listening-only (Pasley 2012, Yang 2015), no decoder (Leuthardt 2012 gamma time course), overt-only (Lotte 2015), leaving 4 decoders.",
+  "cutoff": "first public before 2015-11",
+  "population_unique": 4,
+  "population_pids": [
+   "doi-10.1088-1741-2560-8-3-036004",
+   "pmc-3772685-vowelcons",
+   "doi-10.3389-fneng.2014.00014",
+   "pmc-3945950-covertvowel"
+  ],
+  "design_counts": [
+   {
+    "design": "time_averaged_or_fixed_window_power_no_alignment",
+    "n": 3,
+    "tier": "confirmed",
+    "pids": [
+     "doi-10.1088-1741-2560-8-3-036004",
+     "pmc-3772685-vowelcons",
+     "pmc-3945950-covertvowel"
+    ]
+   },
+   {
+    "design": "lagged_linear_model",
+    "n": 1,
+    "tier": "confirmed",
+    "pids": [
+     "doi-10.3389-fneng.2014.00014"
+    ]
+   },
+   {
+    "design": "temporal_alignment_inside_decoder",
+    "n": 0,
+    "tier": "confirmed",
+    "pids": []
+   },
+   {
+    "design": "dtw_for_scoring_only",
+    "n": 1,
+    "tier": "confirmed",
+    "pids": [
+     "doi-10.3389-fneng.2014.00014"
+    ]
+   }
+  ],
+  "concurrent": [
+   "doi-10.1371-journal.pone.0166872 (ECoG, 2016-11: DTW lag matching of covert to overt power in an analysis without a decoder)"
+  ]
+ },
+ "fulltext_recall_check": {
+  "scope": "all wiki full texts first public up to 2016 (dated in the index)",
+  "pattern": "(dynamic time warping|DTW|time warp|dynamic time alignment|global alignment kernel) AND (EEG|ECoG|intracranial|MEG|cortical|EMG)",
+  "hits": 72,
+  "neural_hits": 8,
+  "result": "8 neural-recording studies incl. the target: Guenther 2009 (DTW to average formant trajectories for display), Pasley 2012 and Martin 2014 (DTW for scoring), a 2015 ECoG dissertation and two 2016 texts citing an overt-speech DTW template study that is not in the wiki, and a [concurrent] 2016 ECoG analysis without a decoder; no study other than the target uses DTW or any temporal alignment inside a decoder of imagined or covert speech. Outside neural recordings, DTW classifiers precede the target in surface-EMG silent speech (2010) and DTW-kernel SVMs in acoustic dysarthric speech recognition (2005), as the authors note for speech recognition."
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.1016-j.cell.2025.06.015",
+  "year": 2025,
+  "metric": "inner-speech sentence decoding with an RNN trained by CTC loss without ground-truth timing labels; online 50-word WER 14-33%, 3 participants, same sessions as training, T15 retrained online",
+  "value": "14-33% WER",
+  "timing": "later"
+ },
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 89,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "time-averaged or fixed-window spectral power features without temporal alignment (3 of 4); lagged linear model (1 of 4); alignment inside the decoder 0 of 4",
+   "n": 3,
+   "tier": "confirmed",
+   "population_unique": 4
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1016-j.cell.2025.06.015",
+   "year": 2025,
+   "metric": "inner-speech sentence decoding with an RNN trained by CTC loss without ground-truth timing labels; online 50-word WER 14-33%, 3 participants, same sessions as training, T15 retrained online",
+   "value": "14-33% WER",
+   "timing": "later"
+  },
+  "read": 7,
+  "read_prior": [
+   "doi-10.1088-1741-2560-8-3-036004",
+   "doi-10.3389-fneng.2014.00014",
+   "doi-10.5220-0003786100910100",
+   "isca-wan05b_interspeech",
+   "pmc-3772685-vowelcons",
+   "pmc-3945950-covertvowel"
+  ],
+  "unread": 127,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "state_of_the_art_note_word-pair-classification-during-imagined-speech-using-direct-brain-recordings": "Zhao 2026 (accuracy benchmark, no timing method) replaced after evaluation; the M06 component is trial-timing handling",
+ "verdict_basis": "novelty judged over any signal: DTW-kernel SVM (Wan 2005, acoustic) and DTW word classification of silent-speech EMG (Freitas 2012) predate the target",
+ "used_by": [
+  "word-pair-classification-during-imagined-speech-using-direct-brain-recordings"
+ ]
+}

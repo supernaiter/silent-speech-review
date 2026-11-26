@@ -106,7 +106,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`intracranial-imagined-speech-test-partition.csv`](intracranial-imagined-speech-test-partition.csv) (6960 slot-filled, 89 pattern match, usual design in 3, 6 read in full)
 - Inclusion rule: Same population as the M06 topic: human intracranial (ECoG, sEEG, depth, intracortical) studies that decode imagined, covert or inner speech with a trained decoder. Design of interest: how test data are separated from training data (within-participant k-fold, leave-one-out or random trial/block split; held-out session or day; held-out subject; online closed-loop test with features or decoder fixed beforehand). Boundary: attempted speech decoded from unit firing (e.g. Guenther 2009, Brumberg 2011), reviews, listening-only, scalp EEG/MEG and analyses without a decoder excluded; versions count once. Priors: first public before 2020-07 (no 2020 candidate matched).
-- Used in: [Imagined speech can be decoded from low- and cross-frequency intracranial EEG features](../../reviews/imagined-speech-can-be-decoded-from-low-and-cross-frequency-intracranial-eeg-features/)
+- Used in: [Imagined speech can be decoded from low- and cross-frequency intracranial EEG features](../../reviews/imagined-speech-can-be-decoded-from-low-and-cross-frequency-intracranial-eeg-features/), [Word pair classification during imagined speech using direct brain recordings](../../reviews/word-pair-classification-during-imagined-speech-using-direct-brain-recordings/)
 
 ## intracranial-speech-test-partition
 

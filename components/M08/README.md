@@ -24,6 +24,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Same verification population as the M03 topic; the design compared is what the deployed system returns: an identity decision only, or decoded content (word, digit, password, command) together with an identity decision from the same utterance; also whether silent or unvoiced input, EER and attack or liveness tests are named. Boundary: content and identity produced by separately trained stages still count as joint output; a study counts under every design its full text names.
 - Used in: [Poster: Recognizing Hidden-in-the-Ear Private Key for Reliable Silent Speech Interface Using Multi-Task Learning](../../reviews/poster-recognizing-hidden-in-the-ear-private-key-for-reliable-silent-speech-interface-using-mult/)
 
+## intracranial-imagined-speech-output-unit
+
+- Table: [`intracranial-imagined-speech-output-unit.csv`](intracranial-imagined-speech-output-unit.csv) (3268 slot-filled, 89 pattern match, usual design in 3, 6 read in full)
+- Inclusion rule: Same intracranial imagined-speech decoder population. Design of interest: the decoded output unit of imagined trials: task versus rest, phoneme or vowel class, consonant class, whole-word identity, continuous acoustic features, sentence text. Boundary: word stimuli whose sub-word units are classified (Pei 2011) count as sub-word output. Population: human intracranial (ECoG, sEEG, depth, intracortical) decoders of imagined, covert or inner speech; excluded are attempted speech decoded from unit firing (Guenther 2009, Brumberg 2011), scalp EEG/MEG, listening-only reconstruction, overt-only studies, analyses without a decoder and reviews; versions count once. Priors: first public before 2015-11; [concurrent] 2015-11 to 2016-11. Pattern-match studies first public up to 2015 (Leuthardt 2011 undated in the index, resolved from its text): 8 unique; excluded listening-only (Pasley 2012, Yang 2015), no decoder (Leuthardt 2012 gamma time course), overt-only (Lotte 2015), leaving 4 decoders.
+- Used in: [Word pair classification during imagined speech using direct brain recordings](../../reviews/word-pair-classification-during-imagined-speech-using-direct-brain-recordings/)
+
 ## intracranial-synthesis-waveform-generation
 
 - Table: [`intracranial-synthesis-waveform-generation.csv`](intracranial-synthesis-waveform-generation.csv) (3268 slot-filled, 180 pattern match, usual design in 51, 2 read in full)
