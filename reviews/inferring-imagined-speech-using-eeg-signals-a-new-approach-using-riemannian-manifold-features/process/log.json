@@ -1,6 +1,6 @@
 {
  "slug": "inferring-imagined-speech-using-eeg-signals-a-new-approach-using-riemannian-manifold-features",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,28 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-26T13:09:18+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-26T13:19:06+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "22 findings; 22 applied (M2 partly: no DaSalla reference since it is not named as a cited work); 0 rejected. Verdict changes: M12 standard → behind; M03 not_reported → standard; M06 unchanged (standard, new reason).",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-26T13:23:55+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 104 found, 0 missing, 14 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-covariance-tangent-space-features-imagined-speech-eeg": "ok",
+  "topic counts M12-imagined-speech-eeg-chance-reference": "ok"
+ },
  "inputs": {
   "notes_sha256": "fd818189011458246a32780bf23a7f6a981c3e052bbb5b6979dea44690efc89c",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +59,6 @@
  },
  "body_chars": {
   "draft": 12358,
-  "final": null
+  "final": 13703
  }
 }

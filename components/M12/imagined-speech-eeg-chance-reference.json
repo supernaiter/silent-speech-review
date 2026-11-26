@@ -290,6 +290,24 @@
    "pid": "doi-10.1007-s10916-018-1137-9",
    "year": 2018,
    "tier": "ledger only"
+  },
+  {
+   "metric": "best accuracy (kNN, 8 electrodes)",
+   "value": 96,
+   "unit": "percent",
+   "raw": "96%",
+   "pid": "doi-10.3390-eng6040075",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ds1 subject-dependent accuracy social words",
+   "value": 95.16,
+   "unit": "percent",
+   "raw": "95.16 ± 3.50%",
+   "pid": "openresafrica-16257-innerspeech",
+   "year": null,
+   "tier": "ledger only"
   }
  ],
  "recall_sample": [],
@@ -2888,6 +2906,28 @@
    "role": "prior",
    "loc": "Sec. 3.4",
    "quote": "we set aside 20% of the data for testing with a fixed random seed"
+  },
+  {
+   "pid": "essex-43678-riemann",
+   "role": "sota",
+   "loc": "Sec. III-A; Fig. 1",
+   "quote": "In contrast, the Nguyen dataset demonstrated a pronounced reduction in accuracy when applying the Group CV (median: 0.74) compared to the Stratified CV (median: 0.89)",
+   "note": "later same-dataset re-evaluation with trial-grouped folds and a post-imagery sanity check",
+   "used_by": "inferring-imagined-speech-using-eeg-signals-a-new-approach-using-riemannian-manifold-features"
+  },
+  {
+   "pid": "doi-10.1088-1741-2560-7-4-046006",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "Assuming a binomial mass of n = 300, p = 1/3",
+   "used_by": "inferring-imagined-speech-using-eeg-signals-a-new-approach-using-riemannian-manifold-features"
+  },
+  {
+   "pid": "pmc-4853397-covertvowel",
+   "role": "prior",
+   "loc": "Results",
+   "quote": "were significantly higher than chance level",
+   "used_by": "inferring-imagined-speech-using-eeg-signals-a-new-approach-using-riemannian-manifold-features"
   }
  ],
  "known_item_recall": {
@@ -2906,6 +2946,7 @@
   "timing": "prior"
  },
  "used_by": [
+  "inferring-imagined-speech-using-eeg-signals-a-new-approach-using-riemannian-manifold-features",
   "lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia",
   "towards-neural-decoding-of-imagined-speech-based-on-spoken-speech"
  ],
@@ -2929,10 +2970,43 @@
   "read": 2,
   "read_prior": [
    "arxiv-2307.14389",
-   "doi-10.3390-brainsci14030196"
+   "doi-10.3390-brainsci14030196",
+   "doi-10.1088-1741-2560-7-4-046006",
+   "pmc-4853397-covertvowel"
   ],
   "unread": 256,
   "confirmed_unique": 0,
   "known_item_recall": 0.0
+ },
+ "usual_approach_inferring-imagined-speech-using-eeg-signals-a-new-approach-using-riemannian-manifold-features": {
+  "design": "accuracy referenced to chance; tested against chance (binomial or significance test) in 3 of 7",
+  "n": 3,
+  "tier": "pattern match",
+  "population_unique": 7,
+  "pids": [
+   "pmc-25146-brainwave",
+   "doi-10.1088-1741-2560-7-4-046006",
+   "pmc-4853397-covertvowel"
+  ],
+  "note": "Target-time population: scalp-EEG (Suppes 1997: EEG and MEG) imagined, covert, unspoken or internal speech decoders first public before 2017-06 (target first public 2017-12, publisher's published date; accepted 2017-07-26), found by a full-text pattern over the whole wiki and triaged by hand: ECoG, fMRI, perception-only, ERP-only and review papers excluded; versions once (Min et al. 2016 has three wiki folders). 7 prior unique studies: Suppes 1997, Deng 2010, Torres-Garcia 2012, Yoshimura 2016, s41133 2016, Min 2016, arxiv-1705.07771 (2017-05; [concurrent] if the accepted manuscript went online in 2017-07, which changes no verdict). 1 [concurrent]: pmc-5551297-icaconcept (Jul-Sep 2017). Counts below were checked sentence by sentence in each body text. Among the 7 prior: tested against chance 3 (Suppes 1997 significance, Deng 2010 binomial, Yoshimura 2016 significance); chance level stated without a test 3 (Torres-Garcia 2012, s41133 2016, Min 2016); no chance reference 1 (arxiv-1705.07771). Tates et al. figures are pooled medians over pairwise two-class contrasts."
+ },
+ "at_target_time_inferring-imagined-speech-using-eeg-signals-a-new-approach-using-riemannian-manifold-features": {
+  "target_first_public": "2017-12",
+  "prior_unique": 7,
+  "concurrent_unique": 1,
+  "design_counts_prior": {
+   "TESTED_AGAINST_CHANCE": 3,
+   "CHANCE_STATED_UNTESTED": 3,
+   "NO_CHANCE_REFERENCE": 1
+  },
+  "tier": "pattern match, checked in body text"
+ },
+ "state_of_the_art_inferring-imagined-speech-using-eeg-signals-a-new-approach-using-riemannian-manifold-features": {
+  "pid": "essex-43678-riemann",
+  "year": 2026,
+  "metric": "same dataset, pairwise contrasts, trial-grouped 10-fold CV plus post-imagery sanity window (tangent space + L1 logistic regression), pooled participants",
+  "value": 0.74,
+  "unit": "median accuracy (proportion)",
+  "timing": "later"
  }
 }
