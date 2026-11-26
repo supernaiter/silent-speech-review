@@ -1,0 +1,63 @@
+{
+ "target": "doi-10.1038-srep25803",
+ "target_versions": [
+  "doi-10.1038-srep25803",
+  "pmc-4863149-ecog-word-pairs",
+  "pmc-4863149-wordpair",
+  "pmc-pmc4863149"
+ ],
+ "first_public": "2016-05",
+ "population_boundary": "Human intracranial (ECoG, sEEG, depth, intracortical) decoders of imagined, covert or inner speech; attempted speech by paralysed participants (Guenther 2009, Brumberg 2011), scalp EEG/MEG, listening-only and overt-only studies are outside. Priors: first public before 2015-11; [concurrent] 2015-11 to 2016-11. Same boundary for every audited slot.",
+ "changed": [
+  "M06",
+  "M08"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Auditory-cued word repetition task (listen, imagine hearing, repeat) from the Pei 2011 / Martin 2014 ECoG covert-repetition lineage.",
+  "M02": "Instructed word labels only; no training-only auxiliary signal.",
+  "M03": "Per-subject offline training with inner leave-one-out grid search and training-fold discriminative-power weighting.",
+  "M04": "Cued 'imagine hearing' of a just-heard word, paired with listening and overt repetition of the same item (paired-overt covert design, Pei 2011 lineage).",
+  "M05": "Clinical subdural ECoG in 5 epilepsy patients, high-gamma 70-150 Hz envelopes (Leuthardt / Pei / Martin 2014 lineage).",
+  "M07": "None; closed binary word-pair choice.",
+  "M09": "Offline; none.",
+  "M10": "Offline; none.",
+  "M11": "Instructed item identity, imagined epochs at cue onset (no measured imagery onset).",
+  "M13": "Short-term clinical implants, offline analysis."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "intracranial-imagined-speech-decoder-time-alignment",
+   "inclusion_rule": "Same intracranial imagined-speech decoder population as the published M06/M12 topics (pattern below). Design of interest: how the decoder handles trial-to-trial timing variability of imagined trials: time-averaged or fixed-window features, lagged linear model, sequence model (HMM), or explicit temporal alignment (DTW or another warping) inside the classifier. Boundary: DTW used only to align a decoded output with a reference for scoring (Pasley 2012, Martin 2014) is evaluation (M11/M12), not decoder alignment.",
+   "pattern": "same as intracranial-imagined-speech-neural-features",
+   "design_regex": [
+    "dtw_or_time_warping",
+    "hidden_markov_model",
+    "lagged_linear_or_temporal_receptive_field"
+   ],
+   "metric": "imagined-speech classification accuracy relative to chance; higher is better",
+   "better": "higher"
+  },
+  {
+   "slot": "M08",
+   "topic": "intracranial-imagined-speech-output-unit",
+   "inclusion_rule": "Same population. Design of interest: the decoded output unit for imagined trials: rest vs task, phoneme or vowel class, consonant class, whole-word identity, continuous acoustic features, sentence text. Boundary: word stimuli whose sub-word units are classified (Pei 2011) count as sub-word output.",
+   "pattern": "same as intracranial-imagined-speech-neural-features",
+   "design_regex": [
+    "whole_word_classification",
+    "vowel_phoneme_syllable_classes",
+    "continuous_spectrotemporal_output"
+   ],
+   "metric": "imagined-speech classification accuracy relative to chance",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-imagined-speech-test-partition",
+   "reuse": "components/M12/intracranial-imagined-speech-test-partition.json (append-only; target-time tally in prior_tally_<slug>)"
+  }
+ ]
+}
