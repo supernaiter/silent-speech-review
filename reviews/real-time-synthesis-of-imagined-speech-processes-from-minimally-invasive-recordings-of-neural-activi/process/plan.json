@@ -1,0 +1,84 @@
+{
+ "slug": "real-time-synthesis-of-imagined-speech-processes-from-minimally-invasive-recordings-of-neural-activi",
+ "target": "doi-10.1038-s42003-021-02578-0; pmc-8460739-realtimesynth",
+ "prep": "no prep/ directory; plan, audits and comparator selection built by the writer; three published topic tables reused append-only with target-time keys",
+ "setting": "One setting per slot: precedents count from any non-acoustic signal (neural, EMG, articulography, ultrasound, video) wherever the published table admits them (M06, M04); M12 counts neural reconstructions of produced, mimed or imagined speech (any neural signal) because identification of reconstructed acoustics is only defined for reconstruction studies. Target time: first public 2021-09; prior = first public before 2021-03; [concurrent] 2021-03 to 2022-03.",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "cued audible word reading for training (Herff/Angrick sEEG word-reading lineage)"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "time-aligned own audio as training target, quantized log-mel bins (Angrick et al. 2020 quantization approach)"
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "per-participant training on one audible run, 150 features by correlation"
+  },
+  "M04": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "overt-to-silent-transfer",
+     "inclusion_rule": "Include studies that apply a decoder trained only on overt (or attempted overt) speech to silent speech (mouthed, silently articulated, inner or imagined speech) without retraining and report the results. Any signal qualifies (neural, EMG, ultrasound, video, etc.). Boundary: those that also train on silent data (such as methods that transfer audible-side targets) are included if they separately report an audible-training-only baseline condition. Exclude those that use an audible model only for time alignment or initialization of silent data. Exclude transfer between whispered and normal voice in acoustic speech. Exclude transfer from listening (perception) to inner speech. Exclude those that only analyse similarity of neural activity without applying a decoder. Exclude matches in reviews or citations only. Count different versions of the same study as one item.",
+     "pattern": "reused published topic table (confirmed include decisions)",
+     "design_field": "include decisions; signal and use-time action",
+     "metric": "degradation from overt to silent/covert"
+    }
+   ]
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "clinical sEEG depth electrodes, 119 contacts, one epilepsy participant"
+  },
+  "M06": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "causal-closed-loop-speech-synthesis",
+     "inclusion_rule": "Studies that synthesize speech acoustics from a non-acoustic signal (neural, EMG, articulography, ultrasound, video) online, in real time, with the audio played back to the user while or right after they speak. Boundary: include formant or vocoder synthesis of vowels, words or sentences, and offline studies only when they simulate causal frame-level inference; exclude offline acausal reconstruction, text decoding read out by TTS, and conversion from acoustic input; count versions once.",
+     "pattern": "reused published topic table",
+     "design_field": "writer classification of the 44 prior pattern-match studies from ledger text and reads",
+     "metric": "listener WER %, lower better; latency ms"
+    }
+   ]
+  },
+  "M07": {
+   "class": "inherited",
+   "lineage": "no lexicon or language model"
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "Griffin-Lim waveform from predicted log-mel (8 iterations); neural vocoders are the usual later choice"
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "continuous audio, no confirmation"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "no correction"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "overt recording of the same word as reference for covert output, DTW-aligned (Martin et al. 2014)"
+  },
+  "M12": {
+   "class": "incidental",
+   "topics": [
+    {
+     "topic": "neural-speech-reconstruction-identification-test",
+     "inclusion_rule": "Studies that reconstruct a continuous acoustic speech representation (spectrogram, mel features, envelope or waveform) from neural recordings (EEG, MEG, ECoG, sEEG or intracortical) during perceived, produced, mimed or imagined speech and evaluate the reconstruction. Boundary: classification-only and text-only decoders are excluded; auditory attention decoding that only tracks an envelope to select a talker is counted by the ledger pattern but is not a reconstruction study; versions of one study count once. Design categories are full-text pattern matches and overlap: correlation, identification among candidates, mel-cepstral distortion, human listening test, STOI.",
+     "pattern": "reused published topic table",
+     "design_field": "writer classification of prior production/mimed/imagined reconstructions by evaluation design (correlation only vs identification among candidates or listener test)",
+     "metric": "identification accuracy / listener WER"
+    }
+   ]
+  },
+  "M13": {
+   "class": "inherited",
+   "lineage": "clinical sEEG monitoring, laptop, days-long implant"
+  }
+ }
+}
