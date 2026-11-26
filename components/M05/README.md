@@ -101,6 +101,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Papers that decode speech units (phonemes, words, sentences, sound) from intracortical microelectrode recordings in humans. Included: attempted, imagined or overt speech; any array count. Excluded: intracortical decoding of hand/arm movement or handwriting only; ECoG/sEEG.
 - Used in: [A high-performance speech neuroprosthesis](../../reviews/a-high-performance-speech-neuroprosthesis/), [An Accurate and Rapidly Calibrating Speech Neuroprosthesis](../../reviews/an-accurate-and-rapidly-calibrating-speech-neuroprosthesis/)
 
+## intracranial-speech-electrode-scale
+
+- Table: [`intracranial-speech-electrode-scale.csv`](intracranial-speech-electrode-scale.csv) (7329 slot-filled, 618 pattern match, usual design in 2, 4 read in full)
+- Inclusion rule: Design of interest: electrode type and scale used to record speech-related activity: penetrating intracortical microelectrodes, clinical subdural grids (about 1 cm spacing), high-density ECoG (about 4 mm) or micro-ECoG (under about 3 mm, microwire or thin film). Boundary: design counts are full-text pattern matches (mentions included, upper bounds). Setting: human studies that decode produced, attempted or imagined speech from intracranial recordings (ECoG, micro-ECoG, sEEG, intracortical arrays); ledger pattern = the published intracranial-speech-test-partition pattern (intracranial signal and speech unit named in the ledger text). Off-population at the target's time: reviews, listening/perception studies and studies with no decoder. Target first public 2010-09; prior = first public before 2010-03; [concurrent] = 2010-03 to 2011-03; versions of one study count once; two index-misdated 2012 papers (pmc-3321121-revspeech, pmc-3342676-gammaev) are later; 18 undated hits are all arXiv 2023 or later. Sensor-slot boundary (differs from M06/M12 on purpose): for electrode type the decoder requirement is dropped, so every intracranial recording during speech or word production before 2010-03 counts; listening-only studies and reviews stay excluded.
+- Used in: [Decoding spoken words using local field potentials recorded from the cortical surface](../../reviews/decoding-spoken-words-using-local-field-potentials-recorded-from-the-cortical-surface/)
+
 ## multi-view-camera-input
 
 - Table: [`multi-view-camera-input.csv`](multi-view-camera-input.csv) (7329 slot-filled, 787 pattern match, usual design in 693, 4 read in full)

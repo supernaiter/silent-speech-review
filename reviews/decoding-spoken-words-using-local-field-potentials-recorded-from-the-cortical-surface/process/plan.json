@@ -1,0 +1,63 @@
+{
+ "target": [
+  "doi-10.1088-1741-2560-7-5-056007",
+  "pmc-2970568-lfpwords"
+ ],
+ "first_public": "2010-09",
+ "setting": "Human studies decoding produced, attempted or imagined speech from intracranial recordings (ECoG, micro-ECoG, sEEG, intracortical). Same population pattern for M05, M06 and M12 (published intracranial-speech-test-partition pattern). Usual approach judged on studies first public before 2010-03; 2010-03 to 2011-03 is [concurrent]. Off-population: reviews, listening-only, no decoder.",
+ "changed": [
+  "M05",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt word repetition is both training and test action; no separate training-time action.",
+  "M02": "No training-only signal; labels are the prompted word.",
+  "M03": "Per-patient PCA and centroids from 15 trials per word; no calibration across days.",
+  "M04": "Overt repetition of prompted words.",
+  "M07": "No language model or lexicon beyond the closed word set.",
+  "M08": "Word label, offline.",
+  "M09": "Offline study.",
+  "M10": "Offline study.",
+  "M11": "Prompted word as reference; trials kept only if judged stereotyped (Sec. 2.2).",
+  "M13": "Extraoperative epilepsy monitoring, wired Neuroport, offline."
+ },
+ "topics": [
+  {
+   "slot": "M05",
+   "topic": "intracranial-speech-electrode-scale",
+   "reuse": null,
+   "inclusion_rule": "Setting above; design of interest: electrode type and scale (intracortical microelectrodes, clinical 1-cm grids, 4-mm high-density ECoG, micro-ECoG under about 3 mm).",
+   "design_regex": [
+    "micro_ecog",
+    "high_density_ecog",
+    "clinical_1cm_grid"
+   ],
+   "design_field": "modalities",
+   "metric": "Speech decoding accuracy by electrode scale."
+  },
+  {
+   "slot": "M06",
+   "topic": "intracranial-speech-decoding-target",
+   "reuse": null,
+   "inclusion_rule": "Setting above; design of interest: closed-set word classification, phoneme or syllable classification, or continuous acoustic/formant regression.",
+   "design_regex": [
+    "closed_set_word_classification",
+    "continuous_acoustic_or_formant_regression",
+    "phoneme_or_syllable_classification"
+   ],
+   "metric": "Closed-set word accuracy and vocabulary size."
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-speech-test-partition",
+   "reuse": "components/M12/intracranial-speech-test-partition.json",
+   "inclusion_rule": "Published rule kept; this review adds prior_tally_<slug> at the target's time.",
+   "metric": "Test partition design."
+  }
+ ],
+ "notes": "M11 trial curation and best-five selection are judged from the target's own text (matched null). No prep directory existed.",
+ "prep_used": "No prep directory existed; plan, audits and comparator entries built from scratch; Guenther 2009 and Chen 2024 entries reused from the Pei 2011 work dir; M12 published table reused append-only."
+}
