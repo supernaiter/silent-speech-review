@@ -1,0 +1,59 @@
+{
+ "target": "doi-10.1088-1741-2552-aa8235",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M03",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Standard imagined-speech EEG data-collection lineage: participants perform the prompted imagery action; no distinct user training action is introduced.",
+  "M02": "Supervised closed-set EEG classification lineage: prompted class labels supervise the decoder, with no additional training-only target or auxiliary loss.",
+  "M05": "Conventional scalp-EEG acquisition lineage using the international 10/20 layout; the ActiCHamp and 64-channel setup are study-specific implementation details.",
+  "M07": "Closed-set imagined-speech EEG classifier lineage: decode among cued labels without an external lexicon or language-model prior.",
+  "M08": "Closed-set classifier lineage represented by the paper's log-variance+LDA, DaSalla et al., and Min et al. comparators: output is a class label, not continuous transcription.",
+  "M09": "Offline imagined-speech EEG classifier lineage represented by the paper's comparator pipeline: no use-time presentation or confirmation stage.",
+  "M10": "Offline imagined-speech EEG classifier lineage represented by the paper's comparator pipeline: no use-time correction or re-entry stage.",
+  "M11": "Prompted closed-set imagined-speech dataset lineage: the cued phoneme or word class supplies the reference label.",
+  "M04": "Prompted covert pronunciation of cued vowels and words, the common imagined-speech EEG paradigm (see notes t7).",
+  "M13": "Offline laboratory analysis; no online operation is claimed (notes t61)."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "covariance-tangent-space-features-imagined-speech-eeg",
+   "inclusion_rule": "Studies that classify imagined, covert or inner speech from scalp EEG (ledger pattern, same population as the published M06 imagined-speech-eeg-word-classification table). Design compared: trial covariance matrices used as features on the SPD/Riemannian manifold or in tangent space (Riemannian/tangent-space terms in the body text), versus other features; the classifier (RVM) is tallied separately. Boundary: a Riemannian term used only for artifact detection, only in related work, or in a review counts as a pattern match but cannot be a deciding prior; covariance used only inside CSP is CSP, not a covariance feature; versions count once; motor-imagery-only BCI studies are outside the population.",
+   "pattern": "(?i)((imagined|covert|inner) speech|speech imagery)[^|]{0,120}(EEG|electroenceph)|(EEG|electroenceph)[^|]{0,120}((imagined|covert|inner) speech|speech imagery)",
+   "design_regex": [
+    "RIEMANNIAN_TANGENT=(?i)riemann|tangent[ -]space|tangent vector|SPD manifold",
+    "RVM=(?i)relevance vector machine|\\bm?RVM\\b",
+    "CSP=(?i)common spatial pattern|\\bCSP\\b"
+   ],
+   "metric_pattern": "(?i)\\baccuracy\\b",
+   "unit_pattern": "(?i)%|percent",
+   "better": "higher",
+   "metric": "Closed-set classification accuracy (%) with class count and split; higher is better."
+  },
+  {
+   "slot": "M03",
+   "topic": "fold-contained-model-selection-imagined-speech-eeg",
+   "inclusion_rule": "Same EEG imagined-speech population. Design compared: whether data-dependent choices (CSP component count, kernel or hyperparameters, feature dimension) are selected inside the training folds (nested cross-validation, inner loop or a separate validation set) versus chosen per subject without a stated selection set. Boundary: fixed preprocessing is M05; split unit is M12; pattern hits include mentions (upper bound); versions count once.",
+   "pattern": "(?i)((imagined|covert|inner) speech|speech imagery)[^|]{0,120}(EEG|electroenceph)|(EEG|electroenceph)[^|]{0,120}((imagined|covert|inner) speech|speech imagery)",
+   "design_regex": [
+    "NESTED_OR_VALIDATION=(?i)nested cross|inner (?:cross[- ]validation|loop|fold)|validation set"
+   ],
+   "metric_pattern": "(?i)\\baccuracy\\b",
+   "unit_pattern": "(?i)%|percent",
+   "better": "higher",
+   "metric": "Accuracy (%) read together with the selection protocol."
+  },
+  {
+   "slot": "M12",
+   "topic": "imagined-speech-eeg-chance-reference",
+   "reuse": "components/M12/imagined-speech-eeg-chance-reference.json",
+   "inclusion_rule": "(published table, kept) Studies that classify imagined, covert or inner speech from scalp EEG; design compared is whether reported accuracy is referenced against chance: stated chance level or above-chance test, or an empirical permutation null.",
+   "pattern": "(?i)((imagined|covert|inner) speech|speech imagery)[^|]{0,120}(EEG|electroenceph)|(EEG|electroenceph)[^|]{0,120}((imagined|covert|inner) speech|speech imagery)"
+  }
+ ]
+}
