@@ -13,23 +13,23 @@
  },
  "M02": {
   "choice": [
-   "ASR-teacher transcripts + frame-wise KD, unlabelled VoxCeleb2"
+   "ASR-teacher transcripts + frame-wise KD, untranscribed VoxCeleb2"
   ],
-  "field": "Human or caption transcripts",
+  "field": "No ASR labels or distillation (absence count)",
   "verdict": "standard",
-  "note": "New to lip reading (0 of 77 earlier), but the closest prior named by the authors uses the same mechanism and the KD term is untested in WER.",
-  "sota": "[@haliassos2026usr2] (2026): LRS3 VSR 17.6%, own pseudo-labels",
+  "note": "Departs from transcribed-data forced-alignment targets (Sari 2018); effect inconsistent across LRS2/LRS3, one WER each, distillation not isolated.",
+  "sota": "[@haliassos2026usr2] (2026): LRS3 VSR 17.6%, no external LM or synthetic video",
   "n": 77,
   "matched": 77,
   "matched_tier": "pattern match (unique studies)"
  },
  "M03": {
   "choice": [
-   "ASR-agreement filter; optional GT fine-tuning; one run"
+   "Two ASR-based filters on VoxCeleb2; GT fine-tuning; no run count"
   ],
-  "field": "Pretraining then fine-tuning",
+  "field": "–",
   "verdict": "standard",
-  "note": "Filter not ablated.",
+  "note": "Inherited; not audited.",
   "sota": "–",
   "n": null,
   "matched": null,
@@ -133,12 +133,12 @@
  },
  "M12": {
   "choice": [
-   "LRS2/LRS3 WER, one run, no spread"
+   "LRS2/LRS3 WER, no run count or spread"
   ],
-  "field": "One run, no seeds or repeated runs",
+  "field": "One WER per system, no run count",
   "verdict": "standard",
   "note": "Public-data SOTA claim rests on 0.3-0.4-point margins.",
-  "sota": "[@haliassos2026usr2] (2026): 17.6% public; [@chang2023lpconformer] (2023): 12.8% non-public",
+  "sota": "[@haliassos2026usr2] (2026): 17.6% public, no LM; [@chang2023lpconformer] (2023/2024): 12.8% non-public",
   "n": 2,
   "matched": 2,
   "matched_tier": "pattern match (unique studies)"

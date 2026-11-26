@@ -4076,6 +4076,20 @@
    "role": "sota",
    "loc": "Abstract; Table 1",
    "quote": "ASR and A VSR with a WER of 0.79% and 0.77%, respectively."
+  },
+  {
+   "pid": "arxiv-1807.05162",
+   "role": "prior",
+   "loc": "Table 2 (LRS3-TED)",
+   "quote": "V2P 47.0± 1.6 55.1± 0.9",
+   "by": "asr-is-all-you-need-cross-modal-distillation-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "TM-seq2seq V 49.8% 48.3% 59.9% 58.9%",
+   "by": "asr-is-all-you-need-cross-modal-distillation-for-lip-reading"
   }
  ],
  "known_item_recall": {
@@ -4111,13 +4125,19 @@
    "timing": "later"
   },
   "read": 1,
-  "read_prior": [],
+  "read_prior": [
+   "arxiv-1807.05162",
+   "arxiv-1809.02108",
+   "arxiv-2202.13084",
+   "arxiv-2303.14307"
+  ],
   "unread": 368,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
  },
  "used_by": [
   "akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model",
+  "asr-is-all-you-need-cross-modal-distillation-for-lip-reading",
   "auto-avsr-audio-visual-speech-recognition-with-automatic-labels",
   "learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction",
   "visual-speech-recognition-for-multiple-languages-in-the-wild"
@@ -4170,6 +4190,64 @@
   "year": 2024,
   "metric": "LRS3 AVSR WER, Whisper-initialised, LRS3+VoxCeleb2 1,759 h",
   "value": 0.76,
+  "unit": "%",
+  "timing": "later"
+ },
+ "counts_asr-is-all-you-need-cross-modal-distillation-for-lip-reading": {
+  "window": "prior = before 2019-05; [concurrent] = 2019-05 to 2020-05",
+  "regex": {
+   "spread": "standard deviation|\\bstd\\b|±\\s?\\d|confidence interval|random seeds?|different seeds|(\\d+|three|five|ten) (independent |repeated )?(runs|trials) |averaged? over (\\d+|three|five|ten) (runs|seeds)",
+   "public_only": "publicly available (data|datasets?|training data)|public(ly)? (available )?data only|only (on )?publicly available"
+  },
+  "raw": {
+   "later": 247,
+   "unresolved": 4,
+   "prior": 3,
+   "concurrent": 4
+  },
+  "prior": {
+   "raw": 3,
+   "excluded": {
+    "arxiv-1809.00496": "corpus paper"
+   },
+   "kept": 2,
+   "pids": [
+    "arxiv-1807.05162",
+    "arxiv-1809.02108"
+   ],
+   "spread_reported": {
+    "arxiv-1807.05162": "bootstrap standard errors of test WER (test resampling, not training seeds)",
+    "arxiv-1809.02108": "none (regex hit is a +/-5 pixel augmentation)"
+   },
+   "repeated_training_runs": 0
+  },
+  "concurrent": {
+   "pids": [
+    "arxiv-1907.04975",
+    "arxiv-1911.04890",
+    "arxiv-2005.03846"
+   ],
+   "spread_reported": {
+    "arxiv-1911.04890": "95% confidence intervals on test sets"
+   }
+  },
+  "tier": "pattern match (unique studies), snippets read"
+ },
+ "usual_approach_asr-is-all-you-need-cross-modal-distillation-for-lip-reading": {
+  "design": "one reported WER per system with no run count (2 of 2 earlier LRS3 visual-only studies; 1 of 2 adds bootstrap test-set errors)",
+  "n": 2,
+  "tier": "pattern match",
+  "population_unique": 2,
+  "pids": [
+   "arxiv-1807.05162",
+   "arxiv-1809.02108"
+  ]
+ },
+ "state_of_the_art_asr-is-all-you-need-cross-modal-distillation-for-lip-reading": {
+  "pid": "arxiv-2602.19316",
+  "year": 2026,
+  "metric": "LRS3 VSR WER, public data, no external LM, no synthetic video (SynthVSR 16.9% with LM and synthetic video; non-public: LP Conformer 12.8%, arXiv 2023 / ICASSP 2024)",
+  "value": 17.6,
   "unit": "%",
   "timing": "later"
  }

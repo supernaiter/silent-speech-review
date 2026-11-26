@@ -2150,6 +2150,22 @@
    "role": "sota",
    "loc": "Table 1",
    "quote": "ResNet-18 + MS-TCN - Student 3 87.9"
+  },
+  {
+   "pid": "arxiv-1911.11502",
+   "role": "prior",
+   "timing": "concurrent",
+   "loc": "Sec. 1; Eq. 10",
+   "quote": "predicted by speech recognizer and the ground truth sentence",
+   "by": "asr-is-all-you-need-cross-modal-distillation-for-lip-reading"
+  },
+  {
+   "pid": "isca-suzuki19_interspeech",
+   "role": "prior",
+   "timing": "concurrent",
+   "loc": "Abstract",
+   "quote": "propose a knowledge distillation method of hybrid DNN-HMM acoustic model.",
+   "by": "asr-is-all-you-need-cross-modal-distillation-for-lip-reading"
   }
  ],
  "known_item_recall": {
@@ -2184,13 +2200,48 @@
   },
   "read": 1,
   "read_prior": [
-   "arxiv-2007.06504"
+   "arxiv-2007.06504",
+   "arxiv-1911.11502",
+   "isca-suzuki19_interspeech"
   ],
   "unread": 188,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
  },
  "used_by": [
+  "asr-is-all-you-need-cross-modal-distillation-for-lip-reading",
   "knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface"
- ]
+ ],
+ "recall_check_asr-is-all-you-need-cross-modal-distillation-for-lip-reading": {
+  "scope": "all wiki studies with full text first public before 2020-06 (2,648 dated before 2019-05), any signal",
+  "scanned": 3089,
+  "regex": [
+   "(knowledge distillation|teacher[- ]student|student[- ]teacher|cross[- ]modal (distillation|supervision transfer|transfer)|distill(ing|ed)? (the )?(knowledge|speech recogni|asr|acoustic))",
+   "(lip|visual speech|video|silent speech|articulat|EMG|EEG|ultrasound|ECoG)"
+  ],
+  "hits": 26,
+  "decisions": {
+   "arxiv-1911.12747": "target",
+   "arxiv-1911.11502": "same family: ASR teacher into a lip reader, [concurrent] 2019-11, on transcribed data",
+   "isca-suzuki19_interspeech": "adjacent design: close-talk acoustic teacher into a throat-microphone (body-conducted audio) student, [concurrent] Interspeech 2019",
+   "arxiv-2003.05709": "bidirectional distillation between two video streams, [concurrent]",
+   "arxiv-1806.06053": "mention of teacher-student online audio CTC",
+   "arxiv-1709.00572": "mention of cross-modal distillation for emotion (related work)",
+   "arxiv-2005.03846": "mention",
+   "isca-koumparoulis19-mobilipnet; isca-koumparoulis19_interspeech; doi-10.1371-journal.pcbi.1007091; pmc-6762206-dlspeech; isca-n19_avsp": "reference-list mentions",
+   "other 11": "perception or psychology (\"cross-modal transfer\" of talker familiarity), off-population"
+  },
+  "same_design_prior": 0,
+  "same_design_concurrent": 1,
+  "snippets_read": true,
+  "adjacent_concurrent": 1,
+  "not_covered": "forced-alignment frame targets (no distillation vocabulary); see the asr-transcribed audit forced_alignment_class"
+ },
+ "usual_approach_asr-is-all-you-need-cross-modal-distillation-for-lip-reading": {
+  "design": "no audio or ASR teacher distilled into a non-acoustic speech decoder among wiki studies before 2019-05",
+  "n": 2648,
+  "tier": "pattern match",
+  "population_unique": 2648,
+  "note": "whole-wiki full-text recall, any signal; 0 same-design prior hits among 26 snippets read; [concurrent]: LIBS (same family), throat microphone (adjacent, acoustic student)"
+ }
 }

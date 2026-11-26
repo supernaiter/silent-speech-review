@@ -1,0 +1,132 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Overt speech video with paired audio"
+     ],
+     "field": "Recorded speech video",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M02": {
+     "choice": [
+      "ASR-teacher transcripts + frame-wise KD, untranscribed VoxCeleb2"
+     ],
+     "field": "No ASR labels or distillation (absence count)",
+     "n": 77,
+     "matched": 77,
+     "verdict": "standard",
+     "note": "Departs from transcribed-data forced-alignment targets (Sari 2018); effect inconsistent across LRS2/LRS3, one WER each, distillation not isolated."
+    },
+    "M03": {
+     "choice": [
+      "Two ASR-based filters on VoxCeleb2; GT fine-tuning; no run count"
+     ],
+     "field": "–",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited; not audited."
+    },
+    "M04": {
+     "choice": [
+      "Overt speech; video only at test"
+     ],
+     "field": "Overt speech video",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Face video via public lip-reading front end"
+     ],
+     "field": "Camera video",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M06": {
+     "choice": [
+      "Jasper-lip convolutional CTC student"
+     ],
+     "field": "CTC or seq2seq on visual features",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited (Jasper ASR lineage)."
+    },
+    "M07": {
+     "choice": [
+      "8192-width beam, 6-gram Librispeech LM"
+     ],
+     "field": "External LM at decoding",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Comparator LMs not stated."
+    },
+    "M08": {
+     "choice": [
+      "English graphemes"
+     ],
+     "field": "Characters or words",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "Offline study"
+     ],
+     "field": "Offline",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "Offline study"
+     ],
+     "field": "Offline",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "LRS2/LRS3 test transcripts; no overlap statement"
+     ],
+     "field": "Corpus transcripts",
+     "matched": null,
+     "verdict": "standard",
+     "note": "VoxCeleb2 overlap with test sets not stated."
+    },
+    "M12": {
+     "choice": [
+      "LRS2/LRS3 WER, no run count or spread"
+     ],
+     "field": "One WER per system, no run count",
+     "n": 2,
+     "matched": 2,
+     "verdict": "standard",
+     "note": "Public-data SOTA claim rests on 0.3-0.4-point margins."
+    },
+    "M13": {
+     "choice": [
+      "Public data; four 11 GB GPUs"
+     ],
+     "field": "Device and cost",
+     "matched": null,
+     "verdict": "standard",
+     "note": "No latency or device figures."
+    }
+   }
+  }
+ ]
+}
