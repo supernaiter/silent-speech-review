@@ -151,6 +151,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Visual or audio-visual speech recognition (text output from lip video or lip event streams) and the decoders they use. The design compared is the text decoder: CTC, attention encoder-decoder, hybrid CTC/attention, LLM decoder, or an iterative generative decoder (diffusion, flow matching) that produces the transcript. Boundary: diffusion or flow models that generate speech audio or lip video (video-to-speech, data synthesis such as LipGen or SynthVSR) are not text decoders and count under their recognizer; versions of one study count once.
 - Used in: [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](../../reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/)
 
+## heard-speech-reconstruction-target-representation
+
+- Table: [`heard-speech-reconstruction-target-representation.csv`](heard-speech-reconstruction-target-representation.csv) (7345 slot-filled, 64 pattern match, usual design in 24, 4 read in full)
+- Inclusion rule: Studies whose ledger text names intracranial or auditory-cortex recordings, a listening or perception condition, an acoustic representation (spectrogram, temporal modulation, envelope or vocoder features) and reconstruction, decoding or synthesis. The design of interest is the acoustic representation that the decoder reconstructs from neural activity during heard speech: auditory/linear spectrogram, temporal-modulation energy, envelope only, or vocoder parameters. Boundary: production-only synthesis studies and encoding-only studies admitted by the pattern are counted but are not heard-speech reconstruction; full-text design regexes overlap and are upper bounds; versions of one study count once.
+- Used in: [Reconstructing Speech from Human Auditory Cortex](../../reviews/reconstructing-speech-from-human-auditory-cortex/)
+
 ## heterogeneous-electrode-configuration-input
 
 - Table: [`heterogeneous-electrode-configuration-input.csv`](heterogeneous-electrode-configuration-input.csv) (7345 slot-filled, 98 pattern match, usual design in 25, 2 read in full)

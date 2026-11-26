@@ -1,0 +1,1183 @@
+{
+ "topic": "heard-speech-reconstruction-target-representation",
+ "slot": "M06",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?is)^(?=.*(?:ECoG|electrocorticograph|intracranial|sEEG|stereo-?EEG|depth electrode|auditory cortex|superior temporal))(?=.*(?:listening|perception|perceived|heard|passive))(?=.*(?:spectrogram|temporal modulation|modulation energy|envelope|vocoder))(?=.*(?:reconstruct|decod|synthesi))",
+ "scope": "ledger",
+ "fulltext_pattern": "(?i)reconstruct[^.]{0,150}modulation (?:energy|representation|spectrum|model)|modulation (?:energy|representation|spectrum|model)[^.]{0,150}reconstruct",
+ "inclusion_rule": "Studies whose ledger text names intracranial or auditory-cortex recordings, a listening or perception condition, an acoustic representation (spectrogram, temporal modulation, envelope or vocoder features) and reconstruction, decoding or synthesis. The design of interest is the acoustic representation that the decoder reconstructs from neural activity during heard speech: auditory/linear spectrogram, temporal-modulation energy, envelope only, or vocoder parameters. Boundary: production-only synthesis studies and encoding-only studies admitted by the pattern are counted but are not heard-speech reconstruction; full-text design regexes overlap and are upper bounds; versions of one study count once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 8925,
+  "slot_filled_unique": 7345,
+  "string_match_folders": 72,
+  "string_match_unique": 64,
+  "fulltext_only_folders": 5
+ },
+ "ledger_tally": {
+  "design_slot": "M06",
+  "design_slot_fill": 0.992,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "representation_kind=80-bin mel-spectrogram of heard speech as reconstruction target",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2402.16996"
+    ]
+   },
+   {
+    "design": "representation_kind=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2508.03166"
+    ]
+   },
+   {
+    "design": "representation_kind=dwt multiresolution ieeg features using daubechies-4 (db4).",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751"
+    ]
+   },
+   {
+    "design": "representation_kind=f0 (harvest)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751"
+    ]
+   },
+   {
+    "design": "representation_kind=neural rms energy",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751"
+    ]
+   },
+   {
+    "design": "representation_kind=shimmer",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751"
+    ]
+   },
+   {
+    "design": "representation_kind=duration",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751"
+    ]
+   },
+   {
+    "design": "representation_kind=and phase variability; 50 ms window",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751"
+    ]
+   },
+   {
+    "design": "representation_kind=10 ms frame shift.",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751"
+    ]
+   },
+   {
+    "design": "Representation.windowing={'window_ms': 50",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604.05751"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "spectrogram_target",
+    "n": 24,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604.05751",
+     "arxiv-2609.36736",
+     "doi-10.64898-2026.03.02.709171",
+     "isca-buragohain26_interspeech",
+     "pmc-12460843-linguistic-neural-decoding"
+    ]
+   },
+   {
+    "design": "vocoder_parameter_target",
+    "n": 13,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604.05751",
+     "isca-buragohain26_interspeech",
+     "pmc-12460843-linguistic-neural-decoding",
+     "doi-10.1038-s41598-024-60277-2",
+     "doi-10.1101-2024.08.21.608927"
+    ]
+   },
+   {
+    "design": "envelope_target",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2604.05751",
+     "doi-10.1016-j.dcn.2026.101816",
+     "doi-10.1523-eneuro.0069-26.2026",
+     "pmc-13633114-aadrt",
+     "doi-10.1101-2025.07.14.664754"
+    ]
+   },
+   {
+    "design": "temporal_modulation_target",
+    "n": 6,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.5075-epfl-thesis-7740",
+     "isca-yang15c_interspeech",
+     "doi-10.3389-fneng.2014.00014",
+     "pmc-4034498-spectemp",
+     "pmc-3269422-pasley"
+    ]
+   }
+  ],
+  "metric_pattern": "(?i)correlation|pearson|PCC|ESTOI|STOI|intelligib|accuracy",
+  "better": "higher"
+ },
+ "sota_candidates": [
+  {
+   "metric": "accuracy %",
+   "value": 99.05,
+   "unit": null,
+   "raw": "hybrid facial deformation + subcutaneous vibration 99.05% on basic speech elements (as cited)",
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy",
+   "value": 96.49,
+   "unit": "percent",
+   "raw": "96.49% for 3 classes",
+   "pid": "doi-10.1088-1741-2552-adf2de",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "global-scale accuracy maximum (all contacts)",
+   "value": 93.79,
+   "unit": "percent",
+   "raw": "between 60.13% and 93.79%",
+   "pid": "doi-10.1016-j.celrep.2025.116241",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "word correct intelligibility, best subject M4",
+   "value": 92,
+   "unit": "percent",
+   "raw": "92%",
+   "pid": "doi-10.1016-j.rlfa.2018.07.004",
+   "year": 2018,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "behavioral accuracy",
+   "value": 90.5,
+   "unit": "percent",
+   "raw": "sentence-report accuracy (iEEG cohort avg)",
+   "pid": "doi-10.1016-j.neuroimage.2020.117282",
+   "year": 2020,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "behavioral accuracy",
+   "value": 90.5,
+   "unit": "percent",
+   "raw": "average behavioral sentence-recall accuracy during attention task",
+   "pid": "doi-10.1126-sciadv.aav6134",
+   "year": 2019,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "85% word accuracy in subjective intelligibility test",
+   "value": 85,
+   "unit": "percent",
+   "raw": "listener word accuracy of synthesized speech",
+   "pid": "doi-10.1109-taslp.2017.2716178",
+   "year": 2017,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "max accuracy perceived-Q dialogue",
+   "value": 76,
+   "unit": "percent",
+   "raw": "76",
+   "pid": "arxiv-2609.36736",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Feedback task accuracy range max",
+   "value": 61.9,
+   "unit": "percent",
+   "raw": "between \n45.6% and 61.9%",
+   "pid": "doi-10.1016-j.clinph.2025.2111403",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "intelligible-but-wrong syntheses",
+   "value": 4,
+   "unit": "percent",
+   "raw": "4%",
+   "pid": "doi-10.1038-s41598-024-60277-2",
+   "year": 2024,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [
+  "pmc-3269422-pasley",
+  "pmc-4034498-overtcovert",
+  "pmc-4034498-spectemp",
+  "doi-10.1371-journal.pbio.1001251",
+  "doi-10.3389-fneng.2014.00014"
+ ],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-2111.01457",
+   "key": "t:synthesizingspeechfromintracranialdepthelectrodesusinganencoderdecoderframework",
+   "title": "Synthesizing Speech from Intracranial Depth Electrodes using an Encoder-Decoder Framework",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2111.01457 | doi=10.51628/001c.57524 | title=Synthesizing Speech from Intracranial Depth Electrodes using"
+  },
+  {
+   "pid": "arxiv-2306.00489",
+   "key": "t:speechinpaintingcontextbasedspeechsynthesisguidedbyvideo",
+   "title": "Speech inpainting: Context-based speech synthesis guided by video",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2306.00489 | title=Speech inpainting: Context-based speech synthesis guided by video | authors=Montesinos"
+  },
+  {
+   "pid": "arxiv-2402.16996",
+   "key": "t:towardsdecodingbrainactivityduringpassivelisteningofspeech",
+   "title": "Towards Decoding Brain Activity During Passive Listening of Speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2402.16996 | title=Towards Decoding Brain Activity During Passive Listening of Speech | authors=Milan And"
+  },
+  {
+   "pid": "arxiv-2506.06675",
+   "key": "t:accurateanalysisofthepitchpulsebasedmagnitudephasestructureofnaturalvowelsandass",
+   "title": "Accurate analysis of the pitch pulse-based magnitude/phase structure of natural vowels and assessment of three lightweight time/frequency voicing restoration methods",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_version=2506.06675v1 | source_url=https://arxiv.org/pdf/2506.06675v1 | title=Accurate analysis of the pitch pulse-"
+  },
+  {
+   "pid": "arxiv-2508.03166",
+   "key": "t:mistrmultimodalieegtospeechsynthesiswithtransformerbasedprosodypredictionandneur",
+   "title": "MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody Prediction and Neural Phase Reconstruction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody Prediction and Neural Phase Reconstruct"
+  },
+  {
+   "pid": "arxiv-2604.05751",
+   "key": "t:braintospeechprosodyfeatureengineeringandtransformerbasedreconstruction",
+   "title": "Brain-to-Speech: Prosody Feature Engineering and Transformer-Based Reconstruction",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2604.05751 | paper_version=arXiv:2604.05751v1; Springer edited-volume chapter PDF | title=Brain-to-Speech"
+  },
+  {
+   "pid": "arxiv-2606.01264",
+   "key": "t:a1000houreegemgaudiodatasetofjapanesespeechproduction",
+   "title": "A 1000-hour EEG–EMG–audio dataset of Japanese speech production",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A 1000-hour EEG–EMG–audio dataset of Japanese speech production | arxiv_id=2606.01264v1 | paper_version=arXiv v1,"
+  },
+  {
+   "pid": "arxiv-2609.04455-brain2speech",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | authors=Chandra Shreeram"
+  },
+  {
+   "pid": "arxiv-2609.36736",
+   "key": "t:fromneuronstoconversationspeechbraincomputerinterfaces",
+   "title": "From Neurons to Conversation: Speech Brain-Computer Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.36736 | doi=10.48550/arxiv.2609.36736 | title=From Neurons to Conversation: Speech Brain-Computer In"
+  },
+  {
+   "pid": "doi-10.1002-hbm.25415",
+   "key": "t:selectiveattentionmodulatesneuralenvelopetrackingofinformationallymaskedspeechin",
+   "title": "Selective attention modulates neural envelope tracking of informationally masked speech in healthy older adults",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1002-hbm.25415 | title=Selective attention modulates neural envelope tracking of informationally masked"
+  },
+  {
+   "pid": "doi-10.1016-j.celrep.2025.116241",
+   "key": "t:movingbeyondthemotorcortexabrainwideevaluationoftargetlocationsforintracranialsp",
+   "title": "Moving beyond the motor cortex: A brain-wide evaluation of target locations for intracranial speech neuroprostheses",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.celrep.2025.116241 | doi=10.1016/j.celrep.2025.116241 | title=Moving beyond the motor cortex: A b"
+  },
+  {
+   "pid": "doi-10.1016-j.clinph.2025.2111403",
+   "key": "t:theeffectofperceivedauditoryfeedbackonspeechbraincomputerinterfacedecodingperfor",
+   "title": "The effect of perceived auditory feedback on speech Brain-Computer Interface decoding performance",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.clinph.2025.2111403 | doi=10.1016/j.clinph.2025.2111403 | title=The effect of perceived auditory"
+  },
+  {
+   "pid": "doi-10.1016-j.dcn.2026.101816",
+   "key": "t:neuralencodingofinfantdirectedspeechduringinfantsfirstyearoflife",
+   "title": "Neural encoding of infant-directed speech during infants' first year of life",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1016-j.dcn.2026.101816 | title=Neural encoding of infant-directed speech during infants' first year of l"
+  },
+  {
+   "pid": "doi-10.1016-j.neuroimage.2020.117282",
+   "key": "t:braininformedspeechseparationbissforenhancementoftargetspeakerinmultitalkerspeec",
+   "title": "Brain-informed speech separation (BISS) for enhancement of target speaker in multitalker speech perception",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1016/j.neuroimage.2020.117282 | title=Brain-informed speech separation (BISS) for enhancement of target spea"
+  },
+  {
+   "pid": "doi-10.1016-j.nicl.2024.103695",
+   "key": "t:entrainmentofneuraloscillationsduringlanguageprocessinginearlystageschizophrenia",
+   "title": "Entrainment of neural oscillations during language processing in Early-Stage schizophrenia",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1016/j.nicl.2024.103695 | title=Entrainment of neural oscillations during language processing in Early-Stage"
+  },
+  {
+   "pid": "doi-10.1016-j.pneurobio.2025.102823",
+   "key": "t:neuralentrainmentbyspeechinhumanauditorycortexrevealedbyintracranialrecordings",
+   "title": "Neural entrainment by speech in human auditory cortex revealed by intracranial recordings",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1016/j.pneurobio.2025.102823 | title=Neural entrainment by speech in human auditory cortex revealed by intra"
+  },
+  {
+   "pid": "doi-10.1016-j.rlfa.2018.07.004",
+   "key": "t:arealtimesilentspeechsystemforvoicerestorationaftertotallaryngectomy",
+   "title": "A Real-Time Silent Speech System for Voice Restoration after Total Laryngectomy",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi:10.1016/j.rlfa.2018.07.004 | title=A Real-Time Silent Speech System for Voice Restoration after Total Laryn"
+  },
+  {
+   "pid": "doi-10.1038-s41598-018-37359-z",
+   "key": "t:towardsreconstructingintelligiblespeechfromthehumanauditorycortex",
+   "title": "Towards reconstructing intelligible speech from the human auditory cortex",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-018-37359-z | doi=10.1038/s41598-018-37359-z | title=Towards reconstructing intelligible spe"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-60277-2",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterfaceinanindivid",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-024-60277-2 | doi=10.1038/s41598-024-60277-2 | title=Online speech synthesis using a chronic"
+  },
+  {
+   "pid": "doi-10.1038-s42003-024-06913-z",
+   "key": "t:fmrispeechtrackinginprimaryandnonprimaryauditorycortexwhilelisteningtonoisyscene",
+   "title": "FMRI speech tracking in primary and non-primary auditory cortex while listening to noisy scenes",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1038/s42003-024-06913-z | title=FMRI speech tracking in primary and non-primary auditory cortex while listen"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sensing technologies for silent speech interfaces | needs_manual_check=cited metrics are secondhand: values summar"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-aaab6f",
+   "key": "t:realtimeclassificationofauditorysentencesusingevokedcorticalactivityinhumans",
+   "title": "Real-time classification of auditory sentences using evoked cortical activity in humans",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1088/1741-2552/aaab6f | title=Real-time classification of auditory sentences using evoked cortical activity"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-adf2de",
+   "key": "p:doi-10.1088-1741-2552-adf2de",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | tested_population=target_users | task_family=speech_activity_detection | inte"
+  },
+  {
+   "pid": "doi-10.1097-aud.0000000000001709",
+   "key": "t:visualanalogoftemporalenvelopebenefitsspeechprocessingincochlearimplantusersapil",
+   "title": "Visual analog of temporal envelope benefits speech processing in cochlear implant users: A pilot fNIRS study on the associations between audiovisual benefit, listening environment, and peripheral neural health",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1097/AUD.0000000000001709 | title=Visual analog of temporal envelope benefits speech processing in cochlear"
+  },
+  {
+   "pid": "doi-10.1101-2024.08.21.608927",
+   "key": "t:speechsynthesisfromelectrocorticogramduringimaginedspeechusingatransformerbasedd",
+   "title": "Speech Synthesis from Electrocorticogram During Imagined Speech Using a Transformer-Based Decoder and Pretrained Vocoder",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2024.08.21.608927 | doi=10.1101/2024.08.21.608927 | title=Speech Synthesis from Electrocorticogram"
+  },
+  {
+   "pid": "doi-10.1101-2025.07.14.664754",
+   "key": "t:corticaltrackingofnaturalspeechbychildrenwithdevelopmentallanguagedisorderdldane",
+   "title": "Cortical tracking of natural speech by children with developmental language disorder (DLD): An EEG speech decoding investigation",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1101-2025.07.14.664754 | title=Cortical tracking of natural speech by children with developmental langua"
+  },
+  {
+   "pid": "doi-10.1101-395483",
+   "key": "t:hearingthroughlipreadingthebrainsynthesizesfeaturesofabsentspeech",
+   "title": "Hearing through lip-reading: the brain synthesizes features of absent speech",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1101/395483 | title=Hearing through lip-reading: the brain synthesizes features of absent speech | authors=B"
+  },
+  {
+   "pid": "doi-10.1109-embc48229.2022.9871301",
+   "key": "t:towardsnaturalisticspeechdecodingfromintracranialbraindata",
+   "title": "Towards naturalistic speech decoding from intracranial brain data",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1109/EMBC48229.2022.9871301 | title=Towards naturalistic speech decoding from intracranial brain data | auth"
+  },
+  {
+   "pid": "doi-10.1109-taslp.2017.2716178",
+   "key": "t:generatingintelligibleaudiospeechfromvisualspeech",
+   "title": "Generating Intelligible Audio Speech from Visual Speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Generating Intelligible Audio Speech from Visual Speech | authors=Thomas Le Cornu; Ben Milner | venue=IEEE/ACM Tra"
+  },
+  {
+   "pid": "doi-10.1126-sciadv.aav6134",
+   "key": "t:speakerindependentauditoryattentiondecodingwithoutaccesstocleanspeechsources",
+   "title": "Speaker-independent auditory attention decoding without access to clean speech sources",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1126/sciadv.aav6134 | title=Speaker-independent auditory attention decoding without access to clean speech s"
+  },
+  {
+   "pid": "doi-10.1162-imag.a.1348",
+   "key": "t:theroleofhighamplitudeburstsofhighgammaactivityinnaturalisticspeechandmusicliste",
+   "title": "The role of high-amplitude bursts of high-gamma activity in naturalistic speech and music listening",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1162/IMAG.a.1348 | title=The role of high-amplitude bursts of high-gamma activity in naturalistic speech and"
+  },
+  {
+   "pid": "doi-10.1371-journal.pbio.1001251",
+   "key": "p:doi-10.1371-journal.pbio.1001251",
+   "title": null,
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.1371-journal.pbio.3003924",
+   "key": "t:endogenousauditoryandmotorbrainrhythmspredictindividualspeechtracking",
+   "title": "Endogenous auditory and motor brain rhythms predict individual speech tracking",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1371/journal.pbio.3003924 | title=Endogenous auditory and motor brain rhythms predict individual speech trac"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0313854",
+   "key": "t:hearingandcognitivedeclineinagingdifferentiallyimpactneuraltrackingofcontextsupp",
+   "title": "Hearing and cognitive decline in aging differentially impact neural tracking of context-supported versus random speech across linguistic timescales",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1371/journal.pone.0313854 | title=Hearing and cognitive decline in aging differentially impact neural tracki"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0320519",
+   "key": "t:anatomicallydistinctcorticaltrackingofmusicandspeechbyslow18hzandfast70120hzosci",
+   "title": "Anatomically distinct cortical tracking of music and speech by slow (1-8Hz) and fast (70-120Hz) oscillatory activity",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1371-journal.pone.0320519 | title=Anatomically distinct cortical tracking of music and speech by slow (1"
+  },
+  {
+   "pid": "doi-10.1523-ENEURO.0055-25.2025",
+   "key": "t:eyemovementsinsilentvisualspeechtrackunheardacousticsignalsandrelatetohearingexp",
+   "title": "Eye Movements in Silent Visual Speech Track Unheard Acoustic Signals and Relate to Hearing Experience",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1523/ENEURO.0055-25.2025 | title=Eye Movements in Silent Visual Speech Track Unheard Acoustic Signals and Re"
+  },
+  {
+   "pid": "doi-10.1523-eneuro.0069-26.2026",
+   "key": "t:electrophysiologicalindicesofhierarchicalspeechprocessingdifferentiallyreflectth",
+   "title": "Electrophysiological Indices of Hierarchical Speech Processing Differentially Reflect the Comprehension of Speech in Noise",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1523/ENEURO.0069-26.2026 | title=Electrophysiological Indices of Hierarchical Speech Processing Differential"
+  },
+  {
+   "pid": "doi-10.25777-he41-jj63",
+   "key": "t:characterizationanddecodingofspeechrepresentationsfromtheelectrocorticogram",
+   "title": "Characterization and Decoding of Speech Representations From the Electrocorticogram",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.25777-he41-jj63 | doi=10.25777/he41-jj63 | title=Characterization and Decoding of Speech Representations"
+  },
+  {
+   "pid": "doi-10.3389-fneng.2014.00014",
+   "key": "t:decodingspectrotemporalfeaturesofovertandcovertspeechfromthehumancortex",
+   "title": "Decoding spectrotemporal features of overt and covert speech from the human cortex",
+   "year": 2014,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "doi-10.3389-fnhum.2025.1661010",
+   "key": "t:differentialelectroencephalographyresponsesinspeechperceptionbetweennativeandnon",
+   "title": "Differential electroencephalography responses in speech perception between native and non-native speakers",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.3389-fnhum.2025.1661010 | title=Differential electroencephalography responses in speech perception betwe"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2019.01267",
+   "key": "t:generatingnaturalintelligiblespeechfrombrainactivityinmotorpremotorandinferiorfr",
+   "title": "Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.3389/fnins.2019.01267 | title=Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor"
+  },
+  {
+   "pid": "doi-10.36244-icj.2024.1.6",
+   "key": "t:speechsynthesisfromintracranialstereotacticelectroencephalographyusinganeuralvoc",
+   "title": "Speech synthesis from intracranial stereotactic Electroencephalography using a neural vocoder",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.36244-icj.2024.1.6 | doi=10.36244/icj.2024.1.6 | title=Speech synthesis from intracranial stereotactic E"
+  },
+  {
+   "pid": "doi-10.5075-epfl-thesis-7740",
+   "key": "p:doi-10.5075-epfl-thesis-7740",
+   "title": null,
+   "year": 2017,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "task_family=speech_reconstruction | task_family=phoneme_or_character_classification | task_family=isolated_word_recognit"
+  },
+  {
+   "pid": "doi-10.64898-2026.03.02.709171",
+   "key": "t:dissociablefrequencyregimesinhumantemporalcortexintegratefacialandacousticcuesdu",
+   "title": "Dissociable frequency regimes in human temporal cortex integrate facial and acoustic cues during natural speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.64898/2026.03.02.709171 | title=Dissociable frequency regimes in human temporal cortex integrate facial"
+  },
+  {
+   "pid": "iber24-pma2speech",
+   "key": "t:directspeechsynthesisfromnonaudiblespeechbiosignalsacomparativestudy",
+   "title": "Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=iber24-pma2speech | title=Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study | aut"
+  },
+  {
+   "pid": "isca-berthommier01-srs",
+   "key": "t:audiovisualrecognitionofspectrallyreducedspeech",
+   "title": "Audio-visual recognition of spectrally reduced speech",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-berthommier01-srs | title=Audio-visual recognition of spectrally reduced speech | authors=Frédéric Berthom"
+  },
+  {
+   "pid": "isca-buragohain26_interspeech",
+   "key": "t:exploitingeegbasedgammabandtimefrequencyfeatureinwavenetdecoderframeworkforhighf",
+   "title": "Exploiting EEG-based Gamma-Band Time Frequency Feature in WaveNet Decoder Framework for High-Fidelity Speech Reconstruction",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-buragohain26_interspeech | title=Exploiting EEG-based Gamma-Band Time Frequency Feature in WaveNet Decoder"
+  },
+  {
+   "pid": "isca-gaudrain09_interspeech",
+   "key": "t:theroleofglottalpulserateandvocaltractlengthintheperceptionofspeakeridentity",
+   "title": "The role of glottal pulse rate and vocal tract length in the perception of speaker identity",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/gaudrain09-interspeech | title=The role of glottal pulse rate and vocal tract length in the perception of"
+  },
+  {
+   "pid": "isca-shams25_interspeech",
+   "key": "t:neuro2semanticatransferlearningframeworkforsemanticreconstructionofcontinuouslan",
+   "title": "Neuro2Semantic: A Transfer Learning Framework for Semantic Reconstruction of Continuous Language from Human Intracranial EEG",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-shams25_interspeech | title=Neuro2Semantic: A Transfer Learning Framework for Semantic Reconstruction of C"
+  },
+  {
+   "pid": "isca-toth18_interspeech",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Inter"
+  },
+  {
+   "pid": "isca-yang15c_interspeech",
+   "key": "t:speechreconstructionfromhumanauditorycortexwithdeepneuralnetworks",
+   "title": "Speech Reconstruction from Human Auditory Cortex with Deep Neural Networks",
+   "year": 2015,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=isca/yang15c-interspeech | title=Speech Reconstruction from Human Auditory Cortex with Deep Neural Networks | a"
+  },
+  {
+   "pid": "jne-17-abb25e-acoustic",
+   "key": "t:observationandassessmentofacousticcontaminationofelectrophysiologicalbrainsignal",
+   "title": "Observation and assessment of acoustic contamination of electrophysiological brain signals during speech production and sound perception",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Observation and assessment of acoustic contamination of electrophysiological brain signals during speech productio"
+  },
+  {
+   "pid": "oa-W2551678814",
+   "key": "t:cognitiveandvisualspeechcontributionstospeechperceptioninchallenginglisteningcon",
+   "title": "Cognitive and Visual Speech Contributions to Speech Perception in Challenging Listening Conditions",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=oa-W2551678814 | title=Cognitive and Visual Speech Contributions to Speech Perception in Challenging Listening"
+  },
+  {
+   "pid": "openaccess_avsp_berthommier01",
+   "key": "t:audiovisualrecognitionofspectrallyreducedspeech",
+   "title": "Audio-visual recognition of spectrally reduced speech",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca_archive:berthommier01_avsp | title=Audio-visual recognition of spectrally reduced speech | authors=Frederi"
+  },
+  {
+   "pid": "pmc-11226700-imagineddetect",
+   "key": "t:imaginedspeecheventdetectionfromelectrocorticographyanditstransferbetweenspeechm",
+   "title": "Imagined speech event detection from electrocorticography and its transfer between speech modes and subjects",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-11226700-imagineddetect | title=Imagined speech event detection from electrocorticography and its transfer"
+  },
+  {
+   "pid": "pmc-12226714-podcastecog",
+   "key": "t:thepodcastecogdatasetformodelingneuralactivityduringnaturallanguagecomprehension",
+   "title": "The \"Podcast\" ECoG dataset for modeling neural activity during natural language comprehension",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12226714-podcastecog | title=The \"Podcast\" ECoG dataset for modeling neural activity during natural languag"
+  },
+  {
+   "pid": "pmc-12337102-sharedpercept",
+   "key": "t:implicationsofsharedmotorandperceptualactivationsonthesensorimotorcortexforneuro",
+   "title": "Implications of shared motor and perceptual activations on the sensorimotor cortex for neuroprosthetic decoding",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12337102-sharedpercept | title=Implications of shared motor and perceptual activations on the sensorimotor"
+  },
+  {
+   "pid": "pmc-12460843-linguistic-neural-decoding",
+   "key": "t:progresschallengesandfutureoflinguisticneuraldecodingwithdeeplearning",
+   "title": "Progress, challenges and future of linguistic neural decoding with deep learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-12460843-linguistic-neural-decoding | title=Progress, challenges and future of linguistic neural decoding w"
+  },
+  {
+   "pid": "pmc-13060832-seegtrack",
+   "key": "t:humanauditorycortexpreferentiallytracksspeechovermusicwithoutexplicitattention",
+   "title": "Human auditory cortex preferentially tracks speech over music without explicit attention",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13060832-seegtrack | title=Human auditory cortex preferentially tracks speech over music without explicit a"
+  },
+  {
+   "pid": "pmc-13155409-llm-att",
+   "key": "t:largelanguagemodelsrevealtheneuraltrackingoflinguisticcontextinattendedandunatte",
+   "title": "Large language models reveal the neural tracking of linguistic context in attended and unattended multi-talker speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13155409-llm-att | title=Large language models reveal the neural tracking of linguistic context in attended"
+  },
+  {
+   "pid": "pmc-13446743-endog-rhythm",
+   "key": "t:endogenousauditoryandmotorbrainrhythmspredictindividualspeechtracking",
+   "title": "Endogenous auditory and motor brain rhythms predict individual speech tracking",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13446743-endog-rhythm | title=Endogenous auditory and motor brain rhythms predict individual speech trackin"
+  },
+  {
+   "pid": "pmc-13504003-aad-persp",
+   "key": "t:fromselectivelisteningtobraincontrolledhearingaperspectiveonthefutureofauditoryt",
+   "title": "From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=From Selective Listening to Brain-Controlled Hearing: A Perspective on the Future of Auditory Technology | venue=J"
+  },
+  {
+   "pid": "pmc-13522956-hgbursts",
+   "key": "t:theroleofhighamplitudeburstsofhighgammaactivityinnaturalisticspeechandmusicliste",
+   "title": "The role of high-amplitude bursts of high-gamma activity in naturalistic speech and music listening",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13522956-hgbursts | title=The role of high-amplitude bursts of high-gamma activity in naturalistic speech a"
+  },
+  {
+   "pid": "pmc-13633114-aadrt",
+   "key": "t:realtimebraincontrolledselectivehearingenhancesspeechperceptioninmultitalkerenvi",
+   "title": "Real-time brain-controlled selective hearing enhances speech perception in multi-talker environments",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633114-aadrt | title=Real-time brain-controlled selective hearing enhances speech perception in multi-tal"
+  },
+  {
+   "pid": "pmc-13633114-iiegaad",
+   "key": "t:realtimebraincontrolledselectivehearingenhancesspeechperceptioninmultitalkerenvi",
+   "title": "Real-time brain-controlled selective hearing enhances speech perception in multi-talker environments",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13633114-iiegaad | title=Real-time brain-controlled selective hearing enhances speech perception in multi-t"
+  },
+  {
+   "pid": "pmc-13635214-ecogmand",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13635214-ecogmand | title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Lang"
+  },
+  {
+   "pid": "pmc-13635214-ecogtonal",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13635214-ecogtonal | title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Lan"
+  },
+  {
+   "pid": "pmc-13635214-ecogtone",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13635214-ecogtone | title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Lang"
+  },
+  {
+   "pid": "pmc-13635214-tonalecog",
+   "key": "t:afinegrainedspatiotemporalecogdatasetduringspeechperceptionintonallanguage",
+   "title": "A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Fine-grained Spatiotemporal ECoG Dataset during Speech Perception in Tonal Language | venue=Scientific Data | do"
+  },
+  {
+   "pid": "pmc-3269422-pasley",
+   "key": "t:reconstructingspeechfromhumanauditorycortex",
+   "title": "Reconstructing Speech from Human Auditory Cortex",
+   "year": 2012,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-3269422-speechrecon",
+   "key": "t:reconstructingspeechfromhumanauditorycortex",
+   "title": "Reconstructing speech from human auditory cortex",
+   "year": 2012,
+   "via": [
+    "ledger",
+    "fulltext"
+   ],
+   "snippet": "paper_id=pmc-3269422-speechrecon | title=Reconstructing speech from human auditory cortex | authors=B. N. Pasley, S. V."
+  },
+  {
+   "pid": "pmc-4034498-overtcovert",
+   "key": "t:decodingspectrotemporalfeaturesofovertandcovertspeechfromthehumancortex",
+   "title": "Decoding spectrotemporal features of overt and covert speech from the human cortex",
+   "year": 2014,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-4034498-spectemp",
+   "key": "t:decodingspectrotemporalfeaturesofovertandcovertspeechfromthe",
+   "title": "Decoding spectrotemporal features of overt and covert speech from the",
+   "year": 2014,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": ""
+  },
+  {
+   "pid": "pmc-5187421-restoration",
+   "key": "t:perceptualrestorationofmaskedspeechinhumancortex",
+   "title": "Perceptual restoration of masked speech in human cortex",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5187421-restoration | title=Perceptual restoration of masked speech in human cortex | authors=M. K. Leonard"
+  },
+  {
+   "pid": "pmc-5462535-avspeech",
+   "key": "t:contributionsoflocalspeechencodingandfunctionalconnectivitytoaudiovisualspeechpe",
+   "title": "Contributions of local speech encoding and functional connectivity to audio-visual speech perception",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5462535-avspeech | title=Contributions of local speech encoding and functional connectivity to audio-visual"
+  },
+  {
+   "pid": "pmc-5624994-eeghier",
+   "key": "t:characterizingneuralentrainmenttohierarchicallinguisticunitsusingelectroencephal",
+   "title": "Characterizing Neural Entrainment to Hierarchical Linguistic Units using Electroencephalography (EEG)",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-5624994-eeghier | title=Characterizing Neural Entrainment to Hierarchical Linguistic Units using Electroenc"
+  },
+  {
+   "pid": "pmc-6351601-audrecon",
+   "key": "t:towardsreconstructingintelligiblespeechfromthehumanauditorycortex",
+   "title": "Towards reconstructing intelligible speech from the human auditory cortex",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards reconstructing intelligible speech from the human auditory cortex | authors=Akbari H, Khalighinejad B, Her"
+  }
+ ],
+ "usual_approach": {
+  "design": "spectrogram reconstruction target (auditory, linear or mel spectrogram)",
+  "n": 24,
+  "tier": "pattern match",
+  "pids": [
+   "arxiv-2604.05751",
+   "arxiv-2609.36736",
+   "doi-10.64898-2026.03.02.709171",
+   "isca-buragohain26_interspeech",
+   "pmc-12460843-linguistic-neural-decoding"
+  ],
+  "population_unique": 64,
+  "note": "full-text pattern counts over 64 unique ledger matches, all years (overlapping): spectrogram_target 24, vocoder_parameter_target 13, envelope_target 12, temporal_modulation_target 6 keys = 4 distinct studies after merging versions (the target; Martin et al. 2014 and Martin 2017 thesis, same lineage; Yang et al. 2015, which uses modulation space for evaluation). Slot-filled design values give n=1 each, so the pattern count is used."
+ },
+ "read_fulltext": [
+  {
+   "pid": "doi-10.1038-s41598-018-37359-z",
+   "role": "sota",
+   "loc": "Results, Subjective evaluation of the reconstruction accuracy",
+   "quote": "The DNN-vocoder combination achieved the best performance (75% accuracy), which is 67% higher than the baseline system (Linear regression with auditory spectrogram)."
+  },
+  {
+   "pid": "pmc-2967728-categoricalstg",
+   "role": "prior",
+   "loc": "Results",
+   "quote": "The specific measure we used was the degree to which a multivariate pattern classifier (L1 norm regularized logistic regression 17 ) was able to distinguish single-trial response patterns of the evoked cortical potentials."
+  },
+  {
+   "pid": "pmc-2784218-wireless",
+   "role": "prior",
+   "loc": "Methods, Kalman Filter for Real-Time BMI",
+   "quote": "Specifically, the Kalman filter was used to predict the intended positions and velocities of the first two formant frequencies based on the current values of the normalized neural firing rates."
+  },
+  {
+   "pid": "doi-10.1371-journal.pbio.1001251",
+   "role": "target",
+   "loc": "Discussion",
+   "quote": "In this study, we examined human STG, a nonprimary auditory area, and found that a nonlinear modulation representation yielded the best overall reconstruction accuracy"
+  },
+  {
+   "pid": "pmc-2967728-categoricalstg",
+   "role": "prior",
+   "loc": "Methods, Data acquisition",
+   "quote": "The electrocorticogram (ECoG) was recorded using a customized 64-channel subdural cortical electrode microarray, with center-to-center distance of 4 mm"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "prior_time_tally": {
+  "cutoff": "first public before 2012-01",
+  "population_unique": 2,
+  "pids": [
+   "isca-berthommier01-srs",
+   "isca-gaudrain09_interspeech"
+  ],
+  "note": "Both earlier hits are behavioural speech-perception studies; none reconstructs speech from neural recordings, so every design count is 0 before the target. 4 undated keys (arxiv-2508.03166, arxiv-2606.01264, doi-10.1088-1741-2552-adf2de, isca-toth18_interspeech) are later works by their identifiers.",
+  "design_counts": [
+   {
+    "design": "spectrogram_target",
+    "n": 0,
+    "tier": "pattern match"
+   },
+   {
+    "design": "temporal_modulation_target",
+    "n": 0,
+    "tier": "pattern match"
+   }
+  ]
+ },
+ "state_of_the_art": {
+  "pid": "doi-10.1038-s41598-018-37359-z",
+  "year": 2019,
+  "metric": "listener digit recognition from reconstructed speech, DNN to vocoder parameters, 5 ECoG patients, digits and digit speakers absent from training; relative to linear regression with auditory spectrogram",
+  "value": "75% (67% above the linear auditory-spectrogram baseline)",
+  "unit": "%",
+  "timing": "later"
+ },
+ "recall_check": {
+  "fulltext_pattern_hits_folders": 8,
+  "recall_sample_read": [
+   "pmc-3269422-pasley",
+   "pmc-4034498-overtcovert",
+   "pmc-4034498-spectemp",
+   "doi-10.1371-journal.pbio.1001251",
+   "doi-10.3389-fneng.2014.00014"
+  ],
+  "result": "All snippets are target versions or the [later] Martin et al. 2014 / Martin 2017 thesis reuse of the modulation-based model, plus Yang et al. 2015 (evaluation in modulation space); no earlier study reconstructs a modulation-energy target."
+ },
+ "deciding_priors_note": "Deciding priors read: Chang et al. 2010 (pSTG ECoG, passive listening, classification of /ba/-/da/-/ga/ responses, no reconstruction) and Guenther et al. 2009 (intracortical, attempted production, Kalman-filter formant decoding). The authors credit non-human auditory reconstruction (their refs 14, 15; outside the ledger).",
+ "used_by": [
+  "reconstructing-speech-from-human-auditory-cortex"
+ ],
+ "tally": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 64,
+  "fulltext_only_folders": 5,
+  "usual_approach": {
+   "design": "spectrogram reconstruction target (auditory, linear or mel spectrogram)",
+   "n": 24,
+   "tier": "pattern match",
+   "population_unique": 64
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1038-s41598-018-37359-z",
+   "year": 2019,
+   "metric": "listener digit recognition from reconstructed speech, DNN to vocoder parameters, 5 ECoG patients, digits and digit speakers absent from training; relative to linear regression with auditory spectrogram",
+   "value": "75% (67% above the linear auditory-spectrogram baseline)",
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 4,
+  "read_prior": [
+   "pmc-2784218-wireless",
+   "pmc-2967728-categoricalstg"
+  ],
+  "unread": 77,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ },
+ "usual_approach_at_target_time": {
+  "design": "none: no neural reconstruction among the 2 pattern matches first public before 2012-01 (both behavioural)",
+  "n": 2,
+  "matched": 0,
+  "tier": "pattern match"
+ },
+ "later_adoption_dedup": {
+  "basis": "ledger pattern matches, versions merged by title, target excluded",
+  "population": 63,
+  "spectrogram_target": 20,
+  "vocoder_parameter_target": 14,
+  "envelope_target": 12,
+  "temporal_modulation_target": 2,
+  "modulation_pids": [
+   "doi-10.5075-epfl-thesis-7740",
+   "isca-yang15c_interspeech"
+  ],
+  "note": "Martin et al. 2014 is a full-text-only hit, not a ledger match."
+ },
+ "recall_check_envelope_spectrogram": {
+  "pattern": "reconstruct[^.]{0,120}(envelope|spectrogram) or reverse, in full texts with a neural-recording term, index year <= 2012",
+  "hits": [
+   "pmc-3269422-pasley",
+   "pmc-3269422-speechrecon",
+   "pmc-5630088-intellspeech"
+  ],
+  "result": "only target versions and an fMRI study describing noise-vocoded stimuli; Ding & Simon J Neurophysiol 107:78-89 is outside the wiki, online 2011-10-05 (PubMed 21975452), [concurrent], abstract describes encoding (STRF)."
+ }
+}
