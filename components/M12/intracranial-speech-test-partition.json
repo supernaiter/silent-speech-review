@@ -9240,6 +9240,18 @@
    "role": "prior",
    "loc": "Results",
    "quote": "a significant decrease in PER, from 57% in the within-subject model to 49%"
+  },
+  {
+   "pid": "pmc-2784218-wirelesssynth",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "A Kalman filter-based decoder translated the neural signals generated during attempted speech into continuous parameters for controlling a synthesizer that provided immediate (within 50 ms) auditory feedback of the decoded sound."
+  },
+  {
+   "pid": "isca-brumberg09_bcisynth",
+   "role": "prior",
+   "loc": "Methods",
+   "quote": "The subject participated in 25 sessions over a 5 month period in which he performed between 5-34 trials per session."
   }
  ],
  "known_item_recall": {
@@ -9258,6 +9270,7 @@
  },
  "deciding_priors_note": "Held-out-subject testing of a multi-subject intracranial speech decoder predates the target (Chen et al., bioRxiv 2024-03, read).",
  "used_by": [
+  "decoding-spoken-words-using-local-field-potentials-recorded-from-the-cortical-surface",
   "decoding-vowels-and-consonants-in-spoken-and-imagined-words-using-electrocorticographic-signals-in-h",
   "direct-classification-of-all-american-english-phonemes-using-signals-from-functional-speech-motor-co",
   "towards-unified-neural-decoding-with-brain-functional-network-modeling"
@@ -9408,5 +9421,92 @@
   ],
   "note": "Held-out-session hits are wording matches (for example sessions mentioned in a multi-session recording) and were not read as test partitions; no behind verdict rests on them.",
   "cutoff": "2013-11"
+ },
+ "prior_tally_decoding-spoken-words-using-local-field-potentials-recorded-from-the-cortical-surface": {
+  "basis": "ledger pattern-match candidates first public before the target, unique studies, dates from index year then manifest/first page; target and its PMC duplicate (pmc-2970568-lfpwords) excluded",
+  "cutoff": "2010-03 (prior); 2010-03..2011-03 concurrent",
+  "pattern_hits_prior_unique": 7,
+  "pattern_hits_prior_pids": [
+   "doi-10.1093-brain-awn147",
+   "doi-10.1523-jneurosci.2875-08.2008",
+   "doi-10.1126-science.1174481",
+   "doi-10.1371-journal.pone.0008218",
+   "isca-brumberg09_bcisynth",
+   "doi-10.1016-j.specom.2009.08.002",
+   "doi-10.1016-j.specom.2010.01.001"
+  ],
+  "off_population_prior": [
+   "doi-10.1093-brain-awn147 (no decoder)",
+   "doi-10.1523-jneurosci.2875-08.2008 (perception)",
+   "doi-10.1126-science.1174481 (no decoder)",
+   "doi-10.1016-j.specom.2009.08.002 (review)",
+   "doi-10.1016-j.specom.2010.01.001 / pmc-2829990-bcispeech (review)"
+  ],
+  "population_unique": 1,
+  "population_pids": [
+   "doi-10.1371-journal.pone.0008218",
+   "isca-brumberg09_bcisynth"
+  ],
+  "population_note": "Guenther 2009 (PLoS ONE, three wiki folders) and Brumberg 2009 (Interspeech) report the same participant, electrode and 25 online sessions: counted as 1 experiment (2 reports).",
+  "concurrent_pattern_hits_unique": 6,
+  "concurrent_pids": [
+   "doi-10.1016-j.neuroimage.2009.12.084 (no decoder)",
+   "doi-10.1523-jneurosci.1809-10.2010 / doi-10.1016-j.neuron.2010.10.029 (no decoder; 4 mm grid)",
+   "doi-10.1038-nn.2641 (perception classifier; 4 mm grid)",
+   "doi-10.1371-journal.pone.0014744 (no decoder)",
+   "doi-10.1586-erd.10.34 (review)"
+  ],
+  "concurrent_in_population": 0,
+  "design_counts": [
+   {
+    "design": "online_closed_loop_across_sessions",
+    "n": 1,
+    "tier": "slot-filled",
+    "note": "1 experiment, 2 reports"
+   },
+   {
+    "design": "held_out_session_or_day (wording)",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "doi-10.1371-journal.pone.0008218"
+    ],
+    "note": "regex hits 'across sessions'; read text: offline analysis used two-fold cross-validation within each session (no held-out session test)"
+   },
+   {
+    "design": "held_out_subject",
+    "n": 0,
+    "tier": "pattern match"
+   }
+  ]
+ },
+ "inclusion_rule_decoding-spoken-words-using-local-field-potentials-recorded-from-the-cortical-surface": "Setting (same for M05, M06, M12): human studies that decode produced, attempted or imagined speech from intracranial recordings (ECoG, micro-ECoG, sEEG, intracortical arrays); ledger pattern = the published intracranial-speech-test-partition pattern (intracranial signal and speech unit named in the ledger text). Off-population at the target's time: reviews, listening/perception studies and studies with no decoder. Target first public 2010-09; prior = first public before 2010-03; [concurrent] = 2010-03 to 2011-03; versions of one study count once; two index-misdated 2012 papers (pmc-3321121-revspeech, pmc-3342676-gammaev) are later; 18 undated hits are all arXiv 2023 or later. Design of interest for this review: how test data are separated from training data at the target's time (single holdout split, k-fold, online closed-loop test across sessions, held-out session or subject).",
+ "tally_decoding-spoken-words-using-local-field-potentials-recorded-from-the-cortical-surface": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 618,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "k_fold_cross_validation",
+   "n": 132,
+   "tier": "pattern match",
+   "population_unique": 618
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.1101-2024.03.11.584533",
+   "year": 2024,
+   "metric": "leave-one-subject-out test of a layout-agnostic multi-subject intracranial speech decoder (spectrogram PCC on unseen participants)",
+   "value": 0.765,
+   "unit": "PCC",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "doi-10.1038-s41467-025-63825-0",
+   "doi-10.1101-2024.03.11.584533",
+   "pmc-2784218-wirelesssynth"
+  ],
+  "unread": 904,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
  }
 }
