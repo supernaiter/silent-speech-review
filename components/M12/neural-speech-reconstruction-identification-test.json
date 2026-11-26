@@ -2422,6 +2422,19 @@
    "loc": "Abstract; Results, Fig. 4a",
    "quote": "with phoneme error rate (PER) at 28.6%, and human listeners were able to recognize 71.6% of the words in the re-synthesized speech.",
    "by": "towards-reconstructing-intelligible-speech-from-the-human-auditory-cortex"
+  },
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "role": "sota",
+   "loc": "Results",
+   "quote": "The transcription median phoneme error rate (PER) was 34.00% and median word error rate (WER) was 43.75%."
+  },
+  {
+   "pid": "pmc-3269422-pasley",
+   "role": "prior",
+   "loc": "Sec. Results",
+   "quote": "The 47 similarity scores were sorted and word identification rank was quantified as the percentile rank of the correct word.",
+   "by": "decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex"
   }
  ],
  "known_item_recall": {
@@ -2437,9 +2450,11 @@
   "year": 2023,
   "metric": "word identification from reconstructed spectrograms by a classifier trained on target audio, plus listener judgments; 12 words, five subjects, leave-one-out",
   "value": "92-100% (chance 8%)",
-  "timing": "prior"
+  "timing": "prior",
+  "unit": "% WER"
  },
  "used_by": [
+  "decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex",
   "reconstructing-speech-from-human-auditory-cortex",
   "relating-the-neural-representations-of-vocalized-mimed-and-imagined-speech",
   "speech-synthesis-from-ecog-using-densely-connected-3d-convolutional-neural-networks",
@@ -2460,12 +2475,14 @@
    "year": 2023,
    "metric": "word identification from reconstructed spectrograms by a classifier trained on target audio, plus listener judgments; 12 words, five subjects, leave-one-out",
    "value": "92-100% (chance 8%)",
-   "timing": "prior"
+   "timing": "prior",
+   "unit": "% WER"
   },
   "read": 4,
   "read_prior": [
    "doi-10.1038-s41586-019-1119-1",
-   "doi-10.3389-fneng.2014.00014"
+   "doi-10.3389-fneng.2014.00014",
+   "pmc-3269422-pasley"
   ],
   "unread": 221,
   "confirmed_unique": 0,
@@ -2750,5 +2767,29 @@
   "unread": 221,
   "confirmed_unique": 0,
   "known_item_recall": 0.67
+ },
+ "usual_approach_at_target_time_decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex": {
+  "design": "Pearson correlation per feature plus DTW-based percentile identification rank among candidates (Pasley 2012, perceived speech)",
+  "n": 5,
+  "matched": 1,
+  "tier": "pattern match",
+  "population_unique": 5,
+  "pids": [
+   "pmc-3269422-pasley",
+   "doi-10.1016-j.specom.2009.08.002",
+   "gatech-matthews-201212-phd",
+   "isca-sadakata13_interspeech",
+   "pmc-3096823-phoneme-intracortical"
+  ],
+  "basis": "first public before 2013-11 (target 2014-05; within 6 months is concurrent); pattern-match candidates of the topic table, unique studies",
+  "note": "Of 5 prior pattern-match studies only Pasley 2012 evaluates a reconstruction (correlation and identification); the others are a review, two classifiers and an ERP study. doi-10.5075-epfl-thesis-7740 (0.91 rank) is the first author thesis reporting this same study and is not a separate comparator."
+ },
+ "state_of_the_art_decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex": {
+  "pid": "pmc-12369848-voice-synth-np",
+  "year": 2025,
+  "metric": "human listener open transcription of synthesized speech (intracortical, attempted speech, one participant); metric-matched closed-set alternative Berezutskaya 2023 uses a classifier, not percentile rank",
+  "value": "43.75% median WER",
+  "unit": "% WER",
+  "timing": "later"
  }
 }

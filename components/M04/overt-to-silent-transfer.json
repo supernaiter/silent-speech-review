@@ -1747,6 +1747,7 @@
  },
  "used_by": [
   "affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg",
+  "decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex",
   "digital-voicing-of-silent-speech",
   "improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning",
   "lipnet-end-to-end-sentence-level-lipreading",
@@ -2342,6 +2343,13 @@
    "loc": "Sec. 5",
    "quote": "Some applications, such as silent dictation, demand the use of video only.",
    "by": "lipnet-end-to-end-sentence-level-lipreading"
+  },
+  {
+   "pid": "doi-10.1038-s41598-024-62230-9",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "whereas the model trained on overt speech achieved a TER of 46.3%",
+   "by": "decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex"
   }
  ],
  "tally_by": {
@@ -2665,5 +2673,27 @@
   ],
   "note": "the prior / later labels in the published table are relative to its own target; recomputed against 2016-11, four confirmed studies are earlier than this target, the closest in modality being the lip-video and ultrasound study isca-florescu10. arxiv-1802.06399 and isca-kashiwagi23 are [later] for this target. The usual_approach.n_prior of 7 belongs to the published table and is relative to its own target. Only isca-florescu10 uses video; the other three are surface EMG and ECoG, so the topic does not set the setting for this target (M04 verdict standard).",
   "n_prior_this_target": 4
+ },
+ "state_of_the_art_decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex": {
+  "pid": "doi-10.1038-s41598-024-62230-9",
+  "year": 2024,
+  "metric": "covert ECoG sentence decoding by a Transformer trained only on overt speech, 16 patients, eight Japanese three-token sentences, per participant; covert-trained 46.6%",
+  "value": 46.3,
+  "unit": "% TER",
+  "timing": "later"
+ },
+ "usual_approach_at_target_time_decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex": {
+  "design": "decoder trained on vocalized/audible speech applied to silent articulation without retraining (EMG, ultrasound/video)",
+  "n": 3,
+  "matched": 3,
+  "tier": "confirmed",
+  "population_unique": 3,
+  "pids": [
+   "doi-10.5220-0002814100220031",
+   "doi-10.5220-0003169702950300",
+   "isca-florescu10"
+  ],
+  "basis": "first public before 2013-11 (target 2014-05); 3 prior confirmed unique studies of the topic table, all EMG or ultrasound/video on silently articulated speech; 0 neural. The tally confirmed_unique 25 counts version keys; the published usual_approach n 23 dedupes versions.",
+  "note": "Target versions doi-10.3389-fneng.2014.00014, pmc-4034498-overtcovert, pmc-4034498-spectemp count once."
  }
 }

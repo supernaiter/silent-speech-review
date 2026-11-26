@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that build or release an audio-visual (face video plus audio) speech test set drawn from spontaneous conversation, meetings or video calls, with transcripts used as ground truth for AVSR or VSR scoring. Boundary: audio-only meeting corpora, read-prompt corpora and broadcast monologue sets selected without a conversation criterion are excluded; corpora derived from conversational recordings of TV or web video count; versions count once.
 - Used in: [AVSRBench: A Multi-Condition AVSR Benchmark](../../reviews/avsrbench-a-multi-condition-avsr-benchmark/)
 
+## covert-neural-reconstruction-reference
+
+- Table: [`covert-neural-reconstruction-reference.csv`](covert-neural-reconstruction-reference.csv) (234 slot-filled, 167 pattern match, usual design in 54, 4 read in full)
+- Inclusion rule: Neural (ECoG, sEEG, intracortical, EEG, MEG) studies of covert, imagined, mimed, inner or silent speech that decode or reconstruct speech and state how the covert ground truth is constructed. Design of interest: a continuous acoustic reconstruction scored against the same participant's overt recording of the same text, time-aligned (e.g. DTW). Boundary: class-label references, heard-stimulus references in perception studies and text-only references are other designs; acoustic whisper or NAM conversion is not neural; versions of one study count once.
+- Used in: [Decoding spectrotemporal features of overt and covert speech from the human cortex](../../reviews/decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex/)
+
 ## in-the-wild-sentence-benchmark
 
 - Table: [`in-the-wild-sentence-benchmark.csv`](in-the-wild-sentence-benchmark.csv) (5 confirmed, 49 candidates read, 293 unread)
