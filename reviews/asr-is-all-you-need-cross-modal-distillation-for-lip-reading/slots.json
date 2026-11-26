@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Overt speech video with paired audio"
+  ],
+  "field": "Recorded speech video",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M02": {
+  "choice": [
+   "ASR-teacher transcripts + frame-wise KD, unlabelled VoxCeleb2"
+  ],
+  "field": "Human or caption transcripts",
+  "verdict": "standard",
+  "note": "New to lip reading (0 of 77 earlier), but the closest prior named by the authors uses the same mechanism and the KD term is untested in WER.",
+  "sota": "[@haliassos2026usr2] (2026): LRS3 VSR 17.6%, own pseudo-labels",
+  "n": 77,
+  "matched": 77,
+  "matched_tier": "pattern match (unique studies)"
+ },
+ "M03": {
+  "choice": [
+   "ASR-agreement filter; optional GT fine-tuning; one run"
+  ],
+  "field": "Pretraining then fine-tuning",
+  "verdict": "standard",
+  "note": "Filter not ablated.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M04": {
+  "choice": [
+   "Overt speech; video only at test"
+  ],
+  "field": "Overt speech video",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M05": {
+  "choice": [
+   "Face video via public lip-reading front end"
+  ],
+  "field": "Camera video",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M06": {
+  "choice": [
+   "Jasper-lip convolutional CTC student"
+  ],
+  "field": "CTC or seq2seq on visual features",
+  "verdict": "standard",
+  "note": "Inherited (Jasper ASR lineage).",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M07": {
+  "choice": [
+   "8192-width beam, 6-gram Librispeech LM"
+  ],
+  "field": "External LM at decoding",
+  "verdict": "standard",
+  "note": "Comparator LMs not stated.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M08": {
+  "choice": [
+   "English graphemes"
+  ],
+  "field": "Characters or words",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M09": {
+  "choice": [
+   "Offline study"
+  ],
+  "field": "Offline",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M10": {
+  "choice": [
+   "Offline study"
+  ],
+  "field": "Offline",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M11": {
+  "choice": [
+   "LRS2/LRS3 test transcripts; no overlap statement"
+  ],
+  "field": "Corpus transcripts",
+  "verdict": "standard",
+  "note": "VoxCeleb2 overlap with test sets not stated.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M12": {
+  "choice": [
+   "LRS2/LRS3 WER, one run, no spread"
+  ],
+  "field": "One run, no seeds or repeated runs",
+  "verdict": "standard",
+  "note": "Public-data SOTA claim rests on 0.3-0.4-point margins.",
+  "sota": "[@haliassos2026usr2] (2026): 17.6% public; [@chang2023lpconformer] (2023): 12.8% non-public",
+  "n": 2,
+  "matched": 2,
+  "matched_tier": "pattern match (unique studies)"
+ },
+ "M13": {
+  "choice": [
+   "Public data; four 11 GB GPUs"
+  ],
+  "field": "Device and cost",
+  "verdict": "standard",
+  "note": "No latency or device figures.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "target": "arxiv-1911.12747",
+ "first_public": "2019-11",
+ "window": {
+  "prior": "first public before 2019-05",
+  "concurrent": "2019-05 to 2020-05",
+  "later": "after 2020-05"
+ },
+ "setting": "Sentence-level lip reading / VSR / AVSR (the 633-study population of M06/sentence-lipreading-sequence-objective, SENT regex over ledger text) for usual approach and behind decisions; novelty precedents counted over the whole wiki in any modality (full-text recall check, dated before 2020-06).",
+ "changed": [
+  "M02"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt speech video (VoxCeleb2, LRS2, LRS3) with paired audio",
+  "M03": "Pretraining on ASR-labelled VoxCeleb2 clean subset (two ASR-based filters), then optional ground-truth fine-tuning; NovoGrad; no seeds or repeated runs",
+  "M04": "Overt speech; video-only at test",
+  "M05": "Face/mouth video through a public word-level lip-reading front end (spatio-temporal ResNet)",
+  "M06": "Jasper-lip 5x3 1D convolutional CTC student on visual features (Jasper ASR lineage)",
+  "M07": "8192-width beam with a 6-gram Librispeech LM",
+  "M08": "English character sequence (graphemes plus CTC blank)",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Original LRS2/LRS3 transcripts and test splits; no speaker-overlap statement",
+  "M13": "Public data; four 11 GB GPUs; no latency or device figures"
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "asr-transcribed-unlabelled-video-training",
+   "reuse": "components/M02/asr-transcribed-unlabelled-video-training.json",
+   "inclusion_rule": "Published rule (lip reading / VSR / AVSR studies classified by label source for unlabelled video). For this review the counts are restricted to the 633-study sentence-level population and to first-public date: prior before 2019-05, [concurrent] 2019-05 to 2020-05. Boundary: forced-alignment, perception, synthesis and enhancement papers excluded on reading the snippet; versions once.",
+   "design_regex": {
+    "asr_labels": "ASR/recogniser-generated transcripts or labels, automatic transcripts, pseudo-labels",
+    "distill": "knowledge distillation, teacher-student, cross-modal distillation",
+    "unlabelled": "unlabelled video / audio-visual data"
+   },
+   "metric": "LRS3 / LRS2 visual-only WER, lower better"
+  },
+  {
+   "slot": "M02",
+   "topic": "knowledge-distillation-in-speech-decoding",
+   "reuse": "components/M02/knowledge-distillation-in-speech-decoding.json",
+   "inclusion_rule": "Published rule (any non-acoustic or audio-visual speech decoding with a teacher-student objective). For this review: whole-wiki full-text recall over studies dated before 2020-06 for a distillation term co-occurring with a non-acoustic signal term, snippets read; hits classified as same design (audio/ASR teacher into a non-acoustic student), other distillation, mention or reference, off-population.",
+   "metric": "same"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrs3-visual-only-wer",
+   "reuse": "components/M12/lrs3-visual-only-wer.json",
+   "inclusion_rule": "Published rule (visual-only WER on LRS3 test). For this review: target-time counts (prior before 2019-05, [concurrent] 2019-05 to 2020-05) of run-to-run spread reporting (seeds, repeated runs, standard deviation, intervals), hits read.",
+   "metric": "LRS3 VSR WER, lower better"
+  }
+ ]
+}
