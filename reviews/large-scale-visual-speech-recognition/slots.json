@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced YouTube speech"
+  ],
+  "field": "Voiced speech recorded for training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "3,886 h mined YouTube, forced-aligned phonemes"
+  ],
+  "field": "No video corpus of 1,000 h or more; of 59 before 2018-01",
+  "n": 59,
+  "matched": 59,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "No training-size ablation.",
+  "sota": "[@chang2023lpconformer] 100k h, 12.8% LRS3 WER"
+ },
+ "M03": {
+  "choice": [
+   "From scratch; duration curriculum"
+  ],
+  "field": "Supervised training on transcribed data",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited; one training run, no seeds.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Voiced speech at test"
+  ],
+  "field": "Voiced speech at use time",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Mouth-region video, faces within 30 degrees"
+  ],
+  "field": "Camera mouth region",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited face-angle filter (Chung et al. 2017).",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "CTC over 41 phonemes, lexicon and 5-gram WFSTs"
+  ],
+  "field": "HMM decoding; of 59 before 2018-01",
+  "n": 59,
+  "matched": 57,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Both halves prior ([@thangthai2017dnn], [@sanabria2016robust]); phoneme gain 3.2 WER points on one test set.",
+  "sota": "[@chang2023lpconformer] 12.8% LRS3 WER"
+ },
+ "M07": {
+  "choice": [
+   "Katz 5-gram, about 1M words; LM-free ablation"
+  ],
+  "field": "Grammar or lexicon; of 59 before 2018-01",
+  "n": 59,
+  "matched": 33,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "LM worth 40.9 to 53.6% WER; LM text not named.",
+  "sota": "[@haliassos2026usr2] 17.6%, no external LM"
+ },
+ "M08": {
+  "choice": [
+   "Words via phonemes"
+  ],
+  "field": "Text output",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Held-out LSVSR test; split not stated"
+  ],
+  "field": "Stated benchmark partition",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_reported",
+  "note": "Split construction and speaker or video overlap with training not given (Sec. 5).",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Professional readers; bootstrap; zero-shot LRS3"
+  ],
+  "field": "No human-reader result; of 59 before 2018-01",
+  "n": 59,
+  "matched": 54,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Human subsets differ from the model's full test; one training run.",
+  "sota": "[@chang2023lpconformer] 12.8% LRS3 WER"
+ },
+ "M13": {
+  "choice": [
+   "Offline benchmark"
+  ],
+  "field": "Offline GPU training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Medical use described as potential (Appendix A of the paper).",
+  "sota": "–"
+ }
+}
