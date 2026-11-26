@@ -287,7 +287,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`sentence-lipreading-sequence-objective.csv`](sentence-lipreading-sequence-objective.csv) (7345 slot-filled, 633 pattern match, usual design in 291, 6 read in full)
 - Inclusion rule: Studies that decode sentence-level or open-vocabulary speech from lip or face video (ledger names lip reading, VSR, AVSR or an LRS2/LRS3 benchmark together with sentence-level, continuous or open-vocabulary recognition), classified by the sequence objective their full text names: CTC, attention sequence-to-sequence, hybrid CTC/attention, HMM, or transducer. Boundary: isolated-word classification without a sentence-level result is excluded; audio-only ASR is out of scope; reviews count as pattern matches only; a study counts under every objective its text names (upper bound); versions of one study count once by key.
-- Used in: [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/), [Recurrent Neural Network Transducer for Audio-Visual Speech Recognition](../../reviews/recurrent-neural-network-transducer-for-audio-visual-speech-recognition/)
+- Used in: [Audio-Visual Speech Recognition with a Hybrid CTC/Attention Architecture](../../reviews/audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture/), [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/), [Recurrent Neural Network Transducer for Audio-Visual Speech Recognition](../../reviews/recurrent-neural-network-transducer-for-audio-visual-speech-recognition/)
 
 ## silent-command-activation
 

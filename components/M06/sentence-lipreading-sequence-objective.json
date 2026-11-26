@@ -9511,6 +9511,54 @@
    "timing": "later",
    "note": "VGG Conformer 0.9% (2022)",
    "by": "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1803.04988",
+   "role": "prior",
+   "timing": "concurrent",
+   "loc": "Table II caption; Table III; Sec. 4.C",
+   "quote": "While the AH-CTC-CE model leverages the cross-entropy loss on the attention branch and the CTC loss on another branch.",
+   "by": "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture"
+  },
+  {
+   "pid": "arxiv-1611.06986",
+   "role": "prior",
+   "timing": "prior",
+   "loc": "Abstract",
+   "quote": "(AVSR), based on recurrent neural networks (RNN) with a connec- tionist temporal",
+   "by": "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "prior",
+   "timing": "prior",
+   "loc": "Sec. 1",
+   "quote": "network that learns to transcribe videos of mouth motion to characters",
+   "by": "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "timing": "concurrent",
+   "loc": "Sec. 1",
+   "quote": "We compare two models: one using a Connectionist Temporal Classiﬁcation (CTC) loss [22], and the other using a sequence-to-sequence (seq2seq) loss [9, 46].",
+   "by": "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture"
+  },
+  {
+   "pid": "arxiv-2303.14307",
+   "role": "sota",
+   "timing": "later",
+   "loc": "Table 3; Sec. 2.3",
+   "quote": "Ours 3 448 1.5",
+   "by": "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture"
+  },
+  {
+   "pid": "arxiv-1803.04988",
+   "role": "prior",
+   "timing": "concurrent",
+   "loc": "Sec. 4.C",
+   "quote": "we tried different λ values (from 0.1 to 0.9) and only report the best result here",
+   "by": "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture"
   }
  ],
  "known_item_recall": {
@@ -9595,7 +9643,10 @@
    "arxiv-1810.00108",
    "arxiv-1811.05250",
    "arxiv-2012.07467",
-   "isca-potamianos01_eurospeech"
+   "isca-potamianos01_eurospeech",
+   "arxiv-1611.05358",
+   "arxiv-1611.06986",
+   "arxiv-1803.04988"
   ],
   "unread": 900,
   "confirmed_unique": 0,
@@ -9621,6 +9672,7 @@
  },
  "triage_2026_11_25": "verdict M06 changed ahead -> standard (no repetition across seeds, subjects or datasets); chronology split into before-target and prior counts; recall check added",
  "used_by": [
+  "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture",
   "lipnet-end-to-end-sentence-level-lipreading",
   "recurrent-neural-network-transducer-for-audio-visual-speech-recognition"
  ],
@@ -9685,5 +9737,150 @@
   "timing": "later",
   "confirmed_in_text": true,
   "note": "0.9% first reported by a 2022 VGG Conformer listed in arxiv-2302.10915 Table 2; lowest LRS3 AVSR WER 0.76% (arxiv-2406.10082, attention decoder)"
+ },
+ "counts_audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture": {
+  "population": {
+   "definition": "sentence-level AVSR: unique studies whose ledger matches both the sentence-level lip-reading pattern of M06/sentence-lipreading-sequence-objective and the AVSR pattern of M06/avsr-audio-stream-input-representation (265 unique keys)",
+   "dated_before_2018_09_raw": 38,
+   "excluded": {
+    "doi-10.1037-pag0000094": "human perception study (same study as pmc-4910521-lifespan)",
+    "pmc-4910521-lifespan": "human perception study",
+    "doi-10.3758-s13423-014-0774-3": "human perception study",
+    "doi-10.7888-juoeh.26.215": "human perception study",
+    "isca-mahajan14b-elderlyav": "human perception study",
+    "isca-huang09b_interspeech": "version duplicate of isca-huang09b_combineddt"
+   },
+   "population_before_2018_09": 32,
+   "dated_only_2018_excluded": [
+    "aaai-29926-vishallu",
+    "isca-sari18-avicar",
+    "isca-su18b-crossdomain",
+    "isca-su18b_interspeech"
+   ]
+  },
+  "regex": {
+   "ctc": "\\bCTC\\b|connectionist temporal classi(f|ﬁ)ication",
+   "attention_seq2seq": "sequence[- ]to[- ]sequence|seq2seq|attention[- ]based (encoder|decoder|model|sequence)|encoder[- ]decoder|listen,? attend",
+   "hmm": "\\bHMMs?\\b|hidden markov",
+   "hybrid": "hybrid\\s+ctc|ctc\\s*/\\s*attention|attention\\s*/\\s*ctc|joint\\s+ctc|ctc[- ]attention|attention[- ]ctc|ctc\\s+and\\s+attention|attention\\s+and\\s+ctc|multi-?task\\s+(learning\\s+)?(of\\s+|with\\s+)?ctc"
+  },
+  "date_rule": "first-public month from the arXiv id, year from the index or the ISCA id; studies dated only to 2018 are excluded from the before-target count (Interspeech 2018 falls in the concurrent window); versions merged by key; full text with the reference list removed where detected (reference-list mentions can remain)",
+  "tier": "pattern match (unique studies, upper bound; mentions included)",
+  "cutoff": "2018-09",
+  "before_2018_09": {
+   "population": 32,
+   "hmm": 32,
+   "ctc": 4,
+   "attention_seq2seq": 1,
+   "hybrid_ctc_attention": 0,
+   "pids": {
+    "hmm": [
+     "arxiv-1611.02879",
+     "arxiv-1611.05358",
+     "arxiv-1611.06986",
+     "arxiv-1803.04840",
+     "doi-10.1109-tcyb.2013.2250954",
+     "isca-abdelaziz13_interspeech",
+     "isca-abdelaziz14_interspeech",
+     "isca-abdelaziz17-turboav",
+     "isca-abdelaziz17b_interspeech",
+     "isca-chao16-spktarget",
+     "isca-cisar04_interspeech",
+     "isca-cisar07-combvis",
+     "isca-dean07-mshmm",
+     "isca-dupont98_icslp",
+     "isca-gan07-af",
+     "isca-heckmann00_icslp",
+     "isca-heckmann01-annhmm",
+     "isca-heckmann01_eurospeech",
+     "isca-huang09b_combineddt",
+     "isca-karpov10",
+     "isca-kolossa09_avsp",
+     "isca-kolossa10-manychmm",
+     "isca-kolossa12_avenh",
+     "isca-marcheret04_interspeech",
+     "isca-miao16-opendomain",
+     "isca-narwekar17_prav",
+     "isca-ninomiya15-dbnf",
+     "isca-potamianos01_eurospeech",
+     "isca-wiggers02_icslp",
+     "isca-yoshida10-twolayer",
+     "oa-W3099202502",
+     "openaccess_avsp_talle99"
+    ],
+    "ctc": [
+     "arxiv-1611.02879",
+     "arxiv-1611.05358",
+     "arxiv-1611.06986",
+     "arxiv-1803.04840"
+    ],
+    "attention_seq2seq": [
+     "arxiv-1611.05358"
+    ],
+    "hybrid": []
+   },
+   "designs_after_reading": {
+    "non_neural_hmm_era": 28,
+    "neural": 4,
+    "ctc_designs": [
+     "arxiv-1611.06986",
+     "arxiv-1611.02879"
+    ],
+    "attention_designs": [
+     "arxiv-1611.05358"
+    ],
+    "framewise_dblstm": [
+     "arxiv-1803.04840"
+    ],
+    "hybrid_ctc_attention": 0,
+    "note": "Triage 2026-11-26: the HMM 32 and CTC 4 counts are mentions; WLAS (arxiv-1611.05358) is attention-only and arxiv-1803.04840 names CTC only to say it is not used."
+   }
+  },
+  "note": "the 4 CTC hits: arxiv-1611.06986 (CTC AVSR, read), arxiv-1611.02879 (CTC acoustic model for AV-ASR), arxiv-1611.05358 (mention; attention decoder, read), arxiv-1803.04840 (mention). All 32 name HMMs, mentions in the neural studies included."
+ },
+ "recall_check_audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture": {
+  "scope": "all wiki studies with text first public before 2018-09",
+  "scanned": 2236,
+  "regex": "hybrid\\s+ctc|ctc\\s*/\\s*attention|attention\\s*/\\s*ctc|joint\\s+ctc|ctc[- ]attention|attention[- ]ctc|ctc\\s+and\\s+attention|attention\\s+and\\s+ctc|ctc[- ]based\\s+(and|with)\\s+attention|multi-?task\\s+(learning\\s+)?(of\\s+|with\\s+)?ctc",
+  "hits": [
+   "arxiv-1710.11201",
+   "arxiv-1803.04988",
+   "arxiv-1805.11685",
+   "arxiv-1807-08469-zeroshotkws",
+   "arxiv-1807.05162"
+  ],
+  "decisions": {
+   "arxiv-1803.04988": "design: LCANet trains a multi-task CTC + attention cross-entropy variant (AH-CTC-CE) with a joint CTC/attention decoder, visual-only on GRID; first public 2018-03, [concurrent] (6 months before the target); read",
+   "arxiv-1710.11201": "reference-list mention (Hori et al. 2017)",
+   "arxiv-1805.11685": "mention: joint CTC-sequence loss named as unexplored in lipreading",
+   "arxiv-1807-08469-zeroshotkws": "related-work mention",
+   "arxiv-1807.05162": "reference-list mention of LCANet"
+  },
+  "real_designs_before_target": 1,
+  "real_designs_prior_outside_window": 0,
+  "snippets_read": true
+ },
+ "usual_approach_audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture": {
+  "design": "HMM-based recognition (non-neural studies); the neural ones train one loss (CTC or attention) or a frame-wise classifier; no hybrid CTC/attention",
+  "n": 28,
+  "tier": "pattern match",
+  "population_unique": 32,
+  "pids": [
+   "isca-potamianos01_eurospeech",
+   "isca-abdelaziz17-turboav",
+   "arxiv-1611.06986",
+   "arxiv-1611.05358"
+  ],
+  "note": "28 of 32 are non-neural HMM-era systems, corpora or reports (all 32 mention HMMs); 4 neural: CTC 2, attention 1, frame-wise 1; hybrid 0"
+ },
+ "state_of_the_art_audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture": {
+  "pid": "arxiv-2303.14307",
+  "year": 2023,
+  "metric": "LRS2 audio-visual WER, joint CTC/attention Conformer, 3,448 h",
+  "value": 1.5,
+  "unit": "% WER",
+  "timing": "later",
+  "confirmed_in_text": true,
+  "condition": "same objective; at the target's 380 h, CM-seq2seq (arxiv-2102.06657) reaches 3.9% (Auto-AVSR Table 3)"
  }
 }

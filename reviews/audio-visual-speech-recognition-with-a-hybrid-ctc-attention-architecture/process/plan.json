@@ -1,0 +1,97 @@
+{
+ "target": "doi-10.1109-slt.2018.8639643",
+ "versions": [
+  "arxiv-1810.00108",
+  "doi-10.1109-slt.2018.8639643"
+ ],
+ "first_public": "2018-09",
+ "setting": "sentence-level AVSR: studies whose ledger matches both the sentence-level lip-reading pattern and the AVSR pattern (265 unique keys); state at the target's time = studies dated before 2018-09, perception studies and version duplicates removed (32); the same population for every audited slot",
+ "cutoff_rule": "before 2018-09 (month from the arXiv id, year from the index or ISCA id; studies dated only to 2018 excluded); [concurrent] = 2018-03 to 2019-03; [later] after",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "voiced broadcast speech (LRS2, LRW)"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "text labels; LRW word labels and LRS2 word boundaries for front-end pre-training"
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "LRW-pretrained ResNet front end (Stafylakis and Tzimiropoulos 2017); NOISEX babble added in training; ESPnet defaults"
+  },
+  "M04": {
+   "class": "inherited"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "mouth ROI video + log-Mel/pitch audio; early fusion by concatenation (Petridis et al. 2018 lineage)"
+  },
+  "M06": {
+   "class": "changed",
+   "what": "hybrid CTC/attention objective and joint decoding (ESPnet, Watanabe et al. 2017) applied to AVSR on LRS2; early vs late fusion",
+   "topics": [
+    {
+     "topic": "sentence-lipreading-sequence-objective",
+     "reuse": "components/M06/sentence-lipreading-sequence-objective.json",
+     "inclusion_rule": "published rule; this review counts objectives in the sentence-level AVSR subset before 2018-09 (32 after exclusions) and runs a whole-wiki recall check for hybrid or joint CTC/attention before 2018-09",
+     "metric": "LRS2 WER"
+    }
+   ]
+  },
+  "M07": {
+   "class": "incidental",
+   "note": "character RNN-LM with LibriSpeech text; no LM-off result; bears on the no-external-data claim",
+   "topics": [
+    {
+     "topic": "use-time-language-model-visual-speech",
+     "reuse": "components/M07/use-time-language-model-visual-speech.json",
+     "inclusion_rule": "published rule; this review counts LM designs named in the sentence-level AVSR subset before 2018-09",
+     "metric": "LRS2 WER"
+    }
+   ]
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "characters"
+  },
+  "M09": {
+   "class": "inherited"
+  },
+  "M10": {
+   "class": "inherited"
+  },
+  "M11": {
+   "class": "inherited",
+   "note": "LRS2 public partitions; result split not named"
+  },
+  "M12": {
+   "class": "incidental",
+   "note": "eight unseen noise types, -5 to 20 dB; one run; split unnamed",
+   "topics": [
+    {
+     "topic": "avsr-noise-and-run-variability-protocol",
+     "reuse": "components/M12/avsr-noise-and-run-variability-protocol.json",
+     "inclusion_rule": "published rule and regexes; this review counts protocols in the sentence-level AVSR subset before 2018-09",
+     "metric": "noise protocol, variability estimate"
+    }
+   ]
+  },
+  "M13": {
+   "class": "inherited"
+  }
+ },
+ "deciding_priors": [
+  "arxiv-1611.06986",
+  "arxiv-1611.05358",
+  "arxiv-1803.04988 (concurrent)",
+  "arxiv-1809.02108 (concurrent)"
+ ],
+ "sota": [
+  "arxiv-2303.14307",
+  "arxiv-2202.13084"
+ ],
+ "later_context": [
+  "arxiv-2102.06657"
+ ]
+}

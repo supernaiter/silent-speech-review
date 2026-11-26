@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced broadcast speech (LRS2; LRW for pre-training)"
+  ],
+  "field": "Voiced speech recorded for training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Text labels; LRW words and LRS2 word boundaries for front-end pre-training"
+  ],
+  "field": "Text labels",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "LRW-pretrained ResNet; babble noise in training"
+  ],
+  "field": "Supervised training on transcribed data",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Voiced speech; noise added at test"
+  ],
+  "field": "Voiced speech at use time",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Mouth ROI video and 83 audio features; early or late fusion"
+  ],
+  "field": "Camera mouth region plus microphone",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Hybrid CTC/attention, BLSTM encoder, joint beam search"
+  ],
+  "field": "HMM-based, non-neural; of 32 before 2018-09",
+  "n": 32,
+  "matched": 28,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "No hybrid objective in the 32 earlier sentence-level AVSR studies (Appendix); no CTC-only or attention-only result reported.",
+  "sota": "[@ma2023autoavsr] 1.5% LRS2 AVSR WER, same objective"
+ },
+ "M07": {
+  "choice": [
+   "Character RNN-LM, LibriSpeech and LRS2 text, shallow fusion"
+  ],
+  "field": "No neural LM named; n-gram LM or grammar where used",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Neural LM with external text; no LM-free result.",
+  "sota": "[@ma2023autoavsr] Transformer LM for visual-only; none for AV"
+ },
+ "M08": {
+  "choice": [
+   "Characters"
+  ],
+  "field": "Text output",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "LRS2 public partitions; result partition not written"
+  ],
+  "field": "Public benchmark split",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Eight noise types other than training babble, -5 to 20 dB; one run"
+  ],
+  "field": "Noise at stated SNRs, no variability estimate; of 22 noise studies before 2018-09",
+  "n": 22,
+  "matched": 21,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Unseen test noise types; one run, split unnamed.",
+  "sota": "[@ma2022multilingual] mean and std over ten runs"
+ },
+ "M13": {
+  "choice": [
+   "Offline benchmark; hardware and latency not stated"
+  ],
+  "field": "Offline GPU training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "No device or latency claim.",
+  "sota": "–"
+ }
+}
