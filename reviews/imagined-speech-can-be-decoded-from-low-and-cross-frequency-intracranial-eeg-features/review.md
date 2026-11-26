@@ -4,27 +4,29 @@ Proix, Delgado Saa, Christen, Martin, Pasley, Knight, Tian, Poeppel, Doyle, Devi
 
 ## Verdict
 
-The paper changes the neural input of an imagined-speech decoder (M06), adding low-frequency power and phase-amplitude coupling (CFC) to broadband high-frequency activity (BHA) [[1]](#ref-1). Low-frequency power is standard: 2 of the 5 earlier intracranial imagined-speech decoders used it (Appendix), one uncited here with beta beating high gamma for covert vowels [[2]](#ref-2). CFC input is new (0 of 5, Appendix) but unproven: it passed in 12 pairs at the same median balanced accuracy as power, 0.60, under per-participant thresholds without correction across band combinations (Fig. 7). The test partition (M12) is the usual within-participant cross-validation. "Comparable to BHA" rests on imagined BHA passing in 1 pair, so it means above chance in some pairs, not parity with a working decoder.
+The paper changes the neural input of an imagined-speech decoder (M06), adding low-frequency power and phase-amplitude coupling (CFC) to broadband high-frequency activity (BHA) [[1]](#ref-1). Low-frequency power has precedent in 2 of the 5 earlier intracranial imagined-speech decoders (Appendix), one of them uncited here [[2]](#ref-2). CFC input appears in none of the five (Appendix), but its effect is not shown: 12 of 144 uncorrected per-participant tests passed, close to the 7 expected at 5% (inference), with no test against power (Fig. 7). The test partition (M12) is the usual within-participant cross-validation. The authors concede that binary classification is far from a real BCI (Discussion), yet their reading that imagined speech is "equally well" decoded from low and cross-frequency features (Introduction) rests on an imagined BHA baseline with 1 passing pair.
 
 ## Against the field, component by component
 
 ### M06 Processing: neural input feature
 
-**Usual approach:** Before the preprint (2021-01), all 5 intracranial imagined-speech decoders fed gamma or high-gamma power, 2 also theta-to-beta power, none coupling (5 unique studies, confirmed; Appendix) [[3]](#ref-3), [[4]](#ref-4), [[5]](#ref-5), [[2]](#ref-2), [[6]](#ref-6). The paper adds CFC and tests low-frequency power across three datasets.
+**Usual approach:** Among intracranial imagined-speech decoders first public before 2020-07, all 5 fed gamma or high-gamma power, 2 also theta-to-beta power, none coupling (5 unique studies, confirmed; Appendix) [[3]](#ref-3), [[4]](#ref-4), [[5]](#ref-5), [[2]](#ref-2), [[6]](#ref-6). The paper adds CFC and tests both families in two datasets (8 participants; study 3 excluded, Results).
 
-**State of the art:** Zhao et al. (2026) [later] decode imagined syllables from 256-channel HD-ECoG with beta1-band features at a median 80.4% (chance 16.7%; 6 or 8 classes, 9 participants, tenfold cross-validation) [[7]](#ref-7), against the paper's median 0.60 on two classes: 4.8 against 1.2 times chance (inference).
+**State of the art:** Zhao et al. (2026) [later] decode imagined syllables from 256-channel HD-ECoG with a framework built on beta1-band activity, at a median 80.4% over 9 participants (chance 16.7%; 6 or 8 classes; tenfold cross-validation) [[7]](#ref-7). This low-frequency input supports the paper's direction; the paper's 0.60 is a median of passing pairs only, not comparable.
 
-Pei et al. fed 8–12 and 18–26 Hz amplitudes to a covert-word decoder [[4]](#ref-4); Ikeda et al. decoded covert vowels from beta power at 55.6% against a high-gamma maximum of 46.7% (chance 33.3%) [[2]](#ref-2). The Discussion nonetheless says earlier covert decoders used "only BHA features". For overt syllables, lower bands were redundant with high gamma [[8]](#ref-8), as in the paper's overt result (BHA best, 15 pairs at 0.64), so the added value is confined to imagined speech.
+Pei et al. fed 8–12 and 18–26 Hz amplitudes to a covert-word decoder [[4]](#ref-4), and Ikeda et al. found a beta-power electrode in Broca's area at 55.6% against a best high-gamma electrode at 46.7% (chance 33.3%; best single electrodes, per-electrode tests) [[2]](#ref-2). The paper cites Pei et al. without their low-frequency inputs, does not cite Ikeda et al., and compares itself with "previous studies attempting to decode covert speech using only BHA features" (Discussion). For overt syllables, lower bands were redundant with high gamma [[8]](#ref-8), as in the paper's overt result (BHA best, 15 pairs at 0.64).
 
-None of the 5 priors uses coupling input, and a full-text check of all wiki papers up to 2021 (34 hits) finds no other such decoder (Appendix); the nearest, a [concurrent] scalp-EEG study, analyses theta–gamma coupling without decoding [[9]](#ref-9). Imagined CFC (12 pairs, median 0.60, IQR 0.59–0.61) matches low-frequency power (10 pairs, 0.60, IQR 0.59–0.63) with no comparison test and no combined decoder (Fig. 7). Verdict: standard; the new part lacks an effect separated from multiple testing and from power.
+None of the 5 priors feeds coupling to a decoder, and none of 34 full-text coupling hits on imagined or covert speech up to 2021 does (Appendix); Livezey et al. measured beta–high-gamma amplitude coupling in overt speech beside, not inside, their classifier [[8]](#ref-8), and a [concurrent] scalp-EEG study analyses theta–gamma coupling without decoding [[9]](#ref-9).
+
+Verdict: standard. The coupling input is new but fails the repetition condition on protocol grounds: per-participant thresholds uncorrected across 6 combinations, 3 representations and 8 participants (Methods, Decoding); a pass rate of 12 of 144 (8%), below that of power (10 above-chance results over at least 72 tests, 14%) (inference); no CFC-versus-power test or combined decoder; and CFC features z-scored over all trials before the folds (covert_MI/svmClassifier.py:34), a step the power classifier omits.
 
 ### M12 Evaluation: test partition
 
-**Usual approach:** 4 of the 5 prior decoders hold out trials or blocks of the same recording within participant (confirmed, Appendix) [[4]](#ref-4), [[2]](#ref-2), [[5]](#ref-5), [[6]](#ref-6); Leuthardt et al. fixed features in a screening run and tested online [[3]](#ref-3). The paper uses 10-fold cross-validation with nested 5-fold feature selection per participant.
+**Usual approach:** 3 of the 5 prior decoders hold out covert trials within participant (confirmed, Appendix) [[4]](#ref-4), [[2]](#ref-2), [[6]](#ref-6); Martin et al. trained on overt and tested on covert data of the same session [[5]](#ref-5); Leuthardt et al. fixed features in a screening run and tested online [[3]](#ref-3). The paper uses within-participant 10-fold cross-validation.
 
-**State of the art:** Kunz et al. (2025) [later] decode inner speech in closed-loop blocks with sentences absent from training blocks, at 14% to 33% word error rate on 50 words in three participants (intracortical) [[10]](#ref-10); the paper has no held-out session, subject or online test.
+**State of the art:** Kunz et al. (2025) [later] decode inner speech online in closed-loop blocks whose sentences never appeared in training blocks, at 24% and 33% word error rate on 50 words for T12 and T16, and 14% for T15, whose decoder was retrained online up to and during the evaluation block (intracortical) [[10]](#ref-10). The paper has no held-out session, subject or online test.
 
-The released code z-scores CFC features over all trials before folds, so test trials shape the scaling of the promoted feature family; surrogates number 200 in code against 1,000 in the text; classes are hard-coded per participant (svmClassifier.py, getData_covert.m). Verdict: standard.
+The CFC z-scoring is label-free, but test trials enter the scaling; its effect is unmeasured (inference). Verdict: standard.
 
 ## The 13 components
 
@@ -35,41 +37,41 @@ The released code z-scores CFC features over all trials before folds, so test tr
 | M03 Training and adaptation | Per-participant offline training | Per-participant | – | standard |
 | M04 Use-time action | Imagine hearing or saying | Cued imagery | – | standard |
 | M05 Sensors | Clinical ECoG, 13 patients | Clinical ECoG | – | standard |
-| M06 Processing and decoding | Low-frequency power and phase-amplitude CFC beside BHA | Gamma or high-gamma power (confirmed 5) | [[7]](#ref-7) (2026): median 80.4%, imagined syllables | standard |
+| M06 Processing and decoding | Low-frequency power and phase-amplitude CFC beside BHA | Gamma or high-gamma power (confirmed 5) | [[7]](#ref-7) (2026): median 80.4%, imagined syllables, beta1 input | standard |
 | M07 Lexicon and LM | None | None | – | standard |
 | M08 Output | Binary class | Item class | – | standard |
 | M09 Confirmation | None | None | – | not applicable |
 | M10 Correction | None | None | – | not applicable |
 | M11 Reference construction | Instructed item identity | Instructed labels | – | standard |
-| M12 Evaluation | Within-participant 10-fold CV | Within-participant trial split (confirmed 4) | [[10]](#ref-10) (2025): online, 14-33% WER, 50 words | standard |
+| M12 Evaluation | Within-participant 10-fold CV | Within-participant held-out covert trials (confirmed 3) | [[10]](#ref-10) (2025): online inner speech, 50-word WER 14-33% (14% with online retraining) | standard |
 | M13 Device and cost | Clinical implants, offline | Clinical implants | – | standard |
 
 ## Where the claims outrun the evidence
 
-- "Comparable" (Abstract) is measured against imagined BHA passing in 1 of 24 pairs (8 participants × 3 representations) (inference), a chance-level baseline [[1]](#ref-1).
-- No correction across representations, three bands or six CFC combinations (Methods) [[1]](#ref-1): assuming independent tests at a 5% level, which the paper does not state, about 6 of 24 pairs would pass on any of six tests by chance (inference); 12 did.
-- The 0.60 medians are of passing pairs only (Fig. 7), so they are selected values.
-- Earlier low-frequency covert decoders are omitted [[4]](#ref-4), [[2]](#ref-2).
-- The authors concede that residual silent mouthing remains possible despite three controls, and that CFC may reflect other baseline-to-speech changes despite their precautions (Discussion) [[1]](#ref-1); the CFC decoding result carries both caveats.
+- "Equally well" (Introduction) and "did not yield better scores than with other bands" (Results) are measured against imagined BHA with 1 above-chance result in 24 tests, a chance-level baseline [[1]](#ref-1).
+- Counts in Fig. 7 sum above-chance participant–representation–band results; with 144 CFC tests at 5% about 7 pass by chance (P ≈ 0.06 for 12 or more) (inference) [[1]](#ref-1).
+- The 0.60 medians are of passing results only (Fig. 7), so they are selected values.
+- Feature-distance significance uses 200 permutations in the released code (clustering_fisher_grouping.py:54) against 1,000 in the Methods [[1]](#ref-1).
+- The authors concede residual silent mouthing despite three controls and non-specific CFC changes despite their precautions (Discussion) [[1]](#ref-1); the CFC result carries both caveats.
 
 ## What the field needs next
 
-- M06: one decoder combining low-frequency power and CFC, corrected across bands, against power alone on multi-class tasks [[2]](#ref-2).
+- M06: one decoder combining low-frequency power and CFC, corrected across combinations, against power alone on multi-class tasks [[2]](#ref-2).
 - M12: a held-out-session or online test of a low-frequency or CFC decoder, as for spike features [[10]](#ref-10).
 - M11: an onset marker for imagined trials; realigning overt trials raised six-class accuracy above 80% for 3 of 4 participants [[1]](#ref-1).
 
 ## Questions for the authors
 
-- How many participant–representation–band tests were run per family, at what level, and how many CFC pairs survive correction?
+- How many CFC results survive a correction across combinations, representations and participants?
 - Do the CFC results hold with z-scoring fitted on training folds only?
-- Which surrogate count, 200 or 1,000, produced the reported feature distances?
+- Which permutation count, 200 or 1,000, produced the reported feature distances?
 - What are the per-participant class assignments and trial counts per class?
 
 ## Appendix: literature search
 
-M06, topic intracranial-imagined-speech-neural-features. Inclusion rule: human intracranial (ECoG, sEEG, depth, intracortical) studies that decode imagined, covert or inner speech with a trained decoder; design of interest is the decoder's neural input feature (high-gamma or gamma power, low-frequency band power, phase or phase-amplitude coupling); reviews, listening-only reconstruction, scalp EEG/MEG and analyses without a decoder are excluded; versions count once. Ledger counts: slot-filled 7,345 unique studies; pattern match 89 unique studies (all years). Prior population (first public before 2020): 19 pattern-match studies, 5 decoders after excluding reviews (5), listening-only (2), scalp EEG/MEG (3) and overt-only or non-decoding studies (4). Usual design at the target's time: gamma or high-gamma power input 5 of 5; theta-to-beta band power input 2 of 5; phase-amplitude coupling input 0 of 5 (confirmed by reading all five). All-years full-text pattern counts over the 89 studies, mentions included: high gamma 60, low-frequency band power 11, phase-amplitude coupling 8, low-frequency phase 2. Full-text coupling check over all wiki papers first public up to 2021: 34 hits, no decoder with coupling input besides the target. Read in full: [[3]](#ref-3), [[4]](#ref-4), [[5]](#ref-5), [[2]](#ref-2), [[6]](#ref-6), [[8]](#ref-8), [[7]](#ref-7). Known-item recall 0.83 (5 of 6 seeds).
+M06, topic intracranial-imagined-speech-neural-features. Inclusion rule: human intracranial (ECoG, sEEG, depth, intracortical) studies that decode imagined, covert or inner speech with a trained decoder; design of interest is the decoder's neural input feature (high-gamma or gamma power, low-frequency band power, phase or phase-amplitude coupling); excluded are attempted speech decoded from unit firing (e.g. Guenther 2009, Brumberg 2011), reviews, listening-only reconstruction, scalp EEG/MEG, overt-only studies and analyses without a decoder; versions count once. Priors: first public before 2020-07; no 2020 candidate matched. Ledger counts: slot-filled 7,345 unique studies; pattern match 89 unique studies (all years). Prior population: 19 pattern-match studies, 5 decoders after excluding reviews (5), listening-only (2), scalp EEG/MEG (3) and overt-only or non-decoding studies (4). Usual design at the target's time: gamma or high-gamma power input 5 of 5; theta-to-beta band power input 2 of 5; phase-amplitude coupling input 0 of 5 (confirmed by reading all five). All-years full-text pattern counts over the 89 studies, mentions included: high gamma 60, low-frequency band power 11, phase-amplitude coupling 8, low-frequency phase 2. Full-text coupling check (coupling, imagined or covert speech and decoding terms; first public up to 2021): 34 hits, no decoder with coupling input besides the target. Read in full: [[3]](#ref-3), [[4]](#ref-4), [[5]](#ref-5), [[2]](#ref-2), [[6]](#ref-6), [[8]](#ref-8), [[7]](#ref-7). Known-item recall 0.83 (5 of 6 seeds).
 
-M12, topic intracranial-imagined-speech-test-partition. Inclusion rule: the same population as the M06 topic; design of interest is how test data are separated from training data (within-participant k-fold, leave-one-out or random split; held-out session or day; held-out subject; online closed-loop test). Ledger counts: slot-filled 6,960 unique studies; pattern match 89 unique studies. Usual design at the target's time: within-participant trial- or block-level split 4 of 5; online test after a separate screening run 1 of 5; held-out session or subject 0 of 5 (confirmed). All-years full-text pattern counts, mentions included: online or closed-loop 48, k-fold or leave-one-out 30, random split 6, held-out subject 3, held-out session 0. Read in full: [[4]](#ref-4), [[2]](#ref-2), [[5]](#ref-5), [[6]](#ref-6), [[3]](#ref-3), [[10]](#ref-10). Known-item recall 1.0 (5 of 5 seeds).
+M12, topic intracranial-imagined-speech-test-partition. Inclusion rule: the same population and cutoff as the M06 topic; design of interest is how test data are separated from training data (within-participant k-fold, leave-one-out or random split; overt-to-covert transfer; held-out session or day; held-out subject; online closed-loop test). Ledger counts: slot-filled 6,960 unique studies; pattern match 89 unique studies. Usual design at the target's time: within-participant held-out covert trials 3 of 5; overt-trained model tested on covert trials of the same session 1 of 5; online test after a separate screening run 1 of 5; held-out session or subject 0 of 5 (confirmed). All-years full-text pattern counts, mentions included: online or closed-loop 48, k-fold or leave-one-out 30, random split 6, held-out subject 3, held-out session 0. Read in full: [[4]](#ref-4), [[2]](#ref-2), [[5]](#ref-5), [[6]](#ref-6), [[3]](#ref-3), [[10]](#ref-10). Known-item recall 1.0 (5 of 5 seeds).
 
 ## References
 
