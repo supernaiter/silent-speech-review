@@ -1,0 +1,23 @@
+# Triage of the independent evaluation
+
+Evaluation: robust-self-supervised-audio-visual-speech-recognition.eval.md (a language model separate from the writer), 13 required fixes plus one unverified suggestion. Each finding was checked against notes.json and the source passage it concerns.
+
+| # | Verdict | Evidence | Where applied |
+|---|---|---|---|
+| 1 | applied | The M12 audit's 183 is the additive-noise pattern count. It does not exclude variability, and its example pids include arxiv-1911.04890 and arxiv-2602.19316, which report variability. I recomputed the counts with stated regexes over the 349-study population, dated as for M03. Before 2022-01, of 143: additive noise at stated SNRs 80, of which 69 have no variability estimate; variability estimate 15. All dates, of 349: 167 and 38. These are appended to the audit as counts_<slug>. | M12 usual-approach line; table (69, n 143); Appendix (published 183/33 kept and labelled as such) |
+| 2 | applied (verdict changed) | Makino's intervals are test-set intervals: "the half width of the 95% confidence intervals based on [31]" (arxiv-1911.04890 Sec. 4). They are on YTD EV18. Sterpu & Harte repeat only one auxiliary experiment: "only 5 trials" (arxiv-2012.07467). Only Sterpu et al. 2020 repeats every experiment. None of the three is in the target's setting, and 69 of 143 studies omit variability. M12 is changed from behind to standard. The gap stays: no run count and no test-set interval, which Makino computed from the test set alone. Makino is named as the best comparable prior. | Verdict; M12 section; slots M12; verdict.json and its copy; extra.json |
+| 3 | applied | Sec. 3.1 gives no run count (t74); the code fixes seed 1337 (t80). "one run per cell" and "one run on one test set" are replaced by "no run count or seed reported". | Verdict; M03 and M12 sections; slots M03 choice |
+| 4 | applied (partly) | Sec. 3.1 says "we ensured there are no speaker overlap among different partitions" (t91). The code splits LRS3 speech-noise clips 60/20/20 by list order with no speaker grouping (t88). The code does not show that speakers actually cross partitions, so the bullet is now a paper-versus-code mismatch only, with the optimism inference removed. | Claims-outrun bullet; Question 3 |
+| 5 | applied | The source says "while using fewer labeled data" (t7). | Claims-outrun bullet 2 |
+| 6 | applied | WF Table 3, trained with noise, beam 15: 5.6/5.6 noisy (c22). The 0.76% is with 1,759 h of labels, trained without noise (c23). The caption says noisy WERs from different noise datasets are not directly comparable (c24). "Same noise file" is dropped. USR 2.0's three-seed mean ± SD (Table 13, c19/c20) is now the M12 state of the art. | M12 state-of-the-art line; slots M12 sota; audit state_of_the_art_<slug> |
+| 7 | applied | Sec. 3.1 says "following [15]" (Xu) (t34). Afouras uses 0 dB, p = 0.25 (c14). Both are now said. | M03 usual-approach line |
+| 8 | applied | Table 4 BASE: 28.2 to 12.5 (clean fine-tuning) and 13.1 to 10.3 (noisy fine-tuning) (t67, t68, t70, t71). "Standard" is now based on one test set and no seeds for both effects, pre-training and noise in pre-training. It no longer rests on the size of the gain. | Verdict; M03 evidence paragraph |
+| 9 | applied | The authors claim a first (Sec. 4, t2) and their own step (Sec. 2.2, t93), and cite concurrent WavLM as similar (t94). WavLM is not in the wiki, so it is named only via the paper's own location. | Verdict; M03 usual-approach line |
+| 10 | applied | The USR 2.0 robustness experiments treat "the remaining LRS3 samples" as unlabelled data (c21). | M03 state-of-the-art line |
+| 11 | applied (moot) | The 1.5/1.1 differences were removed from the Verdict. The remaining reviewer arithmetic ("1.1-point", "a third", "42%") is marked "(inference)". | Verdict; M12 section |
+| 12 | applied | Sec. 1 says "which have not been studied in prior work" (t92). Makino 2019 tested babble and overlapping speech (c15, c16). | New claims-outrun bullet |
+| 13 | applied | The table cells now name the denominator: "of 143 AVSR studies before 2022-01". matched is 141 and 69 (ints), with n 143 for both. M03 and M12 use the same pre-2022 base. | slots.json M03/M12; 13-components table |
+| 14 | unverified | MMS-LLaMA (about 0.7% LRS3 AVSR) is not in the wiki or the audits. Not cited. | verification_status |
+
+Counts: 14 findings: 13 applied (#4 partly; #11 moot after the rewrite), 0 rejected, 1 unverified.
+Checks after triage: verify_quotes 95 found, 0 missing; audit_tally passes for both audits; check_review 0 FAIL, 1 WARN (9 papers read besides the target, from earlier reads in the reused M12 table); body 6,951 characters.

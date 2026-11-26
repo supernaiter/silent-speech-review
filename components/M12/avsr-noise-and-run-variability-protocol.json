@@ -177,6 +177,18 @@
      "arxiv-2605.01673-dpcnet",
      "arxiv-2606-07259-genvsr"
     ]
+   },
+   {
+    "design": "interfering_speech_noise",
+    "n": 91,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.19316",
+     "arxiv-2603-01415-mcorec",
+     "arxiv-2603-12046-drshapav",
+     "arxiv-2604-00982-visg",
+     "arxiv-2604-27866-lrsvoxmm"
+    ]
    }
   ],
   "metric_pattern": "WER|word error",
@@ -5306,6 +5318,36 @@
    "role": "prior",
    "loc": "Sec. 7.1.1",
    "quote": "For testing, we use fixed noisy audio files, so that each network is scored against identical test sets."
+  },
+  {
+   "pid": "arxiv-1911.04890",
+   "role": "prior",
+   "loc": "Table 5",
+   "quote": "All values are WER(%) ± 95% CI."
+  },
+  {
+   "pid": "arxiv-2004.08250",
+   "role": "prior",
+   "loc": "Sec. D (Baseline system performance)",
+   "quote": "We repeat each experiment 5 times and report the mean error of the best"
+  },
+  {
+   "pid": "arxiv-2012.07467",
+   "role": "prior",
+   "loc": "Sec. on word counting (Fig. 2)",
+   "quote": "models on LRS2 and repeat the experiment for ﬁve diﬀerent random initialisations. We plot the average"
+  },
+  {
+   "pid": "arxiv-2406.10082",
+   "role": "sota",
+   "loc": "Table 3",
+   "quote": "A V-HuBERT [26] LRS3† 1,759 433 1.6 15.7 1.4 5.8"
+  },
+  {
+   "pid": "arxiv-2602.19316",
+   "role": "sota",
+   "loc": "Table 13",
+   "quote": "Mean and standard deviation over three random seeds are reported for the"
   }
  ],
  "state_of_the_art": {
@@ -5318,7 +5360,8 @@
  },
  "used_by": [
   "end-to-end-audio-visual-speech-recognition-with-conformers",
-  "end-to-end-audiovisual-speech-recognition"
+  "end-to-end-audiovisual-speech-recognition",
+  "robust-self-supervised-audio-visual-speech-recognition"
  ],
  "tally": {
   "slot_filled_unique": 6960,
@@ -5342,10 +5385,78 @@
   "read_prior": [
    "arxiv-1809.02108",
    "arxiv-1911.04890",
-   "arxiv-1811.01194"
+   "arxiv-1811.01194",
+   "arxiv-2004.08250",
+   "arxiv-2012.07467"
   ],
   "unread": 499,
   "confirmed_unique": 0,
   "known_item_recall": null
+ },
+ "known_item_recall": {
+  "seeds_in_wiki": 4,
+  "found": 4,
+  "recall": 1.0,
+  "missed": []
+ },
+ "design_regex_robust-self-supervised-audio-visual-speech-recognition": {
+  "interfering_speech_noise": "(interfering|competing|overlapping) (speech|speaker|talker)s?|cocktail[- ]party|speech noise"
+ },
+ "note_robust-self-supervised-audio-visual-speech-recognition": "Triage 2026-11-26 replaces the earlier appended note: counts for this review use the regexes in counts_robust-self-supervised-audio-visual-speech-recognition over the 349-study population, before 2022-01 (143) and all dates. Read priors with a variability estimate before 2022-01: arxiv-1911.04890 (test-set 95 percent CIs, YTD EV18), arxiv-2004.08250 (5 repeated runs with 95 percent CIs, TCD-TIMIT and LRS2), arxiv-2012.07467 (five initialisations for one auxiliary experiment only). Protocol state of the art for this review: arxiv-2602.19316 reports mean and standard deviation over three random seeds (Table 13).",
+ "counts_robust-self-supervised-audio-visual-speech-recognition": {
+  "regex": {
+   "additive_noise_snr": "(-?\\d+|−\\d+) ?dB[^.]{0,80}(snr|signal[- ]to[- ]noise)|(snr|signal[- ]to[- ]noise)[^.]{0,80}(-?\\d+|−\\d+) ?dB",
+   "variability_estimate": "random seeds|different seeds|random initiali[sz]ations|\\b(\\d+|three|five|ten) (independent |different |random )?(runs|repetitions|trials|seeds)\\b|repeated (runs|experiments|trials)|repeat(ed)? (each|the) experiment|con(fi|ﬁ)dence ?int",
+   "babble_noise": "babble",
+   "interfering_speech_noise": "(interfering|competing|overlapping) (speech|speaker|talker)s?|cocktail[- ]party|speech noise"
+  },
+  "date_rule": "year from the index, month from the arXiv id, year from ISCA ids; versions merged by key",
+  "tier": "pattern match (unique studies, upper bound)",
+  "all_dates": {
+   "population": 349,
+   "additive_noise_snr": 167,
+   "variability_estimate": 38,
+   "babble_noise": 128,
+   "interfering_speech_noise": 91,
+   "additive_noise_without_variability": 148
+  },
+  "before_2022_01": {
+   "population": 143,
+   "additive_noise_snr": 80,
+   "variability_estimate": 15,
+   "babble_noise": 47,
+   "interfering_speech_noise": 19,
+   "additive_noise_without_variability": 69,
+   "variability_pids": [
+    "arxiv-1911.04890",
+    "arxiv-2004.08250",
+    "arxiv-2012.07467",
+    "doi-10.1007-s10844-016-0438-z",
+    "doi-10.1016-j.specom.2017.01.005",
+    "doi-10.1109-tsp.2009.2026513",
+    "doi-10.31234-osf.io-gcxwp",
+    "doi-10.3389-fnins.2021.683804",
+    "doi-10.5772-6364",
+    "isca-lucey01_eurospeech",
+    "isca-potamianos01_eurospeech",
+    "isca-seymour05_postfusion",
+    "oa-W2257285929",
+    "openaccess_avsp_talle99",
+    "pmc-pmc8683777"
+   ]
+  },
+  "usual_design_before_2022_01": {
+   "design": "additive-noise test at stated SNRs without a variability estimate (test-set interval or repeated runs)",
+   "n": 69,
+   "population": 143
+  }
+ },
+ "state_of_the_art_robust-self-supervised-audio-visual-speech-recognition": {
+  "pid": "arxiv-2602.19316",
+  "year": 2026,
+  "metric": "LRS3 low-resource AVSR WER, Base, mean ± SD over three seeds (50 epochs)",
+  "value": "2.9 ± 0.1",
+  "unit": "% WER",
+  "timing": "later"
  }
 }

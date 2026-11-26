@@ -1,0 +1,132 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Voiced LRS3 and English VoxCeleb2 video"
+     ],
+     "field": "Voiced speech recorded for training",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M02": {
+     "choice": [
+      "Subword transcripts, 30 h or 433 h of LRS3"
+     ],
+     "field": "Text labels",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited; audio is a use-time input, not training-only supervision."
+    },
+    "M03": {
+     "choice": [
+      "AV-HuBERT pre-training; noise in pre-training and fine-tuning; no run count"
+     ],
+     "field": "No self-supervised pre-training; of 143 AVSR studies before 2022-01",
+     "n": 143,
+     "matched": 141,
+     "verdict": "standard",
+     "note": "New design (0 of 143 earlier AVSR studies); one test set, no seeds or run count, so not ahead."
+    },
+    "M04": {
+     "choice": [
+      "Voiced speech video with added noise at test"
+     ],
+     "field": "Voiced speech at use time",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Lip video and one microphone; MUSAN and LRS3 noise"
+     ],
+     "field": "Camera mouth region plus microphone",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited from AV-HuBERT preprocessing."
+    },
+    "M06": {
+     "choice": [
+      "AV-HuBERT LARGE encoder, 9-layer Transformer decoder"
+     ],
+     "field": "CNN front end plus sequence model",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited (AV-HuBERT lineage)."
+    },
+    "M07": {
+     "choice": [
+      "No external LM (released config; paper silent)"
+     ],
+     "field": "LM in decoding varies",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Paper does not state it; code sets LM weight 0."
+    },
+    "M08": {
+     "choice": [
+      "Text (subwords)"
+     ],
+     "field": "Text output",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "None (offline)"
+     ],
+     "field": "Mostly absent",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M10": {
+     "choice": [
+      "None (offline)"
+     ],
+     "field": "Mostly absent",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M11": {
+     "choice": [
+      "LRS3 test set; MUSAN and LRS3 noise pools"
+     ],
+     "field": "Public benchmark split",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Validation and test babble share one file in the released code."
+    },
+    "M12": {
+     "choice": [
+      "Four noise types, five SNRs; no interval or run count"
+     ],
+     "field": "Additive noise at stated SNRs, no variability estimate; of 143 AVSR studies before 2022-01",
+     "n": 143,
+     "matched": 69,
+     "verdict": "standard",
+     "note": "Matches the field; a test-set interval as in Makino et al. 2019 was available."
+    },
+    "M13": {
+     "choice": [
+      "64 V100 GPUs; no runtime"
+     ],
+     "field": "Offline GPU training",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    }
+   }
+  }
+ ]
+}
