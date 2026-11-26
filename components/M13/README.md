@@ -8,6 +8,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: EEG imagined, inner or covert speech studies (ledger text), classified by full-text pattern into online or closed-loop operation, reported latency, reported calibration time and asynchronous (idle-state) detection. Boundary: reviews counted by the ledger pattern; a pattern hit in related work counts (upper bound); versions once.
 - Used in: [Subject-Independent Imagined Speech Detection via Cross-Subject Generalization and Calibration](../../reviews/subject-independent-imagined-speech-detection-via-cross-subject-generalization-and-calibration/)
 
+## implanted-communication-bci-home-use
+
+- Table: [`implanted-communication-bci-home-use.csv`](implanted-communication-bci-home-use.csv) (6075 slot-filled, 382 pattern match, usual design in 181, 6 read in full)
+- Inclusion rule: Same population as M13/wireless-implanted-speech-bci (implanted neural sensors, speech or communication); the design compared is where and by whom the system is operated: hospital or laboratory sessions (epilepsy monitoring, bedside, laboratory), sessions at the participant's home, and use without investigators present (independent use). Boundary: full-text pattern counts with the reference list removed, so related-work mentions count (upper bounds); a study counts under every setting it names; versions counted once.
+- Used in: [Fully Implanted Brain-Computer Interface in a Locked-In Patient with ALS](../../reviews/fully-implanted-brain-computer-interface-in-a-locked-in-patient-with-als/)
+
 ## long-term-home-use
 
 - Table: [`long-term-home-use.csv`](long-term-home-use.csv) (6075 slot-filled, 39 pattern match, usual design in 21, 3 read in full)
@@ -36,4 +42,4 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`wireless-implanted-speech-bci.csv`](wireless-implanted-speech-bci.csv) (6075 slot-filled, 382 pattern match, usual design in 216, 3 read in full)
 - Inclusion rule: Speech or communication studies that record from implanted neural sensors (intracortical, ECoG, sEEG, depth) in humans or animals, classified by how the signal leaves the body: percutaneous connector or pedestal, wireless telemetry (including a transmitter mounted on a percutaneous pedestal), or a fully implanted system with no skin-penetrating hardware. Boundary: reviews and related-work mentions inflate the full-text counts (upper bounds); wearable EMG/EEG wireless devices are outside the population (ledger modality filter).
-- Used in: [A Wireless Brain-Machine Interface for Real-Time Speech Synthesis](../../reviews/a-wireless-brain-machine-interface-for-real-time-speech-synthesis/)
+- Used in: [A Wireless Brain-Machine Interface for Real-Time Speech Synthesis](../../reviews/a-wireless-brain-machine-interface-for-real-time-speech-synthesis/), [Fully Implanted Brain-Computer Interface in a Locked-In Patient with ALS](../../reviews/fully-implanted-brain-computer-interface-in-a-locked-in-patient-with-als/)
