@@ -1,0 +1,49 @@
+{
+ "target": [
+  "doi-10.1088-1741-2560-11-3-035015",
+  "pmc-4097188-mugler"
+ ],
+ "first_public": "2014-05",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M03",
+  "M11",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Training data come from the same prompted word-reading runs that are tested; no separate training-time action.",
+  "M02": "No training-only signal beyond the labels; microphone audio is used to place phoneme onsets (M11), not as a regression target.",
+  "M04": "Overt reading aloud of prompted monosyllabic words (Modified Rhyme Test plus 20 words).",
+  "M05": "Clinical subdural ECoG grids with coverage set by medical need; high-gamma, mu, beta and local motor potential features, the Slutzky/Flint motor-decoding feature lineage.",
+  "M07": "No language model; an optional closed stimulus-list constraint for whole-word identification.",
+  "M08": "Phoneme class label; whole words only as concatenated phoneme predictions.",
+  "M09": "Offline study: no presentation or confirmation step.",
+  "M10": "Offline study: no correction loop.",
+  "M13": "Bedside epilepsy-monitoring recordings, offline analysis, no released code; ITR is a hypothetical estimate."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "intracranial-phoneme-inventory-classification",
+   "reuse": null,
+   "inclusion_rule": "Studies whose ledger text names an intracranial signal (ECoG, sEEG, intracortical, Utah array) together with phonemes, vowels, consonants or syllables (the population of the published topic intracranial-speech-unit-classification); the design of interest is the size of the speech-unit class set: the full phoneme inventory of a language (all phonemes, 38-44 classes) versus a small subset of two to six phonemes, vowels or syllables. Boundary: listening-only, mapping-only and review papers matched by the pattern stay in the count (upper bound); a study counts under every design its full text names; versions of one study count once; usual approach judged on studies first public before 2013-11 (more than six months before the target).",
+   "pattern": "published pattern of intracranial-speech-unit-classification",
+   "design_regex": [
+    "full_inventory",
+    "small_unit_subset"
+   ],
+   "metric": "Phoneme classification accuracy over the full inventory against chance."
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-speech-test-partition",
+   "reuse": "components/M12/intracranial-speech-test-partition.json",
+   "inclusion_rule": "Published rule kept: intracranial speech or language decoding studies; the design of interest is how test data are separated from training data (random trial split, k-fold cross-validation, held-out session or day, held-out subject). This review adds a prior-time tally (index year up to 2013) under prior_tally_<slug>.",
+   "metric": "Test partition design (categorical)."
+  }
+ ],
+ "notes": "M03 (feature-count tuning and peak-electrode selection), M11 (manually labelled phoneme onsets from the microphone, used for test trials too) are judged from the target's own text without an audit; their table counts are null. Inherited slots carry null counts.",
+ "prep_used": "No prep directory existed; plan, audits and comparator reading built from scratch. Prior entries for Pei 2011, Leuthardt 2011 and Brumberg 2011 reused from the verified notes of the published Pei 2011 review."
+}
