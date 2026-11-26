@@ -217,6 +217,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Visual or audio-visual speech recognition studies (lip reading, VSR, AVSR; word or sentence level) whose ledger names lip reading, VSR, AVSR or an LRS/LRW benchmark. The design compared is whether facial or lip landmarks (coordinates, distances, contours, shape-model parameters) enter the recognizer as a feature stream next to or instead of pixels, and how that stream is encoded (graph convolution over landmarks versus other encoders). Boundary: landmarks used only to detect, align or crop the mouth do not count; a study counts under every design its full text names (upper bound, related-work mentions included); reviews count as pattern matches only; versions of one study count once.
 - Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/)
 
+## lipreading-temporal-model-and-feature-learning
+
+- Table: [`lipreading-temporal-model-and-feature-learning.csv`](lipreading-temporal-model-and-feature-learning.csv) (7345 slot-filled, 975 pattern match, usual design in 113, 6 read in full)
+- Inclusion rule: Automatic lip-reading, visual speech recognition or audio-visual speech recognition studies whose ledger names optical-camera input, classified by the visual model their full text names: recurrent network (LSTM, GRU, RNN, Elman/Jordan or stochastic recurrent), time-delay neural network, learned deep features (CNN, DBN, autoencoder, DNN), hand-crafted appearance or shape features (DCT, PCA/eigenlips, AAM, HOG, LBP), HMM or SVM classifier. Boundary: studies whose full text names no automatic recognizer or classifier (human speechreading and perception studies) are excluded; a study counts under every design its text names, related-work mentions included (upper bound); versions count once; dated against the target's first public month 2016-01.
+- Used in: [Lipreading with Long Short-Term Memory](../../reviews/lipreading-with-long-short-term-memory/)
+
 ## lrw-audiovisual-word-recognition
 
 - Table: [`lrw-audiovisual-word-recognition.csv`](lrw-audiovisual-word-recognition.csv) (7345 slot-filled, 44 pattern match, usual design in 29, 3 read in full)

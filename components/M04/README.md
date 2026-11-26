@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that classify or decode imagined, covert or inner speech from EEG or MEG and state whether each test decision uses one trial or an average over repeated trials of the same item. Boundary: averaging over subjects, folds or seeds is not test-trial averaging; ERP figures averaged for display only are excluded; perceived or overt speech alone is excluded; versions of one study count once.
 - Used in: [Physiological Noise Augmentation Improves Non-Invasive Brain-to-Speech](../../reviews/physiological-noise-augmentation-improves-non-invasive-brain-to-speech/)
 
+## lipreading-word-segmentation-at-test
+
+- Table: [`lipreading-word-segmentation-at-test.csv`](lipreading-word-segmentation-at-test.csv) (5595 slot-filled, 975 pattern match, usual design in 65, 2 read in full)
+- Inclusion rule: Same lip-reading population as M06, classified by whether the full text names isolated or pre-segmented word input at recognition, or continuous / connected / sentence-level decoding. Boundary: corpus-derived boundaries at test count as pre-segmented; a study counts under both designs if its text names both (upper bound); versions count once; dated against 2016-01.
+- Used in: [Lipreading with Long Short-Term Memory](../../reviews/lipreading-with-long-short-term-memory/)
+
 ## neural-text-entry-action
 
 - Table: [`neural-text-entry-action.csv`](neural-text-entry-action.csv) (5595 slot-filled, 154 pattern match, usual design in 68, 4 read in full)

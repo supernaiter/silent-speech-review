@@ -1,0 +1,54 @@
+{
+ "target": "doi-10.1109-icassp.2016.7472852",
+ "target_versions": [
+  "doi-10.1109-icassp.2016.7472852",
+  "arxiv-1601.08188"
+ ],
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M04",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "GRID fixed-prompt read-speech audiovisual recording protocol; no new data-collection action is introduced.",
+  "M02": "GRID's pre-existing 51-word labels and frame-level alignments supply the supervised word targets; this paper adds no training-only target.",
+  "M05": "GRID optical-camera mouth video and standard crop/grayscale preprocessing; input channel and geometry are inherited from the corpus.",
+  "M08": "GRID's fixed 51-word class set and word-class output convention.",
+  "M09": "Offline GRID word-classification lineage; no presentation or confirmation stage.",
+  "M10": "Offline GRID word-classification lineage; no correction loop.",
+  "M11": "GRID corpus utterance/word labels and frame-level alignment reference.",
+  "M13": "Offline laboratory GRID comparison lineage, without an added user-facing device or deployment setup.",
+  "M03": "Per-speaker training with development-speaker hyperparameter selection, as in the GRID speaker-dependent lineage; seeds and repeated runs not reported.",
+  "M07": "No use-time language model, lexicon or grammar: direct 51-way softmax per segment."
+ },
+ "prep_corrections": "prep M06 topic (closed-vocabulary-word-classification) spans EEG/EMG/ECoG populations and its usual approach (model_family=other) carries no design; replaced by a lipreading-population topic dated against 2016-01. prep M04 topic usual approach was a production label, rebuilt on the same lipreading population with design regexes. prep M03 and M07 topics dropped (inherited). prep M12 GRID table not used for the dated usual approach (GRID decoder studies before 2015-07 are too few); its state of the art (LinProVSR) is reused.",
+ "population_pattern": "(?s)^(?=.*modalities=[^|]*optical_camera)(?=.*(lip[- ]?read|visual speech recognition|\\bvsr\\b|\\bavsr\\b|audio[- ]?visual speech recognition|visual[- ]only speech))",
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "lipreading-temporal-model-and-feature-learning",
+   "pattern": "(?s)^(?=.*modalities=[^|]*optical_camera)(?=.*(lip[- ]?read|visual speech recognition|\\bvsr\\b|\\bavsr\\b|audio[- ]?visual speech recognition|visual[- ]only speech))",
+   "inclusion_rule": "Automatic lip-reading, visual speech recognition or audio-visual speech recognition studies whose ledger names optical-camera input, classified by the visual model their full text names: recurrent network (LSTM, GRU, RNN, Elman/Jordan or stochastic recurrent), time-delay neural network, learned deep features (CNN, DBN, autoencoder, DNN), hand-crafted appearance or shape features (DCT, PCA/eigenlips, AAM, HOG, LBP), HMM or SVM classifier. Boundary: studies whose full text names no automatic recognizer or classifier (human speechreading and perception studies) are excluded; a study counts under every design its text names, related-work mentions included (upper bound); versions count once; dated against the target's first public month 2016-01.",
+   "metric": "word or utterance classification accuracy (%), higher is better",
+   "better": "higher"
+  },
+  {
+   "slot": "M04",
+   "topic": "lipreading-word-segmentation-at-test",
+   "pattern": "(?s)^(?=.*modalities=[^|]*optical_camera)(?=.*(lip[- ]?read|visual speech recognition|\\bvsr\\b|\\bavsr\\b|audio[- ]?visual speech recognition|visual[- ]only speech))",
+   "inclusion_rule": "Same lip-reading population as M06, classified by whether the full text names isolated or pre-segmented word input at recognition, or continuous / connected / sentence-level decoding. Boundary: corpus-derived boundaries at test count as pre-segmented; a study counts under both designs if its text names both (upper bound); versions count once; dated against 2016-01.",
+   "metric": "word accuracy (%)",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "lipreading-speaker-dependence-protocol",
+   "pattern": "(?s)^(?=.*modalities=[^|]*optical_camera)(?=.*(lip[- ]?read|visual speech recognition|\\bvsr\\b|\\bavsr\\b|audio[- ]?visual speech recognition|visual[- ]only speech))",
+   "inclusion_rule": "Same lip-reading population as M06, classified by the evaluation partition the full text names (speaker-dependent / same or seen speakers, versus speaker-independent / unseen or held-out speakers) and by whether it reports a standard deviation, confidence interval or significance test. Boundary: a study counts under every partition its text names, related-work mentions included (upper bound); versions count once; dated against 2016-01.",
+   "metric": "word accuracy (%) or WER under the stated speaker partition",
+   "better": "higher"
+  }
+ ]
+}
