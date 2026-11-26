@@ -1,0 +1,68 @@
+{
+ "target": "doi-10.1038-s41467-021-27725-3",
+ "target_versions": [
+  "doi-10.1038-s41467-021-27725-3",
+  "doi-10.1101-2021.01.26.428315",
+  "pmc-8748882-cfc",
+  "pmc-8748882-imaginedecog",
+  "pmc-8748882-lcf"
+ ],
+ "first_public": "2021-01",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Inherited from the three source-study task lineages: Study 1 word repetition, Study 2 rhythmic word repetition, and Study 3 rhythmic syllabic repetition.",
+  "M02": "Inherited from the source-study item-label protocols; the paper adds no distinct training-only loss or auxiliary target.",
+  "M03": "Inherited from the source cohorts' offline, participant-specific analysis setup; no separate calibration or user–decoder adaptation phase is introduced.",
+  "M04": "Inherited from the source-study cued imagine-hearing and imagine-saying actions; the paper evaluates these tasks offline rather than introducing a new user action.",
+  "M07": "Inherited from closed-set binary item classification in the source-study analyses; no use-time language model, lexicon, or sequence prior is reported.",
+  "M08": "Inherited from the source-study binary item/representation-class endpoint; the system does not generate continuous speech or text.",
+  "M09": "Inherited from the noninteractive offline source-study protocol; no user-facing presentation or confirmation stage is reported.",
+  "M10": "Inherited from the noninteractive offline source-study protocol; no user correction or re-entry stage is reported.",
+  "M05": "Clinical subdural ECoG (plus depth and strips in study 3) in epilepsy patients, placement clinically determined; three legacy datasets (Martin 2016 lineage for study 1).",
+  "M11": "Instructed item identity as the label for imagined trials, as in the source studies.",
+  "M13": "Offline analysis of short-term clinical epilepsy implants."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "intracranial-imagined-speech-neural-features",
+   "inclusion_rule": "see audit",
+   "pattern": "(?s)^(?=.*(\\becog\\b|electrocortico|\\bseeg\\b|stereo-?eeg|stereoelectro|intracranial|\\bieeg\\b|intracortical|utah array|microelectrode array|depth electrode))(?=.*(imagin\\w* (speech|speaking|word|syllab|vowel|phonem|articulat|sentence)|covert(ly)? (speech|speak|articulat|read|word|naming)|inner speech|speech imagery|silent(ly)? read|mental (speech|rehearsal)|internal(ly)? (speech|verbal)))",
+   "design_regex": [
+    "high_gamma_or_broadband_high_frequency",
+    "low_frequency_band_power",
+    "phase_amplitude_or_cross_frequency_coupling",
+    "low_frequency_phase"
+   ],
+   "metric": "imagined-speech classification accuracy relative to chance; higher is better",
+   "better": "higher",
+   "prep_note": "prep topic ecog-imagined-speech-frequency-feature-decoding rebuilt: its ledger lookahead pattern matched 11 studies and its usual approach was ProcessingStep.step_role=decode (not a design); prep picked no SOTA (sota_proposal null) and missed the uncited prior Ikeda 2014 and Leuthardt 2011."
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-imagined-speech-test-partition",
+   "inclusion_rule": "see audit",
+   "pattern": "(?s)^(?=.*(\\becog\\b|electrocortico|\\bseeg\\b|stereo-?eeg|stereoelectro|intracranial|\\bieeg\\b|intracortical|utah array|microelectrode array|depth electrode))(?=.*(imagin\\w* (speech|speaking|word|syllab|vowel|phonem|articulat|sentence)|covert(ly)? (speech|speak|articulat|read|word|naming)|inner speech|speech imagery|silent(ly)? read|mental (speech|rehearsal)|internal(ly)? (speech|verbal)))",
+   "design_regex": [
+    "k_fold_or_leave_one_out_cv",
+    "random_trial_split",
+    "held_out_session_or_day",
+    "held_out_subject",
+    "online_closed_loop_test"
+   ],
+   "metric": "test protocol (partition); accuracy relative to chance",
+   "better": "higher",
+   "prep_note": "prep reused the published intracranial-speech-test-partition table (all intracranial speech, 618 studies, overt-dominated); replaced by the same imagined-speech population as M06 for a consistent setting."
+  }
+ ],
+ "dropped_prep_topics": [
+  "M05 ecog-speech-decoding (usual approach modalities=ecog is not a design)",
+  "M11 paired-imagery-perception-neural-recordings (sparse; not a contribution of the target)",
+  "M13 ecog-imagined-speech-deployment-constraints (target makes no deployment claim beyond its own caveats)"
+ ]
+}
