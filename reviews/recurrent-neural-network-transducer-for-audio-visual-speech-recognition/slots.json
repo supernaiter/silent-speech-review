@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced speech in public YouTube videos"
+  ],
+  "field": "Voiced speech recorded for training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "31k h YouTube video, ASR-checked captions"
+  ],
+  "field": "No corpus of 1,000 h or more; of 361 studies before 2019-11",
+  "n": 361,
+  "matched": 356,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Scale-up of the V2P pipeline (3,886 h) [@shillingford2018v2p]; corpus not released.",
+  "sota": "[@chang2023lpconformer] 100k h, 12.8% LRS3 VSR WER"
+ },
+ "M03": {
+  "choice": [
+   "Audio dropout; overlapping-speech mixing"
+  ],
+  "field": "No training noise or modality dropout; of 107 AVSR studies before 2019-11",
+  "n": 107,
+  "matched": 100,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Interfering-speech training new in the AVSR ledger (0 of 107); modality dropout credited to the authors' ref. [32]; one run, one test set.",
+  "sota": "[@chang2023lpconformer] 0.9% AVSR WER"
+ },
+ "M04": {
+  "choice": [
+   "Voiced speech; noise added at test"
+  ],
+  "field": "Voiced speech at use time",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Mouth crops, 23 to 30 fps; 16 kHz audio"
+  ],
+  "field": "Camera mouth region plus microphone",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited from the V2P front end.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "RNN-T; audio shift tied to video frame rate"
+  ],
+  "field": "HMM decoding; of 123 studies before 2019-11",
+  "n": 123,
+  "matched": 79,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "No earlier neural transducer in the ledger (Appendix), but no comparison with CTC or attention on the same data.",
+  "sota": "[@chang2023lpconformer] RNN-T, 0.9% LRS3 AVSR WER"
+ },
+ "M07": {
+  "choice": [
+   "Not stated"
+  ],
+  "field": "LM in decoding varies",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_reported",
+  "note": "External LM use and weights not given (Sec. 1, Sec. 4).",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Characters (75 symbols)"
+  ],
+  "field": "Text output",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Non-public YTD EV18; LRS3-TED test"
+  ],
+  "field": "Public benchmark split",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Video-ID exclusion only; speakers not reported.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Babble, competing speech, 95% CIs; one run"
+  ],
+  "field": "Noise at stated SNRs, no variability estimate; of 107 AVSR studies before 2019-11",
+  "n": 107,
+  "matched": 50,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "Test-set intervals are rare before 2019-11 (Appendix); no seeds or repeated runs.",
+  "sota": "[@rouditchenko2024whisperflamingo] 0.76% LRS3 AVSR WER"
+ },
+ "M13": {
+  "choice": [
+   "128 TPU cores; data and models restricted"
+  ],
+  "field": "Offline GPU or TPU training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ }
+}

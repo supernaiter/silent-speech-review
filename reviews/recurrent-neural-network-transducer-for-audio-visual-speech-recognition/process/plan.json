@@ -1,0 +1,107 @@
+{
+ "target": "arxiv-1911.04890",
+ "first_public": "2019-11",
+ "cutoff_rule": "state at the target's time: studies dated before 2019-11 (month from the arXiv id, year from the index or ISCA id; same-year undated studies checked separately); [concurrent] = 2019-05 to 2020-05, [later] after",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "voiced YouTube speech"
+  },
+  "M02": {
+   "class": "changed",
+   "what": "31k h audio-visual corpus mined from YouTube, user-uploaded captions accepted by ASR agreement (Liao et al. 2013 pipeline, V2P lineage)",
+   "topics": [
+    {
+     "topic": "asr-transcribed-unlabelled-video-training",
+     "reuse": "components/M02/asr-transcribed-unlabelled-video-training.json",
+     "inclusion_rule": "published rule (1,049-study VSR/AVSR population); this review adds a before-2019-11 count of studies naming a corpus of 1,000 hours or more",
+     "design_regex": {
+      "over_1000_hours": "\\b(\\d{1,3}(,\\d{3})+|[1-9]\\d{3,})\\s*(hours|hrs|h)\\b|\\b\\d+(\\.\\d+)?\\s?k\\s*(hours|hrs|h)\\b"
+     },
+     "metric": "LRS3 WER"
+    }
+   ]
+  },
+  "M03": {
+   "class": "changed",
+   "what": "sentence-level modality dropout (credited to the authors' ref. [32]) and 10% overlapping-speech training augmentation",
+   "topics": [
+    {
+     "topic": "avsr-self-supervised-and-noise-augmented-training",
+     "reuse": "components/M03/avsr-self-supervised-and-noise-augmented-training.json",
+     "inclusion_rule": "published rule (349-study AVSR population); this review adds before-2019-11 counts for modality dropout, noise added in training and interfering speech added in training",
+     "metric": "YTD EV18 WER under noise"
+    }
+   ]
+  },
+  "M04": {
+   "class": "inherited"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "mouth crops 128x128 RGB + mono 16 kHz audio (V2P front end)"
+  },
+  "M06": {
+   "class": "changed",
+   "what": "RNN-T decoder for AVSR; audio STFT shift tied to the variable video frame rate",
+   "topics": [
+    {
+     "topic": "sentence-lipreading-sequence-objective",
+     "reuse": "components/M06/sentence-lipreading-sequence-objective.json",
+     "inclusion_rule": "published rule (633-study sentence-level lip-reading/AVSR population); this review adds before-2019-11 counts per objective (transducer, CTC, attention/seq2seq, HMM) with the transducer hits read",
+     "metric": "LRS3 WER"
+    },
+    {
+     "topic": "avsr-audio-stream-input-representation",
+     "reuse": "components/M06/avsr-audio-stream-input-representation.json",
+     "inclusion_rule": "published rule (349-study AVSR population); this review adds before-2019-11 counts for audio-video rate alignment: video upsampled or interpolated to the audio rate, and variable frame rate kept",
+     "metric": "WER, variable vs fixed fps"
+    }
+   ]
+  },
+  "M07": {
+   "class": "incidental",
+   "note": "external LM use not stated; matters for LRS3 comparison"
+  },
+  "M08": {
+   "class": "inherited"
+  },
+  "M09": {
+   "class": "inherited"
+  },
+  "M10": {
+   "class": "inherited"
+  },
+  "M11": {
+   "class": "inherited",
+   "note": "non-public YTD EV18; video-ID exclusion only"
+  },
+  "M12": {
+   "class": "incidental",
+   "topics": [
+    {
+     "topic": "avsr-noise-and-run-variability-protocol",
+     "reuse": "components/M12/avsr-noise-and-run-variability-protocol.json",
+     "inclusion_rule": "published rule (349-study AVSR population) with the published regexes; this review adds before-2019-11 counts",
+     "metric": "noise protocol, variability estimate"
+    }
+   ]
+  },
+  "M13": {
+   "class": "inherited"
+  }
+ },
+ "deciding_priors": [
+  "arxiv-1809.02108",
+  "arxiv-1807.05162",
+  "arxiv-1811.05250",
+  "arxiv-1810.00108"
+ ],
+ "sota": [
+  "arxiv-2302.10915",
+  "arxiv-2406.10082"
+ ],
+ "later_context": [
+  "arxiv-2012.07467"
+ ]
+}
