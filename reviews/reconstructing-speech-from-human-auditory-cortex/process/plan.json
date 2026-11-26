@@ -1,0 +1,50 @@
+{
+ "target": [
+  "doi-10.1371-journal.pbio.1001251",
+  "pmc-3269422-pasley",
+  "pmc-3269422-speechrecon"
+ ],
+ "first_public": "2012-01",
+ "prep_used": "notes.merged.json adopted (sha matched); plan.draft.json corrected: M02/M03/M07 dropped from incidental (no proposal; prep M03 and M07 topics broken: key=value regex, M07 2 hits one off-topic); prep M06 topic rebuilt as heard-speech-reconstruction-target-representation with per-design full-text regexes; prep comparators Brungart 2007, Matthews 2012 thesis and Besle 2008 not used (off-topic or later); M12 published table reused append-only.",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Clinical listening sessions (passive listening, target detection, repetition); no separate training-time action.",
+  "M02": "Paired heard stimulus as the regression target, inherent to stimulus reconstruction.",
+  "M03": "Per-participant decoder fit from scratch on 2.5-17.5 min; normalization scope unstated.",
+  "M04": "Listening to presented speech; tasks pooled.",
+  "M05": "Clinical subdural ECoG grids, 4 mm or 10 mm, high-gamma features (Chang/Knight ECoG lineage).",
+  "M07": "No lexicon or LM; closed 47-item candidate set used only by the identification test (M12).",
+  "M08": "Spectrogram / modulation features; audio only via phase retrieval.",
+  "M09": "Offline.",
+  "M10": "Offline.",
+  "M11": "Presented stimulus as reference.",
+  "M13": "Offline clinical recording."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "heard-speech-reconstruction-target-representation",
+   "reuse": null,
+   "inclusion_rule": "Studies whose ledger text names intracranial or auditory-cortex recordings, a listening or perception condition, an acoustic representation (spectrogram, temporal modulation, envelope or vocoder features) and reconstruction, decoding or synthesis. The design of interest is the acoustic representation that the decoder reconstructs from neural activity during heard speech: auditory/linear spectrogram, temporal-modulation energy, envelope only, or vocoder parameters. Boundary: production-only synthesis studies and encoding-only studies admitted by the pattern are counted but are not heard-speech reconstruction; full-text design regexes overlap and are upper bounds; versions of one study count once.",
+   "design_regex": [
+    "spectrogram_target",
+    "temporal_modulation_target",
+    "vocoder_parameter_target",
+    "envelope_target"
+   ],
+   "metric": "Reconstruction correlation or intelligibility (ESTOI, listener accuracy); higher is better."
+  },
+  {
+   "slot": "M12",
+   "topic": "neural-speech-reconstruction-identification-test",
+   "reuse": "components/M12/neural-speech-reconstruction-identification-test.json",
+   "inclusion_rule": "Published rule kept: studies that reconstruct a continuous acoustic speech representation from neural recordings and evaluate the reconstruction; design categories correlation, identification among candidates, MCD, listening test, STOI.",
+   "metric": "Design counts (correlation / identification among candidates)."
+  }
+ ]
+}
