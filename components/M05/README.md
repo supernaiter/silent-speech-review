@@ -27,6 +27,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Neural signal speech or tone decoding studies that shrink the recording set for the main experiment by ranking channels with trained-model attention weights (or similar attribution) and keeping a top subset, and that report a full-versus-reduced accuracy comparison. Boundary: hardware-only channel counts, exhaustive or greedy selection without attention, EMG-only electrode subsets and papers with no full-versus-reduced comparison are excluded; selecting channels with data spanning test folds or subjects is included but flagged; versions of one study count once.
 - Used in: [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](../../reviews/cat-net-a-cross-attention-tone-network-for-cross-subject-eeg-emg-fusion-tone-decoding/)
 
+## body-conducted-sensor-speech-recognition
+
+- Table: [`body-conducted-sensor-speech-recognition.csv`](body-conducted-sensor-speech-recognition.csv) (7329 slot-filled, 82 pattern match, usual design in 2, 6 read in full)
+- Inclusion rule: Speech recognizers (text output) whose test input is a skin-, bone- or tissue-conducted acoustic sensor on the talker (throat or contact microphone, bone-conduction microphone, NAM or stethoscopic microphone, accelerometer), in any speaking mode; design compared is the body site of the sensor. Boundary: enhancement or conversion without a recognizer, speaker recognition and reviews are excluded; air-microphone whisper recognizers belong to the M04 topic; multiple reports of one experiment count once; the 2004 Japanese and 2006 English versions of the target are merged.
+- Used in: [Non-Audible Murmur (NAM) Recognition](../../reviews/non-audible-murmur-nam-recognition/)
+
 ## body-conducted-sensor-with-air-microphone
 
 - Table: [`body-conducted-sensor-with-air-microphone.csv`](body-conducted-sensor-with-air-microphone.csv) (7329 slot-filled, 123 pattern match, usual design in 71, 2 read in full)
