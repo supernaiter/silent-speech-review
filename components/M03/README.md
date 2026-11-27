@@ -79,6 +79,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Silent-speech, lip-reading and other non-acoustic speech or command decoders (any signal) whose ledger names few-shot, one-shot or N-shot learning, user-defined or customized vocabularies, vocabulary registration or personalized lip models; the design compared is how a user's new examples enter the model: a frozen pretrained encoder with a linear or logistic classifier, metric or prototype matching (Siamese, prototypical, triplet, nearest neighbour), fine-tuning network weights on the user, or user-dependent training from scratch. Boundary: a study counts under every design its full text (reference list removed) names, so counts are upper bounds; zero-shot speaker conditioning for synthesis, pruning 'one-shot' and BCI competitions are pattern hits that do not register a vocabulary; versions count once.
 - Used in: [LipLearner: Customizable Silent Speech Interactions on Mobile Devices](../../reviews/liplearner-customizable-silent-speech-interactions-on-mobile-devices/)
 
+## frozen-encoder-parameter-efficient-training-vsr
+
+- Table: [`frozen-encoder-parameter-efficient-training-vsr.csv`](frozen-encoder-parameter-efficient-training-vsr.csv) (1526 slot-filled, 740 pattern match, usual design in 193, 3 read in full)
+- Inclusion rule: The 739-study VSR/AVSR population of M06/generative-text-decoder-vsr (lip video or audio-visual input, text output with WER, CER or accuracy; target excluded), classified by the training regime its full text names: LoRA or QLoRA, adapters or prompt tuning or other parameter-efficient tuning, a frozen pre-trained encoder or backbone, and end-to-end or full fine-tuning. Boundary: a study counts under every regime its text names (upper bound, related-work mentions included); a frozen LLM used only for post-hoc error correction of an audio-only hypothesis is not a VSR/AVSR training regime; versions count once by key.
+- Used in: [Large Language Models are Strong Audio-Visual Speech Recognition Learners](../../reviews/large-language-models-are-strong-audio-visual-speech-recognition-learners/)
+
 ## imagenet-pretrained-vision-backbone-neural-speech
 
 - Table: [`imagenet-pretrained-vision-backbone-neural-speech.csv`](imagenet-pretrained-vision-backbone-neural-speech.csv) (1526 slot-filled, 8 pattern match, usual design in 5, 3 read in full)
