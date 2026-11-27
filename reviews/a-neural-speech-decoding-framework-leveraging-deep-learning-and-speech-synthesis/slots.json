@@ -15,24 +15,24 @@
   "choice": [
    "Speech-autoencoder targets, Praat labels"
   ],
-  "field": "Autoencoder latent, of 11",
-  "n": 11,
-  "matched": 5,
-  "matched_tier": "pattern match (unique studies, 2022 or earlier)",
+  "field": "Paired-audio targets, of 10",
+  "n": 10,
+  "matched": 10,
+  "matched_tier": "pattern match (unique studies, before 2023-03-17)",
   "verdict": "standard",
-  "note": "Same-group 2021 prior; Lip2AudSpec 2017.",
-  "sota": "[@chen2024subject] [concurrent] (2024): PCC 0.838"
+  "note": "Same-group 2021 prior; Lip2AudSpec 2017; Praat supervision new.",
+  "sota": "No ablation; [@chen2024subject] [concurrent] (2024) same guidance"
  },
  "M03": {
   "choice": [
-   "Per-participant; tuning split unstated"
+   "Per-participant"
   ],
   "field": "Per-participant training",
   "n": null,
   "matched": null,
   "matched_tier": "slot-filled (unique studies)",
-  "verdict": "not_reported",
-  "note": "Loss weights tuned on 3 hybrid-density participants; split unstated.",
+  "verdict": "standard",
+  "note": "Loss-weight tuning split unstated.",
   "sota": "–"
  },
  "M04": {
@@ -56,20 +56,20 @@
   "matched": null,
   "matched_tier": "slot-filled (unique studies)",
   "verdict": "standard",
-  "note": "48 participants, both hemispheres.",
+  "note": "Low-density grids and right hemisphere new against the same-group prior.",
   "sota": "–"
  },
  "M06": {
   "choice": [
    "18 parameters, differentiable synthesizer"
   ],
-  "field": "Spectrogram regression, of 63",
-  "n": 63,
-  "matched": 12,
-  "matched_tier": "pattern match (unique studies, 2022 or earlier)",
+  "field": "Spectrogram regression, of 10",
+  "n": 10,
+  "matched": 4,
+  "matched_tier": "pattern match (unique studies, before 2023-03-17)",
   "verdict": "standard",
   "note": "Same-group 2021 preprint has the design.",
-  "sota": "[@chen2024subject] [concurrent] (2024): PCC 0.817 (43, grid only)"
+  "sota": "Not isolated; [@chen2024subject] [concurrent] (2024): PCC 0.817"
  },
  "M07": {
   "choice": [
@@ -87,13 +87,13 @@
   "choice": [
    "Griffin-Lim waveform"
   ],
-  "field": "Neural vocoder 7, Griffin-Lim 4 (of 63)",
-  "n": 63,
+  "field": "Neural vocoder or units (3 each), of 10",
+  "n": 10,
   "matched": null,
-  "matched_tier": "pattern match (unique studies, 2022 or earlier)",
+  "matched_tier": "pattern match (unique studies, before 2023-03-17)",
   "verdict": "standard",
-  "note": "No listener test.",
-  "sota": "[@anumanchipalli2019speech] (2019): listener WER 31%, 25-word pool"
+  "note": "Griffin-Lim used by 2 of 10; no listener test.",
+  "sota": "[@herff2019generating] (2019): 66.1%, 4-choice words"
  },
  "M09": {
   "choice": [
@@ -135,17 +135,17 @@
   "choice": [
    "Trial split; held-out words"
   ],
-  "field": "k-fold, of 202",
-  "n": 202,
-  "matched": 76,
-  "matched_tier": "pattern match (unique studies, 2022 or earlier)",
+  "field": "k-fold (mentions), of 10",
+  "n": 10,
+  "matched": 8,
+  "matched_tier": "pattern match (unique studies, before 2023-03-17)",
   "verdict": "standard",
   "note": "Test words recur in training; no chance level.",
-  "sota": "[@chen2024subject] [concurrent] (2024): PCC 0.765 on unseen participants"
+  "sota": "[@chen2024subject] [concurrent] (2024): PCC 0.765, unseen participants"
  },
  "M13": {
   "choice": [
-   "Offline; 43.99 ms GPU (causal ResNet)"
+   "Offline; 43.99 ms GPU"
   ],
   "field": "Offline",
   "n": null,
