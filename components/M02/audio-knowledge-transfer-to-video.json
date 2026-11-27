@@ -860,6 +860,24 @@
    "role": "target",
    "loc": "Table IV",
    "quote": "A V-HuBERT [17]+ AKVSR 41.6"
+  },
+  {
+   "pid": "isca-ma21c-lira",
+   "role": "prior",
+   "loc": "Sec. 2.1",
+   "quote": "LiRA predicts PASE+ features from raw video"
+  },
+  {
+   "pid": "arxiv-2602.19316",
+   "role": "sota",
+   "loc": "Table 2 (low-resource, Large, LRS3+Vox2)",
+   "quote": "USR 2.0 ✓ 23.7 2.3 2.2"
+  },
+  {
+   "pid": "arxiv-2201.02184",
+   "role": "prior",
+   "loc": "Sec. 4; App. B.4",
+   "quote": "Note that no additional data is used when combined with"
   }
  ],
  "known_item_recall": {
@@ -907,6 +925,245 @@
  },
  "used_by": [
   "akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model",
+  "jointly-learning-visual-and-auditory-speech-representations-from-raw-data",
   "multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video"
- ]
+ ],
+ "counts_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "window": "ledger year <= 2022",
+  "population_by_year": {
+   "year_le_2022": 19,
+   "later": 32,
+   "unresolved": 3
+  },
+  "with_fulltext_le_2022": 14,
+  "pattern_counts_le_2022": {
+   "knowledge_distillation": 10,
+   "memory_recall": 4,
+   "cross_modal_latent_prediction": 1
+  },
+  "latent_prediction_hit": "arxiv-2212.02782 ([concurrent])",
+  "named_prior_outside_pattern": "isca-ma21c-lira (audio-feature regression; missed by the ledger pattern, known-item recall 0.5)",
+  "tier": "pattern match (unique studies), mentions included = upper bound",
+  "screened_v2": {
+   "window": "prior = before 2022-06; [concurrent] = 2022-06 to 2023-06",
+   "excluded_out_of_scope": [
+    "openaccess_avsp_talle99 (AV fusion)",
+    "arxiv-1809.02108 (AVSR, no transfer)",
+    "arxiv-1811.05250 (AVSR)",
+    "arxiv-2005.08209 (video-to-speech, no transfer)",
+    "arxiv-2007.06504 (self-distillation between lip-reading models)",
+    "arxiv-2008.02516 (no distillation)",
+    "arxiv-2108.13630 (distillation only in related work)",
+    "no-text isca 2001/2009 papers"
+   ],
+   "prior_in_scope": {
+    "n": 9,
+    "with_fulltext": 7,
+    "designs": {
+     "distillation_from_audio_or_speech_model": {
+      "n": 5,
+      "pids": [
+       "arxiv-1911.11502",
+       "arxiv-1911.12747",
+       "arxiv-2108.03543",
+       "cvf-ren21-master-kd (title)",
+       "arxiv-2202.09081-vcvts (title)"
+      ]
+     },
+     "audio_memory": {
+      "n": 2,
+      "pids": [
+       "arxiv-2204.01265",
+       "arxiv-2204.01725"
+      ]
+     },
+     "audio_target_regression": {
+      "n": 2,
+      "pids": [
+       "isca-ma21c-lira",
+       "arxiv-2112.04748"
+      ]
+     }
+    }
+   },
+   "concurrent_in_scope": {
+    "n": 2,
+    "pids": [
+     "arxiv-2207.05692",
+     "arxiv-2212.02782"
+    ]
+   },
+   "deciding_prior_self_training": "arxiv-2201.02184 (audio HuBERT pseudo-labels, same data)",
+   "tier": "pattern match, screened by full text or title (2 by title)"
+  }
+ },
+ "usual_approach_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "design": "distillation from an audio or speech model",
+  "n": 5,
+  "tier": "pattern match (screened)",
+  "population_unique": 9,
+  "pids": [
+   "arxiv-1911.11502",
+   "arxiv-1911.12747",
+   "arxiv-2108.03543"
+  ]
+ },
+ "state_of_the_art_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "pid": "arxiv-2602.19316",
+  "year": 2026,
+  "metric": "LRS3 VSR WER, Large, 30 h labelled, LRS3+VoxCeleb2 unlabelled; audio-visual EMA teacher pseudo-labels",
+  "value": 23.7,
+  "unit": "%",
+  "timing": "later"
+ },
+ "ledger_tally_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "design_slot": "M02",
+  "design_slot_fill": 0.003,
+  "sparse": true,
+  "design_values": [
+   {
+    "design": "information_availability=training_only",
+    "n": 2,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2007.06504",
+     "cvpr21-ren"
+    ]
+   },
+   {
+    "design": "target_relation=other",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2007.06504"
+    ]
+   },
+   {
+    "design": "target_relation=supervision_target",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "cvpr21-ren"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "knowledge_distillation",
+    "n": 38,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.19316",
+     "arxiv-2607-08236-tvta",
+     "arxiv-2607.29112",
+     "isca-li25q-hybridav",
+     "arxiv-2411.02256"
+    ]
+   },
+   {
+    "design": "memory_recall",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-12944054-bonecond",
+     "acl-2023-848-univpm",
+     "doi-10.21203-rs.3.rs-2932736-v1",
+     "isca-choi23_interspeech",
+     "cvf-ren21-master-kd"
+    ]
+   },
+   {
+    "design": "cross_modal_latent_prediction",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2602.19316",
+     "arxiv-2607-08236-tvta",
+     "cvf-zhang24-es3",
+     "arxiv-2212.02782"
+    ]
+   },
+   {
+    "design": "feature_regression",
+    "n": 0,
+    "tier": "pattern match",
+    "pids": []
+   }
+  ],
+  "metric_pattern": "LRS3",
+  "better": "lower"
+ },
+ "sota_candidates_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": [
+  {
+   "metric": "AVSR WER Huge LRS3",
+   "value": 0.8,
+   "unit": "percent",
+   "raw": "0.8",
+   "pid": "arxiv-2602.19316",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 fc-lrs3 a",
+   "value": 1.6,
+   "unit": "percent",
+   "raw": "1.6",
+   "pid": "arxiv-2405.12983",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 tms2s-av lrs3lm",
+   "value": 7.2,
+   "unit": "percent",
+   "raw": "7.2%",
+   "pid": "arxiv-1809.02108",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "USR LRS3 VSR SOTA",
+   "value": 21.5,
+   "unit": "%",
+   "raw": "21.5",
+   "pid": "arxiv-2411.02256",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t3 rnnt lrs3",
+   "value": 33.6,
+   "unit": "percent",
+   "raw": "33.6",
+   "pid": "arxiv-1911.12747",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "lit lit [7] LRS3",
+   "value": 38.6,
+   "unit": "percent",
+   "raw": "38.6",
+   "pid": "arxiv-2312.09727",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS3-TED WER % (Ours-TM)",
+   "value": 59.0,
+   "unit": "percent",
+   "raw": "LRS3-TED sentence WER %, Ours-TM",
+   "pid": "cvpr21-ren",
+   "year": 2021,
+   "tier": "ledger only"
+  }
+ ],
+ "known_item_recall_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "seeds_in_wiki": 2,
+  "found": 1,
+  "recall": 0.5,
+  "missed": [
+   "isca-ma21c-lira"
+  ]
+ }
 }

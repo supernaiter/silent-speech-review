@@ -1,0 +1,133 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Voiced LRS3 / VoxCeleb2 talking-face video"
+     ],
+     "field": "Voiced speech recorded for training",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited from the LRS3 / VoxCeleb2 pipeline."
+    },
+    "M02": {
+     "choice": [
+      "Joint audio-teacher latents; ASR pseudo-labels in self-training"
+     ],
+     "field": "Distillation from an audio or speech model (5 of 9 prior)",
+     "n": 9,
+     "matched": 5,
+     "verdict": "standard",
+     "note": "Same audio pseudo-labelling route as AV-HuBERT on the same data: 7.7 against 3.9 points; pseudo-label decoding not stated."
+    },
+    "M03": {
+     "choice": [
+      "Asymmetric cross-modal prediction of momentum-teacher latents"
+     ],
+     "field": "Contrastive objectives (3 of 7 prior); none with a momentum teacher",
+     "n": 7,
+     "matched": 3,
+     "verdict": "standard",
+     "note": "Cross-modal asymmetric use of data2vec-style momentum teachers; ties AV-HuBERT at Large, 30 h (32.5%); ablations Base only, no repeat runs."
+    },
+    "M04": {
+     "choice": [
+      "Voiced speech video at test"
+     ],
+     "field": "Voiced speech at use time",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Grayscale mouth ROI, 25 fps; raw 16 kHz audio"
+     ],
+     "field": "Camera mouth ROI plus microphone",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited; raw waveform instead of filterbanks is a minor departure."
+    },
+    "M06": {
+     "choice": [
+      "ResNet-18 + Transformer; hybrid CTC/attention"
+     ],
+     "field": "CNN front end + sequence model",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited from the ESPnet / Ma et al. lineage."
+    },
+    "M07": {
+     "choice": [
+      "Transformer LM, shallow fusion, beam 40"
+     ],
+     "field": "LM in decoding",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited; selected weight not stated in the paper (public script: 0.3)."
+    },
+    "M08": {
+     "choice": [
+      "Text"
+     ],
+     "field": "Text output",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "None (offline)"
+     ],
+     "field": "Mostly absent",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline benchmark study."
+    },
+    "M10": {
+     "choice": [
+      "None (offline)"
+     ],
+     "field": "Mostly absent",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline benchmark study."
+    },
+    "M11": {
+     "choice": [
+      "LRS3 and LRS2 public test sets"
+     ],
+     "field": "Public benchmark split",
+     "matched": null,
+     "verdict": "standard",
+     "note": "VoxCeleb2 speaker overlap with the LRS3 test set not discussed."
+    },
+    "M12": {
+     "choice": [
+      "LRS3 test WER, single runs, no seeds"
+     ],
+     "field": "No run spread (15 of 20 prior LRS3 systems)",
+     "n": 20,
+     "matched": 15,
+     "verdict": "standard",
+     "note": "Typical of the field; the same group reported ten-run spread earlier; abstract picks 25.9% over the 19.3% in its own table."
+    },
+    "M13": {
+     "choice": [
+      "32 / 128 A100 GPUs for pre-training"
+     ],
+     "field": "Offline GPU training",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    }
+   }
+  }
+ ]
+}

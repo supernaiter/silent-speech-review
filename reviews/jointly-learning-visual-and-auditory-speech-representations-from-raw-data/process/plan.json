@@ -1,0 +1,52 @@
+{
+ "target": "arxiv-2212.06246",
+ "first_public": "2022-12",
+ "prep": "no prep/ folder; plan, audits and comparators built by the writer; published topic tables reused append-only",
+ "changed": [
+  "M03",
+  "M02"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "LRS3/VoxCeleb2 voiced talking-face video",
+  "M04": "voiced speech video at test",
+  "M05": "grayscale 96x96 mouth ROI at 25 fps plus raw 16 kHz waveform (LiRA/Ma et al. pipeline)",
+  "M06": "ResNet-18 front end + Transformer encoder, hybrid CTC/attention with 1,000 SentencePiece units (ESPnet lineage)",
+  "M07": "Transformer LM by shallow fusion, beam 40 (Ma et al. 2022 lineage)",
+  "M08": "text",
+  "M09": "n/a (offline)",
+  "M10": "n/a (offline)",
+  "M11": "LRS3 / LRS2 public test splits",
+  "M13": "offline A100 GPU training"
+ },
+ "topics": [
+  {
+   "slot": "M03",
+   "topic": "self-supervised-pretraining",
+   "inclusion_rule": "Self-supervised or teacher-generated pre-training on unlabelled non-audio-only input before supervised fine-tuning for speech/text decoding; exclude audio-only SSL and studies that only reuse a released checkpoint (published rule kept).",
+   "pattern": "published pattern (self-supervised | masked prediction | contrastive pre-train | unlabelled video/data)",
+   "fulltext_pattern": "momentum encoder/teacher, EMA teacher or slowly-evolving teacher within 300 characters of lip / visual speech / video / audio-visual",
+   "design_field": "supervision_kind",
+   "metric": "LRS3 VSR WER at a fixed labelled budget (30 h / 433 h) and fixed unlabelled data (LRS3 433 h or LRS3+VoxCeleb2 1,759 h)",
+   "time_window": "prior = first public before 2022-06; [concurrent] = 2022-06 to 2023-06; ledger years only give the year, so 'at the target's time' = year <= 2022"
+  },
+  {
+   "slot": "M02",
+   "topic": "audio-knowledge-transfer-to-video",
+   "inclusion_rule": "Lip-reading and video-to-speech studies that use only lip/face video at test and use paired audio or a speech model in training to enrich the visual model (distillation, audio-feature regression, audio memory); exclude audio-visual models needing audio at test (published rule kept).",
+   "pattern": "published pattern",
+   "design_regex": "knowledge_distillation, memory_recall, feature_regression, cross_modal_latent_prediction (momentum teacher or prediction of audio targets/latents)",
+   "metric": "LRS3 VSR WER"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrs3-visual-only-wer",
+   "inclusion_rule": "Visual-only WER on the LRS3 test set, any training regime (published rule kept); for the run-variability count, surveys and the corpus paper are excluded.",
+   "pattern": "LRS3",
+   "design_field": "M03 supervision_kind; plus full-text spread regex at the target's time",
+   "metric": "LRS3 VSR WER; repetition (seeds / runs / spread)"
+  }
+ ]
+}
