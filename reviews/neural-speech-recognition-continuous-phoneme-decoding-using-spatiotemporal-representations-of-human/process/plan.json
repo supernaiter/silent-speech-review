@@ -1,0 +1,53 @@
+{
+ "target": "doi-10.1088-1741-2560-13-5-056004",
+ "first_public": "2016-08",
+ "concurrent_window": "2016-02 to 2017-02",
+ "setting": "Human intracranial decoders of speech content, any task (production, attempted, imagined, perceived); precedents from any signal count for novelty; one population of 18 prior decoders used for M06, M07 and M12.",
+ "changed": [
+  "M06",
+  "M07"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Passive listening to TIMIT and reenacted film stimuli; perceived-speech ECoG lineage of the same group (Pasley 2012)",
+  "M02": "Forced-aligned and hand-corrected phoneme labels of the stimuli",
+  "M03": "Per-subject LDA; subject concatenation as offline upper bound",
+  "M04": "Heard speech",
+  "M05": "256-electrode clinical HD ECoG, 70-150 Hz high gamma; electrode selection by t-test",
+  "M08": "Phoneme sequence",
+  "M09": "Offline",
+  "M10": "Offline",
+  "M11": "TIMIT and Gump stimuli; two Gump speakers",
+  "M13": "Implanted clinical grids; averaging and pooling infeasible for prostheses (authors, §4)"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "intracranial-continuous-speech-sequence-decoder",
+   "inclusion_rule": "see audit",
+   "pattern": "intracranial signal AND speech term (ledger text), as published intracranial-speech-test-partition",
+   "design_field": "M06 decoder_route (slot-filled) plus full-text regexes hmm_viterbi_sequence_search, ctc_sequence_training, time_lagged_feature_window",
+   "metric": "PER (%), lower is better"
+  },
+  {
+   "slot": "M07",
+   "topic": "intracranial-decoder-use-time-language-model",
+   "inclusion_rule": "see audit",
+   "pattern": "same as M06",
+   "design_field": "full-text regexes ngram_language_model, phoneme_level_language_model, llm_rescoring (sparse slot)",
+   "metric": "PER change from adding the LM"
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-speech-test-partition",
+   "reuse": "components/M12/intracranial-speech-test-partition.json",
+   "inclusion_rule": "published; restricted for this review to the 18 prior decoders",
+   "pattern": "published",
+   "design_field": "full-text regexes kfold, leave_one_out",
+   "metric": "test partition"
+  }
+ ],
+ "prep": "No prep/ directory existed for this slug; plan, audits and comparator reads built by the writer."
+}

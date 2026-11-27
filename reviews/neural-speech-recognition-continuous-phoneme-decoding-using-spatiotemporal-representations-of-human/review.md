@@ -1,0 +1,91 @@
+# Neural speech recognition: continuous phoneme decoding using spatiotemporal representations of human cortical activity
+
+Moses, D. A., Mesgarani, N., Leonard, M. K., Chang, E. F. · Journal of Neural Engineering · 2016 · [doi:10.1088/1741-2560/13/5/056004](https://doi.org/10.1088/1741-2560/13/5/056004)
+
+## Verdict
+
+The paper changes the decoder (M06) and language model (M07) of heard-speech ECoG decoding [[1]](#ref-1): LDA likelihoods, a phoneme 4-gram and Viterbi search over multi-lag high-gamma windows (HGWs). Both are standard: the same ASR chain ran on ECoG in two 2015 reports from one group [[2]](#ref-2), [[3]](#ref-3), the first cited by the authors, and multi-lag features predate it in their own group [[4]](#ref-4); the priority claim rests on its "single-speaker" qualifier (§1). Against the usual design then, closed-set classification of segmented trials (8 of 18 prior decoders, Appendix), continuous phoneme output from heard speech is the real step. The strongest confound: electrodes were chosen on the whole Gump set later cross-validated (§2.1.4). The LM's contribution is not isolated: no zero-weight decoding is reported (§2.2.3), and the authors credit the gain to temporal smoothing (§4). The best neural PER, 70.47%, pools averaged responses of three subjects (Table 5), infeasible for a prosthesis by the authors' account (§4).
+
+## Against the field, component by component
+
+### M06 Decoding: phoneme search over high-gamma windows
+
+**Usual approach:** Of 18 intracranial speech decoders first public before 2016-02, 8 classify segmented trials into a closed set (slot-filled), 1 regresses acoustics, and 2, from one group, run HMM/Viterbi search with an n-gram LM over ECoG of read speech (Appendix). The paper joins them on heard speech; none of the 3 prior perception-only decoders uses an HMM or LM (Appendix).
+
+**State of the art:** iPhoneme (2026, [later]): 7.86% PER with a 6-gram phoneme LM and WFST beam, 10.62% greedy, intracortical, one participant (T15), offline [[5]](#ref-5); Willett et al. (2023, [later]): 19.7% online PER before any LM [[6]](#ref-6). The paper: 70.47% pooled and averaged (Table 5); no heard-speech PER is among the ledger candidates (Appendix), so the gap mixes task, signal and decoder.
+
+Herff et al. join ECoG phone models, a dictionary and an n-gram model by Viterbi search [[2]](#ref-2); Heger et al. put ECoG phone models into an ASR toolkit with a bigram LM [[3]](#ref-3); Matthews Viterbi-decoded GMM-HMMs over intracortical firing rates [[7]](#ref-7); LDA phoneme classification from ECoG was in use [[8]](#ref-8). The authors cite Herff et al. and a multi-speaker perception report (Chang et al. 2015, their reference 10), and restrict their claim to "a single-speaker environment" (§1). HGWs beat single time points (p < 0.005, §3.2), but multi-lag features were not new: 100 lags of 10 ms in Pasley et al. [[4]](#ref-4), 200 ms context per side in Herff et al. [[2]](#ref-2), 7 of 18 prior decoders (pattern match, Appendix). Verdict: standard.
+
+### M07 Language model: phoneme 4-gram from subtitles
+
+**Usual approach:** 15 of the 18 prior decoders name no LM (pattern match, Appendix); the two ECoG recognizers use word bigrams from the texts the participants read [[2]](#ref-2), [[3]](#ref-3). The paper's phoneme 4-gram uses about 4.3 million SUBTLEX-US sentences with Gump sequences removed (§2.2.2), stricter than read-text bigrams.
+
+**State of the art:** in iPhoneme (2026, [later]) the 6-gram phoneme LM lowers PER from 10.62% to 9.98%, about 6% relative (inference) [[5]](#ref-5); at word level, Moses et al. (2021, [later]) report median WER 60.5% without and 25.6% with an LM, 50 words, attempted speech [[9]](#ref-9).
+
+Decoding lowers PER against framewise estimates (§3.2), for pooled averaged HGWs from 142.96% to 70.47% (Table 5), about 51% relative (inference); estimation PERs above 100% show it mostly removes frame-level insertions, and the authors call temporal smoothing "the primary benefit" (§4). LM weight, insertion penalty and self-transition were tuned jointly and no L = 0 decoding is reported (§2.2.3, Table 4), so phonotactics are not separated from HMM smoothing. Verdict: standard.
+
+### M12 Evaluation: stimulus folds, selection on test data
+
+**Usual approach:** 11 of the 18 prior decoders use k-fold cross-validation (pattern match, Appendix), as do the paper's ten stimulus-level Gump folds (§2.1.5).
+
+**State of the art:** Chen et al. (2024, [later]) test on held-out participants (spectrogram PCC 0.765) [[10]](#ref-10); the paper tests new stimuli of the same two speakers (§2.1.5).
+
+Electrodes (95, 89 and 74 per subject) were selected by a speech-versus-silence t-test on the whole Gump set, threshold "qualitatively chosen after visual inspection" (§2.1.4); Herff et al. select features on training data only [[2]](#ref-2). Verdict: standard on the partition; the selection overlap is unmeasured.
+
+## The 13 components
+
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Listening, 3 epilepsy patients | Speech task | – | standard |
+| M02 Training-only supervision | Aligned phoneme labels, 39 classes | Stimulus labels | – | standard |
+| M03 Training and adaptation | Per-subject LDA; pooled upper bound | Per-subject | – | standard |
+| M04 Use-time action | Heard speech | Production or perception | – | standard |
+| M05 Sensors | 256-electrode ECoG, 70-150 Hz | High-gamma ECoG | – | standard |
+| M06 Processing and decoding | LDA, HMM/Viterbi, multi-lag windows | Closed-set classification (slot-filled 8) | [[5]](#ref-5) (2026): PER 7.86% | standard |
+| M07 Lexicon and LM | Phoneme 4-gram, test sequences excluded | No LM (pattern match 15) | [[5]](#ref-5) (2026): PER 10.62% to 9.98% | standard |
+| M08 Output | Phoneme sequence | Label or acoustics | – | standard |
+| M09 Confirmation | Offline | Offline | – | not applicable |
+| M10 Correction | Offline | Offline | – | not applicable |
+| M11 Reference construction | TIMIT; Gump, two speakers | Corpora | – | standard |
+| M12 Evaluation | 10 stimulus folds; electrodes chosen on Gump | k-fold CV (pattern match 11) | [[10]](#ref-10) (2024): held-out subjects | standard |
+| M13 Device and cost | Clinical grids | Implanted arrays | – | standard |
+
+## Where the claims outrun the evidence
+
+- "Temporal information" improving decoding (§3.2, §4) is shown against single time points, not the multi-lag features in use [[4]](#ref-4), [[2]](#ref-2).
+- Single-trial HGW decoding PER per subject is 85.71–90.63% against a 97.12% chance PER (Table 5); 70.47% needs averaging and pooling, an upper limit in the authors' words (§4).
+- Window and Viterbi parameters were tuned on TIMIT test folds without a validation set (§2.1.6, §2.2.3).
+- Speaker independence (§4) rests on two Gump speakers (§3.4); the authors note it.
+
+## What the field needs next
+
+- M07: decode at L = 0 and with a uniform phoneme prior under the same HMM, to separate phonotactics from smoothing.
+- M12: select electrodes and fit z-scoring inside training folds; hold out speakers and sessions.
+- M06: compare HGWs with multi-lag regression features [[4]](#ref-4) and with sub-phone or recurrent models at a fixed electrode set.
+
+## Questions for the authors
+
+- How does PER change when electrodes are selected on training folds only?
+- How many sessions per subject, and was z-scoring fitted on training data only (§2.1.4)?
+- Were TIMIT folds speaker-disjoint, and how variable are results over repeated folds?
+
+## Appendix: literature search
+
+- M06, intracranial-continuous-speech-sequence-decoder. Inclusion rule: human studies decoding speech content (phonemes, syllables, words, sentences, acoustics or speech activity) from intracranial recordings during produced, attempted, imagined or perceived speech; design of interest: how a continuous neural series becomes an output sequence (closed-set classification of segmented trials, regression to acoustics, HMM/Viterbi search with an n-gram LM), and whether features span several time lags; reviews, mapping or encoding studies without a decoder, off-task decoders and scalp-EEG papers removed; versions and repeated reports of one experiment once. Counts: M06 slot-filled 7,345 unique studies; ledger pattern match 618 unique studies (all years); prior decoder population 18 unique studies (first public before 2016-02). Usual design: closed-set classification of segmented trials, 8 (slot-filled decoder route); recognition to text by HMM/Viterbi with an n-gram LM, 2 (one group); acoustic reconstruction, 1. Full-text pattern match: HMM or Viterbi named 7 (upper bound), time lags or stacked context 7; perception-only decoders 3, none with an HMM or LM. Read: [[2]](#ref-2), [[3]](#ref-3), [[7]](#ref-7), [[4]](#ref-4), [[8]](#ref-8) (prior); [[5]](#ref-5), [[6]](#ref-6) (state of the art). Outside the ledger: Chang et al. 2015, ICSI technical report (the target's reference 10). Known-item recall 1.0.
+- M07, intracranial-decoder-use-time-language-model. Inclusion rule: the M06 population; design of interest: language information applied at use time (none, word n-gram with dictionary, phoneme n-gram, LLM rescoring); a study counts under every design its full text names. Counts: M07 slot-filled 119; ledger pattern match 618 unique studies (all years); prior population 18. Usual design: no language model named, 15 (pattern match); n-gram LM 3 (two word bigrams, read; one names an LM only for audio recognition); phoneme-level LM 0; LLM rescoring 0. Read: [[2]](#ref-2), [[3]](#ref-3) (prior); [[9]](#ref-9) ([later]); [[5]](#ref-5) (state of the art). Known-item recall 1.0.
+- M12, intracranial-speech-test-partition (published table, reused). Inclusion rule: intracranial speech or language decoding studies; design of interest: how test data are separated from training data (k-fold, leave-one-out, held-out session, day or subject). Counts: M12 slot-filled 6,960; pattern match 618 unique studies; all-years usual design k-fold cross-validation 132 (pattern match). For this review, the 18 prior decoders of the M06 topic: k-fold 11, leave-one-out 4 (pattern match). Read: [[2]](#ref-2) (fold-internal selection); [[10]](#ref-10) (state of the art). Known-item recall 1.0.
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Moses, D. A., Mesgarani, N., Leonard, M. K., Chang, E. F. “Neural speech recognition: continuous phoneme decoding using spatiotemporal representations of human cortical activity.” *Journal of Neural Engineering*, 2016, 13(5), 056004. doi:[10.1088/1741-2560/13/5/056004](https://doi.org/10.1088/1741-2560/13/5/056004). Target. Read as the accepted manuscript. [wiki: doi-10.1088-1741-2560-13-5-056004](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1088-1741-2560-13-5-056004/article.md) [wiki: pmc-5031534-nsr](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-5031534-nsr/article.md) [wiki: pmc-5031534-phoneme](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-5031534-phoneme/article.md)
+2. <a id="ref-2"></a>Herff, C., Heger, D., de Pesters, A., Telaar, D., Brunner, P., Schalk, G., et al. “Brain-to-text: decoding spoken phrases from phone representations in the brain.” *Frontiers in Neuroscience*, 2015, 9, 217. doi:[10.3389/fnins.2015.00217](https://doi.org/10.3389/fnins.2015.00217). Prior; deciding prior for M06 and M07. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/brain-to-text-decoding-spoken-phrases-from-phone-representations-in-the-brain) [wiki: doi-10.3389-fnins.2015.00217](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3389-fnins.2015.00217/article.md) [wiki: pmc-4464168-brain2text](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-4464168-brain2text/article.md) [wiki: pmc-4464168-brain2text15](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-4464168-brain2text15/article.md)
+3. <a id="ref-3"></a>Heger, D., Herff, C., de Pesters, A., Telaar, D., Brunner, P., Schalk, G., et al. “Continuous Speech Recognition from ECoG.” *Interspeech 2015*, 2015. doi:[10.21437/Interspeech.2015-428](https://doi.org/10.21437/Interspeech.2015-428). Prior; deciding prior for M06 and M07. [wiki: isca-heger15_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-heger15_interspeech/article.md)
+4. <a id="ref-4"></a>Pasley, B. N., David, S. V., Mesgarani, N., Flinker, A., Shamma, S. A., Crone, N. E., et al. “Reconstructing Speech from Human Auditory Cortex.” *PLoS Biology*, 2012, 10(1), e1001251. doi:[10.1371/journal.pbio.1001251](https://doi.org/10.1371/journal.pbio.1001251). Prior (same group); multi-lag features, M06. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/reconstructing-speech-from-human-auditory-cortex) [wiki: doi-10.1371-journal.pbio.1001251](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1371-journal.pbio.1001251/article.md) [wiki: pmc-3269422-pasley](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-3269422-pasley/article.md) [wiki: pmc-3269422-speechrecon](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-3269422-speechrecon/article.md)
+5. <a id="ref-5"></a>Cha, Y., Chun, D., Park, S. “iPhoneme: Brain-to-Text Communication for ALS Using ConformerXL Decoding.” *arXiv*, 2026. arXiv:[2604.16441](https://arxiv.org/abs/2604.16441). State of the art for M06 and M07. [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/iphoneme-brain-to-text-communication-for-als-using-conformerxl-decoding) [wiki: arxiv-2604-16441-iphoneme](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2604-16441-iphoneme/article.md) [wiki: arxiv-2604.16441](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2604.16441/article.md) [wiki: arxiv-2604.16441-iphoneme](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2604.16441-iphoneme/article.md)
+6. <a id="ref-6"></a>Willett, F. R., Kunz, E. M., Fan, C., Avansino, D. T., Wilson, G. H., Choi, E. Y., et al. “A high-performance speech neuroprosthesis.” *Nature*, 2023, 620(7976), 1031–1036. doi:[10.1038/s41586-023-06377-x](https://doi.org/10.1038/s41586-023-06377-x). Reference for M06 (PER before LM). [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/a-high-performance-speech-neuroprosthesis) [wiki: doi-10.1038-s41586-023-06377-x](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41586-023-06377-x/article.md) [wiki: pmc-10468393-neuroprosthesis](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10468393-neuroprosthesis/article.md)
+7. <a id="ref-7"></a>Matthews, B. A. “Probabilistic Modeling of Neural Data for Analysis and Synthesis of Speech.” *Georgia Institute of Technology*, 2012. <https://repository.gatech.edu/items/17aa47ee-38bf-46e7-874c-a225089ba5ce> Prior; HMM over intracortical firing rates, M06. [wiki: gatech-matthews-201212-phd](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/gatech-matthews-201212-phd/article.md)
+8. <a id="ref-8"></a>Mugler, E. M., Patton, J. L., Flint, R. D., Wright, Z. A., Schuele, S. U., Rosenow, J., et al. “Direct classification of all American English phonemes using signals from functional speech motor cortex.” *Journal of Neural Engineering*, 2014, 11(3), 035015. doi:[10.1088/1741-2560/11/3/035015](https://doi.org/10.1088/1741-2560/11/3/035015). Prior; LDA phoneme classification, M06. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/direct-classification-of-all-american-english-phonemes-using-signals-from-functional-speech-motor-co) [wiki: doi-10.1088-1741-2560-11-3-035015](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1088-1741-2560-11-3-035015/article.md) [wiki: pmc-4097188-mugler](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-4097188-mugler/article.md)
+9. <a id="ref-9"></a>Moses, D. A., Metzger, S. L., Liu, J. R., Anumanchipalli, G. K., Makin, J. G., Sun, P. F., et al. “Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria.” *New England Journal of Medicine*, 2021, 385(3), 217–227. doi:[10.1056/NEJMoa2027540](https://doi.org/10.1056/NEJMoa2027540). Same group; word-level LM effect, M07. [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/neuroprosthesis-for-decoding-speech-in-a-paralyzed-person-with-anarthria) [wiki: doi-10.1056-nejmoa2027540](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1056-nejmoa2027540/article.md) [wiki: pmc-8972947-nejmspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-8972947-nejmspeech/article.md)
+10. <a id="ref-10"></a>Chen, J., Chen, X., Wang, R., Le, C., Khalilian-Gourtani, A., Jensen, E., et al. “Subject-Agnostic Transformer-Based Neural Speech Decoding from Surface and Depth Electrode Signals.” *bioRxiv*, 2024. doi:[10.1101/2024.03.11.584533](https://doi.org/10.1101/2024.03.11.584533). State of the art for M12 (published table). [later] [wiki: doi-10.1101-2024.03.11.584533](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1101-2024.03.11.584533/article.md) [wiki: pmc-10980022-satrans-decode](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10980022-satrans-decode/article.md) [wiki: pmc-10980022-subjagn](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10980022-subjagn/article.md)
