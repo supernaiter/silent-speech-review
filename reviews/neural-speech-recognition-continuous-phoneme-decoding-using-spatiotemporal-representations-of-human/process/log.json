@@ -1,0 +1,65 @@
+{
+ "slug": "neural-speech-recognition-continuous-phoneme-decoding-using-spatiotemporal-representations-of-human",
+ "stage": "final",
+ "steps": [
+  {
+   "step": "reading",
+   "by": "reader (language model)",
+   "output": "notes.json",
+   "what": "claims, numbers, conditions and unstated items of the target and comparator papers, each with a quote and location",
+   "finished": "2026-11-27T21:52:40+00:00"
+  },
+  {
+   "step": "plan",
+   "by": "writer (language model)",
+   "output": "plan.json",
+   "what": "which of the 13 components the paper changes, and the topics to compare on",
+   "finished": "2026-11-27T21:39:03+00:00"
+  },
+  {
+   "step": "field counts",
+   "by": "script",
+   "output": "topic tables under components/",
+   "what": "ledger search per topic: population, usual approach, candidate state of the art",
+   "finished": "2026-11-27T21:53:13+00:00"
+  },
+  {
+   "step": "draft",
+   "by": "writer (language model)",
+   "output": "draft.md, claims-draft.md",
+   "what": "review written from the notes and counts only; every claim mapped to a note or a count",
+   "finished": "2026-11-27T21:42:25+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-27T21:49:59+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-27T21:55:36+00:00"
+  }
+ ],
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 104 found, 0 missing, 9 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-intracranial-continuous-speech-sequence-decoder": "ok",
+  "topic counts M07-intracranial-decoder-use-time-language-model": "ok",
+  "topic counts M12-intracranial-speech-test-partition": "ok"
+ },
+ "inputs": {
+  "notes_sha256": "43331558fc00d229da10a53fdc495fe93311150fba46df9946de997b917574b2",
+  "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+  "method_sha256": "e8a70a09aa6de9f44dabca89b49999dd1a33f4b014759fcb8827e7a2a8c2747a",
+  "method": "pipeline/SKILL.md"
+ },
+ "body_chars": {
+  "draft": 18341,
+  "final": 18545
+ }
+}
