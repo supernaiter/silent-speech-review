@@ -4090,6 +4090,12 @@
    "loc": "Table 2",
    "quote": "TM-seq2seq V 49.8% 48.3% 59.9% 58.9%",
    "by": "asr-is-all-you-need-cross-modal-distillation-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-2202.13084",
+   "role": "prior",
+   "loc": "Sec. 3; Table 2",
+   "quote": "standard deviation of the WER over the ten runs"
   }
  ],
  "known_item_recall": {
@@ -4139,6 +4145,7 @@
   "akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model",
   "asr-is-all-you-need-cross-modal-distillation-for-lip-reading",
   "auto-avsr-audio-visual-speech-recognition-with-automatic-labels",
+  "jointly-learning-visual-and-auditory-speech-representations-from-raw-data",
   "learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction",
   "visual-speech-recognition-for-multiple-languages-in-the-wild"
  ],
@@ -4250,5 +4257,261 @@
   "value": 17.6,
   "unit": "%",
   "timing": "later"
+ },
+ "counts_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "window": "ledger year <= 2022",
+  "population_by_year": {
+   "year_le_2022": 59,
+   "later": 192,
+   "unresolved": 7
+  },
+  "with_fulltext_le_2022": 53,
+  "excluded": {
+   "arxiv-1809.00496": "corpus paper",
+   "arxiv-2110.07879": "survey",
+   "arxiv-2205.10839": "survey",
+   "arxiv-2212.06246": "target"
+  },
+  "systems_with_fulltext_le_2022": 49,
+  "spread_pattern_hits": 12,
+  "spread_regex": "standard deviation|std|± digit|confidence interval|random seed(s)|different seeds|N (independent|repeated) runs/trials|averaged over N runs/seeds",
+  "self_training_hits_le_2022": [
+   "arxiv-2201.02184",
+   "arxiv-2209.09735",
+   "arxiv-2211.11275",
+   "arxiv-2212.02782"
+  ],
+  "tier": "pattern match (unique studies), mentions included = upper bound",
+  "screened_v2": {
+   "window": "prior = before 2022-06",
+   "screen": "full text mentions LRS3, lip reading / VSR / visual-only and WER; keyword spotting, sync, separation, surveys and LiRA (LRS2 only) removed",
+   "prior_systems": 20,
+   "pids": [
+    "arxiv-1807.05162",
+    "arxiv-1809.02108",
+    "arxiv-1907.04975",
+    "arxiv-1911.04890",
+    "arxiv-1911.12747",
+    "arxiv-2005.03846",
+    "arxiv-2008.09586",
+    "arxiv-2102.06657",
+    "arxiv-2104.02775",
+    "arxiv-2104.04784",
+    "arxiv-2104.09482",
+    "arxiv-2109.09536",
+    "arxiv-2110.07603",
+    "arxiv-2201.01763",
+    "arxiv-2201.02184",
+    "arxiv-2201.10439",
+    "arxiv-2202.07428",
+    "arxiv-2202.13084",
+    "arxiv-2204.01725",
+    "arxiv-2205.14295"
+   ],
+   "spread_pattern_hits": 5,
+   "spread_hit_pids": [
+    "arxiv-1807.05162 (bootstrap test errors)",
+    "arxiv-1809.02108 (augmentation range)",
+    "arxiv-1911.04890 (test confidence intervals)",
+    "arxiv-2102.06657",
+    "arxiv-2202.13084 (ten training runs, mean±std)"
+   ],
+   "tier": "pattern match, screened"
+  }
+ },
+ "usual_approach_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "design": "one reported WER per system with no run spread",
+  "n": 15,
+  "tier": "pattern match (screened)",
+  "population_unique": 20,
+  "pids": [
+   "arxiv-1911.12747",
+   "arxiv-2201.02184",
+   "arxiv-2109.09536",
+   "arxiv-2110.07603"
+  ]
+ },
+ "state_of_the_art_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "pid": "arxiv-2302.10915",
+  "year": 2023,
+  "metric": "LRS3 VSR WER, LP-Conformer, ~100k h non-public YouTube ([concurrent]); public data: USR 2.0 Huge 17.6% (2026, [later])",
+  "value": 12.8,
+  "unit": "%",
+  "timing": "concurrent"
+ },
+ "ledger_tally_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 18,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2604-27866-lrsvoxmm",
+     "arxiv-2605-28456-dllmvsr",
+     "arxiv-2607-29112-doublehelix",
+     "arxiv-2608-26213-agrs",
+     "arxiv-2609.20839"
+    ]
+   },
+   {
+    "design": "supervision_kind=paired_audio",
+    "n": 17,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607-29112-doublehelix",
+     "arxiv-2608-26213-agrs",
+     "arxiv-2610.01012",
+     "doi-10.21203-rs.3.rs-8670830-v1",
+     "arxiv-2412.18839"
+    ]
+   },
+   {
+    "design": "supervision_kind=self_supervised",
+    "n": 6,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.21203-rs.3.rs-8670830-v1",
+     "arxiv-2502.03128",
+     "arxiv-2201.02184",
+     "arxiv-2205.02058",
+     "isca-shi22_interspeech"
+    ]
+   },
+   {
+    "design": "supervision_kind=phoneme_label",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.20839",
+     "arxiv-2609.29443",
+     "arxiv-2412.18839",
+     "arxiv-2602.01879",
+     "arxiv-2201.02184"
+    ]
+   },
+   {
+    "design": "supervision_kind=other",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "rsquare-8670830-avsrnoise",
+     "arxiv-2412.18839",
+     "doi-10.20944-preprints202505.0540.v1",
+     "arxiv-2102.06657"
+    ]
+   },
+   {
+    "design": "supervision_kind=gesture_label",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2502.03128"
+    ]
+   }
+  ],
+  "pattern_counts": [],
+  "metric_pattern": "LRS3.*(VSR|visual)|VSR.*LRS3",
+  "better": "lower"
+ },
+ "sota_candidates_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": [
+  {
+   "metric": "AVSR WER 0.77% new state of the art on LRS3",
+   "value": 0.77,
+   "unit": "percent",
+   "raw": "AVSR WER on LRS3 (SOTA)",
+   "pid": "doi-10.1109-icassp49660.2025.10889251",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "AVSR WER Huge LRS3",
+   "value": 0.8,
+   "unit": "percent",
+   "raw": "0.8",
+   "pid": "arxiv-2602.19316",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t2 llama-avsr LRS3",
+   "value": 0.9,
+   "unit": "percent",
+   "raw": "0.9",
+   "pid": "arxiv-2503.06362",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t6 avsr lrs3(42)",
+   "value": 0.9,
+   "unit": "percent",
+   "raw": "0.9",
+   "pid": "arxiv-2510.04136",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t1 lrs3 llama-mtsk.avsr42",
+   "value": 1.0,
+   "unit": "percent",
+   "raw": "1.0",
+   "pid": "arxiv-2511.07253",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER beam(+LM) on LRS3 clean, TM-CTC audio-visual",
+   "value": 11.3,
+   "unit": "percent",
+   "raw": "TM–CTC AV 12.50% 11.30%",
+   "pid": "doi-10.3390-s23041834",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t3 ours avsr-lrs3",
+   "value": 14.0,
+   "unit": "percent",
+   "raw": "14.0",
+   "pid": "arxiv-2407.03563",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Llama-AVSR MV2LRS3 WER",
+   "value": 15.3,
+   "unit": "percent",
+   "raw": "Llama-AVSR 15.3% on matched set",
+   "pid": "arxiv-2606-07259-genvsr",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Lip2Text WER 17.38% on LRS3-TED (vs 20.4-38.9% literature VSR WERs on GRID/LRW)",
+   "value": 17.38,
+   "unit": "percent",
+   "raw": "Lip2Text (ours) LRS3-TED [ 41] 17.38%",
+   "pid": "doi-10.21203-rs.3.rs-3852300-v1",
+   "year": 2024,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t3 autoavsr3 lrs3",
+   "value": 19.1,
+   "unit": "percent",
+   "raw": "19.1",
+   "pid": "arxiv-2406.12233",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "known_item_recall_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
+  "seeds_in_wiki": 2,
+  "found": 2,
+  "recall": 1.0,
+  "missed": []
  }
 }

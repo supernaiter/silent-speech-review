@@ -15,25 +15,25 @@
   "choice": [
    "Joint audio-teacher latents; ASR pseudo-labels in self-training"
   ],
-  "field": "Distillation from a frozen audio recogniser (10 of 14, to 2022)",
-  "n": 14,
-  "matched": 10,
-  "matched_tier": "pattern match (unique studies, year <= 2022)",
+  "field": "Distillation from an audio or speech model (5 of 9 prior)",
+  "n": 9,
+  "matched": 5,
+  "matched_tier": "pattern match (screened, prior)",
   "verdict": "standard",
-  "note": "The largest VSR gain after pre-training (32.5% to 24.8%) comes from ASR pseudo-labels, the usual route; round count and LM use not stated.",
+  "note": "Same audio pseudo-labelling route as AV-HuBERT on the same data: 7.7 against 3.9 points; pseudo-label decoding not stated.",
   "sota": "[@haliassos2026usr2] EMA-teacher pseudo-labels, 23.7% (Large, 30 h)"
  },
  "M03": {
   "choice": [
    "Asymmetric cross-modal prediction of momentum-teacher latents"
   ],
-  "field": "Contrastive objectives (18 of 24, to 2022); AV-HuBERT on LRS3",
-  "n": 24,
-  "matched": 18,
-  "matched_tier": "pattern match (unique studies, year <= 2022)",
+  "field": "Contrastive objectives (3 of 7 prior); none with a momentum teacher",
+  "n": 7,
+  "matched": 3,
+  "matched_tier": "pattern match (screened, prior)",
   "verdict": "standard",
-  "note": "New design among priors, but equal to AV-HuBERT at Large / 30 h (32.5% both) and ablated only on Base, validation set, one run.",
-  "sota": "[@haliassos2026usr2] 23.7% at Large, 30 h, LRS3+VoxCeleb2"
+  "note": "Cross-modal asymmetric use of data2vec-style momentum teachers; ties AV-HuBERT at Large, 30 h (32.5%); ablations Base only, no repeat runs.",
+  "sota": "BRAVEn 30.8% at Large, 30 h, no pseudo-labels (listed in [@haliassos2026usr2])"
  },
  "M04": {
   "choice": [
@@ -75,7 +75,7 @@
   "choice": [
    "Transformer LM, shallow fusion, beam 40"
   ],
-  "field": "LM in decoding (sparse slot)",
+  "field": "LM in decoding",
   "n": null,
   "matched": null,
   "matched_tier": "slot_filled (not audited)",
@@ -128,20 +128,20 @@
   "matched": null,
   "matched_tier": "slot_filled (not audited)",
   "verdict": "standard",
-  "note": "Exclusion of LRS3 test videos from unlabelled pre-training not stated.",
+  "note": "VoxCeleb2 speaker overlap with the LRS3 test set not discussed.",
   "sota": "–"
  },
  "M12": {
   "choice": [
    "LRS3 test WER, single runs, no seeds"
   ],
-  "field": "No run spread (37 of 49 LRS3 systems, to 2022)",
-  "n": 49,
-  "matched": 37,
-  "matched_tier": "pattern match (unique studies, year <= 2022)",
+  "field": "No run spread (15 of 20 prior LRS3 systems)",
+  "n": 20,
+  "matched": 15,
+  "matched_tier": "pattern match (screened, prior)",
   "verdict": "standard",
-  "note": "Typical of the field; the 90,000-hour comparison omits the lower 19.3% in the same table.",
-  "sota": "[@haliassos2026usr2] 17.6% (Huge, LRS2+LRS3 labelled)"
+  "note": "Typical of the field; the same group reported ten-run spread earlier; abstract picks 25.9% over the 19.3% in its own table.",
+  "sota": "[@chang2023lpconformer] 12.8% (100k h non-public); 17.6% public [@haliassos2026usr2]"
  },
  "M13": {
   "choice": [
