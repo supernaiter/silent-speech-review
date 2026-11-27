@@ -9252,6 +9252,34 @@
    "role": "prior",
    "loc": "Methods",
    "quote": "The subject participated in 25 sessions over a 5 month period in which he performed between 5-34 trials per session."
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06377-x",
+   "role": "sota",
+   "loc": "Results",
+   "quote": "After training, the RNN was evaluated in real time on held-out sentences that were never duplicated in the training set.",
+   "used_by": "classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i"
+  },
+  {
+   "pid": "pmc-2784218-wirelesssynth",
+   "role": "prior",
+   "loc": "Methods",
+   "quote": "collected during eight 63.4 s long attempted speech sessions recorded on separate days",
+   "used_by": "classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i"
+  },
+  {
+   "pid": "pmc-11328962-rapidcal",
+   "role": "sota",
+   "loc": "Abstract; Results",
+   "quote": "the neuroprosthesis achieved 90.2% accuracy using a 125,000-word vocabulary",
+   "used_by": "classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i"
+  },
+  {
+   "pid": "doi-10.1088-1741-2560-7-5-056007",
+   "role": "prior",
+   "loc": "Sec. 2.2",
+   "quote": "a subset of 30 adjacent trials (15 for training and 15 for decode)",
+   "used_by": "classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i"
   }
  ],
  "known_item_recall": {
@@ -9270,6 +9298,7 @@
  },
  "deciding_priors_note": "Held-out-subject testing of a multi-subject intracranial speech decoder predates the target (Chen et al., bioRxiv 2024-03, read).",
  "used_by": [
+  "classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i",
   "decoding-spoken-words-using-local-field-potentials-recorded-from-the-cortical-surface",
   "decoding-vowels-and-consonants-in-spoken-and-imagined-words-using-electrocorticographic-signals-in-h",
   "direct-classification-of-all-american-english-phonemes-using-signals-from-functional-speech-motor-co",
@@ -9296,7 +9325,10 @@
   "read": 2,
   "read_prior": [
    "doi-10.1038-s41467-025-63825-0",
-   "doi-10.1101-2024.03.11.584533"
+   "doi-10.1101-2024.03.11.584533",
+   "doi-10.1088-1741-2560-7-5-056007",
+   "isca-brumberg09_bcisynth",
+   "pmc-2784218-wirelesssynth"
   ],
   "unread": 904,
   "confirmed_unique": 0,
@@ -9508,5 +9540,122 @@
   "unread": 904,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
+ },
+ "inclusion_rule_classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i": "Published rule (intracranial speech decoding; design = how test data are separated from training data). Target time: the published design regexes, plus online closed-loop decoding, applied to the unique ledger-pattern studies first public before 2010-11 (reference lists removed). Boundary: mentions count (upper bounds); target folders excluded; versions merged; 2010-11 to 2011-11 is [concurrent].",
+ "prior_tally_classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i": {
+  "cutoff": "2010-11",
+  "population_unique": 12,
+  "population_pids": [
+   "doi-10.1523-jneurosci.2875-08.2008",
+   "doi-10.1093-brain-awn147",
+   "pmc-2784218-wirelesssynth",
+   "isca-brumberg09_bcisynth",
+   "doi-10.1126-science.1174481",
+   "doi-10.1016-j.specom.2009.08.002",
+   "doi-10.1586-erd.10.34",
+   "pmc-2829990-bcispeech",
+   "pmc-3321121-revspeech",
+   "doi-10.1016-j.neuroimage.2009.12.084",
+   "doi-10.1088-1741-2560-7-5-056007",
+   "doi-10.1523-jneurosci.1809-10.2010"
+  ],
+  "design_counts": [
+   {
+    "design": "k_fold_cross_validation",
+    "n": 2,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-2784218-wirelesssynth",
+     "doi-10.1016-j.specom.2009.08.002"
+    ]
+   },
+   {
+    "design": "random_trial_split",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "isca-brumberg09_bcisynth",
+     "doi-10.1016-j.specom.2009.08.002",
+     "pmc-2829990-bcispeech"
+    ]
+   },
+   {
+    "design": "held_out_session_or_day",
+    "n": 1,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-2784218-wirelesssynth"
+    ]
+   },
+   {
+    "design": "held_out_subject",
+    "n": 0,
+    "tier": "pattern match",
+    "pids": []
+   },
+   {
+    "design": "online_closed_loop",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-2784218-wirelesssynth",
+     "isca-brumberg09_bcisynth",
+     "doi-10.1586-erd.10.34",
+     "pmc-2829990-bcispeech"
+    ],
+    "regex": "\\b(real[- ]time|on-?line|closed[- ]loop)\\b[^.]{0,80}\\b(decod|feedback|control|synthes)"
+   }
+  ],
+  "excluded": "pmc-3342676-gammaev (date unresolved: 2010 in one folder, 2012 in another); doi-10.1038-nn.2641, doi-10.1371-journal.pone.0014744, pmc-3637898-guenther, doi-10.1088-1741-2560-8-3-036004, doi-10.1088-1741-2560-8-4-046028, doi-10.1093-cercor-bhr014 [concurrent]",
+  "note": "Online closed-loop hits are the same group's reports on the same participant, except Kellis et al. 2010 is not among them; held-out-session hit is Guenther et al. 2009 (eight sessions on separate days)."
+ },
+ "usual_approach_classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i": {
+  "design": "trial-level or online test (2 decoding designs)",
+  "n": 2,
+  "tier": "pattern match",
+  "population_unique": 2,
+  "pids": [
+   "pmc-2784218-wirelesssynth",
+   "doi-10.1088-1741-2560-7-5-056007"
+  ]
+ },
+ "state_of_the_art_classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i": {
+  "pid": "pmc-11328962-rapidcal",
+  "year": 2024,
+  "metric": "online copy-task WER, final five evaluation sessions, 125,000-word vocabulary, one participant",
+  "value": 2.5,
+  "unit": "% WER",
+  "timing": "later"
+ },
+ "prior_tally_decoders_classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i": {
+  "cutoff": "2010-11",
+  "basis": "the 12-study prior population reduced to decoders: reviews (doi-10.1016-j.specom.2009.08.002, doi-10.1586-erd.10.34, pmc-2829990-bcispeech) and perception, mapping or suppression studies (doi-10.1523-jneurosci.2875-08.2008, doi-10.1093-brain-awn147, doi-10.1126-science.1174481, pmc-3321121-revspeech, doi-10.1016-j.neuroimage.2009.12.084, doi-10.1523-jneurosci.1809-10.2010) removed; two reports of one synthesizer experiment merged",
+  "decoding_designs": 2,
+  "designs": [
+   {
+    "pid": [
+     "pmc-2784218-wirelesssynth",
+     "isca-brumberg09_bcisynth"
+    ],
+    "test": "online closed-loop use; offline fit on sessions recorded on separate days"
+   },
+   {
+    "pid": "doi-10.1088-1741-2560-7-5-056007",
+    "test": "trial-level split, 15 training and 15 decoding trials per word"
+   }
+  ],
+  "design_counts": [
+   {
+    "design": "trial-level or online test",
+    "n": 2,
+    "tier": "pattern match"
+   },
+   {
+    "design": "sample-level random split",
+    "n": 0,
+    "tier": "pattern match"
+   }
+  ],
+  "behind_rule": "not met: 2 earlier decoding designs, fewer than 3"
  }
 }
