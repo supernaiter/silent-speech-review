@@ -208,6 +208,20 @@
    "role": "prior",
    "loc": "Sec. III (classifier)",
    "quote": "During the training on imagined speech data, the ResNet model layers are frozen and only the appended FC layers are trained"
+  },
+  {
+   "pid": "arxiv-2601.15909",
+   "role": "sota",
+   "loc": "Table 4",
+   "quote": "Convolutional projection + RandomInit + partial FT 81.6 ± 2.8 70.8 ± 1.7",
+   "used_by": "decoding-imagined-and-spoken-phrases-from-non-invasive-neural-meg-signals"
+  },
+  {
+   "pid": "arxiv-2601.15909",
+   "role": "sota",
+   "loc": "Table 4",
+   "quote": "Convolutional projection + RandomInit + full FT 80.2 ± 2.9 69.1 ± 1.9",
+   "used_by": "decoding-imagined-and-spoken-phrases-from-non-invasive-neural-meg-signals"
   }
  ],
  "known_item_recall": {
@@ -253,6 +267,42 @@
   "known_item_recall": 1.0
  },
  "used_by": [
+  "decoding-imagined-and-spoken-phrases-from-non-invasive-neural-meg-signals",
   "transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech"
- ]
+ ],
+ "usual_approach_decoding-imagined-and-spoken-phrases-from-non-invasive-neural-meg-signals": {
+  "design": "no ImageNet-pretrained backbone",
+  "n": 16,
+  "tier": "pattern match",
+  "population_unique": 16,
+  "pids": [
+   "pmc-25146-brainwave",
+   "doi-10.1088-1741-2560-7-4-046006",
+   "doi-10.5220-0003769603700373",
+   "doi-10.1088-1741-2560-8-3-036004",
+   "pmc-3772685-vowelcons"
+  ],
+  "note": "Target-time population (one setting for M03, M06 and M12): decoders that classify imagined, covert, inner or internal speech (or an imagination or preparation stage) from human electrophysiological recordings (scalp EEG, MEG, ECoG, depth or intracortical), first public before 2019-01; target time 2019-07, the date of the same group's EMBC 2019 conference paper on CNN transfer learning for MEG speech decoding (doi:10.1109/EMBC.2019.8857874; unread, not in the wiki); journal received 2019-08, published 2020-04; [concurrent] 2019-01 to 2020-01. Found by a full-text pattern over the whole wiki (imagined/covert/inner speech or imagination/covert/imagery stage terms and an electrophysiology term, each at least 3 times; the stage terms were added after the first scan missed Dash et al. 2018) and triaged by hand; excluded: fMRI and fNIRS, reviews, theses duplicating published studies, listening-only or overt-only decoding, analyses without a decoder, synthetic data (arxiv-1705.07771), attempted or inner speech from implanted unit recordings (Brumberg 2011; Sarmah and Kennedy 2013, pmc-4437274), motor-imagery speech synthesis (Kennedy 2018), EEG biometrics; versions once. 16 prior unique studies: Suppes 1997 (EEG and MEG), Deng 2010, Torres-Garcia 2012, Leuthardt 2011, Pei 2011, Martin 2014, Ikeda 2014, Martin 2016, Yoshimura 2016, Min 2016, s41133 2016, ICA conceptual words 2017, Nguyen 2017, Jahangiri 2018, Rezazadeh Sereshkeh 2018 thesis, Dash et al. 2018 (MEG, same group and paradigm). 8 [concurrent]: Saha 2019 (three papers), covert-speech 2019, imagined-speech EEG thesis 2019, JAMT 2019, Singh 2019, Dash 2019 Interspeech. ImageNet-pretrained CNN in 0 of 16 prior and 0 of 8 [concurrent] (pattern match, full text). Whole-wiki full-text recall check (any electrophysiological speech decoding paper first public up to 2019, any task, overt included): ImageNet or named vision backbone within 80 characters of pretraining or transfer, or a scalogram, spectrogram or time-frequency image within 150 characters of CNN: 2 hits, both off-design (arxiv-1912.07730 states it avoided pretrained ResNet or VGG; pmc-6901702 is a review)."
+ },
+ "at_target_time_decoding-imagined-and-spoken-phrases-from-non-invasive-neural-meg-signals": {
+  "target_time": "2019-07",
+  "prior_unique": 16,
+  "concurrent_unique": 8,
+  "design_counts_prior": {
+   "imagenet_pretrained": 0
+  },
+  "design_counts_concurrent": {
+   "imagenet_pretrained": 0
+  },
+  "tier": "pattern match (unique studies)",
+  "recall_check": "Whole-wiki full-text recall check (any electrophysiological speech decoding paper first public up to 2019, any task, overt included): ImageNet or named vision backbone within 80 characters of pretraining or transfer, or a scalogram, spectrogram or time-frequency image within 150 characters of CNN: 2 hits, both off-design (arxiv-1912.07730 states it avoided pretrained ResNet or VGG; pmc-6901702 is a review)."
+ },
+ "state_of_the_art_decoding-imagined-and-spoken-phrases-from-non-invasive-neural-meg-signals": {
+  "pid": "arxiv-2601.15909",
+  "year": 2026,
+  "metric": "pretraining ablation, ResNet-18 on MEG scalograms, 21 participants, from-scratch arm with full fine-tuning: imagery vs silence 90.4 vs 80.2 pooled SAP (chance 50%), 77.5 vs 69.1 LOSO; three vowels LOSO 51.7 vs 44.8 (chance 33%)",
+  "value": "90.4 vs 80.2",
+  "unit": "% balanced accuracy",
+  "timing": "later"
+ }
 }

@@ -1,0 +1,68 @@
+{
+ "target": "doi-10.3389-fnhum.2020.00290",
+ "versions": [
+  "doi-10.3389-fnins.2020.00290",
+  "pmc-7154084-megphrases"
+ ],
+ "target_time": "2019-07 (EMBC 2019 conference version by the same group; journal 2020-04)",
+ "setting": "imagined, covert or inner speech classification from human electrophysiological recordings of any kind (EEG, MEG, ECoG, depth, intracortical); priors before 2019-01",
+ "slots": {
+  "M01": "inherited",
+  "M02": "inherited",
+  "M03": "changed",
+  "M04": "inherited",
+  "M05": "inherited",
+  "M06": "changed",
+  "M07": "inherited",
+  "M08": "inherited",
+  "M09": "inherited",
+  "M10": "inherited",
+  "M11": "inherited",
+  "M12": "incidental",
+  "M13": "inherited"
+ },
+ "topics": [
+  {
+   "slot": "M03",
+   "topic": "imagenet-pretrained-vision-backbone-neural-speech",
+   "reuse": "components/M03 (published, append-only)",
+   "inclusion_rule": "see audit",
+   "metric": "accuracy; pretraining ablation"
+  },
+  {
+   "slot": "M06",
+   "topic": "imagined-speech-neural-time-frequency-image-cnn",
+   "inclusion_rule": "see audit",
+   "pattern": "imagined/covert/inner speech + electrophysiology (ledger)",
+   "design_regex": [
+    "tf_image_cnn",
+    "imagenet_pretrained_cnn",
+    "cnn_any",
+    "shallow_classifier"
+   ],
+   "metric": "5-class accuracy"
+  },
+  {
+   "slot": "M12",
+   "topic": "imagined-speech-neural-test-partition-and-artifact-controls",
+   "inclusion_rule": "see audit",
+   "design_regex": [
+    "random_trial_or_kfold",
+    "session_or_block_held_out",
+    "held_out_subject",
+    "emg_recorded",
+    "permutation_null"
+   ],
+   "metric": "accuracy under each partition"
+  }
+ ],
+ "deciding_priors": [
+  "arxiv-1705.07771",
+  "pmc-25146-brainwave",
+  "oa-W3088488915"
+ ],
+ "sota": [
+  "pmc-7668411-megsel",
+  "arxiv-2601.15909"
+ ]
+}
