@@ -1,0 +1,70 @@
+{
+ "target": [
+  "doi-10.1093-ietisy-e89-d.1.1",
+  "ieice-e89d-nakajima-nam-2006",
+  "ieice2004-nakajima-nam-recognition"
+ ],
+ "gate": "component paper: body-conducted non-audible murmur recognizer (skin-contact stethoscopic microphone, normal-speech HMM retrained with NAM, 20K-word dictation)",
+ "prep": "no prep/ directory; plan and audits built by the writer; published topic table M12/body-conducted-sensor-noise-test-protocol reused append-only; checked notes for Jou 2004, Graciarena 2004 and Whisphone 2025 reused from the nasovoce work dir with quotes re-verified",
+ "time_frame": "First public 2004-09: the IEICE Trans. Inf. & Syst. E89-D(1) 2006 paper is the English version (2004 IEICE Excellent Paper Award special section) of IEICE Trans. D-II J87-D-II(9), Sept. 2004, whose Table 1 is identical; both merged with the target (ieice2004-nakajima-nam-recognition, ieice-e89d-nakajima-nam-2006). Prior = first public before 2004-03; [concurrent] = 2004-03 to 2005-03. The group's ICASSP 2003 (2003-04) and Eurospeech 2003 (2003-09) papers report one earlier experiment with the same design and the same environment A-C rows; they are a distinct earlier publication (smaller described training set, three environments) and count once as a same-group prior. Heracleous et al. ASRU 2003 (iterative MLLR) is a separate same-group prior.",
+ "setting": "One setting across slots: recognizers of speech that is not voiced speech picked up by an air microphone, i.e. speech produced without vocal-fold vibration (whisper, murmur, mimed or silently articulated speech) from any signal, and speech picked up by skin-, bone- or tissue-conducted sensors in any speaking mode. NAM is a body-conducted acoustic signal, so acoustic whisper recognition (air microphone), throat-microphone and bone-conduction recognition are inside the comparison population; non-acoustic silent-speech recognizers (EMG, ultrasound, video) are inside for the speaking-mode comparison (M04) and for novelty, but not for sensor-site or adaptation counts, where their design is not comparable.",
+ "changed": [
+  "M03",
+  "M04",
+  "M05"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "One male speaker reads ATR and JNAS sentences in NAM in a quiet room (group's 2003 protocol)",
+  "M02": "Sentence transcripts without segmentation times (embedded re-estimation)",
+  "M06": "Monophone 5-state 16-mixture HMMs, 12 MFCC + 12 delta + delta log power, Julius (Japanese Dictation Toolkit 1999)",
+  "M07": "Toolkit 20K-word vocabulary and trigram language model, unchanged",
+  "M08": "Text",
+  "M09": "Offline study; visual checking only proposed",
+  "M10": "Offline study; correction only proposed",
+  "M11": "Read sentence text as reference",
+  "M13": "Hand-made stethoscopic microphone; 24-hour attachment observation"
+ },
+ "topics": [
+  {
+   "slot": "M05",
+   "topic": "body-conducted-sensor-speech-recognition",
+   "inclusion_rule": "Speech recognizers (text output) whose test input is a skin-, bone- or tissue-conducted acoustic sensor on the talker (throat or contact microphone, bone-conduction microphone, NAM or stethoscopic microphone, accelerometer), in any speaking mode; design compared is the body site of the sensor. Boundary: enhancement or conversion without a recognizer, speaker recognition and reviews are excluded; air-microphone whisper recognizers belong to the M04 topic; multiple reports of one experiment count once; the 2004 Japanese and 2006 English versions of the target are merged.",
+   "pattern": "ledger: body-conducted sensor term AND recognition term",
+   "design_field": "body_sites",
+   "metric": "word accuracy on large-vocabulary dictation, speaker dependence and noise condition matched"
+  },
+  {
+   "slot": "M04",
+   "topic": "unvoiced-speech-recognition",
+   "inclusion_rule": "Recognizers that decode text from speech produced without vocal-fold vibration (whisper, non-audible murmur, mimed or silently articulated speech), from any signal (air or body-conducted microphone, EMG, ultrasound, video, articulography); design compared is the speaking mode and the scale of the recognition task (isolated units versus large-vocabulary continuous dictation). Boundary: imagined or inner speech, voiced-speech recognizers that only mention whisper, whisper-versus-normal classifiers, conversion without a recognizer and reviews are excluded; multiple reports of one experiment count once.",
+   "pattern": "ledger: unvoiced speaking-mode term AND recognition term",
+   "design_field": "production_labels",
+   "metric": "word accuracy or recognition rate, vocabulary and speaker dependence matched"
+  },
+  {
+   "slot": "M03",
+   "topic": "normal-speech-model-transfer-to-unvoiced-or-body-conducted-input",
+   "inclusion_rule": "Recognizers for whispered, murmured or body-conducted speech that obtain the acoustic model from normal (air-microphone, voiced) speech models by retraining, MAP or MLLR-family adaptation or speaker adaptive training, or that train on the target speaking mode from scratch; design compared is the transfer method and the amount of target-mode data. Boundary: conversion systems without a recognizer, enhancement front ends that leave the model unchanged, and reviews are excluded; multiple reports of one experiment count once.",
+   "pattern": "ledger: unvoiced or body-conducted term AND adaptation term AND recognition term",
+   "design_field": "adaptation",
+   "design_regex": {
+    "mllr": "MLLR",
+    "map": "MAP adaptation|maximum a posteriori",
+    "retrain": "retrain|re-estimat|additional (EM|training)",
+    "sat": "speaker adaptive training|SAT",
+    "finetune": "fine-tun"
+   },
+   "metric": "word accuracy versus amount of target-mode data"
+  },
+  {
+   "slot": "M12",
+   "topic": "body-conducted-sensor-noise-test-protocol",
+   "inclusion_rule": "Reused published table (same population as M05 body-conducted-sensor-with-air-microphone; design compared is whether noise tests expose the conducted sensor to the noise physically or add it digitally). Added for this review: dated counts at 2004-09 and whether the noise level and an air-microphone baseline in the same noise are reported.",
+   "pattern": "reuse",
+   "metric": "word accuracy or WER under stated noise level"
+  }
+ ]
+}
