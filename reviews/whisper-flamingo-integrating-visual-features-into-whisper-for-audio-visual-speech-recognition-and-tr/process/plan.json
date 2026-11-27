@@ -1,0 +1,141 @@
+{
+ "target": "in24-whisperflamingo",
+ "versions": "Interspeech 2024 proceedings text (in24-whisperflamingo; same content as isca-rouditchenko24-whisperflamingo and arXiv v1); arXiv:2406.10082v3 (2024-11-19) is the authors' revision with added 1,759 h and beam-1 rows, used only where it revises the Interspeech claims",
+ "first_public": "2024-06",
+ "setting": "sentence-level AVSR on LRS3 and audio-visual En-X speech-to-text translation on MuAViC, voiced speech with lip video; populations: 348 unique AVSR studies (M06, M12), 739 VSR/AVSR studies with WER/CER/accuracy (M03), 1,048 VSR/AVSR studies (M08); dated against 2024-06: prior before 2023-12, [concurrent] 2023-12 to 2024-12, [later] after 2024-12",
+ "slots": {
+  "M06": {
+   "class": "changed",
+   "what": "lip features from a frozen AV-HuBERT injected into every block of a pretrained audio-only recognizer's (Whisper) decoder by tanh-gated cross-attention initialised to identity",
+   "topics": [
+    {
+     "topic": "avsr-stream-fusion-and-weighting",
+     "reuse": "components/M06/avsr-stream-fusion-and-weighting.json",
+     "inclusion_rule": "published rule (349-study AVSR population classified by fusion design), dated against 2024-06 for this review; boundary: a study counts under every fusion design its text names (upper bound); versions once by key; target excluded",
+     "design_regex": [
+      "gated_xattn",
+      "cross_attention_fusion",
+      "concatenation",
+      "frozen_backbone",
+      "whisper_or_usm"
+     ],
+     "metric": "LRS3 AVSR WER, clean and 0 dB babble",
+     "deciding_priors": [
+      "arxiv-1809.02108",
+      "cvf-seo23-avformer",
+      "arxiv-2305.11095"
+     ]
+    }
+   ]
+  },
+  "M03": {
+   "class": "changed",
+   "what": "two stages: full fine-tuning of audio-only Whisper (680k h pre-training) with noise, then Whisper frozen and only the new gated layers and a visual projection trained (631M of 2.5B parameters)",
+   "topics": [
+    {
+     "topic": "frozen-encoder-parameter-efficient-training-vsr",
+     "reuse": "components/M03/frozen-encoder-parameter-efficient-training-vsr.json",
+     "inclusion_rule": "published rule (739-study VSR/AVSR population classified by training regime), dated against 2024-06 for this review",
+     "design_regex": [
+      "lora",
+      "adapter_or_prompt",
+      "frozen_encoder",
+      "end_to_end_or_full_finetune"
+     ],
+     "metric": "LRS3 AVSR WER at trainable-parameter count",
+     "deciding_priors": [
+      "cvf-seo23-avformer"
+     ]
+    }
+   ]
+  },
+  "M08": {
+   "class": "changed",
+   "what": "one parameter set outputs English transcripts and En-X translations into six languages from audio-visual input",
+   "topics": [
+    {
+     "topic": "audio-visual-speech-translation-output",
+     "new": true,
+     "inclusion_rule": "VSR/AVSR studies (1,048 unique, lip-reading or audio-visual recognition pattern in the ledger) whose full text names speech-to-text translation output (speech translation, AVST/VST, BLEU), classified by hand among prior and [concurrent] hits into systems that output a translation from lip or audio-visual input versus BLEU used only as a transcription metric or mentioned in related work",
+     "pattern": "lip[- ]?read|visual speech recognition|\\bVSR\\b|lipread|\\bAVSR\\b|audio[- ]visual speech recognition|audiovisual speech recognition",
+     "design_regex": [
+      "translation",
+      "bleu"
+     ],
+     "metric": "MuAViC En-X BLEU, clean and 0 dB babble",
+     "deciding_priors": [
+      "arxiv-2303.00628",
+      "arxiv-2303.05309"
+     ]
+    }
+   ]
+  },
+  "M12": {
+   "class": "incidental",
+   "what": "cross-paper noisy comparisons with non-identical noise files; single runs; 'significantly' without a test; beam size changes the clean ranking (v3)",
+   "topics": [
+    {
+     "topic": "avsr-noise-and-run-variability-protocol",
+     "reuse": "components/M12/avsr-noise-and-run-variability-protocol.json",
+     "inclusion_rule": "published rule, dated against 2024-06",
+     "design_regex": [
+      "run_variability",
+      "lrs3",
+      "babble"
+     ],
+     "metric": "LRS3 AVSR WER with run variability"
+    }
+   ]
+  },
+  "M01": {
+   "class": "inherited",
+   "lineage": "voiced TED speech (LRS3, MuAViC)"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "text transcripts and MuAViC translations, cross-entropy"
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "voiced speech; babble and MUSAN noise added"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "88x88 mouth crops at 25 fps (AV-HuBERT pipeline) and 16 kHz log-Mel audio"
+  },
+  "M07": {
+   "class": "inherited",
+   "lineage": "no external LM; Whisper task tokens; beam 15"
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "offline"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "offline"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "LRS3 and MuAViC benchmark splits"
+  },
+  "M13": {
+   "class": "inherited",
+   "lineage": "2.5B parameters reported; no latency"
+  }
+ },
+ "papers_to_read": {
+  "prior": [
+   "arxiv-1809.02108",
+   "cvf-seo23-avformer",
+   "arxiv-2305.11095",
+   "arxiv-2303.00628",
+   "arxiv-2303.05309"
+  ],
+  "sota_later": [
+   "arxiv-2607.29112",
+   "isca-a26-mtcavsr",
+   "arxiv-2602.19316 (reused read)"
+  ]
+ }
+}

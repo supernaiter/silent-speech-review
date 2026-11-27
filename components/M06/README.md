@@ -114,7 +114,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`avsr-stream-fusion-and-weighting.csv`](avsr-stream-fusion-and-weighting.csv) (7345 slot-filled, 349 pattern match, usual design in 26, 5 read in full)
 - Inclusion rule: The same 349-study AVSR population, classified by the fusion design its full text names: multi-stream or coupled HMMs with stream weights, automatic, adaptive or discriminatively trained stream weights, feature-level concatenation, and deep multimodal (bimodal network) fusion. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); versions count once by key; the target is excluded; dated against 2014-12.
-- Used in: [Audio-visual speech recognition using deep learning](../../reviews/audio-visual-speech-recognition-using-deep-learning/)
+- Used in: [Audio-visual speech recognition using deep learning](../../reviews/audio-visual-speech-recognition-using-deep-learning/), [Whisper-Flamingo: Integrating Visual Features into Whisper for Audio-Visual Speech Recognition and Translation](../../reviews/whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr/)
 
 ## causal-closed-loop-speech-synthesis
 
