@@ -1,0 +1,44 @@
+{
+ "target": "doi-10.1016-j.specom.2009.12.002",
+ "gate": "component paper: surface-EMG continuous speech recognizer (bundled phonetic-feature streams) with a new corpus",
+ "prep": "no prep/ directory; plan and M06 audit built by the writer; published topic tables reused append-only: M06/articulatory-signal-speech-recognizer (dated population), M03/emg-cross-speaker-training-and-calibration; arxiv-2403.05583 checked note reused from M12/emg-text-unseen-sentence-test",
+ "time_frame": "first public 2009-12 (accepted manuscript online; received 2008-12). Prior = before 2009-06; [concurrent] = 2009-06 to 2010-06. Same-group priors counted as distinct designs: Jou 2006 (Interspeech), Walliczek 2006, Jou 2007 (ICASSP, AF streams), Wand and Schultz 2009b (BIOSIGNALS, CD triphones, held-out speaker). Wand et al. 2009 (Interspeech, BDPF on the same corpus, cites the target) and Toth et al. 2009 are [concurrent]. Wand and Schultz 2009a (CCIS) is an extended version of 2009b, not in the wiki, merged.",
+ "setting": "One setting across slots: decoders of speech from non-acoustic speech-production signals measured on the speaker; acoustic-input ASR (the AF-stream lineage of Kirchhoff and Metze that the target cites) and lip-video-only recognition are outside the counts and named through the target's citations.",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M03",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Read BASE/SPEC sentences, audible and mouthed; EMG-PIT corpus (14 pilot plus 64 main speakers)",
+  "M02": "Phone labels from acoustic forced alignment of the parallel audio (Broadcast News recognizer)",
+  "M04": "Audible read speech scored; silent mode recorded but not scored",
+  "M05": "Five Varioport channels, 600 Hz, TD15 features with LDA to 32 dimensions (group's Jou 2006 lineage)",
+  "M07": "Broadcast News trigram, 101-word test vocabulary, lattice rescoring of LM weight and word penalty",
+  "M08": "Word sequence; lattices",
+  "M09": "Offline",
+  "M10": "Offline",
+  "M11": "Read prompts as reference",
+  "M13": "Laboratory wired acquisition"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "articulatory-recognizer-unit-and-context-modeling",
+   "inclusion_rule": "see audit",
+   "pattern": "reuse of the M06/articulatory-signal-speech-recognizer ledger pattern; full-text design regexes context_independent_units, context_dependent_units, feature_streams, bundled_features; full-text pattern for PF bundling over the whole wiki",
+   "design_field": "model_family",
+   "metric": "WER, matched on speaker dependence, vocabulary, LM and speaking mode"
+  },
+  {
+   "slot": "M03",
+   "topic": "emg-cross-speaker-training-and-calibration",
+   "inclusion_rule": "published table reused unchanged; target excluded (pooled speakers tested on themselves)",
+   "pattern": "reuse",
+   "metric": "held-out-speaker WER"
+  }
+ ],
+ "M12_note": "No audit: the point (test-set selection of stream weights and leaf counts; audible-only scoring) rests on the target's own sections and the four read priors' protocols; matched null."
+}
