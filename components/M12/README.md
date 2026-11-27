@@ -238,7 +238,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`real-time-intracranial-speech-online-evaluation.csv`](real-time-intracranial-speech-online-evaluation.csv) (6960 slot-filled, 134 pattern match, usual design in 18, 3 read in full)
 - Inclusion rule: Intracranial (ECoG, sEEG, intracortical) speech decoding studies whose ledger text mentions real-time, online or closed-loop operation; the design of interest is what the evaluation reports for that operation: an online accuracy or error-rate figure, an offline simulation or replay of the real-time pipeline, and a numeric latency. Boundary: listening-only and review papers enter through the pattern, so counts are upper bounds; versions once.
-- Used in: [Real-time decoding of question-and-answer speech dialogue using human cortical activity](../../reviews/real-time-decoding-of-question-and-answer-speech-dialogue-using-human-cortical-activity/)
+- Used in: [Real-time decoding of question-and-answer speech dialogue using human cortical activity](../../reviews/real-time-decoding-of-question-and-answer-speech-dialogue-using-human-cortical-activity/), [Using the electrocorticographic speech network to control a brain-computer interface in humans](../../reviews/using-the-electrocorticographic-speech-network-to-control-a-brain-computer-interface-in-humans/)
 
 ## rtmri-decoding-test-split
 

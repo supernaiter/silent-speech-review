@@ -1,6 +1,6 @@
 {
  "slug": "using-the-electrocorticographic-speech-network-to-control-a-brain-computer-interface-in-humans",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,29 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-27T09:18:07+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-27T09:27:16+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "19 findings; 17 applied in full, 1 applied in part (L5), 1 rejected (L6). Verdicts are unchanged (M04, M05 and M12 standard).",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-27T09:31:59+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 84 found, 0 missing, 7 unchecked (unstated, figure-only or no source)",
+  "topic counts M04-speech-task-closed-loop-bci-control": "ok",
+  "topic counts M05-intracranial-speech-electrode-scale": "ok",
+  "topic counts M12-real-time-intracranial-speech-online-evaluation": "ok"
+ },
  "inputs": {
   "notes_sha256": "b0ea2c950cb1092924d4e2ced621b0a7a73947049c3b14fb3645ebcba768c8b9",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +60,6 @@
  },
  "body_chars": {
   "draft": 18251,
-  "final": null
+  "final": 18062
  }
 }
