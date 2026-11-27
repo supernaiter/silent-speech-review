@@ -1,0 +1,84 @@
+# Decoding spoken English from intracortical electrode arrays in dorsal precentral gyrus
+
+Wilson, Stavisky, Willett, Avansino, Kelemen, Hochberg, Henderson, Druckmann, Shenoy. Journal of Neural Engineering 17(6):066007, 2020. [doi:10.1088/1741-2552/abbfef](https://doi.org/10.1088/1741-2552/abbfef)
+
+## Verdict
+
+The paper [[1]](#ref-1) changes two components, and both are standard. The decoder (M06) extends the same group's 10- and 11-class syllable and word decoding from the same participant and arrays [[2]](#ref-2) to 39 phonemes, but the full inventory had already been classified from intracortical [[3]](#ref-3) and ECoG [[4]](#ref-4) signals, and the authors' matched test lands at the ECoG level: 36.8% against 36.1% on consonants. The evaluation (M12) adds overt-speech confound controls that no prior decoder with full text in the Appendix population applies, but the contamination test and its decoding consequence come from Roussel et al. [[5]](#ref-5), whom the authors credit, and every control runs in T5 alone. The strongest confound is the split: utterance-level folds over three repetitions of each of 420 words let test phonemes share words, and context, with training (inference from Secs. 2.2, 3.2). The authors' own judgment that two dorsal arrays are insufficient for fluent open-vocabulary communication (Sec. 4) holds; "competitive" with ECoG holds only as the ballpark estimate they call it (Sec. 4.1).
+
+## Against the field, component by component
+
+### M06 Processing and decoding: full phoneme inventory from dorsal arrays
+
+**Usual approach:** of 28 intracranial speech decoders first public before 2020-01 (19 with full text), 8 mention a full phoneme inventory and 8 a recurrent, convolutional or deep network (pattern match, mentions, Appendix). Read: 38 attempted phonemes at 16–21% against 2.6% chance [[3]](#ref-3); all phonemes at hand-labelled onsets within words, four ECoG subjects [[4]](#ref-4); deep networks on 57 CV syllables, four ECoG subjects [[6]](#ref-6). Only the signal departs: hand-knob arrays that already separated 10 syllables at 84.6% in T5 [[2]](#ref-2) (Sec. 1).
+
+**State of the art:** Willett et al. (2023) [later], same group, reach 62% on 39 attempted isolated phonemes from area 6v arrays in one participant [[7]](#ref-7); the target's 33.9% (RNN, T5, phonemes within overt words) is 28.1 points lower (inference), with site, task and segmentation differing.
+
+The like-for-like test is the authors': matched words, trial count and a 600-ms window give 36.8% on 24 consonants and 27.7% on 16 vowels against Mugler's best subject at 36.1% and 23.9% [[4]](#ref-4), 2% and 16% relative (inference). T11 does not repeat it (11.22% against 29.29%, Sec. 3.2). The RNN gain is modest (Sec. 4) and follows [[6]](#ref-6); HLFP beating threshold crossings (29.29% against 14.8%) the authors restrict to these data (Sec. 3.2). Verdict: standard.
+
+### M12 Evaluation: overt-speech confound controls
+
+**Usual approach:** none of the 19 prior decoders with full text mentions a contamination test or artifact removal; 5 mention a pre-onset window and 1, the same group's [[2]](#ref-2), a condition-invariant signal (pattern match, mentions, Appendix). Roussel et al. tested 20 datasets from 5 centres, ECoG and intracortical, and compared ECoG decoders with and without 90–200 Hz features [[5]](#ref-5). The paper adds LRR re-referencing and re-decoding, a pre-voice window and CIS1 onset realignment.
+
+**State of the art:** Peterson et al. (2024) [later] remove the speech artifact in intraoperative recordings of 54 patients and re-test a consonant decoder, similar or better than raw, while ICA lowers accuracy [[8]](#ref-8); LRR can likewise remove shared neural signal, as the target concedes (Sec. 3.5).
+
+The controls lower accuracy modestly, LRR from 29.3% to 25.8%, 12% relative (inference); realignment from 54.9% to 47.8% on first phonemes, 12.9% relative (Sec. 3.4); the pre-voice window still gives 34.8% over 18 classes (Sec. 3.5). The design is right for overt speech, but not ahead: the step comes from [[5]](#ref-5), realignment covers first phonemes only (Sec. 4.1), and all runs in T5. Verdict: standard.
+
+## The 13 components
+
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Prompted overt words | Prompted overt speech (same group, 2019) | – | standard |
+| M02 Training-only supervision | None; audio-derived phoneme labels | No training-only signal | – | standard |
+| M03 Training and adaptation | Per-participant fit | Per-participant supervised training | – | standard |
+| M04 Use-time action | Overt speech | Overt speech, same participant (2019) | – | standard |
+| M05 Sensors | Two 96-electrode Utah arrays, hand knob | Same arrays as 2019 study | – | standard |
+| M06 Processing and decoding | 39-phoneme classification in words; logistic regression and RNN | Full inventory already classified (pattern match 8) | [[7]](#ref-7) (2023): 39 attempted phonemes, 62% | standard |
+| M07 Lexicon and LM | None; 420-word prompt set | No LM, closed set | – | standard |
+| M08 Output | Phoneme label; unit-selection synthesis | Herff et al. 2019 method | – | standard |
+| M09 Confirmation | None (offline) | Offline study | – | not applicable |
+| M10 Correction | None (offline) | Offline study | – | not applicable |
+| M11 Reference construction | Audio-derived onsets | Acoustic onset labels | – | standard |
+| M12 Evaluation | LRR, pre-voice window, neural onsets (T5) | No contamination control (pattern match 19) | [[8]](#ref-8) (2024): artifact removal, decoding re-tested | standard |
+| M13 Device and cost | Chronic arrays, offline, no code | Offline analysis of implant data | – | standard |
+
+## Where the claims outrun the evidence
+
+- Shared words. Folds are drawn over utterances (Secs. 2.2, 2.7), so a test phoneme's word is usually in training; with 500-ms windows the classifier can use neighbouring phonemes, which the authors concede (Sec. 3.2). No word-held-out test bounds this (inference).
+- ECoG comparisons. "Competitive" (Sec. 1) becomes "ballpark estimates" (Sec. 4.1). Synthesis at r = 0.523 is set against Herff et al.'s best participant at 0.574 and mean 0.246 [[9]](#ref-9); most random trials were unintelligible (Sec. 3.7).
+- Chance. The Abstract's 6% for 39 classes has no derivation in Sec. 2.7; uniform guessing gives about 2.6% (inference).
+- Inconsistencies. The RNN is 33.4% in Sec. 3.4 but 33.9% in the Abstract and Sec. 4; the matched set holds 256 of Mugler's 320 words in Sec. 2.2 but 232 shared plus 80 replaced in Sec. 3.3, and neither sum is 320 (inference).
+- Variability. Headline accuracies are single cross-validated estimates, no seeds (Sec. 2.8; Fig. 3).
+
+## What the field needs next
+
+- M12: word-held-out folds, and confound controls in every participant.
+- M06: free-running decoding without audio-derived onsets, the authors' next step (Sec. 4.1), on attempted speech.
+- M05: dorsal and ventral arrays compared in one participant; the authors propose ventral arrays (Abstract), as [[7]](#ref-7) later used.
+
+## Questions for the authors
+
+- Were one word's repetitions kept in one fold, and what is accuracy with whole words held out?
+- How was the 6% chance level computed?
+- Which RNN value and which matched word count are final?
+- On which data were LRR hyperparameters tuned, and how were RNN inputs normalized?
+- Do the confound analyses hold in T11?
+
+## Appendix: literature search
+
+- M06, intracranial-phoneme-inventory-classification (published table, appended). Inclusion rule: intracranial signal named with phonemes, vowels, consonants or syllables in the ledger text; design = size of the speech-unit class set, plus the classifier family. Ledger counts: slot-filled 7,345 unique studies; pattern match 101 unique studies (all years). Population at the target's time: ledger-pattern decoders of produced, attempted or imagined speech first public before 2020-01, reviews, perception, mapping and non-speech studies removed, versions merged: 28 decoders, 19 with full text; [concurrent] 2020-01 to 2021-01. Mention counts over the 19 (pattern match): full phoneme inventory 8, small unit subset 12, recurrent, convolutional or deep network 8, threshold crossings 2. Full-inventory classifiers confirmed by reading: [[3]](#ref-3), [[4]](#ref-4). Known-item recall 1.0. Read in full: [[2]](#ref-2), [[4]](#ref-4), [[6]](#ref-6); [[3]](#ref-3) and [[7]](#ref-7) (state of the art) from the published table.
+- M12, intracranial-overt-speech-acoustic-contamination-control (new). Inclusion rule: the same 28-decoder population; design = an explicit overt-speech confound control (audio-neural contamination test or artifact removal, a window before voice onset, or neural onset alignment); assessment studies without a decoder are deciding priors, not decoders. Ledger counts: slot-filled 6,960 unique studies; pattern match 618 unique studies (all years). Mention counts over the 19 prior decoders with full text (pattern match): contamination test or removal 0, pre-onset window 5, condition-invariant or neural onset 1. Whole-wiki full-text pattern for contamination terms: 122 folders; first public before 2020-01 and intracranial: [[5]](#ref-5) (bioRxiv 2019-08) and one listening study. Known-item recall 1.0. Read in full: [[5]](#ref-5), [[2]](#ref-2), [[8]](#ref-8) (state of the art).
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Wilson, G. H., Stavisky, S. D., Willett, F. R., Avansino, D. T., Kelemen, J. N., Hochberg, L. R., et al. “Decoding spoken English from intracortical electrode arrays in dorsal precentral gyrus.” *Journal of Neural Engineering*, 2020, 17(6), 066007. doi:[10.1088/1741-2552/abbfef](https://doi.org/10.1088/1741-2552/abbfef). Target. First public as bioRxiv 10.1101/2020.06.30.180935 (2020-07-01, phoneme decoding and confound analyses); journal version online 2020-11-11 adds speech synthesis. [wiki: doi-10.1088-1741-2552-abbfef](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1088-1741-2552-abbfef/article.md) [wiki: pmc-8293867-dorsal](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-8293867-dorsal/article.md)
+2. <a id="ref-2"></a>Stavisky, S. D., Willett, F. R., Wilson, G. H., Murphy, B. A., Rezaii, P., Avansino, D. T., et al. “Neural ensemble dynamics in dorsal motor cortex during speech in people with paralysis.” *eLife*, 2019, 8, e46015. doi:[10.7554/eLife.46015](https://doi.org/10.7554/eLife.46015). Prior; same group, same participant T5 and arrays. [wiki: pmc-6954053-t5t8](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6954053-t5t8/article.md) [wiki: pmc-6954053-dorsalmcx](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6954053-dorsalmcx/article.md)
+3. <a id="ref-3"></a>Brumberg, J. S., Wright, E. J., Andreasen, D. S., Guenther, F. H., Kennedy, P. R. “Classification of intended phoneme production from chronic intracortical microelectrode recordings in speech-motor cortex.” *Frontiers in Neuroscience*, 2011, 5, 65. doi:[10.3389/fnins.2011.00065](https://doi.org/10.3389/fnins.2011.00065). Prior; full 38-phoneme intracortical set, cited by the target. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/classification-of-intended-phoneme-production-from-chronic-intracortical-microelectrode-recordings-i) [wiki: doi-10.3389-fnins.2011.00065](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3389-fnins.2011.00065/article.md) [wiki: pmc-3096823-phoneme-intracortical](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-3096823-phoneme-intracortical/article.md) [wiki: pmc-3096823-phonintent](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-3096823-phonintent/article.md)
+4. <a id="ref-4"></a>Mugler, E. M., Patton, J. L., Flint, R. D., Wright, Z. A., Schuele, S. U., Rosenow, J., et al. “Direct classification of all American English phonemes using signals from functional speech motor cortex.” *Journal of Neural Engineering*, 2014, 11(3), 035015. doi:[10.1088/1741-2560/11/3/035015](https://doi.org/10.1088/1741-2560/11/3/035015). Prior; ECoG comparator of the target's matched test. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/direct-classification-of-all-american-english-phonemes-using-signals-from-functional-speech-motor-co) [wiki: pmc-4097188-mugler](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-4097188-mugler/article.md) [wiki: doi-10.1088-1741-2560-11-3-035015](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1088-1741-2560-11-3-035015/article.md)
+5. <a id="ref-5"></a>Roussel, P., Le Godais, G., Bocquelet, F., Palma, M., Hongjie, J., Zhang, S., et al. “Observation and assessment of acoustic contamination of electrophysiological brain signals during speech production and sound perception.” *Journal of Neural Engineering*, 2020, 17(5), 056028. doi:[10.1088/1741-2552/abb25e](https://doi.org/10.1088/1741-2552/abb25e). Prior (bioRxiv 10.1101/722207, 2019-08-01); deciding prior for M12, cited by the target. [wiki: jne-17-abb25e-acoustic](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/jne-17-abb25e-acoustic/article.md)
+6. <a id="ref-6"></a>Livezey, J. A., Bouchard, K. E., Chang, E. F. “Deep learning as a tool for neural data analysis: Speech classification and cross-frequency coupling in human sensorimotor cortex.” *PLoS Computational Biology*, 2019, 15(9), e1007091. doi:[10.1371/journal.pcbi.1007091](https://doi.org/10.1371/journal.pcbi.1007091). Prior; deep-network intracranial speech classifier, cited by the target. [wiki: pmc-6762206-dlspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6762206-dlspeech/article.md) [wiki: doi-10.1371-journal.pcbi.1007091](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1371-journal.pcbi.1007091/article.md)
+7. <a id="ref-7"></a>Willett, F. R., Kunz, E. M., Fan, C., Avansino, D. T., Wilson, G. H., Choi, E. Y., et al. “A high-performance speech neuroprosthesis.” *Nature*, 2023, 620(7976), 1031-1036. doi:[10.1038/s41586-023-06377-x](https://doi.org/10.1038/s41586-023-06377-x). Later; state of the art for M06. [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/a-high-performance-speech-neuroprosthesis) [wiki: doi-10.1038-s41586-023-06377-x](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41586-023-06377-x/article.md)
+8. <a id="ref-8"></a>Peterson, V., Vissani, M., Luo, S., Rabbani, Q., Crone, N. E., Bush, A., et al. “A supervised data-driven spatial filter denoising method for speech artifacts in intracranial electrophysiological recordings.” *Imaging Neuroscience*, 2024, 2. doi:[10.1162/imag_a_00301](https://doi.org/10.1162/imag_a_00301). Later (bioRxiv 10.1101/2023.04.05.535577); state of the art for M12. [later] [wiki: pmc-12290705-spfilt](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-12290705-spfilt/article.md) [wiki: pmc-10104030-spatiallfilter](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10104030-spatiallfilter/article.md)
+9. <a id="ref-9"></a>Herff, C., Diener, L., Angrick, M., Mugler, E., Tate, M. C., Goldrick, M. A., et al. “Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices.” *Frontiers in Neuroscience*, 2019, 13, 1267. doi:[10.3389/fnins.2019.01267](https://doi.org/10.3389/fnins.2019.01267). Prior; origin of the Brain-to-Speech unit selection, values as reported by the target. [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co) [wiki: doi-10.3389-fnins.2019.01267](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3389-fnins.2019.01267/article.md) [wiki: pmc-6882773-b2speech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6882773-b2speech/article.md) [wiki: pmc-6882773-braintospeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6882773-braintospeech/article.md)
