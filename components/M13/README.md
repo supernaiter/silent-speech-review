@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Same population as M13/wireless-implanted-speech-bci (implanted neural sensors, speech or communication); the design compared is where and by whom the system is operated: hospital or laboratory sessions (epilepsy monitoring, bedside, laboratory), sessions at the participant's home, and use without investigators present (independent use). Boundary: full-text pattern counts with the reference list removed, so related-work mentions count (upper bounds); a study counts under every setting it names; versions counted once.
 - Used in: [Fully Implanted Brain-Computer Interface in a Locked-In Patient with ALS](../../reviews/fully-implanted-brain-computer-interface-in-a-locked-in-patient-with-als/)
 
+## intracranial-synthesis-participant-and-implant
+
+- Table: [`intracranial-synthesis-participant-and-implant.csv`](intracranial-synthesis-participant-and-implant.csv) (6075 slot-filled, 180 pattern match, usual design in 8, 3 read in full)
+- Inclusion rule: Studies that reconstruct speech acoustics from intracranial recordings made during produced, attempted or imagined speech (the published intracranial-synthesis population pattern of M08/intracranial-synthesis-waveform-generation), classified by who was recorded and with what implant: acute clinical monitoring (epilepsy) or intraoperative recordings in people with intact speech, versus a chronic research implant in a person with impaired speech (ALS, brainstem stroke, locked-in, anarthria, dysarthria). Boundary: full-text pattern counts with the reference list removed, so related-work mentions count (upper bounds); a study counts under every design it names; heard-speech reconstruction and text-only decoders are outside; versions once.
+- Used in: [Online speech synthesis using a chronically implanted brain–computer interface in an individual with ALS](../../reviews/online-speech-synthesis-using-a-chronically-implanted-brain-computer-interface-in-an-individual-with/)
+
 ## long-term-home-use
 
 - Table: [`long-term-home-use.csv`](long-term-home-use.csv) (6075 slot-filled, 39 pattern match, usual design in 21, 3 read in full)
