@@ -1,0 +1,164 @@
+# Online speech synthesis using a chronically implanted brain–computer interface in an individual with ALS
+
+Angrick, Luo, Rabbani, Candrea, Shah, Milsap, Anderson, Gordon, Rosenblatt, Clawson, Tippett, Maragakis, Tenore, Fifer, Hermansky, Ramsey, Crone. Scientific Reports 14, 9617 (2024); first public on medRxiv 2023. [doi:10.1038/s41598-024-60277-2](https://doi.org/10.1038/s41598-024-60277-2)
+
+
+**Section:** [Other sensors](../../README.md#other-sensors)
+
+## Figures
+
+### This paper in the 13 components, against the field
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
+
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
+
+<details><summary>Data</summary>
+
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Cued overt keyword reading | Cued overt or attempted speech |  | ● Standard (Inherited.) |
+| M02 Teacher signal | Own overt audio, LPCNet features | Paired own audio |  | ● Standard (Needs vocalization (authors, §Discussion).) |
+| M03 Train / calibrate | Trained once; per-day normalization | Supervised training, per-session normalization |  | ● Standard (No retraining for 5.5 months; seeds unstated.) |
+| M04 Use-time act | Overt self-paced words, dysarthric | Overt speech by intact speakers |  | ● Standard (Inherited.) |
+| M05 Sensing | 2 ECoG grids, 64 selected channels | Clinical ECoG grids |  | ● Standard (Inherited.) |
+| M06 Decoding | Bidirectional decoding, played after each word | Offline; closed loop in 2 of 11 prior intracranial | 2 of 11 | ● Standard (Look-ahead and closed vocabulary; one participant.) |
+| M07 Runtime aids | None | No lexicon in synthesis |  | ● Standard (Closed six-word task.) |
+| M08 Output | LPCNet, own voice | Vocoder from decoded acoustic features |  | ● Standard (Inherited.) |
+| M09 Confirmation | None | Confirmation step |  | – Not applicable (No commit step.) |
+| M10 Correction | None | Correction loop |  | – Not applicable (No correction step.) |
+| M11 Eval reference | Own overt speech | Own overt speech |  | ● Standard (Inherited.) |
+| M12 Evaluation | Six-choice word identification, 21 listeners | Closed-set identification, 3 of 3 prior intracranial listener tests | 3 of 3 | ● Standard (Exclusions uncounted; no per-session values.) |
+| M13 Hardware & limits | Chronic ECoG, ALS, 5.5 months after training | Acute, intact speech: 9 of 11 prior | 9 of 11 | ● Standard (One participant; no pre-gap measure.) |
+
+</details>
+
+## Verdict
+
+The paper [[1]](#ref-1) changes two components: a closed-loop decoder that plays each word back after it ends (M06), and a chronic ECoG implant in a speaker with ALS, used 5.5 months after training (M13). Both are standard: 2 of 11 prior intracranial synthesis decoders already played audio back in closed loop, with one EEG loop besides (Appendix) [[2]](#ref-2), [[3]](#ref-3), [[4]](#ref-4), and one participant with pooled sessions gives no repetition. The main claim holds narrowly: six keywords were identified at 80% against 16.7% chance, the earliest intelligible closed-loop neural synthesis in the prior set (Appendix). The authors chose delayed feedback deliberately for a user whose speech will decline (§Introduction); the cost is that real-time synthesis is not tested. The stability claim has no pre-gap measurement (§Results), and the authors themselves call for longer longitudinal testing (§Discussion).
+
+## Against the field, component by component
+
+### M06 Decoding: closed loop, word-level delayed playback
+
+**Usual approach:** Offline reconstruction; 2 of 11 prior intracranial synthesis decoders played audio back in closed loop (pattern match, unique studies; Appendix); one EEG and two articulography loops add to these, all frame by frame during the attempt. The paper plays each decoded word after it ends.
+
+**State of the art:** Neural closed loops then gave vowel formants within 50 ms (2009) [[2]](#ref-2), [[4]](#ref-4) or unintelligible words (2021) [[3]](#ref-3). Today, a [later] intracortical system synthesizes sentences causally within 10 ms at 43.75% median listener WER (2025) [[5]](#ref-5), and 5.24% offline with simulated real-time inference (2026) [[6]](#ref-6); on ECoG, a [later] streaming synthesizer decodes in 80-ms increments online in anarthria (2025) [[7]](#ref-7).
+
+The gain over the 2021 loop [[3]](#ref-3) comes from an easier task: the decoder sees the whole word before output (§Approach) and, as the authors state, learned word-specific dynamics and did not synthesize unseen words (§Discussion). It cannot separate synthesis from a six-way classifier plus playback, a baseline not run (inference); the target cites command classification in the same participant from its own work [[8]](#ref-8) ([concurrent]). Verdict: standard.
+
+### M13 Device: chronic implant in a speaker with ALS
+
+**Usual approach:** Acute recordings in people with intact speech: 9 of 11 prior intracranial synthesis decoders used epilepsy-monitoring or intraoperative recordings (pattern match, unique studies; Appendix) [[9]](#ref-9), [[10]](#ref-10), [[11]](#ref-11), and the target's cited pilot [[12]](#ref-12); two used chronic implants [[2]](#ref-2), [[13]](#ref-13).
+
+**State of the art:** A [later] chronic intracortical implant in a man with ALS and severe dysarthria gives closed-loop sentences at 43.75% median open-transcription WER (2025) [[5]](#ref-5); [later] streaming ECoG synthesis runs online in anarthria [[7]](#ref-7); [concurrent] work synthesized cued sentences from chronic ECoG [[14]](#ref-14) and intracortical arrays [[15]](#ref-15).
+
+This component moves the field: among the 11 prior decoders (Appendix), only [[2]](#ref-2) recorded a speech-impaired user, with vowel output. Stability is weaker than stated: the 80% is measured only after the gap, without per-session values (§Results), and the cited 3-month result is command classification [[8]](#ref-8). Verdict: standard (one participant).
+
+### M12 Evaluation: six-choice listener identification
+
+**Usual approach:** Closed-set identification: of the 11 prior intracranial synthesis decoders used for M06 and M13, the 3 with a listener test all used it, with 2 to 50 choices (confirmed, Appendix) [[9]](#ref-9), [[10]](#ref-10), [[11]](#ref-11); six choices match the six-word task.
+
+**State of the art:** [later] closed-loop sentences reach 94.34% six-choice matching (2025) [[5]](#ref-5); open transcription is now the yardstick (2026) [[6]](#ref-6).
+
+Single words and same-length sentences differ in cue, so the two six-choice scores are not like-for-like. Verdict: standard.
+
+## The 13 components
+
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Cued overt keyword reading | Cued overt or attempted speech | – | standard |
+| M02 Training-only supervision | Own overt audio, LPCNet features | Paired own audio | – | standard |
+| M03 Training and adaptation | Trained once; per-day normalization | Supervised training, per-session normalization | – | standard |
+| M04 Use-time action | Overt self-paced words, dysarthric | Overt speech by intact speakers | – | standard |
+| M05 Sensors | 2 ECoG grids, 64 selected channels | Clinical ECoG grids | – | standard |
+| M06 Processing and decoding | Bidirectional decoding, played after each word | Offline; closed loop in 2 of 11 prior intracranial (pattern match 2) | Causal 10 ms closed loop, 43.75% WER [[5]](#ref-5) | standard |
+| M07 Lexicon and LM | None | No lexicon in synthesis | – | standard |
+| M08 Output | LPCNet, own voice | Vocoder from decoded acoustic features | – | standard |
+| M09 Confirmation | None | Confirmation step | – | not applicable |
+| M10 Correction | None | Correction loop | – | not applicable |
+| M11 Reference construction | Own overt speech | Own overt speech | – | standard |
+| M12 Evaluation | Six-choice word identification, 21 listeners | Closed-set identification, 3 of 3 prior intracranial listener tests (confirmed 3) | 94.34% six-choice sentences [[5]](#ref-5) | standard |
+| M13 Device and cost | Chronic ECoG, ALS, 5.5 months after training | Acute, intact speech: 9 of 11 prior (pattern match 9) | ALS implant, closed loop, 43.75% WER [[5]](#ref-5) | standard |
+
+## Where the claims outrun the evidence
+
+- Stability. "Not significantly changed over this time period" (§Discussion) rests on no test: no pre-gap listener score, no statistic, no per-day accuracy; the authors' own call for longer testing (§Discussion) is the right reading.
+- Denominator. Of 180 samples, 2 were excluded for no output and "a few" silent false detections without a count (§Results), so the 80% has no stated denominator or interval.
+- Usefulness. Listeners identified the participant's own keywords at 99.8% and the synthesized ones at 80%, about 100 times the error (inference); "Back" reached 37.3% (Fig. 2C). The case rests on future speech decline (§Introduction), which is not tested.
+- Lineage. The medRxiv v1 abstract said synthesis had "until now" been only retrospective, in epilepsy-surgery patients, contradicted by [[2]](#ref-2), [[3]](#ref-3); the published text limits this to ECoG (§Discussion) and still omits [[3]](#ref-3) (References).
+
+## What the field needs next
+
+- M06: compare with a word classifier plus own-voice playback; test unseen words.
+- M13: the same listener test before and after the gap, per day, in several participants.
+- M12: per-session accuracy with intervals, false detections counted as errors, open transcription.
+- M02/M06: train without overt audio, as the authors note (§Discussion).
+
+## Questions for the authors
+
+- What was listener accuracy per session, and how many false detections were excluded?
+- What did the pipeline reach before the gap?
+- What is the delay from speech offset to playback?
+
+## Appendix: literature search
+
+Setting: decoders that synthesize speech acoustics from intracranial recordings during produced, attempted or imagined speech, first public before 2023-01; the same 11 prior decoders are the population for M06, M12 and M13. Closed loops with other signals are named per signal.
+
+- M06 causal-closed-loop-speech-synthesis. Inclusion rule: studies that synthesize speech acoustics from a non-acoustic signal online, in real time, with the audio played back while or right after the user speaks; offline studies only when they simulate causal frame-level inference; excluded: offline acausal reconstruction, text decoding read out by TTS, conversion from acoustic input. Ledger counts: 7,345 slot-filled; 87 pattern match (unique studies, all years). At the target's time: intracranial closed loops with playback, 2 of 11 prior decoders [[2]](#ref-2), [[3]](#ref-3); other signals: scalp EEG 1 [[4]](#ref-4), articulography 2; all frame-level; none plays a decoded word after it ends. Read in full: [[2]](#ref-2), [[3]](#ref-3) (deciding priors); [[5]](#ref-5), [[6]](#ref-6) (state of the art). Known-item recall 1.0 (4 seeds).
+- M13 intracranial-synthesis-participant-and-implant. Inclusion rule: the setting above, classified by participant and implant: acute clinical (epilepsy or intraoperative) in people with intact speech versus a chronic implant; excluded: heard-speech reconstruction, text-only decoders, reviews; versions once. Ledger counts: 6,075 slot-filled; 180 pattern match (unique studies, all years); full-text mentions (upper bounds): impaired-speech population 72, epilepsy 60, intraoperative 29, chronic implant or clinical trial 29. At the target's time: 11 prior decoders (10 from the ledger, plus [[12]](#ref-12) from the target's reference list); acute with intact speech 9; chronic implant 2 [[2]](#ref-2), [[13]](#ref-13); speech-impaired 1. [concurrent]: [[14]](#ref-14), [[15]](#ref-15). Read in full: [[2]](#ref-2), [[3]](#ref-3), [[11]](#ref-11) (deciding priors); [[5]](#ref-5) (state of the art). Known-item recall 1.0 (4 seeds).
+- M12 listener-intelligibility-test. Inclusion rule: human listener transcription or identification of speech synthesized from non-acoustic signals. Ledger counts: 6,960 slot-filled; 37 pattern match (unique studies). At the target's time: 23 prior studies with confirmed include decisions, all signals; 3 of the 11 prior intracranial decoders ran a listener test, all closed-set identification [[9]](#ref-9), [[10]](#ref-10), [[11]](#ref-11). Read in full: [[9]](#ref-9), [[11]](#ref-11) (priors); [[5]](#ref-5) (state of the art). Known-item recall 1.0 (3 seeds).
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Angrick, M., Luo, S., Rabbani, Q., Candrea, D. N., Shah, S., Milsap, G. W., et al. “Online speech synthesis using a chronically implanted brain–computer interface in an individual with ALS.” *Scientific Reports*, 2024, 14, 9617. doi:[10.1038/s41598-024-60277-2](https://doi.org/10.1038/s41598-024-60277-2). First public as medRxiv preprint 10.1101/2023.06.30.23291352 (2023-07-01) [wiki: doi-10.1038-s41598-024-60277-2](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41598-024-60277-2/article.md) [wiki: pmc-11053081-als-ecog-synth](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-11053081-als-ecog-synth/article.md) [wiki: pmc-11053081-onlinesyn](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-11053081-onlinesyn/article.md)
+2. <a id="ref-2"></a>Guenther, F. H., Brumberg, J. S., Wright, E. J., Nieto-Castanon, A., Tourville, J. A., Panko, M., et al. “A Wireless Brain-Machine Interface for Real-Time Speech Synthesis.” *PLoS ONE*, 2009, 4(12), e8218. doi:[10.1371/journal.pone.0008218](https://doi.org/10.1371/journal.pone.0008218). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/a-wireless-brain-machine-interface-for-real-time-speech-synthesis) [wiki: pmc-2784218-wireless](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-2784218-wireless/article.md) [wiki: pmc-2784218-wirelesssynth](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-2784218-wirelesssynth/article.md) [wiki: doi-10.1371-journal.pone.0008218](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1371-journal.pone.0008218/article.md)
+3. <a id="ref-3"></a>Angrick, M., Ottenhoff, M. C., Diener, L., Ivucic, D., Ivucic, G., Goulis, S., et al. “Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity.” *Communications Biology*, 2021, 4, 1055. doi:[10.1038/s42003-021-02578-0](https://doi.org/10.1038/s42003-021-02578-0). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/real-time-synthesis-of-imagined-speech-processes-from-minimally-invasive-recordings-of-neural-activi) [wiki: doi-10.1038-s42003-021-02578-0](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s42003-021-02578-0/article.md) [wiki: pmc-8460739-realtimesynth](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-8460739-realtimesynth/article.md)
+4. <a id="ref-4"></a>Brumberg, J. S., Pitt, K. M., Burnison, J. D. “A Non-Invasive Brain-Computer Interface for Real-Time Speech Synthesis: The Importance of Multimodal Feedback.” *IEEE Transactions on Neural Systems and Rehabilitation Engineering*, 2018, 26(4), 874-881. doi:[10.1109/TNSRE.2018.2808425](https://doi.org/10.1109/TNSRE.2018.2808425). [wiki: doi-10.1109-tnsre.2018.2808425](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-tnsre.2018.2808425/article.md) [wiki: pmc-5906041-kennedy](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-5906041-kennedy/article.md)
+5. <a id="ref-5"></a>Wairagkar, M., Card, N. S., Singer-Clark, T., Hou, X., Iacobacci, C., Miller, L. M., et al. “An instantaneous voice-synthesis neuroprosthesis.” *Nature*, 2025. doi:[10.1038/s41586-025-09127-3](https://doi.org/10.1038/s41586-025-09127-3). [later] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/an-instantaneous-voice-synthesis-neuroprosthesis) [wiki: doi-10.1038-s41586-025-09127-3](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41586-025-09127-3/article.md) [wiki: doi-10.1101-2024.08.14.607690](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1101-2024.08.14.607690/article.md) [wiki: pmc-12369848-voicesynth](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-12369848-voicesynth/article.md) [wiki: pmc-12369848-voice-synth-np](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-12369848-voice-synth-np/article.md) [wiki: pmc-11370360-instvoice](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-11370360-instvoice/article.md)
+6. <a id="ref-6"></a>Wairagkar, M., Srinivasan, A., Card, N. S., Singer-Clark, T., Hou, X., Iacobacci, C., et al. “Brain2voice 2.0: High-performance voice synthesis brain-computer interface.” *bioRxiv*, 2026. doi:[10.64898/2026.06.30.735633](https://doi.org/10.64898/2026.06.30.735633). [later] [wiki: doi-10.64898-2026.06.30.735633](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.64898-2026.06.30.735633/article.md)
+7. <a id="ref-7"></a>Littlejohn, K. T., Cho, C. J., Liu, J. R., Silva, A. B., Yu, B., Anderson, V. R., et al. “A streaming brain-to-voice neuroprosthesis to restore naturalistic communication.” *Nature Neuroscience*, 2025, 28(4), 902–912. doi:[10.1038/s41593-025-01905-6](https://doi.org/10.1038/s41593-025-01905-6). [later]
+8. <a id="ref-8"></a>Luo, S., Angrick, M., Coogan, C., Candrea, D. N., Wyse-Sookoo, K., Shah, S., et al. “Stable Decoding from a Speech BCI Enables Control for an Individual with ALS without Recalibration for 3 Months.” *Advanced Science*, 2023, 10(35), 2304853. doi:[10.1002/advs.202304853](https://doi.org/10.1002/advs.202304853). [concurrent] [wiki: doi-10.1002-advs.202304853](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1002-advs.202304853/article.md) [wiki: pmc-10724434-stablebci](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10724434-stablebci/article.md)
+9. <a id="ref-9"></a>Anumanchipalli, G. K., Chartier, J., Chang, E. F. “Speech synthesis from neural decoding of spoken sentences.” *Nature*, 2019, 568(7753), 493–498. doi:[10.1038/s41586-019-1119-1](https://doi.org/10.1038/s41586-019-1119-1). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/speech-synthesis-from-neural-decoding-of-spoken-sentences) [wiki: doi-10.1038-s41586-019-1119-1](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41586-019-1119-1/article.md) [wiki: pmc-9714519-speechsynth](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-9714519-speechsynth/article.md)
+10. <a id="ref-10"></a>Herff, C., Diener, L., Angrick, M., Mugler, E., Tate, M. C., Goldrick, M. A., et al. “Generating Natural, Intelligible Speech From Brain Activity in Motor, Premotor, and Inferior Frontal Cortices.” *Frontiers in Neuroscience*, 2019, 13, 1267. doi:[10.3389/fnins.2019.01267](https://doi.org/10.3389/fnins.2019.01267). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co) [wiki: doi-10.3389-fnins.2019.01267](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.3389-fnins.2019.01267/article.md) [wiki: pmc-6882773-b2speech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6882773-b2speech/article.md) [wiki: pmc-6882773-braintospeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-6882773-braintospeech/article.md)
+11. <a id="ref-11"></a>Kohler, J., Ottenhoff, M. C., Goulis, S., Angrick, M., Colon, A. J., Wagner, L., et al. “Synthesizing Speech from Intracranial Depth Electrodes using an Encoder-Decoder Framework.” *Neurons, Behavior, Data analysis, and Theory*, 2022, 6(1). doi:[10.51628/001c.57524](https://doi.org/10.51628/001c.57524). first public as arXiv 2111.01457 [wiki: arxiv-2111.01457](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2111.01457/article.md)
+12. <a id="ref-12"></a>Herff, C., Johnson, G., Diener, L., Shih, J., Krusienski, D., Schultz, T. “Towards direct speech synthesis from ECoG: A pilot study.” *2016 38th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)*, 2016, 1540–1543. doi:[10.1109/EMBC.2016.7591004](https://doi.org/10.1109/EMBC.2016.7591004).
+13. <a id="ref-13"></a>Wilson, G. H., Stavisky, S. D., Willett, F. R., Avansino, D. T., Kelemen, J. N., Hochberg, L. R., et al. “Decoding spoken English from intracortical electrode arrays in dorsal precentral gyrus.” *Journal of Neural Engineering*, 2020, 17(6), 066007. doi:[10.1088/1741-2552/abbfef](https://doi.org/10.1088/1741-2552/abbfef). bioRxiv 10.1101/2020.06.30.180935 [wiki: doi-10.1088-1741-2552-abbfef](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1088-1741-2552-abbfef/article.md)
+14. <a id="ref-14"></a>Metzger, S. L., Littlejohn, K. T., Silva, A. B., Moses, D. A., Seaton, M. P., Wang, R., et al. “A high-performance neuroprosthesis for speech decoding and avatar control.” *Nature*, 2023, 620, 1037–1046. doi:[10.1038/s41586-023-06443-4](https://doi.org/10.1038/s41586-023-06443-4). [concurrent] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/a-high-performance-neuroprosthesis-for-speech-decoding-and-avatar-control) [wiki: doi-10.1038-s41586-023-06443-4](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1038-s41586-023-06443-4/article.md) [wiki: pmc-10826467-avatarnp](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/pmc-10826467-avatarnp/article.md)
+15. <a id="ref-15"></a>Wairagkar, M., Hochberg, L. R., Brandman, D. M., Stavisky, S. D. “Synthesizing Speech by Decoding Intracortical Neural Activity from Dorsal Motor Cortex.” *2023 11th International IEEE/EMBS Conference on Neural Engineering (NER)*, 2023, 1–4. doi:[10.1109/NER52421.2023.10123880](https://doi.org/10.1109/NER52421.2023.10123880). [concurrent]
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`process/log.json`](process/log.json): process record: each step, who did it (reader, script, writer, evaluator), when, the checks run and the input versions
+- [`process/notes.json`](process/notes.json): reading notes on the target and comparator papers: claims, numbers, conditions and what is not stated, with locations
+- [`process/plan.json`](process/plan.json): plan: which components the paper changes and the topics it is compared on
+- [`process/draft.md`](process/draft.md): the review as first written, before the independent evaluation
+- [`process/claims-draft.md`](process/claims-draft.md): claim table of the draft: every claim mapped to a note or a count
+- [`process/claims.md`](process/claims.md): claim table of the published review
+- [`components/M06/causal-closed-loop-speech-synthesis.csv`](../../components/M06/causal-closed-loop-speech-synthesis.csv): M06 topic "causal-closed-loop-speech-synthesis", every candidate paper with its decision (7345 slot-filled, 87 pattern match, usual design in 24, 3 read in full)
+- [`components/M12/listener-intelligibility-test.csv`](../../components/M12/listener-intelligibility-test.csv): M12 topic "listener-intelligibility-test", every candidate paper with its decision (6960 slot-filled, 37 pattern match, usual design in 15, 5 read in full)
+- [`components/M13/intracranial-synthesis-participant-and-implant.csv`](../../components/M13/intracranial-synthesis-participant-and-implant.csv): M13 topic "intracranial-synthesis-participant-and-implant", every candidate paper with its decision (6075 slot-filled, 180 pattern match, usual design in 8, 3 read in full)
+
+
+## More reviews in Other sensors
+
+- [Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency](../ultrasensitive-textile-strain-sensors-redefine-wearable-silent-speech-interfaces-with-high-machine-learning-efficiency/) (2024). Standard sensor (M05) and decoder (M06): one throat strain channel, small CNN. 95.25% on 20 words, with split grouping and production mode unstated, does not show silent, session-independent decoding.
+- [Large Language Models are Strong Audio-Visual Speech Recognition Learners](../large-language-models-are-strong-audio-visual-speech-recognition-learners/) (2025). Llama-AVSR is a strong engineering result but not a new design: VSP-LLM already had a frozen-encoder LoRA LLM decoder; SOTA margins are single-run and under 0.1 WER points.
+- [Jointly Learning Visual and Auditory Speech Representations from Raw Data](../jointly-learning-visual-and-auditory-speech-representations-from-raw-data/) (2023). RAVEn's asymmetric momentum-teacher objective (M03) ties AV-HuBERT at Large with 30 h (32.5%); its lead comes with self-training (M02), whose pseudo-label decoding is not stated.
+- [Semantic reconstruction of continuous language from non-invasive brain recordings](../semantic-reconstruction-of-continuous-language-from-non-invasive-brain-recordings/) (2023). LM candidates scored by encoding-model likelihood (M06) were ahead in 2022, as the authors claim; the scorer is now overtaken. GPT prior (M07) is standard; one pilot-touched test story limits M12.
+- [Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis](../generalizable-spelling-using-a-speech-neuroprosthesis-in-an-individual-with-severe-limb-and-vocal-pa/) (2022). Silent NATO code-word spelling (M04), closed-lexicon beam search (M07) and a hand-squeeze stop (M09) are standard; one participant, and >9,000 words only offline.
+- [Imagined speech can be decoded from low- and cross-frequency intracranial EEG features](../imagined-speech-can-be-decoded-from-low-and-cross-frequency-intracranial-eeg-features/) (2022). Adds low-frequency power (precedent: Pei 2011, Ikeda 2014) and phase-amplitude coupling (new) to imagined-speech ECoG decoding (M06); CFC effect unshown: 12 of 144 uncorrected tests.
+
+---
+
+Part of the [Silent Speech Interface Review](https://github.com/supernaiter/silent-speech-review). Found an error? [Open an issue](https://github.com/supernaiter/silent-speech-review/issues/new?template=correction.yml).

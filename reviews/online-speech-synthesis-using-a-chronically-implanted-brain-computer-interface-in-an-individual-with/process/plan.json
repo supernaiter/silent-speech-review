@@ -1,0 +1,84 @@
+{
+ "slug": "online-speech-synthesis-using-a-chronically-implanted-brain-computer-interface-in-an-individual-with",
+ "target": "doi-10.1038-s41598-024-60277-2",
+ "first_public": "2023-07 (medRxiv 10.1101/2023.06.30.23291352 v1, 2023-07-01); prior < 2023-01, [concurrent] 2023-01 to 2024-01",
+ "setting": "One setting across slots: speech decoding or synthesis from non-acoustic speech-production signals (any signal type, as in the published tables); M13 narrows to intracranial speech synthesis because the design compared is the participant and implant.",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "cued overt keyword reading (communication-board vocabulary of Luo et al. 2023, same participant)"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "participant's own time-aligned overt speech as acoustic target (LPCNet features), as in Angrick 2019/Herff 2019"
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "single training over 10 recording days, frozen model, per-day high-gamma normalization from syllable-repetition baseline"
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "overt, self-paced keyword production by a dysarthric speaker"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "two 8x8 clinical subdural ECoG grids, 64 selected channels, 70-170 Hz high-gamma"
+  },
+  "M06": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "causal-closed-loop-speech-synthesis",
+     "inclusion_rule": "reused published topic table (online synthesis with playback; offline studies only when they simulate causal frame-level inference)",
+     "pattern": "reused published topic table",
+     "design_field": "classification at target time: closed loop with playback vs offline; frame-causal vs segment-level delayed playback",
+     "metric": "listener word identification / WER"
+    }
+   ]
+  },
+  "M07": {
+   "class": "inherited",
+   "lineage": "no language model or lexicon at use time"
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "LPCNet vocoder from 18 Bark cepstra + 2 pitch parameters, own voice"
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "no confirmation or commit step"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "no correction step"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "participant's own overt speech as reference"
+  },
+  "M12": {
+   "class": "incidental",
+   "topics": [
+    {
+     "topic": "listener-intelligibility-test",
+     "inclusion_rule": "reused published topic table (human listener transcription or identification of speech synthesized from non-acoustic signals)",
+     "pattern": "reused published topic table",
+     "design_field": "closed-set identification vs open transcription; chance level; exclusions",
+     "metric": "listener accuracy % / WER %"
+    }
+   ]
+  },
+  "M13": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "intracranial-synthesis-participant-and-implant",
+     "inclusion_rule": "Studies that reconstruct speech acoustics from intracranial recordings made during produced, attempted or imagined speech (the published intracranial-synthesis population pattern of M08/intracranial-synthesis-waveform-generation), classified by who was recorded and with what implant: acute clinical monitoring (epilepsy) or intraoperative recordings in people with intact speech, versus a chronic research implant in a person with impaired speech (ALS, brainstem stroke, locked-in, anarthria, dysarthria). Boundary: full-text pattern counts with the reference list removed, so related-work mentions count (upper bounds); a study counts under every design it names; heard-speech reconstruction and text-only decoders are outside; versions once.",
+     "pattern": "published intracranial-synthesis ledger pattern",
+     "design_field": "full-text regex: epilepsy, intraoperative, impaired-speech population, chronic implant / clinical trial",
+     "metric": "listener accuracy %; months from training to test"
+    }
+   ]
+  }
+ }
+}
