@@ -1,0 +1,61 @@
+{
+ "target": [
+  "doi-10.1088-1741-2560-8-3-036004"
+ ],
+ "first_public": "2011-04",
+ "changed": [
+  "M04",
+  "M05"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Open-loop screening of cued overt or covert vowels and rest (2-3 s cues), then closed-loop use; BCI2000 screening lineage (Leuthardt 2004, Schalk 2008a).",
+  "M02": "No training-only signal; labels are the cued task.",
+  "M03": "Per-patient feature selection by screening r2 and a ~1 min normaliser; no cross-session calibration.",
+  "M06": "Weighted sum of selected electrode-frequency power features, normalised to cursor velocity; BCI2000 ECoG cursor lineage.",
+  "M07": "No language model or lexicon; binary choice.",
+  "M08": "1-D cursor velocity to one of two targets (motor ECoG cursor lineage).",
+  "M09": "Selection by the cursor reaching a target; no confirmation step.",
+  "M10": "No correction step.",
+  "M11": "Ground truth is the cued target side.",
+  "M13": "Acute epilepsy monitoring with clinical grids for about one week; burr-hole argument is the authors' projection."
+ },
+ "topics": [
+  {
+   "slot": "M04",
+   "topic": "speech-task-closed-loop-bci-control",
+   "reuse": null,
+   "inclusion_rule": "see audit",
+   "pattern": "ledger: BCI/BMI/neuroprosthesis/cursor + closed-loop/real-time/online/feedback + speech terms",
+   "design_field": "design-regex speech_task_drives_device / limb_motor_imagery_control / evoked_potential_selection",
+   "metric": "online accuracy or bits per second"
+  },
+  {
+   "slot": "M05",
+   "topic": "intracranial-speech-electrode-scale",
+   "reuse": "components/M05/intracranial-speech-electrode-scale.json",
+   "inclusion_rule": "published rule; cutoff 2010-10",
+   "metric": "accuracy"
+  },
+  {
+   "slot": "M12",
+   "topic": "real-time-intracranial-speech-online-evaluation",
+   "reuse": "components/M12/real-time-intracranial-speech-online-evaluation.json",
+   "inclusion_rule": "published rule; cutoff 2010-10; chance-floor construction",
+   "metric": "online accuracy vs chance"
+  }
+ ],
+ "setting": "Closed-loop or intracranial speech work in any signal; prior = first public before 2010-10; [concurrent] 2010-10 to 2011-10.",
+ "deciding_priors": [
+  "pmc-2784218-wirelesssynth (Guenther 2009)",
+  "doi-10.1088-1741-2560-7-5-056007 (Kellis 2010)",
+  "Leuthardt 2004, Schalk 2008a, Wilson 2006 via the target's own citations (not in the wiki)"
+ ],
+ "sota": [
+  "doi-10.1056-nejmoa2314132",
+  "pmc-12208300-cursor",
+  "doi-10.1038-s41467-023-42555-1"
+ ]
+}
