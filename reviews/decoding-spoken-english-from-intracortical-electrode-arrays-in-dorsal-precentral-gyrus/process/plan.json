@@ -1,0 +1,79 @@
+{
+ "target": "doi-10.1088-1741-2552-abbfef",
+ "version_duplicates": [
+  "pmc-8293867-dorsal"
+ ],
+ "first_public": "2020-07",
+ "first_public_basis": "bioRxiv preprint 10.1101/2020.06.30.180935 v1, posted 2020-07-01 (single version; phoneme classification and both confound analyses; no speech synthesis). Journal version (J Neural Eng 17(6):066007, online 2020-11-11) adds Brain-to-Speech synthesis. Wiki text = PMC author manuscript of the journal version.",
+ "setting": "Decoders of produced, attempted or imagined speech from human intracranial recordings (ECoG, sEEG, depth electrodes, intracortical arrays), one population for M06 and M12: ledger-pattern studies first public before 2020-01, filtered by title and ledger text to actual decoders (reviews, perception or listening studies, mapping or encoding analyses, non-speech BCIs removed), versions merged. 2020-01 to 2021-01 is [concurrent]. Absence claims are also checked by a whole-wiki full-text pattern over any signal.",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "Stavisky et al. 2019: visually prompted overt speaking by BrainGate2 participants"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "audio-derived phoneme labels and onsets; no training-only signal"
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "per-participant supervised fit within folds; RNN noise and drift augmentation from Willett et al. handwriting work"
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "overt speech by participants able to speak (Stavisky et al. 2019)"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "two 96-electrode Utah arrays in dorsal hand-knob area, same participant T5 and arrays as Stavisky et al. 2019; HLFP and threshold crossings"
+  },
+  "M06": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "intracranial-phoneme-inventory-classification",
+     "reuse": "components/M06/intracranial-phoneme-inventory-classification.json",
+     "inclusion_rule": "Published rule (intracranial signal named with phonemes, vowels, consonants or syllables in the ledger text; design = size of the speech-unit class set). For this target the decoder population of the plan setting, first public before 2020-01; design regexes of the published table applied as mention counts; the deciding priors (full-inventory and deep-network intracranial classifiers) read in full. Boundary: synthesis-only decoders stay in the population but are not class-set designs; versions merged.",
+     "pattern": "published",
+     "design_field": "model_family|decoder_route",
+     "metric": "phoneme classification accuracy, %"
+    }
+   ]
+  },
+  "M07": {
+   "class": "inherited",
+   "lineage": "no language model; closed 420-word prompt set"
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "phoneme class label; Brain-to-Speech unit-selection synthesis of Herff et al. 2019 (journal version only)"
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "offline"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "offline"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "audio-derived phoneme onsets as labels"
+  },
+  "M12": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "intracranial-overt-speech-acoustic-contamination-control",
+     "inclusion_rule": "Same decoder population as M06 (plan setting, first public before 2020-01). Design of interest: an explicit control for overt-speech confounds in the evaluation: an audio-neural contamination test or artifact removal, decoding from a window before voice onset, or neural rather than acoustic onset alignment. Boundary: a confound named only in related work or in the reference list does not count; full-text pattern counts are mention counts; assessment studies without a decoder (Roussel et al.) are read as deciding priors but not counted as decoders; whole-wiki full-text pattern for contamination terms over any signal.",
+     "pattern": "intracranial ledger pattern of components/M12/intracranial-speech-test-partition.json",
+     "metric": "decoding accuracy change after contamination control"
+    }
+   ]
+  },
+  "M13": {
+   "class": "inherited",
+   "lineage": "BrainGate2 chronic arrays, offline analysis"
+  }
+ }
+}
