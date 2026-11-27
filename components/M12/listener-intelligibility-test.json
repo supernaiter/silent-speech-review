@@ -1619,6 +1619,7 @@
   "brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction",
   "brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding",
   "ema2s-an-end-to-end-multimodal-articulatory-to-speech-system",
+  "generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co",
   "sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language",
   "speech-synthesis-from-neural-decoding-of-spoken-sentences",
   "ultrasound-based-silent-speech-interface-built-on-a-continuous-vocoder"
@@ -1808,6 +1809,27 @@
    "role": "target",
    "loc": "Sec. 6",
    "quote": "listeners rated intelligibility on a 1–5 scale"
+  },
+  {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "role": "prior",
+   "loc": "Results",
+   "quote": "we evaluated 325 words that were spliced from the synthesized sentences",
+   "by": "generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co"
+  },
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "role": "sota",
+   "loc": "Results; Fig. 2l",
+   "quote": "The mean and median accuracies were 94.34% and 100%, respectively",
+   "by": "generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co"
+  },
+  {
+   "pid": "doi-10.64898-2026.06.30.735633",
+   "role": "sota",
+   "loc": "Abstract",
+   "quote": "Naive human listeners transcribed brain2voice 2.0 synthesized voice with a word error rate of 5.24%",
+   "by": "generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co"
   }
  ],
  "state_of_the_art": {
@@ -1902,6 +1924,86 @@
     "pmc-4809489-vocal"
    ],
    "note": "Included studies first public more than 6 months before the target, counted once by key; appended for the continuous-vocoder ultrasound review; earlier decisions unchanged. The target itself rates naturalness only and falls outside the inclusion rule."
+  },
+  "generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co": {
+   "target_first_public": "2019-11",
+   "prior_before": "2019-05",
+   "n_unique": 12,
+   "tier": "confirmed (text-verified include decisions)",
+   "pids": [
+    "arxiv-1701.00495",
+    "arxiv-1710.09798",
+    "doi-10.1016-j.csl.2015.09.008",
+    "doi-10.1016-j.rlfa.2018.07.004",
+    "doi-10.1109-taslp-2017-2757263",
+    "doi-10.1109-taslp.2017.2716178",
+    "doi-10.1371-journal.pcbi.1005119",
+    "doi-10.21437-interspeech.2014-449",
+    "doi-10.21437-interspeech.2015-139",
+    "isca-taguchi18_interspeech",
+    "pmc-4809489-vocal",
+    "doi-10.1038-s41586-019-1119-1"
+   ],
+   "neural": {
+    "doi-10.1038-s41586-019-1119-1": "production; word identification with 10, 25 and 50 choices on 325 spliced words, and transcription with 25- and 50-word pools"
+   },
+   "concurrent": [
+    "isca-uttam19-hushhush",
+    "cvf-prajwal20-lip2wav"
+   ],
+   "note": "Studies of speech synthesized from non-acoustic production signals (EMG, ultrasound, EMA, PMA, vocal-tract imaging, mouth video, neural) first public before 2019-05; versions once; earlier decisions unchanged.",
+   "excluded_after_evaluation": {
+    "doi-10.1038-s41598-018-37359-z": "perception decoding; outside the production setting of this review (evaluation F7)"
+   }
   }
+ },
+ "usual_approach_at_target_time_generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co": {
+  "design": "human listener intelligibility test (transcription or identification) of synthesized speech",
+  "n": 12,
+  "matched": 12,
+  "population": 12,
+  "tier": "confirmed"
+ },
+ "target_designs_generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co": {
+  "identification_options": 4,
+  "chance": "25%",
+  "stimuli": "30 words with the highest spectral correlation",
+  "listeners": 55,
+  "native_speakers": 27,
+  "open_transcription": false
+ },
+ "state_of_the_art_generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co": {
+  "pid": "doi-10.64898-2026.06.30.735633",
+  "year": 2026,
+  "metric": "listener open-transcription WER (preprint, intracortical, one participant, offline); closed-set exemplar Wairagkar 2025 94.34% among 6 sentences",
+  "value": "5.24%",
+  "timing": "later"
+ },
+ "tally_generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 37,
+  "fulltext_only_folders": 66,
+  "usual_approach": {
+   "design": "crowd_workers",
+   "n": 15,
+   "tier": "pattern match",
+   "population_unique": 79
+  },
+  "state_of_the_art": {
+   "pid": "pmc-12369848-voice-synth-np",
+   "year": 2025,
+   "metric": "median listener open-transcription WER of synthesized speech (intracortical, attempted vocalized speech)",
+   "value": "43.75%",
+   "timing": "later"
+  },
+  "read": 8,
+  "read_prior": [
+   "arxiv-2111.01457",
+   "doi-10.1038-s41586-019-1119-1",
+   "isca-taguchi18_interspeech"
+  ],
+  "unread": 0,
+  "confirmed_unique": 29,
+  "known_item_recall": 1.0
  }
 }

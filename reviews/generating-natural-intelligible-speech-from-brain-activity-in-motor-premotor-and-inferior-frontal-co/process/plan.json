@@ -1,0 +1,59 @@
+{
+ "target": "doi-10.3389-fnins.2019.01267",
+ "target_versions": [
+  "doi-10.3389-fnins.2019.01267",
+  "pmc-6882773-b2speech",
+  "pmc-6882773-braintospeech"
+ ],
+ "first_public": "2019-11",
+ "prior_cutoff": "first public before 2019-05; 2019-05 to 2020-05 is [concurrent]",
+ "setting": "Counts: acoustic speech reconstruction from intracranial recordings during speech production (the published intracranial-synthesis population). Precedents for the changed design (unit selection): speech synthesized from any non-acoustic signal (neural, EMG, articulatory, ultrasound, video), as in published reviews.",
+ "changed": [
+  "M06",
+  "M08"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt single-word reading during awake craniotomy (same recordings as Angrick 2019)",
+  "M02": "Simultaneously recorded audio as the unit inventory; no phoneme or word labels",
+  "M03": "Per-participant, 5-fold word-disjoint cross-validation, 8.3-11.7 min per participant",
+  "M04": "Overt reading; offline; causal variant reported for the best participant only",
+  "M05": "64-channel 8x8 ECoG grid, 4 mm, over M1v/PMv/IFG; log high-gamma 70-170 Hz, 450 ms centred context",
+  "M07": "None: no lexicon or language model; concatenation cost disabled",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Original microphone audio as reference",
+  "M13": "Offline intraoperative recording; runtime under 1 ms per 10 ms window"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "intracranial-synthesis-decoder-architecture",
+   "reuse": "components/M06/intracranial-synthesis-decoder-architecture.json",
+   "inclusion_rule": "Reused published table (intracranial production-speech acoustic reconstruction, classified by the neural-to-acoustic model). Prior-time tally: studies first public before 2019-05 that reconstruct continuous acoustic or synthesizer parameters from intracranial recordings during produced speech; versions once; reviews, perception and classification studies excluded; Martin 2014 and Chakrabarti 2015 added from the published M12 reconstruction table because the ledger pattern misses them. Design of interest: regression to continuous features versus selection of stored units by neural similarity.",
+   "pattern": "published",
+   "design_field": "full-text designs checked per study",
+   "metric": "spectrogram Pearson correlation"
+  },
+  {
+   "slot": "M08",
+   "topic": "intracranial-synthesis-waveform-generation",
+   "reuse": "components/M08/intracranial-synthesis-waveform-generation.json",
+   "inclusion_rule": "Reused published table (how predicted features become a waveform). Prior-time tally: the intracranial production studies first public before 2019-05 that output a waveform. Precedent check across all non-acoustic signals: whole-wiki full-text pattern for unit selection / concatenative / corpus-based synthesis, hits within 400 characters of a signal term read as snippets.",
+   "pattern": "published + fulltext 'unit[- ]selection|concatenative (speech )?synthesis|corpus[- ]based synthesis'",
+   "design_field": "full-text regexes unit_selection, neural_vocoder, parametric_vocoder, griffin_lim",
+   "metric": "listener WER / intelligibility"
+  },
+  {
+   "slot": "M12",
+   "topic": "listener-intelligibility-test",
+   "reuse": "components/M12/listener-intelligibility-test.json",
+   "inclusion_rule": "Reused published table: speech synthesized from non-acoustic signals evaluated by human listeners who transcribe or identify words or sentences; naturalness-only, ASR-only, acoustic-input conversion and review mentions excluded; versions once. Prior-time tally from the table's text-verified include decisions first public before 2019-05.",
+   "pattern": "published",
+   "design_field": "published include decisions",
+   "metric": "listener identification accuracy with chance level / transcription WER"
+  }
+ ]
+}
