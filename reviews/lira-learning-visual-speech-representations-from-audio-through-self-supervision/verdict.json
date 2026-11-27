@@ -1,0 +1,4 @@
+{
+ "short": "LiRA's audio-feature pre-training (M02, M03) is standard: it helps at 1% of labels but adds 0.7 points on LRW and 0.3 on LRS2 with all labels; its lead over other self-supervised work is the backbone.",
+ "position": "LiRA [@ma2021lira] changes the training-only supervision (M02), a frozen PASE+ encoder as regression target in place of recognizer distillation, and the pre-training objective (M03), regression in place of contrastive objectives; both stay standard. Pre-training helps strongly at 1% of LRW labels (24.5% against 3.6%) but adds 0.7 points on LRW and 0.3 on LRS2 with all labels, single runs. The same encoder from scratch already beats every self-supervised row in Table 1, and most of the LRS2 gain over TM-seq2seq comes from the authors' concurrent Conformer recipe. The PASE+ choice rests on an MFCC remark without numbers, and LipSound (2019), which regressed mel spectrograms from lip video, is not cited."
+}

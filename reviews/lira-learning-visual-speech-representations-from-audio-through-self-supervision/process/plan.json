@@ -1,0 +1,57 @@
+{
+ "target": "isca-ma21c-lira",
+ "versions": [
+  "isca-ma21c-lira",
+  "arxiv-2106.09171",
+  "isca-ma21c_interspeech"
+ ],
+ "first_public": "2021-06",
+ "first_public_note": "arXiv 2106.09171v1, 16 June 2021; Interspeech 2021 proceedings (DOI 10.21437/Interspeech.2021-1360) is the same text. Prior = first public before 2020-12; [concurrent] = 2020-12 to 2021-12; [later] = after 2021-12.",
+ "prep": "no prep/ folder; plan, audits and comparators built by the writer; published topic tables reused append-only",
+ "changed": [
+  "M02",
+  "M03"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "voiced LRS3 / LRW / LRS2 talking-face video",
+  "M04": "voiced speech video at test",
+  "M05": "dlib-landmark mouth ROI 96x96, 88x88 crop, 25 fps (authors' lineage [15])",
+  "M06": "3D conv + ResNet-18 + Conformer; MS-TCN classifier (LRW) or hybrid CTC/attention (LRS2), following [16]",
+  "M07": "Transformer LM on LRS2+LRS3+LibriSpeech text in decoding, beam 20 ([16] lineage)",
+  "M08": "word class (LRW) or text (LRS2)",
+  "M09": "n/a (offline)",
+  "M10": "n/a (offline)",
+  "M11": "public LRW and LRS2 test sets; unlabelled LRS3 for pre-training",
+  "M13": "offline GPU training"
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "audio-knowledge-transfer-to-video",
+   "inclusion_rule": "Published rule kept: lip-reading and video-to-speech studies with video-only input at test that use paired audio or a speech model in training to enrich the visual model (distillation, audio-feature regression, audio memory); audio-visual models needing audio at test excluded. For this review the population is screened to decoders first public before 2020-12 (prior) and 2020-12 to 2021-12 ([concurrent]); video-to-speech systems whose audio is the output, self-distillation without audio, AVSR without transfer and off-task papers are removed.",
+   "pattern": "published pattern",
+   "fulltext_pattern": "lip-reading / VSR / video-to-speech context followed by prediction, regression or reconstruction of mel spectrograms, acoustic or audio features/representations, PASE, wav2vec or HuBERT features (whole wiki)",
+   "design_regex": "knowledge_distillation, audio_feature_regression, contrastive",
+   "metric": "LRW top-1 accuracy (no word boundary, visual only); LRS2 VSR WER"
+  },
+  {
+   "slot": "M03",
+   "topic": "self-supervised-pretraining",
+   "inclusion_rule": "Published rule kept: self-supervised or teacher-generated pre-training on unlabelled non-audio-only input before supervised fine-tuning for speech or text decoding. For this review screened to visual-speech decoders evaluated on lip reading, prior = before 2020-12, [concurrent] = 2020-12 to 2021-12; separation, synchronisation-only, tongue-image, cued-speech hand-shape and VAD papers removed.",
+   "pattern": "published pattern",
+   "design_field": "supervision_kind; objective classified by title and full text (contrastive or synchronisation, teacher distillation, audio-feature regression)",
+   "metric": "LRS2 VSR WER after self-supervised pre-training and LRS2 fine-tuning"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrw-word-accuracy",
+   "inclusion_rule": "Published rule kept (visual-only LRW top-1 accuracy). For the run-spread count: LRW word-level systems first public before 2020-12 with full text; datasets, keyword spotting, enhancement, separation, talking-face generation, adversarial-attack detection, lip-to-speech and surveys removed.",
+   "pattern": "published pattern",
+   "design_regex": "spread = standard deviation | std | ± digit | confidence interval | random seeds | N independent/repeated runs | averaged over N runs/seeds (hits inspected: augmentation ranges and timing averages are not run spread)",
+   "metric": "LRW top-1 accuracy, visual only, no word-boundary input; repetition"
+  }
+ ]
+}
