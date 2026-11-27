@@ -1,0 +1,80 @@
+{
+ "target": "doi-10.3389-fnins.2011.00065",
+ "version_duplicates": [
+  "pmc-3096823-phoneme-intracortical",
+  "pmc-3096823-phonintent"
+ ],
+ "first_public": "2011-05",
+ "setting": "Speech decoding from intracranial recordings in humans (ECoG, sEEG, intracortical), as in the published intracranial topic populations; usual approach counted among studies first public before 2010-11 (more than six months before the target); 2010-11 to 2011-11 is [concurrent]. Novelty is checked against any signal by a whole-wiki full-text pattern, as published reviews do.",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "Guenther et al. 2009, same participant: cued attempted speech"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "cue labels only"
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "per-session-pooled supervised training, single participant"
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "Guenther et al. 2009 / Brumberg et al. 2009: attempted speech by the same locked-in participant"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "Kennedy Neurotrophic Electrode, same implant as Guenther et al. 2009"
+  },
+  "M06": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "intracranial-phoneme-inventory-classification",
+     "reuse": "components/M06/intracranial-phoneme-inventory-classification.json",
+     "inclusion_rule": "Published rule (intracranial signal named with phonemes, vowels, consonants or syllables in the ledger text; design = size of the speech-unit class set, full inventory versus a subset of two to six units). For this target the usual approach is judged on studies first public before 2010-11; [concurrent] 2010-11 to 2011-11. Novelty across signals: whole-wiki full-text pattern for full phone or phoneme sets (38-46 phonemes or phones, all phonemes, phoneme inventory), prior hits read as snippets. Boundary: reviews and mapping studies stay in the population; version duplicates merged.",
+     "pattern": "published",
+     "design_field": "model_family|decoder_route",
+     "metric": "accuracy, % (multi-class)"
+    }
+   ]
+  },
+  "M07": {
+   "class": "inherited",
+   "lineage": "none, closed isolated-phoneme set"
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "class label"
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "offline"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "offline"
+  },
+  "M11": {
+   "class": "incidental",
+   "note": "labels are the cued stimulus plus post-trial self-report; no attempt onset; no audit (M11 gives no field-practice count)"
+  },
+  "M12": {
+   "class": "incidental",
+   "topics": [
+    {
+     "topic": "intracranial-speech-test-partition",
+     "reuse": "components/M12/intracranial-speech-test-partition.json",
+     "inclusion_rule": "Published rule (intracranial speech decoding; design = how test data are separated from training data). For this target the published design regexes are applied to the unique ledger-pattern studies first public before 2010-11 (12 studies after merging versions); online closed-loop testing added as a design. Boundary: mentions count (upper bound); target and duplicates excluded.",
+     "pattern": "published",
+     "metric": "test partition design"
+    }
+   ]
+  },
+  "M13": {
+   "class": "inherited",
+   "lineage": "chronic wireless implant, offline analysis"
+  }
+ }
+}
