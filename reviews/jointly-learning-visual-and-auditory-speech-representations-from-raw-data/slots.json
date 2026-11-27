@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced LRS3 / VoxCeleb2 talking-face video"
+  ],
+  "field": "Voiced speech recorded for training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited from the LRS3 / VoxCeleb2 pipeline.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Joint audio-teacher latents; ASR pseudo-labels in self-training"
+  ],
+  "field": "Distillation from a frozen audio recogniser (10 of 14, to 2022)",
+  "n": 14,
+  "matched": 10,
+  "matched_tier": "pattern match (unique studies, year <= 2022)",
+  "verdict": "standard",
+  "note": "The largest VSR gain after pre-training (32.5% to 24.8%) comes from ASR pseudo-labels, the usual route; round count and LM use not stated.",
+  "sota": "[@haliassos2026usr2] EMA-teacher pseudo-labels, 23.7% (Large, 30 h)"
+ },
+ "M03": {
+  "choice": [
+   "Asymmetric cross-modal prediction of momentum-teacher latents"
+  ],
+  "field": "Contrastive objectives (18 of 24, to 2022); AV-HuBERT on LRS3",
+  "n": 24,
+  "matched": 18,
+  "matched_tier": "pattern match (unique studies, year <= 2022)",
+  "verdict": "standard",
+  "note": "New design among priors, but equal to AV-HuBERT at Large / 30 h (32.5% both) and ablated only on Base, validation set, one run.",
+  "sota": "[@haliassos2026usr2] 23.7% at Large, 30 h, LRS3+VoxCeleb2"
+ },
+ "M04": {
+  "choice": [
+   "Voiced speech video at test"
+  ],
+  "field": "Voiced speech at use time",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Grayscale mouth ROI, 25 fps; raw 16 kHz audio"
+  ],
+  "field": "Camera mouth ROI plus microphone",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited; raw waveform instead of filterbanks is a minor departure.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "ResNet-18 + Transformer; hybrid CTC/attention"
+  ],
+  "field": "CNN front end + sequence model",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited from the ESPnet / Ma et al. lineage.",
+  "sota": "–"
+ },
+ "M07": {
+  "choice": [
+   "Transformer LM, shallow fusion, beam 40"
+  ],
+  "field": "LM in decoding (sparse slot)",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited; selected weight not stated in the paper (public script: 0.3).",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Text"
+  ],
+  "field": "Text output",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "LRS3 and LRS2 public test sets"
+  ],
+  "field": "Public benchmark split",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Exclusion of LRS3 test videos from unlabelled pre-training not stated.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "LRS3 test WER, single runs, no seeds"
+  ],
+  "field": "No run spread (37 of 49 LRS3 systems, to 2022)",
+  "n": 49,
+  "matched": 37,
+  "matched_tier": "pattern match (unique studies, year <= 2022)",
+  "verdict": "standard",
+  "note": "Typical of the field; the 90,000-hour comparison omits the lower 19.3% in the same table.",
+  "sota": "[@haliassos2026usr2] 17.6% (Huge, LRS2+LRS3 labelled)"
+ },
+ "M13": {
+  "choice": [
+   "32 / 128 A100 GPUs for pre-training"
+  ],
+  "field": "Offline GPU training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ }
+}
