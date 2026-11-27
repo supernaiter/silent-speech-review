@@ -143,7 +143,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`emg-speech-encoder-input-and-sequence-model.csv`](emg-speech-encoder-input-and-sequence-model.csv) (7345 slot-filled, 83 pattern match, usual design in 18, 3 read in full)
 - Inclusion rule: Surface-EMG speech decoders (synthesis or recognition) classified by input representation (hand-crafted time-domain features vs learned convolution over minimally filtered EMG) and sequence model (feed-forward, recurrent, Transformer or Conformer). Boundary: EMG used only as an auxiliary channel to audio, gesture or non-speech EMG, and reviews are excluded; versions counted once.
-- Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/), [Non-invasive electromyographic speech neuroprosthesis: a geometric perspective](../../reviews/non-invasive-electromyographic-speech-neuroprosthesis-a-geometric-perspective/)
+- Used in: [An Improved Model for Voicing Silent Speech](../../reviews/an-improved-model-for-voicing-silent-speech/), [EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals](../../reviews/emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals/), [Non-invasive electromyographic speech neuroprosthesis: a geometric perspective](../../reviews/non-invasive-electromyographic-speech-neuroprosthesis-a-geometric-perspective/)
 
 ## emg-to-speech-intermediate-target
 
