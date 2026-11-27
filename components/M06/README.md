@@ -27,6 +27,20 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Overt speech decoding from cortical activity: a comparison of different linear methods | 2023 | Abstract（Methods）、§2.6.3 |
 | SPEAK YOUR MIND! Towards Imagined Speech Recognition With Hierarchical Deep Learning |  | Abstract |
 
+## articulatory-recognizer-unit-and-context-modeling
+
+- Table: [`articulatory-recognizer-unit-and-context-modeling.csv`](articulatory-recognizer-unit-and-context-modeling.csv) (7345 slot-filled, 118 pattern match, usual design in 10, 6 read in full)
+- Inclusion rule: Recognizers of phones, words or sentences as text from non-acoustic speech-production signals measured on the speaker (surface EMG, ultrasound, EMA/PMA, EPG, radar, neural recordings), classified by acoustic-model unit design: context-independent phone or word units; context-dependent phone units (triphones, decision-tree clustered); phonetic or articulatory feature (PF/AF) detectors combined with phone models as parallel streams; and data-driven bundling of interdependent PFs into clustered feature models. Boundary: acoustic-input recognizers (the acoustic-ASR AF lineage the target cites), lip-video-only recognizers, AF prediction with no word or phone recognizer, perception studies and reviews are excluded; versions count once. Dated population reused from the published M06/articulatory-signal-speech-recognizer table (12 prior unique studies before 2009-06).
+- Used in: [Modeling Coarticulation in EMG-based Continuous Speech Recognition](../../reviews/modeling-coarticulation-in-emg-based-continuous-speech-recognition/)
+
+| Paper | Year | Evidence |
+| --- | --- | --- |
+| Modeling Coarticulation in EMG-based Continuous Speech Recognition |  |  |
+| Continuous Electromyographic Speech Recognition with a Multi-Stream Decoding Architecture | 2007 |  |
+| Towards Speaker-Adaptive Speech Recognition Based on Surface Electromyography | 2008 |  |
+| Towards Continuous Speech Recognition Using Surface Electromyography | 2006 |  |
+| isca-wand09_interspeech |  |  |
+
 ## articulatory-signal-speech-recognizer
 
 - Table: [`articulatory-signal-speech-recognizer.csv`](articulatory-signal-speech-recognizer.csv) (7345 slot-filled, 118 pattern match, usual design in 10, 5 read in full)

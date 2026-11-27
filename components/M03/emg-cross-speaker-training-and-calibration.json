@@ -1187,6 +1187,18 @@
     "ledger"
    ],
    "snippet": "ch_of_inner_speech | production_labels=instructed_imagery | Acquisition.sensor_geometry=21 EEG + 8 external + 2 ECG + 1 EMG channels, 10-20 string headset, Fs=500Hz 16-bit; 0-32Hz LPF; downsampled to 100Hz; artifact detection/filtering | representation_kind=Normalized 1-Hz-resolution frequency spectrum per trial, 19 EEG channels x 1-32Hz bins | ProcessingStep.architecture=Bank of pairwise binary SVMs (one per class pair; linear default in MATLAB) -> relative-majority vote; tie/unassigned -> Unknowns C0; Monte-Carlo CV for mean acc + confusion matrix; 3 time modes (long/short/mixed) probe inter-vs-intra-class time spread | EvaluationProtocol.experimental_design=10 recordings x 5 subjects x 5 sessions; each record 20 reps x 7 classes; 4s instance, ~60 instances/test; Monte-Carlo CV; long-time=all instances, short-time=same-record only, mixed-time=cross-record; 50% binary chance reference | EvaluationRun.execution_artifacts=Long-time: 58% Word-Silence / 60% Word-Word / 40% Word-Word-Silence / 32% 7-class. Short-time (same record): 96/75/79/55%. Mixed-time best: 97/97/92/62%. Lit: 62.37/60.88% deep/shallow CNN + 57.80% LDA vs 59.5% ours on Coretto; D-Y.Lee 45% on Coretto; Panachakel 57.15% on 11 KaraOne prompts | extra.Output.output_kind=Word-class label among 6 Persian commands + silence, or Unknowns C0 | Dataset.collection_protocol=New imagined-speech EEG dataset: 5 subjects, 10 recordings over 5 sessions, 20 reps/word/silence per record, TGA cued pseudorandom words, 4s instances ~60/test; Persian equivalents of Up/Down/Left/Right/Yes/No | Claim.claim_scope=A simple spectrum+bank-SVM classifier decodes 6 imagined Persian words + silence from EEG, reaching ~97/97/92% (Word-Silence/Word-Word/W-W-S) in mixed-time and 62% for full 7-class — comparable to best prior imagined-speech results | Claim.claim_scope=Inter/intra-class temporal separation drives accuracy: same-record (short-time) and cross-record (mixed-time) sampling beat whole-database long-time pooling, because near-time correlated samples inflate separability | extra.Limitation.limitation=Only 5 subjects; accuracy collapses to 58/60/40/32% in the stringent long-time mode; 7-class=62% best-case (far below usable BCI); linear SVM defaults, small dataset, no cross-subject eval | extra.Limitation.status=acknowledged | long-time 7-class | short-time | mixed-time | literature cmp | chance"
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.12.002",
+   "key": "t:modelingcoarticulationinemgbasedcontinuousspeechrecognition",
+   "title": "Modeling Coarticulation in EMG-based Continuous Speech Recognition",
+   "year": null,
+   "via": [
+    "fulltext"
+   ],
+   "snippet": "",
+   "decision": "exclude",
+   "reason": "pooled 14-speaker training tested on the same speakers sessions (Sec. 4); no held-out speaker, labelled speaker-independent by the authors"
   }
  ],
  "usual_approach": {
@@ -1238,6 +1250,13 @@
    "role": "prior",
    "loc": "Sec. 3.1.2",
    "quote": "They saw improved cross-speaker classification accuracies with more training speakers"
+  },
+  {
+   "pid": "doi-10.5220-0001549601550162",
+   "role": "prior",
+   "loc": "Secs. 2, 3.4",
+   "quote": "We performed speaker adaptive training by initially training acoustic models based on the training data of all speakers but the two sessions of the test speaker.",
+   "used_by": "modeling-coarticulation-in-emg-based-continuous-speech-recognition"
   }
  ],
  "known_item_recall": {
@@ -1284,6 +1303,58 @@
   "known_item_recall": 1.0
  },
  "used_by": [
+  "modeling-coarticulation-in-emg-based-continuous-speech-recognition",
   "multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding"
- ]
+ ],
+ "dated_counts_modeling-coarticulation-in-emg-based-continuous-speech-recognition": {
+  "cutoff": "target first public 2009-12; prior = before 2009-06",
+  "prior_confirmed_includes": [
+   "doi-10.5220-0001549601550162"
+  ],
+  "prior_confirmed_n": 1,
+  "note": "Among the table's candidates first public before 2009-06, one confirmed include: the same group's BIOSIGNALS 2009 study on the same pilot corpus, which trains on all speakers but the test speaker and adapts with MLLR. The target is excluded: its multi-speaker models pool all 14 pilot speakers and are tested on those speakers."
+ },
+ "tally_modeling-coarticulation-in-emg-based-continuous-speech-recognition": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 64,
+  "fulltext_only_folders": 13,
+  "usual_approach": {
+   "design": "held-out-speaker (zero-shot) test of a pooled model; target-speaker adaptation named in 13, a data-amount sweep in 13, a training-pool-size sweep only in the target",
+   "n": 40,
+   "tier": "pattern match",
+   "population_unique": 76
+  },
+  "state_of_the_art": {
+   "pid": "doi-10.26092-elib.5498",
+   "year": 2024,
+   "metric": "leave-out-speaker adaptation of a cross-speaker sEMG-to-speech model on one session vs training from scratch (4 speakers)",
+   "value": "p < 0.01",
+   "unit": "",
+   "timing": "prior"
+  },
+  "read": 3,
+  "read_prior": [
+   "doi-10.26092-elib.5498",
+   "doi-10.3389-fnbot.2022.971446",
+   "doi-10.5220-0001549601550162"
+  ],
+  "unread": 82,
+  "confirmed_unique": 4,
+  "known_item_recall": 1.0
+ },
+ "state_of_the_art_modeling-coarticulation-in-emg-based-continuous-speech-recognition": {
+  "pid": "doi-10.26092-elib.5498",
+  "year": 2024,
+  "metric": "leave-out-speaker adaptation of a cross-speaker sEMG-to-speech model on one session vs training from scratch (4 speakers)",
+  "value": "p < 0.01",
+  "unit": "",
+  "timing": "later",
+  "note": "sEMG-to-speech synthesis model, not a recognizer; one-session fine-tuning on a left-out speaker significantly better than training from scratch (p < 0.01), 4 speakers; later than this target"
+ },
+ "usual_approach_at_target_time_modeling-coarticulation-in-emg-based-continuous-speech-recognition": {
+  "design": "no held-out-speaker test: one confirmed held-out-speaker study among the table's candidates first public before 2009-06",
+  "n": 1,
+  "tier": "confirmed",
+  "note": "all-years usual design (held-out-speaker test of a pooled model, 40 of 76 pattern match) is later practice"
+ }
 }

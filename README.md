@@ -1,12 +1,12 @@
 # Silent Speech Interface Review
 
-Reviews of **190 silent speech interface (SSI) papers** (2009–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-11-27.
+Reviews of **191 silent speech interface (SSI) papers** (2009–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-11-27.
 
 Silent speech interfaces turn articulation without audible voice into text or speech, using lip video, ultrasound tongue imaging, EMG, EEG, electropalatography, radar, acoustic sensing and more. Accuracies in this field are hard to compare: one paper recognizes 10 words from one speaker in one session, another decodes open sentences from new speakers on a later day. This review puts those conditions next to every headline number.
 
 Topics covered: silent speech recognition, lip reading and visual speech recognition (VSR), lip-to-speech and video-to-speech synthesis, EMG-to-speech, ultrasound tongue imaging, imagined and inner speech decoding from EEG and MEG, brain-to-text and speech neuroprostheses, radar and Wi-Fi sensing, and wearable silent speech text entry.
 
-**Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (19) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (38) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (47) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (9) · [Other sensors](#other-sensors) (36)
+**Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (19) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (38) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (47) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (9) · [Other sensors](#other-sensors) (37)
 
 ## Start here
 
@@ -22,7 +22,7 @@ Topics covered: silent speech recognition, lip reading and visual speech recogni
 
 ## Latest component reviews
 
-Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 160; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
+Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 161; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
 
 - [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/) (2026). Event input and a two-step OT-CFM decoder are standard; the DVS-Lip evaluation is behind: WER on an isolated-word set with no split details or seeds, and baselines that do not match their sources.
 - [A cross-species neural foundation model for end-to-end speech decoding](reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/) (2026). Cascaded decoding with the pretrained encoder is a strong standard result; the end-to-end audio-LLM path beats the prior end-to-end entry but trails RNN cascades, and the cross-species gain is small.
@@ -294,6 +294,7 @@ Every speech-intention decoder, whatever its sensor, can be described by the sam
 | 2011 | [Decoding Vowels and Consonants in Spoken and Imagined Words Using Electrocorticographic Signals in Humans](reviews/decoding-vowels-and-consonants-in-spoken-and-imagined-words-using-electrocorticographic-signals-in-h/) | Four-class vowel and consonant-pair classification from overt and covert (imagined) repetition of 36 monosyllabic words | Closed set: 36 CVC words, 4 vowels, 9 consonant pairs | 8 epilepsy patients (overt), 6 of them covert | Within-patient ten-fold cross-validation | Overt and covert (imagined) word repetition | Best-electrode accuracy 40.7% overt and 37.5% covert for vowels, 40.6% and 36.3% for consonant pairs (25% chance) |
 | 2011 | [Using the electrocorticographic speech network to control a brain-computer interface in humans](reviews/using-the-electrocorticographic-speech-network-to-control-a-brain-computer-interface-in-humans/) | Closed-loop 1-D cursor control from cued overt or imagined vowels | Two choices (vowel vs vowel or vowel vs rest) | Four epilepsy patients, per-patient features | Single screening and control run per patient | Online closed loop | Final accuracy 68-91% (noise floor 46.2%) over 61-139 trials |
 | 2010 | [Decoding spoken words using local field potentials recorded from the cortical surface](reviews/decoding-spoken-words-using-local-field-potentials-recorded-from-the-cortical-surface/) |  |  | Not stated | Not stated | Not stated |  |
+| 2010 | [Modeling Coarticulation in EMG-based Continuous Speech Recognition](reviews/modeling-coarticulation-in-emg-based-continuous-speech-recognition/) | Continuous word recognition from EMG with bundled phonetic-feature streams | 101-word test vocabulary, Broadcast News trigram | 14 pilot speakers; speaker-dependent and pooled multi-speaker models | Two sessions per pilot speaker | Audible read speech scored; silent speech recorded but not scored | Average WER 47.15% (phone baseline) to 31.49% (context-dependent bundled phonetic features), speaker-dependent |
 | 2009 | [A Wireless Brain-Machine Interface for Real-Time Speech Synthesis](reviews/a-wireless-brain-machine-interface-for-real-time-speech-synthesis/) | Real-time formant (F1/F2) synthesis of vowels in a center-out task | Three target vowels (IY, A, OO); four vowels in decoder training | Speaker-dependent | Cross-session | Online | Hit rate 45% to 70% and endpoint error 435 Hz to 233 Hz from first to last block, averaged across 25 sessions |
 
 ## Data

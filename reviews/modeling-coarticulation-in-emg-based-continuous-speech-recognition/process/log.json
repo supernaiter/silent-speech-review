@@ -1,6 +1,6 @@
 {
  "slug": "modeling-coarticulation-in-emg-based-continuous-speech-recognition",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,28 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-27T09:31:45+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-27T09:42:31+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "19 applied, 1 applied in part, 0 rejected, 0 unverified.",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-27T09:47:47+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 96 found, 0 missing, 20 unchecked (unstated, figure-only or no source)",
+  "topic counts M03-emg-cross-speaker-training-and-calibration": "ok",
+  "topic counts M06-articulatory-recognizer-unit-and-context-modeling": "ok"
+ },
  "inputs": {
   "notes_sha256": "f4860c00dc443c9d187677539950f9f2fc00d8c0ee211bdc01e0fc5b7f50ed35",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +59,6 @@
  },
  "body_chars": {
   "draft": 13076,
-  "final": null
+  "final": 14479
  }
 }
