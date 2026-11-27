@@ -2555,13 +2555,51 @@
    "loc": "Sec. 2.5",
    "quote": "contains utterances from a single speaker reading passages from seven non-fictional books.",
    "by": "generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co"
+  },
+  {
+   "pid": "doi-10.1088-1741-2552-ab0c59",
+   "role": "prior",
+   "loc": "Abstract, Main Results; Section 2.3, Decoding Approach",
+   "quote": "We transfered our prediction back into an audible waveform by applying a Wavenet vocoder.",
+   "by": "a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis"
+  },
+  {
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "role": "sota",
+   "loc": "Results; Fig. 2b",
+   "quote": "Transcribed sentences had a median 31% WER with a 25-word pool size",
+   "by": "a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2019.01267",
+   "role": "sota",
+   "loc": "Results",
+   "quote": "All volunteers achieved accuracies well above chance level in identification of the correct word (66.1% ± 6%) with relative low variance.",
+   "by": "a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2019.01267",
+   "role": "sota",
+   "loc": "Methods: Listening Tests",
+   "quote": "we conducted an online forced-choice listening test with 55 (15 female) healthy volunteers",
+   "by": "a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis"
+  },
+  {
+   "pid": "doi-10.1038-s41586-023-06443-4",
+   "role": "sota",
+   "loc": "Results",
+   "quote": "We achieved median WERs of 8.20% (99% CI [3.28, 14.5])",
+   "by": "a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis"
   }
  ],
  "known_item_recall": {
   "seeds_in_wiki": 3,
   "found": 3,
   "recall": 1.0,
-  "missed": []
+  "missed": [
+   "doi-10.1101-2024.03.11.584533",
+   "pmc-10589651-ffwd"
+  ]
  },
  "state_of_the_art": {
   "pid": "doi-10.36244-icj.2024.1.6",
@@ -2591,13 +2629,19 @@
   },
   "read": 2,
   "read_prior": [
-   "arxiv-2508.03166"
+   "arxiv-2508.03166",
+   "doi-10.1038-s41586-019-1119-1",
+   "doi-10.1088-1741-2552-ab0c59",
+   "doi-10.1109-taslp-2017-2738568",
+   "isca-fels08_avsp",
+   "isca-zahner14_interspeech"
   ],
   "unread": 218,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
  },
  "used_by": [
+  "a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis",
   "a-wireless-brain-machine-interface-for-real-time-speech-synthesis",
   "brain-to-speech-prosody-feature-engineering-and-transformer-based-reconstruction",
   "brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding",
@@ -2877,5 +2921,215 @@
   "unread": 218,
   "confirmed_unique": 1,
   "known_item_recall": 1.0
+ },
+ "prior_time_tally_a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis": {
+  "basis": "ledger pattern-match candidates, unique studies (versions merged by title key), period by earliest index year: prior = 2022 or earlier (target first public 2023-09; 2023 items listed apart, undated = date unresolved); design counts are full-text pattern matches with reference lists removed (mentions included, upper bounds)",
+  "cutoff": "2022 or earlier",
+  "population_unique": 63,
+  "dated_2023": 13,
+  "date_unresolved": 39,
+  "design_counts": [
+   {
+    "design": "unit_selection",
+    "n": 17
+   },
+   {
+    "design": "neural_vocoder",
+    "n": 7
+   },
+   {
+    "design": "griffin_lim",
+    "n": 4
+   }
+  ],
+  "tier": "pattern match",
+  "note": "unit-selection mentions come mostly from EMG and ultrasound work cited in intracranial papers",
+  "superseded_by": "decoder_population_a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis",
+  "reason": "unfiltered ledger rows (talking-face, lip, ultrasound, EEG, perception, reviews, datasets); kept as mention counts only"
+ },
+ "usual_approach_at_target_time_a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis": {
+  "design": "neural vocoder or unit concatenation",
+  "n": 3,
+  "population": 10,
+  "tier": "pattern match"
+ },
+ "inclusion_rule_a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis": "Reused published table: intracranial production-speech reconstruction, classified by how predicted acoustic features become a waveform (neural vocoder, Griffin-Lim, parametric vocoder, unit selection).",
+ "state_of_the_art_a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis": {
+  "pid": "doi-10.3389-fnins.2019.01267",
+  "year": 2019,
+  "metric": "four-alternative forced-choice word identification by 55 listeners of ECoG-synthesized single words (chance 25%); sentences: [concurrent] doi-10.1038-s41586-023-06443-4 median perceptual WER 8.20% on a 50-phrase set, one participant, attempted silent speech",
+  "value": 66.1,
+  "unit": "%",
+  "timing": "prior"
+ },
+ "decoder_population_a-neural-speech-decoding-framework-leveraging-deep-learning-and-speech-synthesis": {
+  "definition": "one decoder population for M02, M06, M08 and M12: human studies that synthesize speech acoustics from intracranial recordings (ECoG, sEEG, intracortical) during produced or imagined speech, first public before 2023-03-17 (target first public 2023-09-17 minus 6 months); drawn from the 180-study intracranial-synthesis ledger pattern after removing talking-face, lip, ultrasound, articulography, EMG and EEG work, perception studies, primate studies, reviews, datasets and ethics papers; versions merged. The same-group 2021 preprint (pmc-10589651-ffwd) is outside the ledger pattern and is counted separately.",
+  "cutoff": "2023-03-17",
+  "population_unique": 10,
+  "studies": [
+   {
+    "pid": "doi-10.1371-journal.pone.0008218",
+    "first_public": "2009-12",
+    "M06": "formant parameters",
+    "M08": "formant synthesizer",
+    "listener_test": false,
+    "read": true
+   },
+   {
+    "pid": "doi-10.1088-1741-2552-ab0c59",
+    "first_public": "2018-11",
+    "M06": "log-mel spectrogram",
+    "M08": "neural vocoder (WaveNet)",
+    "listener_test": false,
+    "read": true
+   },
+   {
+    "pid": "doi-10.1038-s41586-019-1119-1",
+    "first_public": "2018-11",
+    "M06": "articulatory kinematics then acoustic features",
+    "M08": "parametric vocoder (MLSA)",
+    "listener_test": true,
+    "read": true
+   },
+   {
+    "pid": "doi-10.3389-fnins.2019.01267",
+    "first_public": "2019",
+    "M06": "unit selection",
+    "M08": "unit concatenation",
+    "listener_test": true,
+    "read": true
+   },
+   {
+    "pid": "doi-10.1088-1741-2552-abbfef",
+    "first_public": "2020",
+    "M06": "unit selection",
+    "M08": "unit concatenation",
+    "listener_test": null,
+    "read": false
+   },
+   {
+    "pid": "pmc-8460739-realtimesynth",
+    "first_public": "2021",
+    "M06": "log-mel spectrogram (linear)",
+    "M08": "Griffin-Lim",
+    "listener_test": null,
+    "read": false
+   },
+   {
+    "pid": "doi-10.1109-embc46164.2021.9629711",
+    "first_public": "2021",
+    "M06": "log-mel spectrogram",
+    "M08": "Griffin-Lim",
+    "listener_test": null,
+    "read": false
+   },
+   {
+    "pid": "arxiv-2111.01457",
+    "first_public": "2021-11",
+    "M06": "spectrogram",
+    "M08": "neural vocoder (WaveGlow)",
+    "listener_test": null,
+    "read": false
+   },
+   {
+    "pid": "doi-10.1109-icassp43922.2022.9747300",
+    "first_public": "2022",
+    "M06": "unit selection",
+    "M08": "unit concatenation",
+    "listener_test": null,
+    "read": false
+   },
+   {
+    "pid": "doi-10.1109-embc48229.2022.9871301",
+    "first_public": "2022",
+    "M06": "vocoder parameters",
+    "M08": "neural vocoder (Parallel WaveGAN)",
+    "listener_test": null,
+    "read": false
+   }
+  ],
+  "concurrent_decoders_2023": [
+   "doi-10.3389-fnhum.2023.1124065 (accepted 2023-05)",
+   "doi-10.1088-1741-2552-ace8be (2023)",
+   "doi-10.1126-sciadv.adh0478 (2023)",
+   "doi-10.1038-s41586-023-06443-4 (2023-08)"
+  ],
+  "tier": "pattern match, designs checked in method passages",
+  "design_counts_M06": [
+   {
+    "design": "spectrogram regression",
+    "n": 4
+   },
+   {
+    "design": "unit selection",
+    "n": 3
+   },
+   {
+    "design": "vocoder or formant parameters",
+    "n": 2
+   },
+   {
+    "design": "articulatory intermediate",
+    "n": 1
+   },
+   {
+    "design": "differentiable synthesizer",
+    "n": 0
+   }
+  ],
+  "design_counts_M08": [
+   {
+    "design": "neural vocoder",
+    "n": 3
+   },
+   {
+    "design": "unit concatenation",
+    "n": 3
+   },
+   {
+    "design": "Griffin-Lim",
+    "n": 2
+   },
+   {
+    "design": "formant synthesizer",
+    "n": 1
+   },
+   {
+    "design": "parametric vocoder (MLSA)",
+    "n": 1
+   }
+  ],
+  "mention_counts_M12": [
+   {
+    "design": "k_fold_cross_validation",
+    "n": 8
+   },
+   {
+    "design": "random_trial_split",
+    "n": 4
+   },
+   {
+    "design": "held_out_session_or_day",
+    "n": 3
+   },
+   {
+    "design": "held_out_subject",
+    "n": 0
+   },
+   {
+    "design": "chance_or_shuffled_control",
+    "n": 7
+   }
+  ],
+  "held_out_content_tests": [
+   "doi-10.1038-s41586-019-1119-1 (novel sentences, read)"
+  ],
+  "mention_counts_M02": [
+   {
+    "design": "speech_autoencoder_latent",
+    "n": 0
+   }
+  ],
+  "fulltext_check": "differentiable synthesizer / DDSP searched over the whole wiki full text (reference lists removed); see fulltext_check_differentiable"
  }
 }
