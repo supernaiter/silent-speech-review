@@ -1762,6 +1762,27 @@
    "role": "sota",
    "loc": "Table 2 (low-resource, Large)",
    "quote": "BRA VEn✗30.82.3"
+  },
+  {
+   "pid": "arxiv-2212.06246",
+   "role": "sota",
+   "loc": "Table 9",
+   "quote": "1,759 223 23.2 2.5",
+   "by": "lira-learning-visual-speech-representations-from-audio-through-self-supervision"
+  },
+  {
+   "pid": "arxiv-1809.08001",
+   "role": "prior",
+   "loc": "Sec. 1",
+   "quote": "embeddings for visual speech recognition in self-supervision",
+   "by": "lira-learning-visual-speech-representations-from-audio-through-self-supervision"
+  },
+  {
+   "pid": "arxiv-2212.06246",
+   "role": "sota",
+   "loc": "Table 9",
+   "quote": "433 223 32.1",
+   "by": "lira-learning-visual-speech-representations-from-audio-through-self-supervision"
   }
  ],
  "known_item_recall": {
@@ -1800,7 +1821,9 @@
   "read_prior": [
    "arxiv-1911.12747",
    "isca-ma21c-lira",
-   "arxiv-2405.11459"
+   "arxiv-2405.11459",
+   "arxiv-1809.08001",
+   "arxiv-2201.02184"
   ],
   "unread": 138,
   "confirmed_unique": 0,
@@ -1809,6 +1832,7 @@
  "used_by": [
   "jointly-learning-visual-and-auditory-speech-representations-from-raw-data",
   "learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction",
+  "lira-learning-visual-speech-representations-from-audio-through-self-supervision",
   "pretraining-large-brain-language-model-for-active-bci-silent-speech",
   "visual-speech-recognition-for-multiple-languages-in-the-wild"
  ],
@@ -2065,5 +2089,54 @@
   "string_match_folders": 138,
   "string_match_unique": 123,
   "fulltext_only_folders": 13
+ },
+ "counts_lira-learning-visual-speech-representations-from-audio-through-self-supervision": {
+  "window": "prior = first public before 2020-12 (arXiv month where available); [concurrent] = 2020-12 to 2021-12; target first public 2021-06 (arXiv 2106.09171v1)",
+  "prior_population": {
+   "arxiv-1809.08001": "Perfect Match, cross-modal synchronisation embeddings (contrastive)",
+   "arxiv-2004.14326": "PT-CDDL, cross-modal contrastive embeddings; listed as self-supervised LRW result in the target's Table 1",
+   "arxiv-1911.12747": "teacher-generated pre-training (ASR distillation) on unlabelled VoxCeleb2"
+  },
+  "prior_unique": 3,
+  "prior_design_counts": {
+   "contrastive_or_synchronisation": 2,
+   "teacher_distillation": 1,
+   "audio_feature_regression": 0
+  },
+  "excluded": {
+   "arxiv-2003.05709": "two-stream distillation, no self-supervision",
+   "isca-vougioukas19_ganv2s": "video-to-speech",
+   "arxiv-2101.03149": "separation",
+   "arxiv-2106.11769": "tongue-image reconstruction",
+   "arxiv-2106.14016": "cued-speech hand shape",
+   "arxiv-2112.04432": "synchronisation only",
+   "isca-kim21b-sslavvad": "voice activity detection",
+   "pre-2015 Interspeech titles": "off-task"
+  },
+  "concurrent": {
+   "AV-PPC (Tellamekala et al., ICPR 2020 proceedings, published 2021-01-10)": "contrastive predictive coding; not in the wiki, named through the target's Table 1",
+   "arxiv-2104.05418": "global-local audio-visual contrastive learning, evaluated on lip reading",
+   "arxiv-2112.04748": "mel regression pre-training (LipSound2)"
+  },
+  "tier": "pattern match (unique studies), screened by title and full text"
+ },
+ "usual_approach_lira-learning-visual-speech-representations-from-audio-through-self-supervision": {
+  "design": "cross-modal contrastive or synchronisation pre-training",
+  "n": 2,
+  "tier": "pattern match",
+  "population_unique": 3,
+  "pids": [
+   "arxiv-1809.08001",
+   "arxiv-2004.14326"
+  ],
+  "note": "prior visual-speech studies at the target's time; teacher distillation 1 (arxiv-1911.12747); AV-PPC is [concurrent] (2021-01)"
+ },
+ "state_of_the_art_lira-learning-visual-speech-representations-from-audio-through-self-supervision": {
+  "pid": "arxiv-2212.06246",
+  "year": 2023,
+  "metric": "LRS2 VSR WER, RAVEn Base, same 433 h unlabelled LRS3 as LiRA, 223 h labelled, no LM (Large with 1,759 h: 23.2)",
+  "value": 32.1,
+  "unit": "%",
+  "timing": "later"
  }
 }

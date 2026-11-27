@@ -878,6 +878,34 @@
    "role": "prior",
    "loc": "Sec. 4; App. B.4",
    "quote": "Note that no additional data is used when combined with"
+  },
+  {
+   "pid": "isca-qu19-lipsound",
+   "role": "prior",
+   "loc": "Abstract; Sec. 1",
+   "quote": "Unlike end-to-end lip reading models, this component can be trained with large amounts of non-annotated video data.",
+   "by": "lira-learning-visual-speech-representations-from-audio-through-self-supervision"
+  },
+  {
+   "pid": "arxiv-1911.11502",
+   "role": "prior",
+   "loc": "Sec. 3 (Eq. 10)",
+   "quote": "predicted by speech recognizer and the ground truth sentence",
+   "by": "lira-learning-visual-speech-representations-from-audio-through-self-supervision"
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "role": "sota",
+   "loc": "Table 1; Sec. 2",
+   "quote": "SyncVSR Transformer 157 93.2 ± 0.1 95.0 ± 0.0 58.2 ± 0.0",
+   "by": "lira-learning-visual-speech-representations-from-audio-through-self-supervision"
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "role": "sota",
+   "loc": "Table 1; Table 4",
+   "quote": "Transcription Alignment Transformer 157 93.1 94.8",
+   "by": "lira-learning-visual-speech-representations-from-audio-through-self-supervision"
   }
  ],
  "known_item_recall": {
@@ -917,7 +945,11 @@
    "arxiv-1911.12747",
    "arxiv-2007.06504",
    "arxiv-2204.01725",
-   "doi-10.1609-aaai.v34i04.6174"
+   "doi-10.1609-aaai.v34i04.6174",
+   "arxiv-1911.11502",
+   "arxiv-2201.02184",
+   "isca-ma21c-lira",
+   "isca-qu19-lipsound"
   ],
   "unread": 67,
   "confirmed_unique": 0,
@@ -926,6 +958,7 @@
  "used_by": [
   "akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model",
   "jointly-learning-visual-and-auditory-speech-representations-from-raw-data",
+  "lira-learning-visual-speech-representations-from-audio-through-self-supervision",
   "multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video"
  ],
  "counts_jointly-learning-visual-and-auditory-speech-representations-from-raw-data": {
@@ -1164,6 +1197,73 @@
   "recall": 0.5,
   "missed": [
    "isca-ma21c-lira"
+  ]
+ },
+ "counts_lira-learning-visual-speech-representations-from-audio-through-self-supervision": {
+  "window": "prior = first public before 2020-12 (arXiv month where available); [concurrent] = 2020-12 to 2021-12; target first public 2021-06 (arXiv 2106.09171v1)",
+  "prior_population": {
+   "arxiv-1911.11502": "LIBS, distillation from a supervised speech recognizer (transcripts needed)",
+   "arxiv-1911.12747": "Afouras et al., distillation of ASR posteriors on unlabelled VoxCeleb2",
+   "isca-qu19-lipsound": "LipSound, mel-spectrogram regression from video, found by the full-text step (not in the ledger pattern)"
+  },
+  "prior_unique": 3,
+  "prior_design_counts": {
+   "distillation_from_supervised_recognizer": 2,
+   "audio_feature_regression": 1,
+   "regression_of_self_supervised_audio_encoder_features": 0
+  },
+  "excluded_prior": {
+   "arxiv-1809.02108": "AVSR, no transfer",
+   "arxiv-1811.05250": "AVSR, no transfer",
+   "arxiv-2005.08209": "lip-to-speech, audio is the output",
+   "arxiv-2007.06504": "self-distillation, video teacher",
+   "arxiv-2008.02516": "non-autoregressive distillation, no audio teacher",
+   "pre-2005 / avsp / animation titles": "off-task"
+  },
+  "concurrent": {
+   "cvf-ren21-master-kd": "distillation",
+   "arxiv-2108.03543": "distillation",
+   "arxiv-2112.04748": "mel regression pre-training (LipSound2)",
+   "cvf-kim21-mabm": "audio memory recalled from video (Kim et al., ICCV 2021; classified by title, no wiki text)"
+  },
+  "fulltext_step": {
+   "pattern": "(?s)(lip ?reading|lipreading|visual speech recognition|lip-to-speech|video-to-speech).{0,3000}((predict|regress|reconstruct)\\w*.{0,60}(mel[- ]?spectrogram|acoustic (features|representations|embeddings)|audio (features|representations|embeddings)|PASE|wav2vec|HuBERT (features|representations))|(mel[- ]?spectrogram|acoustic features|audio features) .{0,30}(as|are used as) (the )?(target|supervision))",
+   "fulltext_only_folders": 75,
+   "recall_sample_n": 30,
+   "recall_sample_prior_hits": {
+    "isca-qu19-lipsound": "same family (mel regression for lip reading)",
+    "arxiv-1808.00046": "speech enhancement",
+    "isca-michelsanti20_interspeech": "video-to-speech output"
+   },
+   "recall_sample_same_design_prior": 1
+  },
+  "tier": "pattern match (unique studies), screened by title and full text"
+ },
+ "usual_approach_lira-learning-visual-speech-representations-from-audio-through-self-supervision": {
+  "design": "distillation from a supervised speech recognizer",
+  "n": 2,
+  "tier": "pattern match",
+  "population_unique": 3,
+  "pids": [
+   "arxiv-1911.11502",
+   "arxiv-1911.12747"
+  ],
+  "note": "prior studies at the target's time; LipSound (isca-qu19-lipsound) regresses mel spectrograms; none regresses a self-supervised audio encoder's features"
+ },
+ "state_of_the_art_lira-learning-visual-speech-representations-from-audio-through-self-supervision": {
+  "pid": "arxiv-2406.12233",
+  "year": 2024,
+  "metric": "LRW top-1, visual only, no word boundary, LRW only, three seeds; step isolated on one Transformer: audio-token targets 93.2 vs ASR-transcription targets 93.1 (Table 1); LRS2 audio loss 43.2 -> 30.7 WER with CTC (Table 4)",
+  "value": 93.2,
+  "unit": "%",
+  "timing": "later"
+ },
+ "known_item_recall_lira-learning-visual-speech-representations-from-audio-through-self-supervision": {
+  "seeds_in_wiki": 6,
+  "found": 5,
+  "recall": 0.83,
+  "missed": [
+   "arxiv-2406.12233"
   ]
  }
 }
