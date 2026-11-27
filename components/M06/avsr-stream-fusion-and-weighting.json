@@ -5224,6 +5224,51 @@
    "role": "prior",
    "loc": "Audio-Visual Integration for ASR",
    "quote": "From a word correct rate of this test, we decided opti- mal stream weights for every SNR and image resolution."
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Sec. 3.4",
+   "quote": "In this variant, separate attention heads are used for attending on the video and audio embeddings.",
+   "by": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr"
+  },
+  {
+   "pid": "cvf-seo23-avformer",
+   "role": "prior",
+   "loc": "Sec. 1",
+   "quote": "Unlike works that simply focus on lip mo- tion [1, 7, 23, 24, 29, 33, 37, 41], we investigate the contri- bution of entire visual frames.",
+   "by": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr"
+  },
+  {
+   "pid": "arxiv-2305.11095",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "equally-spaced RGB image frames, use the CLIP image encoder to embed them",
+   "by": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr"
+  },
+  {
+   "pid": "arxiv-2607.29112",
+   "role": "sota",
+   "loc": "Sec. 4.3; Table 2",
+   "quote": "while being competitive at 0dB (3.8% vs",
+   "by": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr",
+   "timing": "later"
+  },
+  {
+   "pid": "arxiv-2312.13873",
+   "role": "prior",
+   "loc": "Sec. 1",
+   "quote": "modal attention, which results in a kind of enhancement of the ASR",
+   "by": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr",
+   "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-2607.29112",
+   "role": "sota",
+   "loc": "Sec. 4.3",
+   "quote": "AVGER [21] achieves the best result at 3.7% WER",
+   "by": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr",
+   "timing": "later"
   }
  ],
  "known_item_recall": {
@@ -5393,7 +5438,8 @@
   "confirmed_in_text": true
  },
  "used_by": [
-  "audio-visual-speech-recognition-using-deep-learning"
+  "audio-visual-speech-recognition-using-deep-learning",
+  "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr"
  ],
  "tally": {
   "slot_filled_unique": 7345,
@@ -5419,10 +5465,94 @@
    "doi-10.1109-tasl.2008.2011515",
    "isca-miyajima00_icslp",
    "isca-potamianos03_eurospeech",
-   "isca-yoshida10-twolayer"
+   "isca-yoshida10-twolayer",
+   "arxiv-1809.02108",
+   "arxiv-2305.11095",
+   "arxiv-2312.13873",
+   "cvf-seo23-avformer"
   ],
   "unread": 499,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
+ },
+ "dated_pattern_counts_whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr": {
+  "cutoffs": "first public relative to the target (2024-06): prior before 2023-12, [concurrent] 2023-12 to 2024-12, [later] after 2024-12; month from the arXiv id, else year (2023 or 2024 without a month: date unresolved unless the whole year lies outside the window); versions grouped by ledger key; target (all four wiki versions) excluded; full-text pattern match, related-work mentions included (upper bounds)",
+  "population_pattern": "audio[- ]visual speech recognition|audiovisual speech recognition|\\bavsr\\b",
+  "population_unique": 348,
+  "bins": {
+   "undated": 60,
+   "prior": 159,
+   "later": 100,
+   "concurrent": 29
+  },
+  "design_regex": {
+   "gated_xattn": "gated cross[- ]?attention",
+   "cross_attention_fusion": "cross[- ]?(modal |modality )?attention",
+   "concatenation": "concatenat",
+   "whisper_or_usm": "\\bwhisper\\b|\\bUSM\\b|BEST-RQ",
+   "frozen_backbone": "(frozen|freez\\w*)[^.]{0,40}(encoder|backbone|front[- ]?end|whisper|av-hubert|asr model|speech model)|(encoder|backbone|model)s? (is|are|was|were|kept|remain\\w*) (kept )?frozen"
+  },
+  "prior": {
+   "population": 159,
+   "concatenation": 97,
+   "pretrained_audio_asr": 61,
+   "cross_attention_fusion": 14,
+   "frozen_backbone": 7,
+   "whisper_or_usm": 5,
+   "gated_xattn": 0
+  },
+  "concurrent": {
+   "population": 29,
+   "cross_attention_fusion": 14,
+   "concatenation": 23,
+   "pretrained_audio_asr": 21,
+   "frozen_backbone": 8,
+   "whisper_or_usm": 11,
+   "gated_xattn": 0
+  },
+  "later": {
+   "population": 100,
+   "cross_attention_fusion": 50,
+   "concatenation": 50,
+   "pretrained_audio_asr": 78,
+   "frozen_backbone": 47,
+   "gated_xattn": 12
+  },
+  "date_unresolved": {
+   "population": 60,
+   "cross_attention_fusion": 9,
+   "concatenation": 32,
+   "pretrained_audio_asr": 22,
+   "frozen_backbone": 5
+  },
+  "whisper_or_usm_prior_pids": {
+   "arxiv-2303.00628": "Whisper as an audio-only baseline row (MuAViC)",
+   "arxiv-2305.11095": "zero-shot prompting of Whisper with CLIP object labels from full frames (deciding prior, read)",
+   "arxiv-2311.14063": "Whisper for pseudo-labels",
+   "isca-liu20r-lipgraph": "reference to whispered speech",
+   "oa-W2257285929": "phone label"
+  },
+  "note": "No prior or [concurrent] AVSR study in the population names gated cross-attention; 12 [later] studies do. Decoder-side cross-modal attention trained from scratch is prior (TM-seq2seq, arxiv-1809.02108, read). Visual injection into a frozen pretrained recognizer is prior outside the population pattern (AVFormer, cvf-seo23-avformer, full frames, read); Whisper with visual prompts is prior (arxiv-2305.11095, read). FAVA (May et al., ASRU 2023, target ref. [6]) is not in the wiki and is described through the target. [Concurrent] Adaptive AV (arxiv-2312.13873, read) freezes Whisper and trains a cross-modal attention fusion module that enhances the input from lip and audio features."
+ },
+ "usual_approach_whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr": {
+  "design": "feature concatenation of audio and visual streams in a recognizer trained on audio-visual data (cross-modal attention named in 14, gated cross-attention in 0)",
+  "n": 97,
+  "tier": "pattern match",
+  "population_unique": 159,
+  "pids": [
+   "arxiv-1810.00108",
+   "arxiv-2102.06657",
+   "arxiv-2203.07996"
+  ],
+  "note": "prior studies (before 2023-12) of the 348-study AVSR population; upper bounds"
+ },
+ "state_of_the_art_whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr": {
+  "pid": "arxiv-2607.29112",
+  "year": 2026,
+  "metric": "LRS3 AVSR WER at 0 dB babble, DoubleHelix (LLaMA-3.2-3B with LoRA on frozen Whisper-medium and AV-HuBERT, 1,759 h, babble file unspecified, single run); AVGER 3.7% in the same table; 0.68% clean",
+  "value": 3.8,
+  "unit": "% WER",
+  "timing": "later",
+  "confirmed_in_text": true
  }
 }

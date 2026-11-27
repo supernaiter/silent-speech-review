@@ -10235,6 +10235,29 @@
    "loc": "Table 1",
    "quote": "Whisper A V-HuBERT LLaMA 3.2 3B 1759 1.9 0.72",
    "by": "large-language-models-are-strong-audio-visual-speech-recognition-learners"
+  },
+  {
+   "pid": "cvf-seo23-avformer",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "During training, we only tune these two sets of additional parameters, while both the ASR model and the visual feature extractor are frozen",
+   "by": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr"
+  },
+  {
+   "pid": "arxiv-2607.29112",
+   "role": "sota",
+   "loc": "Sec. 4",
+   "quote": "Both encoders stay frozen during training.",
+   "by": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr",
+   "timing": "later"
+  },
+  {
+   "pid": "arxiv-2312.13873",
+   "role": "prior",
+   "loc": "Sec. 4",
+   "quote": "The ASR models remain frozen, so the training is limited to optimize the fusion module with 13 M parameters",
+   "by": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr",
+   "timing": "concurrent"
   }
  ],
  "known_item_recall": {
@@ -10295,7 +10318,8 @@
   "timing": "later"
  },
  "used_by": [
-  "large-language-models-are-strong-audio-visual-speech-recognition-learners"
+  "large-language-models-are-strong-audio-visual-speech-recognition-learners",
+  "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr"
  ],
  "tally": {
   "slot_filled_unique": 1526,
@@ -10317,7 +10341,9 @@
   },
   "read": 3,
   "read_prior": [
-   "arxiv-2402.15151"
+   "arxiv-2402.15151",
+   "arxiv-2312.13873",
+   "cvf-seo23-avformer"
   ],
   "unread": 988,
   "confirmed_unique": 0,
@@ -10330,5 +10356,77 @@
   "value": 0.72,
   "unit": "% WER",
   "timing": "concurrent"
+ },
+ "dated_pattern_counts_whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr": {
+  "cutoffs": "first public relative to the target (2024-06): prior before 2023-12, [concurrent] 2023-12 to 2024-12, [later] after 2024-12; month from the arXiv id, else year (2023 or 2024 without a month: date unresolved unless the whole year lies outside the window); versions grouped by ledger key; target (all four wiki versions) excluded; full-text pattern match, related-work mentions included (upper bounds)",
+  "population_unique": 739,
+  "bins": {
+   "undated": 132,
+   "later": 197,
+   "prior": 359,
+   "concurrent": 51
+  },
+  "design_regex": "the published regexes in dated_pattern_counts_large-language-models-are-strong-audio-visual-speech-recognition-learners",
+  "prior": {
+   "population": 359,
+   "end_to_end_or_full_finetune": 166,
+   "frozen_encoder": 15,
+   "adapter_or_prompt": 9,
+   "lora": 1
+  },
+  "concurrent": {
+   "population": 51,
+   "lora": 5,
+   "frozen_encoder": 7,
+   "end_to_end_or_full_finetune": 40,
+   "adapter_or_prompt": 7
+  },
+  "later": {
+   "population": 197,
+   "end_to_end_or_full_finetune": 124,
+   "lora": 45,
+   "adapter_or_prompt": 48,
+   "frozen_encoder": 47
+  },
+  "date_unresolved": {
+   "population": 132,
+   "end_to_end_or_full_finetune": 53,
+   "frozen_encoder": 6,
+   "adapter_or_prompt": 6,
+   "lora": 1
+  },
+  "adapter_or_prompt_prior_pids": [
+   "arxiv-2302.06419",
+   "arxiv-2302.08102",
+   "arxiv-2303.08536",
+   "arxiv-2305.11095",
+   "arxiv-2306.06410",
+   "arxiv-2306.08314",
+   "arxiv-2308.09311",
+   "arxiv-2310.05058",
+   "arxiv-2310.14946"
+  ],
+  "note": "Frozen pretrained recognizer plus trained visual layers is prior: AVFormer (CVPR 2023, cvf-seo23-avformer; outside the population pattern, which needs VSR/AVSR wording; read) freezes the BEST-RQ ASR and CLIP and trains adapters and a visual projection; OpenSR (arxiv-2306.06410) freezes encoder and decoder and tunes cluster prompts."
+ },
+ "usual_approach_whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr": {
+  "design": "end-to-end training or full fine-tuning named (frozen pretrained encoder 15, adapters or prompt tuning 9, LoRA 1)",
+  "n": 166,
+  "tier": "pattern match",
+  "population_unique": 359,
+  "pids": [
+   "arxiv-1810.00108",
+   "arxiv-2102.06657",
+   "arxiv-2203.07996"
+  ],
+  "note": "prior studies (before 2023-12) of the 739-study VSR/AVSR population; upper bounds"
+ },
+ "state_of_the_art_whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr": {
+  "pid": "arxiv-2607.29112",
+  "year": 2026,
+  "metric": "LRS3 clean AVSR WER with frozen Whisper and AV-HuBERT encoders, LRS3+VoxCeleb2",
+  "value": 0.68,
+  "unit": "% WER",
+  "timing": "later",
+  "confirmed_in_text": true
  }
 }

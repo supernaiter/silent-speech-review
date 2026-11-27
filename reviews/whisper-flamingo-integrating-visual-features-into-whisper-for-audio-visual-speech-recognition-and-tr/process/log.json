@@ -1,6 +1,6 @@
 {
  "slug": "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,30 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-27T17:51:52+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-27T17:59:16+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "14 applied, 1 partly applied, 0 rejected.",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-27T18:02:52+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 93 found, 0 missing, 14 unchecked (unstated, figure-only or no source)",
+  "topic counts M03-frozen-encoder-parameter-efficient-training-vsr": "ok",
+  "topic counts M06-avsr-stream-fusion-and-weighting": "ok",
+  "topic counts M08-audio-visual-speech-translation-output": "ok",
+  "topic counts M12-avsr-noise-and-run-variability-protocol": "ok"
+ },
  "inputs": {
   "notes_sha256": "9f1e9968336d1cf83729995d7f830e72315f3c45d07d2f3e926ec50c109f5f93",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +61,6 @@
  },
  "body_chars": {
   "draft": 16815,
-  "final": null
+  "final": 17499
  }
 }

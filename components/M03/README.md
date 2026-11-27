@@ -83,7 +83,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`frozen-encoder-parameter-efficient-training-vsr.csv`](frozen-encoder-parameter-efficient-training-vsr.csv) (1526 slot-filled, 740 pattern match, usual design in 193, 3 read in full)
 - Inclusion rule: The 739-study VSR/AVSR population of M06/generative-text-decoder-vsr (lip video or audio-visual input, text output with WER, CER or accuracy; target excluded), classified by the training regime its full text names: LoRA or QLoRA, adapters or prompt tuning or other parameter-efficient tuning, a frozen pre-trained encoder or backbone, and end-to-end or full fine-tuning. Boundary: a study counts under every regime its text names (upper bound, related-work mentions included); a frozen LLM used only for post-hoc error correction of an audio-only hypothesis is not a VSR/AVSR training regime; versions count once by key.
-- Used in: [Large Language Models are Strong Audio-Visual Speech Recognition Learners](../../reviews/large-language-models-are-strong-audio-visual-speech-recognition-learners/)
+- Used in: [Large Language Models are Strong Audio-Visual Speech Recognition Learners](../../reviews/large-language-models-are-strong-audio-visual-speech-recognition-learners/), [Whisper-Flamingo: Integrating Visual Features into Whisper for Audio-Visual Speech Recognition and Translation](../../reviews/whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr/)
 
 ## imagenet-pretrained-vision-backbone-neural-speech
 

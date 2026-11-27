@@ -8,6 +8,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that generate speech (waveform or vocoder features) from a non-acoustic speech signal (ultrasound, EMA, PMA, EMG, lip or face video, rtMRI, intracranial or scalp neural recordings) and in which F0 or voicing of the output is predicted or evaluated. Boundary: exclude acoustic-input conversion (whisper, electrolarynx or NAM as the only input), talking-head or head-motion synthesis driven by speech, text-to-speech after text decoding, and reviews; the pattern match is an upper bound; versions count once by key.
 - Used in: [Autoencoder-Based Articulatory-to-Acoustic Mapping for Ultrasound Silent Speech Interfaces](../../reviews/autoencoder-based-articulatory-to-acoustic-mapping-for-ultrasound-silent-speech-interfaces/), [Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder](../../reviews/ultrasound-based-silent-speech-interface-built-on-a-continuous-vocoder/)
 
+## audio-visual-speech-translation-output
+
+- Table: [`audio-visual-speech-translation-output.csv`](audio-visual-speech-translation-output.csv) (3268 slot-filled, 1049 pattern match, usual design in 552, 3 read in full)
+- Inclusion rule: VSR/AVSR studies (lip-reading, visual or audio-visual speech recognition pattern in the ledger; 1,049 unique) whose full text names speech-to-text translation output (speech translation, AVST, VST) or BLEU; among prior and [concurrent] hits, classified by hand into systems that output a translation from lip or audio-visual input versus BLEU used as a transcription metric or named in related work. Boundary: speech-to-speech translation and sign-language translation are out; versions count once by key; target excluded.
+- Used in: [Whisper-Flamingo: Integrating Visual Features into Whisper for Audio-Visual Speech Recognition and Translation](../../reviews/whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr/)
+
 ## biosignal-to-speech-voice-control
 
 - Table: [`biosignal-to-speech-voice-control.csv`](biosignal-to-speech-voice-control.csv) (3268 slot-filled, 93 pattern match, usual design in 48, 4 read in full)

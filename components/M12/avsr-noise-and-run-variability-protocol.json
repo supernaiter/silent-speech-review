@@ -5605,7 +5605,8 @@
   "end-to-end-audiovisual-speech-recognition",
   "large-language-models-are-strong-audio-visual-speech-recognition-learners",
   "recurrent-neural-network-transducer-for-audio-visual-speech-recognition",
-  "robust-self-supervised-audio-visual-speech-recognition"
+  "robust-self-supervised-audio-visual-speech-recognition",
+  "whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr"
  ],
  "tally": {
   "slot_filled_unique": 6960,
@@ -6130,5 +6131,61 @@
   "value": 0.68,
   "unit": "% WER",
   "timing": "later"
+ },
+ "dated_pattern_counts_whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr": {
+  "cutoffs": "first public relative to the target (2024-06): prior before 2023-12, [concurrent] 2023-12 to 2024-12, [later] after 2024-12; month from the arXiv id, else year (2023 or 2024 without a month: date unresolved unless the whole year lies outside the window); versions grouped by ledger key; target (all four wiki versions) excluded; full-text pattern match, related-work mentions included (upper bounds)",
+  "population_unique": 348,
+  "bins": {
+   "undated": 60,
+   "prior": 159,
+   "later": 100,
+   "concurrent": 29
+  },
+  "design_regex": {
+   "run_variability": "standard deviation|confidence interval|random seeds?|repeated (runs|experiments)|\\bseeds\\b|significan(t|ce) test|t-test",
+   "lrs3": "\\bLRS-?3\\b",
+   "babble": "babble|noisex"
+  },
+  "prior": {
+   "population": 159,
+   "lrs3": 38,
+   "babble": 54,
+   "run_variability": 34,
+   "lrs3_and_run_variability": 6
+  },
+  "concurrent": {
+   "population": 29,
+   "babble": 12,
+   "lrs3": 16,
+   "run_variability": 6
+  },
+  "later": {
+   "population": 100,
+   "lrs3": 79,
+   "babble": 46,
+   "run_variability": 30
+  },
+  "date_unresolved": {
+   "population": 60,
+   "lrs3": 20,
+   "babble": 20,
+   "run_variability": 10
+  }
+ },
+ "usual_approach_whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr": {
+  "design": "single-run WER per cell with no seeds, repeated runs or confidence intervals",
+  "n": 125,
+  "tier": "pattern match",
+  "population_unique": 159,
+  "note": "159 prior AVSR studies minus 34 with a run-variability pattern hit (upper bound for variability, so 125 is a lower bound for single-run reporting); babble 54, LRS3 38"
+ },
+ "state_of_the_art_whisper-flamingo-integrating-visual-features-into-whisper-for-audio-visual-speech-recognition-and-tr": {
+  "pid": "arxiv-2602.19316",
+  "year": 2026,
+  "metric": "LRS3 low-resource AVSR WER reported as mean and SD over three random seeds (USR 2.0, Base)",
+  "value": "2.9 ± 0.1",
+  "unit": "% WER",
+  "timing": "later",
+  "confirmed_in_text": true
  }
 }
