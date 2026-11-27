@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced LRS3 (pre-training), LRW and LRS2 talking-face video"
+  ],
+  "field": "Voiced speech recorded for training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited from public broadcast and TED corpora.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Frozen PASE+ acoustic features as L1 regression target"
+  ],
+  "field": "Distillation from a supervised speech recognizer (2 of 3 prior)",
+  "n": 3,
+  "matched": 2,
+  "matched_tier": "pattern match (screened, prior)",
+  "verdict": "standard",
+  "note": "No transcripts in pre-training; target type not compared in the paper; LipSound (2019) uncited.",
+  "sota": "[@ahn2024syncvsr] audio-token vs transcription targets, LRW 93.2% vs 93.1% (one Transformer)"
+ },
+ "M03": {
+  "choice": [
+   "Audio-feature regression pre-training on LRS3, then frozen or fine-tuned encoder"
+  ],
+  "field": "Cross-modal contrastive or synchronisation pre-training (2 of 3 prior)",
+  "n": 3,
+  "matched": 2,
+  "matched_tier": "pattern match (screened, prior)",
+  "verdict": "standard",
+  "note": "+0.7 LRW and +0.3 LRS2 over the same encoder from scratch; LRW-initialised 37.9% (concurrent, own) omitted from Table 2.",
+  "sota": "[@haliassos2023raven] RAVEn Base LRS2 32.1% (same 433 h, no LM); Large 23.2% (1,759 h)"
+ },
+ "M04": {
+  "choice": [
+   "Voiced speech video at test"
+  ],
+  "field": "Voiced speech at use time",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "dlib-landmark mouth ROI, 96x96, 88x88 crop, 25 fps"
+  ],
+  "field": "Camera mouth ROI",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited from the authors' LRW pipeline.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "3D conv + ResNet-18 + Conformer; MS-TCN (LRW) or hybrid CTC/attention (LRS2)"
+  ],
+  "field": "CNN front end + sequence model",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Follows the authors' Conformer recipe.",
+  "sota": "–"
+ },
+ "M07": {
+  "choice": [
+   "Transformer LM (LRS2, LRS3, LibriSpeech text), beam 20"
+  ],
+  "field": "LM in sentence decoding",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "LM weights and text partitions not stated.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Word class (LRW) or text (LRS2)"
+  ],
+  "field": "Word class or text",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Public LRW and LRS2 test sets"
+  ],
+  "field": "Public benchmark split",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "LRS3 pre-training partitions not stated.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "LRW accuracy and LRS2 WER, one run per point, no seeds"
+  ],
+  "field": "No run spread (30 of 30 prior LRW systems)",
+  "n": 30,
+  "matched": 30,
+  "matched_tier": "pattern match (screened, prior)",
+  "verdict": "standard",
+  "note": "Prose gain 0.8 points against 0.7 in Table 1; no test behind 'significantly'.",
+  "sota": "[@ahn2024syncvsr] LRW 93.2% ± 0.1 (three seeds)"
+ },
+ "M13": {
+  "choice": [
+   "Offline GPU training"
+  ],
+  "field": "Offline GPU training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ }
+}
