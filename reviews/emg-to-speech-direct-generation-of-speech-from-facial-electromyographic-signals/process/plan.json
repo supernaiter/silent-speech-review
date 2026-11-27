@@ -1,0 +1,58 @@
+{
+ "target": "doi-10.1109-taslp-2017-2738568",
+ "gate": "component paper: surface-EMG-to-speech system comparing four mapping methods",
+ "version": "Reviewed text: the IEEE/ACM TASLP 25(12) article, author-hosted PDF (see source_article.meta.json). The wiki folder holds the 2016 KIT dissertation; the former notes.json (now notes.dissertation.json) was built from the dissertation and was replaced by notes rebuilt from the article.",
+ "prep": "no prep/ directory; plan and audits built by the writer from four published topic tables, append-only (dated keys suffixed with the slug)",
+ "time_frame": "first public 2017-11 (IEEE online 2017-11-23; issue 2017-12). Prior = before 2017-05; [concurrent] = 2017-05 to 2018-05.",
+ "setting": "One setting across slots: speech decoding or synthesis from non-acoustic speech-production signals measured on the speaker; lip video only together with such signals. The group's earlier papers (Toth 2009, Zahner 2014, Diener 2015) count as prior designs of the same group, not as versions of the target. M06 uses the surface-EMG subset of this setting.",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M04",
+  "M08",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Read English broadcast-news sentences with parallel audio (group corpus [8])",
+  "M02": "Frame-aligned MFCC/F0 targets; LDA on audio-aligned phone sub-states (Jou 2006 lineage)",
+  "M03": "Session-dependent training, development-set tuning",
+  "M05": "Two-array 35-channel EMG (Wand 2013 array) and six single electrodes",
+  "M07": "No LM in conversion; trigram LM only inside the ASR evaluation",
+  "M09": "offline",
+  "M10": "offline",
+  "M11": "Six audible sessions, three speakers",
+  "M13": "Batch feature-mapping timing on a desktop CPU"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "emg-speech-encoder-input-and-sequence-model",
+   "inclusion_rule": "Reused published table (surface-EMG speech decoders by input representation and sequence model). Added: dated pattern counts at the target time over 27 prior unique EMG speech decoders.",
+   "pattern": "reuse + full-text regex hmm_or_gmm / td_or_e4_features / neural_network_mention",
+   "metric": "MCD and WER on synthesized speech; silent-EMG WER for the state of the art"
+  },
+  {
+   "slot": "M08",
+   "topic": "non-acoustic-signal-to-speech-output-route",
+   "inclusion_rule": "Reused published table (direct mapping vs recognition then synthesis). Added: dated counts at 2017-11, 12 prior unique studies.",
+   "pattern": "reuse",
+   "metric": "ASR or listener WER on synthesized speech"
+  },
+  {
+   "slot": "M04",
+   "topic": "overt-to-silent-transfer",
+   "inclusion_rule": "Reused published table (overt-trained decoder applied to silent speech). Added: dated counts at 2017-11 in the one setting, two read additions (Toth 2009, Hueber and Bailly 2016), and a version note that the TASLP article has no silent test.",
+   "pattern": "reuse",
+   "metric": "silent-speech WER or word accuracy"
+  },
+  {
+   "slot": "M12",
+   "topic": "listener-intelligibility-test",
+   "inclusion_rule": "Reused published table (listener transcription or identification of synthesized speech). Added: dated counts at 2017-11 with the M08 population as denominator.",
+   "pattern": "reuse",
+   "metric": "listener word accuracy or WER"
+  }
+ ],
+ "triage": "After evaluation: Zahner 2014 and Diener 2015 counted as same-group priors; M08 moved from changed to incidental (route inherited from Toth 2009 and the group papers)."
+}
