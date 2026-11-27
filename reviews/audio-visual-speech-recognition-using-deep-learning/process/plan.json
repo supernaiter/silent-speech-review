@@ -1,0 +1,66 @@
+{
+ "target": "doi-10.1007-s10489-014-0629-7",
+ "target_versions": [
+  "doi-10.1007-s10489-014-0629-7"
+ ],
+ "first_public": "2014-12",
+ "prep": "no prep/ directory for this slug; plan built from notes.json",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Read isolated Japanese words from the ATR word lists (Kuwabara et al. 1989 database lineage); no new production protocol.",
+  "M02": "Visual phoneme targets from forced alignment of an audio monophone HMM (HTK), as in the group's Interspeech 2014 lipreading CNN (isca-noda14-cnnlip).",
+  "M03": "Per-speaker CNNs and pooled offline training, as in isca-noda14-cnnlip; no adaptation.",
+  "M04": "Pre-segmented isolated word utterances, offline.",
+  "M05": "One frontal monochrome camera and one microphone in a laboratory rig, inherited from the group's dataset (Yoshida et al. 2009).",
+  "M07": "No language model or grammar reported; isolated-word HMM decoding.",
+  "M08": "Isolated word out of a 400-word vocabulary.",
+  "M09": "Offline study; no confirmation.",
+  "M10": "Offline study; no correction.",
+  "M11": "Corpus word labels; HTK forced alignment for phoneme targets.",
+  "M13": "Offline laboratory study, GPU training."
+ },
+ "time_window": "prior before 2014-06, [concurrent] 2014-06 to 2015-06, [later] after 2015-06",
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "avsr-audio-feature-denoising",
+   "new": true,
+   "pattern": "audio[- ]visual speech recognition|audiovisual speech recognition|\\bavsr\\b",
+   "inclusion_rule": "Studies whose ledger names audio-visual speech recognition (AVSR) (the 349-study population of M06/avsr-audio-stream-input-representation), classified by whether their full text names a learned denoiser of the audio features (denoising autoencoder or a neural feature/speech enhancement network), any audio enhancement (spectral subtraction, Wiener filtering, speech or feature enhancement, noise reduction, denoising), and MFCC or filterbank features. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); versions count once by key; the target is excluded; dated against the target's first public month 2014-12.",
+   "metric": "word recognition rate under additive noise (%), higher is better",
+   "better": "higher"
+  },
+  {
+   "slot": "M06",
+   "topic": "lipreading-temporal-model-and-feature-learning",
+   "new": false,
+   "reuse": "components/M06/lipreading-temporal-model-and-feature-learning.json (append-only; this review's dated counts in dated_pattern_counts_<slug>)",
+   "inclusion_rule": "Published rule kept; for this review the same optical-camera lip-reading population is dated against 2014-12 and also counted for CNNs on mouth images and for phoneme or viseme posterior (tandem) features.",
+   "metric": "visual-only word accuracy (%)",
+   "better": "higher"
+  },
+  {
+   "slot": "M06",
+   "topic": "avsr-stream-fusion-and-weighting",
+   "new": true,
+   "pattern": "audio[- ]visual speech recognition|audiovisual speech recognition|\\bavsr\\b",
+   "inclusion_rule": "The same 349-study AVSR population, classified by the fusion design its full text names: multi-stream or coupled HMMs with stream weights, automatic, adaptive or discriminatively trained stream weights, feature-level concatenation, and deep multimodal (bimodal network) fusion. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); versions count once by key; the target is excluded; dated against 2014-12.",
+   "metric": "audio-visual word recognition rate under noise (%)",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "avsr-noise-and-run-variability-protocol",
+   "new": false,
+   "reuse": "components/M12/avsr-noise-and-run-variability-protocol.json (append-only; this review's dated counts in dated_pattern_counts_<slug>)",
+   "inclusion_rule": "Published rule kept; for this review the same 349-study AVSR population is dated against 2014-12 and also counted for babble or recorded noise, white or Gaussian noise, run variability and a named held-out (development or validation) set.",
+   "metric": "protocol features",
+   "better": "higher"
+  }
+ ]
+}
