@@ -187,6 +187,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that decode imagined, covert or inner speech (or contrast it with other conditions) from MEG and report a classification score. Boundary: perceived-speech-only and overt-only MEG decoding are excluded; EEG-only studies are excluded; reviews remain as pattern matches (upper bound); versions of one study count once.
 - Used in: [Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech](../../reviews/transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech/)
 
+## imagined-speech-neural-time-frequency-image-cnn
+
+- Table: [`imagined-speech-neural-time-frequency-image-cnn.csv`](imagined-speech-neural-time-frequency-image-cnn.csv) (7345 slot-filled, 309 pattern match, usual design in 13, 3 read in full)
+- Inclusion rule: Decoders that classify imagined, covert, inner or internal speech from human electrophysiological recordings (scalp EEG, MEG, ECoG, depth, intracortical); design compared is the decoder input and classifier: time-frequency images (scalograms or spectrograms) fed to a CNN, an ImageNet-pretrained CNN, any CNN, or hand-crafted features with a shallow classifier. Boundary: fMRI and fNIRS, reviews, listening-only or overt-only decoding and analyses without a decoder are excluded; a design term used only in related work does not count; versions once.
+- Used in: [Decoding Imagined and Spoken Phrases From Non-invasive Neural (MEG) Signals](../../reviews/decoding-imagined-and-spoken-phrases-from-non-invasive-neural-meg-signals/)
+
 ## intracortical-cursor-click-communication-decoder
 
 - Table: [`intracortical-cursor-click-communication-decoder.csv`](intracortical-cursor-click-communication-decoder.csv) (7345 slot-filled, 33 pattern match, usual design in 10, 4 read in full)

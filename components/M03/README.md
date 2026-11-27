@@ -83,7 +83,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`imagenet-pretrained-vision-backbone-neural-speech.csv`](imagenet-pretrained-vision-backbone-neural-speech.csv) (1526 slot-filled, 8 pattern match, usual design in 5, 3 read in full)
 - Inclusion rule: Speech or language decoders from EEG, MEG or intracranial recordings that initialize a vision backbone pretrained on natural images (ImageNet CNN or ViT) and fine-tune it, or train a head on it, using time-frequency or other image-like neural inputs. Boundary: decoding of images viewed during EEG (ImageNet as stimulus set) is excluded; non-speech imagery (e.g. visual arrows) and reviews remain as pattern matches (upper bound); versions of one study count once.
-- Used in: [Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech](../../reviews/transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech/)
+- Used in: [Decoding Imagined and Spoken Phrases From Non-invasive Neural (MEG) Signals](../../reviews/decoding-imagined-and-spoken-phrases-from-non-invasive-neural-meg-signals/), [Transfer Learning from ImageNet for MEG-Based Decoding of Imagined Speech](../../reviews/transfer-learning-from-imagenet-for-meg-based-decoding-of-imagined-speech/)
 
 ## imagined-speech-eeg-cross-subject-calibration
 

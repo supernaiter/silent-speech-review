@@ -90,6 +90,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same ledger population as the M13 online-imagined-speech-eeg table); the design compared is whether reported accuracy is referenced against chance: a stated chance level or above-chance test, or an empirical permutation null. Boundary: full-text pattern counts are upper bounds (a chance mention in related work counts); a study whose full text never uses the word 'chance' is counted as giving no chance reference; versions count once.
 - Used in: [Inferring imagined speech using EEG signals: a new approach using Riemannian manifold features](../../reviews/inferring-imagined-speech-using-eeg-signals-a-new-approach-using-riemannian-manifold-features/), [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/), [Towards Neural Decoding of Imagined Speech based on Spoken Speech](../../reviews/towards-neural-decoding-of-imagined-speech-based-on-spoken-speech/)
 
+## imagined-speech-neural-test-partition-and-artifact-controls
+
+- Table: [`imagined-speech-neural-test-partition-and-artifact-controls.csv`](imagined-speech-neural-test-partition-and-artifact-controls.csv) (6960 slot-filled, 309 pattern match, usual design in 14, 5 read in full)
+- Inclusion rule: Same population as the M06 topic. Design compared: how test data are separated from training data (within-subject k-fold, leave-one-out or random trial split; held-out session or day; held-out subject) and whether imagery is separated from movement (EMG recorded during the covert condition). Boundary: a term used only in related work, or EMG mentioned only as an artifact-removal step or as another modality, does not count as the design; versions once.
+- Used in: [Decoding Imagined and Spoken Phrases From Non-invasive Neural (MEG) Signals](../../reviews/decoding-imagined-and-spoken-phrases-from-non-invasive-neural-meg-signals/)
+
 ## implanted-communication-bci-chance-and-false-positives
 
 - Table: [`implanted-communication-bci-chance-and-false-positives.csv`](implanted-communication-bci-chance-and-false-positives.csv) (6960 slot-filled, 382 pattern match, usual design in 169, 1 read in full)
