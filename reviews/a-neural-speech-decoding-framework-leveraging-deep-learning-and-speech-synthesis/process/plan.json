@@ -1,0 +1,70 @@
+{
+ "target": "doi-10.1038-s42256-024-00824-8",
+ "target_versions": [
+  "doi-10.1038-s42256-024-00824-8",
+  "doi-10.1101-2023.09.16.558028",
+  "pmc-12965882-nmidecode",
+  "pmc-12965882-nsdecode"
+ ],
+ "first_public": "2023-09 (bioRxiv 10.1101/2023.09.16.558028 v1, posted 2023-09-17); Version of Record 2024-04-08",
+ "window": "prior: first public before 2023-03; [concurrent]: 2023-03 to 2024-03; [later]: after 2024-03. Ledger index gives years only: prior period counted as index year <= 2022, 2023 items listed separately, undated reported as date unresolved.",
+ "setting": "Human studies that reconstruct speech acoustics from intracranial recordings during produced speech (the published intracranial-synthesis population for M06 and M08; the published intracranial speech population for M12; all non-acoustic-to-speech synthesis for M02, as in the published M02 table). Same setting definition across slots; novelty precedents from any signal.",
+ "prep": "no prep/ directory; plan and audits built by the writer",
+ "changed": [
+  "M02",
+  "M06"
+ ],
+ "incidental": [
+  "M08",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt production of 50 words in five elicitation tasks (same-group paradigm, Wang 2021 preprint / PNAS 2023)",
+  "M03": "Per-participant models; speech autoencoder pretrained per participant; loss weights tuned on three hybrid-density participants",
+  "M04": "Overt word production, offline evaluation",
+  "M05": "Clinical subdural ECoG, 43 low-density and 5 hybrid-density grids, high-gamma 70-150 Hz envelope",
+  "M07": "None at use time",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Participant's own recorded audio as reference",
+  "M13": "Offline; GPU inference time reported"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "intracranial-synthesis-intermediate-representation",
+   "reuse": null,
+   "inclusion_rule": "The published intracranial-synthesis population (studies whose ledger text names an intracranial signal and speech synthesis or spectrogram reconstruction; 180 unique studies), classified by the intermediate representation between neural features and sound that its full text names: direct (mel/log/linear) spectrogram regression, articulatory kinematic intermediate, vocoder-parameter target (LPC, WORLD, LPCNet, cepstra), GAN latent, self-supervised or codec units, differentiable parametric synthesizer (DDSP-style). Boundary: mention counts (upper bounds); the pattern also admits reviews, perception and lip or EMG studies that cite intracranial work; versions once; formant-parameter decoders driving a rule-based synthesizer (Guenther 2009) count as interpretable acoustic parameters but not as differentiable synthesis.",
+   "pattern": "published intracranial-synthesis pattern (M06/intracranial-synthesis-decoder-architecture)",
+   "design_field": "full-text --design-regex counts",
+   "metric": "spectrogram PCC (higher), same-cohort and same-task where available"
+  },
+  {
+   "slot": "M02",
+   "topic": "speech-latent-target",
+   "reuse": "components/M02/speech-latent-target.json",
+   "inclusion_rule": "Reused published table: studies that synthesize speech from a non-acoustic signal and supervise the signal encoder with paired speech, either by direct spectral regression or by matching the latent of a speech encoder or autoencoder that is not used at test time; design of interest here: training-only reference parameters from a speech autoencoder.",
+   "pattern": "published pattern",
+   "design_field": "published full-text counts",
+   "metric": "presence of the design; spectrogram PCC"
+  },
+  {
+   "slot": "M08",
+   "topic": "intracranial-synthesis-waveform-generation",
+   "reuse": "components/M08/intracranial-synthesis-waveform-generation.json",
+   "inclusion_rule": "Reused published table: intracranial production-speech reconstruction, classified by how predicted acoustic features become a waveform (neural vocoder, Griffin-Lim, parametric vocoder, unit selection).",
+   "pattern": "published pattern",
+   "design_field": "full-text regexes neural_vocoder, griffin_lim, unit_selection",
+   "metric": "presence of the design; listener tests"
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-speech-test-partition",
+   "reuse": "components/M12/intracranial-speech-test-partition.json",
+   "inclusion_rule": "Reused published table: intracranial speech decoding studies classified by how test data are separated from training data (random trial split, k-fold, held-out session or day, held-out subject); added here: held-out words.",
+   "pattern": "published pattern",
+   "design_field": "published full-text regexes plus held_out_word",
+   "metric": "spectrogram PCC on unseen participants or words"
+  }
+ ]
+}
