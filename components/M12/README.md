@@ -114,6 +114,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Same population as the M06 topic: human intracranial (ECoG, sEEG, depth, intracortical) studies that decode imagined, covert or inner speech with a trained decoder. Design of interest: how test data are separated from training data (within-participant k-fold, leave-one-out or random trial/block split; held-out session or day; held-out subject; online closed-loop test with features or decoder fixed beforehand). Boundary: attempted speech decoded from unit firing (e.g. Guenther 2009, Brumberg 2011), reviews, listening-only, scalp EEG/MEG and analyses without a decoder excluded; versions count once. Priors: first public before 2020-07 (no 2020 candidate matched).
 - Used in: [Imagined speech can be decoded from low- and cross-frequency intracranial EEG features](../../reviews/imagined-speech-can-be-decoded-from-low-and-cross-frequency-intracranial-eeg-features/), [Word pair classification during imagined speech using direct brain recordings](../../reviews/word-pair-classification-during-imagined-speech-using-direct-brain-recordings/)
 
+## intracranial-overt-speech-acoustic-contamination-control
+
+- Table: [`intracranial-overt-speech-acoustic-contamination-control.csv`](intracranial-overt-speech-acoustic-contamination-control.csv) (6960 slot-filled, 618 pattern match, usual design in 20, 4 read in full)
+- Inclusion rule: Same decoder population as M06 (plan setting, first public before 2020-01). Design of interest: an explicit control for overt-speech confounds in the evaluation: an audio-neural contamination test or artifact removal, decoding from a window before voice onset, or neural rather than acoustic onset alignment. Boundary: a confound named only in related work or in the reference list does not count; full-text pattern counts are mention counts; assessment studies without a decoder (Roussel et al.) are read as deciding priors but not counted as decoders; whole-wiki full-text pattern for contamination terms over any signal.
+- Used in: [Decoding spoken English from intracortical electrode arrays in dorsal precentral gyrus](../../reviews/decoding-spoken-english-from-intracortical-electrode-arrays-in-dorsal-precentral-gyrus/)
+
 ## intracranial-speech-test-partition
 
 - Table: [`intracranial-speech-test-partition.csv`](intracranial-speech-test-partition.csv) (6960 slot-filled, 618 pattern match, usual design in 132, 2 read in full)
