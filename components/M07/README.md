@@ -14,6 +14,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Same 33-study intracortical text-entry population as the M06 topic; the design compared is use-time language assistance: a language model, or word prediction / word completion / autocomplete. Boundary: full-text pattern counts with the reference list removed (upper bound; a paper that names a language model only to exclude it or in related work counts); the target is included because it names word completion and prediction while excluding them.
 - Used in: [High performance communication by people with paralysis using an intracortical brain-computer interface](../../reviews/high-performance-communication-by-people-with-paralysis-using-an-intracortical-brain-computer-interf/)
 
+## intracranial-decoder-use-time-language-model
+
+- Table: [`intracranial-decoder-use-time-language-model.csv`](intracranial-decoder-use-time-language-model.csv) (119 slot-filled, 618 pattern match, usual design in 18, 5 read in full)
+- Inclusion rule: Same population as M06 intracranial-continuous-speech-sequence-decoder (human intracranial decoders of speech content, any task); design of interest: language information applied at use time: none, a word-level n-gram with a dictionary, a phoneme-level n-gram, or LLM rescoring. Boundary: a study counts under every design its full text names (upper bound); closed-set classifiers count as no LM unless the text names one; usual approach judged on the 20 decoders first public before 2016-02.
+- Used in: [Neural speech recognition: continuous phoneme decoding using spatiotemporal representations of human cortical activity](../../reviews/neural-speech-recognition-continuous-phoneme-decoding-using-spatiotemporal-representations-of-human/)
+
 ## large-vocabulary-lm-for-neural-speech
 
 - Table: [`large-vocabulary-lm-for-neural-speech.csv`](large-vocabulary-lm-for-neural-speech.csv) (119 slot-filled, 1162 pattern match, usual design in 152, 4 read in full)
