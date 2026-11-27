@@ -1341,6 +1341,13 @@
    "role": "sota",
    "loc": "Abstract",
    "quote": "28.8% to 12.2% in the Gaddy (2020) benchmark"
+  },
+  {
+   "pid": "isca-toth09_interspeech",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "6.37 (2.34)",
+   "by": "emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals"
   }
  ],
  "known_item_recall": {
@@ -1387,6 +1394,7 @@
  },
  "used_by": [
   "an-improved-model-for-voicing-silent-speech",
+  "emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals",
   "non-invasive-electromyographic-speech-neuroprosthesis-a-geometric-perspective"
  ],
  "known_item_recall_geometric": {
@@ -1397,5 +1405,95 @@
    "arxiv-2106.01933",
    "arxiv-2411.02591"
   ]
+ },
+ "dated_counts_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "cutoff": "prior = first public before 2017-05 (target first public 2017-11, IEEE/ACM TASLP 25(12)); [concurrent] = 2017-05 to 2018-05",
+  "setting": "One setting across slots: speech decoding or synthesis from non-acoustic speech-production signals measured on the speaker; lip video only together with such signals. The group's earlier papers (Toth 2009, Zahner 2014, Diener 2015) count as prior designs of the same group, not as versions of the target. M06 uses the surface-EMG subset of this setting.",
+  "population": "surface-EMG speech decoders (recognition or synthesis) in the index with year up to 2016, versions once, off-population removed (face animation, EGG, EOG, EEG, electrolarynx pitch, reviews, laryngeal psychology, a folder without text)",
+  "prior_unique": 29,
+  "fulltext_pattern_counts": {
+   "hmm_or_gmm": 21,
+   "td_or_e4_features": 14,
+   "neural_network_mention": 9
+  },
+  "hmm_or_gmm_pids": [
+   "dtic-ada410037",
+   "doi-10.1109-asru.2005.1566521",
+   "isca-jou06_interspeech",
+   "isca-walliczek06_interspeech",
+   "doi-10.1109-icassp.2007.366934",
+   "isca-wand07_emgwav",
+   "doi-10.5220-0001549601550162",
+   "isca-meltzner08-subvocal",
+   "isca-deng09-semgdisord",
+   "isca-toth09_interspeech",
+   "isca-wand09_interspeech",
+   "doi-10.5220-0003786100910100",
+   "isca-raugas10",
+   "isca-sridhar10",
+   "isca-meltzner13-mute",
+   "isca-deng14b-practicalssi",
+   "isca-telaar14_interspeech",
+   "isca-wand14b_interspeech",
+   "doi-10.5772-60467",
+   "isca-wand16_interspeech",
+   "isca-zahner14_interspeech"
+  ],
+  "note": "full-text pattern counts with the reference list removed; a study can match several; most HMM/GMM matches are recognizers (acoustic models), GMM regression mapping appears in Toth 2009; neural-network mentions are an upper bound. EMG-to-speech synthesis among the 29: Toth 2009, Zahner 2014, Diener 2015 (same group). Cited by the article, not indexed: Janke 2012 GMM mapping, Diener 2015 IJCNN DNN mapping, Lam 2006, Tsuji 2008.",
+  "tier": "pattern match, unique studies",
+  "same_group_prior": [
+   "isca-toth09_interspeech",
+   "isca-zahner14_interspeech",
+   "isca-diener15_interspeech"
+  ]
+ },
+ "usual_approach_at_target_time_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "design": "HMM or GMM models (mostly recognizers) over hand-crafted EMG features",
+  "n": 21,
+  "population": 29,
+  "tier": "pattern match",
+  "pids": [
+   "dtic-ada410037",
+   "doi-10.1109-asru.2005.1566521",
+   "isca-jou06_interspeech",
+   "isca-walliczek06_interspeech",
+   "doi-10.1109-icassp.2007.366934"
+  ]
+ },
+ "tally_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "slot_filled_unique": 7345,
+  "string_match_unique": 83,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "hand-crafted time-domain EMG features (TD family) with a feed-forward or recurrent model; Transformer or Conformer encoders dominate later work",
+   "n": 18,
+   "tier": "pattern match",
+   "population_unique": 83
+  },
+  "state_of_the_art": {
+   "pid": "isca-lee26r_interspeech",
+   "year": 2026,
+   "metric": "silent-EMG WER, Gaddy test split (Whisper-medium; DeepSpeech 21.32), encoder initialized from the target",
+   "value": 11.89,
+   "unit": "%",
+   "timing": "later"
+  },
+  "read": 6,
+  "read_prior": [
+   "arxiv-2411.02591",
+   "doi-10.1109-taslp-2017-2738568",
+   "isca-toth09_interspeech"
+  ],
+  "unread": 104,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.5
+ },
+ "state_of_the_art_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "pid": "isca-lee26r_interspeech",
+  "year": 2026,
+  "metric": "silent-EMG WER, Gaddy single-subject silent test, Whisper; with SSR and GPT-4 text guidance (32.78% without it; Gaddy and Klein direct mapping 25.74%)",
+  "value": 11.89,
+  "unit": "%",
+  "timing": "later"
  }
 }

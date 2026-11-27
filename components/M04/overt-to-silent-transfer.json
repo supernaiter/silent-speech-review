@@ -1749,6 +1749,7 @@
   "affect-decoding-in-phonated-and-silent-speech-production-from-surface-emg",
   "decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex",
   "digital-voicing-of-silent-speech",
+  "emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals",
   "improving-the-gap-in-visual-speech-recognition-between-normal-and-silent-speech-based-on-metric-learning",
   "lipnet-end-to-end-sentence-level-lipreading",
   "mechanistic-interpretability-of-brain-to-speech-models-across-speech-modes",
@@ -2351,6 +2352,27 @@
    "loc": "Abstract",
    "quote": "whereas the model trained on overt speech achieved a TER of 46.3%",
    "by": "decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex"
+  },
+  {
+   "pid": "isca-toth09_interspeech",
+   "role": "prior",
+   "loc": "Sec. 4",
+   "quote": "ranged from 79.8% to 94.90%",
+   "by": "emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2015.09.008",
+   "role": "prior",
+   "loc": "Sec. 4.2.2.1",
+   "quote": "(29.5% for GMM+dyn and 31% for HMM+dyn)",
+   "by": "emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals"
+  },
+  {
+   "pid": "isca-lee26r_interspeech",
+   "role": "sota",
+   "loc": "Sec. 1; Table 1",
+   "quote": "a Word Error Rate (WER) of 11.89% on the silent EMG test set.",
+   "by": "emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals"
   }
  ],
  "tally_by": {
@@ -2761,6 +2783,88 @@
    "doi-10.3389-fneng.2014.00014",
    "isca-florescu10",
    "isca-tao14_interspeech",
+   "pmc-4034498-overtcovert"
+  ],
+  "unread": 0,
+  "confirmed_unique": 25,
+  "known_item_recall": 1.0
+ },
+ "target_version_check_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": "The TASLP article (doi:10.1109/TASLP.2017.2738568) reports no silent-articulation data (Table I is audible EMG only; Sec. I). The published include for this pid quotes Sec. 6.3 of the 2016 KIT dissertation, which the wiki folder holds; for the article itself the design is absent.",
+ "dated_counts_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "cutoff": "prior = first public before 2017-05 (target first public 2017-11, IEEE/ACM TASLP 25(12)); [concurrent] = 2017-05 to 2018-05",
+  "setting": "One setting across slots: speech decoding or synthesis from non-acoustic speech-production signals measured on the speaker; lip video only together with such signals. The group's earlier papers (Toth 2009, Zahner 2014, Diener 2015) count as prior designs of the same group, not as versions of the target. M06 uses the surface-EMG subset of this setting.",
+  "prior_unique": 6,
+  "prior_pids": [
+   "isca-toth09_interspeech",
+   "isca-florescu10-silentvocal",
+   "doi-10.5220-0002814100220031",
+   "doi-10.5220-0003169702950300",
+   "doi-10.3389-fneng.2014.00014",
+   "doi-10.1016-j.csl.2015.09.008"
+  ],
+  "added_includes": {
+   "isca-toth09_interspeech": "audible-trained EMG-to-whisper conversion applied to silent EMG, ASR WER 79.8-94.90% (Sec. 4)",
+   "doi-10.1016-j.csl.2015.09.008": "EMA mapping trained on modal speech only and tested on silent articulation; listener transcription about 30% word accuracy (Sec. 4.2)"
+  },
+  "excluded": {
+   "arxiv-1802.06399": "lip video only and [later]"
+  },
+  "target_meets": false,
+  "tier": "confirmed (published decisions plus two read additions), unique studies",
+  "note": "Toth 2009 is the only EMG synthesis study among the six; Hueber and Bailly 2016 is EMA; Florescu 2010, Janke 2010 and Wand 2011 are recognition studies; Martin 2014 is ECoG."
+ },
+ "usual_approach_at_target_time_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "design": "decoder trained on overt speech applied to silent articulation and reported as a degradation",
+  "n": 6,
+  "tier": "confirmed",
+  "pids": [
+   "isca-toth09_interspeech",
+   "isca-florescu10-silentvocal",
+   "doi-10.5220-0002814100220031",
+   "doi-10.5220-0003169702950300",
+   "doi-10.3389-fneng.2014.00014",
+   "doi-10.1016-j.csl.2015.09.008"
+  ]
+ },
+ "state_of_the_art_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "pid": "isca-lee26r_interspeech",
+  "year": 2026,
+  "metric": "silent-EMG WER, Gaddy single-subject silent test, Whisper, with SSR and GPT-4 text guidance",
+  "value": 11.89,
+  "unit": "%",
+  "timing": "later"
+ },
+ "tally_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "slot_filled_unique": 5595,
+  "string_match_unique": 33,
+  "fulltext_only_folders": 62,
+  "usual_approach": {
+   "design": "decoder trained on overt (vocalized) speech applied to silent or covert speech without retraining, reported as a degradation",
+   "n": 23,
+   "tier": "confirmed",
+   "population_unique": 33
+  },
+  "state_of_the_art": {
+   "metric": "transcription WER 25-word pool",
+   "value": 0.31,
+   "unit": null,
+   "raw": "31%",
+   "pid": "doi-10.1038-s41586-019-1119-1",
+   "year": null,
+   "tier": "ledger only",
+   "source": "ledger candidate, not yet confirmed"
+  },
+  "read": 19,
+  "read_prior": [
+   "arxiv-1802.06399",
+   "arxiv-2212.02047",
+   "doi-10.1016-j.csl.2015.09.008",
+   "doi-10.1038-s41586-019-1119-1",
+   "doi-10.1109-taslp-2017-2738568",
+   "doi-10.3389-fneng.2014.00014",
+   "isca-florescu10",
+   "isca-tao14_interspeech",
+   "isca-toth09_interspeech",
    "pmc-4034498-overtcovert"
   ],
   "unread": 0,

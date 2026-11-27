@@ -1633,6 +1633,7 @@
   "brain2speech-net-intelligible-real-time-brain-to-speech-synthesis-without-text-decoding",
   "development-of-a-silent-speech-interface-driven-by-ultrasound-and-optical-images-of-the-tongue-and-l",
   "ema2s-an-end-to-end-multimodal-articulatory-to-speech-system",
+  "emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals",
   "generating-natural-intelligible-speech-from-brain-activity-in-motor-premotor-and-inferior-frontal-co",
   "sequence-to-sequence-voice-reconstruction-for-silent-speech-in-a-tonal-language",
   "speech-synthesis-from-neural-decoding-of-spoken-sentences",
@@ -1865,6 +1866,13 @@
    "loc": "Abstract",
    "quote": "Both techniques were compared on continuous speech, for two French speakers (one male, one female).",
    "timing": "later"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2015.09.008",
+   "role": "prior",
+   "loc": "Sec. 4.1.3.2",
+   "quote": "accuracy of 60.4%, compared to 54% for the HMM+dyn approach",
+   "by": "emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals"
   }
  ],
  "state_of_the_art": {
@@ -2073,6 +2081,73 @@
   "read": 7,
   "read_prior": [
    "arxiv-2111.01457",
+   "doi-10.1038-s41586-019-1119-1",
+   "isca-taguchi18_interspeech"
+  ],
+  "unread": 0,
+  "confirmed_unique": 30,
+  "known_item_recall": 1.0
+ },
+ "dated_counts_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "cutoff": "prior = first public before 2017-05 (target first public 2017-11, IEEE/ACM TASLP 25(12)); [concurrent] = 2017-05 to 2018-05",
+  "setting": "One setting across slots: speech decoding or synthesis from non-acoustic speech-production signals measured on the speaker; lip video only together with such signals. The group's earlier papers (Toth 2009, Zahner 2014, Diener 2015) count as prior designs of the same group, not as versions of the target. M06 uses the surface-EMG subset of this setting.",
+  "prior_unique": 5,
+  "prior_pids": [
+   "doi-10.1016-j.specom.2009.11.004",
+   "doi-10.21437-interspeech.2014-449",
+   "doi-10.1016-j.csl.2015.09.008",
+   "doi-10.1371-journal.pcbi.1005119",
+   "pmc-4809489-vocal"
+  ],
+  "denominator": "14 indexed prior speech-synthesis studies of the M08 dated count (pattern match); 5 run a listener transcription or identification test (confirmed); none of the 5 is EMG (ultrasound and video, three EMA, one articulator imaging); the indexed EMG synthesis priors (Toth 2009, Zahner 2014, Diener 2015) report no formal listener transcription",
+  "excluded_lip_video_only": [
+   "isca-cornu15-v2speech",
+   "isca-cornu15_interspeech",
+   "doi-10.21437-interspeech.2015-139",
+   "arxiv-1701.00495"
+  ],
+  "concurrent_pids": [
+   "doi-10.1109-taslp-2017-2757263"
+  ],
+  "target_meets": false,
+  "target_design": "comparative intelligibility rating (10 listeners, 10 utterances, five variants each) and preference counts; no transcription or identification",
+  "tier": "confirmed (published decisions), unique studies",
+  "minority_note": "Listener transcription is a minority practice at the target time (5 of 14); behind is judged on the best-comparable-work yardstick: at least 3 earlier studies meet the condition and the best comparable (Hueber and Bailly 2016, EMA) was read."
+ },
+ "usual_approach_at_target_time_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "design": "no listener transcription (9 of 14); transcription or identification in 5 of 14",
+  "n": 5,
+  "population": 14,
+  "tier": "confirmed",
+  "pids": [
+   "doi-10.1016-j.specom.2009.11.004",
+   "doi-10.21437-interspeech.2014-449",
+   "doi-10.1016-j.csl.2015.09.008",
+   "doi-10.1371-journal.pcbi.1005119",
+   "pmc-4809489-vocal"
+  ]
+ },
+ "tally_emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals": {
+  "slot_filled_unique": 6960,
+  "string_match_unique": 37,
+  "fulltext_only_folders": 66,
+  "usual_approach": {
+   "design": "crowd_workers",
+   "n": 15,
+   "tier": "pattern match",
+   "population_unique": 79
+  },
+  "state_of_the_art": {
+   "pid": "pmc-12369848-voice-synth-np",
+   "year": 2025,
+   "metric": "median listener open-transcription WER of synthesized speech (intracortical, attempted vocalized speech)",
+   "value": "43.75%",
+   "timing": "later"
+  },
+  "read": 10,
+  "read_prior": [
+   "arxiv-2111.01457",
+   "doi-10.1016-j.csl.2015.09.008",
    "doi-10.1038-s41586-019-1119-1",
    "isca-taguchi18_interspeech"
   ],

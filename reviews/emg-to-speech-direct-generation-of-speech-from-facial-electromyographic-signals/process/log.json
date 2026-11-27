@@ -1,0 +1,66 @@
+{
+ "slug": "emg-to-speech-direct-generation-of-speech-from-facial-electromyographic-signals",
+ "stage": "final",
+ "steps": [
+  {
+   "step": "reading",
+   "by": "reader (language model)",
+   "output": "notes.json",
+   "what": "claims, numbers, conditions and unstated items of the target and comparator papers, each with a quote and location",
+   "finished": "2026-11-27T05:22:30+00:00"
+  },
+  {
+   "step": "plan",
+   "by": "writer (language model)",
+   "output": "plan.json",
+   "what": "which of the 13 components the paper changes, and the topics to compare on",
+   "finished": "2026-11-27T05:22:55+00:00"
+  },
+  {
+   "step": "field counts",
+   "by": "script",
+   "output": "topic tables under components/",
+   "what": "ledger search per topic: population, usual approach, candidate state of the art",
+   "finished": "2026-11-27T05:22:55+00:00"
+  },
+  {
+   "step": "draft",
+   "by": "writer (language model)",
+   "output": "draft.md, claims-draft.md",
+   "what": "review written from the notes and counts only; every claim mapped to a note or a count",
+   "finished": "2026-11-27T05:13:49+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-27T05:19:52+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-27T05:31:32+00:00"
+  }
+ ],
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 93 found, 0 missing, 6 unchecked (unstated, figure-only or no source); target quotes checked against the TASLP article text (author-hosted PDF, sha256 e1c396cc...), since the wiki folder for this pid holds the 2016 dissertation",
+  "topic counts M04-overt-to-silent-transfer": "ok",
+  "topic counts M06-emg-speech-encoder-input-and-sequence-model": "ok",
+  "topic counts M08-non-acoustic-signal-to-speech-output-route": "ok",
+  "topic counts M12-listener-intelligibility-test": "ok"
+ },
+ "inputs": {
+  "notes_sha256": "9f13eeb497bc08480c4fc3c7461b7441a6ef56e75e8b695b6693c8536c0f4539",
+  "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+  "method_sha256": "e8a70a09aa6de9f44dabca89b49999dd1a33f4b014759fcb8827e7a2a8c2747a",
+  "method": "pipeline/SKILL.md"
+ },
+ "body_chars": {
+  "draft": 15923,
+  "final": 15689
+ }
+}
