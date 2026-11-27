@@ -64,7 +64,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`emg-cross-speaker-training-and-calibration.csv`](emg-cross-speaker-training-and-calibration.csv) (1526 slot-filled, 64 pattern match, usual design in 40, 3 read in full)
 - Inclusion rule: Surface-EMG speech decoders (recognition, classification or synthesis) that train on data from several speakers and test on a speaker held out of that training pool, with or without target-speaker calibration or adaptation. Boundary: per-speaker models averaged over speakers and pooled training with speaker-mixed random splits are excluded; session-only adaptation within one speaker is excluded; EEG-EMG fusion counts when EMG is a decoder input; reviews count as pattern matches only; versions of one study count once.
-- Used in: [Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding](../../reviews/multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/)
+- Used in: [Modeling Coarticulation in EMG-based Continuous Speech Recognition](../../reviews/modeling-coarticulation-in-emg-based-continuous-speech-recognition/), [Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding](../../reviews/multi-subject-pretraining-enables-short-calibration-personalization-for-closed-corpus-surface-emg-speech-decoding/)
 
 | Paper | Year | Evidence |
 | --- | --- | --- |
