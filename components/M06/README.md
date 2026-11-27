@@ -187,7 +187,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`generative-text-decoder-vsr.csv`](generative-text-decoder-vsr.csv) (7345 slot-filled, 740 pattern match, usual design in 131, 2 read in full)
 - Inclusion rule: Visual or audio-visual speech recognition (text output from lip video or lip event streams) and the decoders they use. The design compared is the text decoder: CTC, attention encoder-decoder, hybrid CTC/attention, LLM decoder, or an iterative generative decoder (diffusion, flow matching) that produces the transcript. Boundary: diffusion or flow models that generate speech audio or lip video (video-to-speech, data synthesis such as LipGen or SynthVSR) are not text decoders and count under their recognizer; versions of one study count once.
-- Used in: [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](../../reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/)
+- Used in: [Large Language Models are Strong Audio-Visual Speech Recognition Learners](../../reviews/large-language-models-are-strong-audio-visual-speech-recognition-learners/), [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](../../reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/)
 
 ## heard-speech-reconstruction-target-representation
 

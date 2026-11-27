@@ -1,12 +1,12 @@
 # Silent Speech Interface Review
 
-Reviews of **192 silent speech interface (SSI) papers** (2009–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-11-27.
+Reviews of **193 silent speech interface (SSI) papers** (2009–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-11-27.
 
 Silent speech interfaces turn articulation without audible voice into text or speech, using lip video, ultrasound tongue imaging, EMG, EEG, electropalatography, radar, acoustic sensing and more. Accuracies in this field are hard to compare: one paper recognizes 10 words from one speaker in one session, another decodes open sentences from new speakers on a later day. This review puts those conditions next to every headline number.
 
 Topics covered: silent speech recognition, lip reading and visual speech recognition (VSR), lip-to-speech and video-to-speech synthesis, EMG-to-speech, ultrasound tongue imaging, imagined and inner speech decoding from EEG and MEG, brain-to-text and speech neuroprostheses, radar and Wi-Fi sensing, and wearable silent speech text entry.
 
-**Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (19) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (38) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (47) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (9) · [Other sensors](#other-sensors) (38)
+**Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (19) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (38) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (47) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (9) · [Other sensors](#other-sensors) (39)
 
 ## Start here
 
@@ -22,7 +22,7 @@ Topics covered: silent speech recognition, lip reading and visual speech recogni
 
 ## Latest component reviews
 
-Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 162; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
+Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 163; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
 
 - [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/) (2026). Event input and a two-step OT-CFM decoder are standard; the DVS-Lip evaluation is behind: WER on an isolated-word set with no split details or seeds, and baselines that do not match their sources.
 - [A cross-species neural foundation model for end-to-end speech decoding](reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/) (2026). Cascaded decoding with the pretrained encoder is a strong standard result; the end-to-end audio-LLM path beats the prior end-to-end entry but trails RNN cascades, and the cross-species gain is small.
@@ -259,6 +259,7 @@ Every speech-intention decoder, whatever its sensor, can be described by the sam
 
 | Year | Paper | Task | Vocabulary | Speaker | Session | Online | Key result |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2025 | [Large Language Models are Strong Audio-Visual Speech Recognition Learners](reviews/large-language-models-are-strong-audio-visual-speech-recognition-learners/) | Sentence-level ASR, VSR and AVSR on LRS3 with a frozen LLM decoder | Open vocabulary (English) | Not stated | Not stated | Not stated | LRS3 WER 0.77% AVSR and 0.79% ASR at 1,756 h; 25.3% VSR at 433 h (Table I) |
 | 2024 | [Ultrasensitive Textile Strain Sensors Redefine Wearable Silent Speech Interfaces with High Machine Learning Efficiency](reviews/ultrasensitive-textile-strain-sensors-redefine-wearable-silent-speech-interfaces-with-high-machine-learning-efficiency/) | Isolated word classification from 3-s single-channel strain windows with a 1D residual CNN | 20 frequent English words; 10 confusable words; 5 long words at three reading speeds | Three participants pooled; one further participant for few-shot transfer | Not stated; 100 samples per word split 80/20 without stated session grouping | Offline; production mode (mouthed or voiced) not stated | 95.25% on 20 words, 93% on 10 confusable words, 96% on 5 long words; 80% with 15-20 and 90% with 30 fine-tuning samples per class on a new user or new words. |
 | 2023 | [Semantic reconstruction of continuous language from non-invasive brain recordings](reviews/semantic-reconstruction-of-continuous-language-from-non-invasive-brain-recordings/) | Semantic language decoding (perceived speech, imagined speech, silent film) | Open vocabulary; GPT proposals | Not stated | Not stated | Offline | 72-82% of perceived-speech time-points decoded above chance (BERTScore); WER 0.92-0.94 |
 | 2022 | [Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis](reviews/generalizable-spelling-using-a-speech-neuroprosthesis-in-an-individual-with-severe-limb-and-vocal-pa/) | Sentence spelling from silently attempted NATO code words; hand squeeze ends the sentence | 1,152 words live; 3,303 to 9,170 words offline | One participant with anarthria and severe limb paralysis | Real-time blocks, no day-of recalibration | Online (copy typing, conversation) and offline simulation | Median 6.13% CER, 10.53% WER, 29.41 characters per minute (copy typing, 1,152 words) |
