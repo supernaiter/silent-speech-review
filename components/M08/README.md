@@ -78,6 +78,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Neural decoders (ECoG, intracortical, sEEG, EEG, MEG) that output text and report a word, character or phoneme error rate. The design compared is the unit the decoder emits before any lexicon or language model: characters, phonemes, or whole words / sentence classes. Boundary: a paper is counted under every unit its text names; handwriting and spelling BCIs count as characters; count versions once.
 - Used in: [Brain2Char: a deep architecture for decoding text from brain recordings](../../reviews/brain2char-a-deep-architecture-for-decoding-text-from-brain-recordings/), [Machine translation of cortical activity to text with an encoder-decoder framework](../../reviews/machine-translation-of-cortical-activity-to-text-with-an-encoder-decoder-framework/)
 
+## non-acoustic-signal-to-speech-output-route
+
+- Table: [`non-acoustic-signal-to-speech-output-route.csv`](non-acoustic-signal-to-speech-output-route.csv) (3268 slot-filled, 144 pattern match, usual design in 3, 7 read in full)
+- Inclusion rule: Studies that produce audible speech (waveform or vocoder/spectral parameters rendered as audio) from non-acoustic speech-production signals measured on the speaker (ultrasound, lip video together with such signals, EMA/PMA, EMG, EPG, neural recordings), classified by output route: recognition then synthesis (phones or words are recognized and a unit-selection, concatenative or text-to-speech synthesizer renders them) versus direct mapping (frame-wise regression, GMM, neural network or lookup from signal features to acoustic parameters). Boundary: exclude talking-head or face animation, acoustic-to-articulatory inversion, articulatory synthesizers driven by model parameters or text rather than measured signals, conversion from acoustic input (NAM, whisper, electrolarynx), and reviews; versions count once; earlier versions of the target system are merged with the target.
+- Used in: [Development of a Silent Speech Interface Driven by Ultrasound and Optical Images of the Tongue and Lips](../../reviews/development-of-a-silent-speech-interface-driven-by-ultrasound-and-optical-images-of-the-tongue-and-l/)
+
 ## paralinguistic-output-from-production-signals
 
 - Table: [`paralinguistic-output-from-production-signals.csv`](paralinguistic-output-from-production-signals.csv) (3268 slot-filled, 99 pattern match, usual design in 12, 4 read in full)

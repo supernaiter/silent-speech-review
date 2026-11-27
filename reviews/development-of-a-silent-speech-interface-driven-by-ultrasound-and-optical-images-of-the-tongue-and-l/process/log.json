@@ -1,6 +1,6 @@
 {
  "slug": "development-of-a-silent-speech-interface-driven-by-ultrasound-and-optical-images-of-the-tongue-and-l",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,29 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-27T01:44:59+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-27T01:56:19+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "12 applied, 2 partly applied (F7, F9), 1 rejected (F10); 15 findings. Verdicts unchanged.",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-27T01:59:46+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 97 found, 0 missing, 10 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-articulatory-signal-speech-recognizer": "ok",
+  "topic counts M08-non-acoustic-signal-to-speech-output-route": "ok",
+  "topic counts M12-listener-intelligibility-test": "ok"
+ },
  "inputs": {
   "notes_sha256": "86c0270ddaef8119b458e7cd9eca8ac7146a252767590cdbb5c17af5d2156c8c",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +60,6 @@
  },
  "body_chars": {
   "draft": 18451,
-  "final": null
+  "final": 20202
  }
 }
