@@ -1,0 +1,115 @@
+{
+ "target": "arxiv-2409.12319",
+ "first_public": "2024-09",
+ "setting": "sentence-level VSR / AVSR / ASR on LRS3 (English TED), voiced speech; population = 739 unique VSR/AVSR studies with a WER/CER/accuracy result",
+ "slots": {
+  "M06": {
+   "class": "changed",
+   "what": "frozen Llama3.1-8B as the text decoder, fed by per-modality two-layer projectors after average-pooling compression K",
+   "topics": [
+    {
+     "topic": "generative-text-decoder-vsr",
+     "reuse": "components/M06/generative-text-decoder-vsr.json",
+     "inclusion_rule": "published rule (VSR/AVSR text decoders), dated against 2024-09",
+     "pattern": "published",
+     "design_regex": [
+      "llm_decoder",
+      "hybrid_ctc_attention",
+      "lora"
+     ],
+     "metric": "LRS3 WER (VSR, AVSR)"
+    }
+   ]
+  },
+  "M03": {
+   "class": "changed",
+   "what": "encoders and LLM frozen; only projectors and LoRA (LLM, plus video encoder for VSR) trained: 42-57M parameters",
+   "topics": [
+    {
+     "topic": "frozen-encoder-parameter-efficient-training-vsr",
+     "inclusion_rule": "see audit",
+     "pattern": "same population as M06 topic",
+     "design_regex": [
+      "lora",
+      "adapter_or_prompt",
+      "frozen_encoder",
+      "end_to_end_or_full_finetune"
+     ],
+     "metric": "LRS3 WER at trainable-parameter count"
+    }
+   ]
+  },
+  "M12": {
+   "class": "incidental",
+   "what": "SOTA claims on LRS3 from single runs; cross-paper rows indexed by labelled hours only",
+   "topics": [
+    {
+     "topic": "avsr-noise-and-run-variability-protocol",
+     "reuse": "components/M12/avsr-noise-and-run-variability-protocol.json",
+     "inclusion_rule": "published rule, dated against 2024-09",
+     "design_regex": [
+      "run_variability",
+      "lrs3",
+      "babble"
+     ],
+     "metric": "LRS3 clean AVSR WER"
+    }
+   ]
+  },
+  "M01": {
+   "class": "inherited",
+   "lineage": "LRS3 voiced TED speech"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "text labels; Whisper pseudo-labels for VoxCeleb2 following auto-avsr"
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "voiced speech; babble noise at test"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "96x96 mouth ROI + audio; Whisper-medium and AV-HuBERT Large encoders"
+  },
+  "M07": {
+   "class": "inherited",
+   "lineage": "no external LM; fixed instruction prompt"
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "text"
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "offline"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "offline"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "LRS3 benchmark"
+  },
+  "M13": {
+   "class": "inherited",
+   "lineage": "no cost or latency reported"
+  }
+ },
+ "deciding_priors": [
+  "arxiv-2402.15151"
+ ],
+ "sota": [
+  "arxiv-2607.29112",
+  "arxiv-2503.11315",
+  "arxiv-2406.10082",
+  "arxiv-2605.28456"
+ ],
+ "concurrent_checked": [
+  "arxiv-2408.00624",
+  "arxiv-2409.00986",
+  "arxiv-2406.10082",
+  "arxiv-2503.11315"
+ ]
+}
