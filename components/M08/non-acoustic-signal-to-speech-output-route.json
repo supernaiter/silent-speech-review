@@ -1,0 +1,2133 @@
+{
+ "topic": "non-acoustic-signal-to-speech-output-route",
+ "slot": "M08",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^title=[^|]*(synthes|to-speech|to speech|vocoder|speech reconstruction|reconstruct\\w* (intelligible )?speech|articulatory-to-acoustic|mapping between articulatory|voicing of silent|silent speech interface)(?=.*(surface_emg|muscle_activity|\\bs?EMG\\b|electromyograph|ultrasound|articulograph|\\bEMA\\b|\\bPMA\\b|permanent magnet|magnetic sens|electropalatograph|\\bECoG\\b|intracortical|\\bEEG\\b|radar|lip video|silent video|optical_camera))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Studies that produce audible speech (waveform or vocoder/spectral parameters rendered as audio) from non-acoustic speech-production signals measured on the speaker (ultrasound, lip video together with such signals, EMA/PMA, EMG, EPG, neural recordings), classified by output route: recognition then synthesis (phones or words are recognized and a unit-selection, concatenative or text-to-speech synthesizer renders them) versus direct mapping (frame-wise regression, GMM, neural network or lookup from signal features to acoustic parameters). Boundary: exclude talking-head or face animation, acoustic-to-articulatory inversion, articulatory synthesizers driven by model parameters or text rather than measured signals, conversion from acoustic input (NAM, whisper, electrolarynx), and reviews; versions count once; earlier versions of the target system are merged with the target.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 3760,
+  "slot_filled_unique": 3268,
+  "string_match_folders": 174,
+  "string_match_unique": 144,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M08",
+  "design_slot_fill": 0.418,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "output_types=other",
+    "n": 38,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "isca-ding15_avsp",
+     "isca-rademan15_avsp",
+     "isca-schabus15_avsp",
+     "isca-hollenstein13_avsp"
+    ]
+   },
+   {
+    "design": "output_types=audio",
+    "n": 31,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609-04455-b2snet",
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.1109-tnsre.2024.3520498",
+     "doi-10.21437-ssw.2025-25",
+     "doi-10.21437-iberspeech.2024-18"
+    ]
+   },
+   {
+    "design": "output_types=acoustic_features",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2508.03166",
+     "isca-csapo17_interspeech",
+     "isca-csapo19_interspeech",
+     "isca-gonzalez17_interspeech",
+     "isca-hofe11_interspeech"
+    ]
+   },
+   {
+    "design": "output_types=class_label",
+    "n": 9,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2607-27268-eegfm",
+     "doi-10.48550-arxiv.2407.21345",
+     "isca-freitas14_interspeech",
+     "isca-gonzalez14_interspeech",
+     "isca-hofe13_interspeech"
+    ]
+   },
+   {
+    "design": "output_types=text",
+    "n": 5,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2",
+     "doi-10.1016-j.snr.2025.100407",
+     "isca-cai11_interspeech",
+     "isca-hofe13_interspeech",
+     "isca-michelsanti20_interspeech"
+    ]
+   },
+   {
+    "design": "output_types=device_action",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1038-s44460-025-00010-2"
+    ]
+   },
+   {
+    "design": "output_types=semantic_representation",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-gonzalez14_interspeech"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "direct_mapping",
+    "n": 60,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2605-31173-mindvoice",
+     "arxiv-2606-09667-xmask",
+     "arxiv-2609-04455-b2snet",
+     "isca-han26f-tapets",
+     "pmc-13383455-aibrain2speech"
+    ]
+   },
+   {
+    "design": "recognition_then_synthesis",
+    "n": 22,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2605-31173-mindvoice",
+     "isca-ghosh26b-lipadapt",
+     "pmc-9696288-utiaam",
+     "isca-cao21-laryngectomy",
+     "isca-csapo20b-uswaveglow"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error|intelligib|transcri",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "WER 8.5% on 1396-word Mandarin imagined-speech set (5ch->6ch ablation 12.9->8.5; LOSO 24.4)",
+   "value": 8.5,
+   "unit": "percent",
+   "raw": "WER 8.5% (6ch EMG+strain); 12.9% without strain; 95.3% on 16 high-freq, 90.2% confusable pairs, ~90% phonetically-similar",
+   "pid": "doi-10.1016-j.snr.2025.100407",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER %",
+   "value": 8.9,
+   "unit": "%",
+   "raw": "Meltzner et al. sEMG facial/neck 8.9% WER on large-vocab continuous phrases (cited)",
+   "pid": "doi-10.5772-intechopen.1008554",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER TAP-ETS",
+   "value": 19.77,
+   "unit": "wer_percent",
+   "raw": "19.77%",
+   "pid": "isca-han26f-tapets",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "NTS-Cascade WER",
+   "value": 20.6,
+   "unit": "% (from fraction)",
+   "raw": "NTS-Cascade 5-gram+LLM WER 0.206, RTF 1.962",
+   "pid": "arxiv-2609-04455-b2snet",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS3 WER @30h",
+   "value": 21.2,
+   "unit": "percent",
+   "raw": "WER 21.2% @30h vs LipVoicer 21.4% @430h; MOS 4.3; MultiVSR V+T 34.44%",
+   "pid": "isca-ghosh26b-lipadapt",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER silent",
+   "value": 26.3,
+   "unit": "wer_percent",
+   "raw": "26.3%",
+   "pid": "isca-zhang26y-sonispeech",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "BCI synthesized-speech word error rate (median)",
+   "value": 43.75,
+   "unit": "percent",
+   "raw": "43.75%",
+   "pid": "pmc-12369848-voice-synth-np",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "sEMG-only WER",
+   "value": 54.5,
+   "unit": "percent",
+   "raw": "~54.5% WER sEMG unimodal",
+   "pid": "arxiv-2606-09667-xmask",
+   "year": 2026,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "accuracy/WER ranges",
+   "value": 58.8,
+   "unit": "percent",
+   "raw": "isolated-word 7.1-90.0%; continuous-speech WER 25.6-58.8%",
+   "pid": "pmc-13383455-b2srev",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1201.4080",
+   "key": "t:progressinanimationofanemacontrolledtonguemodelforacousticvisualspeechsynthesis",
+   "title": "Progress in Animation of an EMA-Controlled Tongue Model for Acoustic-Visual Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Progress in Animation of an EMA-Controlled Tongue Model for Acoustic-Visual Speech Synthesis | language=french, german, english | task_family=intermediate_signal_processing | Study.study_design=system_proposal"
+  },
+  {
+   "pid": "arxiv-1203.3574",
+   "key": "t:artimateanarticulatoryanimationframeworkforaudiovisualspeechsynthesis",
+   "title": "Artimate: an articulatory animation framework for audiovisual speech synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Artimate: an articulatory animation framework for audiovisual speech synthesis | task_family=intermediate_signal_processing | Study.study_design=system_proposal | modalities=magnetic_tracking, mic"
+  },
+  {
+   "pid": "arxiv-2307.02471",
+   "key": "t:deepspeechsynthesisfrommribasedarticulatoryrepresentations",
+   "title": "Deep Speech Synthesis from MRI-Based Articulatory Representations",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep Speech Synthesis from MRI-Based Articulatory Representations | intended_use_cases=speech_restoration, other | task_family=speech_recon"
+  },
+  {
+   "pid": "arxiv-2310.16287",
+   "key": "t:towardsstreamingspeechtoavatarsynthesis",
+   "title": "Towards Streaming Speech-to-Avatar Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards Streaming Speech-to-Avatar Synthesis | intended_use_cases=assistive_text_entry, speech_restoration, other | task_family=intermediate_signal_processing | S"
+  },
+  {
+   "pid": "arxiv-2312.13603",
+   "key": "t:stylemodelingformultispeakerarticulationtospeech",
+   "title": "Style Modeling for Multi-Speaker Articulation-to-Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Style Modeling for Multi-Speaker Articulation-to-Speech | intended_use_cases=speech_restoration, other | task_family=speech_reconstruction | Study.study_design=controlled_expe"
+  },
+  {
+   "pid": "arxiv-2409.02451",
+   "key": "t:fasthighqualityandparameterefficientarticulatorysynthesisusingdifferentiabledsp",
+   "title": "Fast, High-Quality and Parameter-Efficient Articulatory Synthesis using Differentiable DSP",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Fast, High-Quality and Parameter-Efficient Articulatory Synthesis using Differentiable DSP | intended_use_cases=speech_restoration, assistive_text_entry | task_family=speech_reconstru"
+  },
+  {
+   "pid": "arxiv-2508.03166",
+   "key": "t:mistrmultimodalieegtospeechsynthesiswithtransformerbasedprosodypredictionandneur",
+   "title": "MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody Prediction and Neural Phase Reconstruction",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MiSTR: Multi-Modal iEEG-to-Speech Synthesis with Transformer-Based Prosody Prediction and Neural Phase Reconstruction | authors=Mohammed Salah Al-Radhi, Géza Ném"
+  },
+  {
+   "pid": "arxiv-2602-01247-mechint",
+   "key": "t:mechanisticinterpretabilityofbraintospeechmodelsacrossspeechmodes",
+   "title": "Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Mechanistic Interpretability of Brain-to-Speech Models Across Speech Modes | authors=Maryam Maghsoudi, Ayushi Mishra | Study.research_objective=causal mechanistic-inte"
+  },
+  {
+   "pid": "arxiv-2605-31173-mindvoice",
+   "key": "t:mindvoicereconstructingintelligiblespeechfromnoninvasiveneuralsignalswithpretrai",
+   "title": "MindVoice: Reconstructing Intelligible Speech from Non-invasive Neural Signals with Pretrained Priors",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MindVoice: Reconstructing Intelligible Speech from Non-invasive Neural Signals with Pretrained Priors | authors=Bao, Zeng, Feng, Xue (Fudan University) | venue=arXiv"
+  },
+  {
+   "pid": "arxiv-2605.31173-mindvoice",
+   "key": "t:mindvoicereconstructingintelligiblespeechfromnoninvasiveneuralsignalswithpretrai",
+   "title": "MindVoice: Reconstructing Intelligible Speech from Non-invasive Neural Signals with Pretrained Priors",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MindVoice: Reconstructing Intelligible Speech from Non-invasive Neural Signals with Pretrained Priors | authors=Bao Guangyin, Zeng Taiping, Feng Jianfeng, Xue Xiangy"
+  },
+  {
+   "pid": "arxiv-2606-09667-xmask",
+   "key": "t:crossmodalmaskingforrobustsilentspeechsynthesisusingsemgandlipreading",
+   "title": "Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Cross-Modal Masking for Robust Silent Speech Synthesis Using sEMG and Lipreading | authors=del Blanco, Gimeno-Gomez, Navas, Martinez-Hinarejos, Hernaez | venue=arXiv 2606.0"
+  },
+  {
+   "pid": "arxiv-2607-27268-eegfm",
+   "key": "t:doeegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecoding",
+   "title": "Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Do EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Khanday, Ben Ticha, Belfrouh, Ouellet, Gonzalez-Lopez (Uni"
+  },
+  {
+   "pid": "arxiv-2607-27268-eegfmspeech",
+   "key": "t:doeseegfoundationmodelstransfertospeechabenchmarkonovertandimaginedspeechdecodin",
+   "title": "Does EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Does EEG Foundation Models Transfer to Speech? A Benchmark on Overt and Imagined Speech Decoding | authors=Khanday, Ben Ticha, Belfrouh, Ouellet, Gonzalez-Lopez (Uni"
+  },
+  {
+   "pid": "arxiv-2609-04455-b2snet",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | authors=Suresh Chandra, Cai, Tsao, King, Sisman (JHU/UTD/Academia Sinica/Edinburgh) | venue=a"
+  },
+  {
+   "pid": "arxiv-2609.04455-brain2speech",
+   "key": "t:brain2speechnetfastandintelligiblebraintospeechsynthesiswithouttextdecoding",
+   "title": "Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain2Speech-Net: Fast and Intelligible Brain-to-Speech Synthesis Without Text Decoding | authors=Chandra Shreeram Suresh, Cai Zexin, Tsao Yu, King Simon, Sisman Berrak | venue=arXiv"
+  },
+  {
+   "pid": "avsp-reveret98-3dlip",
+   "key": "t:anew3dlipmodelforanalysisandsynthesisoflipmotioninspeechproduction",
+   "title": "A New 3D Lip Model for Analysis and Synthesis of Lip Motion in Speech Production",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A New 3D Lip Model for Analysis and Synthesis of Lip Motion in Speech Production | authors=Reveret, et-al | Study.research_objective=3D lip-motion model analysis a"
+  },
+  {
+   "pid": "doi-10.1007-s41133-016-0001-z",
+   "key": "t:acommunicationparadigmusingsubvocalizedspeechtranslatingbrainsignalsintospeech",
+   "title": "A Communication Paradigm Using Subvocalized Speech: Translating Brain Signals into Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Communication Paradigm Using Subvocalized Speech: Translating Brain Signals into Speech | intended_use_cases=speech_restoration, assistive_text_entry | task_family=isolated_word_recognition | Study.study_des"
+  },
+  {
+   "pid": "doi-10.1016-j.csl.2016.02.002",
+   "key": "t:asilentspeechsystembasedonpermanentmagnetarticulographyanddirectsynthesis",
+   "title": "A silent speech system based on permanent magnet articulography and direct synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A silent speech system based on permanent magnet articulography and direct synthesis | venue=Computer Speech & Language (accepted version, White Rose eprints) | intended_use_cases=speech_restoration, ot"
+  },
+  {
+   "pid": "doi-10.1016-j.snr.2025.100407",
+   "key": "t:asilentspeechinterfacewithmachinelearningrecognitionmodelusingmicroneedlearrayel",
+   "title": "A silent speech interface with machine learning recognition model using microneedle array electrodes and polymer-based strain sensors",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A silent speech interface with machine learning recognition model using microneedle array electrodes and polymer-based strain sensors | language="
+  },
+  {
+   "pid": "doi-10.1016-j.specom.2009.11.004",
+   "key": "t:developmentofasilentspeechinterfacedrivenbyultrasoundandopticalimagesofthetongue",
+   "title": "Development of a silent speech interface driven by ultrasound and optical images of the tongue and lips",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Development of a silent speech interface driven by ultrasound and optical images of the tongue and lips | intended_use_cases=speech_restoration, private_communi"
+  },
+  {
+   "pid": "doi-10.1038-s44460-025-00010-2",
+   "key": "t:sensingtechnologiesforsilentspeechinterfaces",
+   "title": "Sensing technologies for silent speech interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Sensing technologies for silent speech interfaces | needs_manual_check=cited metrics are secondhand: values summarized by review authors across heterogeneous protocols;"
+  },
+  {
+   "pid": "doi-10.1044-2023_jslhr-22-00319",
+   "key": "t:magtrackawearabletonguemotiontrackingsystemforsilentspeechinterfaces",
+   "title": "MagTrack: A Wearable Tongue Motion Tracking System for Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=MagTrack: A Wearable Tongue Motion Tracking System for Silent Speech Interfaces | intended_use_cases=speech_restoration, assistive_text_entry, other | task_family=phoneme_or_character_classification"
+  },
+  {
+   "pid": "doi-10.1101-2023.09.16.558028",
+   "key": "t:aneuralspeechdecodingframeworkleveragingdeeplearningandspeechsynthesis",
+   "title": "A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Neural Speech Decoding Framework Leveraging Deep Learning and Speech Synthesis | venue=bioRxiv preprint (later Nat Mach Intell 2024) | intended_use_cases=speech_restoration | task_family=speech_re"
+  },
+  {
+   "pid": "doi-10.1101-2024.12.16.628596",
+   "key": "t:naturalspeechresynthesisfromdirectcorticalrecordingsusingapretrainedencoderdecod",
+   "title": "Natural speech re-synthesis from direct cortical recordings using a pre-trained encoder-decoder framework",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Natural speech re-synthesis from direct cortical recordings using a pre-trained encoder-decoder framework | intended_use_cases=speech_restoration"
+  },
+  {
+   "pid": "doi-10.1101-478644",
+   "key": "t:speechsynthesisfromecogusingdenselyconnected3dconvolutionalneuralnetworks",
+   "title": "Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks | venue=bioRxiv preprint (published J Neural Eng 1"
+  },
+  {
+   "pid": "doi-10.1109-access.2020.3026579",
+   "key": "t:silentspeechinterfacesforspeechrestorationareview",
+   "title": "Silent Speech Interfaces for Speech Restoration: A Review",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent Speech Interfaces for Speech Restoration: A Review | venue=IEEE Access 8:177995-178026 | intended_use_cases=speech_restoration | task_fa"
+  },
+  {
+   "pid": "doi-10.1109-taslp-2017-2738568",
+   "key": "t:emgtospeechdirectgenerationofspeechfromfacialelectromyographicsignals",
+   "title": "EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=EMG-to-Speech: Direct Generation of Speech from Facial Electromyographic Signals | authors=M. Janke; L. Diener | venue=IEEE/ACM TASLP"
+  },
+  {
+   "pid": "doi-10.1109-tnnls.2022.3191677",
+   "key": "t:lipsound2selfsupervisedpretrainingforliptospeechreconstructionandlipreading",
+   "title": "LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipSound2: Self-Supervised Pre-Training for Lip-to-Speech Reconstruction and Lip Reading | authors=L. Qu; C. Weber; S. Wermter | Study.research_objective=crossmodal SSL for lip-to-speech recon"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2018.2808425",
+   "key": "t:abciforrealtimespeechsynthesisviaeegmotorimagery",
+   "title": "A BCI for Real-Time Speech Synthesis via EEG Motor Imagery",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A BCI for Real-Time Speech Synthesis via EEG Motor Imagery | authors=J. S. Brumberg et al. | venue=IEEE Trans. Neural Syst. Rehabil. Eng. 26(5) | Study.re"
+  },
+  {
+   "pid": "doi-10.1109-tnsre.2024.3520498",
+   "key": "t:endtoendmandarinspeechreconstructionbasedonultrasoundtongueimagesusingdeeplearni",
+   "title": "End-to-End Mandarin Speech Reconstruction Based on Ultrasound Tongue Images Using Deep Learning",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-End Mandarin Speech Reconstruction Based on Ultrasound Tongue Images Using Deep Learning | needs_manual_check=result tables II-V are figure-image cells no"
+  },
+  {
+   "pid": "doi-10.18653-v1-2020.emnlp-main.445",
+   "key": "t:digitalvoicingofsilentspeech",
+   "title": "Digital Voicing of Silent Speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Digital Voicing of Silent Speech | intended_use_cases=noisy_environment, private_communication, speech_restoration, hands_busy_communication | ta"
+  },
+  {
+   "pid": "doi-10.18653-v1-w19-1703",
+   "key": "t:permanentmagneticarticulographpmavselectromagneticarticulographemainarticulation",
+   "title": "Permanent Magnetic Articulograph (PMA) vs Electromagnetic Articulograph (EMA) in Articulation-to-Speech Synthesis for Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Permanent Magnetic Articulograph (PMA) vs Electromagnetic Articulograph (EMA) in Articulation-to-Speech Synthesis for Silent Speech Interface | intended_use_cases=speech_restoration | task_family=speech_reconstruction | Study.study_design=controlled_experiment"
+  },
+  {
+   "pid": "doi-10.21437-iberspeech.2024-18",
+   "key": "t:directspeechsynthesisfromnonaudiblespeechbiosignalsacomparativestudy",
+   "title": "Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Direct Speech Synthesis from Non-audible Speech Biosignals: A Comparative Study | needs_manual_check=glottal parameters copied from originals"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2019-2046",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder | intended_use_cases=speech_restoration, noisy_environment | task_family=speech_reconstruction | Study.study_design=con"
+  },
+  {
+   "pid": "doi-10.21437-interspeech.2021-1466",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces | intended_use_cases=speech_restoration | task_family=speech_reconstruction | Study.study_design=controlled_experiment"
+  },
+  {
+   "pid": "doi-10.21437-ssw.2025-25",
+   "key": "t:exploringlanguagedependencyinultrasoundtospeechsynthesis",
+   "title": "Exploring Language Dependency in Ultrasound-to-Speech Synthesis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Exploring Language Dependency in Ultrasound-to-Speech Synthesis | needs_manual_check=small n=3 male-speaker bilingual corpus; language effects entangled with speaker idiosyncrasies"
+  },
+  {
+   "pid": "doi-10.3115-v1-w14-1906",
+   "key": "t:preliminarytestofarealtimeinteractivesilentspeechinterfacebasedonelectromagnetic",
+   "title": "Preliminary Test of a Real-Time, Interactive Silent Speech Interface Based on Electromagnetic Articulograph",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Preliminary Test of a Real-Time, Interactive Silent Speech Interface Based on Electromagnetic Articulograph | intended_use_cases=speech_restoration | task_family=sentence_recognition | Stu"
+  },
+  {
+   "pid": "doi-10.3389-fnins.2025.1565848",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthesizing intelligible utterances from EEG of imagined speech | system_name=XI model end-to-end imagined-speech synthesizer:"
+  },
+  {
+   "pid": "doi-10.3390-s22020649",
+   "key": "t:exploringsilentspeechinterfacesbasedonfrequencymodulatedcontinuouswaveradar",
+   "title": "Exploring Silent Speech Interfaces Based on Frequency-Modulated Continuous-Wave Radar",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Exploring Silent Speech Interfaces Based on Frequency-Modulated Continuous-Wave Radar | intended_use_cases=private_communication, device_control, speech_"
+  },
+  {
+   "pid": "doi-10.48550-arxiv.2407.21345",
+   "key": "t:towardsemgtospeechwithanecklaceformfactor",
+   "title": "Towards EMG-to-Speech with a Necklace Form Factor",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards EMG-to-Speech with a Necklace Form Factor | authors=P. Wu; R. Kaveh; R. Nautiyal; C. Zhang; A. Guo; A. Kachinthaya; T. Mishra; B. Yu;"
+  },
+  {
+   "pid": "doi-10.5772-intechopen.1008554",
+   "key": "t:perspectivechaptersilentspeechinterfacebasedonneuralactivityashortreview",
+   "title": "Perspective Chapter: Silent Speech Interface Based on Neural Activity - A Short Review",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Perspective Chapter: Silent Speech Interface Based on Neural Activity - A Short Review | needs_manual_check=short review; cited performance values are secondhand, T"
+  },
+  {
+   "pid": "irjmets-88433-silent2sound",
+   "key": "t:silent2soundvisualtosoundaudiospeechreconstructionusinglipreadingai",
+   "title": "Silent2Sound: Visual-to-Sound Audio Speech Reconstruction Using Lip-Reading AI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent2Sound: Visual-to-Sound Audio Speech Reconstruction Using Lip-Reading AI | authors=Tabassum; Barakey; Rao; Felcita (Maharaja Institute of Technology Mysore) | venue=IRJMET"
+  },
+  {
+   "pid": "isca-abdo17-arabicav",
+   "key": "t:buildingaudiovisualphoneticallyannotatedarabiccorpusforexpressivetexttospeech",
+   "title": "Building audio-visual phonetically annotated Arabic corpus for expressive text to speech",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Building audio-visual phonetically annotated Arabic corpus for expressive text to speech | authors=Abdo, Abdo, Faraj | venue=Interspeech 2017 | Study.research_objective=audio-visual phonetically annotated Ara"
+  },
+  {
+   "pid": "isca-arb01_avsp",
+   "key": "t:hiddenmarkovmodelsforvisualspeechsynthesiswithlimiteddata",
+   "title": "HIDDEN MARKOV MODELS FOR VISUAL SPEECH SYNTHESIS WITH LIMITED DATA",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=HIDDEN MARKOV MODELS FOR VISUAL SPEECH SYNTHESIS WITH LIMITED DATA | authors=Allan Arb, Steven Gustafson, Timothy Anderson, Raymond Slyh | venue=Proc. AVSP 2001 | Stu"
+  },
+  {
+   "pid": "isca-arslan98_icslp",
+   "key": "t:speechdriven3dfacepointtrajectorysynthesisalgorithm",
+   "title": "Speech driven 3-D face point trajectory synthesis algorithm",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech driven 3-D face point trajectory synthesis algorithm | authors=Levent M. Arslan, David Talkin | venue=Proc. ICSLP 1998, Sydney | doi=10.21437/ICSLP.1998-273 | S"
+  },
+  {
+   "pid": "isca-blanco98_icslp",
+   "key": "t:sivhavisualspeechsynthesissystem",
+   "title": "SIVHA, visual speech synthesis system",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SIVHA, visual speech synthesis system | authors=Blanco Y., Cuellar M., Villanueva A., Lacunza F., Cabeza R., Marcotegui B. | venue=Proc. ICSLP 1998,"
+  },
+  {
+   "pid": "isca-bocquelet15-dnnsynth",
+   "key": "t:realtimecontrolofadnnbasedarticulatorysynthesizerforsilentspeechconversionapilot",
+   "title": "Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a Pilot Study",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a Pilot Study | authors=Bocquelet, Hueber, Girin, Badin | venue=Interspeech 2015 | St"
+  },
+  {
+   "pid": "isca-bocquelet15_interspeech",
+   "key": "t:realtimecontrolofadnnbasedarticulatorysynthesizerforsilentspeechconversionapilot",
+   "title": "Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a pilot study",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Real-time Control of a DNN-based Articulatory Synthesizer for Silent Speech Conversion: a pilot study | system_name=Real-time silent-speech conversion: NDI Wave 3D EMA (7→6"
+  },
+  {
+   "pid": "isca-brooke98_avsp",
+   "key": "t:twoandthreedimensionalaudiovisualspeechsynthesis",
+   "title": "TWO- AND THREE-DIMENSIONAL AUDIO-VISUAL SPEECH SYNTHESIS",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=TWO- AND THREE-DIMENSIONAL AUDIO-VISUAL SPEECH SYNTHESIS | authors=N. M. Brooke, S. D. Scott | venue=Proc. AVSP 1998 (ESCA Workshop on Audio-Visual Speech Processing) | Study"
+  },
+  {
+   "pid": "isca-cai11-lightssi",
+   "key": "t:recognitionandrealtimeperformancesofalightweightultrasoundbasedsilentspeechinter",
+   "title": "Recognition and Real Time Performances of a Lightweight Ultrasound Based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Recognition and Real Time Performances of a Lightweight Ultrasound Based Silent Speech Interface | authors=Cai, Hueber, Benaroya, Chollet, Denby | venue=Interspeech 2011 | Study.research_objective=lightweight ultraso"
+  },
+  {
+   "pid": "isca-cai11_interspeech",
+   "key": "t:recognitionandrealtimeperformancesofalightweightultrasoundbasedsilentspeechinter",
+   "title": "Recognition and Real Time Performances of a Lightweight Ultrasound Based Silent Speech Interface Employing a Language Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Recognition and Real Time Performances of a Lightweight Ultrasound Based Silent Speech Interface Employing a Language Model | system_name=REVOIX portable SSI: lightweight helmet + Terason t3000 8MC4 microconvex ultra"
+  },
+  {
+   "pid": "isca-cao21-laryngectomy",
+   "key": "t:investigatingspeechreconstructionforlaryngectomeesforsilentspeechinterfaces",
+   "title": "Investigating Speech Reconstruction for Laryngectomees for Silent Speech Interfaces",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Investigating Speech Reconstruction for Laryngectomees for Silent Speech Interfaces | authors=Cao, Kim, Chen, Wang | venue=Interspeech 2021 | Study.research_objective=speech reconstruction for laryngect"
+  },
+  {
+   "pid": "isca-choi23-liptospeech",
+   "key": "t:intelligibleliptospeechsynthesiswithspeechunits",
+   "title": "Intelligible Lip-to-Speech Synthesis with Speech Units",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Intelligible Lip-to-Speech Synthesis with Speech Units | authors=Choi, Park, Chung | venue=Interspeech 2023 | Study.research_objective=intelligible lip-to"
+  },
+  {
+   "pid": "isca-csapo17-us2speech",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface | authors=Csapo, Grobsz, Csapo, Toth | venue=Interspeech 2017 | Study.research_objective=DNN ultrasound-to-speech conve"
+  },
+  {
+   "pid": "isca-csapo17_interspeech",
+   "key": "t:dnnbasedultrasoundtospeechconversionforasilentspeechinterface",
+   "title": "DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DNN-based Ultrasound-to-Speech Conversion for a Silent Speech Interface | system_name=DNN ultrasound-to-speech conversion: midsagittal tongue US (Micro, 2-4MHz/64el, 82fps, stabilized) → corr"
+  },
+  {
+   "pid": "isca-csapo19-usvocoder",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder | authors=Csapo, Grobosz, Nagy, Bartos | venue=Interspeech 2019 | Study.research_objective=ultrasound silent speech int"
+  },
+  {
+   "pid": "isca-csapo19_interspeech",
+   "key": "t:ultrasoundbasedsilentspeechinterfacebuiltonacontinuousvocoder",
+   "title": "Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder | system_name=US-SSI with continuous vocoder: midsagittal tongue US (Micro 81.67fps, 64×128 px) → CNN (2 conv 16/8 + po"
+  },
+  {
+   "pid": "isca-csapo20b-uswaveglow",
+   "key": "t:ultrasoundbasedarticulatorytoacousticmappingwithwaveglowspeechsynthesis",
+   "title": "Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrasound-based Articulatory-to-Acoustic Mapping with WaveGlow Speech Synthesis | authors=Csapo, Xu, Nagy, Percossini, Bohacs, Grobosz | venue=Interspeech 2020 | Study.research_objective=ultrasound"
+  },
+  {
+   "pid": "isca-dahmani19_interspeech",
+   "key": "t:conditionalvariationalautoencoderfortextdrivenexpressiveaudiovisualspeechsynthes",
+   "title": "Conditional Variational Auto-Encoder for Text-Driven Expressive AudioVisual Speech Synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Conditional Variational Auto-Encoder for Text-Driven Expressive AudioVisual Speech Synthesis | Study.study_design=controlled_experiment | modalities=optical_camera, microphone | observed_quantities=position, ai"
+  },
+  {
+   "pid": "isca-diener15_interspeech",
+   "key": "t:codebookclusteringforunitselectionbasedemgtospeechconversion",
+   "title": "Codebook Clustering for Unit Selection based EMG-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Codebook Clustering for Unit Selection based EMG-to-Speech Conversion | system_name=Unit-selection EMG-to-speech with two-stage k-means codebook clustering: sEMG (6-ch Varioport"
+  },
+  {
+   "pid": "isca-diener18_interspeech",
+   "key": "t:investigatingobjectiveintelligibilityinrealtimeemgtospeechconversion",
+   "title": "Investigating Objective Intelligibility in Real-Time EMG-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Investigating Objective Intelligibility in Real-Time EMG-to-Speech Conversion | task_family=speech_reconstruction | Study.study_design=system_proposal | tested_population=healthy_volunte"
+  },
+  {
+   "pid": "isca-diener20b_interspeech",
+   "key": "t:cslemgarrayanopenaccesscorpusforemgtospeechconversion",
+   "title": "CSL-EMG Array: An Open Access Corpus for EMG-to-Speech Conversion",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=CSL-EMG Array: An Open Access Corpus for EMG-to-Speech Conversion | system_name=online EMG-to-Speech baseline: C-TD15 causal features (134Hz low/high split, 32ms/10ms Blackma"
+  },
+  {
+   "pid": "isca-ding15_avsp",
+   "key": "t:lipanimationsynthesisaunifiedframeworkforspeakingandlaughingvirtualagent",
+   "title": "Lip animation synthesis: a unified framework for speaking and laughing virtual agent",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip animation synthesis: a unified framework for speaking and laughing virtual agent | authors=Yu Ding; Catherine Pelachaud | venue=Proc. FAA"
+  },
+  {
+   "pid": "isca-elisei05_avsp",
+   "key": "t:capturingdataandrealistic3dmodelsforcuedspeechanalysisandaudiovisualsynthesis",
+   "title": "Capturing data and realistic 3D models for cued speech analysis and audiovisual synthesis",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Capturing data and realistic 3D models for cued speech analysis and audiovisual synthesis | authors=Frédéric Elisei, Gérard Bailly, Guillaume Gibert, Rémi Brun | venue=Proc. AVSP 2005, British Columbia | Stu"
+  },
+  {
+   "pid": "isca-elisei07_avsp",
+   "key": "t:towardseyegazeawareanalysisandsynthesisofaudiovisualspeech",
+   "title": "Towards eye gaze aware analysis and synthesis of audiovisual speech",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards eye gaze aware analysis and synthesis of audiovisual speech | authors=Frédéric Elisei, Gérard Bailly, Alix Casari, Stephan Raidt | venue=Proc. AVSP 2007 |"
+  },
+  {
+   "pid": "isca-engwall09_avsp",
+   "key": "t:canyoutelliftonguemovementsarerealorsynthesized",
+   "title": "Can you tell if tongue movements are real or synthesized?",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Can you tell if tongue movements are real or synthesized? | authors=Olov Engwall; Preben Wik | venue=Proc. AVSP 2009, Norwich, UK | Study.research_objective=can viewers con"
+  },
+  {
+   "pid": "isca-fagel03_avsp",
+   "key": "t:twoarticulationmodelsforaudiovisualspeechsynthesisdescriptionanddetermination",
+   "title": "Two Articulation Models for Audiovisual Speech Synthesis - Description and Determination",
+   "year": 2003,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Two Articulation Models for Audiovisual Speech Synthesis - Description and Determination | authors=Sascha Fagel, Caroline Clemens | venue=Proc. AVSP 2003 | Study.research_obj"
+  },
+  {
+   "pid": "isca-florescu10-silentvocal",
+   "key": "t:silentvsvocalizedarticulationforaportableultrasoundbasedsilentspeechinterface",
+   "title": "Silent vs Vocalized Articulation for a Portable Ultrasound-Based Silent Speech Interface",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent vs Vocalized Articulation for a Portable Ultrasound-Based Silent Speech Interface | authors=Florescu, Cernak, Trajcevski | venue=Interspeech 2010 | Study.research_objective=silent vs vocalized articula"
+  },
+  {
+   "pid": "isca-freitas14-featselect",
+   "key": "t:enhancingmultimodalsilentspeechinterfaceswithfeatureselection",
+   "title": "Enhancing Multimodal Silent Speech Interfaces with Feature Selection",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Enhancing Multimodal Silent Speech Interfaces with Feature Selection | authors=Freitas, Teixeira, Dias, Silva | venue=Interspeech 2014 | Study.research_objective=fe"
+  },
+  {
+   "pid": "isca-freitas14_interspeech",
+   "key": "t:enhancingmultimodalsilentspeechinterfaceswithfeatureselection",
+   "title": "Enhancing Multimodal Silent Speech Interfaces with Feature Selection",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Enhancing Multimodal Silent Speech Interfaces with Feature Selection | system_name=Quad-modal SSI testbed: Kinect video + depth, Plux 5-pair facial sEMG (+reference"
+  },
+  {
+   "pid": "isca-frye16_interspeech",
+   "key": "t:neuralresponsestospeechspecificmodulationsderivedfromaspectrotemporalfilterbank",
+   "title": "Neural Responses to Speech-Specific Modulations Derived from a Spectro-Temporal Filter Bank",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural Responses to Speech-Specific Modulations Derived from a Spectro-Temporal Filter Bank | Study.study_design=observational | tested_population"
+  },
+  {
+   "pid": "isca-ghosh26b-lipadapt",
+   "key": "t:lipadaptertexttovideoalignmentisallyouneedforliptospeech",
+   "title": "LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LipAdapter: Text-to-Video Alignment is All You Need for Lip-to-Speech | authors=Souvik Ghosh, C. V. Jawahar (IIIT Hyderabad), Vinay Namboodiri (U. Bath) | venue=Proc. Interspeech 2026:3548-"
+  },
+  {
+   "pid": "isca-gonzalez14-pma",
+   "key": "t:analysisofphoneticsimilarityinasilentspeechinterfacebasedonpermanentmagneticarti",
+   "title": "Analysis of Phonetic Similarity in a Silent Speech Interface based on Permanent Magnetic Articulography",
+   "year": 2014,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Analysis of Phonetic Similarity in a Silent Speech Interface based on Permanent Magnetic Articulography | authors=Gonzalez, Cheah, Green, Gilbert, Ell, Edge, Holdsworth | venue=Int"
+  },
+  {
+   "pid": "isca-gonzalez14_interspeech",
+   "key": "t:analysisofphoneticsimilarityinasilentspeechinterfacebasedonpermanentmagneticarti",
+   "title": "Analysis of Phonetic Similarity in a Silent Speech Interface based on Permanent Magnetic Articulography",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Analysis of Phonetic Similarity in a Silent Speech Interface based on Permanent Magnetic Articulography | system_name=DiSArM PMA silent speech interface: permanent magnets glued to"
+  },
+  {
+   "pid": "isca-gonzalez17-magdeep",
+   "key": "t:evaluationofasilentspeechinterfacebasedonmagneticsensinganddeeplearningforaphone",
+   "title": "Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learning for a Phonetically Rich Corpus",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learning for a Phonetically Rich Corpus | authors=Gonzalez, Cheah, Gilbert, Bai, Edg"
+  },
+  {
+   "pid": "isca-gonzalez17_interspeech",
+   "key": "t:evaluationofasilentspeechinterfacebasedonmagneticsensinganddeeplearningforaphone",
+   "title": "Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learning for a Phonetically Rich Vocabulary",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evaluation of a Silent Speech Interface based on Magnetic Sensing and Deep Learning for a Phonetically Rich Vocabulary | system_name=PMA-SSI speech restoration"
+  },
+  {
+   "pid": "isca-han26f-tapets",
+   "key": "t:tapetstimealignedphonemeguidingforemgtospeechsynthesis",
+   "title": "TAP-ETS: Time Aligned Phoneme Guiding for EMG-to-Speech Synthesis",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=TAP-ETS: Time Aligned Phoneme Guiding for EMG-to-Speech Synthesis | authors=Dongyub Han, Injune Hwang, Jaejun Lee, Jiwon Lee, Kyogu Lee | venue=Interspeech 2026 | doi=ISCA archive rec"
+  },
+  {
+   "pid": "isca-hofe10-magsense",
+   "key": "t:evaluationofasilentspeechinterfacebasedonmagneticsensing",
+   "title": "Evaluation of a Silent Speech Interface Based on Magnetic Sensing",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evaluation of a Silent Speech Interface Based on Magnetic Sensing | authors=Hofe, Ell, Fagan, Gilbert, Moore | venue=Interspeech 2010 | Study.research_objectiv"
+  },
+  {
+   "pid": "isca-hofe11_interspeech",
+   "key": "t:speechsynthesisparametergenerationfortheassistivesilentspeechinterfacemvoca",
+   "title": "Speech Synthesis Parameter Generation for the Assistive Silent Speech Interface MVOCA",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Synthesis Parameter Generation for the Assistive Silent Speech Interface MVOCA | system_name=MVOCA / REdRESS: permanent-magnetic articulography (3 tongue + 4 lip pellets, wearable 12-channel s"
+  },
+  {
+   "pid": "isca-hofe13_interspeech",
+   "key": "t:performanceofthemvocasilentspeechinterfaceacrossmultiplespeakers",
+   "title": "Performance of the MVOCA Silent Speech Interface Across Multiple Speakers",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Performance of the MVOCA Silent Speech Interface Across Multiple Speakers | system_name=MVOCA: permanent magnets on articulators → 5 tri-axial magnetic field sensors on"
+  },
+  {
+   "pid": "isca-hollenstein13_avsp",
+   "key": "t:visualcontrolofhsmmbasedacousticspeechsynthesis",
+   "title": "Visual control of HSMM-based acoustic speech synthesis",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Visual control of HSMM-based acoustic speech synthesis | authors=J. Hollenstein; M. Pucher; D. Schabus | venue=Proc. AVSP 2013, Annecy, France | Study.research_objective=co"
+  },
+  {
+   "pid": "isca-hueber08b-usphone",
+   "key": "t:phonerecognitionfromultrasoundandopticalvideosequencesforasilentspeechinterface",
+   "title": "Phone Recognition from Ultrasound and Optical Video Sequences for a Silent Speech Interface",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Phone Recognition from Ultrasound and Optical Video Sequences for a Silent Speech Interface | authors=Hueber, Chollet, Denby, Dreyfus, Stone | venue=Interspeech 2008 | Study.research_objective=phone recognition"
+  },
+  {
+   "pid": "isca-hueber09-visuophon",
+   "key": "t:visuophoneticdecodingusingmultistreamandcontextdependentmodelsforanultrasoundbas",
+   "title": "Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultrasound-based Silent Speech Interface",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Visuo-Phonetic Decoding using Multi-Stream and Context-Dependent Models for an Ultrasound-based Silent Speech Interface | authors=Hueber, Denby, Chollet, Dreyfus, Stone | venue=Interspeech 2009 | Study.research_objective=multi-stream conte"
+  },
+  {
+   "pid": "isca-hueber11-usmapping",
+   "key": "t:statisticalmappingbetweenarticulatoryandacousticdataforanultrasoundbasedsilentsp",
+   "title": "Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface | authors=Hueber, Benaroya, Chollet, Denby, Hechavarria, Stone | venue=Interspeech 2011 | Study.research_objective=stat"
+  },
+  {
+   "pid": "isca-hueber11_interspeech",
+   "key": "t:statisticalmappingbetweenarticulatoryandacousticdataforanultrasoundbasedsilentsp",
+   "title": "Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Statistical Mapping between Articulatory and Acoustic Data for an Ultrasound-based Silent Speech Interface | system_name=ultrasound+video silent speech interface: EigenTongues/EigenLips visual features → GMM or HMM statistical"
+  },
+  {
+   "pid": "isca-hueber12-trajhmm",
+   "key": "t:continuousarticulatorytoacousticmappingusingphonebasedtrajectoryhmmforasilentspe",
+   "title": "Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Continuous Articulatory-to-Acoustic Mapping using Phone-based Trajectory HMM for a Silent Speech Interface | authors=Hueber, Girin, Alameda-Pineda, Bailly | venue=Interspeech 2012 | Study.research_objective=continuous articula"
+  },
+  {
+   "pid": "isca-ibrahimov25-usconformer",
+   "key": "t:conformerbasedultrasoundtospeechconversion",
+   "title": "Conformer-based Ultrasound-to-Speech Conversion",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Conformer-based Ultrasound-to-Speech Conversion | authors=Ibrahimov, et-al | venue=Interspeech 2025 | Study.research_objective=Conformer ultrasound-to-speec"
+  },
+  {
+   "pid": "isca-jaumardhakoun16_interspeech",
+   "key": "t:anarticulatorybasedsingingvoicesynthesisusingtongueandlipsimaging",
+   "title": "An Articulatory-Based Singing Voice Synthesis Using Tongue and Lips Imaging",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Articulatory-Based Singing Voice Synthesis Using Tongue and Lips Imaging | task_family=speech_reconstruction | Study.study_design=system_proposal | tested_popul"
+  },
+  {
+   "pid": "isca-krnoul07_avsp",
+   "key": "t:innovationsinczechaudiovisualspeechsynthesisforprecisearticulation",
+   "title": "Innovations in Czech Audio-Visual Speech Synthesis for Precise Articulation",
+   "year": 2007,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Innovations in Czech Audio-Visual Speech Synthesis for Precise Articulation | authors=Zdeněk Krňoul, Miloš Železný | venue=Proc. AVSP 2007 | Study.research_objective=pr"
+  },
+  {
+   "pid": "isca-krnoul08_avsp",
+   "key": "t:evaluationofsynthesizedsignandvisualspeechbydeaf",
+   "title": "Evaluation of synthesized sign and visual speech by deaf",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evaluation of synthesized sign and visual speech by deaf | authors=Zdenek Krnoul; Patrik Rostik; Milos Zelezny | venue=Proc. AVSP 2008, Moret"
+  },
+  {
+   "pid": "isca-krnoul09_avsp",
+   "key": "t:refinementoflipshapeinsignspeechsynthesis",
+   "title": "Refinement of lip shape in sign speech synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Refinement of lip shape in sign speech synthesis | authors=Zdenek Krnoul | venue=Proc. AVSP 2009, Norwich, UK | Study.research_objective=refine lip-shape articulatory"
+  },
+  {
+   "pid": "isca-kuratate05_avsp",
+   "key": "t:statisticalanalysisandsynthesisof3dfacesforauditoryvisualspeechanimation",
+   "title": "Statistical analysis and synthesis of 3D faces for auditory-visual speech animation",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Statistical analysis and synthesis of 3D faces for auditory-visual speech animation | authors=Takaaki Kuratate | venue=Proc. AVSP 2005, British Columbia"
+  },
+  {
+   "pid": "isca-kuratate08_avsp",
+   "key": "t:texttoavsynthesissystemforthinkingheadproject",
+   "title": "Text-to-AV synthesis system for Thinking Head Project",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Text-to-AV synthesis system for Thinking Head Project | authors=Takaaki Kuratate | venue=Proc. AVSP 2008, Moreton Island, Australia | Stud"
+  },
+  {
+   "pid": "isca-kuratate99_eurospeech",
+   "key": "t:audiovisualsynthesisoftalkingfacesfromspeechproductioncorrelates",
+   "title": "Audio-visual synthesis of talking faces from speech production correlates",
+   "year": 1999,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-visual synthesis of talking faces from speech production correlates | authors=Takaaki Kuratate, Kevin G. Munhall, Philip E. Rubin, Eri"
+  },
+  {
+   "pid": "isca-li23l-eegemgssi",
+   "key": "t:hybridsilentspeechinterfacethroughfusionofelectroencephalographyandelectromyogra",
+   "title": "Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography | authors=Li, Zhang, Wang, He | venue=Interspeech 2023 |"
+  },
+  {
+   "pid": "isca-li23l_interspeech",
+   "key": "t:hybridsilentspeechinterfacethroughfusionofelectroencephalographyandelectromyogra",
+   "title": "Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hybrid Silent Speech Interface Through Fusion of Electroencephalography and Electromyography | system_name=bimodal hybrid SSI: 57ch EEG + 5ch sEMG (ac"
+  },
+  {
+   "pid": "isca-liang25d-lightl2s",
+   "key": "t:lightl2sultralowcomplexityliptospeechsynthesisformultispeakerscenarios",
+   "title": "LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scenarios",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LightL2S: Ultra-Low Complexity Lip-to-Speech Synthesis for Multi-Speaker Scenarios | authors=Liang, et-al | venue=Interspeech 2025 | Study.research_objective=ultra-low comp"
+  },
+  {
+   "pid": "isca-lin01_avsp",
+   "key": "t:extractionof3dfacialmotionparametersfrommirrorreflectedmultiviewvideoforaudiovis",
+   "title": "Extraction of 3D Facial Motion Parameters from Mirror-Reflected Multi-View Video for Audio-Visual Synthesis",
+   "year": 2001,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Extraction of 3D Facial Motion Parameters from Mirror-Reflected Multi-View Video for Audio-Visual Synthesis | authors=I-Chen Lin, Jeng-Sheng Yeh, Ming Ouhyoung | venue=Proc. AVSP 2001 | Study.research_objective=collect a data"
+  },
+  {
+   "pid": "isca-liu16g_interspeech",
+   "key": "t:articulatorytoacousticconversionwithcascadedpredictionofspectralandexcitationfea",
+   "title": "Articulatory-to-Acoustic Conversion with Cascaded Prediction of Spectral and Excitation Features Using Neural Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Articulatory-to-Acoustic Conversion with Cascaded Prediction of Spectral and Excitation Features Using Neural Networks | modalities=magnetic_tra"
+  },
+  {
+   "pid": "isca-mattheyses10_avsp",
+   "key": "t:optimizedphotorealisticaudiovisualspeechsynthesisusingactiveappearancemodeling",
+   "title": "Optimized photorealistic audiovisual speech synthesis using active appearance modeling",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Optimized photorealistic audiovisual speech synthesis using active appearance modeling | authors=Mattheyses, Latacz, Verhelst | venue=Proc. AVSP 2010 | Study.research_obje"
+  },
+  {
+   "pid": "isca-mattheyses11_avsp",
+   "key": "t:auditoryandphotorealisticaudiovisualspeechsynthesisfordutch",
+   "title": "Auditory and photo-realistic audiovisual speech synthesis for Dutch",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Auditory and photo-realistic audiovisual speech synthesis for Dutch | authors=Mattheyses, Latacz, Verhelst | venue=Proc. AVSP 2011 | Study.research_objective=create Dutch AV s"
+  },
+  {
+   "pid": "isca-menezes25-radaropg",
+   "key": "t:multimodalsilentrecognitionofphonemesusingradarandoptopalatographicsilentspeechi",
+   "title": "Multimodal Silent Recognition of Phonemes Using Radar and Optopalatographic Silent Speech Interface",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multimodal Silent Recognition of Phonemes Using Radar and Optopalatographic Silent Speech Interface | authors=Menezes, et-al | venue=Interspeech 2025 | Study.research_objective=radar+optopalatographic silent phoneme rec"
+  },
+  {
+   "pid": "isca-menezes25_interspeech",
+   "key": "t:multimodalsilentrecognitionofphonemesusingradarandoptopalatographicsilentspeechi",
+   "title": "Multimodal Silent Recognition of Phonemes Using Radar and Optopalatographic Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multimodal Silent Recognition of Phonemes Using Radar and Optopalatographic Silent Speech Interfaces | venue=Proc. Interspeech 2025 | intended_use_cases=research_of_inner_speech, other | task_family=isolated_word_recogn"
+  },
+  {
+   "pid": "isca-michelsanti20-vid2voc",
+   "key": "t:vocoderbasedspeechsynthesisfromsilentvideos",
+   "title": "Vocoder-Based Speech Synthesis from Silent Videos",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Vocoder-Based Speech Synthesis from Silent Videos | authors=Michelsanti, Tan, Sigurdsson, Jensen | venue=Interspeech 2020 | Study.research_objective"
+  },
+  {
+   "pid": "isca-michelsanti20_interspeech",
+   "key": "t:vocoderbasedspeechsynthesisfromsilentvideos",
+   "title": "Vocoder-Based Speech Synthesis from Silent Videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Vocoder-Based Speech Synthesis from Silent Videos | system_name=vid2voc: video→WORLD-vocoder-features (F0/VUV/AP/SP) synthesis; Conv3D encoder + rec"
+  },
+  {
+   "pid": "isca-musti11_avsp",
+   "key": "t:introducingvisualtargetcostwithinanacousticvisualunitselectionspeechsynthesizer",
+   "title": "Introducing visual target cost within an acoustic-visual unit-selection speech synthesizer",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Introducing visual target cost within an acoustic-visual unit-selection speech synthesizer | authors=Utpala Musti; Vincent Colotte; Asterios Toutios; Slim Ouni | venue=Proc. AVSP 2011, Volterra, Italy | Stu"
+  },
+  {
+   "pid": "isca-musti13_avsp",
+   "key": "t:automaticfeatureselectionforavconcatenativesynthesis",
+   "title": "Automatic feature selection for AV concatenative synthesis",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Automatic feature selection for AV concatenative synthesis | authors=U. Musti; V. Colotte; S. Ouni; C. Lavecchia; B. Wrobel-Dautcourt; M.-O. Berger | venue=Proc. AVSP 2013, Ann"
+  },
+  {
+   "pid": "isca-olives99_avsp",
+   "key": "t:audiovisualspeechsynthesisforfinnish",
+   "title": "AUDIO-VISUAL SPEECH SYNTHESIS FOR FINNISH",
+   "year": 1999,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=AUDIO-VISUAL SPEECH SYNTHESIS FOR FINNISH | authors=Jean-Luc Olivès, Riikka Möttönen, Janne Kulju, Mikko Sams | venue=Proc. AVSP 1999 | Study.resea"
+  },
+  {
+   "pid": "isca-parmonangan19_interspeech",
+   "key": "t:speechqualityevaluationofsynthesizedjapanesespeechusingeeg",
+   "title": "Speech Quality Evaluation of Synthesized Japanese Speech using EEG",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Quality Evaluation of Synthesized Japanese Speech using EEG | system_name=EEG perceived-speech-quality decoder: 32ch ActiCAP/BrainAmp EEG while liste"
+  },
+  {
+   "pid": "isca-pham25-resound",
+   "key": "t:resoundspeechreconstructionfromsilentvideosviaacousticsemanticdecomposedmodeling",
+   "title": "RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=RESOUND: Speech Reconstruction from Silent Videos via Acoustic-Semantic Decomposed Modeling | venue=Interspeech 2025 | Study.research_objective=silent"
+  },
+  {
+   "pid": "isca-rademan15_avsp",
+   "key": "t:improvedvisualspeechsynthesisusingdynamicvisemekmeansclusteringanddecisiontrees",
+   "title": "Improved visual speech synthesis using dynamic viseme k-means clustering and decision trees",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Improved visual speech synthesis using dynamic viseme k-means clustering and decision trees | authors=Christiaan F. Rademan, Thomas Niesler | venue=Pr"
+  },
+  {
+   "pid": "isca-sako00_icslp",
+   "key": "t:hmmbasedtexttoaudiovisualspeechsynthesis",
+   "title": "HMM-based text-to-audio-visual speech synthesis",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=HMM-based text-to-audio-visual speech synthesis | venue=Proc. ICSLP 2000 (Beijing) | authors=Sako, Tokuda, Masuko, Kobayashi, Kitamura | task_family=speech_reconstru"
+  },
+  {
+   "pid": "isca-salomons23-emgconf",
+   "key": "t:spanishphoneconfusionanalysisforemgbasedsilentspeechinterfaces",
+   "title": "Spanish Phone Confusion Analysis for EMG-Based Silent Speech Interfaces",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Spanish Phone Confusion Analysis for EMG-Based Silent Speech Interfaces | authors=Salomons, Gonzalez-Lopez | venue=Interspeech 2023 | Study.research_objective=Spanish phone confusion EMG-SSI"
+  },
+  {
+   "pid": "isca-salomons23_interspeech",
+   "key": "t:spanishphoneconfusionanalysisforemgbasedsilentspeechinterfaces",
+   "title": "Spanish Phone Confusion Analysis for EMG-Based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Spanish Phone Confusion Analysis for EMG-Based Silent Speech Interfaces | venue=Proc. Interspeech 2023:1179-1183 | intended_use_cases=speech_restoration | task_family=phoneme_or_character_cl"
+  },
+  {
+   "pid": "isca-schabus12_interspeech",
+   "key": "t:speakeradaptivevisualspeechsynthesisinthehmmframework",
+   "title": "Speaker-adaptive visual speech synthesis in the HMM-framework",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speaker-adaptive visual speech synthesis in the HMM-framework | authors=Dietmar Schabus, Michael Pucher, Gregor Hofer | venue=Proc. Interspeech 2012 | doi=10."
+  },
+  {
+   "pid": "isca-schabus13_avsp",
+   "key": "t:objectiveandsubjectivefeatureevaluationforspeakeradaptivevisualspeechsynthesis",
+   "title": "Objective and subjective feature evaluation for speaker-adaptive visual speech synthesis",
+   "year": 2013,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Objective and subjective feature evaluation for speaker-adaptive visual speech synthesis | authors=Dietmar Schabus, Michael Pucher, Gregor Hofer | venue=Proc. AVSP 2013 | extra.Production.scope_note=publish"
+  },
+  {
+   "pid": "isca-schabus15_avsp",
+   "key": "t:comparisonofdialectmodelsandphonemappingsinhsmmbasedvisualdialectspeechsynthesis",
+   "title": "Comparison of dialect models and phone mappings in HSMM-based visual dialect speech synthesis",
+   "year": 2015,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Comparison of dialect models and phone mappings in HSMM-based visual dialect speech synthesis | authors=D. Schabus; M. Pucher | venue=Proc. FAAVSP 2015, Vienna, Austria | Study.research_objective=synthesize dial"
+  },
+  {
+   "pid": "isca-scheck25_interspeech",
+   "key": "t:diffmvetsdiffusionbasedmultivoiceelectromyographytospeechconversionusingspeakeri",
+   "title": "DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Training Targets",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=DiffMV-ETS: Diffusion-based Multi-Voice Electromyography-to-Speech Conversion using Speaker-Independent Speech Training Targets | venue=Proc. Interspeech 2025 | intended_use_cases=speech"
+  },
+  {
+   "pid": "isca-sekiyama96_icslp",
+   "key": "t:afewfactorswhichaffectthedegreeofincorporatinglipreadinformationintospeechpercep",
+   "title": "A few factors which affect the degree of incorporating lip-read information into speech perception",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A few factors which affect the degree of incorporating lip-read information into speech perception | venue=Proc. ICSLP 1996 (Philadelphia) | language=japanese, english, chinese | intended_use_cases=research_"
+  },
+  {
+   "pid": "isca-shandiz21-usspeaker",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural Speaker Embeddings for Ultrasound-based Silent Speech Interfaces | authors=Shandiz, Toth, Csapo | venue=Interspeech 2021 | Study.research_objective=neural speaker embeddings ultrasoun"
+  },
+  {
+   "pid": "isca-shandiz21_interspeech",
+   "key": "t:neuralspeakerembeddingsforultrasoundbasedsilentspeechinterfaces",
+   "title": "Neural Speaker Embeddings for Ultrasound-Based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neural Speaker Embeddings for Ultrasound-Based Silent Speech Interfaces | system_name=US-tongue x-vector: 3D-frame-block CNN→temporal-pooling→FC speaker classifier (FC#2 linear = embedding);"
+  },
+  {
+   "pid": "isca-tamura99_eurospeech",
+   "key": "t:texttoaudiovisualspeechsynthesisbasedonparametergenerationfromhmm",
+   "title": "Text-to-audio-visual speech synthesis based on parameter generation from HMM",
+   "year": 1999,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Text-to-audio-visual speech synthesis based on parameter generation from HMM | authors=Masatsune Tamura, Shigekazu Kondo, Takashi Masuko, Takao Kobayashi |"
+  },
+  {
+   "pid": "isca-thangthai16_interspeech",
+   "key": "t:visualspeechsynthesisusingdynamicvisemescontextualfeaturesanddnns",
+   "title": "Visual Speech Synthesis Using Dynamic Visemes, Contextual Features and DNNs",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Visual Speech Synthesis Using Dynamic Visemes, Contextual Features and DNNs | Study.study_design=system_proposal | modalities=optical_camera,"
+  },
+  {
+   "pid": "isca-theobald08_avsp",
+   "key": "t:onevaluatingsynthesisedvisualspeech",
+   "title": "On evaluating synthesised visual speech",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=On evaluating synthesised visual speech | authors=Barry-John Theobald; Nicholas Wilkinson; Iain Matthews | venue=Proc. AVSP 2008, Moreton Isl"
+  },
+  {
+   "pid": "isca-theobald08_interspeech",
+   "key": "t:aprobabilistictrajectorysynthesissystemforsynthesisingvisualspeech",
+   "title": "A probabilistic trajectory synthesis system for synthesising visual speech",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A probabilistic trajectory synthesis system for synthesising visual speech | authors=Barry-John Theobald, Nicholas Wilkinson | venue=Proc. Interspeech 2008 | doi=10.21437/Inte"
+  },
+  {
+   "pid": "isca-theobald08b_interspeech",
+   "key": "t:lips2008visualspeechsynthesischallenge",
+   "title": "LIPS2008: Visual speech synthesis challenge",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=LIPS2008: Visual speech synthesis challenge | authors=Barry-John Theobald, Sascha Fagel, Gerard Bailly, Frederic Elisei | venue=Proc. Interspeech 2008"
+  },
+  {
+   "pid": "isca-theobald08c_interspeech",
+   "key": "t:comparingtextdrivenandspeechdrivenvisualspeechsynthesisers",
+   "title": "Comparing text-driven and speech-driven visual speech synthesisers",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Comparing text-driven and speech-driven visual speech synthesisers | authors=Barry-John Theobald, Gavin Cawley, Andrew Bangham, Iain Matthews, Nicholas Wilkinson | venue=Proc. Inter"
+  },
+  {
+   "pid": "isca-toth18-multitask",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces | venue=Interspeech 2018 | Study.research_objective=multi-task ASR and synthesis parameters for ultrasound SSI | Study"
+  },
+  {
+   "pid": "isca-toth18_interspeech",
+   "key": "t:multitasklearningofspeechrecognitionandspeechsynthesisparametersforultrasoundbas",
+   "title": "Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Multi-Task Learning of Speech Recognition and Speech Synthesis Parameters for Ultrasound-based Silent Speech Interfaces | system_name=multi-task US-SSI: tongue US frames → 5-hidden-layer DNN with lower shared + upper task-specific layers"
+  },
+  {
+   "pid": "isca-toth23-usadapt",
+   "key": "t:adaptationoftongueultrasoundbasedsilentspeechinterfacesusingspatialtransformerne",
+   "title": "Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks | authors=Toth, Gosztolya, Frint, Csorba | venue=Interspeech 2023 | Study.research_"
+  },
+  {
+   "pid": "isca-toth23_interspeech",
+   "key": "t:adaptationoftongueultrasoundbasedsilentspeechinterfacesusingspatialtransformerne",
+   "title": "Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Adaptation of Tongue Ultrasound-Based Silent Speech Interfaces Using Spatial Transformer Networks | system_name=UTI→mel-spectrogram SSI + Spatial Transformer Network: differentiable"
+  },
+  {
+   "pid": "isca-toutios10_avsp",
+   "key": "t:towardsatrueacousticvisualspeechsynthesis",
+   "title": "Towards a true acoustic-visual speech synthesis",
+   "year": 2010,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards a true acoustic-visual speech synthesis | authors=Asterios Toutios; Utpala Musti; Slim Ouni; Vincent Colotte; Brigitte Wrobel-Dautcourt; Marie-Odile Berger |"
+  },
+  {
+   "pid": "isca-uttam19-hushhush",
+   "key": "t:hushhushspeakspeechreconstructionusingsilentvideos",
+   "title": "Hush-Hush Speak: Speech Reconstruction Using Silent Videos",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hush-Hush Speak: Speech Reconstruction Using Silent Videos | authors=Uttam, Tripathi, Ganguly | venue=Interspeech 2019 | Study.research_objective=speech recon"
+  },
+  {
+   "pid": "isca-uttam19_interspeech",
+   "key": "t:hushhushspeakspeechreconstructionusingsilentvideos",
+   "title": "Hush-Hush Speak: Speech Reconstruction Using Silent Videos",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hush-Hush Speak: Speech Reconstruction Using Silent Videos | system_name=speaker-independent multi-view silent-video speech reconstruction: multi-view video →"
+  },
+  {
+   "pid": "isca-vitormenezes22_interspeech",
+   "key": "t:evaluationofdifferentantennatypesandpositionsinasteppedfrequencycontinuouswavera",
+   "title": "Evaluation of Different Antenna Types and Positions in a Stepped Frequency Continuous-Wave Radar-Based Silent Speech Interface",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evaluation of Different Antenna Types and Positions in a Stepped Frequency Continuous-Wave Radar-Based Silent Speech Interface | system_name=paired cheek SFCW radar (1–6GHz,128 steps,TX→upper-vocal-tract→RX): 3 antennas {MD disc+guard-ring, MH ha"
+  },
+  {
+   "pid": "isca-wang09_avsp",
+   "key": "t:hmmbasedmotiontrajectorygenerationforspeechanimationsynthesis",
+   "title": "HMM-based motion trajectory generation for speech animation synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=HMM-based motion trajectory generation for speech animation synthesis | authors=Lijuan Wang; Wei Han; Xiaojun Qian; Frank Soong | venue=Proc. AVSP 2009, Norwich, UK | Study.research_objec"
+  },
+  {
+   "pid": "isca-wang12e-wholeword",
+   "key": "t:wholewordrecognitionfromarticulatorymovementsforsilentspeechinterfaces",
+   "title": "Whole-Word Recognition from Articulatory Movements for Silent Speech Interfaces",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Whole-Word Recognition from Articulatory Movements for Silent Speech Interfaces | authors=Wang, Samadani, Disu, Guan, Hennig, Kraft | venue=Interspeech 2012 | Study.research_objective=whole-word rec"
+  },
+  {
+   "pid": "isca-wang12e_interspeech",
+   "key": "t:wholewordrecognitionfromarticulatorymovementsforsilentspeechinterfaces",
+   "title": "Whole-Word Recognition from Articulatory Movements for Silent Speech Interfaces",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Whole-Word Recognition from Articulatory Movements for Silent Speech Interfaces | system_name=EMA AG500 12-sensor tongue/lip/jaw trajectories → sliding prediction window → LIBSVM probabilistic whole"
+  },
+  {
+   "pid": "isca-wu11_avsp",
+   "key": "t:photorealisticvisualspeechsynthesisbasedonaamfeaturesandanarticulatorydbnmodelwi",
+   "title": "Photo-realistic visual speech synthesis based on AAM features and an articulatory DBN model with constrained asynchrony",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Photo-realistic visual speech synthesis based on AAM features and an articulatory DBN model with constrained asynchrony | authors=Peng Wu; Dongmei Jiang; He"
+  },
+  {
+   "pid": "isca-wu24k_interspeech",
+   "key": "t:towardsemgtospeechwithanecklaceformfactor",
+   "title": "Towards EMG-to-Speech with a Necklace Form Factor",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards EMG-to-Speech with a Necklace Form Factor | system_name=wireless dry-electrode neckband EMG: 10 gold-plated 3D-printed electrodes (2c"
+  },
+  {
+   "pid": "isca-yamamoto98_avsp",
+   "key": "t:subjectiveevaluationforhmmbasedspeechtolipmovementsynthesis",
+   "title": "SUBJECTIVE EVALUATION FOR HMM-BASED SPEECH-TO-LIP MOVEMENT SYNTHESIS",
+   "year": 1998,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SUBJECTIVE EVALUATION FOR HMM-BASED SPEECH-TO-LIP MOVEMENT SYNTHESIS | authors=Eli Yamamoto, Satoshi Nakamura, Kiyohiro Shikano | venue=Auditory-Visual Speech Processing (AVSP 98), Terri"
+  },
+  {
+   "pid": "isca-zahner14_interspeech",
+   "key": "t:conversionfromfacialmyoelectricsignalstospeechaunitselectionapproach",
+   "title": "Conversion from Facial Myoelectric Signals to Speech: A Unit Selection Approach",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Conversion from Facial Myoelectric Signals to Speech: A Unit Selection Approach | intended_use_cases=private_communication, noisy_environment, speech_restoration | task_fam"
+  },
+  {
+   "pid": "isca-zhang26y-sonispeech",
+   "key": "t:sonispeechalargescaleopenvocabularytrimodaldatasetforwearablesilentspeechinterfa",
+   "title": "SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SoniSpeech: A Large-Scale Open-Vocabulary Tri-Modal Dataset for Wearable Silent Speech Interfaces | authors=Ruidong Zhang, Jiacheng Liu, Francois Guimbretiere, Cheng Zhang | venue=Interspeech 2026 | doi=10.7298/xjjr-"
+  },
+  {
+   "pid": "pmc-10894270-liptospeech",
+   "key": "t:integratedvisualtransformerandflashattentionforliptospeech",
+   "title": "Integrated visual transformer and flash attention for lip-to-speech",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Integrated visual transformer and flash attention for lip-to-speech | authors=lip-to-speech group | Study.research_objective=lip-to-speech ViT+flash-attn GAN CER 43.19% | Study.study_desi"
+  },
+  {
+   "pid": "pmc-11053081-onlinesyn",
+   "key": "t:onlinespeechsynthesisusingachronicallyimplantedbraincomputerinterface",
+   "title": "Online speech synthesis using a chronically implanted brain-computer interface",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Online speech synthesis using a chronically implanted brain-computer interface | authors=online-synthesis group | Study.research_objective=ch"
+  },
+  {
+   "pid": "pmc-11370360-instvoice",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An instantaneous voice synthesis neuroprosthesis | authors=instantaneous-voice group | Study.research_objective=instantaneous voice-synthesis neuropro"
+  },
+  {
+   "pid": "pmc-11513626-prosodyautism",
+   "key": "t:processingofprosodiccuesofuncertaintyinautisticandnonautisticadultsastudybasedon",
+   "title": "Processing of prosodic cues of uncertainty in autistic and non-autistic adults: a study based on articulatory speech synthesis",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Processing of prosodic cues of uncertainty in autistic and non-autistic adults: a study based on articulatory speech synthesis | authors=Bellinghausen C, Schröder B, Rauh R | venue=Frontiers in psychiatry | Study.research_objective=processing o"
+  },
+  {
+   "pid": "pmc-11821129-emgsetup",
+   "key": "t:electrodesetupforelectromyographybasedsilentspeechinterfacesapilotstudy",
+   "title": "Electrode Setup for Electromyography-Based Silent Speech Interfaces: A Pilot Study",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Electrode Setup for Electromyography-Based Silent Speech Interfaces: A Pilot Study | doi=10.3390/s25030781 | Study.study_design=controlled_experiment | Study.research_objective=define op"
+  },
+  {
+   "pid": "pmc-12043648-eegsynth",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthesizing intelligible utterances from EEG of imagined speech | authors=Xiong; Ma; Li (Harbin Institute of Technology) | ven"
+  },
+  {
+   "pid": "pmc-12043648-ets",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthesizing intelligible utterances from EEG of imagined speech | authors=Lee, Kim, et al. | venue=Frontiers in Neuroscience |"
+  },
+  {
+   "pid": "pmc-12043648-synthutt",
+   "key": "t:synthesizingintelligibleutterancesfromeegofimaginedspeech",
+   "title": "Synthesizing intelligible utterances from EEG of imagined speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Synthesizing intelligible utterances from EEG of imagined speech | authors=synth-utterance group | Study.research_objective=EEG"
+  },
+  {
+   "pid": "pmc-12106081-convembed",
+   "key": "t:aunifiedacoustictospeechtolanguageembeddingspacecapturestheneuralbasisofnaturall",
+   "title": "A unified acoustic-to-speech-to-language embedding space captures the neural basis of natural language processing in everyday conversations",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A unified acoustic-to-speech-to-language embedding space captures the neural basis of natural language processing in everyday conversations | author"
+  },
+  {
+   "pid": "pmc-12369848-voice-synth-np",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice-synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An instantaneous voice-synthesis neuroprosthesis | authors=Wairagkar et al. | doi=10.1038/s41586-025-09127-3 | Study.research_objective=restore intell"
+  },
+  {
+   "pid": "pmc-12369848-voicesynth",
+   "key": "t:aninstantaneousvoicesynthesisneuroprosthesis",
+   "title": "An instantaneous voice synthesis neuroprosthesis",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An instantaneous voice synthesis neuroprosthesis | authors=Wairagkar et al | Study.research_objective=instantaneous intracortical voice synthesis: cau"
+  },
+  {
+   "pid": "pmc-13383455-aibrain2speech",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review | venue=BMC Medical Informatics and Decision Making | doi=10.1186/s12911-026"
+  },
+  {
+   "pid": "pmc-13383455-b2srev",
+   "key": "t:artificialintelligenceforbraintospeechdecodinginparalysisasystematicreview",
+   "title": "Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Artificial intelligence for brain-to-speech decoding in paralysis: a systematic review | authors=Belfrouh, Salmam, Errattahi, Hanine, Obidallah, Alhulayyil (Imam M"
+  },
+  {
+   "pid": "pmc-2784218-wireless",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A wireless brain-machine interface for real-time speech synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A wireless brain-machine interface for real-time speech synthesis | authors=Guenther FH, Brumberg JS, Wright EJ, Nieto-Castanon A, Tourville JA, Panko M, Law R, Siebert SA, Bartels JL"
+  },
+  {
+   "pid": "pmc-2784218-wirelesssynth",
+   "key": "t:awirelessbrainmachineinterfaceforrealtimespeechsynthesis",
+   "title": "A Wireless Brain-Machine Interface for Real-Time Speech Synthesis",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Wireless Brain-Machine Interface for Real-Time Speech Synthesis | authors=Frank H. Guenther, Jonathan S. Brumberg, E. Joseph Wright, Andres Nieto-Castanon, Jason A. Tourville, Mikha"
+  },
+  {
+   "pid": "pmc-3269422-pasley",
+   "key": "t:reconstructingspeechfromhumanauditorycortex",
+   "title": "Reconstructing Speech from Human Auditory Cortex",
+   "year": 2012,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Reconstructing Speech from Human Auditory Cortex | authors=Pasley; David; Mesgarani; Flinker; Shamma; Crone; Knight; Chang | venue=PLoS Biolo"
+  },
+  {
+   "pid": "pmc-3637898-guenther",
+   "key": "t:brainmachineinterfacesforrealtimespeechsynthesis",
+   "title": "Brain-Machine Interfaces for Real-time Speech Synthesis",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-Machine Interfaces for Real-time Speech Synthesis | authors=Guenther et al. | Study.research_objective=real-time speech-synthesis BMI — locked-in, intracortical F1/F2"
+  },
+  {
+   "pid": "pmc-4767644-textsup",
+   "key": "t:textasasupplementtospeechinyoungandolderadults",
+   "title": "Text as a Supplement to Speech in Young and Older Adults",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Text as a Supplement to Speech in Young and Older Adults | authors=text-supplement group | Study.research_objective=text supplement speech young/older"
+  },
+  {
+   "pid": "pmc-5467524-neurocogci",
+   "key": "t:nonauditoryneurocognitiveskillscontributetospeechrecognitioninadultswithcochlear",
+   "title": "Non‐auditory neurocognitive skills contribute to speech recognition in adults with cochlear implants",
+   "year": 2016,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Non‐auditory neurocognitive skills contribute to speech recognition in adults with cochlear implants | authors=Moberly AC, Houston DM, Castellanos I | venue=Laryngoscope inves"
+  },
+  {
+   "pid": "pmc-6351601-audrecon",
+   "key": "t:towardsreconstructingintelligiblespeechfromthehumanauditorycortex",
+   "title": "Towards reconstructing intelligible speech from the human auditory cortex",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Towards reconstructing intelligible speech from the human auditory cortex | authors=Akbari H, Khalighinejad B, Herrero JL, Mehta AD, Mesgarani N | venue=Scientifi"
+  },
+  {
+   "pid": "pmc-6822609-3dcnn",
+   "key": "t:speechsynthesisfromecogusingdenselyconnected3dconvolutionalneuralnetworks",
+   "title": "Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech Synthesis from ECoG using Densely Connected 3D Convolutional Neural Networks | authors=3DCNN synthesis group | Study.research_o"
+  },
+  {
+   "pid": "pmc-7147120-hearingent",
+   "key": "t:hearingaidsdonotaltercorticalentrainmenttospeechataudiblele",
+   "title": "Hearing Aids Do Not Alter Cortical Entrainment to Speech at Audible Le",
+   "year": 2020,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Hearing Aids Do Not Alter Cortical Entrainment to Speech at Audible Le | authors=hearing-aid group | Study.research_objective=hearing-aid cortical-entrainment EEG | Study.study"
+  },
+  {
+   "pid": "pmc-8375361-neuralsynth",
+   "key": "t:neurallydrivensynthesisoflearnedcomplexvocalizations",
+   "title": "Neurally driven synthesis of learned, complex vocalizations",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Neurally driven synthesis of learned, complex vocalizations | authors=Arneodo EM, Chen S, Brown DE | venue=Current biology | Study.research_obj"
+  },
+  {
+   "pid": "pmc-8704423-ffrspeech",
+   "key": "t:frequencyfollowingresponsestospeechsoundsarehighlyconservedacrossspeciesandconta",
+   "title": "Frequency-Following Responses to Speech Sounds Are Highly Conserved across Species and Contain Cortical Contributions",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Frequency-Following Responses to Speech Sounds Are Highly Conserved across Species and Contain Cortical Contributions | authors=Gnanateja GN, Rupp K, Llanos F"
+  },
+  {
+   "pid": "pmc-9130409-bcispeechrev",
+   "key": "t:braincomputerinterfaceapplicationstospeechdecodingandsynthesistoaugmentcommunica",
+   "title": "Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Brain-Computer Interface: Applications to Speech Decoding and Synthesis to Augment Communication | authors=Luo S, Rabbani Q, Crone NE | venue=Neurotherapeutics | Study.research_objective=re"
+  },
+  {
+   "pid": "pmc-9530138-straintssi",
+   "key": "t:ultrathincrystallinesiliconbasedstraingaugeswithdeeplearningalgorithmsforsilents",
+   "title": "Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for silent speech interfaces",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Ultrathin crystalline-silicon-based strain gauges with deep learning algorithms for silent speech interfaces | venue=Nature Communications | doi=10.1038/s41467-022-33457-9 | Study.study_design=system_proposal | Study.research_o"
+  },
+  {
+   "pid": "pmc-9696288-utiaam",
+   "key": "t:optimizingtheultrasoundtongueimagerepresentationforresidualnetworkbasedarticulat",
+   "title": "Optimizing the Ultrasound Tongue Image Representation for Residual Network-Based Articulatory-to-Acoustic Mapping",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Optimizing the Ultrasound Tongue Image Representation for Residual Network-Based Articulatory-to-Acoustic Mapping | doi=10.3390/s22228601 | Study.study_design=controlled_experiment | Study.research_objective=compare raw scanl"
+  },
+  {
+   "pid": "pmc-9714519-speechsynth",
+   "key": "t:speechsynthesisfromneuraldecodingofspokensentences",
+   "title": "Speech synthesis from neural decoding of spoken sentences",
+   "year": 2019,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Speech synthesis from neural decoding of spoken sentences | authors=Anumanchipalli GK, Chartier J, Chang EF | Study.research_objective"
+  },
+  {
+   "pid": "rs-10442598-accssi",
+   "key": "t:efficientsensorconfigurationforaccelerometerbasedsilentspeechinterfaces",
+   "title": "Efficient Sensor Configuration for Accelerometer-based Silent Speech Interfaces",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Efficient Sensor Configuration for Accelerometer-based Silent Speech Interfaces | venue=Research Square preprint | doi=10.21203/rs.3.rs-10442598/v1 | Study.research_objective=determine efficient acc"
+  },
+  {
+   "pid": "sdata-2026-07745-eegtv",
+   "key": "t:adatasetwithbilingualtvcommandsforsilentspeechinterfacesusingelectroencephalogra",
+   "title": "A Dataset with Bilingual TV Commands for Silent Speech Interfaces Using Electroencephalographic Signals",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=A Dataset with Bilingual TV Commands for Silent Speech Interfaces Using Electroencephalographic Signals | venue=Scientific Data (2026) | doi=10.1038/s41597-026-07745-8 | Study.study_de"
+  },
+  {
+   "pid": "w7217544707-ijisae",
+   "key": "t:audiovisualspeechreconstructionusinghybriddeeplearningwithconditionalrandomfield",
+   "title": "Audio-Visual Speech Reconstruction Using Hybrid Deep Learning with Conditional Random Fields and Intelligent Chasing Optimization",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Audio-Visual Speech Reconstruction Using Hybrid Deep Learning with Conditional Random Fields and Intelligent Chasing Optimization | authors=Aditya. N. Mag"
+  }
+ ],
+ "usual_approach": {
+  "design": "frame-wise mapping from measured articulation to spectral parameters (LSP/LSF), direct or phoneme-gated lookup, at the target time (2009-11)",
+  "n": 3,
+  "tier": "pattern match",
+  "pids": [
+   "isca-kaburagi98_icslp",
+   "isca-engwall05_interspeech",
+   "icassp2007-hueber-eigentongue-ssi"
+  ],
+  "population_unique": 3,
+  "note": "dated: 3 of 3 prior unique studies; recognition then synthesis 0 prior outside the target system (first shown ICPhS 2007); all-years population of 144 unique studies (pattern match): direct_mapping 60, recognition_then_synthesis 22"
+ },
+ "read_fulltext": [
+  {
+   "pid": "isca-sonkar26_interspeech",
+   "role": "sota",
+   "loc": "Abstract; Tables 1-2",
+   "quote": "On the English TaL corpus, Tongue2Speech achieves 15.93% WER in single-speaker and 31.64% in multi-speaker settings",
+   "reused_from": "published topic table"
+  },
+  {
+   "pid": "isca-kaburagi98_icslp",
+   "role": "prior",
+   "loc": "Secs. 2-3",
+   "quote": "the database samples that are coincidental with the input articulator"
+  },
+  {
+   "pid": "isca-kaburagi98_icslp",
+   "role": "prior",
+   "loc": "Sec. 4.2",
+   "quote": "The result was that 84% of sp eech stim uli synthesized with phoneme categorization were preferred in quality to those without categorization"
+  },
+  {
+   "pid": "isca-kaburagi98_icslp",
+   "role": "prior",
+   "loc": "Sec. 2",
+   "quote": "with a male Japanese sub ject while he made 488 utterances"
+  },
+  {
+   "pid": "isca-engwall05_interspeech",
+   "role": "prior",
+   "loc": "Sec. 4",
+   "quote": "Two training methods were tested, linear estimation (section 4.1) and neural networks (section 4.2)."
+  },
+  {
+   "pid": "isca-engwall05_interspeech",
+   "role": "prior",
+   "loc": "Sec. 5",
+   "quote": "The synthesis was evaluated statistically by the correlation between the original and estimated line spectrum pairs and perceptually, by informal subjective judgment."
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0008218",
+   "role": "prior",
+   "loc": "Methods",
+   "quote": "The current system utilizes a Klatt-based formant synthesizer [28] with all parameters set to fixed values except F1 and F2, which were determined by the output of the Neural Decoder.",
+   "timing": "concurrent",
+   "reused_from": "published topic table"
+  },
+  {
+   "pid": "isca-hueber11-usmapping",
+   "role": "prior",
+   "loc": "Sec. 4",
+   "quote": "However, even if some sentences were well transcribed (especially the short ones and those containing “common words”), this preliminary subjective evaluation revealed that it was not possible to synthesize intelligible speech “consistently”, neither with the GMM-based mapping approach, nor with the HMM-based approach.",
+   "timing": "later",
+   "reused_from": "published topic table"
+  },
+  {
+   "pid": "icassp2007-hueber-eigentongue-ssi",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "Extracted visual features are input to a neural network which learns the relation between the vocal tract configuration and line spectrum frequencies (LSF) contained in a one-hour speech corpus."
+  },
+  {
+   "pid": "icphs2007-hueber-ouisper",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "The search is driven by the recognition of phone units using Hidden Markov Models trained on video sequences."
+  },
+  {
+   "pid": "isca-kaburagi98_icslp",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "the search area of the database is restricted to p ortions of the same category to ensure the acoustical reliability of the resulting spectrum"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 6,
+  "found": 1,
+  "recall": 0.17,
+  "missed": [
+   "doi-10.1016-j.csl.2015.09.008",
+   "doi-10.1371-journal.pone.0008218",
+   "icphs2007-hueber-ouisper",
+   "isca-cornu15-v2speech",
+   "isca-hueber08_segvocoder"
+  ]
+ },
+ "dated_counts_development-of-a-silent-speech-interface-driven-by-ultrasound-and-optical-images-of-the-tongue-and-l": {
+  "cutoff": "prior = first public before 2009-05 (target 2009-11); [concurrent] = 2009-05 to 2010-05",
+  "population": "index modalities field (ultrasound, EMG, EMA/PMA or magnetic tracking, EPG, neural, lip video with these) and a synthesis or mapping title or ledger text, 1998-2010, checked by title and full text; versions once; target versions merged with the target",
+  "prior_unique": 3,
+  "prior_pids": [
+   "isca-kaburagi98_icslp",
+   "isca-engwall05_interspeech",
+   "icassp2007-hueber-eigentongue-ssi"
+  ],
+  "prior_direct_mapping": 3,
+  "prior_recognition_then_synthesis": 0,
+  "prior_note": "All three prior studies output spectral parameters frame by frame: Kaburagi 1998 by a phoneme-gated database lookup (frame-level phoneme categorization, EMA), Engwall 2005 by linear or neural estimation from EMA plus facial motion capture via talking-head parameters, and the group's own ICASSP 2007 neural network from ultrasound and lip features to LSF (un-merged from the target versions after evaluation: different route).",
+  "concurrent_pids": [
+   "doi-10.1371-journal.pone.0008218",
+   "isca-brumberg09_bcisynth"
+  ],
+  "concurrent_unique": 1,
+  "concurrent_note": "Guenther et al. 2009 (PLoS ONE, 3 wiki folders) and Brumberg et al. 2009 (Interspeech) report the same intracortical formant-synthesis BCI; direct mapping of neural activity to F1/F2.",
+  "merged_target_versions": [
+   "icphs2007-hueber-ouisper",
+   "isca-hueber08_segvocoder",
+   "isca-hueber08b_phonerec"
+  ],
+  "excluded": {
+   "doi-10.1016-j.specom.2009.08.002": "review",
+   "avsp-fels08_divas": "hand-gesture input",
+   "isca-kuratate99_eurospeech": "face animation output",
+   "isca-birkholz07_interspeech": "articulatory synthesizer driven by model targets",
+   "isca-steiner09_interspeech": "gestural-score fit, intermediate-signal output",
+   "isca-almajai06_interspeech": "audio-visual enhancement with acoustic input",
+   "isca-tran08_interspeech": "NAM (acoustic) input"
+  },
+  "later_note": "All-years population (144 unique, pattern match, related-work mentions included): direct_mapping 60, recognition_then_synthesis 22. The target group switched to GMM and HMM statistical mapping in 2011 (isca-hueber11-usmapping).",
+  "tier": "pattern match (full text) checked by reading, unique studies",
+  "route_first_public": "2007-08 (ICPhS 2007, icphs2007-hueber-ouisper)"
+ },
+ "state_of_the_art": {
+  "pid": "isca-sonkar26_interspeech",
+  "year": 2026,
+  "metric": "ASR (Whisper Medium) WER on synthesized speech, TaL1 single speaker; direct mapping to mel spectrogram with HiFi-GAN; 31.64% multi-speaker",
+  "value": 15.93,
+  "unit": "%",
+  "timing": "later",
+  "confirmed_in_text": true
+ },
+ "tally": {
+  "slot_filled_unique": 3268,
+  "string_match_unique": 144,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "frame-wise mapping from measured articulation to spectral parameters (LSP/LSF), direct or phoneme-gated lookup, at the target time (2009-11)",
+   "n": 3,
+   "tier": "pattern match",
+   "population_unique": 3
+  },
+  "state_of_the_art": {
+   "pid": "isca-sonkar26_interspeech",
+   "year": 2026,
+   "metric": "ASR (Whisper Medium) WER on synthesized speech, TaL1 single speaker; direct mapping to mel spectrogram with HiFi-GAN; 31.64% multi-speaker",
+   "value": 15.93,
+   "unit": "%",
+   "timing": "later",
+   "confirmed_in_text": true
+  },
+  "read": 7,
+  "read_prior": [
+   "doi-10.1371-journal.pone.0008218",
+   "icassp2007-hueber-eigentongue-ssi",
+   "icphs2007-hueber-ouisper",
+   "isca-engwall05_interspeech",
+   "isca-hueber11-usmapping",
+   "isca-kaburagi98_icslp"
+  ],
+  "unread": 174,
+  "confirmed_unique": 0,
+  "known_item_recall": 0.17
+ },
+ "used_by": [
+  "development-of-a-silent-speech-interface-driven-by-ultrasound-and-optical-images-of-the-tongue-and-l"
+ ]
+}

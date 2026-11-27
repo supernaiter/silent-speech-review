@@ -27,6 +27,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Overt speech decoding from cortical activity: a comparison of different linear methods | 2023 | Abstract（Methods）、§2.6.3 |
 | SPEAK YOUR MIND! Towards Imagined Speech Recognition With Hierarchical Deep Learning |  | Abstract |
 
+## articulatory-signal-speech-recognizer
+
+- Table: [`articulatory-signal-speech-recognizer.csv`](articulatory-signal-speech-recognizer.csv) (7345 slot-filled, 118 pattern match, usual design in 10, 5 read in full)
+- Inclusion rule: Studies that recognize phones, words or sentences as text from non-acoustic speech-production signals measured on the speaker (ultrasound, surface or intramuscular EMG, EMA/PMA or magnetic sensing, EPG, radar, ECoG, intracortical, EEG/MEG), classified by full-text pattern (reference list removed) by recognizer family: HMM (with GMM or other emission models), neural network, SVM, DTW. Boundary: exclude studies whose recognizer takes acoustic input at test (AVSR with audio, NAM or whisper microphones, acoustic-to-articulatory inversion), lip-video-only lipreading, perception or neuroscience studies without a recognizer, and reviews; versions of one study count once; earlier versions of the target system are merged with the target.
+- Used in: [Development of a Silent Speech Interface Driven by Ultrasound and Optical Images of the Tongue and Lips](../../reviews/development-of-a-silent-speech-interface-driven-by-ultrasound-and-optical-images-of-the-tongue-and-l/)
+
 ## articulography-to-speech-synthesis
 
 - Table: [`articulography-to-speech-synthesis.csv`](articulography-to-speech-synthesis.csv) (7345 slot-filled, 69 pattern match, usual design in 40, 3 read in full)

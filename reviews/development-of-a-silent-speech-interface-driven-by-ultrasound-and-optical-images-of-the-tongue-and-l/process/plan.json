@@ -1,0 +1,61 @@
+{
+ "target": "doi-10.1016-j.specom.2009.11.004",
+ "gate": "component paper: ultrasound-and-lip-video silent speech interface (visual phone recognition plus corpus-based synthesis)",
+ "prep": "no prep/ directory; plan and audits built by the writer; published topic table M12/listener-intelligibility-test reused append-only; checked notes for Cai 2011, Hueber 2011, Sonkar 2026, Jou 2006 and the SSC 2019 benchmark reused from published tables",
+ "time_frame": "first public 2009-11 (Speech Communication accepted manuscript). Earlier conference versions of the same system are merged with the target and not counted as priors: icassp2007-hueber-eigentongue-ssi, icphs2007-hueber-ouisper, isca-hueber07_interspeech / isca-hueber07-uscont / isca-hueber07_ssiphone, conf-issp2008-hueber-acquisition, isca-hueber08_segvocoder, isca-hueber08b_phonerec / isca-hueber08b-usphone. The same group's Interspeech 2009 multi-stream / context-dependent study (isca-hueber09_cdms, 3 folders, 2009-09) is [concurrent]. Prior = first public before 2009-05; [concurrent] = 2009-05 to 2010-05.",
+ "setting": "One setting across slots: systems that decode speech from non-acoustic speech-production signals measured on the speaker (ultrasound, EMG, EMA/PMA/magnetic sensing, EPG, radar, neural recordings; lip video only together with such signals). Air- or body-conducted microphones (NAM, whisper) are acoustic and outside. Lip-video-only recognizers (AVSR/lipreading lineage) are left out of the M06 count; at the time they were HMM-based too, so including them would only raise the usual-design count.",
+ "changed": [
+  "M06",
+  "M08"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Read CMU-Arctic sentences, two speakers, one session each (group's 2008 acquisition)",
+  "M02": "Phone labels from forced alignment of the parallel audio with the CMU dictionary, 41 classes",
+  "M03": "Speaker-dependent training per database; no adaptation or recalibration",
+  "M04": "Uttered (vocalized) read speech; silent articulation not tested (authors' caveat)",
+  "M05": "Aloka SSD-1000 ultrasound plus frontal and profile lip cameras, 29.97 Hz, PCA EigenTongue/EigenLips features (group's 2007 lineage)",
+  "M07": "Word, hybrid and free-phone dictionaries; pitch template from a training sentence",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Parallel audio and its forced alignment as reference",
+  "M13": "Laboratory head-and-transducer support (HATS); portability named as open"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "articulatory-signal-speech-recognizer",
+   "inclusion_rule": "Studies that recognize phones, words or sentences as text from non-acoustic speech-production signals measured on the speaker (ultrasound, surface or intramuscular EMG, EMA/PMA or magnetic sensing, EPG, radar, ECoG, intracortical, EEG/MEG), classified by full-text pattern (reference list removed) by recognizer family: HMM (with GMM or other emission models), neural network, SVM, DTW. Boundary: exclude studies whose recognizer takes acoustic input at test (AVSR with audio, NAM or whisper microphones, acoustic-to-articulatory inversion), lip-video-only lipreading, perception or neuroscience studies without a recognizer, and reviews; versions of one study count once; earlier versions of the target system are merged with the target.",
+   "pattern": "title names recognition / lipreading / silent speech interface and the ledger names a non-acoustic production signal; dated population enumerated from the index modalities field for 1997-2010",
+   "design_field": "model_family",
+   "design_regex": {
+    "hmm": "\\bHMMs?\\b|hidden Markov",
+    "neural_network": "neural network|multi-?layer perceptron|\\bMLPs?\\b|\\bLSTM\\b|\\bCTC\\b",
+    "svm": "\\bSVMs?\\b|support vector",
+    "dtw": "\\bDTW\\b|dynamic time warping"
+   },
+   "metric": "phone accuracy or WER, condition matched (speaker dependence, vocabulary, LM)"
+  },
+  {
+   "slot": "M08",
+   "topic": "non-acoustic-signal-to-speech-output-route",
+   "inclusion_rule": "Studies that produce audible speech (waveform or vocoder/spectral parameters rendered as audio) from non-acoustic speech-production signals measured on the speaker (ultrasound, lip video together with such signals, EMA/PMA, EMG, EPG, neural recordings), classified by output route: recognition then synthesis (phones or words are recognized and a unit-selection, concatenative or text-to-speech synthesizer renders them) versus direct mapping (frame-wise regression, GMM, neural network or lookup from signal features to acoustic parameters). Boundary: exclude talking-head or face animation, acoustic-to-articulatory inversion, articulatory synthesizers driven by model parameters or text rather than measured signals, conversion from acoustic input (NAM, whisper, electrolarynx), and reviews; versions count once; earlier versions of the target system are merged with the target.",
+   "pattern": "title names synthesis / to-speech / vocoder / reconstruction / mapping / silent speech interface and the ledger names a non-acoustic production signal; dated population enumerated from the index modalities field for 1998-2010",
+   "design_field": "output_kind|output_types|decoder_route",
+   "design_regex": {
+    "recognition_then_synthesis": "phone/word recognition or decoding within 150 characters of unit selection, concatenative synthesis or TTS; 'recognition followed by synthesis'",
+    "direct_mapping": "direct / frame-wise mapping or regression; articulatory-to-acoustic mapping; GMM or neural-network mapping or regression"
+   },
+   "metric": "intelligibility of the output (listener transcription or ASR WER on synthesized speech), lower WER better"
+  },
+  {
+   "slot": "M12",
+   "topic": "listener-intelligibility-test",
+   "inclusion_rule": "Reused published table: studies that evaluate speech synthesized from non-acoustic signals with an intelligibility test in which listeners transcribe or identify words or sentences. Added for this review: dated counts at the target's time (first public 2009-11) and the target as an included candidate.",
+   "pattern": "reuse",
+   "metric": "listener transcription accuracy or WER"
+  }
+ ]
+}

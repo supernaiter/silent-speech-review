@@ -1,12 +1,12 @@
 # Silent Speech Interface Review
 
-Reviews of **184 silent speech interface (SSI) papers** (2009–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-11-27.
+Reviews of **185 silent speech interface (SSI) papers** (2009–2026), each with the conditions its results were measured under. Maintained by [Naoki Kimura](https://nao-ki-mura.com/) ([ORCID 0000-0001-9167-1923](https://orcid.org/0000-0001-9167-1923)). Last updated 2026-11-27.
 
 Silent speech interfaces turn articulation without audible voice into text or speech, using lip video, ultrasound tongue imaging, EMG, EEG, electropalatography, radar, acoustic sensing and more. Accuracies in this field are hard to compare: one paper recognizes 10 words from one speaker in one session, another decodes open sentences from new speakers on a later day. This review puts those conditions next to every headline number.
 
 Topics covered: silent speech recognition, lip reading and visual speech recognition (VSR), lip-to-speech and video-to-speech synthesis, EMG-to-speech, ultrasound tongue imaging, imagined and inner speech decoding from EEG and MEG, brain-to-text and speech neuroprostheses, radar and Wi-Fi sensing, and wearable silent speech text entry.
 
-**Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (18) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (38) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (47) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (9) · [Other sensors](#other-sensors) (31)
+**Sections:** [Surveys](#surveys) (8) · [Electropalatography & in-mouth sensors](#electropalatography--in-mouth-sensors) (1) · [Ultrasound & tongue imaging](#ultrasound--tongue-imaging) (19) · [Surface EMG](#surface-emg) (27) · [Brain signals (EEG, MEG, intracortical)](#brain-signals-eeg-meg-intracortical) (38) · [Radar, RF & Wi-Fi](#radar-rf--wi-fi) (5) · [Lip & face video](#lip--face-video) (47) · [Acoustic, whisper & wearable motion sensors](#acoustic-whisper--wearable-motion-sensors) (9) · [Other sensors](#other-sensors) (31)
 
 ## Start here
 
@@ -22,7 +22,7 @@ Topics covered: silent speech recognition, lip reading and visual speech recogni
 
 ## Latest component reviews
 
-Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 154; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
+Each paper judged component by component against the usual approach and the current state of the art. Newest 12 of 155; see [all component reviews](reviews/README.md#component-reviews). The remaining papers have itemized summaries in the earlier format.
 
 - [A First Exploration of Neuromorphic OT-CFM for Multi-Speaker VSR](reviews/lipsflow-a-first-exploration-of-neuromorphic-ot-cfm-for-multi-speaker-vsr/) (2026). Event input and a two-step OT-CFM decoder are standard; the DVS-Lip evaluation is behind: WER on an isolated-word set with no split details or seeds, and baselines that do not match their sources.
 - [A cross-species neural foundation model for end-to-end speech decoding](reviews/a-cross-species-neural-foundation-model-for-end-to-end-speech-decoding/) (2026). Cascaded decoding with the pretrained encoder is a strong standard result; the end-to-end audio-LLM path beats the prior end-to-end entry but trails RNN cascades, and the cross-species gain is small.
@@ -102,6 +102,7 @@ Every speech-intention decoder, whatever its sensor, can be described by the sam
 | 2019 | [Ultrasound-based Silent Speech Interface Built on a Continuous Vocoder](reviews/ultrasound-based-silent-speech-interface-built-on-a-continuous-vocoder/) | Ultrasound-to-speech synthesis with a continuous vocoder (continuous F0, maximum voiced frequency, MGC-LSP) | Not stated | Speaker-dependent | Not stated | Offline | ContF0 RMSE 30.56 Hz vs 65.34 Hz for discontinuous F0, measured against different reference contours; MUSHRA naturalness 43.45 vs 40.87 with predicted excitation and original spectra, not significant; four speakers, 9 test sentences each |
 | 2018 | [Updating the Silent Speech Challenge benchmark with deep learning](reviews/updating-the-silent-speech-challenge-benchmark-with-deep-learning/) | Continuous silent speech recognition | WSJ0 5000-word lexicon | Speaker-dependent | Not stated | Offline | 6.45% WER on the SSC test (Kaldi DNN-HMM, 30 DCT features, closed WSJ 5k bigram) vs the 17.4% benchmark; with the same bigram the paper's own triphone2b GMM-HMM gives 12.71%, and the less task-specific CSR 5k bigram gives 11.44%. |
 | 2016 | [Contour-based 3d tongue motion visualization using ultrasound image sequences](reviews/contour-based-3d-tongue-motion-visualization-using-ultrasound-image-sequences/) | 3D tongue motion visualization | Not applicable | Not stated | Not applicable | Offline | Not reported (about 1.2 s average to associate a frame with the 3D model) |
+| 2010 | [Development of a Silent Speech Interface Driven by Ultrasound and Optical Images of the Tongue and Lips](reviews/development-of-a-silent-speech-interface-driven-by-ultrasound-and-optical-images-of-the-tongue-and-l/) | Continuous phone recognition and corpus-based speech synthesis | CMU-Arctic sentences; word dictionary of 2,569 items | Two speakers, speaker-dependent | One session per speaker | Uttered (vocalized) read speech | Visual phone accuracy 59.0-67.6% (speaker A) and 48.3-56.0% (speaker B); synthesis tested on oracle phones |
 
 ## Surface EMG
 
