@@ -151,6 +151,24 @@
    "pid": "isca-jou04_interspeech",
    "year": 2004,
    "tier": "ledger only"
+  },
+  {
+   "metric": "WER",
+   "value": 2.7,
+   "unit": "percent",
+   "raw": "3.2% / 7.1% 2.7% / 6.1%",
+   "pid": "isca-graciarena04-interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "wer",
+   "value": 9.6,
+   "unit": "percent",
+   "raw": "Normal/Close-Talk 9.6",
+   "pid": "isca-jou04-interspeech",
+   "year": null,
+   "tier": "ledger only"
   }
  ],
  "recall_sample": [],
@@ -1575,6 +1593,59 @@
   "known_item_recall": 0.75
  },
  "used_by": [
-  "nasovoce"
+  "nasovoce",
+  "non-audible-murmur-nam-recognition"
+ ],
+ "dated_counts_non-audible-murmur-nam-recognition": {
+  "cutoff": "prior = first public before 2004-03 (target first public 2004-09, IEICE Trans. D-II J87-D-II(9), Japanese version of the 2006 English paper); [concurrent] = 2004-03 to 2005-03",
+  "prior_unique": 4,
+  "prior_pids": [
+   [
+    "doi-10.1109-icassp.2003.1200069",
+    "isca-nakajima03_eurospeech"
+   ],
+   [
+    "asru2003-heracleous-iterative-mllr-nam"
+   ],
+   [
+    "not in wiki: Graciarena et al. IEEE SPL 2003 (via isca-graciarena04_interspeech)"
+   ],
+   [
+    "not in wiki: Strand et al. ASRU 2003 (via naist-4825)"
+   ]
+  ],
+  "prior_noise_physically_present": "2 target-group studies; Graciarena 2003 used added and recorded tank noise with a standard-microphone baseline (described through its 2004 follow-up); Strand 2003 details not described in citing text",
+  "prior_noise_level_stated": "0 of the 2 target-group studies",
+  "prior_air_microphone_baseline_in_same_noise": "1 (Graciarena 2003, standard microphone); 0 in the target group",
+  "concurrent_pids": [
+   "isca-graciarena04_interspeech",
+   "naist-4544",
+   "isca-jou04_interspeech",
+   "isca-heracleous04_interspeech"
+  ],
+  "concurrent_note": "Graciarena 2004: noise played in the booth with both microphones recording plus digital noise on the standard microphone, SNR estimated; EUSIPCO 2004 (target group): close-talking air-microphone baseline in quiet, TV news and music; Jou 2004: quiet room only.",
+  "target_decision": "doi-10.1093-ietisy-e89-d.1.1 (merged with ieice2004-nakajima-nam-recognition, ieice-e89d-nakajima-nam-2006): noise physically present at recording, four environments, no level, no air-microphone baseline.",
+  "tier": "pattern match (published table) checked by reading; unique studies",
+  "count_note": "All-years 44 (physically present) and 15 (added digitally) of 123 are full-text mention counts (upper bounds; a paper naming both is counted in both)."
+ },
+ "read_fulltext_non-audible-murmur-nam-recognition": [
+  {
+   "pid": "naist-4544",
+   "role": "prior",
+   "loc": "Sec. 3; Table 2",
+   "quote": "Close-talking 94.4 91.7 91.9"
+  },
+  {
+   "pid": "eurasip2007-heracleous-tissue-conductive",
+   "role": "sota",
+   "loc": "Sec. 3.2",
+   "quote": "different types of noise were playing back at 50 dBA and 60 dBA levels, while a female speaker was uttering the test data"
+  },
+  {
+   "pid": "naist-4825",
+   "role": "sota",
+   "loc": "Abstract; Sec. 5",
+   "quote": "A possible reason for this， might be the Lombard refiex."
+  }
  ]
 }

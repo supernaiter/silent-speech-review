@@ -168,6 +168,7 @@ Each paper judged component by component against the usual approach and the stat
 - [Development of a Silent Speech Interface Driven by Ultrasound and Optical Images of the Tongue and Lips](development-of-a-silent-speech-interface-driven-by-ultrasound-and-optical-images-of-the-tongue-and-l/) (2010). HMM phone recognizer (M06) standard; recognition-then-unit-selection output (M08) departs from frame-wise mapping, incl. the group's 2007 one, but is tested only on oracle phones.
 - [Modeling Coarticulation in EMG-based Continuous Speech Recognition](modeling-coarticulation-in-emg-based-continuous-speech-recognition/) (2010). Bundled phonetic-feature streams (M06) are new among non-acoustic recognizers but transfer acoustic-ASR clustering; test-set tuning inflates the gain; speaker-independent and silent claims untested.
 - [A Wireless Brain-Machine Interface for Real-Time Speech Synthesis](a-wireless-brain-machine-interface-for-real-time-speech-synthesis/) (2009). Closed-loop formant decoding (M06) and F1/F2 output (M08) are standard: gesture-driven formant synthesis came first; one user learns vowels; hit rate lacks a chance level; no speech measured.
+- [Non-Audible Murmur (NAM) Recognition](non-audible-murmur-nam-recognition/) (2006). Sensor, murmur mode and HMM retraining (M05, M04, M03) are the authors' 2003 design, standard for lack of repetition; noise robustness lacks levels and an air baseline.
 
 ## Itemized summaries
 

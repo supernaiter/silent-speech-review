@@ -30,7 +30,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`body-conducted-sensor-noise-test-protocol.csv`](body-conducted-sensor-noise-test-protocol.csv) (6960 slot-filled, 123 pattern match, usual design in 44, 3 read in full)
 - Inclusion rule: Same population as M05 body-conducted-sensor-with-air-microphone; design compared is whether quantitative noise tests expose the conducted sensor to the noise (noise physically present while recording, or noise recorded through both channels) or add noise digitally to the air channel only. Boundary: a paper naming both protocols is counted under each; qualitative field recordings do not count as a quantitative test.
-- Used in: [NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction](../../reviews/nasovoce/)
+- Used in: [NasoVoce: A Nose-Mounted Low-Audibility Speech Interface for Always-Available Speech Interaction](../../reviews/nasovoce/), [Non-Audible Murmur (NAM) Recognition](../../reviews/non-audible-murmur-nam-recognition/)
 
 ## cross-corpus-avsr-generalization
 
