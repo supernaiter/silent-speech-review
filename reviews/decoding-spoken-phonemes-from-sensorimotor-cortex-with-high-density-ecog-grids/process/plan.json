@@ -1,0 +1,57 @@
+{
+ "target": [
+  "doi-10.1016-j.neuroimage.2017.10.011",
+  "pmc-6433278-hdecog"
+ ],
+ "first_public": "2017-10",
+ "setting": "Human studies that decode produced, attempted or imagined speech from intracranial recordings (ECoG, micro-ECoG, sEEG, intracortical arrays, depth microwires). One population for M05, M06 and M12: the published intracranial-speech-test-partition ledger pattern (intracranial signal and speech unit named in the ledger text, 618 unique studies), restricted to studies first public before 2017-04 and hand-screened by title and method snippet; off-population: reviews, listening/perception studies, mapping studies with no decoder, non-speech BCIs, and decoders whose target is not speech content (communication partner). 2017-04 to 2018-04 is [concurrent]. Design precedents from other signals and tasks (the authors' own hand-gesture decoders) are counted as priors for novelty, as in the published reviews.",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M05",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt cued production is both training and test action.",
+  "M02": "No training-only signal; labels are the cued phoneme, kept only if acoustically correct.",
+  "M03": "Per-participant templates from the training trials of each leave-one-out fold; no calibration across days.",
+  "M04": "Overt isolated phonemes /p/, /k/, /u/, /a:/ or rest after a visual cue.",
+  "M07": "No language model or lexicon; closed set of five classes.",
+  "M08": "Class label, offline.",
+  "M09": "Offline study.",
+  "M10": "Offline study.",
+  "M11": "Cued label, acoustically verified; trials aligned to audio voice onset time.",
+  "M13": "Clinical epilepsy monitoring, offline; no implanted BCI."
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "intracranial-speech-classifier-family",
+   "reuse": null,
+   "inclusion_rule": "Setting above; design of interest: the classifier family: assignment of a test trial to the class-mean spatiotemporal template it correlates with best or lies nearest to (nearest centroid, matched filter, no fitted weights) versus a trained discriminative, generative or regression decoder (LDA, SVM, naive Bayes, GMM-HMM, Kalman or linear regression). Boundary: a study counts under the classifier its methods section uses for the reported decoding; template matching used only to identify a reconstructed segment after regression counts as regression.",
+   "design_regex": [
+    "template_corr",
+    "discriminative"
+   ],
+   "design_field": "model_family",
+   "metric": "Small-set speech-unit classification accuracy (classes, chance)."
+  },
+  {
+   "slot": "M05",
+   "topic": "intracranial-speech-electrode-scale",
+   "reuse": "components/M05/intracranial-speech-electrode-scale.json",
+   "inclusion_rule": "Published rule kept; this review adds prior_tally_<slug> at the target's time with the decoder requirement kept (same population as M06 and M12).",
+   "metric": "Accuracy by electrode scale; subsampling to standard spacing."
+  },
+  {
+   "slot": "M12",
+   "topic": "intracranial-speech-test-partition",
+   "reuse": "components/M12/intracranial-speech-test-partition.json",
+   "inclusion_rule": "Published rule kept; this review adds prior_tally_<slug> at the target's time.",
+   "metric": "Test partition design; chance estimation."
+  }
+ ],
+ "notes": "M11 alignment and trial screening are judged from the target's own text (matched null). Acoustic contamination is treated as a confound in the claims section using Wilson et al. 2020 [later], not as a topic.",
+ "prep_used": "No prep directory existed; plan and the new M06 audit built from scratch; M05 and M12 published tables reused append-only with per-slug prior tallies; comparator entries for Kellis 2010, Mugler 2014, Duraivel 2023, Wilson 2020, Chen 2024 and the 2026 HD-ECoG syllable study copied from earlier work dirs."
+}
