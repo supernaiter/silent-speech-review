@@ -98,11 +98,23 @@ Topics searched for this component across the whole field, and the confirmed pap
 | SSR7000: A Synchronized Corpus of Ultrasound Tongue Imaging for End-to-End Silent Speech Recognition | 2022 | Ledger M06 |
 | Reliability-Based Large-Vocabulary Audio-Visual Speech Recognition | 2022 | §3 |
 
+## avsr-audio-feature-denoising
+
+- Table: [`avsr-audio-feature-denoising.csv`](avsr-audio-feature-denoising.csv) (7345 slot-filled, 349 pattern match, usual design in 29, 2 read in full)
+- Inclusion rule: Studies whose ledger names audio-visual speech recognition (AVSR) (the 349-study population of M06/avsr-audio-stream-input-representation), classified by whether their full text names a learned denoiser of the audio features (denoising autoencoder or a neural feature/speech enhancement network), any audio enhancement (spectral subtraction, Wiener filtering, speech or feature enhancement, noise reduction, denoising), and MFCC or filterbank features. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); versions count once by key; the target is excluded; dated against the target's first public month 2014-12.
+- Used in: [Audio-visual speech recognition using deep learning](../../reviews/audio-visual-speech-recognition-using-deep-learning/)
+
 ## avsr-audio-stream-input-representation
 
 - Table: [`avsr-audio-stream-input-representation.csv`](avsr-audio-stream-input-representation.csv) (7345 slot-filled, 349 pattern match, usual design in 182, 4 read in full)
 - Inclusion rule: Studies whose ledger names audio-visual speech recognition (AVSR), classified by the audio-stream input their full text names: raw waveform fed to a learned front-end, or hand-designed spectral features (log-Mel filterbank, MFCC, spectrogram). Boundary: a study counts under every representation its text names (upper bound); visual-only lip reading without an audio stream is out; audio-visual speech enhancement without recognition is out unless the ledger names AVSR; versions count once by key.
 - Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/), [End-to-End Audiovisual Speech Recognition](../../reviews/end-to-end-audiovisual-speech-recognition/), [Recurrent Neural Network Transducer for Audio-Visual Speech Recognition](../../reviews/recurrent-neural-network-transducer-for-audio-visual-speech-recognition/)
+
+## avsr-stream-fusion-and-weighting
+
+- Table: [`avsr-stream-fusion-and-weighting.csv`](avsr-stream-fusion-and-weighting.csv) (7345 slot-filled, 349 pattern match, usual design in 26, 5 read in full)
+- Inclusion rule: The same 349-study AVSR population, classified by the fusion design its full text names: multi-stream or coupled HMMs with stream weights, automatic, adaptive or discriminatively trained stream weights, feature-level concatenation, and deep multimodal (bimodal network) fusion. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); versions count once by key; the target is excluded; dated against 2014-12.
+- Used in: [Audio-visual speech recognition using deep learning](../../reviews/audio-visual-speech-recognition-using-deep-learning/)
 
 ## causal-closed-loop-speech-synthesis
 
@@ -277,7 +289,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`lipreading-temporal-model-and-feature-learning.csv`](lipreading-temporal-model-and-feature-learning.csv) (7345 slot-filled, 975 pattern match, usual design in 113, 6 read in full)
 - Inclusion rule: Automatic lip-reading, visual speech recognition or audio-visual speech recognition studies whose ledger names optical-camera input, classified by the visual model their full text names: recurrent network (LSTM, GRU, RNN, Elman/Jordan or stochastic recurrent), time-delay neural network, learned deep features (CNN, DBN, autoencoder, DNN), hand-crafted appearance or shape features (DCT, PCA/eigenlips, AAM, HOG, LBP), HMM or SVM classifier. Boundary: studies whose full text names no automatic recognizer or classifier (human speechreading and perception studies) are excluded; a study counts under every design its text names, related-work mentions included (upper bound); versions count once; dated against the target's first public month 2016-01.
-- Used in: [Lipreading with Long Short-Term Memory](../../reviews/lipreading-with-long-short-term-memory/)
+- Used in: [Audio-visual speech recognition using deep learning](../../reviews/audio-visual-speech-recognition-using-deep-learning/), [Lipreading with Long Short-Term Memory](../../reviews/lipreading-with-long-short-term-memory/)
 
 ## lrw-audiovisual-word-recognition
 

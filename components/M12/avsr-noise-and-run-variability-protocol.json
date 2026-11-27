@@ -5391,6 +5391,66 @@
    "loc": "Sec. 4.4",
    "quote": "a consequence of the overlapping noise type in the training and test",
    "by": "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture"
+  },
+  {
+   "pid": "isca-potamianos03_eurospeech",
+   "role": "prior",
+   "loc": "2.2 Audio-visual fusion and ASR",
+   "quote": "In particular, the stream component parameters of\n(1) are separately trained, and joined in (1), with\n\u0001\na estimated\nto minimize the word error rate (WER) on a held-out dataset."
+  },
+  {
+   "pid": "isca-potamianos03_eurospeech",
+   "role": "prior",
+   "loc": "4.1 The experimental paradigm",
+   "quote": "In addition to the original database acoustic signal, audio-\nonly and AV-ASR are also considered on artiﬁcially corrupted\naudio by additive “speech babble”, using HMMs trained on the\noriginal data."
+  },
+  {
+   "pid": "isca-potamianos03_eurospeech",
+   "role": "prior",
+   "loc": "Table 2 caption",
+   "quote": "Results (in word error rate, %) for the\nspeaker-independent (SI), multi-speaker (MS), and speaker-\nadapted (SA) training/testing paradigms are depicted."
+  },
+  {
+   "pid": "doi-10.1109-tasl.2008.2011515",
+   "role": "prior",
+   "loc": "VI.A Dataset and Evaluation Methodology; VI.C Audiovisual Speech Recognition Experiments",
+   "quote": "The\nbest audio stream weight for the 0 and\n5-dB noise levels\nturned out to be 0.0, meaning that the corresponding AV-W\nand AV-W-UC values in Fig. 8 coincide with the visual-only\nresult."
+  },
+  {
+   "pid": "doi-10.1109-tasl.2008.2011515",
+   "role": "prior",
+   "loc": "VI.A Dataset and Evaluation Methodology; VI.C Audiovisual Speech Recognition Experiments",
+   "quote": "For the tests in noise, the audio recordings in\nthe testing subset have been contaminated with additive babble\nnoise from the NOISEX-92 database at various SNR levels."
+  },
+  {
+   "pid": "doi-10.1109-tasl.2008.2011515",
+   "role": "prior",
+   "loc": "VI.A Dataset and Evaluation Methodology",
+   "quote": "Recognition performance is tested on data from six speakers,\nwhile the recordings of the remaining 30 speakers have been\nused for training the digit models."
+  },
+  {
+   "pid": "isca-miyajima00_icslp",
+   "role": "prior",
+   "loc": "3.2 Stream Weights; 4.1 Database and Feature Extraction",
+   "quote": "Here, the GPD method is applied\nto ﬁnd the optimal values of stream weights:"
+  },
+  {
+   "pid": "isca-miyajima00_icslp",
+   "role": "prior",
+   "loc": "4.3 Audio-Only ASR Results",
+   "quote": "Gaussian\nnoise is artiﬁcially added to each test utterance to generate\n6 dB – 24 dB SNR test data."
+  },
+  {
+   "pid": "isca-miyajima00_icslp",
+   "role": "prior",
+   "loc": "4.1 Database and Feature Extraction",
+   "quote": "We adopt a jack-knife approach, i.e., 34 speak-\ners leaving out one of the speakers are used for training\nword HMMs, and the excluded speaker is used for testing."
+  },
+  {
+   "pid": "arxiv-2602.19316",
+   "role": "sota",
+   "loc": "Table 13 (appendix)",
+   "quote": "Mean and standard deviation over three random seeds are reported for the"
   }
  ],
  "state_of_the_art": {
@@ -5402,6 +5462,7 @@
   "timing": "later"
  },
  "used_by": [
+  "audio-visual-speech-recognition-using-deep-learning",
   "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture",
   "end-to-end-audio-visual-speech-recognition-with-conformers",
   "end-to-end-audiovisual-speech-recognition",
@@ -5432,7 +5493,10 @@
    "arxiv-1911.04890",
    "arxiv-1811.01194",
    "arxiv-2004.08250",
-   "arxiv-2012.07467"
+   "arxiv-2012.07467",
+   "doi-10.1109-tasl.2008.2011515",
+   "isca-miyajima00_icslp",
+   "isca-potamianos03_eurospeech"
   ],
   "unread": 499,
   "confirmed_unique": 0,
@@ -5637,5 +5701,234 @@
   "unit": "% WER",
   "timing": "later",
   "confirmed_in_text": true
+ },
+ "dated_pattern_counts_audio-visual-speech-recognition-using-deep-learning": {
+  "cutoffs": "first public relative to the target (2014-12): prior before 2014-06, [concurrent] 2014-06 to 2015-06, [later] after 2015-06; month from the arXiv id, ICASSP May, ISCA venues September, else year (2014 and 2015 without a month: date unresolved); versions grouped by ledger key and by ISCA paper id; studies with no automatic recognizer (perception, synthesis, lip tracking, corpus-only) excluded by a checked list and, for lip reading, a recognizer-term filter; target excluded; full-text pattern match with reference lists removed, related-work mentions included (upper bounds)",
+  "population_pattern": "audio[- ]visual speech recognition|audiovisual speech recognition|\\bavsr\\b",
+  "design_regex": {
+   "additive_noise_stated_snr": "\\bSNRs?\\b|signal[- ]to[- ]noise",
+   "babble_or_recorded_noise": "babble|noisex|car noise|cafe|café|street noise|factory noise|restaurant|in-car|office noise|music noise|recorded noise|real(istic)?[- ]world noise",
+   "white_or_gaussian_noise_only_named": "white (gaussian )?noise|gaussian noise",
+   "run_variability": "standard deviation|confidence interval|random seeds?|repeated (runs|experiments)|\\bseeds\\b|significan(t|ce) test|t-test",
+   "held_out_tuning_set": "development set|held-out (set|data)|validation set|dev set|tuning set"
+  },
+  "excluded_no_automatic_recognizer": {
+   "later": 14,
+   "unresolved": 1,
+   "prior": 1,
+   "concurrent": 1
+  },
+  "excluded_by_list": [
+   "avsp-mccotter01_luminance",
+   "doi-10.1016-j.bandl.2013.05.009",
+   "doi-10.1016-j.specom.2010.09.003",
+   "doi-10.63317-26hq9jzng47p",
+   "isca-agelfors98_icslp",
+   "isca-eger09_avsp",
+   "isca-gurbuz05_interspeech",
+   "isca-ozgur08_avsp",
+   "isca-pelachaud01-italian",
+   "isca-siciliano03_avsp",
+   "isca-tiippana10_avsp",
+   "isca-walsh05_avsp",
+   "isca-wik08_aughead",
+   "isca-xie12-avfusion",
+   "isca-zelezny08_avsp",
+   "openaccess_avsp_barker99",
+   "pmc-3689691-avcortex",
+   "pmc-pmc3155585",
+   "pmc2700967_avstats"
+  ],
+  "counts": {
+   "prior": {
+    "population": 55,
+    "with_text": 55,
+    "additive_noise_stated_snr": 44,
+    "babble_or_recorded_noise": 23,
+    "white_or_gaussian_noise_only_named": 24,
+    "run_variability": 9,
+    "held_out_tuning_set": 7
+   },
+   "concurrent": {
+    "population": 4,
+    "with_text": 4,
+    "additive_noise_stated_snr": 2,
+    "babble_or_recorded_noise": 2,
+    "white_or_gaussian_noise_only_named": 1,
+    "run_variability": 1,
+    "held_out_tuning_set": 1
+   },
+   "later": {
+    "population": 256,
+    "with_text": 256,
+    "additive_noise_stated_snr": 161,
+    "babble_or_recorded_noise": 119,
+    "white_or_gaussian_noise_only_named": 29,
+    "run_variability": 63,
+    "held_out_tuning_set": 99
+   },
+   "unresolved": {
+    "population": 4,
+    "with_text": 4,
+    "additive_noise_stated_snr": 4,
+    "babble_or_recorded_noise": 2,
+    "white_or_gaussian_noise_only_named": 1,
+    "run_variability": 0,
+    "held_out_tuning_set": 1
+   }
+  },
+  "prior_pids": {
+   "additive_noise_stated_snr": [
+    "doi-10.1109-tasl.2008.2011515",
+    "doi-10.1109-tsp.2009.2026513",
+    "doi-10.1155-2011-294010",
+    "doi-10.5281-zenodo.38970",
+    "doi-10.5281-zenodo.42298",
+    "doi-10.5281-zenodo.43183",
+    "doi-10.5772-6364",
+    "isca-abdelaziz13-twinhmm",
+    "isca-andreobrecht97_avsp",
+    "isca-chetty08-avfusion",
+    "isca-dean07-fhmm",
+    "isca-dean07-mshmm",
+    "isca-dupont98_icslp",
+    "isca-gurbuz01_eurospeech",
+    "isca-heckmann00_icslp",
+    "isca-heckmann01-annhmm",
+    "isca-heckmann01_eurospeech",
+    "isca-heckmann02_icslp",
+    "isca-huang05e_interspeech",
+    "isca-huang09b-cdt",
+    "isca-karpov10-viswopt",
+    "isca-kawashima10_timstruct",
+    "isca-kolossa09_avsp",
+    "isca-kolossa10-manychmm",
+    "isca-kolossa12_avenh",
+    "isca-lucey01_eurospeech",
+    "isca-lucey02_icslp",
+    "isca-lucey07-multipose",
+    "isca-marcheret04_interspeech",
+    "isca-matthews96_icslp",
+    "isca-mccotter01-linedrawn",
+    "isca-miyajima00_icslp",
+    "isca-potamianos01_eurospeech",
+    "isca-seymour05_postfusion",
+    "isca-seymour07-mwsp",
+    "isca-tamura10c_interspeech",
+    "isca-vogt97_avsp",
+    "isca-wiggers02_icslp",
+    "isca-wu07d-2dpca",
+    "isca-yoshida10-twolayer",
+    "oa-W2257285929",
+    "oa-W3099202502",
+    "openaccess_avsp_berthommier01",
+    "openaccess_avsp_talle99"
+   ],
+   "babble_or_recorded_noise": [
+    "doi-10.1109-tasl.2008.2011515",
+    "doi-10.1109-tsp.2009.2026513",
+    "doi-10.5281-zenodo.42298",
+    "doi-10.5281-zenodo.43183",
+    "doi-10.5772-6364",
+    "isca-abdelaziz13-twinhmm",
+    "isca-dean07-fhmm",
+    "isca-dean07-mshmm",
+    "isca-gurbuz01_eurospeech",
+    "isca-heckmann01-annhmm",
+    "isca-heckmann01_eurospeech",
+    "isca-heckmann02_icslp",
+    "isca-heracleous10_avsp",
+    "isca-huang05e_interspeech",
+    "isca-karpov10-viswopt",
+    "isca-kolossa10-manychmm",
+    "isca-kolossa12_avenh",
+    "isca-lucey07-multipose",
+    "isca-marcheret04_interspeech",
+    "isca-potamianos01_eurospeech",
+    "isca-potamianos03_eurospeech",
+    "oa-W2257285929",
+    "oa-W3099202502"
+   ],
+   "white_or_gaussian_noise_only_named": [
+    "doi-10.1109-tasl.2008.2011515",
+    "doi-10.5281-zenodo.38970",
+    "doi-10.5772-6364",
+    "isca-abdelaziz13-twinhmm",
+    "isca-cisar07-combvis",
+    "isca-dupont98_icslp",
+    "isca-heckmann00_icslp",
+    "isca-heckmann01-annhmm",
+    "isca-heckmann01_eurospeech",
+    "isca-heckmann02_icslp",
+    "isca-kolossa09_avsp",
+    "isca-kolossa12_avenh",
+    "isca-matthews96_icslp",
+    "isca-mccotter01-linedrawn",
+    "isca-miyajima00_icslp",
+    "isca-potamianos01_eurospeech",
+    "isca-seymour05_postfusion",
+    "isca-seymour07-mwsp",
+    "isca-tamura10c_interspeech",
+    "isca-vogt97_avsp",
+    "isca-wiggers02_icslp",
+    "oa-W2257285929",
+    "oa-W3099202502",
+    "openaccess_avsp_berthommier01"
+   ],
+   "run_variability": [
+    "doi-10.5772-6364",
+    "isca-dean07-mshmm",
+    "isca-kawashima10_timstruct",
+    "isca-lucey01_eurospeech",
+    "isca-lucey05_avsp",
+    "isca-seymour05_postfusion",
+    "oa-W2257285929",
+    "oa-W3099202502",
+    "openaccess_avsp_talle99"
+   ],
+   "held_out_tuning_set": [
+    "doi-10.1109-tasl.2008.2011515",
+    "doi-10.1109-tsp.2009.2026513",
+    "doi-10.1155-2011-294010",
+    "isca-huang09b-cdt",
+    "isca-marcheret04_interspeech",
+    "isca-potamianos00c_icslp",
+    "isca-potamianos03_eurospeech"
+   ]
+  },
+  "concurrent_pids": {
+   "additive_noise_stated_snr": [
+    "arxiv-1501.05396",
+    "isca-abdelaziz14-streamw"
+   ],
+   "babble_or_recorded_noise": [
+    "arxiv-1407.1165",
+    "isca-abdelaziz14-streamw"
+   ],
+   "white_or_gaussian_noise_only_named": [
+    "isca-abdelaziz14-streamw"
+   ],
+   "run_variability": [
+    "isca-abdelaziz14-streamw"
+   ],
+   "held_out_tuning_set": [
+    "isca-abdelaziz14-streamw"
+   ]
+  }
+ },
+ "usual_approach_audio-visual-speech-recognition-using-deep-learning": {
+  "design": "additive noise at stated SNRs, without run-to-run variability",
+  "n": 44,
+  "tier": "pattern match",
+  "population_unique": 55,
+  "note": "Dated against 2014-12, deduplicated, non-recognizer studies excluded: prior 55 AVSR studies, stated SNR 44, babble or recorded noise 23, white or Gaussian 24, run variability 9, named held-out set 7 (incl. doi-10.1109-tasl.2008.2011515 and isca-potamianos03_eurospeech; isca-miyajima00_icslp trains weights on training data and is not a held-out-set hit)."
+ },
+ "state_of_the_art_audio-visual-speech-recognition-using-deep-learning": {
+  "pid": "arxiv-2602.19316",
+  "year": 2026,
+  "metric": "LRS3 low-resource AVSR WER, 50-epoch runs, mean and SD over three random seeds (appendix Table 13)",
+  "value": "2.9 +- 0.1",
+  "unit": "% WER",
+  "timing": "later"
  }
 }

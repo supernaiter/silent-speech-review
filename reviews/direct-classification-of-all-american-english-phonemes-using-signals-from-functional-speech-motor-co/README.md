@@ -135,11 +135,11 @@ Data behind this review. Full texts of the papers are not included.
 ## More reviews in Other sensors
 
 - [Decoding spectrotemporal features of overt and covert speech from the human cortex](../decoding-spectrotemporal-features-of-overt-and-covert-speech-from-the-human-cortex/) (2014). Overt-trained ECoG decoding of covert reading (M04), spectral outputs (M08) and the overt-recording covert reference (M11) are standard; DTW-aligned rest reaches r 0.30 vs covert 0.34.
+- [Audio-visual speech recognition using deep learning](../audio-visual-speech-recognition-using-deep-learning/) (2015). Both front ends are new to their 2014 populations but transfer outside designs without repetition (M06 standard); stream weights and depth are tuned on the test words (M12 behind).
 - [Brain-to-text: decoding spoken phrases from phone representations in the brain](../brain-to-text-decoding-spoken-phrases-from-phone-representations-in-the-brain/) (2015). Phone-model decoder (M06) is the EMG recognizer moved to ECoG: standard. 25% WER uses per-phrase dictionaries holding the spoken words (M07); the time-shift null (M12) is sound.
 - [Fully Implanted Brain-Computer Interface in a Locked-In Patient with ALS](../fully-implanted-brain-computer-interface-in-a-locked-in-patient-with-als/) (2016). Skin-closed ECoG implant used at home without investigators (M13): standard, one user, skin-closed telemetry predates it; main-text 89% spelling accuracy pools inactive steps, no chance level.
 - [Lipreading with Long Short-Term Memory](../lipreading-with-long-short-term-memory/) (2016). Joint LSTM + pixel front end (M06) is ahead of 2015 lipreading, but pixel-input and recurrent word models predate it, and the 8.3-point gain is over linear SVMs, not HMMs.
 - [Word pair classification during imagined speech using direct brain recordings](../word-pair-classification-during-imagined-speech-using-direct-brain-recordings/) (2016). Whole-word output (M08) is new only to intracranial recordings (Suppes 1997, EEG/MEG); DTW kernel (M06) gain unshown; imagery window confounded by heard and upcoming overt word.
-- [Reconstructing Speech from Human Auditory Cortex](../reconstructing-speech-from-human-auditory-cortex/) (2012). M06 ahead for 2012: earliest heard-speech spectrogram reconstruction from human ECoG in the ledger, above zero in all 15 patients; modulation result is a group effect; word readout uses one patient.
 
 ---
 
