@@ -188,7 +188,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`training-data-scale-video-to-speech.csv`](training-data-scale-video-to-speech.csv) (1526 slot-filled, 165 pattern match, usual design in 59, 2 read in full)
 - Inclusion rule: The 165-study video-to-speech population of components/M06/video-to-speech-synthesis, classified from the full text (reference list removed) by the training corpora and scale it names: GRID, LRW, LRS3, VoxCeleb2 audio-visual data, a corpus size of 1,000 hours or more, and model-size scaling. Boundary: a study counts under every corpus its text names, including related-work and evaluation-only mentions (upper bound); audio-only pre-training corpora are not counted; versions once.
-- Used in: [SVTS: Scalable Video-to-Speech Synthesis](../../reviews/svts-scalable-video-to-speech-synthesis/)
+- Used in: [Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis](../../reviews/learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis/), [SVTS: Scalable Video-to-Speech Synthesis](../../reviews/svts-scalable-video-to-speech-synthesis/)
 
 ## unlabeled-test-time-adaptation
 

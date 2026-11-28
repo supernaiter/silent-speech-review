@@ -1,0 +1,133 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Voiced face video"
+     ],
+     "field": "Voiced speech",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited from public audio-visual corpora."
+    },
+    "M02": {
+     "choice": [
+      "Paired mel target, no text"
+     ],
+     "field": "Paired audio target",
+     "matched": null,
+     "verdict": "standard",
+     "note": "As in every prior synthesizer listed in the Appendix."
+    },
+    "M03": {
+     "choice": [
+      "One model per speaker, about 20 h of natural video, 5 speakers"
+     ],
+     "field": "GRID, about 0.8 h/speaker (7 of 10 prior)",
+     "n": 10,
+     "matched": 7,
+     "verdict": "ahead",
+     "note": "0 of 10 priors over about 1 h per speaker or unconstrained; 5 speakers; hours not ablated."
+    },
+    "M04": {
+     "choice": [
+      "Silent face video"
+     ],
+     "field": "Voiced video, audio removed",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Offline synthesis over 3-s windows with small overlap."
+    },
+    "M05": {
+     "choice": [
+      "Face crop 48x48"
+     ],
+     "field": "Face or mouth crop",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Full-face input as in Vid2Speech and Ephrat et al."
+    },
+    "M06": {
+     "choice": [
+      "3D-CNN + attention mel decoder, 3-s windows"
+     ],
+     "field": "Non-autoregressive regression (9 of 10 prior)",
+     "n": 10,
+     "matched": 9,
+     "verdict": "standard",
+     "note": "LipSound (2019) already used an attention mel decoder on whole 3-s clips; ablations one speaker, one run."
+    },
+    "M07": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "matched": null,
+     "verdict": "standard",
+     "note": "No lexicon or language model at use time."
+    },
+    "M08": {
+     "choice": [
+      "Mel, Griffin-Lim"
+     ],
+     "field": "Spectral features + vocoder",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Authors report neural vocoders performed poorly on their mels (Sec. 5.3)."
+    },
+    "M09": {
+     "choice": [
+      "None (offline)"
+     ],
+     "field": "Mostly absent",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None (offline)"
+     ],
+     "field": "Mostly absent",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Video-disjoint splits"
+     ],
+     "field": "Held-out utterances",
+     "matched": null,
+     "verdict": "standard",
+     "note": "No WER on Lip2Wav; later work uses Whisper transcripts."
+    },
+    "M12": {
+     "choice": [
+      "Objective metrics, ASR WER, MOS; one run"
+     ],
+     "field": "Listener test, no spread (6 of 10 prior)",
+     "n": 10,
+     "matched": 6,
+     "verdict": "standard",
+     "note": "Two Table 2 WERs match a GRID-trained ASR's values; multi-speaker priors denied."
+    },
+    "M13": {
+     "choice": [
+      "Offline GPU"
+     ],
+     "field": "Offline GPU",
+     "matched": null,
+     "verdict": "standard",
+     "note": "No latency or deployment figures."
+    }
+   }
+  }
+ ]
+}
