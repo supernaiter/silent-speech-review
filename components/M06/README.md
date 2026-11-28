@@ -303,6 +303,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Visual or audio-visual speech recognition studies (lip reading, VSR, AVSR; word or sentence level) whose ledger names lip reading, VSR, AVSR or an LRS/LRW benchmark. The design compared is whether facial or lip landmarks (coordinates, distances, contours, shape-model parameters) enter the recognizer as a feature stream next to or instead of pixels, and how that stream is encoded (graph convolution over landmarks versus other encoders). Boundary: landmarks used only to detect, align or crop the mouth do not count; a study counts under every design its full text names (upper bound, related-work mentions included); reviews count as pattern matches only; versions of one study count once.
 - Used in: [Landmark Guided Visual Feature Extractor for Visual Speech Recognition with Limited Resource](../../reviews/landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource/)
 
+## lipreading-front-end-spatial-reduction
+
+- Table: [`lipreading-front-end-spatial-reduction.csv`](lipreading-front-end-spatial-reduction.csv) (7345 slot-filled, 418 pattern match, usual design in 7, 6 read in full)
+- Inclusion rule: Lip-reading decoders of the shared population with a learned convolutional front end, classified by how the per-frame feature map is reduced before the temporal model, as their full text states it (snippets of every prior and [concurrent] hit read): pooling to a per-frame vector (global average pooling or a ResNet pooled output), a fully connected layer over the spatial map (including flatten then project), or spatial or spatiotemporal attention/pyramid modules in the front end. Boundary: hand-crafted features (DCT, PCA, AAM) and fully connected networks on raw pixels without a convolutional front end are excluded; related-work mentions are not designs; versions once.
+- Used in: [Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading](../../reviews/spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading/)
+
 ## lipreading-temporal-model-and-feature-learning
 
 - Table: [`lipreading-temporal-model-and-feature-learning.csv`](lipreading-temporal-model-and-feature-learning.csv) (7345 slot-filled, 975 pattern match, usual design in 113, 6 read in full)
@@ -367,7 +373,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`sentence-lipreading-encoder-architecture.csv`](sentence-lipreading-encoder-architecture.csv) (7345 slot-filled, 633 pattern match, usual design in 233, 6 read in full)
 - Inclusion rule: Studies that decode sentence-level or open-vocabulary speech from lip or face video, alone or with audio (the 633-study population of M06/sentence-lipreading-sequence-objective), classified by the temporal encoder their full text names: Conformer, Transformer encoder, recurrent (LSTM/GRU), or temporal convolution (TCN/TDNN). Boundary: a study counts under every encoder its text names, including related-work mentions (upper bound); audio-only ASR is out of scope; versions count once by key.
-- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/)
+- Used in: [End-to-End Audio-Visual Speech Recognition with Conformers](../../reviews/end-to-end-audio-visual-speech-recognition-with-conformers/), [Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading](../../reviews/spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading/)
 
 ## sentence-lipreading-sequence-objective
 
