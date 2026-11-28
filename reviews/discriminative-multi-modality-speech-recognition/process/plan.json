@@ -1,0 +1,74 @@
+{
+ "target": "cvf-xu20-aemsr",
+ "versions": [
+  "cvf-xu20-aemsr",
+  "cvf-xu20-msr"
+ ],
+ "first_public": "2020-05",
+ "first_public_note": "arXiv:2005.05592v1 posted 2020-05-12 (arXiv API); CVPR 2020 (CVF Open Access) IEEE pp. 14421-14430 (CVF PDF numbering 14433-14442), DOI 10.1109/CVPR42600.2020.01444. Both wiki folders hold the same PDF (sha256 f082a81a0b4a2e618f9daf11c4005298eaca3e3cd848e9f803e7f55466ceb4aa). Window: prior before 2019-11, [concurrent] 2019-11 to 2020-11, [later] after 2020-11.",
+ "population": "One filtered decoder population for all topics (tools/pop.py, 608 unique studies: prior 196, [concurrent] 27, date unresolved 4, [later] 381), including two audio-visual enhancement studies that also run a recogniser, added on reading (isca-deligne02_icslp, arxiv-1904.08248); topic subsets: AVSR 256 (prior 86), LRW 99 (prior 17).",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Ordinary voiced TED / BBC speech video (LRS3-TED, LRW)",
+  "M02": "L1 to clean magnitude for the enhancer (Afouras et al. 2018a); character seq2seq cross-entropy",
+  "M03": "LRW-pretrained frozen front-end; 0.25-probability babble; length curriculum; Adam halving schedule (Afouras et al. 2018b)",
+  "M04": "Noisy voiced speech plus lip video at test",
+  "M05": "16 kHz STFT 40/10 ms, 80 mel bins; 112x112 mouth crop at 25 fps",
+  "M07": "No external LM (stated for Table 2)",
+  "M08": "41 decoder outputs stated (26 letters, 10 digits and 4 special tokens listed, which sum to 40); 500 LRW classes",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "LRS3-TED and LRW benchmark splits; test partition and speaker overlap not stated",
+  "M13": "One P100 GPU, about 15 days of training; no inference cost"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "avsr-audio-feature-denoising",
+   "reuse": "components/M06/avsr-audio-feature-denoising.json",
+   "inclusion_rule": "Published rule kept. For this review: the 86 prior and 9 [concurrent] AVSR decoders of the shared population, classified by full-text pattern (mention counts) for MFCC or filterbank input, any audio enhancement, learned audio-only denoisers, and audio-visual enhancement or separation, then on reading for the target's design (a visually guided enhancement stage whose output feeds an audio-visual recogniser). Boundary: enhancement studies that also run a recogniser are inside (Deligne et al. 2002, Pasa et al. 2019 and Abdelaziz et al. 2013 alike); enhancement scored only with an off-the-shelf recogniser stays outside; versions once; the target excluded.",
+   "design_regex": [
+    "learned_audio_enhancement",
+    "any_audio_enhancement",
+    "av_enhancement_or_separation",
+    "tf_mask",
+    "mfcc_or_filterbank"
+   ],
+   "metric": "LRS3 WER under babble at stated SNR (lower)"
+  },
+  {
+   "slot": "M06",
+   "topic": "word-lipreading-visual-frontend",
+   "reuse": "components/M06/word-lipreading-visual-frontend.json",
+   "inclusion_rule": "Published rule kept. For this review: the 17 prior and 12 [concurrent] LRW / LRW-1000 word-level decoders of the shared population, classified by full-text pattern for 3D convolution, ResNet, both, I3D or two-stream, pseudo-3D or factorised 3D convolution, and TCN back-ends; pseudo-3D hits read. Boundary: word boundaries used or not is recorded where stated; versions once; the target excluded.",
+   "design_regex": [
+    "3d_conv",
+    "resnet",
+    "3d_conv_and_resnet",
+    "pseudo3d_or_factorised",
+    "i3d_or_two_stream",
+    "tcn_backend"
+   ],
+   "metric": "LRW top-1 accuracy (higher)"
+  },
+  {
+   "slot": "M12",
+   "topic": "avsr-noise-and-run-variability-protocol",
+   "reuse": "components/M12/avsr-noise-and-run-variability-protocol.json",
+   "inclusion_rule": "Published rule kept. For this review: the same 86 prior and 9 [concurrent] AVSR decoders, classified by full-text pattern (mention counts) for stated SNR tests, babble noise, SNRs at or below -5 dB, a language-model statement, and run variability or significance (seeds, repeated runs, confidence intervals, plus-minus, significance tests); variability hits read. Boundary: versions once; the target excluded.",
+   "design_regex": [
+    "additive_noise_stated_snr",
+    "babble",
+    "snr_at_or_below_minus5",
+    "run_variability",
+    "lm_statement"
+   ],
+   "metric": "protocol (variability reported or not)"
+  }
+ ]
+}
