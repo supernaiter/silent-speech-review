@@ -1,6 +1,6 @@
 {
  "slug": "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,29 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-28T01:41:21+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-28T01:47:09+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "13 applied, 1 partly applied, 0 rejected. Verdict changes: none (M02, M06, M12 stay standard).",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-28T01:51:51+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 115 found, 0 missing, 13 unchecked (unstated, figure-only or no source)",
+  "topic counts M02-audio-knowledge-transfer-to-video": "ok",
+  "topic counts M06-homophene-disambiguation-in-lip-reading": "ok",
+  "topic counts M12-lrw-word-accuracy": "ok"
+ },
  "inputs": {
   "notes_sha256": "ebe6a6482c1f72040ef9082dba4a5d8e2fee7c42b82dc81ae1cfca2f7a40195b",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +60,6 @@
  },
  "body_chars": {
   "draft": 15085,
-  "final": null
+  "final": 15771
  }
 }

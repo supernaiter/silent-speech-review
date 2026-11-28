@@ -1,0 +1,132 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "No user training action; voiced broadcast clips"
+     ],
+     "field": "Recorded speech corpora",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M02": {
+     "choice": [
+      "Paired audio stored in a value memory, recalled from video"
+     ],
+     "field": "Knowledge distillation from an audio or ASR teacher",
+     "n": 4,
+     "matched": 3,
+     "verdict": "standard",
+     "note": "Memory recall from the same group's ICCV memory, the paper's baseline."
+    },
+    "M03": {
+     "choice": [
+      "End-to-end; LRW-pretrained front end for sentences"
+     ],
+     "field": "Per-corpus supervised training",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited; no seeds or validation rule."
+    },
+    "M04": {
+     "choice": [
+      "Voiced speech, video alone at test"
+     ],
+     "field": "Voiced articulation",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Lip crop 112x112; mel-spectrogram in training only"
+     ],
+     "field": "Mouth crop from video",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M06": {
+     "choice": [
+      "8 key heads, 112 slots, memory at 4 depths of MS-TCN or Transformer"
+     ],
+     "field": "Viseme intermediate units",
+     "n": 41,
+     "matched": 24,
+     "verdict": "standard",
+     "note": "Heads +0.3 at one depth, +0.98 at four; one dataset, single runs."
+    },
+    "M07": {
+     "choice": [
+      "No external language model"
+     ],
+     "field": "No language model in word classification",
+     "matched": null,
+     "verdict": "standard",
+     "note": "LRS2 without LM only."
+    },
+    "M08": {
+     "choice": [
+      "Word class (500 or 1,000); characters on LRS2"
+     ],
+     "field": "Word class or text",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "None"
+     ],
+     "field": "None",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Benchmark splits; six homophene pairs from a viseme map"
+     ],
+     "field": "Benchmark splits",
+     "matched": null,
+     "verdict": "standard",
+     "note": "No per-word counts for Table 6."
+    },
+    "M12": {
+     "choice": [
+      "Top-1 accuracy, WER; single run, no seeds"
+     ],
+     "field": "Single-run LRW top-1 accuracy",
+     "matched": null,
+     "verdict": "standard",
+     "note": "SOTA margin 0.1 points over DC-TCN; single runs."
+    },
+    "M13": {
+     "choice": [
+      "Offline; no latency or memory cost"
+     ],
+     "field": "Benchmark only",
+     "matched": null,
+     "verdict": "missing",
+     "note": "Authors state memory parameters remain similar (Sec. 4.2); no absolute cost."
+    }
+   }
+  }
+ ]
+}
