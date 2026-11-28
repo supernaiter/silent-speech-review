@@ -4058,12 +4058,16 @@
   },
   "read_prior": [
    "arxiv-1806.06053",
-   "arxiv-1810.00108"
+   "arxiv-1810.00108",
+   "arxiv-1611.01599",
+   "arxiv-1611.05358",
+   "arxiv-1809.02108"
   ],
   "known_item_recall": 0.5
  },
  "used_by": [
   "deep-audio-visual-speech-recognition",
+  "deep-lip-reading-a-comparison-of-models-and-an-online-application",
   "end-to-end-silent-speech-recognition-with-acoustic-sensing"
  ],
  "ledger_tally": {
@@ -4271,6 +4275,34 @@
    "role": "sota",
    "loc": "Sec. 4.3, Table 3",
    "quote": "visual-only, audio-only and audio-visual models further push the state-of-the-art performance to a WER of 14.6 %"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "prior",
+   "loc": "Table 5",
+   "quote": "W AS+CL+SS+BS - 39.5% 50.2% 54.9",
+   "note": "prior (2016-11); LRS test, not LRS2"
+  },
+  {
+   "pid": "arxiv-1611.01599",
+   "role": "prior",
+   "loc": "App. A.1",
+   "quote": "we use a character 5-gram binarised language model",
+   "note": "prior (2016-11)"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "TM-seq2seq V 49.8% 48.3% 59.9% 58.9%",
+   "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-2303.14307",
+   "role": "sota",
+   "loc": "Table 3",
+   "quote": "Ours 3 448 14.6",
+   "timing": "later"
   }
  ],
  "usual_approach": {
@@ -4323,5 +4355,31 @@
    "confirmed_unique": 3,
    "known_item_recall": 0.5
   }
+ },
+ "counts_at_target_time_deep-lip-reading-a-comparison-of-models-and-an-online-application": {
+  "population": "sentence-level lip reading / VSR / AVSR decoders: the 633-study ledger population of M06/sentence-lipreading-sequence-objective, minus human-perception or neuroscience studies, phonetic analyses without a decoder, reviews and reports, corpus papers, enhancement / separation / synchronisation / keyword-spotting papers, version duplicates and the target (tools/excl.json)",
+  "confirmed_side_by_side_excluding_target": {
+   "prior": 0,
+   "concurrent": 1,
+   "later": 2
+  },
+  "confirmed_ids": {
+   "concurrent": [
+    "arxiv-1809.02108"
+   ],
+   "later": [
+    "arxiv-2011.11315",
+    "arxiv-1908.05743-eegasr"
+   ]
+  },
+  "note": "published confirmed set (3) of this table, re-dated for the target (first public 2018-06): the target itself is the published entry for Afouras et al. 2018 Interspeech; the TPAMI paper (target of the published table) is [concurrent]"
+ },
+ "state_of_the_art_deep-lip-reading-a-comparison-of-models-and-an-online-application": {
+  "pid": "arxiv-2303.14307",
+  "year": 2023,
+  "metric": "LRS2 visual-only WER, joint CTC/attention (Conformer encoder, Transformer decoder), 3,448 training hours, Transformer LM",
+  "value": 14.6,
+  "unit": "% WER",
+  "timing": "later"
  }
 }

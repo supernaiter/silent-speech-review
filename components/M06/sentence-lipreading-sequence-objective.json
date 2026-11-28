@@ -9596,6 +9596,33 @@
    "quote": "hybrid CTC/attention architecture for audio-visual",
    "timing": "concurrent",
    "by": "lcanet-end-to-end-lipreading-with-cascaded-attention-ctc"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "prior",
+   "loc": "Table 5",
+   "quote": "W AS+CL+SS+BS - 39.5% 50.2% 54.9",
+   "note": "prior (2016-11); LRS test, not LRS2"
+  },
+  {
+   "pid": "arxiv-1611.01599",
+   "role": "prior",
+   "loc": "App. A.1",
+   "quote": "we use a character 5-gram binarised language model"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "TM-seq2seq V 49.8% 48.3% 59.9% 58.9%",
+   "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-1805.11685",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "H. E w/ monotonic attention 61.58 % 170",
+   "timing": "concurrent"
   }
  ],
  "known_item_recall": {
@@ -9684,7 +9711,9 @@
    "arxiv-1611.05358",
    "arxiv-1611.06986",
    "arxiv-1803.04988",
-   "isca-thangthai17_interspeech"
+   "isca-thangthai17_interspeech",
+   "arxiv-1611.01599",
+   "arxiv-1805.11685"
   ],
   "unread": 900,
   "confirmed_unique": 0,
@@ -9711,6 +9740,7 @@
  "triage_2026_11_25": "verdict M06 changed ahead -> standard (no repetition across seeds, subjects or datasets); chronology split into before-target and prior counts; recall check added",
  "used_by": [
   "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture",
+  "deep-lip-reading-a-comparison-of-models-and-an-online-application",
   "large-scale-visual-speech-recognition",
   "lcanet-end-to-end-lipreading-with-cascaded-attention-ctc",
   "lipnet-end-to-end-sentence-level-lipreading",
@@ -10204,5 +10234,267 @@
   "unit": "% WER",
   "timing": "later",
   "confirmed_in_text": true
+ },
+ "counts_at_target_time_deep-lip-reading-a-comparison-of-models-and-an-online-application": {
+  "population": {
+   "definition": "sentence-level lip reading / VSR / AVSR decoders: the 633-study ledger population of M06/sentence-lipreading-sequence-objective, minus human-perception or neuroscience studies, phonetic analyses without a decoder, reviews and reports, corpus papers, enhancement / separation / synchronisation / keyword-spotting papers, version duplicates and the target (tools/excl.json)",
+   "window": "prior = first public before 2017-12; [concurrent] = 2017-12 to 2018-12; ISCA / ICASSP 2017 items dated by venue (prior), Interspeech 2018 items by venue (concurrent)",
+   "filtered_unique": {
+    "prior": 49,
+    "concurrent": 14,
+    "date_unresolved": 2,
+    "later": 518
+   },
+   "tier": "pattern match (full-text mentions, reference lists removed where detected; upper bounds)",
+   "regex": {
+    "hmm": "\\bhmms?\\b|hidden markov",
+    "ctc": "\\bctc\\b|connectionist temporal",
+    "attention_s2s": "sequence[- ]to[- ]sequence|seq2seq|encoder[- ]decoder|attention[- ]based (decoder|model|sequence)|listen,? attend|watch,? listen",
+    "transformer": "\\btransformers?\\b",
+    "temporal_conv": "temporal convolution|fully[- ]convolutional|depth[- ]?wise separable|\\btcn\\b|dilated (temporal )?convolution",
+    "recurrent": "\\blstms?\\b|\\bblstm|\\bgru\\b|recurrent neural",
+    "ngram_lm": "\\bn-?gram|\\bbigram|\\btrigram|\\b\\d-gram",
+    "neural_lm": "(rnn|lstm|neural|recurrent|character[- ]level)[- ]?(based )?language model|\\brnn-?lm\\b|shallow fusion",
+    "grammar_lexicon": "\\bgrammar\\b|\\blexicon\\b|\\bdictionary\\b|pronunciation",
+    "no_lm": "without (an? )?(external )?language model|no (external )?language model",
+    "online": "streaming|on-?line (lip|decod|recogn|vsr|avsr|inference|operation|system)|low[- ]latency|real[- ]time (lip|decod|recogn|caption|transcri|inference|vsr|system|operation)|look-?ahead|causal (conv|model|encoder)|incremental(ly)? decod",
+    "run_spread": "random seeds?|different seeds|standard deviation|confidence interval|repeated (runs|training)|bootstrap|\\bstd\\b",
+    "lrs2": "\\blrs-?2\\b"
+   },
+   "excluded": {
+    "perception_or_neuroscience_or_human_study": [
+     "ioa-23430-lipread-f0",
+     "oa-W2884698322",
+     "isca-gagne98_avsp",
+     "isca-siciliano03_avsp",
+     "doi-10.7888-juoeh.26.215",
+     "isca-sakamoto07-timexp",
+     "doi-10.1044-1092-4388-2009-08-0137",
+     "pmc-2645675-lipbayes",
+     "doi-10.1523-jneurosci.1950-09.2010",
+     "pmc-pmc3155585",
+     "doi-10.1044-1092-4388-2012-12-0039",
+     "pmc-3810281-talkerxmod",
+     "pmc-3837007-silentconn",
+     "doi-10.1371-journal.pone.0114439",
+     "isca-mahajan14b-elderlyav",
+     "pmc-5736322-lipreadchildren",
+     "doi-10.1044-2015_jslhr-h-14-0360",
+     "doi-10.3758-s13423-014-0774-3",
+     "pmc-4303247-noawarn",
+     "doi-10.1037-pag0000094",
+     "doi-10.3389-fnhum.2016.00679",
+     "pmc-4900800-lipmeg",
+     "pmc-5193434-avasynch",
+     "pmc-5225113-visentrain",
+     "pmc-5703212-crossmask",
+     "pmc-4910521-lifespan",
+     "pmc-5350153-vspitg",
+     "pmc-5371603-lipmanual",
+     "pmc-5225113-visentr",
+     "pmc-5736322-schoolip",
+     "doi-10.1111-lang.12264",
+     "doi-10.1111-lang.12281",
+     "pmc-5928751-stgboundary",
+     "pmc-5956463-visphonmap"
+    ],
+    "phonetic_or_confusion_analysis_without_decoder": [
+     "isca-ouni07_avsp",
+     "isca-xue05_avsp"
+    ],
+    "review_report_or_chapter": [
+     "arxiv-1710.01292",
+     "doi-10.5772-36466",
+     "oa-W3099202502"
+    ],
+    "dataset_or_database": [
+     "arxiv-1704.08028",
+     "isca-abdelaziz17b_interspeech",
+     "isca-narwekar17_prav",
+     "arxiv-1809.00496",
+     "arxiv-1810.06990"
+    ],
+    "enhancement_separation_sync_or_keyword_spotting": [
+     "isca-kolossa12_avenh",
+     "isca-abdelaziz13_interspeech",
+     "arxiv-1804.04121",
+     "arxiv-1809.08001",
+     "arxiv-1807-08469-zeroshotkws",
+     "arxiv-1807.08469",
+     "eccv18-stafylakis_zskws",
+     "ecva-stafylakis18-zerokws"
+    ],
+    "version_duplicates": {
+     "isca-huang09b_interspeech": "isca-huang09b_combineddt",
+     "isca-su18b_interspeech": "isca-su18b-crossdomain"
+    },
+    "target": [
+     "arxiv-1806.06053"
+    ],
+    "venue_dated_2017_prior": {
+     "icassp2017-tatulli-multimodal-cnn-vsr": "ICASSP 2017 (March)",
+     "isca-abdelaziz17-turboav": "Interspeech 2017 (August)",
+     "isca-tamura17_avsp": "AVSP 2017 (August)",
+     "isca-thangthai17_interspeech": "Interspeech 2017 (August)",
+     "isca-wand17_dalip": "Interspeech 2017 (August)"
+    },
+    "venue_dated_2018_concurrent": {
+     "isca-sari18-avicar": "Interspeech 2018 (September)",
+     "isca-su18b-crossdomain": "Interspeech 2018 (September)",
+     "isca-su18b_interspeech": "Interspeech 2018 (September)",
+     "isca-thangthai18-largevocab": "Interspeech 2018 (September)"
+    },
+    "venue_dated_later": {
+     "aaai-29926-vishallu": "AAAI-24 (2024)"
+    }
+   },
+   "prior_ids": [
+    "arxiv-1609.01932",
+    "arxiv-1611.01599",
+    "arxiv-1611.02879",
+    "arxiv-1611.05358",
+    "arxiv-1611.06986",
+    "arxiv-1704.08035",
+    "arxiv-1709.00443",
+    "arxiv-1710.07161",
+    "arxiv-1710.07168",
+    "conf-icphs2011-cai-visual-speech-recognition",
+    "doi-10.1016-j.imavis.2016.03.003",
+    "doi-10.1109-icassp.2016.7472852",
+    "doi-10.1109-icip.2014.7025274",
+    "doi-10.1109-tcyb.2013.2250954",
+    "doi-10.5220-0003731903220329",
+    "icassp2017-tatulli-multimodal-cnn-vsr",
+    "isca-abdelaziz14_interspeech",
+    "isca-abdelaziz17-turboav",
+    "isca-chao16-spktarget",
+    "isca-cisar04_interspeech",
+    "isca-cisar07-comb",
+    "isca-dean07-mshmm",
+    "isca-dupont98_icslp",
+    "isca-gan07-af",
+    "isca-heckmann00_icslp",
+    "isca-heckmann01-annhmm",
+    "isca-heckmann01_eurospeech",
+    "isca-huang09b_combineddt",
+    "isca-hueber07_interspeech",
+    "isca-hueber08b_phonerec",
+    "isca-karpov10",
+    "isca-kolossa09_avsp",
+    "isca-kolossa10-manychmm",
+    "isca-lan09_avsp",
+    "isca-lucey07-poseinv",
+    "isca-lucey08-poseinv",
+    "isca-lucey08_avsp",
+    "isca-marcheret04_interspeech",
+    "isca-martinez04_interspeech",
+    "isca-miao16-opendomain",
+    "isca-ninomiya15-dbnf",
+    "isca-potamianos01_eurospeech",
+    "isca-tamura17_avsp",
+    "isca-thangthai17_interspeech",
+    "isca-wand17_dalip",
+    "isca-wiggers02_icslp",
+    "isca-yoshida10-twolayer",
+    "openaccess_avsp_talle99",
+    "rs-19574628-saenko"
+   ],
+   "concurrent_ids": [
+    "arxiv-1802.05521",
+    "arxiv-1803.04840",
+    "arxiv-1803.04988",
+    "arxiv-1805.02934",
+    "arxiv-1805.11685",
+    "arxiv-1805.11688",
+    "arxiv-1807.05162",
+    "arxiv-1809.02108",
+    "arxiv-1810.00108",
+    "arxiv-1810.06178",
+    "arxiv-1811.05250",
+    "isca-sari18-avicar",
+    "isca-su18b-crossdomain",
+    "isca-thangthai18-largevocab"
+   ],
+   "unresolved_ids": [
+    "doi-10.17586-2226-1494-2018-18-2-346-349",
+    "doi-10.54105-ijdm.a1632.04010524"
+   ]
+  },
+  "prior_49": {
+   "hmm": 49,
+   "ctc": 6,
+   "attention_s2s": 1,
+   "transformer": 0,
+   "temporal_conv": 2,
+   "recurrent": 13
+  },
+  "concurrent_14": {
+   "hmm": 13,
+   "ctc": 9,
+   "attention_s2s": 8,
+   "transformer": 2,
+   "temporal_conv": 7,
+   "recurrent": 13
+  },
+  "reading": "temporal_conv prior hits: LipNet spatiotemporal front end (arxiv-1611.01599) and a reference-list title (icassp2017-tatulli); attention prior hit: WLAS (arxiv-1611.05358); CTC prior hits are mentions, LipNet the visual-only sentence design"
+ },
+ "usual_approach_deep-lip-reading-a-comparison-of-models-and-an-online-application": {
+  "design": "HMM decoding mentioned by all prior decoders; the neural sentence-level priors are CTC over recurrent layers (LipNet) or LSTM attention seq2seq (WLAS)",
+  "n": 49,
+  "tier": "pattern match",
+  "population_unique": 49,
+  "pids": [
+   "arxiv-1611.01599",
+   "arxiv-1611.05358",
+   "isca-thangthai17_interspeech"
+  ]
+ },
+ "recall_check_deep-lip-reading-a-comparison-of-models-and-an-online-application": {
+  "scope": "every wiki study with text first public before 2017-12 (arXiv month or index year; 2017 year-only included)",
+  "scanned_unique": 1900,
+  "lip_filter": "lip[- ]?read|visual speech recognition|speechreading|audio-visual speech recognition",
+  "hits": {
+   "online": [
+    "arxiv-1301.4558",
+    "arxiv-1611.05358",
+    "conf-icphs2011-cai-visual-speech-recognition",
+    "doi-10.1016-j.cortex.2015.03.006",
+    "doi-10.1101-233676",
+    "doi-10.1109-access.2017.2649838",
+    "doi-10.1109-taslp-2017-2738568",
+    "doi-10.1109-taslp-2017-2757263",
+    "doi-10.3389-fpsyg.2015.01844",
+    "isca-cai11-lightssi",
+    "isca-chaloupka08_avsp",
+    "isca-engwall05b_interspeech",
+    "isca-kolossa10-manychmm",
+    "isca-saitoh11_avsp",
+    "isca-siciliano03_avsp",
+    "isca-tamura10_avsp",
+    "isca-theobald07_avsp",
+    "isca-wang12e-wholeword",
+    "oa-W629242906",
+    "pmc-2875474-phonrecal",
+    "pmc-3155588-streamseg",
+    "pmc-3767908-avdyndyn",
+    "pmc-4522328-brocaentrain",
+    "pmc-4733636-senmotor",
+    "pmc-4767644-textsup",
+    "pmc-5727082-wordsearseyes"
+   ],
+   "conv_ctc": [
+    "arxiv-1611.01599",
+    "arxiv-1703.04105",
+    "isca-stafylakis17-resnetlstm"
+   ],
+   "transformer": [
+    "oa-W36894164"
+   ]
+  },
+  "reading": {
+   "transformer": "1 hit, a MEG instrumentation term (oa-W36894164); 0 lip-reading Transformer models",
+   "conv_ctc": "3 hits (LipNet and two versions of Stafylakis and Tzimiropoulos 2017 describing LipNet): spatiotemporal convolution front end with recurrent CTC back end; 0 temporal-convolution CTC back ends",
+   "online": "26 hits; decoders with real-time operation: Cai et al. 2011 (isca-cai11-lightssi, real-time factors measured, read), Cai et al. ICPhS 2011, a 2017 real-time lip-reading monitor (doi-10.1109-access.2017.2649838), an on-line AV command recogniser (isca-chaloupka08_avsp); WLAS names an on-line decoder as an extension (read); the rest are perception studies, synthesis, or reference-list mentions"
+  }
  }
 }

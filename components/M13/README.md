@@ -32,6 +32,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Studies that classify imagined, covert or inner speech from scalp EEG (same population as the M06 imagined-speech EEG table); the design compared is whether decoding is run online with feedback (real-time, closed-loop) and its accuracy reported, or offline on recorded trials. Boundary: a mention of real-time use as future work or in related work is a pattern match only, not an online study; reviews excluded as deciding priors; versions count once.
 - Used in: [EEG-Based Imagined Speech Decoding Using a Hybrid CNN-SNN Architecture](../../reviews/eeg-based-imagined-speech-decoding-using-a-hybrid-cnn-snn-architecture/), [Lightweight Diffusion-based Framework for Online Imagined Speech Decoding in Aphasia](../../reviews/lightweight-diffusion-based-framework-for-online-imagined-speech-decoding-in-aphasia/), [Toward Practical BCI: A Real-time Wireless Imagined Speech EEG Decoding System](../../reviews/toward-practical-bci-a-real-time-wireless-imagined-speech-eeg-decoding-system/)
 
+## streaming-lip-reading-decoding
+
+- Table: [`streaming-lip-reading-decoding.csv`](streaming-lip-reading-decoding.csv) (6075 slot-filled, 25 pattern match, usual design in 5, 5 read in full)
+- Inclusion rule: Decoders that transcribe or recognise speech from lip, face or articulator video (alone or with audio) and claim online, streaming, simultaneous or real-time operation, classified by whether the full text reports a measured latency, algorithmic delay or real-time factor and an online-scored error rate. Boundary: human-perception studies, speech enhancement or separation, talking-head synthesis and phonetic analyses are excluded on reading of the ledger text; reference-list mentions do not count; versions count once; Cai et al. 2011 (isca-cai11-lightssi) and a 2017 real-time lip vowel recogniser (doi-10.1109-access.2017.2649838) are added from the whole-wiki recall check.
+- Used in: [Deep Lip Reading: a comparison of models and an online application](../../reviews/deep-lip-reading-a-comparison-of-models-and-an-online-application/)
+
 ## use-time-adaptation-cost
 
 - Table: [`use-time-adaptation-cost.csv`](use-time-adaptation-cost.csv) (6075 slot-filled, 64 pattern match, usual design in 22, 2 read in full)
