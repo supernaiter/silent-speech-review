@@ -137,6 +137,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include the video-to-speech population of components/M06/video-to-speech-synthesis (speech waveform synthesized from talking-face or lip video, audio muted at test) and count, from the full text with the reference list removed, the visual input named: a mouth or lip crop, the full face, an optical-flow stream. Boundary: a study counts under every input its text names (upper bound; related-work mentions included); audio-visual enhancement with noisy audio at test, talking-head generation and video-to-text-to-speech pipelines excluded; versions counted once.
 - Used in: [Improved Speech Reconstruction from Silent Video](../../reviews/improved-speech-reconstruction-from-silent-video/), [Vid2speech: Speech Reconstruction from Silent Video](../../reviews/vid2speech-speech-reconstruction-from-silent-video/)
 
+## visual-speech-roi-selection
+
+- Table: [`visual-speech-roi-selection.csv`](visual-speech-roi-selection.csv) (7329 slot-filled, 1108 pattern match, usual design in 133, 8 read in full)
+- Inclusion rule: Visual or audio-visual speech recognition decoders in the filtered population, classified by the facial region their own method feeds the visual front end: mouth or lip RoI (with or without margin), lower-face RoI including jaw and cheeks, whole face, or isolated extraoral regions (upper face, cheeks without the mouth); and whether they compare regions. Boundary: full-face tracking or recording followed by a mouth crop counts as a mouth RoI; region mentions in related work or citations of the target are not designs (pattern counts are mention counts, hand-checked for prior and concurrent hits); video-to-speech synthesis is outside the population but its region comparisons are named as cross-task priors.
+- Used in: [Can We Read Speech Beyond the Lips? Rethinking RoI Selection for Deep Visual Speech Recognition](../../reviews/can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition/)
+
 ## wearable-inertial-silent-speech-sensing
 
 - Table: [`wearable-inertial-silent-speech-sensing.csv`](wearable-inertial-silent-speech-sensing.csv) (7329 slot-filled, 13 pattern match, usual design in 14, 3 read in full)

@@ -2310,6 +2310,56 @@
    "loc": "Abstract",
    "quote": "we raise the state-of-the-art performance by a wide margin on LRW and LRW-1000 to 88.5 % and 46.6 %",
    "by": "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1803.04988",
+   "role": "prior",
+   "loc": "Table III; Sec. IV-A",
+   "quote": "6 AH-CTC(LCANet) 1.3 2.9 97.4",
+   "by": "can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1611.01599",
+   "role": "prior",
+   "loc": "Table 2; Appendix",
+   "quote": "LipNet 6.4% 11.4% 1.9% 4.8%",
+   "by": "can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1810.06990",
+   "role": "prior",
+   "loc": "Table VII",
+   "quote": "3D+2D 24.89% 20.76% 15.9% 38.19%",
+   "by": "can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1905.02540",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "Ours Two-Round 84.11 84.07",
+   "by": "can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "role": "sota",
+   "loc": "Table 1; Sec. 3",
+   "quote": "Our metrics were obtained from the average of three random seeds.",
+   "by": "can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1811.01194",
+   "role": "prior",
+   "loc": "Table 6; Sec. 6.5",
+   "quote": "V15 Indicator variables 11.92",
+   "by": "can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2001.08702",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "Multi-Scale TCN (Ours) ResNet18∗ 85.3 41.4",
+   "by": "can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition",
+   "note": "[concurrent] comparison figure"
   }
  ],
  "known_item_recall": {
@@ -2352,13 +2402,19 @@
    "arxiv-1611.05358",
    "w2594690981-lrw",
    "arxiv-2007.06504",
-   "arxiv-2011.07557"
+   "arxiv-2011.07557",
+   "arxiv-1611.01599",
+   "arxiv-1803.04988",
+   "arxiv-1810.06990",
+   "arxiv-1811.01194",
+   "arxiv-1905.02540"
   ],
   "unread": 191,
   "confirmed_unique": 0,
   "known_item_recall": 0.75
  },
  "used_by": [
+  "can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition",
   "combining-residual-networks-with-lstms-for-lipreading",
   "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading",
   "landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource",
@@ -2865,5 +2921,95 @@
   "tier": "pattern match",
   "population_unique": 45,
   "note": "mention counts over 45 prior LRW decoders (before 2021-08; datasets, synchronisation, keyword spotting, forgery detection and video-to-speech removed): repeated runs or standard deviation mentioned 16, word boundaries 16"
+ },
+ "dated_pattern_counts_can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition": {
+  "prior": {
+   "population": 26,
+   "repeated_runs_mention": 1,
+   "significance_mention": 2
+  },
+  "concurrent": {
+   "population": 14,
+   "repeated_runs_mention": 1,
+   "significance_mention": 0
+  },
+  "later": {
+   "population": 127,
+   "repeated_runs_mention": 10,
+   "significance_mention": 9
+  },
+  "hand_check": {
+   "prior_repeated_runs_hits": [
+    "arxiv-1905.03968: inference time averaged over 5000 runs, not accuracy"
+   ],
+   "concurrent_repeated_runs_hits": [
+    "isca-shrivastava19-mobivsr: inference time averaged over 5000 runs"
+   ],
+   "prior_with_training_run_spread": 0,
+   "concurrent_with_training_run_spread": 0,
+   "prior_significance_hits": [
+    "arxiv-1804.11127",
+    "isca-sari18-avicar"
+   ]
+  },
+  "note": "LRW decoders of the filtered population of this review (see M05/visual-speech-roi-selection), dated against 2020-03 (prior before 2019-09, [concurrent] 2019-09 to 2020-09); full-text mention counts with the repeated-run regex of the published table and a significance-test regex; hand-checked for prior and [concurrent]. Recounted after the population dedupe fix (triage 2026-11-28)."
+ },
+ "usual_approach_can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition": {
+  "design": "single-run LRW top-1 accuracy, no spread over training runs",
+  "n": 26,
+  "tier": "pattern match",
+  "population_unique": 26,
+  "note": "0 of 26 prior LRW decoders report a spread over training runs or seeds after hand check (the one regex hit times inference)"
+ },
+ "inclusion_rule_can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition": "Published rule kept (visual-only LRW top-1; word-boundary results labelled); appended dated counts over the LRW decoders of this review's filtered population.",
+ "state_of_the_art_can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition": {
+  "pid": "arxiv-2406.12233",
+  "year": 2024,
+  "metric": "LRW top-1 accuracy, visual only, no word boundaries, 157 h of LRW video with audio-token targets from an externally pretrained vq-wav2vec in training, 128x128 MediaPipe crop, mean of three seeds with standard deviation 0.1",
+  "value": 93.2,
+  "unit": "%",
+  "timing": "later"
+ },
+ "superseded_can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition": {
+  "dated_pattern_counts": {
+   "prior": {
+    "population": 26,
+    "repeated_runs_mention": 1,
+    "significance_mention": 2
+   },
+   "concurrent": {
+    "population": 14,
+    "repeated_runs_mention": 1,
+    "significance_mention": 0
+   },
+   "later": {
+    "population": 127,
+    "repeated_runs_mention": 10,
+    "significance_mention": 9
+   },
+   "hand_check": {
+    "prior_repeated_runs_hits": [
+     "arxiv-1905.03968: inference time averaged over 5000 runs, not accuracy"
+    ],
+    "concurrent_repeated_runs_hits": [
+     "isca-shrivastava19-mobivsr: inference time averaged over 5000 runs"
+    ],
+    "prior_with_training_run_spread": 0,
+    "concurrent_with_training_run_spread": 0,
+    "prior_significance_hits": [
+     "arxiv-1804.11127",
+     "isca-sari18-avicar"
+    ]
+   },
+   "note": "LRW decoders of the filtered population of this review (see M05/visual-speech-roi-selection), dated against 2020-03 (prior before 2019-09, [concurrent] 2019-09 to 2020-09); full-text mention counts with the repeated-run regex of the published table and a significance-test regex; hand-checked for prior and [concurrent]. Recounted after the population dedupe fix (triage 2026-11-28)."
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2406.12233",
+   "year": 2024,
+   "metric": "LRW top-1 accuracy, visual only, no word boundaries, LRW video only (157 h), mean of three seeds with standard deviation 0.1",
+   "value": 93.2,
+   "unit": "%",
+   "timing": "later"
+  }
  }
 }

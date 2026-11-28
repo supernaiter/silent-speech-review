@@ -145,11 +145,11 @@ Data behind this review. Full texts of the papers are not included.
 ## More reviews in Other sensors
 
 - [ASR is all you need: cross-modal distillation for lip reading](../asr-is-all-you-need-cross-modal-distillation-for-lip-reading/) (2020). ASR-teacher labels (M02) replaced transcribed-data alignment targets; standard: LRS2 parity holds, but effects differ across datasets, one WER each, and distillation is not isolated.
+- [Can We Read Speech Beyond the Lips? Rethinking RoI Selection for Deep Visual Speech Recognition](../can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition/) (2020). Face Cutout (M03) is ahead but untested on mouth crops; the face RoI (M05) is standard, as face and mouth were compared before; the GRID 2.9% claim relies on an LM.
 - [Decoding spoken English from intracortical electrode arrays in dorsal precentral gyrus](../decoding-spoken-english-from-intracortical-electrode-arrays-in-dorsal-precentral-gyrus/) (2020). 39-phoneme decoding from dorsal Utah arrays (M06) and overt-speech confound controls (M12) are standard: both have read priors, T5 alone carries them, and folds share words.
 - [Discriminative Multi-modality Speech Recognition](../discriminative-multi-modality-speech-recognition/) (2020). Enhance-then-AV-recognise (M06) is standard: video used twice predates it (2002, 2013); LRS3 0 dB WER 41.1% to 25.5%, but one run, a clean-trained AV baseline and copied baselines.
 - [Hearing Lips: Improving Lip Reading by Distilling Speech Recognizers](../hearing-lips-improving-lip-reading-by-distilling-speech-recognizers/) (2020). Recognizer-to-lip-reader distillation (M02) is ahead of the prior record and repeats over two datasets and three teachers; the audio rationale is untested and the LRS2 state-of-the-art claim fails.
 - [Learning Individual Speaking Styles for Accurate Lip to Speech Synthesis](../learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis/) (2020). Lip2Wav's per-speaker natural corpus (M03) is ahead; its attention decoder (M06) is standard, since LipSound had one in 2019; two Table 2 baseline WERs match another recognizer's values.
-- [Lipreading using Temporal Convolutional Networks](../lipreading-using-temporal-convolutional-networks/) (2020). Multi-scale TCN (M06) and variable-length cropping (M03) are standard: head and augmentation are not separated, no run counts, robustness comes from the cropping; 85.3% LRW trails 93.2% today.
 
 ---
 

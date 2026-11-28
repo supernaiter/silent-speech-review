@@ -166,6 +166,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Include studies that pre-train an encoder on unlabelled non-audio-only input (video, audio-visual, biosignal or neural recordings) with a self-supervised or teacher-generated objective (masked prediction, contrastive, feature regression, cross-modal distillation) before supervised fine-tuning for speech or text decoding. Boundary: exclude audio-only self-supervised ASR; exclude studies that only reuse a released pre-trained checkpoint without training a new objective; count versions of one study once.
 - Used in: [Jointly Learning Visual and Auditory Speech Representations from Raw Data](../../reviews/jointly-learning-visual-and-auditory-speech-representations-from-raw-data/), [Learning Audio-Visual Speech Representation by Masked Multimodal Cluster Prediction](../../reviews/learning-audio-visual-speech-representation-by-masked-multimodal-cluster-prediction/), [LiRA: Learning Visual Speech Representations from Audio through Self-supervision](../../reviews/lira-learning-visual-speech-representations-from-audio-through-self-supervision/), [Pretraining Large Brain Language Model for Active BCI: Silent Speech](../../reviews/pretraining-large-brain-language-model-for-active-bci-silent-speech/), [Visual Speech Recognition for Multiple Languages in the Wild](../../reviews/visual-speech-recognition-for-multiple-languages-in-the-wild/)
 
+## spatial-occlusion-augmentation-lip-reading
+
+- Table: [`spatial-occlusion-augmentation-lip-reading.csv`](spatial-occlusion-augmentation-lip-reading.csv) (1526 slot-filled, 1108 pattern match, usual design in 172, 5 read in full)
+- Inclusion rule: The same filtered decoder population, classified by whether training masks or erases spatial patches of the input frames (Cutout, random erasing, random patch occlusion) as data augmentation. Boundary: dropout on feature maps (spatial dropout), time masking of whole frames, mixup and crop/flip do not count; citations of the target in comparison tables are not designs; hand check of every prior and concurrent hit.
+- Used in: [Can We Read Speech Beyond the Lips? Rethinking RoI Selection for Deep Visual Speech Recognition](../../reviews/can-we-read-speech-beyond-the-lips-rethinking-roi-selection-for-deep-visual-speech-recognition/)
+
 ## speaker-embedding-conditioning
 
 - Table: [`speaker-embedding-conditioning.csv`](speaker-embedding-conditioning.csv) (1526 slot-filled, 42 pattern match, usual design in 20, 4 read in full)
