@@ -306,6 +306,15 @@
    "pid": "arxiv-2508.07233-landvfe",
    "year": 2025,
    "tier": "ledger only"
+  },
+  {
+   "metric": "t1 ours-wb LRW",
+   "value": 91.41,
+   "unit": "percent",
+   "raw": "91.41",
+   "pid": "arxiv-2506.16073",
+   "year": null,
+   "tier": "ledger only"
   }
  ],
  "recall_sample": [],
@@ -2279,6 +2288,28 @@
    "quote": "The training, validation and test sets are disjoint in time.",
    "by": "combining-residual-networks-with-lstms-for-lipreading",
    "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "SyncVSR Transformer 157 93.2 ± 0.1 95.0 ± 0.0 58.2 ± 0.0",
+   "by": "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading",
+   "timing": "later"
+  },
+  {
+   "pid": "arxiv-2011.07557",
+   "role": "prior",
+   "loc": "Table 5",
+   "quote": "+ Word Boundary 88.4% 55.7%",
+   "by": "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-2007.06504",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "we raise the state-of-the-art performance by a wide margin on LRW and LRW-1000 to 88.5 % and 46.6 %",
+   "by": "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading"
   }
  ],
  "known_item_recall": {
@@ -2319,7 +2350,9 @@
   "read_prior": [
    "arxiv-2209.01383",
    "arxiv-1611.05358",
-   "w2594690981-lrw"
+   "w2594690981-lrw",
+   "arxiv-2007.06504",
+   "arxiv-2011.07557"
   ],
   "unread": 191,
   "confirmed_unique": 0,
@@ -2327,6 +2360,7 @@
  },
  "used_by": [
   "combining-residual-networks-with-lstms-for-lipreading",
+  "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading",
   "landmark-guided-visual-feature-extractor-for-visual-speech-recognition-with-limited-resource",
   "lipreading-using-temporal-convolutional-networks",
   "lira-learning-visual-speech-representations-from-audio-through-self-supervision"
@@ -2682,5 +2716,154 @@
   "value": 93.2,
   "unit": "%",
   "timing": "later"
+ },
+ "inclusion_rule_distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading": "Published rule kept (visual-only LRW top-1; word-boundary results labelled).",
+ "state_of_the_art_distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading": {
+  "pid": "arxiv-2406.12233",
+  "year": 2024,
+  "metric": "LRW top-1 accuracy, visual only, no word-boundary input, LRW training video only (157 h), quantized-audio-token supervision in training, mean of three runs (95.0% with word boundaries; CAS-VSR-W1K 58.2%)",
+  "value": 93.2,
+  "unit": "%",
+  "timing": "later"
+ },
+ "dated_pattern_counts_distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading": {
+  "cutoffs": "first public relative to the target (2022-02): prior before 2021-08, [concurrent] 2021-08 to 2022-08, [later] after 2022-08; month from the arXiv id or the venue, else year; versions grouped by ledger key; target excluded; excluded as non-decoders or outside the inclusion rule: arxiv-1807-08469-zeroshotkws, arxiv-1809.00496, arxiv-1809.08001, arxiv-1810.06990, arxiv-2004.14326, arxiv-2005.08209, arxiv-2009.01225, arxiv-2012.07657, arxiv-2104.05418, arxiv-2104.13332, doi-10.1109-access.2020.3036865, w2594690981-lrw",
+  "design_regex": {
+   "repeated_runs": "standard deviation|random seeds|different seeds|(three|five|ten|\\d+) (independent )?runs|averaged over|mean (and|±)",
+   "word_boundary": "word boundar"
+  },
+  "counts": {
+   "prior": {
+    "population": 45,
+    "repeated_runs": 16,
+    "word_boundary": 16
+   },
+   "concurrent": {
+    "population": 19,
+    "repeated_runs": 7,
+    "word_boundary": 6
+   },
+   "later": {
+    "population": 65,
+    "repeated_runs": 24,
+    "word_boundary": 13
+   },
+   "unresolved": {
+    "population": 14,
+    "repeated_runs": 6,
+    "word_boundary": 4
+   }
+  },
+  "prior_pids": {
+   "repeated_runs": [
+    "arxiv-1703.04105",
+    "arxiv-1802.06424",
+    "arxiv-1806.06053",
+    "arxiv-1807.07860",
+    "arxiv-1811.01194",
+    "arxiv-1903.09616",
+    "arxiv-1904.03760",
+    "arxiv-1905.02540",
+    "arxiv-1905.03968",
+    "arxiv-1906.06337",
+    "arxiv-2003.03983",
+    "arxiv-2005.10903",
+    "arxiv-2009.09561",
+    "arxiv-2102.06657",
+    "isca-stafylakis17_lipread",
+    "isca-thangthai17_lipdnn"
+   ],
+   "word_boundary": [
+    "arxiv-1611.05358",
+    "arxiv-1703.04105",
+    "arxiv-1710.11201",
+    "arxiv-1811.01194",
+    "arxiv-1903.09616",
+    "arxiv-1904.04817",
+    "arxiv-1905.02540",
+    "arxiv-1911.06095",
+    "arxiv-2001.08702",
+    "arxiv-2003.06439",
+    "arxiv-2005.10903",
+    "arxiv-2006.08599",
+    "arxiv-2011.07557",
+    "arxiv-2012.14360",
+    "eccv18-stafylakis_zskws",
+    "isca-stafylakis17_lipread"
+   ]
+  },
+  "concurrent_pids": {
+   "repeated_runs": [
+    "arxiv-2109.06692",
+    "arxiv-2110.07879",
+    "arxiv-2202.07428",
+    "arxiv-2202.13084",
+    "arxiv-2203.07996",
+    "arxiv-2204.02810",
+    "isca-botelho21_interspeech"
+   ],
+   "word_boundary": [
+    "arxiv-2108.03543",
+    "arxiv-2109.06692",
+    "arxiv-2110-15957-vkwsattn",
+    "arxiv-2110.07879",
+    "arxiv-2204.01265",
+    "arxiv-2207.05692"
+   ]
+  },
+  "prior_population": [
+   "arxiv-1611.05358",
+   "arxiv-1703.04105",
+   "arxiv-1710.11201",
+   "arxiv-1802.06424",
+   "arxiv-1804.04121",
+   "arxiv-1805.12371",
+   "arxiv-1806.06053",
+   "arxiv-1807.07860",
+   "arxiv-1810.06178",
+   "arxiv-1811.01194",
+   "arxiv-1812.09336",
+   "arxiv-1903.09616",
+   "arxiv-1904.03760",
+   "arxiv-1904.04817",
+   "arxiv-1904.07002",
+   "arxiv-1905.02540",
+   "arxiv-1905.03968",
+   "arxiv-1906.06337",
+   "arxiv-1908.11618",
+   "arxiv-1911.06095",
+   "arxiv-1912.08639",
+   "arxiv-2001.08702",
+   "arxiv-2003.03206",
+   "arxiv-2003.03983",
+   "arxiv-2003.05709",
+   "arxiv-2003.06439",
+   "arxiv-2005.03846",
+   "arxiv-2005.10903",
+   "arxiv-2006.08599",
+   "arxiv-2007.06504",
+   "arxiv-2009.09561",
+   "arxiv-2009.14233",
+   "arxiv-2011.07557",
+   "arxiv-2011.14334",
+   "arxiv-2012.14360",
+   "arxiv-2102.06657",
+   "arxiv-2106.09171",
+   "cvf-ren21-master-kd",
+   "cvf-xu20-aemsr",
+   "cvf-zhang19-stfcsl",
+   "doi-10.1109-access.2017.2761539",
+   "eccv18-stafylakis_zskws",
+   "isca-stafylakis17_lipread",
+   "isca-thangthai17_lipdnn",
+   "w3082193865-hahncnn"
+  ]
+ },
+ "usual_approach_distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading": {
+  "design": "single-run LRW top-1 accuracy (repetition not mentioned)",
+  "n": 29,
+  "tier": "pattern match",
+  "population_unique": 45,
+  "note": "mention counts over 45 prior LRW decoders (before 2021-08; datasets, synchronisation, keyword spotting, forgery detection and video-to-speech removed): repeated runs or standard deviation mentioned 16, word boundaries 16"
  }
 }

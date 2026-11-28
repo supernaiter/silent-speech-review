@@ -78,6 +78,28 @@
     "pids": [
      "arxiv-2112.04748"
     ]
+   },
+   {
+    "design": "memory_recall",
+    "n": 8,
+    "tier": "pattern match",
+    "pids": [
+     "pmc-12944054-bonecond",
+     "acl-2023-848-univpm",
+     "cvf-kim23-lowresource-lipread",
+     "isca-choi23_interspeech",
+     "arxiv-2204.01265"
+    ]
+   },
+   {
+    "design": "feature_regression",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "isca-choi23_interspeech",
+     "arxiv-2112.04748",
+     "arxiv-2308.09311"
+    ]
    }
   ],
   "metric_pattern": "LRW",
@@ -906,13 +928,45 @@
    "loc": "Table 1; Table 4",
    "quote": "Transcription Alignment Transformer 157 93.1 94.8",
    "by": "lira-learning-visual-speech-representations-from-audio-through-self-supervision"
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "SyncVSR Transformer 157 93.2 ± 0.1 95.0 ± 0.0 58.2 ± 0.0",
+   "by": "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading",
+   "timing": "later"
+  },
+  {
+   "pid": "arxiv-2204.01265",
+   "role": "prior",
+   "loc": "Sec. 4.1.3; Table 5",
+   "quote": "ACC(%) 84.14 84.20 84.50 85.41",
+   "by": "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading",
+   "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-1911.11502",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "To conduct this cross-modal knowledge distillation",
+   "by": "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-2204.01725",
+   "role": "target",
+   "loc": "Table 1",
+   "quote": "86.1",
+   "by": "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading"
   }
  ],
  "known_item_recall": {
   "seeds_in_wiki": 4,
   "found": 4,
   "recall": 1.0,
-  "missed": []
+  "missed": [
+   "arxiv-2406.12233"
+  ]
  },
  "state_of_the_art": {
   "pid": "arxiv-2209.01383",
@@ -949,7 +1003,8 @@
    "arxiv-1911.11502",
    "arxiv-2201.02184",
    "isca-ma21c-lira",
-   "isca-qu19-lipsound"
+   "isca-qu19-lipsound",
+   "arxiv-2204.01265"
   ],
   "unread": 67,
   "confirmed_unique": 0,
@@ -957,6 +1012,7 @@
  },
  "used_by": [
   "akvsr-audio-knowledge-empowered-visual-speech-recognition-by-compressing-audio-knowledge-of-a-pretrained-model",
+  "distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading",
   "jointly-learning-visual-and-auditory-speech-representations-from-raw-data",
   "lira-learning-visual-speech-representations-from-audio-through-self-supervision",
   "multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video"
@@ -1265,5 +1321,88 @@
   "missed": [
    "arxiv-2406.12233"
   ]
+ },
+ "dated_pattern_counts_distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading": {
+  "cutoffs": "first public relative to the target (2022-02): prior before 2021-08, [concurrent] 2021-08 to 2022-08, [later] after 2022-08; month from the arXiv id or the venue, else year; versions grouped by ledger key; target excluded; excluded as non-decoders or outside the inclusion rule: arxiv-1809.02108, arxiv-1811.05250, arxiv-2005.08209, arxiv-2007.06504, arxiv-2008.02516, doi-10.1109-tpami.2018.2889052, isca-eger09_avsp, isca-li23k_interspeech, isca-schwartz01-selflipread, isca-shillingford19_interspeech, isca-zhou21_interspeech, openaccess_avsp_talle99",
+  "design_regex": {
+   "knowledge_distillation": "knowledge distillation|distil|teacher-student",
+   "memory_recall": "visual-audio memory|key-value memory|audio memory|value memory|memory slots?",
+   "feature_regression": "predict\\w* (the )?(audio|acoustic|speech|PASE\\+?) (features|representations)|quantized audio|audio tokens"
+  },
+  "counts": {
+   "prior": {
+    "population": 3,
+    "knowledge_distillation": 3,
+    "memory_recall": 0,
+    "feature_regression": 0
+   },
+   "concurrent": {
+    "population": 6,
+    "knowledge_distillation": 4,
+    "memory_recall": 1,
+    "feature_regression": 1
+   },
+   "later": {
+    "population": 33,
+    "knowledge_distillation": 27,
+    "memory_recall": 6,
+    "feature_regression": 2
+   },
+   "unresolved": {
+    "population": 0,
+    "knowledge_distillation": 0,
+    "memory_recall": 0,
+    "feature_regression": 0
+   }
+  },
+  "prior_pids": {
+   "knowledge_distillation": [
+    "arxiv-1911.11502",
+    "arxiv-1911.12747",
+    "cvf-ren21-master-kd"
+   ],
+   "memory_recall": [],
+   "feature_regression": []
+  },
+  "concurrent_pids": {
+   "knowledge_distillation": [
+    "arxiv-2108.03543",
+    "arxiv-2108.13630",
+    "arxiv-2204.01265",
+    "arxiv-2207.05692"
+   ],
+   "memory_recall": [
+    "arxiv-2204.01265"
+   ],
+   "feature_regression": [
+    "arxiv-2112.04748"
+   ]
+  },
+  "prior_population": [
+   "arxiv-1911.11502",
+   "arxiv-1911.12747",
+   "cvf-ren21-master-kd"
+  ]
+ },
+ "inclusion_rule_distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading": "Published rule kept: lip-reading and video-to-speech studies that take only lip or face video at test and use paired audio or a speech model during training to enrich the visual model (distillation, audio-feature regression, memory of audio representations). For this review the population is dated against 2022-02 and filtered to decoders that transfer audio: perception studies, AVSR models needing audio at test, video-to-speech systems with audio only as output target, and distillation between video models are excluded (list in dated_pattern_counts).",
+ "usual_approach_distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading": {
+  "design": "knowledge distillation from an audio or ASR teacher",
+  "n": 3,
+  "tier": "pattern match",
+  "population_unique": 4,
+  "pids": [
+   "arxiv-1911.11502",
+   "arxiv-1911.12747",
+   "cvf-ren21-master-kd"
+  ],
+  "note": "prior (before 2021-08) decoders transferring audio: 3 pattern-match studies, all knowledge distillation, plus LiRA (isca-ma21c-lira, 2021-06, read, missed by the pattern), audio-feature regression: 4 decoders, distillation 3, regression 1, memory recall 0. Same-group precedent arxiv-2204.01265 (ICCV 2021-10) is [concurrent] by the window and is the target's own baseline."
+ },
+ "state_of_the_art_distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading": {
+  "pid": "arxiv-2406.12233",
+  "year": 2024,
+  "metric": "LRW top-1 accuracy, visual only, no word-boundary input, LRW training video only (157 h), quantized-audio-token supervision in training, mean of three runs (95.0% with word boundaries; CAS-VSR-W1K 58.2%)",
+  "value": 93.2,
+  "unit": "%",
+  "timing": "later"
  }
 }

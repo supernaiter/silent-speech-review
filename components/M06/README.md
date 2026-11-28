@@ -201,6 +201,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 - Inclusion rule: Speech or language decoders from neural or muscle signals (EEG, MEG, ECoG, sEEG, EMG) that train one model on recordings whose channel count or electrode layout differs across participants, devices or datasets, by mapping channels into a shared space (sensor-position spatial attention or coordinate embeddings, per-subject or per-layout input layers, graph models over electrodes, channel tokens, or a common channel subset). Boundary: a model trained and tested on one fixed montage is excluded even when pooled over subjects; channel-subset selection within one array is excluded; auditory-attention and non-speech EEG models are excluded when read; versions of one study count once.
 - Used in: [A Silent Speech Decoding System from EEG and EMG with Heterogenous Electrode Configurations](../../reviews/a-silent-speech-decoding-system-from-eeg-and-emg-with-heterogenous-electrode-configurations/), [Towards Unified Neural Decoding with Brain Functional Network Modeling](../../reviews/towards-unified-neural-decoding-with-brain-functional-network-modeling/)
 
+## homophene-disambiguation-in-lip-reading
+
+- Table: [`homophene-disambiguation-in-lip-reading.csv`](homophene-disambiguation-in-lip-reading.csv) (7345 slot-filled, 128 pattern match, usual design in 24, 3 read in full)
+- Inclusion rule: Lip-reading decoders (word or sentence level, video only at test) whose ledger names homophenes, visemes, visually similar words or one-to-many mapping; classified by the full-text mechanism named for the ambiguity: multi-head memory, audio memory, viseme intermediate units, language model, audio supervision. Boundary: full-text counts are mentions (pattern match, upper bounds, related work included); surveys, datasets and perception studies excluded from the dated population; versions count once.
+- Used in: [Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading](../../reviews/distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading/)
+
 ## imagined-speech-eeg-word-classification
 
 - Table: [`imagined-speech-eeg-word-classification.csv`](imagined-speech-eeg-word-classification.csv) (7345 slot-filled, 167 pattern match, usual design in 48, 2 read in full)
