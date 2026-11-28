@@ -1,0 +1,61 @@
+{
+ "target": "arxiv-1803.04988",
+ "versions": [
+  "arxiv-1803.04988"
+ ],
+ "first_public": "2018-03",
+ "version_check": "wiki source is arXiv:1803.04988v1 (13 Mar 2018), the target article itself; FG 2018 proceedings (May 2018) are later, so first public = 2018-03",
+ "note": "No prep/ or prep.done existed; plan, audits and comparator selection built by the writer. Published topic tables reused append-only (keyed _<slug> fields).",
+ "setting": "sentence-level lip reading (visual or audio-visual), the 633-study population of the published M06 table; GRID decoders (93-study population of the published M12 table) for the protocol topic; state at the target's time = first public before 2018-03, perception, neuroscience, review, enhancement and off-task studies removed, versions merged",
+ "cutoff_rule": "before 2018-03 (month from arXiv id, else index year or ISCA key; year-only 2018 excluded); [concurrent] 2017-09 to 2018-09; [later] after",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt GRID sentence reading (LipNet lineage)",
+  "M02": "Character transcripts; LipNet-style augmentation",
+  "M03": "Training from scratch on GRID, Adam 1e-4, batch 64, up to 50 epochs with early stopping; one run",
+  "M04": "Overt speech video",
+  "M05": "100x50 mouth crop from 68 Dlib landmarks, 25 fps RGB (LipNet lineage)",
+  "M07": "No language model or lexicon described",
+  "M08": "Characters to sentence text",
+  "M09": "Offline; none",
+  "M10": "Offline; none",
+  "M11": "GRID prompts as references; own random 255-per-speaker draw",
+  "M13": "Offline GPU benchmark"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "sentence-lipreading-sequence-objective",
+   "reuse": "components/M06/sentence-lipreading-sequence-objective.json",
+   "inclusion_rule": "Published rule (sentence-level or open-vocabulary speech from lip or face video, classified by the sequence objective the full text names); this review dates it at 2018-03, removes non-decoders and versions, adds a highway-network regex and a whole-wiki recall check for attention-CTC designs before 2018-09.",
+   "design_field": "full-text regexes ctc, attention_seq2seq, hybrid, highway, hmm",
+   "metric": "GRID overlapped-speaker WER; LRS3 visual-only WER today"
+  },
+  {
+   "slot": "M12",
+   "topic": "grid-sentence-lipreading-protocol",
+   "reuse": "components/M12/grid-sentence-lipreading-protocol.json",
+   "inclusion_rule": "Published rule (GRID lip-reading or VSR decoders classified by the evaluation partition named); dated at 2018-03, non-decoders and off-task studies removed, versions merged, plus a seeds/repeated-runs regex.",
+   "design_field": "full-text regexes unseen, overlapped, variability, seeds",
+   "metric": "GRID overlapped-speaker WER under the 255-per-speaker protocol"
+  }
+ ],
+ "comparators": {
+  "deciding_priors": [
+   "arxiv-1611.01599 (LipNet, CTC; overlapped and unseen splits, LM and NoLM rows)",
+   "arxiv-1611.05358 (WAS, attention; GRID 3.0% WER)",
+   "ext Kim et al. 2017 arXiv:1609.06773 (joint CTC-attention MTL, ASR)",
+   "ext Hori et al. 2017 ACL P17-1048 (the target's [43])",
+   "arxiv-1806.06053 [concurrent] (CTC vs attention back ends)"
+  ],
+  "state_of_the_art": [
+   "arxiv-2403.16071 (GRID overlapped 1.83% WER, same protocol)",
+   "arxiv-2602.19316 (LRS3 17.6%, from the published table)"
+  ]
+ }
+}
