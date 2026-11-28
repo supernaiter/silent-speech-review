@@ -5588,6 +5588,48 @@
    "loc": "App. Table 13",
    "quote": "Mean and standard deviation over three random seeds are reported for the",
    "by": "large-language-models-are-strong-audio-visual-speech-recognition-learners"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "TM-seq2seq A 58.0% 57.4% 60.5% 57.9%",
+   "by": "discriminative-multi-modality-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "Google S2T† A 86.3% 70.3%",
+   "by": "discriminative-multi-modality-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Sec. 5.3",
+   "quote": "babble noise with 0dB SNR is always added to the original audio",
+   "by": "discriminative-multi-modality-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Sec. 5.3",
+   "quote": "20 different audio samples from the LRS2-BBC dataset",
+   "by": "discriminative-multi-modality-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Sec. 6",
+   "quote": "During inference we perform 9 random transforms",
+   "by": "discriminative-multi-modality-speech-recognition"
+  },
+  {
+   "pid": "isca-abdelaziz13-twinhmm",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "statistically signiﬁcant improvements of the audio-visual recognition accuracy compared to using the ETSI advanced front-end",
+   "by": "discriminative-multi-modality-speech-recognition"
   }
  ],
  "state_of_the_art": {
@@ -5601,6 +5643,7 @@
  "used_by": [
   "audio-visual-speech-recognition-using-deep-learning",
   "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture",
+  "discriminative-multi-modality-speech-recognition",
   "end-to-end-audio-visual-speech-recognition-with-conformers",
   "end-to-end-audiovisual-speech-recognition",
   "large-language-models-are-strong-audio-visual-speech-recognition-learners",
@@ -5636,7 +5679,8 @@
    "doi-10.1109-tasl.2008.2011515",
    "isca-miyajima00_icslp",
    "isca-potamianos03_eurospeech",
-   "arxiv-2402.15151"
+   "arxiv-2402.15151",
+   "isca-abdelaziz13-twinhmm"
   ],
   "unread": 499,
   "confirmed_unique": 0,
@@ -6187,5 +6231,259 @@
   "unit": "% WER",
   "timing": "later",
   "confirmed_in_text": true
- }
+ },
+ "dated_pattern_counts_discriminative-multi-modality-speech-recognition": {
+  "cutoffs": "first public relative to the target (2020-05, arXiv:2005.05592): prior before 2019-11, [concurrent] 2019-11 to 2020-11, [later] after 2020-11; month from the arXiv id or the venue, else year (2019-2020 year-only = date unresolved); one shared population for all topics (tools/pop.py): lip-reading, VSR and AVSR decoders named in title or ledger, with titles naming surveys, datasets, perception, neuroimaging, education, enhancement or separation without recognition, synthesis, talking heads, forgery, synchronisation and keyword spotting removed, two audio-visual enhancement studies that also run a recogniser added on reading (isca-deligne02_icslp, arxiv-1904.08248); perception / neuroimaging / education and non-decoder rows removed on reading (tools/exclude_reading.json, tools/exclude_local.json), versions merged by ledger key plus a merge list; target excluded; full-text pattern counts with reference lists removed are mention counts (upper bounds), denominators are the unique studies of the topic subset",
+  "shared_population": {
+   "later": 381,
+   "prior": 196,
+   "concurrent": 27,
+   "unresolved": 4
+  },
+  "shared_population_total": 608,
+  "subset": "AVSR decoders (same subset as M06/avsr-audio-feature-denoising)",
+  "subset_regex": "audio[- ]?visual speech recognition|audiovisual speech recognition|\\bavsr\\b|multi-?modality speech recognition",
+  "population": 256,
+  "status": {
+   "later": 161,
+   "prior": 86,
+   "concurrent": 9
+  },
+  "design_regex": {
+   "additive_noise_stated_snr": "\\bsnrs?\\b[^.]{0,40}-?\\d+ ?db|-?\\d+ ?db[^.]{0,30}\\bsnr",
+   "babble": "babble",
+   "snr_at_or_below_minus5": "(-|−|minus )(5|10|15|20) ?db",
+   "run_variability": "confidence interval|random seeds?|\\bseeds\\b|repeated (runs|experiments)|repeat(ed)? each experiment|statistically signi(f|ﬁ)can|signi(f|ﬁ)cance (test|level)|t-test|wilcoxon|\\d%? ?(±|\\+/-) ?\\d",
+   "lm_statement": "language model"
+  },
+  "counts": {
+   "later": {
+    "additive_noise_stated_snr": 74,
+    "snr_at_or_below_minus5": 52,
+    "lm_statement": 111,
+    "babble": 71,
+    "run_variability": 25
+   },
+   "prior": {
+    "babble": 32,
+    "additive_noise_stated_snr": 50,
+    "lm_statement": 15,
+    "snr_at_or_below_minus5": 17,
+    "run_variability": 5
+   },
+   "concurrent": {
+    "additive_noise_stated_snr": 7,
+    "babble": 4,
+    "snr_at_or_below_minus5": 6,
+    "run_variability": 4,
+    "lm_statement": 6
+   }
+  },
+  "pids": {
+   "prior": {
+    "babble": [
+     "arxiv-1407.1165",
+     "arxiv-1611.02879",
+     "arxiv-1802.06424",
+     "arxiv-1804.11127",
+     "arxiv-1809.02108",
+     "arxiv-1810.00108",
+     "arxiv-1906.02112",
+     "doi-10.1109-tasl.2008.2011515",
+     "doi-10.1109-tsp.2009.2026513",
+     "doi-10.5281-zenodo.42298",
+     "doi-10.5281-zenodo.43183",
+     "isca-abdelaziz13-twinhmm",
+     "isca-abdelaziz14-streamw",
+     "isca-abdelaziz17-turboav",
+     "isca-dean07-fhmm",
+     "isca-dean07-mshmm",
+     "isca-heckmann01-annhmm",
+     "isca-heckmann01_eurospeech",
+     "isca-heckmann02_icslp",
+     "isca-heckmann03_avsp",
+     "isca-heracleous10_avsp",
+     "isca-huang03_avsp",
+     "isca-huang05d_interspeech",
+     "isca-huang05e_interspeech",
+     "isca-karpov10",
+     "isca-kolossa10-manychmm",
+     "isca-marcheret04-interspeech",
+     "isca-potamianos01_eurospeech",
+     "isca-potamianos03_eurospeech",
+     "isca-thangthai15b_avsp",
+     "oa-W2257285929",
+     "oa-W3099202502"
+    ],
+    "additive_noise_stated_snr": [
+     "arxiv-1611.02879",
+     "arxiv-1611.05358",
+     "arxiv-1611.06986",
+     "arxiv-1704.03152",
+     "arxiv-1802.06424",
+     "arxiv-1803.04840",
+     "arxiv-1804.11127",
+     "arxiv-1809.02108",
+     "arxiv-1810.00108",
+     "arxiv-1811.05250",
+     "arxiv-1906.02112",
+     "doi-10.1007-s10489-014-0629-7",
+     "doi-10.1016-j.specom.2017.01.005",
+     "doi-10.1109-tcyb.2013.2250954",
+     "doi-10.1109-tsp.2009.2026513",
+     "doi-10.1155-2011-294010",
+     "doi-10.21437-icslp.2000-468",
+     "doi-10.5281-zenodo.42298",
+     "isca-abdelaziz13-twinhmm",
+     "isca-abdelaziz14-streamw",
+     "isca-abdelaziz17-turboav",
+     "isca-dean07-fhmm",
+     "isca-dean07-mshmm",
+     "isca-deligne02_icslp",
+     "isca-gurbuz01_eurospeech",
+     "isca-heckmann01_eurospeech",
+     "isca-heckmann03_avsp",
+     "isca-huang03_avsp",
+     "isca-huang05d_interspeech",
+     "isca-huang05e_interspeech",
+     "isca-huang09b-cdt",
+     "isca-karpov10",
+     "isca-kolossa09_avsp",
+     "isca-miyajima00_icslp",
+     "isca-ninomiya15-dbnf",
+     "isca-pachoud09_avsp",
+     "isca-potamianos01_eurospeech",
+     "isca-seymour05_postfusion",
+     "isca-seymour07_mwsp",
+     "isca-shao06_interspeech",
+     "isca-shen10_avsp",
+     "isca-shen13_avsp",
+     "isca-takashima16-bimodalbnf",
+     "isca-thangthai15b_avsp",
+     "isca-wu07d-2dpca",
+     "isca-yoshida10_avsp",
+     "isca-yoshinaga03_avsp",
+     "oa-W2257285929",
+     "oa-W3099202502",
+     "openaccess_avsp_berthommier01"
+    ],
+    "lm_statement": [
+     "arxiv-1611.05358",
+     "arxiv-1611.06986",
+     "arxiv-1809.02108",
+     "arxiv-1810.00108",
+     "arxiv-1811.05250",
+     "doi-10.5772-6364",
+     "isca-abdelaziz17-turboav",
+     "isca-cisar07-comb",
+     "isca-gan07-af",
+     "isca-gurbuz01_eurospeech",
+     "isca-kolossa09_avsp",
+     "isca-kolossa10-manychmm",
+     "isca-miao16-opendomain",
+     "isca-thangthai15b_avsp",
+     "isca-wiggers02_icslp"
+    ],
+    "snr_at_or_below_minus5": [
+     "arxiv-1802.06424",
+     "arxiv-1804.11127",
+     "arxiv-1810.00108",
+     "arxiv-1906.02112",
+     "doi-10.1007-s10489-014-0629-7",
+     "doi-10.1016-j.specom.2017.01.005",
+     "doi-10.1109-tcyb.2013.2250954",
+     "isca-abdelaziz17-turboav",
+     "isca-heckmann03_avsp",
+     "isca-lucey02_icslp",
+     "isca-ninomiya15-dbnf",
+     "isca-pachoud09_avsp",
+     "isca-seymour07_mwsp",
+     "isca-shen13_avsp",
+     "isca-thangthai15b_avsp",
+     "isca-yoshida10_avsp",
+     "oa-W2257285929"
+    ],
+    "run_variability": [
+     "arxiv-1804.11127",
+     "doi-10.5281-zenodo.42298",
+     "isca-abdelaziz13-twinhmm",
+     "isca-martinez04-interspeech",
+     "isca-sari18_avicar"
+    ]
+   },
+   "concurrent": {
+    "additive_noise_stated_snr": [
+     "arxiv-1911.04890",
+     "arxiv-2001.01656",
+     "arxiv-2004.08250",
+     "arxiv-2005.09297",
+     "arxiv-2007.14223",
+     "isca-liu20r-lipgraph",
+     "isca-wand20-fusionarch"
+    ],
+    "babble": [
+     "arxiv-1911.04890",
+     "arxiv-2007.14223",
+     "isca-liu20r-lipgraph",
+     "isca-wand20-fusionarch"
+    ],
+    "snr_at_or_below_minus5": [
+     "arxiv-1911.04890",
+     "arxiv-2001.01656",
+     "arxiv-2004.08250",
+     "arxiv-2005.09297",
+     "isca-liu20r-lipgraph",
+     "isca-wand20-fusionarch"
+    ],
+    "run_variability": [
+     "arxiv-1911.04890",
+     "arxiv-2004.08250",
+     "arxiv-2005.09297",
+     "isca-wand20-fusionarch"
+    ],
+    "lm_statement": [
+     "arxiv-1911.04890",
+     "arxiv-2001.01656",
+     "arxiv-2004.08250",
+     "arxiv-2005.08571",
+     "arxiv-2007.14223",
+     "isca-liu20d_interspeech"
+    ]
+   }
+  },
+  "classified_on_reading": {
+   "prior_population": 86,
+   "run_variability_or_significance_reported": [
+    "arxiv-1804.11127 (plus-minus per condition, GRID)",
+    "isca-abdelaziz13-twinhmm (significance marks, GRID, read)",
+    "isca-sari18_avicar (t-test, AVICAR)"
+   ],
+   "run_variability_pattern_hits_not_design": [
+    "doi-10.5281-zenodo.42298",
+    "isca-martinez04-interspeech"
+   ],
+   "large_vocabulary_sentence_avsr_with_variability_prior": [],
+   "concurrent_with_variability": [
+    "arxiv-1911.04890 (95% CI)",
+    "arxiv-2004.08250 (5 repetitions, 95% CI)",
+    "isca-wand20-fusionarch (t-test)"
+   ]
+  }
+ },
+ "usual_approach_discriminative-multi-modality-speech-recognition": {
+  "design": "additive noise at stated SNRs, one run per system, no variability or significance",
+  "n": 50,
+  "tier": "pattern match",
+  "population_unique": 86,
+  "note": "Prior AVSR decoders (before 2019-11), mention counts over 86 unique studies: stated SNR 50, babble 32, SNR at or below -5 dB 17, language model 15, run variability or significance 5 (3 on reading, all small-vocabulary corpora: arxiv-1804.11127, isca-abdelaziz13-twinhmm, isca-sari18_avicar). [concurrent] 9: run variability 4 (3 on reading)."
+ },
+ "state_of_the_art_discriminative-multi-modality-speech-recognition": {
+  "pid": "arxiv-2602.19316",
+  "year": 2026,
+  "metric": "LRS3 AVSR reporting mean and standard deviation over three random seeds (protocol yardstick)",
+  "value": "3 seeds",
+  "unit": "runs",
+  "timing": "later"
+ },
+ "inclusion_rule_discriminative-multi-modality-speech-recognition": "Published rule kept. For this review: the same 86 prior and 9 [concurrent] AVSR decoders, classified by full-text pattern (mention counts) for stated SNR tests, babble noise, SNRs at or below -5 dB, a language-model statement, and run variability or significance (seeds, repeated runs, confidence intervals, plus-minus, significance tests); variability hits read. Boundary: versions once; the target excluded."
 }

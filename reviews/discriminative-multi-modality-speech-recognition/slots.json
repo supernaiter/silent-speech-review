@@ -1,0 +1,160 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced TED/BBC video"
+  ],
+  "field": "Voiced speech video",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "L1 to clean magnitude; character seq2seq"
+  ],
+  "field": "Paired clean audio",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited (Afouras et al. 2018a, 2018b).",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Frozen LRW front-end; babble p = 0.25; curriculum"
+  ],
+  "field": "Supervised, babble-augmented",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited (Afouras et al. 2018b); no seeds.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Noisy voiced speech, lip video"
+  ],
+  "field": "Overt speech",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "16 kHz audio; 112x112 mouth, 25 fps"
+  ],
+  "field": "Mic plus camera",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "Lip-guided mask enhancer before AV EleAtt-GRU; P3D front-end"
+  ],
+  "usual": "No enhancer; MFCC or filterbank, mentions of 86 prior AVSR",
+  "field": "AVSR on noisy audio features",
+  "n": 86,
+  "matched": 54,
+  "matched_tier": "pattern match (mention count, unique studies)",
+  "verdict": "standard",
+  "note": "Enhance-then-AV-recognise predates it (2002, 2013); LRW result holds over priors only without word boundaries, which is unstated.",
+  "sota": "[@shi2022robust] (2022): 5.8% AV WER, LRS3 0 dB babble"
+ },
+ "M07": {
+  "choice": [
+   "No external LM (Table 2)"
+  ],
+  "field": "No LM",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Table 3 decoding conditions not stated.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "41 outputs (listed tokens sum to 40); 500 LRW words"
+  ],
+  "field": "Characters",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Target inconsistency: 26 letters, 10 digits and 4 tokens listed against 41 outputs (§4.3).",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "Offline",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "Offline",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "LRS3, LRW splits; test partition not stated"
+  ],
+  "field": "Benchmark splits",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_reported",
+  "note": "Test partition, utterance count and test-noise recipe not stated.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "One run, six conditions; seven cells equal published values"
+  ],
+  "usual": "Stated-SNR test, mentions of 86 prior AVSR",
+  "field": "Stated-SNR noise test",
+  "n": 86,
+  "matched": 50,
+  "matched_tier": "pattern match (mention count, unique studies)",
+  "verdict": "standard",
+  "note": "No variability; 0 dB rows mix test noise and training data.",
+  "sota": "[@haliassos2026usr2] (2026): three seeds"
+ },
+ "M13": {
+  "choice": [
+   "1 GPU, 15 days; no inference cost"
+  ],
+  "field": "Training cost only",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ }
+}
