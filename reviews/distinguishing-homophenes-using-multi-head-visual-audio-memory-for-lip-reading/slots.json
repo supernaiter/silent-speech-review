@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "No user training action; voiced broadcast clips"
+  ],
+  "field": "Recorded speech corpora",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Paired audio stored in a value memory, recalled from video"
+  ],
+  "field": "Knowledge distillation from an audio or ASR teacher",
+  "n": 3,
+  "matched": 3,
+  "matched_tier": "pattern match (unique studies, prior)",
+  "verdict": "standard",
+  "note": "Memory recall inherited from the authors' [concurrent] ICCV memory.",
+  "sota": "LRW 93.2%, audio-token supervision [@ahn2024syncvsr]"
+ },
+ "M03": {
+  "choice": [
+   "End-to-end; LRW-pretrained front end for sentences"
+  ],
+  "field": "Per-corpus supervised training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited; no seeds or validation rule.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Voiced speech, video alone at test"
+  ],
+  "field": "Voiced articulation",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Lip crop 112x112; mel-spectrogram in training only"
+  ],
+  "field": "Mouth crop from video",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "8 key heads, 112 slots, memory at 4 depths of MS-TCN or Transformer"
+  ],
+  "field": "Viseme intermediate units",
+  "n": 44,
+  "matched": 24,
+  "matched_tier": "pattern match (unique studies, prior)",
+  "verdict": "standard",
+  "note": "Heads add 0.3 points, depths 1.3 (LRW, one run).",
+  "sota": "LRW 93.2%, LRW-1000 58.2%, no memory [@ahn2024syncvsr]"
+ },
+ "M07": {
+  "choice": [
+   "No external language model"
+  ],
+  "field": "No language model in word classification",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "LRS2 without LM only.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Word class (500 or 1,000); characters on LRS2"
+  ],
+  "field": "Word class or text",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Benchmark splits; six homophene pairs from a viseme map"
+  ],
+  "field": "Benchmark splits",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "No per-word counts for Table 6.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Top-1 accuracy, WER; single run, no seeds"
+  ],
+  "field": "Single-run LRW top-1 accuracy",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "SOTA margin 0.1 points over DC-TCN.",
+  "sota": "LRW 93.2%, no word boundaries, three runs [@ahn2024syncvsr]"
+ },
+ "M13": {
+  "choice": [
+   "Offline; no latency or memory cost"
+  ],
+  "field": "Benchmark only",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_reported",
+  "note": "Memory cost not given.",
+  "sota": "–"
+ }
+}

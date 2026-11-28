@@ -1,0 +1,52 @@
+{
+ "target": "arxiv-2204.01725",
+ "first_public": "2022-02",
+ "first_public_note": "AAAI-22 conference presentation (February 2022) precedes arXiv v1 (2022-04-04); the arXiv v1 is the AAAI camera-ready (AAAI 2022 copyright line on page 1). Window: prior before 2021-08, [concurrent] 2021-08 to 2022-08, [later] after 2022-08.",
+ "changed": [
+  "M02",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "No user training action; voiced broadcast word clips (LRW, LRW-1000) and sentences (LRS2, LRS3 pre-train)",
+  "M03": "End-to-end training per dataset; LRW-pretrained front-end and LRS2/LRS3 pre-train curriculum for sentences (Afouras et al. 2018 lineage); mixup, random erasing, flipping",
+  "M04": "Voiced speech; video alone at test, audio front-end detached",
+  "M05": "2D video lip crop 112x112 (LRW, LRW-1000); paired mel-spectrogram only in training",
+  "M07": "No external language model (LRS2); word classification on LRW/LRW-1000",
+  "M08": "Word class (500 / 1,000) or character text",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Benchmark splits, partition not named; homophene pairs chosen with the Cappelletta and Harte viseme map, no per-word counts",
+  "M13": "Offline; no latency, parameter or compute report for the memory"
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "audio-knowledge-transfer-to-video",
+   "reuse": "components/M02/audio-knowledge-transfer-to-video.json",
+   "inclusion_rule": "Published rule kept: lip-reading and video-to-speech studies that take only lip or face video at test and use paired audio or a speech model during training to enrich the visual model (distillation, audio-feature regression, memory of audio representations). For this review the population is dated against 2022-02 and filtered to decoders that transfer audio: perception studies, AVSR models needing audio at test, video-to-speech systems with audio only as output target, and distillation between video models are excluded (list in dated_pattern_counts).",
+   "design_regex": [
+    "knowledge_distillation",
+    "memory_recall",
+    "feature_regression"
+   ],
+   "metric": "LRW word accuracy, higher better; LRS2 WER without LM, lower better"
+  },
+  {
+   "slot": "M06",
+   "topic": "homophene-disambiguation-in-lip-reading",
+   "inclusion_rule": "Lip-reading decoders (word or sentence level, video only at test) whose ledger names homophenes, visemes, visually similar words or one-to-many mapping; classified by the full-text mechanism named for the ambiguity: multi-head memory, audio memory, viseme intermediate units, language model, audio supervision. Boundary: full-text counts are mentions (pattern match, upper bounds, related work included); surveys, datasets and perception studies excluded from the dated population; versions count once.",
+   "pattern": "lip reading AND (homophen | viseme | visually similar | one-to-many) in ledger text",
+   "metric": "LRW word accuracy, higher better"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrw-word-accuracy",
+   "reuse": "components/M12/lrw-word-accuracy.json",
+   "inclusion_rule": "Published rule kept (visual-only LRW top-1; word-boundary results labelled).",
+   "metric": "LRW top-1 accuracy"
+  }
+ ]
+}
