@@ -1,0 +1,56 @@
+{
+ "target": "cvf-prajwal20-lip2wav",
+ "versions": [
+  "cvf-prajwal20-lip2wav",
+  "arxiv-2005.08209"
+ ],
+ "first_public": "2020-05",
+ "first_public_note": "arXiv 2005.08209v1, submitted 2020-05-17 (arXiv API published field); CVPR 2020 open-access text has the same numbers. Prior = first public before 2019-11; [concurrent] = 2019-11 to 2020-11; [later] after 2020-11.",
+ "prep": "no prep/ folder; plan, audits and comparators built by the writer; published topic tables reused append-only",
+ "changed": [
+  "M03",
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "voiced talking-face video",
+  "M02": "paired mel spectrogram target, no text",
+  "M04": "silent face video at test",
+  "M05": "S3FD face crop 48x48",
+  "M07": "none",
+  "M08": "mel + Griffin-Lim (Tacotron 2 lineage)",
+  "M09": "n/a (offline)",
+  "M10": "n/a (offline)",
+  "M11": "video-disjoint per-speaker test splits; no transcripts",
+  "M13": "offline GPU training"
+ },
+ "population": "one population for all topics: video-only talking-face or lip video to speech waveform synthesizers, screened from the 165-study ledger pattern of components/M06/video-to-speech-synthesis; reviews, datasets, enhancement/separation with audio at test, tongue-ultrasound, talking-head and off-task papers removed; versions once",
+ "topics": [
+  {
+   "slot": "M03",
+   "topic": "training-data-scale-video-to-speech",
+   "inclusion_rule": "Published rule kept (training corpora and scale named in the full text of the 165-study video-to-speech population); for this review screened to the prior synthesizers above and classified by corpus and per-speaker hours.",
+   "pattern": "published pattern",
+   "design_field": "corpus named (GRID, OuluVS2, TCD-TIMIT, unconstrained), per-speaker hours",
+   "metric": "STOI on Lip2Wav speakers, official split, speaker-dependent"
+  },
+  {
+   "slot": "M06",
+   "topic": "video-to-speech-synthesis",
+   "inclusion_rule": "Published rule kept; for this review screened as above and classified by decoder: non-autoregressive regression (frame window or recurrent encoder) vs autoregressive attention seq2seq decoder; input context recorded.",
+   "pattern": "published pattern",
+   "fulltext_pattern": "lip-to-speech / video-to-speech / speech reconstruction from silent lip or video wording, reference list removed, index year <= 2020",
+   "metric": "STOI on Lip2Wav Chemistry Lectures, speaker-dependent"
+  },
+  {
+   "slot": "M12",
+   "topic": "video-to-speech-output-evaluation",
+   "inclusion_rule": "Published rule kept; for this review screened as above and classified by protocol (listener test, PESQ, STOI/ESTOI, ASR WER on output, unseen-speaker test, run spread).",
+   "pattern": "published pattern",
+   "design_regex": "listener test / spread regexes, hits inspected",
+   "metric": "protocol: time alignment, transcript source, intervals"
+  }
+ ]
+}

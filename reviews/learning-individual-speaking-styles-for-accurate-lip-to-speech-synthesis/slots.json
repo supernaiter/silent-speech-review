@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Voiced face video"
+  ],
+  "field": "Voiced speech",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Inherited from public audio-visual corpora.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Paired mel target, no text"
+  ],
+  "field": "Paired audio target",
+  "n": null,
+  "matched": null,
+  "matched_tier": "pattern match (not audited)",
+  "verdict": "standard",
+  "note": "As in every prior synthesizer listed in the Appendix.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "One model per speaker, about 20 h of natural video, 5 speakers"
+  ],
+  "field": "GRID, about 0.8 h/speaker (7 of 10 prior)",
+  "n": 10,
+  "matched": 7,
+  "matched_tier": "pattern match (screened, prior)",
+  "verdict": "ahead",
+  "note": "0 of 10 priors train on unconstrained speech or more than about 1 h per speaker; repeated over 5 speakers; hours not ablated.",
+  "sota": "[@sahipjohn2023robustl2s] STOI 0.583 vs 0.416, one speaker"
+ },
+ "M04": {
+  "choice": [
+   "Silent face video"
+  ],
+  "field": "Voiced video, audio removed",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Offline synthesis over 3-s windows with small overlap.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Face crop 48x48"
+  ],
+  "field": "Face or mouth crop",
+  "n": null,
+  "matched": null,
+  "matched_tier": "pattern match (not audited)",
+  "verdict": "standard",
+  "note": "Full-face input as in Vid2Speech and Ephrat et al.",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "3D-CNN + attention mel decoder, 3-s windows"
+  ],
+  "field": "Non-autoregressive regression (9 of 10 prior)",
+  "n": 10,
+  "matched": 9,
+  "matched_tier": "pattern match (screened, prior)",
+  "verdict": "standard",
+  "note": "LipSound (2019) already used an attention mel decoder on whole 3-s clips; ablations one speaker, one run.",
+  "sota": "[@sahipjohn2023robustl2s] seq2seq step 0.50 to 0.583 STOI"
+ },
+ "M07": {
+  "choice": [
+   "None"
+  ],
+  "field": "None",
+  "n": null,
+  "matched": null,
+  "matched_tier": "pattern match (not audited)",
+  "verdict": "standard",
+  "note": "No lexicon or language model at use time.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Mel, Griffin-Lim"
+  ],
+  "field": "Spectral features + vocoder",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "Authors report neural vocoders performed poorly on their mels (Sec. 5.3).",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "None (offline)"
+  ],
+  "field": "Mostly absent",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Video-disjoint splits"
+  ],
+  "field": "Held-out utterances",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "No WER on Lip2Wav; later work uses Whisper transcripts.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Objective metrics, ASR WER, MOS; one run"
+  ],
+  "field": "Listener test, no spread (6 of 10 prior)",
+  "n": 10,
+  "matched": 6,
+  "matched_tier": "pattern match (screened, prior)",
+  "verdict": "standard",
+  "note": "Two Table 2 WERs match values measured with a GRID-trained ASR; multi-speaker priors denied (Sec. 6.4).",
+  "sota": "[@niu2023slts] a-STOI 0.760 vs 0.215 vanilla"
+ },
+ "M13": {
+  "choice": [
+   "Offline GPU"
+  ],
+  "field": "Offline GPU",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot_filled (not audited)",
+  "verdict": "standard",
+  "note": "No latency or deployment figures.",
+  "sota": "–"
+ }
+}
