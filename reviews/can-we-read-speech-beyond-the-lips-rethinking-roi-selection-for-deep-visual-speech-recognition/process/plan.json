@@ -1,0 +1,68 @@
+{
+ "target": "arxiv-2003.03206",
+ "first_public": "2020-03",
+ "population": "One filtered decoder population for every topic: wiki studies whose ledger or title names lip reading / visual speech recognition / AVSR with camera input, task family word, sentence, phoneme or command recognition; dataset-resource and meta-analysis designs, surveys, book chapters, enhancement/separation, video-to-speech synthesis, talking-face generation, synchronisation, keyword-spotting-only, speaker embedding, human perception, neuroimaging and education studies removed (title and ledger screens plus a hand check of every prior and concurrent title and a 40-title sample of later ones); versions merged by ledger key and normalised title. 505 unique decoder studies besides the target: 162 prior (first public before 2019-09), 26 [concurrent] (2019-09 to 2020-09), 315 [later], 2 date unresolved. Interspeech 2019 papers dated 2019-09 ([concurrent]); Interspeech 2020 papers [later].",
+ "changed": [
+  "M05",
+  "M03"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Broadcast and read speech video (LRW, LRW-1000, GRID); no new recording",
+  "M02": "Word labels and GRID transcripts; no audio-derived training targets",
+  "M04": "Ordinary voiced speech, video only at test",
+  "M06": "3D-ResNet18 + 2-layer Bi-GRU (Stafylakis lineage) for words; LipNet for GRID",
+  "M07": "GRID decoded with a character 5-gram LM in beam search (LipNet lineage); word tasks closed-set",
+  "M08": "Word class (500 / 1,000) or GRID sentence",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Dataset labels and official LRW / LRW-1000 splits; GRID random 255 sentences per speaker",
+  "M13": "Offline benchmark study on 2-3 GPUs; no device or latency evaluation"
+ },
+ "topics": [
+  {
+   "slot": "M05",
+   "topic": "visual-speech-roi-selection",
+   "inclusion_rule": "Visual or audio-visual speech recognition decoders in the filtered population, classified by the facial region their own method feeds the visual front end: mouth or lip RoI (with or without margin), lower-face RoI including jaw and cheeks, whole face, or isolated extraoral regions (upper face, cheeks without the mouth); and whether they compare regions. Boundary: full-face tracking or recording followed by a mouth crop counts as a mouth RoI; region mentions in related work or citations of the target are not designs (pattern counts are mention counts, hand-checked for prior and concurrent hits); video-to-speech synthesis is outside the population but its region comparisons are named as cross-task priors.",
+   "pattern": "lip[- ]?read|visual speech recognition|vsr|avsr|audio-visual speech recognition|speechreading|lipreading (ledger), then the filtered population",
+   "design_field": "full-text regexes: mouth_roi, whole_face, extraoral, roi_comparison",
+   "metric": "LRW / LRW-1000 top-1 accuracy, GRID and LRS3 WER, face versus mouth input"
+  },
+  {
+   "slot": "M03",
+   "topic": "spatial-occlusion-augmentation-lip-reading",
+   "inclusion_rule": "The same filtered decoder population, classified by whether training masks or erases spatial patches of the input frames (Cutout, random erasing, random patch occlusion) as data augmentation. Boundary: dropout on feature maps (spatial dropout), time masking of whole frames, mixup and crop/flip do not count; citations of the target in comparison tables are not designs; hand check of every prior and concurrent hit.",
+   "pattern": "same population",
+   "design_field": "full-text regexes: cutout_or_erasing, crop_flip",
+   "metric": "LRW / LRW-1000 top-1 accuracy with and without the augmentation"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrw-word-accuracy",
+   "reuse": "components/M12/lrw-word-accuracy.json",
+   "inclusion_rule": "Published rule kept (visual-only LRW top-1; word-boundary results labelled). Appended for this review: the LRW decoders of the filtered population dated against 2020-03, with mention counts of a spread over training runs or seeds and of a significance test.",
+   "pattern": "published pattern",
+   "design_field": "repeated_runs and significance regexes over full text",
+   "metric": "LRW top-1 accuracy and its repetition"
+  }
+ ],
+ "reads": {
+  "prior": [
+   "isca-koumparoulis17_avsp",
+   "arxiv-1701.00495",
+   "arxiv-1803.04988",
+   "arxiv-1611.01599",
+   "arxiv-1810.06990",
+   "arxiv-1905.02540"
+  ],
+  "sota_or_later": [
+   "arxiv-2205.14295",
+   "arxiv-2011.07557",
+   "arxiv-2406.12233",
+   "arxiv-2209.01383"
+  ],
+  "note": "arxiv-1611.01599, arxiv-2406.12233 and arxiv-2209.01383 were already read for published topic tables; the passages were re-read for the values used here."
+ }
+}
