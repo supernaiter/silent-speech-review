@@ -9623,6 +9623,56 @@
    "loc": "Table 1",
    "quote": "H. E w/ monotonic attention 61.58 % 170",
    "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-2506.02178",
+   "role": "sota",
+   "loc": "Table 1 (rendered layout: row AV3, interferer 0)",
+   "quote": "A V3 Auto-A VSR [13] A V lrs2,vox2 lrs3 avspeech 0 1.7",
+   "by": "audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset",
+   "timing": "later"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2 (LRS2-BBC columns: M, + extLM)",
+   "quote": "TM-CTC A V 13.7% 8.2% 12.3% 7.5%",
+   "by": "audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2 (LRS2-BBC columns: M, + extLM)",
+   "quote": "TM-seq2seq A V 9.4% 8.5% 8.0% 7.2%",
+   "by": "audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Sec. 6.1",
+   "quote": "The best performing network is TM-seq2seq, which achieves a WER of 48.3% on LRS2-BBC when decoded with a language model",
+   "by": "audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2 (LRS2-BBC columns: M, + extLM)",
+   "quote": "TM-seq2seq A 10.5% 9.7% 9.0% 8.3%",
+   "by": "audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset"
+  },
+  {
+   "pid": "arxiv-1810.00108",
+   "role": "prior",
+   "loc": "Sec. 5.3",
+   "quote": "The ﬁrst one contains the transcriptions of the LibriSpeech corpus which contains 9.4 million words.",
+   "by": "audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset"
+  },
+  {
+   "pid": "arxiv-1810.00108",
+   "role": "prior",
+   "loc": "Table 2 (columns CER, WER)",
+   "quote": "A + V (Early Fusion) 3.6 7.0",
+   "by": "audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset"
   }
  ],
  "known_item_recall": {
@@ -9739,6 +9789,7 @@
  },
  "triage_2026_11_25": "verdict M06 changed ahead -> standard (no repetition across seeds, subjects or datasets); chronology split into before-target and prior counts; recall check added",
  "used_by": [
+  "audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset",
   "audio-visual-speech-recognition-with-a-hybrid-ctc-attention-architecture",
   "deep-lip-reading-a-comparison-of-models-and-an-online-application",
   "large-scale-visual-speech-recognition",
@@ -10496,5 +10547,194 @@
    "conv_ctc": "3 hits (LipNet and two versions of Stafylakis and Tzimiropoulos 2017 describing LipNet): spatiotemporal convolution front end with recurrent CTC back end; 0 temporal-convolution CTC back ends",
    "online": "26 hits; decoders with real-time operation: Cai et al. 2011 (isca-cai11-lightssi, real-time factors measured, read), Cai et al. ICPhS 2011, a 2017 real-time lip-reading monitor (doi-10.1109-access.2017.2649838), an on-line AV command recogniser (isca-chaloupka08_avsp); WLAS names an on-line decoder as an extension (read); the rest are perception studies, synthesis, or reference-list mentions"
   }
+ },
+ "dated_pattern_counts_audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset": {
+  "cutoffs": "first public relative to the target (2020-01, arXiv:2001.01656): prior before 2019-07, [concurrent] 2019-07 to 2020-07, [later] after 2020-07; month from the arXiv id or the venue, else year (2019-2020 year-only = date unresolved); one shared population for all topics (tools/pop.py): lip-reading, VSR and AVSR decoders named in title or ledger (rows with a short ledger kept when the full text names a recogniser), titles naming surveys, datasets, perception, neuroimaging, education, enhancement or separation without recognition, synthesis, talking heads, forgery, synchronisation and keyword spotting removed; two audio-visual enhancement studies that also run a recogniser and Audio-Visual Speech Fragment Decoding (isca-barker07-avsfd) added on reading; perception / neuroimaging / education and non-decoder rows removed on reading (shared lists plus tools/exclude_here.json), versions merged by ledger key plus a merge list; target excluded; full-text pattern counts with reference lists removed are mention counts (upper bounds); denominators are the unique studies of the topic subset",
+  "shared_population": {
+   "later": 390,
+   "prior": 188,
+   "concurrent": 29,
+   "unresolved": 4
+  },
+  "shared_population_total": 611,
+  "subset": "LRS2 decoders (ledger or title names LRS2)",
+  "subset_regex": "\\blrs ?2\\b|lrs2-bbc|lip reading sentences 2",
+  "population": 120,
+  "status": {
+   "later": 105,
+   "prior": 6,
+   "concurrent": 8,
+   "unresolved": 1
+  },
+  "design_regex": {
+   "end_to_end": "end-to-end|sequence-to-sequence|seq2seq|\\bctc\\b|connectionist temporal|encoder-decoder|transformer",
+   "hybrid_hmm": "hybrid (dnn|tdnn|hmm|system|asr|model)|\\btdnn|dnn-hmm|gmm-hmm|hmm-dnn|\\bkaldi\\b",
+   "lf_mmi_or_sequence_training": "lattice[- ]free|lf-mmi|\\bmmi\\b|sequence[- ](discriminative )?training|\\bsmbr\\b",
+   "external_lm": "language model"
+  },
+  "counts": {
+   "later": {
+    "end_to_end": 104,
+    "external_lm": 75,
+    "hybrid_hmm": 39,
+    "lf_mmi_or_sequence_training": 18
+   },
+   "prior": {
+    "end_to_end": 6,
+    "hybrid_hmm": 2,
+    "lf_mmi_or_sequence_training": 2,
+    "external_lm": 6
+   },
+   "concurrent": {
+    "end_to_end": 8,
+    "external_lm": 5,
+    "hybrid_hmm": 2,
+    "lf_mmi_or_sequence_training": 1
+   },
+   "unresolved": {
+    "end_to_end": 1,
+    "external_lm": 1
+   }
+  },
+  "pids": {
+   "prior": {
+    "end_to_end": [
+     "arxiv-1611.05358",
+     "arxiv-1806.06053",
+     "arxiv-1809.02108",
+     "arxiv-1810.00108",
+     "arxiv-1811.05250",
+     "arxiv-1904.04817"
+    ],
+    "hybrid_hmm": [
+     "arxiv-1611.05358",
+     "arxiv-1811.05250"
+    ],
+    "lf_mmi_or_sequence_training": [
+     "arxiv-1611.05358",
+     "arxiv-1806.06053"
+    ],
+    "external_lm": [
+     "arxiv-1611.05358",
+     "arxiv-1806.06053",
+     "arxiv-1809.02108",
+     "arxiv-1810.00108",
+     "arxiv-1811.05250",
+     "arxiv-1904.04817"
+    ]
+   },
+   "concurrent": {
+    "end_to_end": [
+     "arxiv-1911.06095",
+     "arxiv-1911.11502",
+     "arxiv-1911.12747",
+     "arxiv-2004.08250",
+     "arxiv-2005.03846",
+     "arxiv-2005.08571",
+     "arxiv-2005.09297",
+     "arxiv-2007.14223"
+    ],
+    "external_lm": [
+     "arxiv-1911.11502",
+     "arxiv-1911.12747",
+     "arxiv-2004.08250",
+     "arxiv-2005.08571",
+     "arxiv-2007.14223"
+    ],
+    "hybrid_hmm": [
+     "arxiv-2004.08250",
+     "arxiv-2007.14223"
+    ],
+    "lf_mmi_or_sequence_training": [
+     "arxiv-2007.14223"
+    ]
+   },
+   "unresolved": {
+    "end_to_end": [
+     "doi-10.1109-access.2020.3040906"
+    ],
+    "external_lm": [
+     "doi-10.1109-access.2020.3040906"
+    ]
+   }
+  },
+  "prior_ids": [
+   "arxiv-1611.05358",
+   "arxiv-1806.06053",
+   "arxiv-1809.02108",
+   "arxiv-1810.00108",
+   "arxiv-1811.05250",
+   "arxiv-1904.04817"
+  ],
+  "concurrent_ids": [
+   "arxiv-1911.06095",
+   "arxiv-1911.11502",
+   "arxiv-1911.12747",
+   "arxiv-2004.08250",
+   "arxiv-2005.03846",
+   "arxiv-2005.08571",
+   "arxiv-2005.09297",
+   "arxiv-2007.14223"
+  ],
+  "classified_on_reading": {
+   "prior_population": 6,
+   "prior_ids_designs": [
+    "arxiv-1611.05358 (WLAS sequence-to-sequence)",
+    "arxiv-1806.06053",
+    "arxiv-1809.02108 (TM-CTC, TM-seq2seq; read)",
+    "arxiv-1810.00108 (hybrid CTC/attention; read)",
+    "arxiv-1811.05250",
+    "arxiv-1904.04817"
+   ],
+   "excluded_on_reading": [
+    "ecva-stafylakis18-zerokws (keyword spotting)"
+   ],
+   "target_table1_check": "Target Table 1 lists Afouras et al. without-LM values (TM-CTC 65.0/15.3/13.7, TM-seq2seq 49.8/10.5/9.4); with the external LM they are 54.7/10.1/8.2 and 48.3/9.7/8.5 (Afouras et al. Table 2, read). Petridis et al. values (63.5/8.3/7.0) are with an RNN-LM (read).",
+   "concurrent": {
+    "population": 8,
+    "hybrid_hmm": [
+     "arxiv-2004.08250 (mention)",
+     "arxiv-2007.14223 (Kaldi hybrid on LRS2 with MMI training; matching passage read)"
+    ]
+   }
+  }
+ },
+ "usual_approach_audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset": {
+  "design": "end-to-end decoder (CTC, sequence-to-sequence or hybrid CTC/attention) with an external LM",
+  "n": 6,
+  "tier": "pattern match",
+  "population_unique": 6,
+  "pids": [
+   "arxiv-1611.05358",
+   "arxiv-1809.02108",
+   "arxiv-1810.00108",
+   "arxiv-1811.05250",
+   "arxiv-1806.06053"
+  ],
+  "note": "Prior LRS2 decoders (before 2019-07), mention counts over 6 unique studies: end-to-end 6, language model 6, hybrid HMM 2 and LF-MMI or sequence training 2 (mentions). [concurrent] 8: end-to-end 8, hybrid 2, LF-MMI or sequence training 1."
+ },
+ "state_of_the_art_audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset": {
+  "pid": "arxiv-2506.02178",
+  "year": 2025,
+  "timing": "later",
+  "confirmed_in_text": true,
+  "metric": "clean LRS2 test audio-visual WER of Auto-AVSR (trained on LRS2, VoxCeleb2, LRS3 and AVSpeech) as evaluated in Nguyen et al. 2025 Table 1",
+  "value": 1.7,
+  "unit": "% WER"
+ },
+ "inclusion_rule_audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset": "Published rule kept. For this review: the 6 prior and 8 [concurrent] LRS2 decoders of the shared population (ledger or title names LRS2), classified by full-text pattern for end-to-end objectives (CTC, sequence-to-sequence, encoder-decoder, Transformer), hybrid HMM systems (hybrid DNN or TDNN, GMM-HMM, Kaldi), LF-MMI or sequence training, and a language-model statement. Boundary: keyword spotting removed on reading; versions once; the target excluded.",
+ "known_item_recall_audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset": {
+  "seeds": [
+   "arxiv-1809.02108",
+   "arxiv-1810.00108",
+   "arxiv-1611.05358"
+  ],
+  "found": [
+   "arxiv-1809.02108",
+   "arxiv-1810.00108",
+   "arxiv-1611.05358"
+  ],
+  "recall": 1.0,
+  "note": "target-cited wiki ids for this component, found in the dated topic subset"
  }
 }

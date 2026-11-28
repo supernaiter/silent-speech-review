@@ -1,0 +1,65 @@
+{
+ "slug": "audio-visual-recognition-of-overlapped-speech-for-the-lrs2-dataset",
+ "stage": "final",
+ "steps": [
+  {
+   "step": "reading",
+   "by": "reader (language model)",
+   "output": "notes.json",
+   "what": "claims, numbers, conditions and unstated items of the target and comparator papers, each with a quote and location",
+   "finished": "2026-11-28T13:12:57+00:00"
+  },
+  {
+   "step": "plan",
+   "by": "writer (language model)",
+   "output": "plan.json",
+   "what": "which of the 13 components the paper changes, and the topics to compare on",
+   "finished": "2026-11-28T12:56:39+00:00"
+  },
+  {
+   "step": "field counts",
+   "by": "script",
+   "output": "topic tables under components/",
+   "what": "ledger search per topic: population, usual approach, candidate state of the art",
+   "finished": "2026-11-28T13:14:34+00:00"
+  },
+  {
+   "step": "draft",
+   "by": "writer (language model)",
+   "output": "draft.md, claims-draft.md",
+   "what": "review written from the notes and counts only; every claim mapped to a note or a count",
+   "finished": "2026-11-28T13:03:56+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-28T13:11:37+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "14 applied, 2 rejected, 0 unverified. Verdict changes: M11 not reported -> standard (to avoid counting the test-mixture gap twice); M12 stays behind with the rule and the best prior stated; M06 stays standard.",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-28T13:14:33+00:00"
+  }
+ ],
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 97 found, 0 missing, 18 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-avsr-stream-fusion-and-weighting": "ok",
+  "topic counts M06-sentence-lipreading-sequence-objective": "ok",
+  "topic counts M12-avsr-noise-and-run-variability-protocol": "ok"
+ },
+ "inputs": {
+  "notes_sha256": "d61cdef7a33b76ebde5658b0b1599e7300e8850267029112c6903bb85d6d4759",
+  "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+  "method_sha256": "e8a70a09aa6de9f44dabca89b49999dd1a33f4b014759fcb8827e7a2a8c2747a",
+  "method": "pipeline/SKILL.md"
+ },
+ "body_chars": {
+  "draft": 18275,
+  "final": 18765
+ }
+}
