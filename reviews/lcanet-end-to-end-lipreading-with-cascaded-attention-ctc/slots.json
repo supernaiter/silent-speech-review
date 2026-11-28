@@ -69,14 +69,14 @@
   "choice": [
    "3D-CNN, highway, Bi-GRU; attention cascaded into CTC"
   ],
-  "field": "CTC in 4 of 5 neural decoders before 2018-03 (57 studies)",
+  "field": "CTC in 4 of 5 end-to-end sequence decoders (57 studies before 2018-03)",
   "matched": 4,
   "matched_tier": "pattern match (unique studies, read)",
   "verdict": "standard",
-  "note": "New in lip reading; one corpus, one run.",
-  "sota": "[@wu2024lcrmi] 1.83% GRID overlapped",
-  "n": 57,
-  "usual": "CTC: 4 of 5 neural decoders, 57 studies before 2018-03"
+  "note": "New in lip reading; one corpus, one run; no in-house CTC-only baseline.",
+  "sota": "[@wu2024lcrmi] 1.83% GRID WER, 255 per speaker, no LM, joint loss",
+  "n": 5,
+  "usual": "CTC: 4 of 5 end-to-end sequence decoders among 57 studies before 2018-03"
  },
  "M07": {
   "name": "Lexicon/LM",
@@ -153,7 +153,7 @@
   "matched_tier": "pattern match (unique studies, mentions)",
   "verdict": "standard",
   "note": "No unseen-speaker result, no seeds.",
-  "sota": "[@wu2024lcrmi] 1.83% overlapped, 10.21% unseen",
+  "sota": "[@wu2024lcrmi] 1.83% (255 per speaker); [@xue2026linprovsr] 0.99% (24,750/8,250 split)",
   "n": 14,
   "usual": "Overlapped split named: 8 of 14 GRID decoders before 2018-03"
  },

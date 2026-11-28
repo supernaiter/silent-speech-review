@@ -1357,6 +1357,28 @@
    "role": "sota",
    "loc": "Table 2; Table 3",
    "quote": "LinProVSR 23.34 0.99"
+  },
+  {
+   "pid": "arxiv-2403.16071",
+   "role": "sota",
+   "loc": "Sec. 3.1; Sec. 3.2; Table 4",
+   "quote": "For the overlapped speaker setting, we randomly select 255 samples from each speaker for testing",
+   "timing": "later",
+   "by": "lcanet-end-to-end-lipreading-with-cascaded-attention-ctc"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "prior",
+   "loc": "Table 8; Sec. 5.4",
+   "quote": "Table 8. Word error rates on external lip reading datasets.",
+   "by": "lcanet-end-to-end-lipreading-with-cascaded-attention-ctc"
+  },
+  {
+   "pid": "arxiv-1611.01599",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "Baseline-NoLM 6.7% 13 .6% 2.0% 5 .6%",
+   "by": "lcanet-end-to-end-lipreading-with-cascaded-attention-ctc"
   }
  ],
  "known_item_recall": {
@@ -1408,13 +1430,89 @@
   "read": 5,
   "read_prior": [
    "arxiv-1601.08188",
-   "isca-gergen16-streamw"
+   "isca-gergen16-streamw",
+   "arxiv-1611.01599",
+   "arxiv-1611.05358"
   ],
   "unread": 117,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
  },
  "used_by": [
+  "lcanet-end-to-end-lipreading-with-cascaded-attention-ctc",
   "lipnet-end-to-end-sentence-level-lipreading"
- ]
+ ],
+ "counts_lcanet-end-to-end-lipreading-with-cascaded-attention-ctc": {
+  "cutoff": "2018-03",
+  "dated_before_cutoff_raw": 24,
+  "excluded": {
+   "arxiv-1703.04105": "evaluates on LRW, GRID only mentioned",
+   "isca-stafylakis17_lipread": "evaluates on LRW (version of arxiv-1703.04105)",
+   "arxiv-1711.08789": "speech enhancement",
+   "isca-kolossa12_avenh": "speech enhancement",
+   "pmc2700967_avstats": "audio-visual statistics, no decoder"
+  },
+  "version_duplicates_merged": {
+   "doi-10.1109-icassp.2016.7472852": "arxiv-1601.08188",
+   "doi-10.1109-taslp-2017-2716178": "doi-10.1109-taslp.2017.2716178",
+   "isca-gan07-af": "isca-gan07_avsp",
+   "isca-wand17_dalip": "arxiv-1708.01565",
+   "isca-wand17_interspeech": "arxiv-1708.01565"
+  },
+  "decoder_studies_before_cutoff": 14,
+  "mention_counts_before_cutoff": {
+   "unseen_speaker": 7,
+   "overlapped_speaker": 8,
+   "variability_or_significance": 6,
+   "seeds_or_repeated_runs": 0
+  },
+  "all_years_mention_counts_raw": {
+   "unseen": 55,
+   "overlapped": 49,
+   "variability": 40,
+   "seeds": 7
+  },
+  "concurrent_in_window": 0,
+  "regexes": {
+   "unseen": "unseen speakers?|speaker[- ]independent|held[- ]out (test )?speakers?|new speakers",
+   "overlapped": "overlapped speakers?|seen speakers|speaker[- ]dependent|255 (random )?(sentences|utterances|videos|samples)",
+   "variability": "standard deviation|±|confidence interval|significan* (test|level|improvement)|t-test|p [<=] 0.x",
+   "seeds": "random seeds?|seeds|independent runs|repeated N times"
+  },
+  "same_protocol_later": [
+   "arxiv-2009.05784",
+   "arxiv-2108.13630",
+   "arxiv-2403.16071",
+   "isca-qu19_interspeech"
+  ],
+  "excluded_counts": {
+   "lrw_only": 2,
+   "enhancement": 2,
+   "statistics_no_decoder": 1,
+   "version_duplicates": 5
+  }
+ },
+ "usual_approach_lcanet-end-to-end-lipreading-with-cascaded-attention-ctc": {
+  "design": "overlapped-speaker (random per-speaker) and unseen-speaker GRID splits both named; one run, no seeds",
+  "n": 8,
+  "tier": "pattern match",
+  "population_unique": 14,
+  "pids": [
+   "arxiv-1601.08188",
+   "arxiv-1611.01599",
+   "arxiv-1611.05358",
+   "arxiv-1708.01565"
+  ],
+  "note": "14 GRID decoder studies before 2018-03 (mentions): overlapped 8, unseen 7, variability or significance 6, seeds or repeated runs 0"
+ },
+ "state_of_the_art_lcanet-end-to-end-lipreading-with-cascaded-attention-ctc": {
+  "pid": "arxiv-2403.16071",
+  "year": 2024,
+  "metric": "GRID overlapped-speaker WER, 255 random test samples per speaker, visual-only, no external LM, hybrid CTC/attention",
+  "value": 1.83,
+  "unit": "% WER",
+  "timing": "later",
+  "confirmed_in_text": true,
+  "condition": "same protocol as the target; unseen-speaker 10.21%. Lowest GRID WER read: aaai-38133-linprovsr 0.99% (CFLip 1.01%) on a 24,750/8,250 split, speaker condition not named (published state_of_the_art of this table)"
+ }
 }
