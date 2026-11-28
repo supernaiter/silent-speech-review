@@ -1,0 +1,132 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Read isolated Japanese ATR words"
+     ],
+     "field": "Read speech",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Ordinary voiced speech, six male speakers."
+    },
+    "M02": {
+     "choice": [
+      "Phoneme labels by audio forced alignment (HTK)"
+     ],
+     "field": "Aligned phonetic labels",
+     "matched": null,
+     "verdict": "standard",
+     "note": "As in [@heckmann2001hybrid]."
+    },
+    "M03": {
+     "choice": [
+      "Six speaker-specific CNNs; no adaptation"
+     ],
+     "field": "Per-speaker or pooled training",
+     "matched": null,
+     "verdict": "standard",
+     "note": "No validation set or seeds reported."
+    },
+    "M04": {
+     "choice": [
+      "Pre-segmented isolated words, offline"
+     ],
+     "field": "Isolated or continuous input",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "One frontal 100 Hz monochrome camera; manual mouth crop"
+     ],
+     "field": "Camera, automatic or manual ROI",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Crop is manual (Sec. 4)."
+    },
+    "M06": {
+     "choice": [
+      "CNN phoneme posteriors into a GMM-HMM"
+     ],
+     "field": "HMM with hand-crafted features",
+     "n": 110,
+     "matched": 80,
+     "verdict": "standard",
+     "note": "CNN 0 of 110 prior; spatial convolution new; gain not repeated."
+    },
+    "M07": {
+     "choice": [
+      "Closed 84-word lexicon implied; no LM"
+     ],
+     "field": "Word HMMs, no LM",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Chance about 1.2% (inference)."
+    },
+    "M08": {
+     "choice": [
+      "Isolated word; 40 phoneme posteriors as features"
+     ],
+     "field": "Word classes",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "Offline"
+     ],
+     "field": "Offline",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M10": {
+     "choice": [
+      "Offline"
+     ],
+     "field": "Offline",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline study."
+    },
+    "M11": {
+     "choice": [
+      "Corpus word labels"
+     ],
+     "field": "Corpus references",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M12": {
+     "choice": [
+      "Test-word frames in CNN training"
+     ],
+     "field": "Speaker-independent test named (mention count)",
+     "n": 110,
+     "matched": 46,
+     "verdict": "behind",
+     "note": "Frame-level split 0 of 110 prior; seen speakers typical then."
+    },
+    "M13": {
+     "choice": [
+      "Offline laboratory study, one GPU"
+     ],
+     "field": "Offline",
+     "matched": null,
+     "verdict": "na",
+     "note": "No deployment claim."
+    }
+   }
+  }
+ ]
+}

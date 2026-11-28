@@ -136,7 +136,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`lipreading-speaker-dependence-protocol.csv`](lipreading-speaker-dependence-protocol.csv) (6960 slot-filled, 975 pattern match, usual design in 52, 1 read in full)
 - Inclusion rule: Same lip-reading population as M06, classified by the evaluation partition the full text names (speaker-dependent / same or seen speakers, versus speaker-independent / unseen or held-out speakers) and by whether it reports a standard deviation, confidence interval or significance test. Boundary: a study counts under every partition its text names, related-work mentions included (upper bound); versions count once; dated against 2016-01.
-- Used in: [Lipreading with Long Short-Term Memory](../../reviews/lipreading-with-long-short-term-memory/)
+- Used in: [Lipreading using Convolutional Neural Network](../../reviews/lipreading-using-convolutional-neural-network/), [Lipreading with Long Short-Term Memory](../../reviews/lipreading-with-long-short-term-memory/)
 
 ## listener-intelligibility-test
 

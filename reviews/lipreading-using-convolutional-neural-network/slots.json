@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Read isolated Japanese ATR words"
+  ],
+  "field": "Read speech",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Ordinary voiced speech, six male speakers.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Phoneme labels by audio forced alignment (HTK)"
+  ],
+  "field": "Aligned phonetic labels",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "As in [@heckmann2001hybrid].",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Six speaker-specific CNNs; no adaptation"
+  ],
+  "field": "Per-speaker or pooled training",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "No validation set or seeds reported.",
+  "sota": "–"
+ },
+ "M04": {
+  "choice": [
+   "Pre-segmented isolated words, offline"
+  ],
+  "field": "Isolated or continuous input",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "One frontal 100 Hz monochrome camera; manual mouth crop"
+  ],
+  "field": "Camera, automatic or manual ROI",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Crop is manual (Sec. 4).",
+  "sota": "–"
+ },
+ "M06": {
+  "choice": [
+   "CNN phoneme posteriors into a GMM-HMM"
+  ],
+  "field": "HMM with hand-crafted features",
+  "n": 110,
+  "matched": 80,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "standard",
+  "note": "CNN 0 of 110 prior; spatial convolution new; gain not repeated.",
+  "sota": "[@ahn2024syncvsr] (2024): LRW top-1 93.2%, no word boundaries"
+ },
+ "M07": {
+  "choice": [
+   "Closed 84-word lexicon implied; no LM"
+  ],
+  "field": "Word HMMs, no LM",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Chance about 1.2% (inference).",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Isolated word; 40 phoneme posteriors as features"
+  ],
+  "field": "Word classes",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "Offline"
+  ],
+  "field": "Offline",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "Offline"
+  ],
+  "field": "Offline",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Corpus word labels"
+  ],
+  "field": "Corpus references",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Test-word frames in CNN training"
+  ],
+  "field": "Speaker-independent test named (mention count)",
+  "n": 110,
+  "matched": 46,
+  "matched_tier": "pattern match (unique studies)",
+  "verdict": "behind",
+  "note": "Frame-level split 0 of 110 prior; seen speakers typical then.",
+  "sota": "[@petridis2019endtoend] (2019): AVLetters2, speaker held out, 36.8%, ten runs"
+ },
+ "M13": {
+  "choice": [
+   "Offline laboratory study, one GPU"
+  ],
+  "field": "Offline",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "No deployment claim.",
+  "sota": "–"
+ }
+}
