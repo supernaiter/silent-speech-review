@@ -1,0 +1,58 @@
+{
+ "target": "cvf-ren21-master-kd",
+ "versions": [
+  "cvf-ren21-master-kd",
+  "cvpr21-ren"
+ ],
+ "first_public": "2021-06",
+ "first_public_note": "CVPR 2021 proceedings (CVF open access, June 2021); no arXiv preprint found by title search; DOI 10.1109/CVPR46437.2021.01312 (Crossref, pages 13320-13328; the cvpr21-ren manifest DOI .01295 belongs to another paper). Both wiki folders hold the same PDF (sha256 8e978d62...). Window: prior before 2020-12, [concurrent] 2020-12 to 2021-12, [later] after 2021-12.",
+ "population": "One filtered population for all topics (tools/pop.py): index rows with a camera modality whose title or ledger names lip reading, VSR, LRW, LRS2/3 or speechreading and whose ledger names a model (network, HMM, classifier, decoder, CTC, seq2seq, attention, distillation, WER ...); titles naming surveys, datasets, perception, enhancement or separation, synthesis or video-to-speech, talking heads, forgery, synchronisation, keyword spotting or challenges removed; versions grouped by ledger key; target removed; off-task rows removed on reading (tools/exclude.txt). 582 groups: prior 221, [concurrent] 21, date unresolved 20, [later] 320.",
+ "changed": [
+  "M02",
+  "M03"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Voiced broadcast and TED speech video with paired audio (LRW, LRS2, LRS3)",
+  "M04": "Video only at test; audio feeds the master and audio tutor in training only",
+  "M05": "25 fps RGB lip crops 112x112 after dlib landmark alignment (Afouras et al. 2018 preprocessing); raw waveform for the master",
+  "M06": "3D conv + ResNet-18 front-end; temporal convolution (word) or TM-seq2seq (sentence), Afouras et al. 2018 / Stafylakis lineage",
+  "M07": "External LM use not stated; compared rows mix LM and no-LM",
+  "M08": "500 word classes or 40-symbol character sequences",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Benchmark splits (LRW, LRS2-BBC, LRS3-TED); speaker overlap not stated",
+  "M13": "Training hours only (Table 6); no inference cost"
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "knowledge-distillation-in-speech-decoding",
+   "reuse": "components/M02/knowledge-distillation-in-speech-decoding.json",
+   "inclusion_rule": "Published rule kept. For this review: the 221 prior and 21 [concurrent] lip-reading / VSR / AVSR decoders of the shared population, classified by full-text pattern (mentions included, snippets of every prior and concurrent hit read) for distillation, an audio or ASR teacher, an audio-visual teacher, and a teacher that is trained jointly with or updated from the student. Boundary: mentions in related work and reference lists are not designs; acoustic-only students are out; versions once.",
+   "design_regex": [
+    "kd",
+    "audio_teacher",
+    "av_teacher",
+    "trainable_teacher"
+   ],
+   "metric": "LRW top-1 accuracy (higher) and LRS2 WER (lower), same student with and without the teacher"
+  },
+  {
+   "slot": "M03",
+   "topic": "curriculum-ordering-in-lip-reading",
+   "inclusion_rule": "Lip-reading / VSR / AVSR decoders of the shared population that order or stage training samples by a curriculum; design compared: order by utterance length (words or short sentences first) against order by sample difficulty or a model's confidence. Boundary: noise or SNR curricula of enhancement systems, mentions of curricula not used, and the word 'curriculum' in other senses are excluded on reading; versions once.",
+   "pattern": "ledger text names curriculum and lip reading / VSR / LRW / LRS; dated counts over the shared population by full-text pattern",
+   "metric": "WER with and without the curriculum, same model"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrs2-visual-only-sentence-evaluation",
+   "reuse": "components/M12/lrs2-visual-only-sentence-evaluation.json",
+   "inclusion_rule": "Published rule kept. For this review: decoders of the shared population that report visual-only results on LRS2 before 2020-12, counted for run-to-run spread (seeds, repeated runs, standard deviation, intervals) and for language-model mention (pattern match, mention counts).",
+   "metric": "LRS2 visual-only WER, lower better; LM and training hours stated"
+  }
+ ]
+}

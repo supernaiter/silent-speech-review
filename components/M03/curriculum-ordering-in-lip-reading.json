@@ -1,0 +1,957 @@
+{
+ "topic": "curriculum-ordering-in-lip-reading",
+ "slot": "M03",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?=.*curriculum)(?=.*(lip[- ]?read|visual speech recognition|\\bvsr\\b|\\bavsr\\b|\\blrw\\b|\\blrs ?[23]\\b))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Lip-reading / VSR / AVSR decoders of the shared population that order or stage training samples by a curriculum; design compared: order by utterance length (words or short sentences first) against order by sample difficulty or a model's confidence. Boundary: noise or SNR curricula of enhancement systems, mentions of curricula not used, and the word 'curriculum' in other senses are excluded on reading; versions once.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 1608,
+  "slot_filled_unique": 1526,
+  "string_match_folders": 37,
+  "string_match_unique": 31,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M03",
+  "design_slot_fill": 0.179,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "supervision_kind=text_prompt",
+    "n": 4,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.20839",
+     "cvpr22-prajwal",
+     "cvpr21-ren",
+     "isca-ma21c_interspeech"
+    ]
+   },
+   {
+    "design": "TrainingRun.selection_data=trained on lrs train/val partition + audio-only training set",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1611.05358"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=ctc / tm loss + word-length curriculum; front-end trained 2 weeks separately",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-1806.06053"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=init predictor←lipreading",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2209.01768"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=update-enc←asr",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2209.01768"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=dec←lipreading; adam lr→2e-4",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2209.01768"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=bs8/16 grad-accum",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2209.01768"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=virtual epochs 500/750 curriculum",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2209.01768"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=curriculum 100->150->300->600f",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2303.08536"
+    ]
+   },
+   {
+    "design": "TrainingRun.training_objective=50/50/20/20ep",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2303.08536"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "length_curriculum",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "cvf-prajwal22-subword-vtp",
+     "pmc-8659639-vis2word",
+     "arxiv-1806.06053",
+     "arxiv-1809.02108"
+    ]
+   },
+   {
+    "design": "difficulty_curriculum",
+    "n": 3,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609-20839-currnoise",
+     "doi-10.1038-s41598-026-62988-0",
+     "arxiv-2401.09802"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "AVSR WER LRS3 clean",
+   "value": 0.0176,
+   "unit": "WER",
+   "raw": "AVSR WER LRS3 clean: AV-HuBERT 0.0176 (MoCo 0.0489, TM-CTC 0.1640)",
+   "pid": "mdpi-math11071733",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRS2: AV model 2.1% WER SOTA no-LM (vs 2.6 MOCO+Wav2vec, -0.5% abs / ~19% rel); audio-only 2.2% (vs 2.7% SOTA)",
+   "value": 2.1,
+   "unit": null,
+   "raw": "WER %",
+   "pid": "isca-yang23w_interspeech",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t5 a3.wer",
+   "value": 2.41,
+   "unit": "percent",
+   "raw": "2.41",
+   "pid": "arxiv-2508.07608",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t1 l3-asr c0",
+   "value": 2.53,
+   "unit": "wer",
+   "raw": "2.53",
+   "pid": "arxiv-2303.08536",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GRID benchmark 3.0% WER",
+   "value": 3.0,
+   "unit": "percent",
+   "raw": "WER on GRID benchmark",
+   "pid": "arxiv-1611.05358",
+   "year": 2017,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t6 e4 clean",
+   "value": 3.0,
+   "unit": "wer",
+   "raw": "3.0",
+   "pid": "arxiv-2209.01768",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "werGT",
+   "value": 8.8,
+   "unit": null,
+   "raw": "GT-audio WER % (Google ASR)",
+   "pid": "arxiv-1804.04121",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "GRU converter LRS2 WER % (k5 avg, clean visemes)",
+   "value": 9.9,
+   "unit": "percent",
+   "raw": "CER 7.0+/-0.5, WER 9.9+/-0.7, SAR 73.9+/-0.6, WAR 90.1+/-0.7",
+   "pid": "pmc-8659639-vis2word",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "LRW WER % (Ours-TM, best)",
+   "value": 14.3,
+   "unit": "percent",
+   "raw": "LRW word-level WER %, Ours-TM",
+   "pid": "cvpr21-ren",
+   "year": 2021,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (%)",
+   "value": 14.6,
+   "unit": "percent",
+   "raw": "14.6",
+   "pid": "arxiv-2609.20839",
+   "year": 2026,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1611.05358",
+   "key": "t:lipreadingsentencesinthewild",
+   "title": "Lip Reading Sentences in the Wild",
+   "year": 2017,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Lip Reading Sentences in the Wild | authors=Joon Son Chung; Andrew Senior; Oriol Vinyals; Andrew Zisserman | venue"
+  },
+  {
+   "pid": "arxiv-1804.04121",
+   "key": "p:arxiv-1804.04121",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "Study.study_design=controlled_experiment | Study.research_objective=isolate a target speaker voice from multi-talker sim"
+  },
+  {
+   "pid": "arxiv-1806.06053",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1806.06053 | title=Deep Lip Reading: a comparison of models and an online application | Study.research_ob"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "key": "t:deepaudiovisualspeechrecognition",
+   "title": "Deep Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1809.02108 | title=Deep Audio-Visual Speech Recognition | Study.research_objective=TM-CTC and TM-seq2seq"
+  },
+  {
+   "pid": "arxiv-1904.04817",
+   "key": "t:learningfromvideoswithdeepconvolutionallstmnetworks",
+   "title": "Learning from Videos with Deep Convolutional LSTM Networks",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1904.04817 | title=Learning from Videos with Deep Convolutional LSTM Networks | Study.research_objective="
+  },
+  {
+   "pid": "arxiv-2004.08250",
+   "key": "t:howtoteachdnnstopayattentiontothevisualmodalityinspeechrecognition",
+   "title": "How to Teach DNNs to Pay Attention to the Visual Modality in Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2004.08250 | title=How to Teach DNNs to Pay Attention to the Visual Modality in Speech Recognition | Stud"
+  },
+  {
+   "pid": "arxiv-2009.01225",
+   "key": "t:seeingwakewordsaudiovisualkeywordspotting",
+   "title": "Seeing wake words: Audio-visual Keyword Spotting",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2009.01225 | title=Seeing wake words: Audio-visual Keyword Spotting | Study.research_objective=KWS-Net: o"
+  },
+  {
+   "pid": "arxiv-2012.07467",
+   "key": "t:avtarisonlineaudiovisualspeechrecognition",
+   "title": "AV Taris: Online Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2012.07467 | title=AV Taris: Online Audio-Visual Speech Recognition | Study.research_objective=Extend onl"
+  },
+  {
+   "pid": "arxiv-2204.01725",
+   "key": "t:distinguishinghomophenesusingmultiheadvisualaudiomemoryforlipreading",
+   "title": "Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2204.01725 | title=Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading | Study"
+  },
+  {
+   "pid": "arxiv-2209.01768",
+   "key": "t:predictandupdatenetworkaudiovisualspeechrecognitioninspiredbyhumanspeechpercepti",
+   "title": "Predict-and-Update Network: Audio-Visual Speech Recognition Inspired by Human Speech Perception",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2209.01768 | title=Predict-and-Update Network: Audio-Visual Speech Recognition Inspired by Human Speech P"
+  },
+  {
+   "pid": "arxiv-2303.08536",
+   "key": "t:watchorlistenrobustaudiovisualspeechrecognitionwithvisualcorruptionmodelingandre",
+   "title": "Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modeling and Reliability Scoring",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.08536 | title=Watch or Listen: Robust Audio-Visual Speech Recognition with Visual Corruption Modelin"
+  },
+  {
+   "pid": "arxiv-2312.07254",
+   "key": "t:theguaspeechsystemdescriptionforcnvsrcchallenge2023",
+   "title": "The GUA-Speech System Description for CNVSRC Challenge 2023",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2312.07254 | title=The GUA-Speech System Description for CNVSRC Challenge 2023 | Study.research_objective"
+  },
+  {
+   "pid": "arxiv-2401.09802",
+   "key": "t:efficienttrainingformultilingualvisualspeechrecognitionpretrainingwithdiscretize",
+   "title": "Efficient Training for Multilingual Visual Speech Recognition: Pre-training with Discretized Visual Speech Representation",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2401.09802 | title=Efficient Training for Multilingual Visual Speech Recognition: Pre-training with Discr"
+  },
+  {
+   "pid": "arxiv-2407.01034",
+   "key": "p:arxiv-2407.01034",
+   "title": null,
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "vocabulary_regime=open_vocabulary | extra.Production.scope_note=voiced English speech driving lip region; output judged"
+  },
+  {
+   "pid": "arxiv-2410.16438",
+   "key": "t:alignvsraudiovisualcrossmodalalignmentforvisualspeechrecognition",
+   "title": "AlignVSR: Audio-Visual Cross-Modal Alignment for Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2410.16438 | title=AlignVSR: Audio-Visual Cross-Modal Alignment for Visual Speech Recognition | Study.res"
+  },
+  {
+   "pid": "arxiv-2508.07608",
+   "key": "t:adavsrasymmetricdualstreamenhancementforrobustaudiovisualspeechrecognition",
+   "title": "AD-AVSR: Asymmetric Dual-stream Enhancement for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2508.07608 | title=AD-AVSR: Asymmetric Dual-stream Enhancement for Robust Audio-Visual Speech Recognition"
+  },
+  {
+   "pid": "arxiv-2601.12436",
+   "key": "t:purificationbeforefusiontowardmaskfreespeechenhancementforrobustaudiovisualspeec",
+   "title": "Purification Before Fusion: Toward Mask-Free Speech Enhancement for Robust Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2601.12436 | title=Purification Before Fusion: Toward Mask-Free Speech Enhancement for Robust Audio-Visua"
+  },
+  {
+   "pid": "arxiv-2603.21808",
+   "key": "t:cascadefreemandarinvisualspeechrecognitionviasemanticguidedcrossrepresentational",
+   "title": "Cascade-Free Mandarin Visual Speech Recognition via Semantic-Guided Cross-Representation Alignment",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2603.21808 | title=Cascade-Free Mandarin Visual Speech Recognition via Semantic-Guided Cross-Representati"
+  },
+  {
+   "pid": "arxiv-2609-20839-currnoise",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition | authors=Teng,"
+  },
+  {
+   "pid": "arxiv-2609-20839-currvsr",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition | authors=Teng,"
+  },
+  {
+   "pid": "arxiv-2609.20839",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arXiv:2609.20839 | paper_version=arXiv:2609.20839v1 | title=Curriculum-Based Noise Adaptation for Phoneme-to-Te"
+  },
+  {
+   "pid": "arxiv-2609.20839-pect",
+   "key": "t:curriculumbasednoiseadaptationforphonemetotextreconstructioninvisualspeechrecogn",
+   "title": "Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Speech Recognition",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.20839-pect | title=Curriculum-Based Noise Adaptation for Phoneme-to-Text Reconstruction in Visual Sp"
+  },
+  {
+   "pid": "cvf-kim25-facesvoices",
+   "key": "t:fromfacestovoiceslearninghierarchicalrepresentationsforhighqualityvideotospeech",
+   "title": "From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-kim25-facesvoices | title=From Faces to Voices: Learning Hierarchical Representations for High-quality Vide"
+  },
+  {
+   "pid": "cvf-prajwal22-subword-vtp",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-prajwal22-subword-vtp | title=Sub-word Level Lip Reading With Visual Attention | authors=K. R. Prajwal, T."
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvf-ren21-master-kd | title=Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading"
+  },
+  {
+   "pid": "cvpr21-ren",
+   "key": "t:learningfromthemasterdistillingcrossmodaladvancedknowledgeforlipreading",
+   "title": "Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading | authors=Sucheng Ren, Yong Du"
+  },
+  {
+   "pid": "cvpr22-prajwal",
+   "key": "t:subwordlevellipreadingwithvisualattention",
+   "title": "Sub-word Level Lip Reading With Visual Attention",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=cvpr22-prajwal | title=Sub-word Level Lip Reading With Visual Attention | authors=K R Prajwal, Triantafyllos Af"
+  },
+  {
+   "pid": "doi-10.1038-s41598-026-62988-0",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce video & content understanding via vision: a comprehensive study on lip reading and visual speech recognition for enhanced shopping experience",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1038-s41598-026-62988-0 | title=E-commerce video & content understanding via vision: a comprehensive stu"
+  },
+  {
+   "pid": "doi-10.9766-kimst.2024.27.2.167",
+   "key": "t:koreanlipreadingdataconstructionandsentencelevellipreading",
+   "title": "Korean Lip-Reading: Data Construction and Sentence-Level Lip-Reading",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.9766-kimst.2024.27.2.167 | doi=10.9766/kimst.2024.27.2.167 | title=Korean Lip-Reading: Data Construction"
+  },
+  {
+   "pid": "in24-mamauv",
+   "key": "t:tacklingmissingmodalitiesinaudiovisualrepresentationlearningusingmaskedautoencod",
+   "title": "Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Tackling Missing Modalities in Audio-Visual Representation Learning Using Masked Autoencoders | authors=Georgios C"
+  },
+  {
+   "pid": "isca-krnoul08_avsp",
+   "key": "t:evaluationofsynthesizedsignandvisualspeechbydeaf",
+   "title": "Evaluation of synthesized sign and visual speech by deaf",
+   "year": 2008,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Evaluation of synthesized sign and visual speech by deaf | authors=Zdenek Krnoul; Patrik Rostik; Milos Zelezny | v"
+  },
+  {
+   "pid": "isca-ma21c_interspeech",
+   "key": "t:liralearningvisualspeechrepresentationsfromaudiothroughselfsupervision",
+   "title": "LiRA: Learning Visual Speech Representations from Audio through Self-supervision",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ma21c_interspeech | title=LiRA: Learning Visual Speech Representations from Audio through Self-supervision"
+  },
+  {
+   "pid": "isca-stafylakis17_interspeech",
+   "key": "p:isca-stafylakis17_interspeech",
+   "title": null,
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "venue=Interspeech 2017 | task_family=isolated_word_recognition | vocabulary_regime=closed_lexicon | scope_limits=English"
+  },
+  {
+   "pid": "isca-yang23w_interspeech",
+   "key": "t:animprovedendtoendaudiovisualspeechrecognitionmodel",
+   "title": "An Improved End-to-End Audio-Visual Speech Recognition Model",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Improved End-to-End Audio-Visual Speech Recognition Model | venue=Proc. Interspeech 2023:3094-3098 | intended_u"
+  },
+  {
+   "pid": "mdpi-math11071733",
+   "key": "t:researchonrobustaudiovisualspeechrecognitionalgorithms",
+   "title": "Research on Robust Audio-Visual Speech Recognition Algorithms",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=mdpi-math11071733 | title=Research on Robust Audio-Visual Speech Recognition Algorithms | authors=Wenfeng Yang;"
+  },
+  {
+   "pid": "pmc-8659639-vis2word",
+   "key": "t:aneffectiveconversionofvisemestowordsforhighperformanceautomaticlipreading",
+   "title": "An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading",
+   "year": 2021,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=An Effective Conversion of Visemes to Words for High-Performance Automatic Lipreading | authors=Souheil Fenghour,"
+  },
+  {
+   "pid": "scirep-62988-livevsr-net",
+   "key": "t:ecommercevideocontentunderstandingviavisionacomprehensivestudyonlipreadingandvis",
+   "title": "E-commerce Video & Content Understanding via Vision: A Comprehensive Study on Lip Reading and Visual Speech Recognition for Enhanced Shopping Experience",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=scirep-62988-livevsr-net | title=E-commerce Video & Content Understanding via Vision: A Comprehensive Study on"
+  }
+ ],
+ "usual_approach": {
+  "design": "length-ordered curriculum (single words, short subsequences or short sentences first)",
+  "n": 9,
+  "tier": "pattern match",
+  "population_unique": 167,
+  "pids": [
+   "arxiv-1611.05358",
+   "arxiv-1806.06053",
+   "arxiv-1809.02108",
+   "arxiv-1904.04817",
+   "arxiv-1906.12170",
+   "arxiv-1908.04917",
+   "arxiv-1911.11502",
+   "cvf-zhang19-stfcsl",
+   "doi-10.1609-aaai.v33i01.33019211"
+  ],
+  "note": "9 of 167 prior decoders use a curriculum (snippets read), all ordered by length (8 explicit, 1 adopted from Chung et al. 2017); 0 order by difficulty or confidence"
+ },
+ "read_fulltext": [
+  {
+   "pid": "cvf-ren21-master-kd",
+   "role": "target",
+   "loc": "Sec. 3.4",
+   "quote": "Previous lip reading methods [1, 7, 27] are proposed to randomly sample training data",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Sec. 5",
+   "quote": "we start training only on single word examples, and then let the sequence length grow as the network trains.",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "cvf-zhang19-stfcsl",
+   "role": "prior",
+   "loc": "Sec. 4",
+   "quote": "We start training on single word examples and then let the sequence length grow",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "prior",
+   "loc": "Sec. 1",
+   "quote": "a curriculum learning strategy to accelerate training",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "prior",
+   "loc": "Sec. 3.1",
+   "quote": "we start training only on single word examples, and then let the sequence length grow as the network trains.",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-2110.07603",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "unlike curriculums that gradually increase the length of the training sentences and usually require a complicated tuning process",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading",
+   "timing": "concurrent"
+  }
+ ],
+ "known_item_recall": {
+  "seeds_in_wiki": 3,
+  "found": 3,
+  "recall": 1.0,
+  "missed": []
+ },
+ "dated_pattern_counts_learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading": {
+  "cutoffs": "first public relative to the target (2021-06): prior before 2020-12, [concurrent] 2020-12 to 2021-12, [later] after 2021-12; month from the arXiv id or the venue, else year (2020-2021 year-only = date unresolved); shared lip-reading decoder population (tools/pop.py); versions grouped by ledger key plus a merge list; perception, neuroimaging, education and non-decoder rows removed on reading (tools/exclude_reading.json); target excluded",
+  "population": 519,
+  "status": {
+   "later": 322,
+   "prior": 167,
+   "concurrent": 20,
+   "unresolved": 10
+  },
+  "design_regex": {
+   "curriculum": "curriculum",
+   "difficulty_curriculum": "(difficult|confiden|easy|easier)[^.]{0,80}curriculum|curriculum[^.]{0,80}(difficult|confiden|easy|easier)|self[- ]paced learning",
+   "length_curriculum": "curriculum[^.]{0,120}(length|number of words|short|single word)|(length|number of words|short|single word)[^.]{0,120}curriculum"
+  },
+  "counts": {
+   "prior": {
+    "curriculum": 12,
+    "length_curriculum": 2
+   },
+   "concurrent": {
+    "curriculum": 4,
+    "length_curriculum": 1
+   },
+   "later": {
+    "curriculum": 33,
+    "length_curriculum": 3,
+    "difficulty_curriculum": 3
+   },
+   "unresolved": {
+    "curriculum": 2,
+    "length_curriculum": 1
+   }
+  },
+  "pids": {
+   "prior": {
+    "curriculum": [
+     "arxiv-1611.05358",
+     "arxiv-1806.06053",
+     "arxiv-1809.02108",
+     "arxiv-1904.04817",
+     "arxiv-1906.12170",
+     "arxiv-1908.04917",
+     "arxiv-1911.11502",
+     "arxiv-2004.08250",
+     "arxiv-2008.02516",
+     "cvf-zhang19-stfcsl",
+     "doi-10.1609-aaai.v33i01.33019211",
+     "oa-W1607796654"
+    ],
+    "length_curriculum": [
+     "arxiv-1806.06053",
+     "arxiv-1809.02108"
+    ]
+   },
+   "concurrent": {
+    "curriculum": [
+     "arxiv-2104.04784",
+     "arxiv-2106.09171",
+     "arxiv-2108.13630",
+     "arxiv-2110.07603"
+    ],
+    "length_curriculum": [
+     "arxiv-2110.07603"
+    ]
+   },
+   "later": {
+    "curriculum": [
+     "arxiv-2202.13084",
+     "arxiv-2203.07996",
+     "arxiv-2204.01725",
+     "arxiv-2212.06246",
+     "arxiv-2303.05309",
+     "arxiv-2303.08536",
+     "arxiv-2303.17200",
+     "arxiv-2308.07593",
+     "arxiv-2311.14063",
+     "arxiv-2401.09802",
+     "arxiv-2406.17614",
+     "arxiv-2407.06606",
+     "arxiv-2410-16438-alignvsr",
+     "arxiv-2411.02256",
+     "arxiv-2502.05758",
+     "arxiv-2509.00030",
+     "arxiv-2512.14083",
+     "arxiv-2603-21808-mandarin",
+     "arxiv-2606-31225-otcfm",
+     "arxiv-2609-20839-currnoise",
+     "arxiv-2609-24391-navir",
+     "cmc-nestlipgnn",
+     "doi-10.1038-s41598-026-62988-0",
+     "doi-10.20944-preprints202505.0540.v1",
+     "doi-10.21437-interspeech.2026-1163",
+     "doi-10.3389-fnhum.2023.1152516",
+     "doi-10.3390-info14100575",
+     "doi-10.9766-kimst.2024.27.2.167",
+     "in24-mamauv",
+     "isca-yang23w-e2eavsr",
+     "mdpi-math11071733",
+     "pmc-8712342-avtrain",
+     "w4405706429-turkishcnnlstm"
+    ],
+    "length_curriculum": [
+     "arxiv-2311.14063",
+     "doi-10.20944-preprints202505.0540.v1",
+     "doi-10.3390-info14100575"
+    ],
+    "difficulty_curriculum": [
+     "arxiv-2401.09802",
+     "arxiv-2609-20839-currnoise",
+     "doi-10.1038-s41598-026-62988-0"
+    ]
+   },
+   "unresolved": {
+    "curriculum": [
+     "doi-10.1109-access.2020.3040906",
+     "doi-10.3390-s21237890"
+    ],
+    "length_curriculum": [
+     "doi-10.3390-s21237890"
+    ]
+   }
+  },
+  "excluded_on_reading": [
+   "arxiv-1409.1411",
+   "arxiv-1809.04966",
+   "arxiv-2012.02515",
+   "doi-10.1016-j.bandl.2013.05.009",
+   "doi-10.1016-j.cub.2018.03.044",
+   "doi-10.1016-j.neuropsychologia.2007.11.026",
+   "doi-10.1016-j.nicl.2018.09.019",
+   "doi-10.1016-j.specom.2010.09.003",
+   "doi-10.1044-1092-4388-2009-08-0137",
+   "doi-10.1044-1092-4388-2012-12-0039",
+   "doi-10.1044-2013_jslhr-h-12-0273",
+   "doi-10.1044-2015_jslhr-h-14-0360",
+   "doi-10.1044-2019_jslhr-h-19-0073",
+   "doi-10.1044-2020_jslhr-20-00159",
+   "doi-10.1097-aud.0000000000001091",
+   "doi-10.1097-aud.0b013e318294e3f5",
+   "doi-10.1101-233676",
+   "doi-10.1111-cdev.12715",
+   "doi-10.1111-lang.12281",
+   "doi-10.1177-0956797614542132",
+   "doi-10.1371-journal.pbio.3000840",
+   "doi-10.1371-journal.pone.0080265",
+   "doi-10.1371-journal.pone.0223782",
+   "doi-10.1371-journal.pone.0234695",
+   "doi-10.14288-1.0094936",
+   "doi-10.15760-etd.1475",
+   "doi-10.1609-aaai.v35i18.17933",
+   "doi-10.3389-fnhum.2016.00679",
+   "doi-10.3389-fnhum.2020.00025",
+   "doi-10.3389-fnins.2021.683804",
+   "doi-10.3389-fpsyg.2014.00639",
+   "doi-10.3389-fpsyg.2017.00106",
+   "doi-10.3766-jaaa.21.3.4",
+   "doi-10.5772-36466",
+   "isca-botelho21-apnea",
+   "isca-botelho21_interspeech",
+   "isca-davis13_interspeech",
+   "isca-eger09_avsp",
+   "isca-franken17_avrecalib",
+   "isca-guitarteperez03_avsp",
+   "isca-gurbuz05_interspeech",
+   "isca-hori21-onlinecaption",
+   "isca-hueber08_segvocoder",
+   "isca-kalantari13_avsp",
+   "isca-kim11f_interspeech",
+   "isca-koumparoulis19_interspeech",
+   "isca-lalonde19_interspeech",
+   "isca-ma09_avcon",
+   "isca-mccotter01-linedrawn",
+   "isca-musti10_interspeech",
+   "isca-paris11_interspeech",
+   "isca-shillingford19_interspeech",
+   "isca-stekelenburg07-n1",
+   "isca-takacs09_interspeech",
+   "oa-W2743633178",
+   "oa-W2913918387",
+   "oa-W36894164",
+   "oa-W637681178",
+   "openaccess_avsp_barker99",
+   "pmc-2645675-lipbayes",
+   "pmc-4900800-lipmeg",
+   "pmc-5703212-lipreadbabble",
+   "pmc-9443519-lipreadhafit",
+   "pmc3810281",
+   "pmc7575283",
+   "spence-2000-xmodal"
+  ],
+  "merged_versions": {
+   "isca-kjellstrom07_capt": "isca-kjellstrom07_interspeech",
+   "arxiv-1703.04105": "isca-stafylakis17-resnetlstm",
+   "arxiv-1710.01142": "isca-bear15_avsp",
+   "arxiv-1710.01122": "isca-bear15b_avsp",
+   "arxiv-1710.01073": "doi-10.1109-icip.2014.7025274",
+   "arxiv-1708.01565": "isca-wand17_dalip",
+   "isca-ma19b-lombard": "arxiv-1906.02112",
+   "arxiv-1601.08188": "doi-10.1109-icassp.2016.7472852",
+   "isca-shrivastava19_interspeech": "arxiv-1905.03968",
+   "isca-shrivastava19-mobivsr": "arxiv-1905.03968"
+  },
+  "classified_on_reading": {
+   "prior_population": 167,
+   "curriculum_used": [
+    "arxiv-1611.05358",
+    "arxiv-1806.06053",
+    "arxiv-1809.02108",
+    "arxiv-1904.04817",
+    "arxiv-1906.12170",
+    "arxiv-1908.04917",
+    "arxiv-1911.11502",
+    "cvf-zhang19-stfcsl",
+    "doi-10.1609-aaai.v33i01.33019211"
+   ],
+   "length_order_stated": [
+    "arxiv-1611.05358",
+    "arxiv-1806.06053",
+    "arxiv-1809.02108",
+    "arxiv-1904.04817",
+    "arxiv-1908.04917",
+    "arxiv-1911.11502",
+    "cvf-zhang19-stfcsl",
+    "doi-10.1609-aaai.v33i01.33019211"
+   ],
+   "length_order_adopted_from_chung2017": [
+    "arxiv-1906.12170"
+   ],
+   "difficulty_or_confidence_order": [],
+   "not_design": [
+    "arxiv-2004.08250 (states it does not use one)",
+    "arxiv-2008.02516 (does not adopt it)",
+    "oa-W1607796654 (curriculum vitae)"
+   ],
+   "concurrent": {
+    "curriculum_used": [
+     "arxiv-2106.09171",
+     "arxiv-2108.13630"
+    ],
+    "curriculum_replaced": [
+     "arxiv-2110.07603"
+    ],
+    "mention": [
+     "arxiv-2104.04784"
+    ],
+    "difficulty_or_confidence_order": []
+   }
+  },
+  "reading_exclusions": {
+   "perception_neuro_education": 48,
+   "non_decoder_or_off_task": 17,
+   "duplicate_versions_merged": 12,
+   "lists": "tools/exclude_reading.json and tools/exclude.txt"
+  }
+ },
+ "used_by": [
+  "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+ ],
+ "tally": {
+  "slot_filled_unique": 1526,
+  "string_match_unique": 31,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "length-ordered curriculum (single words, short subsequences or short sentences first)",
+   "n": 9,
+   "tier": "pattern match",
+   "population_unique": 167
+  },
+  "state_of_the_art": {
+   "metric": "AVSR WER LRS3 clean",
+   "value": 0.0176,
+   "unit": "WER",
+   "raw": "AVSR WER LRS3 clean: AV-HuBERT 0.0176 (MoCo 0.0489, TM-CTC 0.1640)",
+   "pid": "mdpi-math11071733",
+   "year": 2023,
+   "tier": "ledger only",
+   "source": "ledger candidate, not yet confirmed"
+  },
+  "read": 5,
+  "read_prior": [
+   "arxiv-1611.05358",
+   "arxiv-1809.02108",
+   "arxiv-2110.07603",
+   "cvf-zhang19-stfcsl"
+  ],
+  "unread": 37,
+  "confirmed_unique": 0,
+  "known_item_recall": 1.0
+ }
+}

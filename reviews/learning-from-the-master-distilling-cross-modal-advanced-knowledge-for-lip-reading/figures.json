@@ -1,0 +1,133 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Voiced speech video, paired audio"
+     ],
+     "field": "Voiced speech video",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited (LRW, LRS2, LRS3)."
+    },
+    "M02": {
+     "choice": [
+      "Trainable audio-visual master updated through a look-ahead student; tutor-weighted loss"
+     ],
+     "field": "Of 167 prior, distillation 4 (fixed teacher 3, video branches 1); look-ahead teacher update 0",
+     "n": 167,
+     "matched": 4,
+     "verdict": "standard",
+     "note": "New for lip reading (general precedent: Meta Pseudo Labels); master beats teacher in three modalities on LRS2 only, one value per row."
+    },
+    "M03": {
+     "choice": [
+      "Tutor-confidence curriculum, exponential pacing"
+     ],
+     "field": "Of 167 prior, length-ordered curriculum 9; difficulty order 0",
+     "n": 167,
+     "matched": 9,
+     "verdict": "standard",
+     "note": "Gain 1.1, 0.5 and 0.1 WER points across three backends, one LRW run each; all 9 earlier curricula order by length."
+    },
+    "M04": {
+     "choice": [
+      "Voiced speech; video only at test"
+     ],
+     "field": "Video only at test",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Audio feeds master and audio tutor in training only."
+    },
+    "M05": {
+     "choice": [
+      "25 fps lip crops 112x112; raw audio for the master"
+     ],
+     "field": "Mouth-region crops",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited preprocessing (Afouras et al. 2018)."
+    },
+    "M06": {
+     "choice": [
+      "3D conv + ResNet-18; TC or TM-seq2seq"
+     ],
+     "field": "CNN front-end, temporal model or seq2seq",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M07": {
+     "choice": [
+      "LM use not stated"
+     ],
+     "field": "LM stated per compared row",
+     "matched": null,
+     "verdict": "missing",
+     "note": "Needed: Table 2 mixes no-LM rows with a 6-gram-LM row."
+    },
+    "M08": {
+     "choice": [
+      "500 words or 40 characters"
+     ],
+     "field": "Words or characters",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "Offline study"
+     ],
+     "field": "Offline",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M10": {
+     "choice": [
+      "Offline study"
+     ],
+     "field": "Offline",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M11": {
+     "choice": [
+      "LRW, LRS2, LRS3 splits"
+     ],
+     "field": "Corpus splits",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Speaker overlap and split sizes not stated."
+    },
+    "M12": {
+     "choice": [
+      "One WER per row; mixed-LM comparators"
+     ],
+     "field": "Of 17 prior on LRS2, no spread term 11",
+     "n": 17,
+     "matched": 11,
+     "verdict": "standard",
+     "note": "Claim holds for public-data, no-LM sentence rows; fails on LRW (born-again) and LRS3 (V2P)."
+    },
+    "M13": {
+     "choice": [
+      "Training hours only (Table 6)"
+     ],
+     "field": "Not reported",
+     "matched": null,
+     "verdict": "standard",
+     "note": "No inference cost or hardware stated."
+    }
+   }
+  }
+ ]
+}

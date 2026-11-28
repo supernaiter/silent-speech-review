@@ -146,12 +146,12 @@ Data behind this review. Full texts of the papers are not included.
 
 ## More reviews in Other sensors
 
+- [Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading](../learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading/) (2021). Look-ahead audio-visual master (M02) is new for lip reading but shown on one LRS2 run; confidence curriculum (M03) adds 0.1-1.1 WER points; SOTA claim fails on LRW and LRS3.
 - [LiRA: Learning Visual Speech Representations from Audio through Self-supervision](../lira-learning-visual-speech-representations-from-audio-through-self-supervision/) (2021). LiRA's audio-feature pre-training (M02, M03) is standard: it helps at 1% of labels but adds 0.7 points on LRW and 0.3 on LRS2 with all labels; its lead over other self-supervised work is the backbone.
 - [Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity](../real-time-synthesis-of-imagined-speech-processes-from-minimally-invasive-recordings-of-neural-activi/) (2021). Closed-loop sEEG word synthesis (M06) and audible-to-imagined transfer (M04) are standard; one participant; imagined output gets no word-content test (M12 behind Martin 2014).
 - [Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading](../distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading/) (2022). Audio memory (M02) and multi-head, multi-depth addressing (M06) are standard: the memory is the same group's ICCV design, head and depth gains are single LRW runs, and the LRW SOTA margin is 0.1.
 - [Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis](../generalizable-spelling-using-a-speech-neuroprosthesis-in-an-individual-with-severe-limb-and-vocal-pa/) (2022). Silent NATO code-word spelling (M04), closed-lexicon beam search (M07) and a hand-squeeze stop (M09) are standard; one participant, and >9,000 words only offline.
 - [Imagined speech can be decoded from low- and cross-frequency intracranial EEG features](../imagined-speech-can-be-decoded-from-low-and-cross-frequency-intracranial-eeg-features/) (2022). Adds low-frequency power (precedent: Pei 2011, Ikeda 2014) and phase-amplitude coupling (new) to imagined-speech ECoG decoding (M06); CFC effect unshown: 12 of 144 uncorrected tests.
-- [Robust Self-Supervised Audio-Visual Speech Recognition](../robust-self-supervised-audio-visual-speech-recognition/) (2022). Noise-augmented self-supervised AVSR training (M03) was new in 2022 but rests on one test set with no run count; the 49.6% babble gain mixes data and model size with pre-training.
 
 ---
 

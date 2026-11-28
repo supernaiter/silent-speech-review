@@ -198,7 +198,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`lrs2-visual-only-sentence-evaluation.csv`](lrs2-visual-only-sentence-evaluation.csv) (6960 slot-filled, 127 pattern match, usual design in 4, 7 read in full)
 - Inclusion rule: Studies that report visual-only (lip-reading) CER or WER on the LRS2 test set, any training regime. Boundary: audio-only and audio-visual rows, keyword spotting and corpus papers are excluded on reading; versions count once. For this review: target-time counts (prior before 2019-05, [concurrent] 2019-05 to 2020-05) of run-to-run spread reporting (seeds, repeated runs, standard deviation, intervals), hits read.
-- Used in: [Hearing Lips: Improving Lip Reading by Distilling Speech Recognizers](../../reviews/hearing-lips-improving-lip-reading-by-distilling-speech-recognizers/)
+- Used in: [Hearing Lips: Improving Lip Reading by Distilling Speech Recognizers](../../reviews/hearing-lips-improving-lip-reading-by-distilling-speech-recognizers/), [Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading](../../reviews/learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading/)
 
 ## lrs3-visual-only-wer
 
