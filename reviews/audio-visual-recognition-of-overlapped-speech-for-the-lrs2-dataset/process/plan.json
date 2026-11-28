@@ -1,0 +1,73 @@
+{
+ "target": "arxiv-2001.01656",
+ "versions": [
+  "arxiv-2001.01656"
+ ],
+ "first_public": "2020-01",
+ "first_public_note": "arXiv:2001.01656v1 posted 2020-01-06 (arXiv API; no later version); ICASSP 2020, DOI 10.1109/ICASSP40776.2020.9054127 (Crossref; the wiki manifest DOI 10.1109/ICASSP40776.2020.9054083 belongs to another paper). Window: prior before 2019-07, [concurrent] 2019-07 to 2020-07, [later] after 2020-07.",
+ "population": "One filtered decoder population for all topics (tools/pop.py): 611 unique studies (prior 188, [concurrent] 29, date unresolved 4, [later] 390); AVSR subset 265 (prior 89, [concurrent] 7, [later] 169); LRS2 subset 120 (prior 6, [concurrent] 8, unresolved 1, [later] 105).",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Ordinary voiced broadcast speech (LRS2-BBC)",
+  "M02": "GMM-HMM frame alignments of the clean target utterance as labels for overlapped speech (as in Chao et al. 2016); LipNet pre-trained on lip reading",
+  "M03": "Multi-condition training on clean plus two-speaker mixtures at 15 to -5 dB; no selection data stated",
+  "M04": "Overlapped voiced speech plus the target speaker's mouth ROI at test",
+  "M05": "Single-channel 16 kHz audio, 40 log-mel bins; 112x112 mouth ROI upsampled to 100 fps",
+  "M07": "4-gram LM on LRS2 Pre-train transcripts (>2M words)",
+  "M08": "Grapheme-state units, word output",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "LRS2 splits (Pre-train + Train-Val for training); speaker overlap and test-mixture pairing not stated",
+  "M13": "No model size, compute or latency, although the integrated model is called compact against a more complex pipeline"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "avsr-stream-fusion-and-weighting",
+   "reuse": "components/M06/avsr-stream-fusion-and-weighting.json",
+   "inclusion_rule": "Published rule kept. For this review: the 89 prior and 7 [concurrent] AVSR decoders of the shared population, classified by full-text pattern (mention counts, reference lists removed) for overlapped or competing-speaker speech, feature concatenation, stream weighting or modality attention, and gated fusion; every overlap hit read in its matching passage to find the decoders actually tested on speech mixtures and their fusion design. Boundary: enhancement or separation studies count only if they run their own recogniser; a study counts under every design its text names; versions once; the target excluded.",
+   "design_regex": [
+    "overlap_or_competing",
+    "gated_fusion",
+    "stream_weight_or_attention",
+    "feature_concatenation",
+    "gated_and_overlap",
+    "stream_weight_and_overlap"
+   ],
+   "metric": "two-speaker overlapped LRS2 WER at stated SNR (lower)"
+  },
+  {
+   "slot": "M06",
+   "topic": "sentence-lipreading-sequence-objective",
+   "reuse": "components/M06/sentence-lipreading-sequence-objective.json",
+   "inclusion_rule": "Published rule kept. For this review: the 6 prior and 8 [concurrent] LRS2 decoders of the shared population (ledger or title names LRS2), classified by full-text pattern for end-to-end objectives (CTC, sequence-to-sequence, encoder-decoder, Transformer), hybrid HMM systems (hybrid DNN or TDNN, GMM-HMM, Kaldi), LF-MMI or sequence training, and a language-model statement. Boundary: keyword spotting removed on reading; versions once; the target excluded.",
+   "design_regex": [
+    "end_to_end",
+    "hybrid_hmm",
+    "lf_mmi_or_sequence_training",
+    "external_lm"
+   ],
+   "metric": "clean LRS2 audio-visual WER (lower)"
+  },
+  {
+   "slot": "M12",
+   "topic": "avsr-noise-and-run-variability-protocol",
+   "reuse": "components/M12/avsr-noise-and-run-variability-protocol.json",
+   "inclusion_rule": "Published rule kept. For this review: the same 89 prior and 7 [concurrent] AVSR decoders, classified by full-text pattern for stated-SNR tests, babble, overlapped or competing speech, simulated-overlap wording (mixing with an interfering talker, TMR, SIR), run variability or significance, and a language-model statement; overlap and variability hits read. Boundary: versions once; the target excluded.",
+   "design_regex": [
+    "additive_noise_stated_snr",
+    "babble",
+    "overlap_or_competing",
+    "overlap_simulated",
+    "run_variability",
+    "lm_statement"
+   ],
+   "metric": "protocol (test-mixture recipe, clean condition and run variability stated or not)"
+  }
+ ]
+}
