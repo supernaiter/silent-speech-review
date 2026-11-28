@@ -1,0 +1,69 @@
+{
+ "target": "cvf-zhang19-stfcsl",
+ "versions": [
+  "cvf-zhang19-stfcsl (ICCV 2019, CVF open access; only version in the wiki; no arXiv preprint found by title in the index)"
+ ],
+ "first_public": "2019-10",
+ "window": {
+  "prior": "first public before 2019-04",
+  "concurrent": "2019-04 to 2020-04",
+  "later": "after 2020-04"
+ },
+ "population": "One filtered population for all topics (tools/pop.py, adapted from the shared lip-reading decoder builder): index rows with a camera modality whose title or ledger names lip reading, VSR, LRW, LRS2/3 or speechreading and whose ledger names a model; titles naming surveys, reviews, datasets/corpora, perception, enhancement or separation, synthesis or video-to-speech, talking faces, forgery, synchronisation, keyword spotting or challenges removed; perception, neuroimaging, education and non-decoder rows removed on reading (tools/exclude_reading.json, 49 + 20 ids); versions grouped by ledger key plus a merge list (12); target removed. 514 groups: prior 120, [concurrent] 25, date unresolved 2, [later] 367. Hand check of the prior list: two neuroscience/perception rows found and removed; two duplicate pairs merged.",
+ "setting": "Lip-reading, VSR and AVSR decoders, word or sentence level, any signal-boundary inside camera input; novelty precedents counted from the same population (all are video decoders).",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M07",
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Voiced broadcast and TED speech video (GRID, LRW, LRS2, LRS3)",
+  "M02": "Character labels only; teacher forcing",
+  "M03": "ImageNet-pretrained front end; LRW + LRS2/LRS3 pre-train sets, then fine-tuning; length curriculum of Chung et al. 2017",
+  "M04": "Video only at test",
+  "M05": "dlib 68-landmark alignment, 112x112 lip-centred crops",
+  "M08": "40-symbol character sequences",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Benchmark splits; GRID random split of LipNet (overlapped speakers)",
+  "M13": "Single 12 GB GPU; training days only"
+ },
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "lipreading-front-end-spatial-reduction",
+   "new": true,
+   "inclusion_rule": "Lip-reading decoders of the shared population with a learned convolutional front end, classified by how the per-frame feature map is reduced before the temporal model, as their full text states it (snippets of every prior and [concurrent] hit read): pooling to a per-frame vector (global average pooling or a ResNet pooled output), a fully connected layer over the spatial map (including flatten then project), or spatial or spatiotemporal attention/pyramid modules in the front end. Boundary: hand-crafted features (DCT, PCA, AAM) and fully connected networks on raw pixels without a convolutional front end are excluded; related-work mentions are not designs; versions once.",
+   "design_regex": [
+    "gap",
+    "fc_spatial",
+    "flatten",
+    "spatial_attention",
+    "spatial_pyramid"
+   ],
+   "metric": "LRW word error (100 - top-1) and LRS2/LRS3 WER with GAP against the alternative, same back end"
+  },
+  {
+   "slot": "M06",
+   "topic": "sentence-lipreading-encoder-architecture",
+   "reuse": "components/M06/sentence-lipreading-encoder-architecture.json",
+   "inclusion_rule": "Published rule kept. For this review: the 120 prior and 25 [concurrent] decoders of the shared population, classified by full-text pattern (reference list removed) and reading of every prior hit for a temporal-convolution sequence model (spatiotemporal front-end convolutions excluded), a convolutional encoder-decoder with attention, Transformer self-attention, and self-attention restricted to a local width. Boundary: temporal convolutions used only in a pretraining stage are counted separately; mentions are not designs; versions once.",
+   "design_regex": [
+    "conv_seq",
+    "transformer",
+    "local_attention",
+    "recurrent"
+   ],
+   "metric": "LRS2/LRS3 visual-only WER (lower), training time"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrs2-visual-only-sentence-evaluation",
+   "reuse": "components/M12/lrs2-visual-only-sentence-evaluation.json",
+   "inclusion_rule": "Published rule kept. For this review: decoders of the shared population that report visual-only results on LRS2 or LRS3 and are first public before 2019-04, read for whether each reported row states its external-LM condition, whether both conditions are given, and run spread; plus the best prior LRW result without word boundaries and the best prior GRID result, to check the target's Table 3 rows against their sources.",
+   "metric": "LRS2/LRS3 WER with LM condition; LRW error; GRID WER"
+  }
+ ]
+}
