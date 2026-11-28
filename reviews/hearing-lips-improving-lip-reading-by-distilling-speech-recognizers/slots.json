@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "Overt speech video, paired audio; length curriculum"
+  ],
+  "field": "Overt speech video",
+  "verdict": "standard",
+  "note": "Inherited from the WAS lineage.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M02": {
+  "choice": [
+   "Recognizer teacher distilled at sequence, context and frame level; transcripts kept"
+  ],
+  "field": "Forced-alignment audio targets (of 77 prior decoders); distillation 0",
+  "verdict": "ahead",
+  "note": "Absent among 77 prior decoders and in whole-wiki recall; gains on CMLR and LRS2 and with all three teachers, single runs; audio-specific benefit not isolated.",
+  "sota": "[@ren2021master] (2021): LRS2 57.5% WER, audio teacher 54.2%, video teacher 53.4%",
+  "n": 77,
+  "matched": 13,
+  "matched_tier": "pattern match (unique studies)"
+ },
+ "M03": {
+  "choice": [
+   "Teacher ASR on benchmark plus extra audio; grid-searched KD weights"
+  ],
+  "field": "–",
+  "verdict": "standard",
+  "note": "Inherited; selection split and teacher audio split not stated.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M04": {
+  "choice": [
+   "Overt speech; muted video at test"
+  ],
+  "field": "Overt speech video",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M05": {
+  "choice": [
+   "Grayscale mouth crops"
+  ],
+  "field": "Mouth-region video",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M06": {
+  "choice": [
+   "WAS attention seq2seq"
+  ],
+  "field": "Attention seq2seq or CTC",
+  "verdict": "standard",
+  "note": "Inherited from WAS.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M07": {
+  "choice": [
+   "Beam 1 or 4; LM use not stated"
+  ],
+  "field": "External LM in compared systems",
+  "verdict": "not_reported",
+  "note": "Needed because Table 5 compares against systems decoded with an external LM.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M08": {
+  "choice": [
+   "Characters (1,779 Chinese; 26 letters)"
+  ],
+  "field": "Characters",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M09": {
+  "choice": [
+   "Offline study"
+  ],
+  "field": "Offline",
+  "verdict": "not_applicable",
+  "note": "Offline benchmark.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M10": {
+  "choice": [
+   "Offline study"
+  ],
+  "field": "Offline",
+  "verdict": "not_applicable",
+  "note": "No user correction.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M11": {
+  "choice": [
+   "Provided CMLR (random 7:1:2) and LRS2 (by date) splits"
+  ],
+  "field": "Corpus splits",
+  "verdict": "standard",
+  "note": "CMLR test speakers also appear in training; not stated by the paper.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ },
+ "M12": {
+  "choice": [
+   "One value per row; no seeds; mixed-LM comparison table"
+  ],
+  "field": "No run count (of 4 prior LRS2 decoders)",
+  "verdict": "standard",
+  "note": "State-of-the-art claim holds for CMLR only.",
+  "sota": "[@haliassos2024usr] (2024): LRS2 VSR 16.0% WER, no LM",
+  "n": 4,
+  "matched": 4,
+  "matched_tier": "pattern match (unique studies)"
+ },
+ "M13": {
+  "choice": [
+   "No device or latency figures"
+  ],
+  "field": "Not reported",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (not audited)"
+ }
+}
