@@ -1,6 +1,6 @@
 {
  "slug": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,29 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-28T01:42:07+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-28T01:50:49+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-28T01:58:53+00:00"
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 145 found, 0 missing, 16 unchecked (unstated, figure-only or no source)",
+  "topic counts M03-training-data-scale-video-to-speech": "ok",
+  "topic counts M06-video-to-speech-synthesis": "ok",
+  "topic counts M12-video-to-speech-output-evaluation": "ok"
+ },
  "inputs": {
   "notes_sha256": "8569da868cf1670e67c395cbbfd23dafa95d0ca68ab980a04a99580845216965",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +60,6 @@
  },
  "body_chars": {
   "draft": 16154,
-  "final": null
+  "final": 19079
  }
 }

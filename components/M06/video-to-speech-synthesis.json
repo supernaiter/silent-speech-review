@@ -2387,6 +2387,69 @@
    "role": "prior",
    "loc": "Tables 4-5",
    "quote": "GMM UNV GMM + AAM + LPC Unvoiced"
+  },
+  {
+   "pid": "cvf-prajwal20-lip2wav",
+   "role": "target",
+   "loc": "Sec. 2.1; Sec. 7.1; Tables 2-4",
+   "quote": "both these works do not make use of the well-studied sequence-to-sequence paradigm [31]",
+   "by": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "isca-qu19-lipsound",
+   "role": "prior",
+   "loc": "Abstract; Sec. 2; Sec. 3.1; Sec. 5",
+   "quote": "an encoder-decoder architec- ture with attention mechanism to predict mel-spectrogram from videos",
+   "by": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "isca-vougioukas19_ganv2s",
+   "role": "prior",
+   "loc": "Sec. 2.1; Sec. 2.4",
+   "quote": "We use a window of N = 7 frames as input for the generator",
+   "by": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "arxiv-1708.01204",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "Using K = 9 frames as input worked best.",
+   "by": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "arxiv-1710.09798",
+   "role": "prior",
+   "loc": "Sec. 1; Sec. 4.1",
+   "quote": "we build a CNN + LSTM network to construct the speech for lip videos",
+   "by": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "arxiv-1701.00495",
+   "role": "prior",
+   "loc": "Abstract; Sec. 3",
+   "quote": "The proposed CNN generates sound features for each frame based on its neighboring frames.",
+   "by": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "arxiv-2307.01233",
+   "role": "sota",
+   "loc": "Table I; Table IV; Sec. IV-A",
+   "quote": "Lip2Wav [5] 0.416 0.284 Hong et al. [28] 0.566 0.429 RobustL2S 0.583 0.397",
+   "by": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "arxiv-1710.09798",
+   "role": "prior",
+   "loc": "Sec. 4.2",
+   "quote": "We ﬁxed the length of each video slice Lv to 5 (which is equivalent to 200 ms)",
+   "by": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis"
+  },
+  {
+   "pid": "isca-vougioukas19_ganv2s",
+   "role": "prior",
+   "loc": "Sec. 2.1",
+   "quote": "fed to a single layer gated recurrent unit (GRU) net- work which produces a series features",
+   "by": "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis"
   }
  ],
  "known_item_recall": {
@@ -2432,7 +2495,11 @@
    "cvf-kim21-mabm",
    "doi-10.1109-tnnls.2022.3191677",
    "isca-cornu15-v2speech",
-   "isca-vougioukas19_ganv2s"
+   "isca-vougioukas19_ganv2s",
+   "arxiv-1701.00495",
+   "arxiv-1708.01204",
+   "arxiv-1710.09798",
+   "isca-qu19-lipsound"
   ],
   "unread": 187,
   "confirmed_unique": 0,
@@ -2444,6 +2511,7 @@
   "improved-speech-reconstruction-from-silent-video",
   "intelligible-lip-to-speech-synthesis-with-speech-units",
   "large-scale-unsupervised-audio-pre-training-for-video-to-speech-synthesis",
+  "learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis",
   "lip2audspec-speech-reconstruction-from-silent-lip-movements-video",
   "lipper-synthesizing-thy-speech-using-multi-view-lipreading",
   "multi-modality-associative-bridging-through-memory-speech-sound-recollected-from-face-video",
@@ -3813,5 +3881,88 @@
   "unread": 187,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
+ },
+ "counts_learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis": {
+  "window": "prior = first public before 2019-11 (arXiv month where available); [concurrent] = 2019-11 to 2020-11; [later] after 2020-11; target first public 2020-05 (arXiv 2005.08209v1, 2020-05-17)",
+  "population": "video-only talking-face or lip video to speech waveform synthesizers (decoders), screened from the 165-study ledger pattern by title and full text; reviews, datasets, enhancement, separation, ultrasound, talking-head and off-task papers removed; versions once",
+  "prior_population": {
+   "isca-cornu15-v2speech": "Le Cornu and Milner 2015, AAM/DCT features to STRAIGHT vocoder, GRID",
+   "doi-10.1109-taslp.2017.2716178": "Le Cornu and Milner 2017, AAM features, RNN temporal integration, STRAIGHT, GRID",
+   "arxiv-1701.00495": "Vid2Speech, CNN on a frame window to LPC/LSP, GRID",
+   "arxiv-1708.01204": "Ephrat et al. 2017, CNN on 9 frames plus optical flow to mel/linear spectrogram, GRID and TCD-TIMIT",
+   "arxiv-1710.09798": "Lip2AudSpec, CNN + LSTM over non-overlapping 5-frame (200 ms) video slices to autoencoder-coded spectrogram, GRID S1/S2/S4/S29 jointly",
+   "arxiv-1807.00619": "Kumar et al. 2018, multi-view LSTM over 5-image windows, OuluVS2",
+   "arxiv-1907.01367": "Lipper, multi-view STCNN + BiGRU to LPC, OuluVS2",
+   "isca-vougioukas19_ganv2s": "Vougioukas et al. 2019, 3D-CNN on 7 frames + GRU, GAN raw waveform, GRID seen and unseen speakers",
+   "isca-uttam19-hushhush": "Hush-Hush Speak, 3D-conv encoder-decoder to autoencoder bottleneck, OuluVS2, speaker-independent",
+   "isca-qu19-lipsound": "LipSound, Tacotron2-style attention encoder-decoder on whole 3-s GRID clips, teacher forcing, mel + Griffin-Lim, speaker-dependent"
+  },
+  "prior_unique": 10,
+  "prior_design_counts": {
+   "non_autoregressive_regression_frame_window_or_recurrent_encoder": 9,
+   "autoregressive_attention_seq2seq_mel_decoder": 1
+  },
+  "autoregressive_attention_prior": [
+   "isca-qu19-lipsound"
+  ],
+  "input_context": {
+   "whole_3s_clip": [
+    "isca-qu19-lipsound"
+   ],
+   "frame_window_7_to_9_frames": [
+    "arxiv-1708.01204",
+    "isca-vougioukas19_ganv2s"
+   ],
+   "slice_200ms": [
+    "arxiv-1710.09798"
+   ],
+   "note": "Lip2AudSpec feeds 5-frame (200 ms) slices (Sec. 4.2); Vougioukas runs a single-layer GRU over the 7-frame encodings of the clip (Sec. 2.1), recurrent context beyond 0.5 s; LipSound reports no speech-quality metric (STOI, PESQ or listeners), its mels feed a lip-reading back-end"
+  },
+  "later_same_design": {
+   "arxiv-2112.04748": "LipSound2 (2021-12), location-aware attention encoder-decoder pre-trained on about 2,400 h; GRID speaker-dependent ESTOI 0.592 vs Lip2Wav 0.535 (Table III)"
+  },
+  "excluded_prior": {
+   "doi-10.1016-j.csl.2015.09.008 icphs2007-hueber-ouisper isca-hueber08_segvocoder isca-csapo17_ussynth": "tongue ultrasound (with or without lip video), not talking-face video only",
+   "isca-almajai06_interspeech isca-milner07-viswien isca-kawashima10_timstruct arxiv-1711.08789 arxiv-1804.04121 arxiv-1808.00046 arxiv-1907.04975 arxiv-1909.11919": "enhancement or separation with audio at test, or feature prediction without a waveform",
+   "isca-tamura18_avvc": "audio-visual voice conversion, audio input",
+   "talking-head and visual speech synthesis titles (1998-2015, e.g. isca-theobald08_interspeech)": "speech-to-video or text-to-face, off-task",
+   "doi-10.1109-taslp.2017.2752365": "survey"
+  },
+  "concurrent": {
+   "isca-michelsanti20-vid2voc": "Michelsanti et al. 2020 (arXiv 2004.02541), frame-level CNN+RNN to WORLD vocoder features, GRID; non-autoregressive"
+  },
+  "fulltext_step": {
+   "pattern": "(lip-to-speech | video-to-speech | speech reconstruction from silent lip/video | reconstruct/synthesize/generate speech/audio/mel ... silent video/lip movements/face video/mouth), reference list removed, whole wiki, index year <= 2020",
+   "hits_folders": 21,
+   "new_prior_synthesizers": 0,
+   "hit_notes": "hits are the target (two folders), 6 already-listed priors and the concurrent Michelsanti 2020, a survey, and enhancement/separation/inpainting/recognition papers (arxiv-1711.08789, isca-afouras18-conversation, isca-gabbay18-visualenhance, arxiv-1908.02590, arxiv-1909.07352, cvf-xu20-aemsr, arxiv-2008.09586, arxiv-2009.09561, arxiv-2010.04556, arxiv-2011.04359, arxiv-2008.00889 MRI)"
+  },
+  "same_group": {
+   "same_group_prior_lip_to_speech": 0,
+   "note": "no earlier lip-to-speech system by Prajwal, Mukhopadhyay, Namboodiri or Jawahar in the wiki; later same-group: arxiv-2209.00642, arxiv-2403.01087, arxiv-2206.02050 (Namboodiri)"
+  },
+  "target_reference_list_check": "target cites Vid2Speech [10], Ephrat [9], Lip2AudSpec [4], Lipper [22], Le Cornu 2017 [23], Vougioukas [36] and LipSound [28]; LipSound only among lip-to-text works (Sec. 2.2); not cited: Le Cornu 2015, Kumar 2018, Hush-Hush 2019",
+  "tier": "pattern match (unique studies), screened by title and full text"
+ },
+ "usual_approach_learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis": {
+  "design": "non-autoregressive regression of acoustic features from frame windows or a recurrent encoder",
+  "n": 9,
+  "tier": "pattern match",
+  "population_unique": 10,
+  "pids": [
+   "arxiv-1701.00495",
+   "arxiv-1708.01204",
+   "arxiv-1710.09798",
+   "isca-vougioukas19_ganv2s"
+  ],
+  "note": "prior synthesizers at the target's time; 1 of 10 (LipSound, isca-qu19-lipsound) uses a Tacotron2-style autoregressive attention decoder on whole 3-s clips"
+ },
+ "state_of_the_art_learning-individual-speaking-styles-for-accurate-lip-to-speech-synthesis": {
+  "pid": "arxiv-2307.01233",
+  "year": 2023,
+  "metric": "STOI, Lip2Wav Chemistry Lectures, official split, speaker-dependent (Lip2Wav 0.416 in the same table, copied); pre-trained AV-HuBERT BASE fine-tuned on Whisper transcripts, non-autoregressive seq2seq feature mapping (0.50 without it, Table I), HiFi-GAN vocoder",
+  "value": 0.583,
+  "unit": "STOI",
+  "timing": "later"
  }
 }
