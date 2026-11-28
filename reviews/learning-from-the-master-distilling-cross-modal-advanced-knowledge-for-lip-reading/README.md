@@ -1,0 +1,164 @@
+# Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading
+
+Ren, S., Du, Y., Lv, J., Han, G., He, S. · CVPR 2021 · 2021 · [doi:10.1109/CVPR46437.2021.01312](https://doi.org/10.1109/CVPR46437.2021.01312)
+
+
+**Section:** [Other sensors](../../README.md#other-sensors)
+
+## Figures
+
+### This paper in the 13 components, against the field
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="figures/components-dark.svg"><img alt="This paper in the 13 components, against the field" src="figures/components-light.svg"></picture>
+
+Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).
+
+<details><summary>Data</summary>
+
+| Component | This paper | Common practice | Papers with this practice | Verdict |
+| --- | --- | --- | --- | --- |
+| M01 Training-time act | Voiced speech video, paired audio | Voiced speech video |  | ● Standard (Inherited (LRW, LRS2, LRS3).) |
+| M02 Teacher signal | Trainable audio-visual master updated through a look-ahead student; tutor-weighted loss | Of 167 prior, distillation 4 (fixed teacher 3, video branches 1); look-ahead teacher update 0 | 4 of 167 | ● Standard (New for lip reading (general precedent: Meta Pseudo Labels); master beats teacher in three modalities on LRS2 only, one value per row.) |
+| M03 Train / calibrate | Tutor-confidence curriculum, exponential pacing | Of 167 prior, length-ordered curriculum 9; difficulty order 0 | 9 of 167 | ● Standard (Gain 1.1, 0.5 and 0.1 WER points across three backends, one LRW run each; all 9 earlier curricula order by length.) |
+| M04 Use-time act | Voiced speech; video only at test | Video only at test |  | ● Standard (Audio feeds master and audio tutor in training only.) |
+| M05 Sensing | 25 fps lip crops 112x112; raw audio for the master | Mouth-region crops |  | ● Standard (Inherited preprocessing (Afouras et al. 2018).) |
+| M06 Decoding | 3D conv + ResNet-18; TC or TM-seq2seq | CNN front-end, temporal model or seq2seq |  | ● Standard (Inherited.) |
+| M07 Runtime aids | LM use not stated | LM stated per compared row |  | ✕ Not reported (Needed: Table 2 mixes no-LM rows with a 6-gram-LM row.) |
+| M08 Output | 500 words or 40 characters | Words or characters |  | ● Standard (Inherited.) |
+| M09 Confirmation | Offline study | Offline |  | – Not applicable (Offline benchmark.) |
+| M10 Correction | Offline study | Offline |  | – Not applicable (Offline benchmark.) |
+| M11 Eval reference | LRW, LRS2, LRS3 splits | Corpus splits |  | ● Standard (Speaker overlap and split sizes not stated.) |
+| M12 Evaluation | One WER per row; mixed-LM comparators | Of 17 prior on LRS2, no spread term 11 | 11 of 17 | ● Standard (Claim holds for public-data, no-LM sentence rows; fails on LRW (born-again) and LRS3 (V2P).) |
+| M13 Hardware & limits | Training hours only (Table 6) | Not reported |  | ● Standard (No inference cost or hardware stated.) |
+
+</details>
+
+## Verdict
+
+The paper [[1]](#ref-1) changes the teacher (M02), a trainable audio-visual "master" updated through the loss of a one-step-updated student, and the sample order (M03), a tutor-confidence curriculum. None of 167 prior lip-reading decoders updates a teacher that way (pattern match, Appendix), a mechanism general machine learning already had [[2]](#ref-2); the isolating comparison is one LRS2 value per row, so M02 stays standard. The curriculum is standard: earlier decoders already order by length, contrary to §3.4, and the gain falls to 0.1 WER points on the strongest backend (inference), as the authors concede. The strongest confound: a same-structure video teacher alone gives about half the gain of the best master setting (57.5% to 53.4% WER against 49.6%, Tables 1 and 5; inference). The state-of-the-art claim (M12) holds for public-data sentence rows without an LM, and fails on LRW against born-again distillation [[3]](#ref-3) and on LRS3 against V2P [[4]](#ref-4).
+
+## Against the field, component by component
+
+### M02 Training-only supervision: trainable audio-visual master
+
+**Usual approach:** Of 167 prior lip-reading and VSR decoders, 4 distil (pattern match, Appendix): LIBS [[5]](#ref-5) and Afouras et al. [[6]](#ref-6) from a fixed recognizer, born-again distillation from a fixed video model [[3]](#ref-3), and two video branches that distil into each other [[7]](#ref-7). None uses an audio-visual teacher or updates the teacher through the student's task loss after a look-ahead step (Appendix); the master does both (§3.3, Algorithm 1).
+
+**State of the art:** SyncVSR (2024) [[8]](#ref-8) [later] reaches 93.2% LRW top-1 without word boundaries, three runs, LRW video, vq-wav2vec audio tokens as targets, Transformer. The paper's best LRW-only result, 11.8% WER (Table 6), is 88.2%; the 5.0-point gap (inference) mixes backbone and outside audio pretraining.
+
+General precedents exist: Meta Pseudo Labels adapts the teacher "by the feedback of the student's performance" [[2]](#ref-2), as does Learning to Teach [[9]](#ref-9); the authors compare only with online distillation (§2). None of 20 [concurrent] decoders uses the mechanism (Appendix). In Table 4 a master beats its fixed counterpart in every modality: 54.1% to 51.5% WER audio-visual, 54.2% to 52.1% audio, 53.4% to 53.0% video, 4.8%, 3.9% and 0.7% relative (inference), though each master is the weaker recognizer (§4.4). Verdict: standard; new for lip reading, single LRS2 values.
+
+### M03 Training: tutor-confidence curriculum
+
+**Usual approach:** 9 of 167 prior decoders use a curriculum, all ordered by length, words or short sequences first [[10]](#ref-10) [[11]](#ref-11) [[12]](#ref-12); 0 order by difficulty or confidence (pattern match, Appendix). The paper ranks samples by tutor confidence with exponential pacing (§3.4).
+
+**State of the art:** No lip-reading study read isolates a difficulty order; the [concurrent] sub-word reader (2021) [[13]](#ref-13) drops length curricula as needing "a complicated tuning process" (§3). The paper's own gain is 1.1, 0.5 and 0.1 WER points over three backends (Table 6), 5.6%, 3.6% and 0.8% relative (inference).
+
+§3.4 says [1, 7, 27] "randomly sample training data"; all three start on single words [[10]](#ref-10) [[11]](#ref-11) [[12]](#ref-12), so only the criterion is new (difficulty order 0 of 167, Appendix). The authors concede that with an advanced backend CL "mainly helps to accelerate the training" (§4.4). Verdict: standard; one run per row, no length-ordered control.
+
+### M12 Evaluation: state-of-the-art claim
+
+**Usual approach:** Of 17 prior decoders mentioning LRS2, 11 mention no run spread and 13 a language model (mention counts, Appendix). The paper gives one WER per row, no LM statement.
+
+**State of the art:** On LRS2, USR (2024) [[14]](#ref-14) [later] reaches 16.0% without an LM (223 labelled, 1,759 unlabelled hours), and Auto-AVSR 14.6% with one (3,448 labelled hours, same table). On LRS3, LP Conformer (2023) [[15]](#ref-15) [later] reaches 12.8% with 100k hours of non-public video.
+
+TM-Seq2Seq's 49.8% and 59.9%, with MV-LRS data as the authors note (§4.3), are no-LM rows; with an LM it gives 48.3% and 58.9% [[11]](#ref-11). TM-CTC-KD's 51.3% and 59.8% use a 6-gram LM and extra data [[6]](#ref-6). Left out: V2P [[4]](#ref-4), 55.1 ± 0.9% on LRS3 (5-gram LM, 3,886 h non-public), 3.9 points better (inference); on LRW, Martinez et al. [[16]](#ref-16), listed at 14.7% in Table 6 against Ours-TM's 14.3%, and born-again distillation at 87.9% top-1 without an LM [[3]](#ref-3). Verdict: standard.
+
+## The 13 components
+
+| Component | This paper | Usual approach (count) | State of the art | Verdict |
+|---|---|---|---|---|
+| M01 Training-time action | Voiced speech video, paired audio | Voiced speech video | – | standard |
+| M02 Training-only supervision | Trainable audio-visual master updated through a look-ahead student; tutor-weighted loss | Of 167 prior, distillation 4 (fixed teacher 3, video branches 1); look-ahead teacher update 0 (pattern match 4) | [[8]](#ref-8) (2024): LRW 93.2%, vq-wav2vec targets | standard |
+| M03 Training and adaptation | Tutor-confidence curriculum, exponential pacing | Of 167 prior, length-ordered curriculum 9; difficulty order 0 (pattern match 9) | – | standard |
+| M04 Use-time action | Voiced speech; video only at test | Video only at test | – | standard |
+| M05 Sensors | 25 fps lip crops 112x112; raw audio for the master | Mouth-region crops | – | standard |
+| M06 Processing and decoding | 3D conv + ResNet-18; TC or TM-seq2seq | CNN front-end, temporal model or seq2seq | – | standard |
+| M07 Lexicon and LM | LM use not stated | LM stated per compared row | – | not reported |
+| M08 Output | 500 words or 40 characters | Words or characters | – | standard |
+| M09 Confirmation | Offline study | Offline | – | not applicable |
+| M10 Correction | Offline study | Offline | – | not applicable |
+| M11 Reference construction | LRW, LRS2, LRS3 splits | Corpus splits | – | standard |
+| M12 Evaluation | One WER per row; mixed-LM comparators | Of 17 prior on LRS2, no spread term 11 (pattern match 11) | [[14]](#ref-14) (2024): LRS2 16.0% WER, no LM | standard |
+| M13 Device and cost | Training hours only (Table 6) | Not reported | – | standard |
+
+## Where the claims outrun the evidence
+
+- The 6.7-point LRW gain over "its baseline Temporal Convolution" (§4.3) uses a copied 25.4%; the own 2-layer baseline, 24.3%, sits in Table 6's curriculum row, giving 5.6 points (inference).
+- Ours-TC's 18.7% appears in Table 6, "only LRW", and in Table 2 after LRS2/LRS3 pretraining (§4.2).
+- Table 1's speech recognizer gives 15.7% WER, Table 4's audio teacher 17.2%, though the teachers share one structure (§1).
+- §3.3 says the master update uses "a validation set"; Algorithm 1 resamples training pairs.
+
+## What the field needs next
+
+- M02: fixed audio-visual teacher, master without feedback and full master, LRW and LRS2, several seeds.
+- M03: confidence, length and random order at equal training hours.
+- M12: comparators at one LM setting, repeated runs.
+
+## Questions for the authors
+
+- Is an external LM or beam search used on LRS2 and LRS3?
+- Which data update the master and select checkpoints?
+- How many runs underlie Tables 4–6?
+
+## Appendix: literature search
+
+- Shared population for all topics: lip-reading and VSR decoders from the index (camera input; ledger or title names lip reading, VSR, LRW, LRS2/3 or speechreading, so AVSR studies without such a term are outside; the ledger names a model), with survey, dataset, enhancement, synthesis, talking-head, forgery, synchronisation and keyword-spotting titles removed, then on reading 48 perception, neuroimaging and education studies and 17 non-decoder or off-task rows removed and 12 duplicate versions merged; target removed: 519 studies, dated against 2021-06 as prior (before 2020-12) 167, [concurrent] (2020-12 to 2021-12) 20, date unresolved 10, [later] 322. Design counts are full-text pattern matches (reference lists not removed), every prior and [concurrent] hit snippet read.
+- M02 knowledge-distillation-in-speech-decoding (published table, appended). Inclusion rule: speech decoding from any non-acoustic or audio-visual signal with a teacher-student objective; for this review the shared population, classified for distillation, teacher source, and a teacher updated through the student's task loss after a look-ahead student step; mentions are not designs. Ledger counts (all dates): slot-filled 31 (M02); 22 unique studies ledger match. Prior: distillation pattern 8 of 167, used 4 (fixed teacher 3: ASR 2, video 1; video branches distilling into each other 1), mentions 4; audio-visual teacher 0; look-ahead teacher update 0 (3 pattern hits: a meta-learning mention, a reference list, [[7]](#ref-7)). [Concurrent]: distillation pattern 7 of 20, look-ahead teacher update 0. Outside the population: [[2]](#ref-2), [[9]](#ref-9) (general machine learning, abstracts read); DML, ONE, CLNN, KDCL named by the target; [[17]](#ref-17) named by [[6]](#ref-6). Read: [[5]](#ref-5), [[6]](#ref-6), [[7]](#ref-7), [[3]](#ref-3) (prior); [[8]](#ref-8) (state of the art).
+- M03 curriculum-ordering-in-lip-reading (new). Inclusion rule: decoders of the shared population that order or stage training samples by a curriculum, compared by order (utterance length against difficulty or model confidence); noise curricula, curricula mentioned but not used, and other senses of the word excluded on reading; versions once. Ledger counts: slot-filled 1,526 (M03); pattern match 31 unique studies (37 folders). Prior: curriculum pattern 12 of 167; used 9, all length-ordered (8 explicit, 1 adopted from [[10]](#ref-10)); difficulty or confidence order 0; not designs 3. [Concurrent]: 4 hits, used 2, replaced by a second training stage 1, mention 1; difficulty order 0. Read: [[10]](#ref-10), [[11]](#ref-11), [[12]](#ref-12) (prior); [[13]](#ref-13) ([concurrent]). Known-item recall of the ledger pattern 1.0 (3 of 3 seeds).
+- M12 lrs2-visual-only-sentence-evaluation (published table, appended). Inclusion rule: visual-only CER or WER on the LRS2 test set, any training regime; for this review the shared population before 2020-12, counted for run-to-run spread and language-model mention. Ledger counts (all dates): slot-filled 6,960 (M12); 127 unique studies pattern match (182 folders). Prior: LRS2 mentioned by 17 of 167; spread term 6 of 17, language model 13 of 17 (mention counts, upper bounds); LRW mentioned by 38, spread term 13. [Concurrent]: LRS2 12 of 20, spread 2, language model 9. Read: [[11]](#ref-11), [[6]](#ref-6), [[4]](#ref-4), [[3]](#ref-3) (prior); [[14]](#ref-14), [[15]](#ref-15) (state of the art). Known-item recall of the published table 1.0.
+
+## References
+
+Numbered by first citation. BibTeX in the same order and keys: [refs.bib](refs.bib).
+
+1. <a id="ref-1"></a>Ren, S., Du, Y., Lv, J., Han, G., He, S. “Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading.” *IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2021, 13320-13328. doi:[10.1109/CVPR46437.2021.01312](https://doi.org/10.1109/CVPR46437.2021.01312). Target. CVPR 2021 proceedings (CVF open access); no arXiv preprint. [wiki: cvf-ren21-master-kd](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/cvf-ren21-master-kd/article.md) [wiki: cvpr21-ren](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/cvpr21-ren/article.md)
+2. <a id="ref-2"></a>Pham, H., Dai, Z., Xie, Q., Luong, M., Le, Q. V. “Meta Pseudo Labels.” *IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2021. arXiv:[2003.10580](https://arxiv.org/abs/2003.10580). Prior, outside speech decoding; teacher adapted from the student's performance on labelled data (M02).
+3. <a id="ref-3"></a>Ma, P., Martinez, B., Petridis, S., Pantic, M. “Towards Practical Lipreading with Distilled and Efficient Models.” *IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 2021, 7608-7612. doi:[10.1109/ICASSP39728.2021.9415063](https://doi.org/10.1109/ICASSP39728.2021.9415063). arXiv:[2007.06504](https://arxiv.org/abs/2007.06504). Born-again self-distillation, same-architecture video teacher, LRW (M02, M12). [wiki: arxiv-2007.06504](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2007.06504/article.md)
+4. <a id="ref-4"></a>Shillingford, B., Assael, Y., Hoffman, M. W., Paine, T., Hughes, C., Prabhu, U., et al. “Large-Scale Visual Speech Recognition.” *arXiv preprint*, 2018. arXiv:[1807.05162](https://arxiv.org/abs/1807.05162). V2P, LRS3 WER with bootstrap error, non-public LSVSR training data (M12). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/large-scale-visual-speech-recognition) [wiki: arxiv-1807.05162](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1807.05162/article.md) [wiki: isca-shillingford19-largescale](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-shillingford19-largescale/article.md) [wiki: isca-shillingford19_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-shillingford19_interspeech/article.md)
+5. <a id="ref-5"></a>Zhao, Y., Xu, R., Wang, X., Hou, P., Tang, H., Song, M. “Hearing Lips: Improving Lip Reading by Distilling Speech Recognizers.” *Proceedings of the AAAI Conference on Artificial Intelligence*, 2020, 34(04), 6917-6924. doi:[10.1609/aaai.v34i04.6174](https://doi.org/10.1609/aaai.v34i04.6174). arXiv:[1911.11502](https://arxiv.org/abs/1911.11502). Fixed pretrained speech-recognizer teacher distilled into a lip reader (M02). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/hearing-lips-improving-lip-reading-by-distilling-speech-recognizers) [wiki: doi-10.1609-aaai.v34i04.6174](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1609-aaai.v34i04.6174/article.md) [wiki: arxiv-1911.11502](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1911.11502/article.md)
+6. <a id="ref-6"></a>Afouras, T., Chung, J. S., Zisserman, A. “ASR is all you need: cross-modal distillation for lip reading.” *IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 2020, 2143-2147. doi:[10.1109/ICASSP40776.2020.9054253](https://doi.org/10.1109/ICASSP40776.2020.9054253). arXiv:[1911.12747](https://arxiv.org/abs/1911.12747). Fixed ASR teacher distilled into a lip reader; 6-gram LM in decoding (M02, M12). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/asr-is-all-you-need-cross-modal-distillation-for-lip-reading) [wiki: arxiv-1911.12747](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1911.12747/article.md)
+7. <a id="ref-7"></a>Xiao, J., Yang, S., Zhang, Y., Shan, S., Chen, X. “Deformation Flow Based Two-Stream Network for Lip Reading.” *IEEE International Conference on Automatic Face and Gesture Recognition (FG)*, 2020. arXiv:[2003.05709](https://arxiv.org/abs/2003.05709). Two video branches trained jointly with bidirectional distillation (M02). [wiki: arxiv-2003.05709](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2003.05709/article.md)
+8. <a id="ref-8"></a>Ahn, Y. J., Park, J., Park, S., Choi, J., Kim, K. “SyncVSR: Data-Efficient Visual Speech Recognition with End-to-End Crossmodal Audio Token Synchronization.” *Interspeech*, 2024. arXiv:[2406.12233](https://arxiv.org/abs/2406.12233). Quantized audio tokens as frame-level training targets for a video-only encoder (M02). [later] [wiki: arxiv-2406.12233](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2406.12233/article.md) [wiki: isca-ahn24-syncvsr](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-ahn24-syncvsr/article.md) [wiki: isca-ahn24_interspeech](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/isca-ahn24_interspeech/article.md) [wiki: in24-syncvsr](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/in24-syncvsr/article.md)
+9. <a id="ref-9"></a>Fan, Y., Tian, F., Qin, T., Li, X., Liu, T. “Learning to Teach.” *International Conference on Learning Representations (ICLR)*, 2018. arXiv:[1805.03643](https://arxiv.org/abs/1805.03643). Prior, outside speech decoding; teacher optimized from student feedback by reinforcement learning (M02).
+10. <a id="ref-10"></a>Chung, J. S., Senior, A., Vinyals, O., Zisserman, A. “Lip Reading Sentences in the Wild.” *IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 2017. doi:[10.1109/CVPR.2017.367](https://doi.org/10.1109/CVPR.2017.367). arXiv:[1611.05358](https://arxiv.org/abs/1611.05358). Curriculum learning listed as a contribution (M03). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/lip-reading-sentences-in-the-wild) [wiki: arxiv-1611.05358](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1611.05358/article.md) [wiki: cvf-chung17-lipreadwild](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/cvf-chung17-lipreadwild/article.md)
+11. <a id="ref-11"></a>Afouras, T., Chung, J. S., Senior, A., Vinyals, O., Zisserman, A. “Deep Audio-Visual Speech Recognition.” *IEEE Transactions on Pattern Analysis and Machine Intelligence*, 2018. doi:[10.1109/TPAMI.2018.2889052](https://doi.org/10.1109/TPAMI.2018.2889052). arXiv:[1809.02108](https://arxiv.org/abs/1809.02108). Length curriculum; LRS2/LRS3 WER with and without external LM (M03, M12). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/deep-audio-visual-speech-recognition) [wiki: arxiv-1809.02108](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-1809.02108/article.md) [wiki: doi-10.1109-tpami.2018.2889052](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/doi-10.1109-tpami.2018.2889052/article.md)
+12. <a id="ref-12"></a>Zhang, X., Cheng, F., Wang, S. “Spatio-Temporal Fusion based Convolutional Sequence Learning for Lip Reading.” *IEEE/CVF International Conference on Computer Vision (ICCV)*, 2019, 713-722. doi:[10.1109/ICCV.2019.00080](https://doi.org/10.1109/ICCV.2019.00080). Length curriculum adopted from Afouras et al. (M03). [wiki: cvf-zhang19-stfcsl](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/cvf-zhang19-stfcsl/article.md)
+13. <a id="ref-13"></a>Prajwal, K. R., Afouras, T., Zisserman, A. “Sub-word Level Lip Reading With Visual Attention.” *IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2022. arXiv:[2110.07603](https://arxiv.org/abs/2110.07603). Replaces length curricula with a single-run second stage (M03). [concurrent] [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/sub-word-level-lip-reading-with-visual-attention) [wiki: arxiv-2110.07603](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2110.07603/article.md)
+14. <a id="ref-14"></a>Haliassos, A., Mira, R., Chen, H., Landgraf, Z., Petridis, S., Pantic, M. “Unified Speech Recognition: A Single Model for Auditory, Visual, and Audiovisual Inputs.” *Advances in Neural Information Processing Systems (NeurIPS)*, 2024. arXiv:[2411.02256](https://arxiv.org/abs/2411.02256). LRS2 visual-only WER without LM (M12). [later] [wiki: arxiv-2411.02256](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2411.02256/article.md)
+15. <a id="ref-15"></a>Chang, O., Liao, H., Serdyuk, D., Shah, A., Siohan, O. “Conformers are All You Need for Visual Speech Recognition.” *IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 2024, 10136-10140. arXiv:[2302.10915](https://arxiv.org/abs/2302.10915). LRS3 VSR WER with 100k hours of non-public video (M12). [later] [wiki: arxiv-2302.10915](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2302.10915/article.md)
+16. <a id="ref-16"></a>Martinez, B., Ma, P., Petridis, S., Pantic, M. “Lipreading using Temporal Convolutional Networks.” *arXiv preprint*, 2020. doi:[10.48550/arXiv.2001.08702](https://doi.org/10.48550/arXiv.2001.08702). arXiv:[2001.08702](https://arxiv.org/abs/2001.08702). MS-TCN backend reused in the target's Table 6 and omitted from its Table 2 (M12). [review](https://github.com/supernaiter/silent-speech-review/tree/main/reviews/lipreading-using-temporal-convolutional-networks) [wiki: arxiv-2001.08702](https://github.com/supernaiter/deep-research-wiki-for-silent-speech/blob/main/papers/arxiv-2001.08702/article.md)
+17. <a id="ref-17"></a>Li, W., Wang, S., Lei, M., Siniscalchi, S. M., Lee, C. “Improving Audio-visual Speech Recognition Performance with Cross-modal Student-teacher Training.” *IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 2019, 6560-6564. doi:[10.1109/ICASSP.2019.8682868](https://doi.org/10.1109/ICASSP.2019.8682868). Prior; ASR teacher distilled into an audio-visual student (M02), as described by Afouras et al.
+
+## Materials
+
+Data behind this review. Full texts of the papers are not included.
+
+- [`review.md`](review.md): the review text (source)
+- [`refs.bib`](refs.bib): references (BibTeX)
+- [`slots.json`](slots.json): for each of the 13 components: this paper's choice, field practice, number of matching papers, verdict
+- [`figures.json`](figures.json): figure definitions
+- [`evaluation.md`](evaluation.md): independent evaluation by a second reviewer
+- [`triage.md`](triage.md): how each evaluation finding was checked against the sources and resolved
+- [`process/log.json`](process/log.json): process record: each step, who did it (reader, script, writer, evaluator), when, the checks run and the input versions
+- [`process/notes.json`](process/notes.json): reading notes on the target and comparator papers: claims, numbers, conditions and what is not stated, with locations
+- [`process/plan.json`](process/plan.json): plan: which components the paper changes and the topics it is compared on
+- [`process/draft.md`](process/draft.md): the review as first written, before the independent evaluation
+- [`process/claims-draft.md`](process/claims-draft.md): claim table of the draft: every claim mapped to a note or a count
+- [`process/claims.md`](process/claims.md): claim table of the published review
+- [`components/M02/knowledge-distillation-in-speech-decoding.csv`](../../components/M02/knowledge-distillation-in-speech-decoding.csv): M02 topic "knowledge-distillation-in-speech-decoding", every candidate paper with its decision (31 slot-filled, 22 pattern match, usual design in 46, 1 read in full)
+- [`components/M03/curriculum-ordering-in-lip-reading.csv`](../../components/M03/curriculum-ordering-in-lip-reading.csv): M03 topic "curriculum-ordering-in-lip-reading", every candidate paper with its decision (1526 slot-filled, 31 pattern match, usual design in 9, 5 read in full)
+- [`components/M12/lrs2-visual-only-sentence-evaluation.csv`](../../components/M12/lrs2-visual-only-sentence-evaluation.csv): M12 topic "lrs2-visual-only-sentence-evaluation", every candidate paper with its decision (6960 slot-filled, 127 pattern match, usual design in 4, 7 read in full)
+
+
+## More reviews in Other sensors
+
+- [End-to-End Audio-Visual Speech Recognition with Conformers](../end-to-end-audio-visual-speech-recognition-with-conformers/) (2021). Conformer back-end on raw inputs (M06) and Transformer LM (M07) are standard: raw-input AVSR predates it, and the Conformer gain is one unrepeated step confounded with a decoder swap.
+- [LiRA: Learning Visual Speech Representations from Audio through Self-supervision](../lira-learning-visual-speech-representations-from-audio-through-self-supervision/) (2021). LiRA's audio-feature pre-training (M02, M03) is standard: it helps at 1% of labels but adds 0.7 points on LRW and 0.3 on LRS2 with all labels; its lead over other self-supervised work is the backbone.
+- [Real-time synthesis of imagined speech processes from minimally invasive recordings of neural activity](../real-time-synthesis-of-imagined-speech-processes-from-minimally-invasive-recordings-of-neural-activi/) (2021). Closed-loop sEEG word synthesis (M06) and audible-to-imagined transfer (M04) are standard; one participant; imagined output gets no word-content test (M12 behind Martin 2014).
+- [Distinguishing Homophenes Using Multi-Head Visual-Audio Memory for Lip Reading](../distinguishing-homophenes-using-multi-head-visual-audio-memory-for-lip-reading/) (2022). Audio memory (M02) and multi-head, multi-depth addressing (M06) are standard: the memory is the same group's ICCV design, head and depth gains are single LRW runs, and the LRW SOTA margin is 0.1.
+- [Generalizable spelling using a speech neuroprosthesis in an individual with severe limb and vocal paralysis](../generalizable-spelling-using-a-speech-neuroprosthesis-in-an-individual-with-severe-limb-and-vocal-pa/) (2022). Silent NATO code-word spelling (M04), closed-lexicon beam search (M07) and a hand-squeeze stop (M09) are standard; one participant, and >9,000 words only offline.
+- [Imagined speech can be decoded from low- and cross-frequency intracranial EEG features](../imagined-speech-can-be-decoded-from-low-and-cross-frequency-intracranial-eeg-features/) (2022). Adds low-frequency power (precedent: Pei 2011, Ikeda 2014) and phase-amplitude coupling (new) to imagined-speech ECoG decoding (M06); CFC effect unshown: 12 of 144 uncorrected tests.
+
+---
+
+Part of the [Silent Speech Interface Review](https://github.com/supernaiter/silent-speech-review). Found an error? [Open an issue](https://github.com/supernaiter/silent-speech-review/issues/new?template=correction.yml).

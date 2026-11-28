@@ -48,6 +48,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | --- | --- | --- |
 | Multi-Subject Pretraining Enables Short-Calibration Personalization for Closed-Corpus Surface EMG Speech Decoding | 2026 | Sec. 3.2 |
 
+## curriculum-ordering-in-lip-reading
+
+- Table: [`curriculum-ordering-in-lip-reading.csv`](curriculum-ordering-in-lip-reading.csv) (1526 slot-filled, 31 pattern match, usual design in 9, 5 read in full)
+- Inclusion rule: Lip-reading / VSR / AVSR decoders of the shared population that order or stage training samples by a curriculum; design compared: order by utterance length (words or short sentences first) against order by sample difficulty or a model's confidence. Boundary: noise or SNR curricula of enhancement systems, mentions of curricula not used, and the word 'curriculum' in other senses are excluded on reading; versions once.
+- Used in: [Learning from the Master: Distilling Cross-modal Advanced Knowledge for Lip Reading](../../reviews/learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading/)
+
 ## eeg-user-identification
 
 - Table: [`eeg-user-identification.csv`](eeg-user-identification.csv) (1526 slot-filled, 6 pattern match, usual design in 6, 3 read in full)

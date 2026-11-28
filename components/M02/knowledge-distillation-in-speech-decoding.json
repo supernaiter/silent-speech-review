@@ -2285,6 +2285,49 @@
    "loc": "Sec. 1.1; Sec. 5",
    "quote": "The closest work to ours is Wei et al. [31] who apply cross-modal distillation from ASR for learning audio-visual speech recognition.",
    "by": "hearing-lips-improving-lip-reading-by-distilling-speech-recognizers"
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "role": "target",
+   "loc": "Table 4; Table 5",
+   "quote": "Student6 Audio-Visual Master 51.5",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1911.11502",
+   "role": "prior",
+   "loc": "Sec. 1",
+   "quote": "a pre-trained speech recognizer is given, and attempt to distill knowledge concealed in the speech recognizer to the target lip reader",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1911.12747",
+   "role": "prior",
+   "loc": "Sec. 1.1",
+   "quote": "The closest work to ours is Wei et al. [31] who apply cross-modal distillation from ASR for learning audio-visual speech recognition.",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-2003.05709",
+   "role": "prior",
+   "loc": "Abstract",
+   "quote": "we make the two streams learn from each other in the learning process by introducing a bidirectional knowledge distillation loss to train the two branches jointly.",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-2007.06504",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "ResNet-18 + MS-TCN - Teacher 85.3 ResNet-18 + MS-TCN - Student 1 87.4",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "SyncVSR Transformer 157 93.2 ± 0.1 95.0 ± 0.0 58.2 ± 0.0",
+   "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading",
+   "timing": "later"
   }
  ],
  "known_item_recall": {
@@ -2324,7 +2367,8 @@
    "isca-suzuki19_interspeech",
    "arxiv-1911.12747",
    "icassp2017-tatulli-multimodal-cnn-vsr",
-   "isca-sari18-avicar"
+   "isca-sari18-avicar",
+   "arxiv-2003.05709"
   ],
   "unread": 188,
   "confirmed_unique": 0,
@@ -2333,7 +2377,8 @@
  "used_by": [
   "asr-is-all-you-need-cross-modal-distillation-for-lip-reading",
   "hearing-lips-improving-lip-reading-by-distilling-speech-recognizers",
-  "knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface"
+  "knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface",
+  "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
  ],
  "recall_check_asr-is-all-you-need-cross-modal-distillation-for-lip-reading": {
   "scope": "all wiki studies with full text first public before 2020-06 (2,648 dated before 2019-05), any signal",
@@ -2451,6 +2496,351 @@
   "metric": "LRS2 WER of one lip-reading student: no distillation 57.5%, audio teacher 54.2%, video teacher 53.4% (Table 1); single values, teacher sizes not stated",
   "value": 54.2,
   "unit": "% WER",
+  "timing": "later"
+ },
+ "inclusion_rule_learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading": "Published rule kept. For this review: the 221 prior and 21 [concurrent] lip-reading / VSR / AVSR decoders of the shared population, classified by full-text pattern (mentions included, snippets of every prior and concurrent hit read) for distillation, an audio or ASR teacher, an audio-visual teacher, and a teacher that is trained jointly with or updated from the student. Boundary: mentions in related work and reference lists are not designs; acoustic-only students are out; versions once.",
+ "dated_pattern_counts_learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading": {
+  "cutoffs": "first public relative to the target (2021-06): prior before 2020-12, [concurrent] 2020-12 to 2021-12, [later] after 2021-12; month from the arXiv id or the venue, else year (2020-2021 year-only = date unresolved); shared lip-reading decoder population (tools/pop.py); versions grouped by ledger key plus a merge list; perception, neuroimaging, education and non-decoder rows removed on reading (tools/exclude_reading.json); target excluded",
+  "population": 519,
+  "status": {
+   "later": 322,
+   "prior": 167,
+   "concurrent": 20,
+   "unresolved": 10
+  },
+  "design_regex": {
+   "kd": "knowledge distillation|distill(ed|ing|s)? |teacher[- ]student|student[- ]teacher",
+   "audio_teacher": "(audio|acoustic|asr|speech recogni[sz]er)[^.]{0,40}teacher|teacher[^.]{0,40}(pretrained|trained) (on|by|with) (audio|speech)",
+   "av_teacher": "audio[- ]visual teacher|multi[- ]?modal teacher|bi[- ]?modal teacher",
+   "trainable_teacher": "feedback (from|of) the student|trainable teacher|teacher (is|was|are) (also )?(updated|trained|optimi[sz]ed) (jointly|together|simultaneously)|jointly (train|optimi[sz]e)[a-z]* (the )?teacher|meta[- ]learn|learning to teach|mutual learning|online (knowledge )?distillation|collaborative (learning|distillation)|learn from each other|meta pseudo"
+  },
+  "counts": {
+   "later": {
+    "kd": 88,
+    "trainable_teacher": 19,
+    "audio_teacher": 19,
+    "av_teacher": 3
+   },
+   "prior": {
+    "kd": 8,
+    "trainable_teacher": 3,
+    "audio_teacher": 1
+   },
+   "concurrent": {
+    "kd": 7
+   }
+  },
+  "pids": {
+   "later": {
+    "kd": [
+     "aaai-38133-linprovsr",
+     "acl-2024emnlp858-audiovsr",
+     "acl-2025-mms-llama",
+     "arxiv-2201.02184",
+     "arxiv-2202.07428",
+     "arxiv-2202.13084",
+     "arxiv-2203.07996",
+     "arxiv-2204.01725",
+     "arxiv-2207.05692",
+     "arxiv-2208.04498",
+     "arxiv-2209.01383",
+     "arxiv-2211.11275",
+     "arxiv-2212.02782",
+     "arxiv-2212.06246",
+     "arxiv-2301.01456",
+     "arxiv-2302.02141",
+     "arxiv-2302.06419",
+     "arxiv-2303.05309",
+     "arxiv-2303.09455",
+     "arxiv-2303.17200",
+     "arxiv-2305.04542",
+     "arxiv-2307.04552",
+     "arxiv-2307.10157",
+     "arxiv-2308.07593",
+     "arxiv-2308.09311",
+     "arxiv-2309.17395",
+     "arxiv-2310-04858-romanian",
+     "arxiv-2310.05058",
+     "arxiv-2311.12480",
+     "arxiv-2311.14063",
+     "arxiv-2312.09727",
+     "arxiv-2401.09802",
+     "arxiv-2401.17604",
+     "arxiv-2402.05457",
+     "arxiv-2403.04245",
+     "arxiv-2403.18843",
+     "arxiv-2406.17614",
+     "arxiv-2407.03563",
+     "arxiv-2409.05307",
+     "arxiv-2409.07210",
+     "arxiv-2410-16438-alignvsr",
+     "arxiv-2411.02256",
+     "arxiv-2502.04834",
+     "arxiv-2502.05758",
+     "arxiv-2502.05766",
+     "arxiv-2503.06273",
+     "arxiv-2503.14928",
+     "arxiv-2503.21408",
+     "arxiv-2503.21785",
+     "arxiv-2504.18539",
+     "arxiv-2505.04394",
+     "arxiv-2506.02012",
+     "arxiv-2506.16073",
+     "arxiv-2508.13576",
+     "arxiv-2510-04136-mome",
+     "arxiv-2510-22961-sfmavsr",
+     "arxiv-2511-07253-omniavsr",
+     "arxiv-2512.14083",
+     "arxiv-2601-20881-malipnet",
+     "arxiv-2601.20881-malipnet",
+     "arxiv-2602.19316",
+     "arxiv-2604-00982-visg",
+     "arxiv-2606-05763-m2savsr",
+     "arxiv-2606-07259-genvsr",
+     "arxiv-2606.05763-m2savsr",
+     "arxiv-2607-08236-tvta",
+     "arxiv-2607-09001-otalign",
+     "arxiv-2607-29112-doublehelix",
+     "arxiv-2609-24391-navir",
+     "cmes-2025-063186",
+     "cvf-zhang24-es3",
+     "doi-10.1038-s41598-022-26155-5",
+     "doi-10.1038-s41598-026-53299-5",
+     "doi-10.1038-s41598-026-62988-0",
+     "doi-10.28991-esj-2024-08-06-024",
+     "doi-10.31234-osf.io-dhbre",
+     "doi-10.3390-s23042053",
+     "doi-10.3390-s25082366",
+     "doi-10.64388-irev9i6-1713196",
+     "eurasip-2024-25-vitaal",
+     "ib24-simt-avsr",
+     "ijraset-77475-deeplip",
+     "interspeech-2023-969-pov",
+     "isca-li23k_interspeech",
+     "isca-li25q-hybridav",
+     "isca-sankar23-cuedspeech",
+     "isca-yang23w-e2eavsr",
+     "pmc-9963439-lipnoise"
+    ],
+    "trainable_teacher": [
+     "arxiv-2201.05845",
+     "arxiv-2208.04498",
+     "arxiv-2302.08102",
+     "arxiv-2305.04542",
+     "arxiv-2310.05058",
+     "arxiv-2401.17604",
+     "arxiv-2409.00986",
+     "arxiv-2409.05307",
+     "arxiv-2502.10447",
+     "arxiv-2503.21785",
+     "arxiv-2504.18539",
+     "arxiv-2505.04394",
+     "arxiv-2601.20881-malipnet",
+     "cmc-nestlipgnn",
+     "doi-10.3390-s22103732",
+     "ijraset-77475-deeplip",
+     "isca-sankar23-cuedspeech",
+     "isca-yin24-aflnet",
+     "pmc-8816571-mouthlyrics"
+    ],
+    "audio_teacher": [
+     "arxiv-2204.01725",
+     "arxiv-2212.06246",
+     "arxiv-2302.06419",
+     "arxiv-2305.04542",
+     "arxiv-2307.10157",
+     "arxiv-2308.07593",
+     "arxiv-2308.09311",
+     "arxiv-2311.14063",
+     "arxiv-2312.09727",
+     "arxiv-2403.18843",
+     "arxiv-2502.05766",
+     "arxiv-2504.18539",
+     "arxiv-2508.20476",
+     "arxiv-2510-22961-sfmavsr",
+     "arxiv-2512.14083",
+     "cvf-zhang24-es3",
+     "eurasip-2024-25-vitaal",
+     "isca-li23k_interspeech",
+     "isca-li25q-hybridav"
+    ],
+    "av_teacher": [
+     "arxiv-2502.05766",
+     "arxiv-2504.18539",
+     "arxiv-2512.14083"
+    ]
+   },
+   "prior": {
+    "kd": [
+     "arxiv-1806.06053",
+     "arxiv-1807.05162",
+     "arxiv-1911.11502",
+     "arxiv-1911.12747",
+     "arxiv-2003.05709",
+     "arxiv-2007.06504",
+     "arxiv-2011.07557",
+     "isca-koumparoulis19-mobilipnet"
+    ],
+    "trainable_teacher": [
+     "arxiv-1901.10139",
+     "arxiv-2003.05709",
+     "arxiv-2005.10903"
+    ],
+    "audio_teacher": [
+     "arxiv-1911.12747"
+    ]
+   },
+   "concurrent": {
+    "kd": [
+     "arxiv-2102.06657",
+     "arxiv-2104.04784",
+     "arxiv-2106.09171",
+     "arxiv-2108.03543",
+     "arxiv-2108.13630",
+     "arxiv-2110.07603",
+     "arxiv-2204.01265"
+    ]
+   }
+  },
+  "excluded_on_reading": [
+   "arxiv-1409.1411",
+   "arxiv-1809.04966",
+   "arxiv-2012.02515",
+   "doi-10.1016-j.bandl.2013.05.009",
+   "doi-10.1016-j.cub.2018.03.044",
+   "doi-10.1016-j.neuropsychologia.2007.11.026",
+   "doi-10.1016-j.nicl.2018.09.019",
+   "doi-10.1016-j.specom.2010.09.003",
+   "doi-10.1044-1092-4388-2009-08-0137",
+   "doi-10.1044-1092-4388-2012-12-0039",
+   "doi-10.1044-2013_jslhr-h-12-0273",
+   "doi-10.1044-2015_jslhr-h-14-0360",
+   "doi-10.1044-2019_jslhr-h-19-0073",
+   "doi-10.1044-2020_jslhr-20-00159",
+   "doi-10.1097-aud.0000000000001091",
+   "doi-10.1097-aud.0b013e318294e3f5",
+   "doi-10.1101-233676",
+   "doi-10.1111-cdev.12715",
+   "doi-10.1111-lang.12281",
+   "doi-10.1177-0956797614542132",
+   "doi-10.1371-journal.pbio.3000840",
+   "doi-10.1371-journal.pone.0080265",
+   "doi-10.1371-journal.pone.0223782",
+   "doi-10.1371-journal.pone.0234695",
+   "doi-10.14288-1.0094936",
+   "doi-10.15760-etd.1475",
+   "doi-10.1609-aaai.v35i18.17933",
+   "doi-10.3389-fnhum.2016.00679",
+   "doi-10.3389-fnhum.2020.00025",
+   "doi-10.3389-fnins.2021.683804",
+   "doi-10.3389-fpsyg.2014.00639",
+   "doi-10.3389-fpsyg.2017.00106",
+   "doi-10.3766-jaaa.21.3.4",
+   "doi-10.5772-36466",
+   "isca-botelho21-apnea",
+   "isca-botelho21_interspeech",
+   "isca-davis13_interspeech",
+   "isca-eger09_avsp",
+   "isca-franken17_avrecalib",
+   "isca-guitarteperez03_avsp",
+   "isca-gurbuz05_interspeech",
+   "isca-hori21-onlinecaption",
+   "isca-hueber08_segvocoder",
+   "isca-kalantari13_avsp",
+   "isca-kim11f_interspeech",
+   "isca-koumparoulis19_interspeech",
+   "isca-lalonde19_interspeech",
+   "isca-ma09_avcon",
+   "isca-mccotter01-linedrawn",
+   "isca-musti10_interspeech",
+   "isca-paris11_interspeech",
+   "isca-shillingford19_interspeech",
+   "isca-stekelenburg07-n1",
+   "isca-takacs09_interspeech",
+   "oa-W2743633178",
+   "oa-W2913918387",
+   "oa-W36894164",
+   "oa-W637681178",
+   "openaccess_avsp_barker99",
+   "pmc-2645675-lipbayes",
+   "pmc-4900800-lipmeg",
+   "pmc-5703212-lipreadbabble",
+   "pmc-9443519-lipreadhafit",
+   "pmc3810281",
+   "pmc7575283",
+   "spence-2000-xmodal"
+  ],
+  "merged_versions": {
+   "isca-kjellstrom07_capt": "isca-kjellstrom07_interspeech",
+   "arxiv-1703.04105": "isca-stafylakis17-resnetlstm",
+   "arxiv-1710.01142": "isca-bear15_avsp",
+   "arxiv-1710.01122": "isca-bear15b_avsp",
+   "arxiv-1710.01073": "doi-10.1109-icip.2014.7025274",
+   "arxiv-1708.01565": "isca-wand17_dalip",
+   "isca-ma19b-lombard": "arxiv-1906.02112",
+   "arxiv-1601.08188": "doi-10.1109-icassp.2016.7472852",
+   "isca-shrivastava19_interspeech": "arxiv-1905.03968",
+   "isca-shrivastava19-mobivsr": "arxiv-1905.03968"
+  },
+  "classified_on_reading": {
+   "prior_population": 167,
+   "distillation_used": [
+    "arxiv-1911.11502",
+    "arxiv-1911.12747",
+    "arxiv-2003.05709",
+    "arxiv-2007.06504"
+   ],
+   "distillation_mention_only": [
+    "arxiv-1806.06053",
+    "arxiv-1807.05162",
+    "arxiv-2011.07557",
+    "isca-koumparoulis19-mobilipnet"
+   ],
+   "audio_or_asr_teacher": [
+    "arxiv-1911.11502",
+    "arxiv-1911.12747"
+   ],
+   "video_teacher": [
+    "arxiv-2003.05709",
+    "arxiv-2007.06504"
+   ],
+   "audio_visual_teacher": [],
+   "teacher_trained_jointly": [
+    "arxiv-2003.05709 (bidirectional distillation between two video branches, i.e. updated from the peer through a distillation loss)"
+   ],
+   "teacher_updated_through_student_task_loss_after_lookahead_step": [],
+   "general_ml_precedents_outside_population": [
+    "arxiv-2003.10580 Meta Pseudo Labels (2020-03)",
+    "arxiv-1805.03643 Learning to Teach (2018-05)"
+   ],
+   "trainable_teacher_hits_not_design": [
+    "arxiv-1901.10139 (meta-learning mention)",
+    "arxiv-2005.10903 (reference list)"
+   ],
+   "concurrent_population": 20,
+   "concurrent_teacher_updated_from_student_feedback": [],
+   "concurrent_audio_visual_teacher": []
+  },
+  "reading_exclusions": {
+   "perception_neuro_education": 48,
+   "non_decoder_or_off_task": 17,
+   "duplicate_versions_merged": 12,
+   "lists": "tools/exclude_reading.json and tools/exclude.txt"
+  }
+ },
+ "usual_approach_learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading": {
+  "design": "fixed pretrained teacher 3 (ASR 2, video 1); jointly trained video branches 1; teacher updated through the student task loss after a look-ahead student step 0; audio-visual teacher 0",
+  "n": 4,
+  "tier": "pattern match",
+  "population_unique": 167,
+  "note": "distillation used by 4 of 167 prior lip-reading decoders (snippets read); design counts at the target date"
+ },
+ "state_of_the_art_learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading": {
+  "pid": "arxiv-2406.12233",
+  "year": 2024,
+  "metric": "LRW top-1 accuracy, LRW video only (157 h), vq-wav2vec audio tokens (pretrained on outside audio) as training targets, Transformer, no word boundaries, mean of three runs (95.0% with word boundaries); not like-for-like with the target",
+  "value": 93.2,
+  "unit": "%",
   "timing": "later"
  }
 }

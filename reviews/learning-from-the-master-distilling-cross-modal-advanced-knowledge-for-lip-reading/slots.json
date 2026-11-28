@@ -12,28 +12,28 @@
   "note": "Inherited (LRW, LRS2, LRS3)."
  },
  "M02": {
-  "n": 221,
+  "n": 167,
   "matched": 4,
   "matched_tier": "pattern match (unique studies)",
-  "sota": "[@ahn2024syncvsr] (2024): LRW 93.2%, LRW-only",
+  "sota": "[@ahn2024syncvsr] (2024): LRW 93.2%, vq-wav2vec targets",
   "choice": [
-   "Trainable audio-visual master, student feedback, tutor-weighted loss"
+   "Trainable audio-visual master updated through a look-ahead student; tutor-weighted loss"
   ],
-  "field": "Of 221 prior, distillation 4 (fixed teacher 3, joint video branches 1); feedback-updated teacher 0",
+  "field": "Of 167 prior, distillation 4 (fixed teacher 3, video branches 1); look-ahead teacher update 0",
   "verdict": "standard",
-  "note": "Design absent before 2020-12; master beats teacher for three modalities on LRS2 only, one value per row."
+  "note": "New for lip reading (general precedent: Meta Pseudo Labels); master beats teacher in three modalities on LRS2 only, one value per row."
  },
  "M03": {
-  "n": 221,
-  "matched": 6,
+  "n": 167,
+  "matched": 9,
   "matched_tier": "pattern match (unique studies)",
   "sota": "–",
   "choice": [
    "Tutor-confidence curriculum, exponential pacing"
   ],
-  "field": "Of 221 prior, length-ordered curriculum 6; difficulty order 0",
+  "field": "Of 167 prior, length-ordered curriculum 9; difficulty order 0",
   "verdict": "standard",
-  "note": "Gain 1.1, 0.5 and 0.1 WER points across three backends, one LRW run each; earlier works already order by length."
+  "note": "Gain 1.1, 0.5 and 0.1 WER points across three backends, one LRW run each; all 9 earlier curricula order by length."
  },
  "M04": {
   "n": null,
@@ -141,7 +141,7 @@
   ],
   "field": "Of 17 prior on LRS2, no spread term 11",
   "verdict": "standard",
-  "note": "Claim holds only against no-LM, public-data rows."
+  "note": "Claim holds for public-data, no-LM sentence rows; fails on LRW (born-again) and LRS3 (V2P)."
  },
  "M13": {
   "n": null,
