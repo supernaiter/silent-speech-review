@@ -1,6 +1,6 @@
 {
  "slug": "discriminative-multi-modality-speech-recognition",
- "stage": "draft",
+ "stage": "final",
  "steps": [
   {
    "step": "reading",
@@ -29,9 +29,29 @@
    "output": "draft.md, claims-draft.md",
    "what": "review written from the notes and counts only; every claim mapped to a note or a count",
    "finished": "2026-11-28T09:22:15+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-28T09:30:55+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": null,
+   "applied": null,
+   "total": null,
+   "finished": null
   }
  ],
- "checks": {},
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 122 found, 0 missing, 15 unchecked (unstated, figure-only or no source)",
+  "topic counts M06-avsr-audio-feature-denoising": "ok",
+  "topic counts M06-word-lipreading-visual-frontend": "ok",
+  "topic counts M12-avsr-noise-and-run-variability-protocol": "ok"
+ },
  "inputs": {
   "notes_sha256": "d68f926376ca1a777ab4c4653f151a083dfb065987367405adede50e7adf9845",
   "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
@@ -40,6 +60,6 @@
  },
  "body_chars": {
   "draft": 19285,
-  "final": null
+  "final": 21844
  }
 }

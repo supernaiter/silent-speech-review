@@ -2258,6 +2258,43 @@
    "quote": "Lip-reading model with a modiﬁed ResNet-18 as encoder and DC-TCN as a temporal model.",
    "by": "combining-residual-networks-with-lstms-for-lipreading",
    "timing": "later"
+  },
+  {
+   "pid": "arxiv-2406.12233",
+   "role": "sota",
+   "loc": "Sec. 4",
+   "quote": "quantized acoustic tokens from vq-wav2vec [49]",
+   "by": "discriminative-multi-modality-speech-recognition",
+   "timing": "later"
+  },
+  {
+   "pid": "arxiv-1905.02540",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "Ours 84.11 84.07",
+   "by": "discriminative-multi-modality-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1905.02540",
+   "role": "prior",
+   "loc": "Footnote 2",
+   "quote": "We cannot reproduce the accuracy reported in [45], which is 83.0 on the test set.",
+   "by": "discriminative-multi-modality-speech-recognition"
+  },
+  {
+   "pid": "arxiv-1811.01194",
+   "role": "prior",
+   "loc": "Table 6",
+   "quote": "V15 Indicator variables 11.92 V16 Not used 15.67 V17 Frame removal 14.94",
+   "by": "discriminative-multi-modality-speech-recognition"
+  },
+  {
+   "pid": "arxiv-2001.08702",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "Multi-Scale TCN (Ours) ResNet18∗ 85.3 41.4",
+   "by": "discriminative-multi-modality-speech-recognition",
+   "timing": "concurrent"
   }
  ],
  "known_item_recall": {
@@ -2296,7 +2333,8 @@
   "timing": "later"
  },
  "used_by": [
-  "combining-residual-networks-with-lstms-for-lipreading"
+  "combining-residual-networks-with-lstms-for-lipreading",
+  "discriminative-multi-modality-speech-recognition"
  ],
  "tally": {
   "slot_filled_unique": 7345,
@@ -2321,10 +2359,236 @@
    "arxiv-1601.08188",
    "arxiv-1611.01599",
    "arxiv-1611.05358",
-   "w2594690981-lrw"
+   "w2594690981-lrw",
+   "arxiv-1811.01194",
+   "arxiv-1905.02540",
+   "arxiv-2001.08702"
   ],
   "unread": 193,
   "confirmed_unique": 0,
   "known_item_recall": 1.0
- }
+ },
+ "dated_pattern_counts_discriminative-multi-modality-speech-recognition": {
+  "cutoffs": "first public relative to the target (2020-05, arXiv:2005.05592): prior before 2019-11, [concurrent] 2019-11 to 2020-11, [later] after 2020-11; month from the arXiv id or the venue, else year (2019-2020 year-only = date unresolved); one shared population for all topics (tools/pop.py): lip-reading, VSR and AVSR decoders named in title or ledger, with titles naming surveys, datasets, perception, neuroimaging, education, enhancement or separation without recognition, synthesis, talking heads, forgery, synchronisation and keyword spotting removed, two audio-visual enhancement studies that also run a recogniser added on reading (isca-deligne02_icslp, arxiv-1904.08248); perception / neuroimaging / education and non-decoder rows removed on reading (tools/exclude_reading.json, tools/exclude_local.json), versions merged by ledger key plus a merge list; target excluded; full-text pattern counts with reference lists removed are mention counts (upper bounds), denominators are the unique studies of the topic subset",
+  "shared_population": {
+   "later": 381,
+   "prior": 196,
+   "concurrent": 27,
+   "unresolved": 4
+  },
+  "shared_population_total": 608,
+  "subset": "LRW / LRW-1000 word-level decoders (ledger or title names the benchmark)",
+  "subset_regex": "\\blrw\\b|lip reading in the wild|lrw-1000|cas-vsr-w1k",
+  "population": 99,
+  "status": {
+   "prior": 17,
+   "concurrent": 12,
+   "later": 69,
+   "unresolved": 1
+  },
+  "design_regex": {
+   "3d_conv": "3d conv|3-d conv|three-dimensional conv|spatio-?temporal conv|\\bc3d\\b|conv3d|3d cnn",
+   "resnet": "resnet|residual network",
+   "3d_conv_and_resnet": "3d conv|3-d conv|spatio-?temporal conv|\\bc3d\\b|conv3d|3d cnn AND resnet|residual network",
+   "pseudo3d_or_factorised": "pseudo[- ]?3d|\\bp3d\\b|\\(2\\+1\\)d|factori[sz]ed (3d|spatio-?temporal) conv|separable 3d conv",
+   "i3d_or_two_stream": "\\bi3d\\b|inflated 3d|two[- ]stream",
+   "tcn_backend": "temporal convolutional network|\\bms-tcn\\b|\\btcn\\b"
+  },
+  "counts": {
+   "prior": {
+    "i3d_or_two_stream": 6,
+    "3d_conv": 14,
+    "resnet": 13,
+    "3d_conv_and_resnet": 13,
+    "pseudo3d_or_factorised": 2
+   },
+   "concurrent": {
+    "3d_conv": 10,
+    "resnet": 11,
+    "3d_conv_and_resnet": 10,
+    "i3d_or_two_stream": 6,
+    "tcn_backend": 5,
+    "pseudo3d_or_factorised": 1
+   },
+   "later": {
+    "3d_conv": 57,
+    "resnet": 61,
+    "3d_conv_and_resnet": 50,
+    "pseudo3d_or_factorised": 8,
+    "i3d_or_two_stream": 29,
+    "tcn_backend": 45
+   },
+   "unresolved": {
+    "3d_conv": 1,
+    "resnet": 1,
+    "3d_conv_and_resnet": 1
+   }
+  },
+  "pids": {
+   "prior": {
+    "i3d_or_two_stream": [
+     "arxiv-1611.05358",
+     "arxiv-1802.06424",
+     "arxiv-1812.09336",
+     "arxiv-1903.09616",
+     "arxiv-1905.02540",
+     "arxiv-1908.11618"
+    ],
+    "3d_conv": [
+     "arxiv-1703.04105",
+     "arxiv-1710.11201",
+     "arxiv-1802.06424",
+     "arxiv-1806.06053",
+     "arxiv-1810.06178",
+     "arxiv-1811.01194",
+     "arxiv-1812.09336",
+     "arxiv-1903.09616",
+     "arxiv-1904.04817",
+     "arxiv-1905.02540",
+     "arxiv-1905.03968",
+     "arxiv-1908.11618",
+     "cvf-zhang19-stfcsl",
+     "doi-10.1007-978-3-319-54184-6_6"
+    ],
+    "resnet": [
+     "arxiv-1703.04105",
+     "arxiv-1710.11201",
+     "arxiv-1802.06424",
+     "arxiv-1806.06053",
+     "arxiv-1810.06178",
+     "arxiv-1811.01194",
+     "arxiv-1812.09336",
+     "arxiv-1903.09616",
+     "arxiv-1904.04817",
+     "arxiv-1905.02540",
+     "arxiv-1905.03968",
+     "arxiv-1908.11618",
+     "cvf-zhang19-stfcsl"
+    ],
+    "3d_conv_and_resnet": [
+     "arxiv-1703.04105",
+     "arxiv-1710.11201",
+     "arxiv-1802.06424",
+     "arxiv-1806.06053",
+     "arxiv-1810.06178",
+     "arxiv-1811.01194",
+     "arxiv-1812.09336",
+     "arxiv-1903.09616",
+     "arxiv-1904.04817",
+     "arxiv-1905.02540",
+     "arxiv-1905.03968",
+     "arxiv-1908.11618",
+     "cvf-zhang19-stfcsl"
+    ],
+    "pseudo3d_or_factorised": [
+     "arxiv-1905.02540",
+     "arxiv-1905.03968"
+    ]
+   },
+   "concurrent": {
+    "3d_conv": [
+     "arxiv-1911.06095",
+     "arxiv-2001.08702",
+     "arxiv-2003.03206",
+     "arxiv-2003.03983",
+     "arxiv-2003.05709",
+     "arxiv-2003.06439",
+     "arxiv-2005.10903",
+     "arxiv-2007.06504",
+     "arxiv-2009.14233",
+     "arxiv-2011.07557"
+    ],
+    "resnet": [
+     "arxiv-1911.06095",
+     "arxiv-2001.08702",
+     "arxiv-2003.03206",
+     "arxiv-2003.03983",
+     "arxiv-2003.05709",
+     "arxiv-2003.06439",
+     "arxiv-2005.03846",
+     "arxiv-2005.10903",
+     "arxiv-2007.06504",
+     "arxiv-2009.14233",
+     "arxiv-2011.07557"
+    ],
+    "3d_conv_and_resnet": [
+     "arxiv-1911.06095",
+     "arxiv-2001.08702",
+     "arxiv-2003.03206",
+     "arxiv-2003.03983",
+     "arxiv-2003.05709",
+     "arxiv-2003.06439",
+     "arxiv-2005.10903",
+     "arxiv-2007.06504",
+     "arxiv-2009.14233",
+     "arxiv-2011.07557"
+    ],
+    "i3d_or_two_stream": [
+     "arxiv-2001.08702",
+     "arxiv-2003.05709",
+     "arxiv-2005.10903",
+     "arxiv-2007.06504",
+     "arxiv-2009.14233",
+     "arxiv-2011.07557"
+    ],
+    "tcn_backend": [
+     "arxiv-2001.08702",
+     "arxiv-2003.05709",
+     "arxiv-2007.06504",
+     "arxiv-2009.14233",
+     "arxiv-2011.07557"
+    ],
+    "pseudo3d_or_factorised": [
+     "arxiv-2011.07557"
+    ]
+   },
+   "unresolved": {
+    "3d_conv": [
+     "w3082193865-hahncnn"
+    ],
+    "resnet": [
+     "w3082193865-hahncnn"
+    ],
+    "3d_conv_and_resnet": [
+     "w3082193865-hahncnn"
+    ]
+   }
+  },
+  "classified_on_reading": {
+   "prior_population": 17,
+   "pseudo3d_front_end_used": [],
+   "pseudo3d_pattern_hits_not_design": [
+    "arxiv-1905.02540 (P3D-ResNet named in related work; uses two-stream I3D)",
+    "arxiv-1905.03968 (depthwise-separable 3D convolution, not a spatial/temporal factorisation)"
+   ],
+   "best_prior_lrw_without_word_boundaries": [
+    "arxiv-1811.01194 V16 15.67% MCR = 84.33% accuracy (read); with boundaries V15 11.92% MCR = 88.08%",
+    "arxiv-1905.02540 84.07% (read)"
+   ],
+   "concurrent_best": "arxiv-2001.08702 85.3% (read)"
+  }
+ },
+ "usual_approach_discriminative-multi-modality-speech-recognition": {
+  "design": "3D convolution and a ResNet trunk (co-mention)",
+  "n": 13,
+  "tier": "pattern match",
+  "population_unique": 17,
+  "pids": [
+   "arxiv-1703.04105",
+   "arxiv-1802.06424",
+   "arxiv-1811.01194",
+   "arxiv-1908.11618",
+   "cvf-zhang19-stfcsl"
+  ],
+  "note": "Prior LRW decoders (before 2019-11), mention counts over 17 unique studies: 3D convolution and ResNet 13, I3D or two-stream 6, pseudo-3D or factorised 3D 2 (0 as design on reading). [concurrent] 12: 3D convolution and ResNet 10, TCN back-end 5, pseudo-3D 1 (citation only)."
+ },
+ "state_of_the_art_discriminative-multi-modality-speech-recognition": {
+  "pid": "arxiv-2406.12233",
+  "year": 2024,
+  "metric": "LRW top-1 accuracy, visual only at test, 157 h LRW video with audio-token targets from an externally pre-trained vq-wav2vec, no word-boundary input, mean of three seeds (95.0% with word boundaries)",
+  "value": 93.2,
+  "unit": "%",
+  "timing": "later"
+ },
+ "inclusion_rule_discriminative-multi-modality-speech-recognition": "Published rule kept. For this review: the 17 prior and 12 [concurrent] LRW / LRW-1000 word-level decoders of the shared population, classified by full-text pattern for 3D convolution, ResNet, both, I3D or two-stream, pseudo-3D or factorised 3D convolution, and TCN back-ends; pseudo-3D hits read. Boundary: word boundaries used or not is recorded where stated; versions once; the target excluded."
 }
