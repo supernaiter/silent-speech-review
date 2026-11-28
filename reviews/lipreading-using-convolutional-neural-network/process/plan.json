@@ -1,0 +1,54 @@
+{
+ "target": "isca-noda14-cnnlip",
+ "target_versions": [
+  "isca-noda14-cnnlip",
+  "isca-noda14_interspeech"
+ ],
+ "first_public": "2014-09",
+ "prep": "no prep/ directory for this slug; plan built from notes.json",
+ "population": "one filtered lip-reading decoder population for every topic (population.py, pop.json): 88 prior, 11 [concurrent], 625 [later], 2 date unresolved",
+ "changed": [
+  "M06"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Read isolated Japanese ATR words, ordinary voiced speech.",
+  "M02": "Phoneme frame labels by HTK forced alignment of an audio monophone HMM, as in Heckmann et al. 2001 (isca-heckmann01-annhmm).",
+  "M03": "Six speaker-specific CNNs; no adaptation.",
+  "M04": "Pre-segmented isolated words, offline.",
+  "M05": "One frontal 100 Hz monochrome camera; mouth manually cropped.",
+  "M07": "No language model or lexicon reported beyond word HMMs.",
+  "M08": "Isolated word; 40-phoneme posteriors as intermediate features.",
+  "M09": "Offline study.",
+  "M10": "Offline study.",
+  "M11": "Corpus word labels; forced-alignment phoneme labels.",
+  "M13": "Offline laboratory study on one GPU."
+ },
+ "time_window": "prior before 2014-03, [concurrent] 2014-03 to 2015-03, [later] after 2015-03",
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "lipreading-temporal-model-and-feature-learning",
+   "new": false,
+   "reuse": "components/M06/lipreading-temporal-model-and-feature-learning.json (append-only; this review's values in *_<slug> keys)",
+   "inclusion_rule": "Lip-reading, VSR or AVSR decoders of the one filtered population (ledger names optical-camera input and lip reading, VSR or AVSR; non-decoders removed), classified by the visual model their full text names: CNN on mouth images, learned deep features (CNN, DBN, autoencoder, DNN), neural network with phonetic or viseme units (TDNN, ANN/HMM), phoneme a posteriori features, hand-crafted appearance or shape features, HMM classifier. Boundary: a study counts under every design its text names, related-work mentions included (upper bound); versions count once; dated against 2014-09.",
+   "pattern": "published table pattern (optical camera + lip-reading terms)",
+   "design_field": "full-text design regexes (counts.py)",
+   "metric": "word recognition rate (%)",
+   "better": "higher"
+  },
+  {
+   "slot": "M12",
+   "topic": "lipreading-speaker-dependence-protocol",
+   "new": false,
+   "reuse": "components/M12/lipreading-speaker-dependence-protocol.json (append-only; this review's values in *_<slug> keys)",
+   "inclusion_rule": "The same filtered lip-reading decoder population, classified by the evaluation partition the full text names: speaker-independent (held-out speakers), speaker-dependent (same speakers), random frame-level train/test split, cross-validation or jackknife, and whether a standard deviation, confidence interval or significance test is reported. Boundary: a study counts under every partition its text names, related-work mentions included (upper bound); versions count once; dated against 2014-09.",
+   "pattern": "published table pattern",
+   "design_field": "full-text design regexes (counts.py)",
+   "metric": "protocol",
+   "better": "n/a"
+  }
+ ]
+}
