@@ -313,7 +313,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`lipreading-temporal-model-and-feature-learning.csv`](lipreading-temporal-model-and-feature-learning.csv) (7345 slot-filled, 975 pattern match, usual design in 113, 6 read in full)
 - Inclusion rule: Automatic lip-reading, visual speech recognition or audio-visual speech recognition studies whose ledger names optical-camera input, classified by the visual model their full text names: recurrent network (LSTM, GRU, RNN, Elman/Jordan or stochastic recurrent), time-delay neural network, learned deep features (CNN, DBN, autoencoder, DNN), hand-crafted appearance or shape features (DCT, PCA/eigenlips, AAM, HOG, LBP), HMM or SVM classifier. Boundary: studies whose full text names no automatic recognizer or classifier (human speechreading and perception studies) are excluded; a study counts under every design its text names, related-work mentions included (upper bound); versions count once; dated against the target's first public month 2016-01.
-- Used in: [Audio-visual speech recognition using deep learning](../../reviews/audio-visual-speech-recognition-using-deep-learning/), [Lipreading with Long Short-Term Memory](../../reviews/lipreading-with-long-short-term-memory/)
+- Used in: [Audio-visual speech recognition using deep learning](../../reviews/audio-visual-speech-recognition-using-deep-learning/), [Lipreading using Convolutional Neural Network](../../reviews/lipreading-using-convolutional-neural-network/), [Lipreading with Long Short-Term Memory](../../reviews/lipreading-with-long-short-term-memory/)
 
 ## lrw-audiovisual-word-recognition
 

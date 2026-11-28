@@ -154,11 +154,11 @@ Data behind this review. Full texts of the papers are not included.
 ## More reviews in Other sensors
 
 - [Direct classification of all American English phonemes using signals from functional speech motor cortex](../direct-classification-of-all-american-english-phonemes-using-signals-from-functional-speech-motor-co/) (2014). Phoneme-onset events within words (M06) are ahead as a protocol; full-inventory classification predates it (Brumberg 2011); the 36% headline is consonants only, on hand-labelled onsets.
+- [Lipreading using Convolutional Neural Network](../lipreading-using-convolutional-neural-network/) (2014). New 2-D CNN front end (0 of 110 prior decoders) but an unrepeated gain (M06 standard); test-word frames trained the CNN, inflating its PCA comparison (M12 behind).
 - [Audio-visual speech recognition using deep learning](../audio-visual-speech-recognition-using-deep-learning/) (2015). Both front ends are new to their 2014 populations but transfer outside designs without repetition (M06 standard); stream weights and depth are tuned on the test words (M12 behind).
 - [Brain-to-text: decoding spoken phrases from phone representations in the brain](../brain-to-text-decoding-spoken-phrases-from-phone-representations-in-the-brain/) (2015). Phone-model decoder (M06) is the EMG recognizer moved to ECoG: standard. 25% WER uses per-phrase dictionaries holding the spoken words (M07); the time-shift null (M12) is sound.
 - [Fully Implanted Brain-Computer Interface in a Locked-In Patient with ALS](../fully-implanted-brain-computer-interface-in-a-locked-in-patient-with-als/) (2016). Skin-closed ECoG implant used at home without investigators (M13): standard, one user, skin-closed telemetry predates it; main-text 89% spelling accuracy pools inactive steps, no chance level.
 - [Lipreading with Long Short-Term Memory](../lipreading-with-long-short-term-memory/) (2016). Joint LSTM + pixel front end (M06) is ahead of 2015 lipreading, but pixel-input and recurrent word models predate it, and the 8.3-point gain is over linear SVMs, not HMMs.
-- [Neural speech recognition: continuous phoneme decoding using spatiotemporal representations of human cortical activity](../neural-speech-recognition-continuous-phoneme-decoding-using-spatiotemporal-representations-of-human/) (2016). ASR decoding (M06) and phoneme LM (M07) on heard-speech ECoG: standard, with ECoG precedents of 2015. Electrodes chosen on the test set (M12); LM effect not isolated from smoothing.
 
 ---
 
