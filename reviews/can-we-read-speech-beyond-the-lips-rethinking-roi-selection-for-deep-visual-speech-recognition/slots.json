@@ -1,0 +1,158 @@
+{
+ "M01": {
+  "choice": [
+   "LRW, LRW-1000, GRID video"
+  ],
+  "field": "Recorded speech video",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited; no new recording.",
+  "sota": "–"
+ },
+ "M02": {
+  "choice": [
+   "Word labels, GRID transcripts"
+  ],
+  "field": "Text labels only",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M03": {
+  "choice": [
+   "Face Cutout"
+  ],
+  "field": "No input masking, of 172 prior",
+  "n": 172,
+  "matched": 172,
+  "matched_tier": "pattern match (prior decoders, hand-checked)",
+  "verdict": "ahead",
+  "note": "LRW-1000 from LRW; no mouth+Cutout.",
+  "sota": "[@ma2022training] (2022): LRW 90.4%, no Cutout"
+ },
+ "M04": {
+  "choice": [
+   "Voiced speech, video only"
+  ],
+  "field": "Voiced speech video",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M05": {
+  "choice": [
+   "Aligned face; upper face, cheeks"
+  ],
+  "field": "Mouth or lip RoI (mentions), of 172 prior",
+  "n": 172,
+  "matched": 133,
+  "matched_tier": "pattern match (mention count, prior)",
+  "verdict": "standard",
+  "note": "Face vs mouth tested before.",
+  "sota": "[@zhang2022lipsufficient] (2022): LRS3 34.6% vs 40.3%"
+ },
+ "M06": {
+  "choice": [
+   "3D-ResNet18 + Bi-GRU; LipNet"
+  ],
+  "field": "3D conv + ResNet trunk",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M07": {
+  "choice": [
+   "GRID: character 5-gram LM"
+  ],
+  "field": "LipNet decoding",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited; beam and LM weights not given.",
+  "sota": "–"
+ },
+ "M08": {
+  "choice": [
+   "Word class; GRID sentence"
+  ],
+  "field": "Word class or text",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Inherited.",
+  "sota": "–"
+ },
+ "M09": {
+  "choice": [
+   "Offline"
+  ],
+  "field": "Offline",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M10": {
+  "choice": [
+   "Offline"
+  ],
+  "field": "Offline",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "Offline study.",
+  "sota": "–"
+ },
+ "M11": {
+  "choice": [
+   "Dataset labels, official splits"
+  ],
+  "field": "Corpus labels",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "standard",
+  "note": "Chance level not stated.",
+  "sota": "–"
+ },
+ "M12": {
+  "choice": [
+   "Single runs"
+  ],
+  "field": "No run spread, of 26 prior",
+  "n": 26,
+  "matched": 26,
+  "matched_tier": "pattern match (prior LRW decoders, hand-checked)",
+  "verdict": "standard",
+  "note": "GRID claim uses an LM.",
+  "sota": "[@ahn2024syncvsr] (2024): 3 seeds, ±0.1"
+ },
+ "M13": {
+  "choice": [
+   "2-3 GPUs, offline"
+  ],
+  "field": "Offline benchmark",
+  "n": null,
+  "matched": null,
+  "matched_tier": "slot-filled (unique studies)",
+  "verdict": "not_applicable",
+  "note": "No device evaluation claimed.",
+  "sota": "–"
+ }
+}
