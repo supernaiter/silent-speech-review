@@ -186,6 +186,96 @@
    "pid": "arxiv-2601.21148",
    "year": 2026,
    "tier": "ledger only"
+  },
+  {
+   "metric": "impl lr lrs2 train",
+   "value": 0.0001,
+   "unit": "ratio",
+   "raw": "0.0001",
+   "pid": "arxiv-1911.11502",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "ds LRS2 test h",
+   "value": 0.5,
+   "unit": "hours",
+   "raw": "0.5",
+   "pid": "arxiv-2503.21408",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER (audio-only & AV, LRS2)",
+   "value": 1.5,
+   "unit": "percent",
+   "raw": "audio-only and audio-visual WER 1.5% on LRS2",
+   "pid": "arxiv-2303.14307",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "res/impl pretrain days LRS2",
+   "value": 1.5,
+   "unit": "d",
+   "raw": "1.5",
+   "pid": "arxiv-2312.09727",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t6 mome-mhsa lrs2(45)",
+   "value": 1.8,
+   "unit": "percent",
+   "raw": "1.8",
+   "pid": "arxiv-2510.04136",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "cmlr-u-te spk",
+   "value": 2,
+   "unit": "speakers",
+   "raw": "2",
+   "pid": "arxiv-2302.02141",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t1 lrs2 src",
+   "value": 2.3,
+   "unit": "Mtok",
+   "raw": "2.3",
+   "pid": "arxiv-2303.05309",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t4 swl-av LRS2",
+   "value": 2.86,
+   "unit": "percent",
+   "raw": "2.86",
+   "pid": "arxiv-2505.04394",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "Table2 ref97 LRS2 CER",
+   "value": 5.93,
+   "unit": "%",
+   "raw": "5.93",
+   "pid": "arxiv-2110.07879",
+   "year": null,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t1 cmlr spk",
+   "value": 11,
+   "unit": "speakers",
+   "raw": "11",
+   "pid": "arxiv-2301.10180",
+   "year": null,
+   "tier": "ledger only"
   }
  ],
  "recall_sample": [
@@ -2166,6 +2256,35 @@
    "loc": "Abstract",
    "quote": "propose a knowledge distillation method of hybrid DNN-HMM acoustic model.",
    "by": "asr-is-all-you-need-cross-modal-distillation-for-lip-reading"
+  },
+  {
+   "pid": "cvf-ren21-master-kd",
+   "role": "sota",
+   "loc": "Table 1",
+   "quote": "Lip reading (KD) ! Video 53.4 Lip reading (KD) ! Audio 54.2",
+   "by": "hearing-lips-improving-lip-reading-by-distilling-speech-recognizers"
+  },
+  {
+   "pid": "isca-sari18-avicar",
+   "role": "prior",
+   "loc": "Sec. 2",
+   "quote": "State-level forced alignments are converted into visual unit alignments and used as output targets for the CNN used as visual feature extractor.",
+   "by": "hearing-lips-improving-lip-reading-by-distilling-speech-recognizers"
+  },
+  {
+   "pid": "icassp2017-tatulli-multimodal-cnn-vsr",
+   "role": "prior",
+   "loc": "Sec. 3.1",
+   "quote": "The phonetic segmentation of the audio signal was then used",
+   "by": "hearing-lips-improving-lip-reading-by-distilling-speech-recognizers"
+  },
+  {
+   "pid": "arxiv-1911.12747",
+   "role": "prior",
+   "timing": "concurrent",
+   "loc": "Sec. 1.1; Sec. 5",
+   "quote": "The closest work to ours is Wei et al. [31] who apply cross-modal distillation from ASR for learning audio-visual speech recognition.",
+   "by": "hearing-lips-improving-lip-reading-by-distilling-speech-recognizers"
   }
  ],
  "known_item_recall": {
@@ -2202,7 +2321,10 @@
   "read_prior": [
    "arxiv-2007.06504",
    "arxiv-1911.11502",
-   "isca-suzuki19_interspeech"
+   "isca-suzuki19_interspeech",
+   "arxiv-1911.12747",
+   "icassp2017-tatulli-multimodal-cnn-vsr",
+   "isca-sari18-avicar"
   ],
   "unread": 188,
   "confirmed_unique": 0,
@@ -2210,6 +2332,7 @@
  },
  "used_by": [
   "asr-is-all-you-need-cross-modal-distillation-for-lip-reading",
+  "hearing-lips-improving-lip-reading-by-distilling-speech-recognizers",
   "knowledge-distilled-ensemble-model-for-semg-based-silent-speech-interface"
  ],
  "recall_check_asr-is-all-you-need-cross-modal-distillation-for-lip-reading": {
@@ -2243,5 +2366,91 @@
   "tier": "pattern match",
   "population_unique": 2648,
   "note": "whole-wiki full-text recall, any signal; 0 same-design prior hits among 26 snippets read; [concurrent]: LIBS (same family), throat microphone (adjacent, acoustic student)"
+ },
+ "inclusion_rule_hearing-lips-improving-lip-reading-by-distilling-speech-recognizers": "Published rule. For this review: the design is compared on the 77 sentence-level lip-reading / VSR / AVSR decoders first public before 2019-05 and the 17 [concurrent] ones (2019-05 to 2020-05), taken from the 633-study sentence-level population after removing perception, neuroscience, corpus, enhancement and review papers and version duplicates; full-text pattern counts (reference list removed), every prior and concurrent hit snippet read. Same design: a speech-recognizer teacher's predictions or hidden states distilled into a video-input student. Boundary: audio-visual students that need audio at test and forced-alignment hard labels are counted separately; subtitle alignment for corpus building and mentions are not designs.",
+ "counts_hearing-lips-improving-lip-reading-by-distilling-speech-recognizers": {
+  "population": 633,
+  "window": "prior = first public before 2019-05; [concurrent] = 2019-05 to 2020-05; target first public 2019-11 (arXiv v1)",
+  "prior_raw": 118,
+  "prior_kept": 76,
+  "concurrent_raw": 19,
+  "concurrent_kept": 17,
+  "prior_hits": {
+   "distill": 1,
+   "distill_same_design": 0,
+   "forced_align": 20,
+   "forced_align_training_targets": 12,
+   "forced_align_visual_stream_targets": 8,
+   "forced_align_corpus_or_eval": 4,
+   "forced_align_mention": 4,
+   "audio_feature_regression": 0,
+   "forced_align_av_model_targets": 4
+  },
+  "forced_align_training_targets_pids": [
+   "doi-10.5220-0003731903220329",
+   "icassp2017-tatulli-multimodal-cnn-vsr",
+   "isca-hueber08b_phonerec",
+   "isca-lucey07-poseinv",
+   "isca-lucey08-poseinv",
+   "isca-lucey08_avsp",
+   "isca-sari18-avicar",
+   "isca-tamura17_avsp",
+   "isca-abdelaziz14_interspeech",
+   "isca-abdelaziz17-turboav",
+   "doi-10.1109-tcyb.2013.2250954",
+   "isca-xue05_avsp"
+  ],
+  "forced_align_corpus_or_eval_pids": [
+   "arxiv-1611.05358",
+   "arxiv-1807.05162",
+   "arxiv-1809.02108",
+   "arxiv-1807-08469-zeroshotkws"
+  ],
+  "forced_align_mention_pids": [
+   "arxiv-1611.02879",
+   "isca-martinez04_interspeech",
+   "oa-W3099202502",
+   "rs-19574628-saenko"
+  ],
+  "distill_prior_pid": "arxiv-1806.06053 (mention of acoustic online-CTC teacher-student)",
+  "concurrent_same_design": [
+   "arxiv-1911.11502 (target)",
+   "arxiv-1911.12747"
+  ],
+  "concurrent_adjacent": [
+   "isca-suzuki19_interspeech"
+  ],
+  "whole_wiki_recall": "recall_check_asr-is-all-you-need-cross-modal-distillation-for-lip-reading: 3,089 scanned before 2020-06 (2,648 before 2019-05), 26 hits, same design prior 0",
+  "regex": "tools/m02_win.json",
+  "excluded_on_triage": [
+   "isca-kolossa12_avenh (inventory-based audio-visual speech enhancement, not a decoder)"
+  ],
+  "li2019_outside_wiki": "doi:10.1109/ICASSP.2019.8682868, Crossref created 2019-04-17: ASR teacher into an audio-visual student (prior, outside the video-only boundary)",
+  "target_cited_kd_priors_outside_setting": [
+   "Hinton et al. 2015",
+   "Romero et al. 2014 (FitNets)",
+   "Kim and Rush 2016",
+   "Gupta et al. 2016 (image to depth)",
+   "Hou et al. 2019 (driving)"
+  ]
+ },
+ "usual_approach_hearing-lips-improving-lip-reading-by-distilling-speech-recognizers": {
+  "design": "transcript-only supervision; forced-alignment audio targets 12 of 76 (8 visual stream), teacher distillation 0 of 76",
+  "n": 12,
+  "tier": "pattern match",
+  "population_unique": 76,
+  "pids": [
+   "isca-sari18-avicar",
+   "icassp2017-tatulli-multimodal-cnn-vsr",
+   "isca-lucey08_avsp"
+  ]
+ },
+ "state_of_the_art_hearing-lips-improving-lip-reading-by-distilling-speech-recognizers": {
+  "pid": "cvf-ren21-master-kd",
+  "year": 2021,
+  "metric": "LRS2 WER of one lip-reading student: no distillation 57.5%, audio teacher 54.2%, video teacher 53.4% (Table 1); single values, teacher sizes not stated",
+  "value": 54.2,
+  "unit": "% WER",
+  "timing": "later"
  }
 }
