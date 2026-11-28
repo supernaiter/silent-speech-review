@@ -34,6 +34,12 @@ Topics searched for this component across the whole field, and the confirmed pap
 | Personalized Lip Reading: Adapting to Your Unique Lip Movements with Vision and Language |  | §1 |
 | ViCocktail: Automated Multi-Modal Data Collection for Vietnamese Audio-Visual Speech Recognition | 2025 | §2 |
 
+## mandarin-lipreading-reference-transcripts
+
+- Table: [`mandarin-lipreading-reference-transcripts.csv`](mandarin-lipreading-reference-transcripts.csv) (234 slot-filled, 62 pattern match, usual design in 2, 4 read in full)
+- Inclusion rule: The same Mandarin lip-reading decoder population, classified from the full text (reference list removed) by how the text references of the corpus are named: ASR-generated transcripts, broadcast subtitles or manuscripts, or manual checking or annotation. Boundary: mention counts (pattern match, upper bound), including descriptions of reused corpora; versions once. Population: Mandarin lip-reading decoders: text-output lip-reading, VSR or AVSR systems that take lip or face video at test and report a result on a Mandarin corpus (LRW-1000, CMLR, CAS-VSR, CN-CVS, CNVSRC, MAVD, own corpora). Excluded: perception, neuroimaging and education studies, surveys, dataset or challenge description papers that report no decoder (dataset papers with baseline decoders such as LRW-1000 are included), enhancement, separation, synthesis and talking-face generation, cued speech, keyword spotting, non-visual modalities, non-Mandarin decoders. Versions merged by title (titles filled from manifests). Dated by first public version against 2019-08 (window 2019-02 to 2020-02 = concurrent).
+- Used in: [A Cascade Sequence-to-Sequence Model for Chinese Mandarin Lip Reading](../../reviews/a-cascade-sequence-to-sequence-model-for-chinese-mandarin-lip-reading/)
+
 ## multi-mode-speech-corpus
 
 - Table: [`multi-mode-speech-corpus.csv`](multi-mode-speech-corpus.csv) (234 slot-filled, 24 pattern match, usual design in 14, 3 read in full)

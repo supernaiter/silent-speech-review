@@ -1,0 +1,66 @@
+{
+ "target": "doi-10.1145-3338533.3366579",
+ "versions": [
+  "doi-10.1145-3338533.3366579",
+  "arxiv-1908.04917"
+ ],
+ "first_public": "2019-08",
+ "changed": [
+  "M06",
+  "M11"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Joint fine-tuning of cascade stages, as in LipCH-Net's joint optimization",
+  "M02": "Pinyin and tone labels derived from ASR character transcripts (derivation not stated)",
+  "M03": "Length curriculum and scheduled sampling from WAS (Chung et al. 2017); one run, no seeds",
+  "M04": "Overt broadcast speech, audio removed at test",
+  "M05": "Grayscale 64x128 lip crops from broadcast video; VGG front end on 5-frame windows",
+  "M07": "Greedy decoding, no external language model",
+  "M08": "Chinese characters (1,779 tokens)",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M13": "No deployment, latency or model-size report"
+ },
+ "population": "Mandarin lip-reading decoders: text-output lip-reading, VSR or AVSR systems that take lip or face video at test and report a result on a Mandarin corpus (LRW-1000, CMLR, CAS-VSR, CN-CVS, CNVSRC, MAVD, own corpora). Excluded: perception, neuroimaging and education studies, surveys, dataset or challenge description papers that report no decoder (dataset papers with baseline decoders such as LRW-1000 are included), enhancement, separation, synthesis and talking-face generation, cued speech, keyword spotting, non-visual modalities, non-Mandarin decoders. Versions merged by title (titles filled from manifests). Dated by first public version against 2019-08 (window 2019-02 to 2020-02 = concurrent).",
+ "topics": [
+  {
+   "slot": "M06",
+   "topic": "mandarin-lipreading-phonetic-intermediate",
+   "inclusion_rule": "The Mandarin lip-reading decoder population (plan.population), classified from the full text (reference list removed) by the intermediate units named: pinyin or syllables, explicit tone prediction or tone labels, a multi-stage cascade, or none (direct characters or word classes). Boundary: counts are mentions (pattern match, upper bound; related-work discussion included); a study counts under every design its text names; versions once.",
+   "pattern": "hand-filtered population list",
+   "design_regex": [
+    "pinyin",
+    "tone_prediction",
+    "cascade_or_multi_stage",
+    "syllable"
+   ],
+   "metric": "CMLR CER"
+  },
+  {
+   "slot": "M11",
+   "topic": "mandarin-lipreading-reference-transcripts",
+   "inclusion_rule": "The same Mandarin lip-reading decoder population, classified from the full text (reference list removed) by how the text references of the corpus are named: ASR-generated transcripts, broadcast subtitles or manuscripts, or manual checking or annotation. Boundary: mention counts (pattern match, upper bound), including descriptions of reused corpora; versions once.",
+   "pattern": "hand-filtered population list",
+   "design_regex": [
+    "asr_generated",
+    "subtitles_or_manuscripts",
+    "manual_check_or_annotation"
+   ],
+   "metric": "none"
+  },
+  {
+   "slot": "M12",
+   "topic": "mandarin-lipreading-speaker-split-and-variability",
+   "inclusion_rule": "The same Mandarin lip-reading decoder population, classified from the full text (reference list removed) by whether an unseen-speaker (speaker-independent) evaluation is named and whether run-to-run variability (standard deviation, confidence interval, repeated runs, significance test) is reported. Boundary: mention counts (pattern match, upper bound); versions once.",
+   "pattern": "hand-filtered population list",
+   "design_regex": [
+    "unseen_speaker_test",
+    "variability_reported"
+   ],
+   "metric": "CMLR CER, overlap and unseen-speaker splits"
+  }
+ ]
+}
