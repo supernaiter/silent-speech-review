@@ -2168,6 +2168,34 @@
    "loc": "Sec. 4",
    "quote": "Except for V2P-NoLM, all models used the same 5-gram word-level language model during decoding.",
    "by": "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "prior",
+   "loc": "Table 5",
+   "quote": "W AS+CL+SS+BS - 39.5% 50.2% 54.9",
+   "note": "prior (2016-11); LRS test, not LRS2"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Sec. 6.1",
+   "quote": "an absolute improvement of over 22% compared to the previous 70.4% state-of-the-art [12]",
+   "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-2303.14307",
+   "role": "sota",
+   "loc": "Table 3",
+   "quote": "MV-W AS [27]",
+   "timing": "later"
+  },
+  {
+   "pid": "arxiv-2303.14307",
+   "role": "sota",
+   "loc": "Table 3",
+   "quote": "Ours 3 448 14.6",
+   "timing": "later"
   }
  ],
  "known_item_recall": {
@@ -2203,6 +2231,7 @@
   "timing": "later"
  },
  "used_by": [
+  "deep-lip-reading-a-comparison-of-models-and-an-online-application",
   "hearing-lips-improving-lip-reading-by-distilling-speech-recognizers",
   "learning-from-the-master-distilling-cross-modal-advanced-knowledge-for-lip-reading"
  ],
@@ -3158,6 +3187,31 @@
   "year": 2024,
   "metric": "LRS2 visual-only WER, no external LM, 223 labelled + 1,759 unlabelled hours (15.4% with LM); Auto-AVSR 14.6% with LM and 3,448 labelled hours (same table)",
   "value": 16.0,
+  "unit": "% WER",
+  "timing": "later"
+ },
+ "counts_at_target_time_deep-lip-reading-a-comparison-of-models-and-an-online-application": {
+  "population": "see M06/sentence-lipreading-sequence-objective counts_at_target_time_deep-lip-reading-a-comparison-of-models-and-an-online-application",
+  "prior_49": {
+   "lrs2": 0,
+   "run_spread_mentions": 16
+  },
+  "concurrent_14": {
+   "lrs2": 3,
+   "run_spread_mentions": 3
+  },
+  "concurrent_lrs2_ids": [
+   "arxiv-1809.02108",
+   "arxiv-1810.00108",
+   "arxiv-1811.05250"
+  ],
+  "note": "no prior decoder in the ledger reports LRS2; the target is the earliest LRS2 visual-only result in the ledger besides the 70.4% baseline row it lists; run-spread hits are mentions (the published table found prior hits to be augmentation shifts and feature normalisation)"
+ },
+ "state_of_the_art_deep-lip-reading-a-comparison-of-models-and-an-online-application": {
+  "pid": "arxiv-2303.14307",
+  "year": 2023,
+  "metric": "LRS2 visual-only WER, single value per system (Table 3), 3,448 training hours",
+  "value": 14.6,
   "unit": "% WER",
   "timing": "later"
  }

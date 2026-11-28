@@ -1,0 +1,701 @@
+{
+ "topic": "streaming-lip-reading-decoding",
+ "slot": "M13",
+ "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+ "pattern": "(?s)^(?=.*(lip[- ]?read|visual speech recognition|\\bvsr\\b|\\bavsr\\b|\\blrs ?[23]\\b))(?=.*(streaming|online (lip|decod|recogn|vsr|avsr|inference|setting|application)|low[- ]latency|real[- ]time (lip|decod|recogn|caption|transcri|inference|vsr)|look-?ahead|causal (conv|model|encoder|attention)|chunk-?wise|incremental decod|simultaneous (lip|decod)))",
+ "scope": "ledger",
+ "fulltext_pattern": null,
+ "inclusion_rule": "Decoders that transcribe or recognise speech from lip, face or articulator video (alone or with audio) and claim online, streaming, simultaneous or real-time operation, classified by whether the full text reports a measured latency, algorithmic delay or real-time factor and an online-scored error rate. Boundary: human-perception studies, speech enhancement or separation, talking-head synthesis and phonetic analyses are excluded on reading of the ledger text; reference-list mentions do not count; versions count once; Cai et al. 2011 (isca-cai11-lightssi) and a 2017 real-time lip vowel recogniser (doi-10.1109-access.2017.2649838) are added from the whole-wiki recall check.",
+ "counts": {
+  "scanned_folders": 8995,
+  "scanned_unique": 7388,
+  "slot_filled_folders": 6721,
+  "slot_filled_unique": 6075,
+  "string_match_folders": 33,
+  "string_match_unique": 25,
+  "fulltext_only_folders": 0
+ },
+ "ledger_tally": {
+  "design_slot": "M13",
+  "design_slot_fill": 0.747,
+  "sparse": false,
+  "design_values": [
+   {
+    "design": "SystemConfiguration.system_lifecycle=implemented_evaluated",
+    "n": 11,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1177-23312165261428755",
+     "irjmets-88433-silent2sound",
+     "doi-10.1101-2025.09.26.678636",
+     "iros-11246474-lipreadhri",
+     "hal-4183135-neurolip"
+    ]
+   },
+   {
+    "design": "extra.Configuration.configuration_scope={non-stream,stream}x{a,v,a+v}x{aux off/on}x{frozen,ft}",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2211.02133"
+    ]
+   },
+   {
+    "design": "system_name=swift-net-6",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.06689"
+    ]
+   },
+   {
+    "design": "system_name=swift-net-9",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.06689"
+    ]
+   },
+   {
+    "design": "system_name=swift-net-12 (ftgs block counts)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2506.06689"
+    ]
+   },
+   {
+    "design": "system_name=av-ste modular front-end + frozen moshi (mimi codec)",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "arxiv-2609.08390"
+    ]
+   },
+   {
+    "design": "system_boundary=perception test — no recognition product",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "doi-10.1177-23312165261428755"
+    ]
+   },
+   {
+    "design": "system_name=spiking mstp",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "hal-4183135-neurolip"
+    ]
+   },
+   {
+    "design": "system_name=synface",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-beskow09_avsp"
+    ]
+   },
+   {
+    "design": "system_name=loria stereovision labial-measurement + phonetic-rule coarticulation model",
+    "n": 1,
+    "tier": "slot-filled",
+    "pids": [
+     "isca-robert05_avsp"
+    ]
+   }
+  ],
+  "pattern_counts": [
+   {
+    "design": "limited_lookahead",
+    "n": 12,
+    "tier": "pattern match",
+    "pids": [
+     "irjmets-88433-silent2sound",
+     "arxiv-2506.06689",
+     "arxiv-2609.08390",
+     "iros-11246474-lipreadhri",
+     "arxiv-2303.07005"
+    ]
+   },
+   {
+    "design": "online_accuracy_scored",
+    "n": 7,
+    "tier": "pattern match",
+    "pids": [
+     "iros-11246474-lipreadhri",
+     "doi-10.1055-s-0042-1744170",
+     "pmc-3155588-streamseg",
+     "arxiv-2012.07467",
+     "arxiv-2108.13630"
+    ]
+   },
+   {
+    "design": "measured_latency",
+    "n": 4,
+    "tier": "pattern match",
+    "pids": [
+     "arxiv-2609.08390",
+     "arxiv-2012.07467",
+     "arxiv-2108.13630",
+     "arxiv-2211.02133"
+    ]
+   }
+  ],
+  "metric_pattern": "WER|word error",
+  "better": "lower"
+ },
+ "sota_candidates": [
+  {
+   "metric": "WER 2.0 offline / 2.6 online",
+   "value": 2.0,
+   "unit": "% WER",
+   "raw": "offline LRS3 WER",
+   "pid": "isca-ma23_interspeech",
+   "year": 2023,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "WER",
+   "value": 4.9,
+   "unit": "percent",
+   "raw": "",
+   "pid": "iros-11246474-lipreadhri",
+   "year": 2025,
+   "tier": "ledger only"
+  },
+  {
+   "metric": "t1 tm wer-t2",
+   "value": 50.0,
+   "unit": "percent",
+   "raw": "50.0%",
+   "pid": "arxiv-1806.06053",
+   "year": null,
+   "tier": "ledger only"
+  }
+ ],
+ "recall_sample": [],
+ "recall_sample_seed": 1,
+ "candidates": [
+  {
+   "pid": "arxiv-1806.06053",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-1806.06053 | title=Deep Lip Reading: a comparison of models and an online application | Study.research_ob"
+  },
+  {
+   "pid": "arxiv-2012.07467",
+   "key": "t:avtarisonlineaudiovisualspeechrecognition",
+   "title": "AV Taris: Online Audio-Visual Speech Recognition",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2012.07467 | title=AV Taris: Online Audio-Visual Speech Recognition | Study.research_objective=Extend onl"
+  },
+  {
+   "pid": "arxiv-2108.13630",
+   "key": "t:simullrsimultaneouslipreadingtransducerwithattentionguidedadaptivememory",
+   "title": "SimulLR: Simultaneous Lip Reading Transducer with Attention-Guided Adaptive Memory",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2108.13630 | title=SimulLR: Simultaneous Lip Reading Transducer with Attention-Guided Adaptive Memory | S"
+  },
+  {
+   "pid": "arxiv-2211.02133",
+   "key": "t:streamingaudiovisualspeechrecognitionwithalignmentregularization",
+   "title": "Streaming Audio-Visual Speech Recognition with Alignment Regularization",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2211.02133 | title=Streaming Audio-Visual Speech Recognition with Alignment Regularization | Study.resear"
+  },
+  {
+   "pid": "arxiv-2303.07005",
+   "key": "t:realtimeaudiovisualendtoendspeechenhancement",
+   "title": "Real-Time Audio-Visual End-to-End Speech Enhancement",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2303.07005 | title=Real-Time Audio-Visual End-to-End Speech Enhancement | authors=Zhu Z, Yang H, Tang M,"
+  },
+  {
+   "pid": "arxiv-2505.04394",
+   "key": "t:swinlipanefficientvisualspeechencoderforlipreadingusingswintransformer",
+   "title": "SwinLip: An Efficient Visual Speech Encoder for Lip Reading Using Swin Transformer",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2505.04394 | title=SwinLip: An Efficient Visual Speech Encoder for Lip Reading Using Swin Transformer | S"
+  },
+  {
+   "pid": "arxiv-2506.06689",
+   "key": "t:afastandlightweightmodelforcausalaudiovisualspeechseparation",
+   "title": "A Fast and Lightweight Model for Causal Audio-Visual Speech Separation",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2506.06689 | doi=10.48550/arxiv.2506.06689 | title=A Fast and Lightweight Model for Causal Audio-Visual S"
+  },
+  {
+   "pid": "arxiv-2609.08390",
+   "key": "t:noiseadaptivestreamingaudiovisualspeechtokenenhancementforrobustfullduplexspoken",
+   "title": "Noise Adaptive Streaming Audio-Visual Speech Token Enhancement for Robust Full-Duplex Spoken Dialogue Models",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=arxiv-2609.08390 | doi=10.48550/arxiv.2609.08390 | title=Noise Adaptive Streaming Audio-Visual Speech Token Enh"
+  },
+  {
+   "pid": "conf-icphs2011-cai-visual-speech-recognition",
+   "key": "t:avisualspeechrecognitionsystemforanultrasoundbasedsilentspeechinterface",
+   "title": "A Visual Speech Recognition System for an Ultrasound-based Silent Speech Interface",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=conf:icphs2011/cai_visual_speech_recognition | title=A Visual Speech Recognition System for an Ultrasound-based"
+  },
+  {
+   "pid": "doi-10.1055-s-0042-1744170",
+   "key": "t:bluetoothcouplinginhearingaidseffectonaudiovisualspeechrecognitionandqualityrati",
+   "title": "Bluetooth Coupling in Hearing Aids: Effect on Audiovisual Speech Recognition and Quality Rating of Compressed Speech in Older Individuals with Sloping Hearing Loss",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1055-s-0042-1744170 | title=Bluetooth Coupling in Hearing Aids: Effect on Audiovisual Speech Recognition"
+  },
+  {
+   "pid": "doi-10.1101-2025.09.26.678636",
+   "key": "t:visualcontributionstotheperceptionofspeechinnoise",
+   "title": "Visual contributions to the perception of speech in noise",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi/10.1101/2025.09.26.678636 | title=Visual contributions to the perception of speech in noise | authors=L. C."
+  },
+  {
+   "pid": "doi-10.1177-23312165261428755",
+   "key": "t:assessingvisualcontributionstotheperceptionofspeechinnoise",
+   "title": "Assessing Visual Contributions to the Perception of Speech in Noise",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=10.1177/23312165261428755 | title=Assessing Visual Contributions to the Perception of Speech in Noise | authors"
+  },
+  {
+   "pid": "doi-10.1371-journal.pone.0275585",
+   "key": "t:influenceoflinguisticpropertiesandhearingimpairmentonvisualspeechperceptionskill",
+   "title": "Influence of linguistic properties and hearing impairment on visual speech perception skills in the German language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.1371-journal.pone.0275585 | title=Influence of linguistic properties and hearing impairment on visual sp"
+  },
+  {
+   "pid": "doi-10.31234-osf.io-ujhd9_v1",
+   "key": "t:influenceofspeechinnoiseperceptiongenderandageonlipreadingabilityformonosyllabic",
+   "title": "Influence of speech-in-noise perception, gender, and age on lipreading ability for monosyllabic words",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=doi-10.31234-osf.io-ujhd9_v1 | title=Influence of speech-in-noise perception, gender, and age on lipreading abi"
+  },
+  {
+   "pid": "hal-4183135-neurolip",
+   "key": "t:endtoendneuromorphiclipreading",
+   "title": "End-to-end Neuromorphic Lip Reading",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=End-to-end Neuromorphic Lip Reading | authors=Bulzomi Hugo, Schweiker Marcel, Gruel Amelie, Martinet Jean | venue="
+  },
+  {
+   "pid": "irjmets-88433-silent2sound",
+   "key": "t:silent2soundvisualtosoundaudiospeechreconstructionusinglipreadingai",
+   "title": "Silent2Sound: Visual-to-Sound Audio Speech Reconstruction Using Lip-Reading AI",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Silent2Sound: Visual-to-Sound Audio Speech Reconstruction Using Lip-Reading AI | authors=Tabassum; Barakey; Rao; F"
+  },
+  {
+   "pid": "iros-11246474-lipreadhri",
+   "key": "t:canrealtimelipreadingimprovespeechrecognitionasystematicexplorationusinghumanrob",
+   "title": "Can Real-Time Lipreading Improve Speech Recognition? A Systematic Exploration Using Human-Robot Interaction Data",
+   "year": 2025,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Can Real-Time Lipreading Improve Speech Recognition? A Systematic Exploration Using Human-Robot Interaction Data |"
+  },
+  {
+   "pid": "isca-afouras18b-deeplip",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep Lip Reading: a comparison of models and an online application | authors=Afouras, Chung, Zisserman | venue=Int"
+  },
+  {
+   "pid": "isca-afouras18b_deeplipread",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: A Comparison of Models and an Online Application",
+   "year": 2018,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-afouras18b_deeplipread | title=Deep Lip Reading: A Comparison of Models and an Online Application | author"
+  },
+  {
+   "pid": "isca-afouras18b_interspeech",
+   "key": "t:deeplipreadingacomparisonofmodelsandanonlineapplication",
+   "title": "Deep Lip Reading: a comparison of models and an online application",
+   "year": null,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Deep Lip Reading: a comparison of models and an online application | system_name=deep lip-reading: loosely-cropped"
+  },
+  {
+   "pid": "isca-beskow09_avsp",
+   "key": "t:synfaceverbalandnonverbalfaceanimationfromaudio",
+   "title": "SynFace - verbal and non-verbal face animation from audio",
+   "year": 2009,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=SynFace - verbal and non-verbal face animation from audio | authors=Jonas Beskow; Giampiero Salvi; Samer Al Moubay"
+  },
+  {
+   "pid": "isca-jain26_interspeech",
+   "key": "t:thelipreadinggapdovsrmodelsperceivevisualspeechlikehumanlipreaders",
+   "title": "The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-jain26_interspeech | title=The Lipreading Gap: Do VSR Models Perceive Visual Speech Like Human Lipreaders?"
+  },
+  {
+   "pid": "isca-ma23-streamingav",
+   "key": "t:streamingaudiovisualspeechrecognitionwithalignmentregularization",
+   "title": "Streaming Audio-Visual Speech Recognition with Alignment Regularization",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Streaming Audio-Visual Speech Recognition with Alignment Regularization | authors=Ma, Panagakis, Zisserman | venue"
+  },
+  {
+   "pid": "isca-ma23_interspeech",
+   "key": "t:streamingaudiovisualspeechrecognitionwithalignmentregularization",
+   "title": "Streaming Audio-Visual Speech Recognition with Alignment Regularization",
+   "year": 2023,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-ma23_interspeech | title=Streaming Audio-Visual Speech Recognition with Alignment Regularization | authors"
+  },
+  {
+   "pid": "isca-robert05_avsp",
+   "key": "t:interspeakervariabilityoflabialcoarticulationwiththeviewofdevelopingaformalcoart",
+   "title": "Inter speaker variability of labial coarticulation with the view of developing a formal coarticulation model for French",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Inter speaker variability of labial coarticulation with the view of developing a formal coarticulation model for F"
+  },
+  {
+   "pid": "isca-robert05_interspeech",
+   "key": "t:strategiesoflabialcoarticulation",
+   "title": "Strategies of labial coarticulation",
+   "year": 2005,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca/robert05-interspeech | title=Strategies of labial coarticulation | authors=Vincent Robert, Brigitte Wrobel"
+  },
+  {
+   "pid": "isca-saitoh11_avsp",
+   "key": "t:developmentofcommunicationsupportsystemusinglipreading",
+   "title": "Development of communication support system using lip reading",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Development of communication support system using lip reading | authors=Takeshi Saitoh | venue=Proc. AVSP 2011 | S"
+  },
+  {
+   "pid": "isca-siciliano03_avsp",
+   "key": "t:lipreadabilityofasynthetictalkingfaceinnormalhearingandhearingimpairedlisteners",
+   "title": "Lipreadability of a Synthetic Talking Face in Normal Hearing and Hearing-Impaired Listeners",
+   "year": 2003,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=isca-siciliano03_avsp | title=Lipreadability of a Synthetic Talking Face in Normal Hearing and Hearing-Impaired"
+  },
+  {
+   "pid": "osf-ncdtp_v1",
+   "key": "t:realtimelipreadingandspeechsynthesisusingctccnnbilstmnetworkswithflaskdeployment",
+   "title": "Real-Time Lip Reading and Speech Synthesis Using CTC-CNN-BiLSTM Networks with Flask Deployment",
+   "year": 2024,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=osf-ncdtp_v1 | title=Real-Time Lip Reading and Speech Synthesis Using CTC-CNN-BiLSTM Networks with Flask Deploy"
+  },
+  {
+   "pid": "pmc-13009578-vccrmn-avsin",
+   "key": "t:assessingvisualcontributionstotheperceptionofspeechinnoise",
+   "title": "Assessing Visual Contributions to the Perception of Speech in Noise",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "paper_id=pmc-13009578-vccrmn-avsin | title=Assessing Visual Contributions to the Perception of Speech in Noise | authors"
+  },
+  {
+   "pid": "pmc-13009578-vissnin",
+   "key": "t:assessingvisualcontributionstotheperceptionofspeechinnoise",
+   "title": "Assessing Visual Contributions to the Perception of Speech in Noise",
+   "year": 2026,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Assessing Visual Contributions to the Perception of Speech in Noise | venue=Trends in Hearing | doi=10.1177/233121"
+  },
+  {
+   "pid": "pmc-3155588-streamseg",
+   "key": "t:theeffectoflipreadingonprimarystreamsegregation",
+   "title": "The effect of lip-reading on primary stream segregation",
+   "year": 2011,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=The effect of lip-reading on primary stream segregation | authors=Devergie; Grimault et al | venue=Journal of the"
+  },
+  {
+   "pid": "w4298086499-ploslip",
+   "key": "t:influenceoflinguisticpropertiesandhearingimpairmentonvisualspeechperceptionskill",
+   "title": "Influence of linguistic properties and hearing impairment on visual speech perception skills in the German language",
+   "year": 2022,
+   "via": [
+    "ledger"
+   ],
+   "snippet": "title=Influence of linguistic properties and hearing impairment on visual speech perception skills in the German languag"
+  }
+ ],
+ "usual_approach": {
+  "design": "report a latency, computed delay or real-time factor with the online claim (at the target's time)",
+  "n": 2,
+  "tier": "pattern match",
+  "population_unique": 4,
+  "pids": [
+   "conf-icphs2011-cai-visual-speech-recognition",
+   "isca-cai11-lightssi"
+  ],
+  "note": "2 of 4 prior non-target decoders, both Cai et al. 2011 on one system; all years 6 of 12 (4 of 8 later: arxiv-2012.07467, arxiv-2108.13630, arxiv-2211.02133, iros-11246474-lipreadhri)."
+ },
+ "read_fulltext": [
+  {
+   "pid": "arxiv-1806.06053",
+   "role": "target",
+   "loc": "Sec. 4",
+   "quote": "The ﬁnal prediction is the same as the ofﬂine case."
+  },
+  {
+   "pid": "isca-cai11-lightssi",
+   "role": "prior",
+   "loc": "Table 5",
+   "quote": "Visual Gigaword 20k + Gigaword 20k trigram 0.65 0.58"
+  },
+  {
+   "pid": "arxiv-1611.05358",
+   "role": "prior",
+   "loc": "Sec. 6",
+   "quote": "on-line architecture could be used, where the decoder does"
+  },
+  {
+   "pid": "arxiv-1805.11685",
+   "role": "prior",
+   "loc": "Table 1; Sec. 5",
+   "quote": "H. E w/ monotonic attention 61.58 % 170",
+   "timing": "concurrent"
+  },
+  {
+   "pid": "arxiv-2211.02133",
+   "role": "sota",
+   "loc": "Table 1; Sec. 4",
+   "quote": "(decoder) = 1 060 ms",
+   "timing": "later"
+  }
+ ],
+ "decoder_population": {
+  "decoders_excluding_target": [
+   {
+    "pid": "conf-icphs2011-cai-visual-speech-recognition",
+    "first_public": "2011",
+    "timing": "prior"
+   },
+   {
+    "pid": "isca-cai11-lightssi",
+    "first_public": "2011",
+    "timing": "prior",
+    "note": "added from the whole-wiki recall check"
+   },
+   {
+    "pid": "isca-saitoh11_avsp",
+    "first_public": "2011",
+    "timing": "prior"
+   },
+   {
+    "pid": "doi-10.1109-access.2017.2649838",
+    "first_public": "2017-01",
+    "timing": "prior",
+    "note": "added from the whole-wiki recall check; real-time vowel recognition from lip video"
+   },
+   {
+    "pid": "arxiv-2012.07467",
+    "first_public": "2020-12",
+    "timing": "later"
+   },
+   {
+    "pid": "arxiv-2108.13630",
+    "first_public": "2021-08",
+    "timing": "later"
+   },
+   {
+    "pid": "arxiv-2211.02133",
+    "first_public": "2022-11",
+    "timing": "later"
+   },
+   {
+    "pid": "hal-4183135-neurolip",
+    "first_public": "2023",
+    "timing": "later"
+   },
+   {
+    "pid": "osf-ncdtp_v1",
+    "first_public": "2024",
+    "timing": "later"
+   },
+   {
+    "pid": "arxiv-2505.04394",
+    "first_public": "2025-05",
+    "timing": "later"
+   },
+   {
+    "pid": "iros-11246474-lipreadhri",
+    "first_public": "2025",
+    "timing": "later"
+   },
+   {
+    "pid": "irjmets-88433-silent2sound",
+    "first_public": "2026",
+    "timing": "later"
+   }
+  ],
+  "excluded_on_ledger_text": [
+   "arxiv-2303.07005",
+   "arxiv-2506.06689",
+   "arxiv-2609.08390",
+   "doi-10.1055-s-0042-1744170",
+   "doi-10.1101-2025.09.26.678636",
+   "doi-10.1177-23312165261428755",
+   "doi-10.1371-journal.pone.0275585",
+   "doi-10.31234-osf.io-ujhd9_v1",
+   "pmc-13009578-vccrmn-avsin",
+   "pmc-13009578-vissnin",
+   "pmc-3155588-streamseg",
+   "w4298086499-ploslip",
+   "isca-siciliano03_avsp",
+   "isca-jain26_interspeech",
+   "isca-beskow09_avsp",
+   "isca-robert05_avsp",
+   "isca-robert05_interspeech"
+  ],
+  "counts": {
+   "prior": 4,
+   "concurrent_streaming_designs": 0,
+   "later": 8,
+   "total": 12,
+   "measured_latency_delay_or_rtf": {
+    "prior": 2,
+    "later": 4,
+    "total": 6
+   },
+   "note": "latency/delay/RTF counts are full-text pattern matches; the 2 prior hits are confirmed by reading: Cai et al. 2011 Interspeech (Table 5, RTF 0.65/0.58) and ICPhS (Sec. 4.4, about 0.90t), one group and one ultrasound-plus-lip system, possibly one experiment. Algorithmic (computed) delays count, as in arxiv-2211.02133. [concurrent] Sterpu et al. 2018 (arxiv-1805.11685) proposes online-capable monotonic attention but runs no online test; named from reading."
+  },
+  "recall_check": {
+   "scope": "every wiki study with text first public before 2017-12 naming lip reading or visual speech (1,900 unique scanned)",
+   "online_hits": 26,
+   "decoders_added": [
+    "isca-cai11-lightssi",
+    "doi-10.1109-access.2017.2649838"
+   ],
+   "not_decoders": "isca-chaloupka08_avsp (on-line recogniser is audio dictation), perception, synthesis and reference-list mentions"
+  }
+ },
+ "state_of_the_art": {
+  "pid": "arxiv-2211.02133",
+  "year": 2022,
+  "metric": "LRS3 streaming visual-only WER, 580 ms visual-encoder algorithmic delay (1,060 ms with decoder), LRS3-only 438 h; 38.6% non-streaming",
+  "value": 50.6,
+  "unit": "% WER",
+  "timing": "later"
+ },
+ "used_by": [
+  "deep-lip-reading-a-comparison-of-models-and-an-online-application"
+ ],
+ "tally": {
+  "slot_filled_unique": 6075,
+  "string_match_unique": 25,
+  "fulltext_only_folders": 0,
+  "usual_approach": {
+   "design": "report a measured latency, algorithmic delay or real-time factor with the online claim",
+   "n": 5,
+   "tier": "pattern match",
+   "population_unique": 12
+  },
+  "state_of_the_art": {
+   "pid": "arxiv-2211.02133",
+   "year": 2022,
+   "metric": "LRS3 streaming visual-only WER, 580 ms visual-encoder algorithmic delay (1,060 ms with decoder), LRS3-only 438 h; 38.6% non-streaming",
+   "value": 50.6,
+   "unit": "% WER",
+   "timing": "later"
+  },
+  "read": 5,
+  "read_prior": [
+   "arxiv-1611.05358",
+   "arxiv-1805.11685",
+   "isca-cai11-lightssi"
+  ],
+  "unread": 33,
+  "confirmed_unique": 0,
+  "known_item_recall": null
+ }
+}

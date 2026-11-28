@@ -1,0 +1,124 @@
+{
+ "target": "arxiv-1806.06053",
+ "versions": [
+  "arxiv-1806.06053",
+  "isca-afouras18b-deeplip",
+  "isca-afouras18b_deeplipread",
+  "isca-afouras18b_interspeech"
+ ],
+ "first_public": "2018-06",
+ "version_check": "wiki source text is arXiv:1806.06053v1 (15 Jun 2018), the target article; the Interspeech 2018 version (isca-afouras18b-deeplip, isca-afouras18b_interspeech; DOI 10.21437/Interspeech.2018-1943) has the same key passages and percentage values; first public = 2018-06",
+ "window": {
+  "prior": "first public before 2017-12",
+  "concurrent": "2017-12 to 2018-12",
+  "later": "after 2018-12"
+ },
+ "same_group_concurrent": [
+  "arxiv-1809.02108 (TM-seq2seq / TM-CTC, 2018-09)",
+  "arxiv-1809.00496 (LRS3-TED, 2018-09)"
+ ],
+ "setting": "sentence-level lip reading / VSR / AVSR decoders: the 633-study ledger population of components/M06/sentence-lipreading-sequence-objective, filtered to decoders (tools/excl.json): 49 prior, 14 concurrent, 2 date unresolved; used for M06, M07 and M12. M13 streaming topic uses the decoders of its own ledger pattern plus the whole-wiki recall check.",
+ "slots": {
+  "M01": {
+   "class": "inherited",
+   "lineage": "voiced broadcast speech (LRS line, WLAS)"
+  },
+  "M02": {
+   "class": "inherited",
+   "lineage": "subtitle transcripts with word alignments; word-level front-end pretraining (LRW, MV-LRS(w)) after Stafylakis and Tzimiropoulos 2017"
+  },
+  "M03": {
+   "class": "inherited",
+   "lineage": "WLAS word-count curriculum; non-public MV-LRS pretraining"
+  },
+  "M04": {
+   "class": "inherited",
+   "lineage": "voiced speech at test"
+  },
+  "M05": {
+   "class": "inherited",
+   "lineage": "grayscale mouth crop; 3D conv + 2D ResNet front end of Stafylakis and Tzimiropoulos 2017"
+  },
+  "M06": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "ctc-vs-attention",
+     "reuse": "components/M06/ctc-vs-attention.json",
+     "inclusion_rule": "published rule: CTC-trained and attention/seq2seq decoders trained on the same front end and compared side by side; re-dated for this target",
+     "metric": "LRS2 visual-only WER"
+    },
+    {
+     "topic": "sentence-lipreading-sequence-objective",
+     "reuse": "components/M06/sentence-lipreading-sequence-objective.json",
+     "inclusion_rule": "published rule (sequence objective named in full text), filtered to decoders, counted at the target's time with HMM / CTC / attention / Transformer / temporal-convolution / recurrent mention patterns; whole-wiki recall check before 2017-12 for Transformer and temporal-convolution CTC lip readers",
+     "metric": "LRS2 visual-only WER"
+    }
+   ]
+  },
+  "M07": {
+   "class": "incidental",
+   "topics": [
+    {
+     "topic": "use-time-language-model-visual-speech",
+     "reuse": "components/M07/use-time-language-model-visual-speech.json",
+     "inclusion_rule": "published rule (use-time language information), counted at the target's time over the 49 prior decoders",
+     "metric": "LRS2 visual-only WER with and without external LM"
+    }
+   ]
+  },
+  "M08": {
+   "class": "inherited",
+   "lineage": "characters (LipNet, WLAS)"
+  },
+  "M09": {
+   "class": "inherited",
+   "lineage": "none; no user in the loop"
+  },
+  "M10": {
+   "class": "inherited",
+   "lineage": "none; no user in the loop"
+  },
+  "M11": {
+   "class": "inherited",
+   "lineage": "LRS2 test, 1,243 utterances"
+  },
+  "M12": {
+   "class": "incidental",
+   "topics": [
+    {
+     "topic": "lrs2-visual-only-sentence-evaluation",
+     "reuse": "components/M12/lrs2-visual-only-sentence-evaluation.json",
+     "inclusion_rule": "published rule (visual-only LRS2 CER/WER), counted at the target's time; run spread",
+     "metric": "LRS2 visual-only WER"
+    }
+   ]
+  },
+  "M13": {
+   "class": "changed",
+   "topics": [
+    {
+     "topic": "streaming-lip-reading-decoding",
+     "new": true,
+     "inclusion_rule": "decoders from lip/face/articulator video claiming online, streaming or real-time operation; whether latency/delay/real-time factor and online-scored error are reported",
+     "pattern": "lip population AND streaming|online decoding|low latency|real-time decoding|look-ahead|causal|chunk-wise|simultaneous",
+     "metric": "streaming WER and algorithmic delay"
+    }
+   ]
+  }
+ },
+ "deciding_priors": [
+  "arxiv-1611.05358 (WLAS)",
+  "arxiv-1611.01599 (LipNet)",
+  "isca-cai11-lightssi (Cai et al. 2011, real-time factor)"
+ ],
+ "concurrent_named": [
+  "arxiv-1809.02108",
+  "arxiv-1805.11685"
+ ],
+ "sota": [
+  "arxiv-2303.14307 (Auto-AVSR, LRS2 14.6%)",
+  "arxiv-2211.02133 (Ma et al., streaming VSR 50.6% vs 38.6%, 580 ms)"
+ ],
+ "stafylakis_2017": "front end credited through the target's own statement (Sec. 2.1); not a deciding prior for a changed slot"
+}
