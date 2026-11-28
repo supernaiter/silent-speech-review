@@ -66,7 +66,7 @@ Topics searched for this component across the whole field, and the confirmed pap
 
 - Table: [`grid-sentence-lipreading-protocol.csv`](grid-sentence-lipreading-protocol.csv) (6960 slot-filled, 93 pattern match, usual design in 54, 5 read in full)
 - Inclusion rule: Lip-reading or VSR studies whose ledger names optical-camera input and the GRID corpus, classified by the evaluation partition their full text names: an unseen-speaker (speaker-independent or held-out speaker) split, an overlapped-speaker (seen-speaker or speaker-dependent) split, or explicit reuse of the held-out speakers 1, 2, 20 and 22. A separate regex counts studies that report a standard deviation, a confidence interval or a significance test. Boundary: audio-only GRID work and GRID studies without a recognition or synthesis decoder are excluded; a study counts under every partition its text names (upper bound); versions count once by key.
-- Used in: [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/)
+- Used in: [LCANet: End-to-End Lipreading with Cascaded Attention-CTC](../../reviews/lcanet-end-to-end-lipreading-with-cascaded-attention-ctc/), [LipNet: End-to-End Sentence-level Lipreading](../../reviews/lipnet-end-to-end-sentence-level-lipreading/)
 
 ## human-lipreader-baseline
 
