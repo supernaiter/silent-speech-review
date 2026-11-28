@@ -1,0 +1,132 @@
+{
+ "figures": [
+  {
+   "id": "components",
+   "kind": "mechanism",
+   "title": "This paper in the 13 components, against the field",
+   "subtitle": "Each box: what this paper does, then common practice across all sensors and how many ledger papers share it.",
+   "caption": "Verdicts compare the paper's choice for each component with common practice across 8,995 ledger entries on any sensor (silent speech, brain-to-text, lip reading).",
+   "slots": {
+    "M01": {
+     "choice": [
+      "Overt speech video, paired audio; length curriculum"
+     ],
+     "field": "Overt speech video",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited from the WAS lineage."
+    },
+    "M02": {
+     "choice": [
+      "Recognizer teacher distilled at sequence, context and frame level; transcripts kept"
+     ],
+     "field": "Transcript only; forced-alignment targets; distillation 0 of 76",
+     "n": 76,
+     "matched": 12,
+     "verdict": "ahead",
+     "note": "Absent among 76 prior decoders and in whole-wiki recall for a video-only student; Li et al. (2019-04) distil into an audio-visual student; gains on CMLR, LRS2 and three teachers, single values."
+    },
+    "M03": {
+     "choice": [
+      "Teacher ASR on benchmark plus extra audio; grid-searched KD weights"
+     ],
+     "field": "–",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited; selection split and teacher audio split not stated."
+    },
+    "M04": {
+     "choice": [
+      "Overt speech; muted video at test"
+     ],
+     "field": "Overt speech video",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M05": {
+     "choice": [
+      "Grayscale mouth crops"
+     ],
+     "field": "Mouth-region video",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M06": {
+     "choice": [
+      "WAS attention seq2seq"
+     ],
+     "field": "Attention seq2seq or CTC",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited from WAS."
+    },
+    "M07": {
+     "choice": [
+      "Beam 1 or 4; LM use not stated"
+     ],
+     "field": "External LM in compared systems",
+     "matched": null,
+     "verdict": "missing",
+     "note": "Needed because Table 5 compares against systems decoded with an external LM."
+    },
+    "M08": {
+     "choice": [
+      "Characters (1,779 Chinese; 26 letters)"
+     ],
+     "field": "Characters",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    },
+    "M09": {
+     "choice": [
+      "Offline study"
+     ],
+     "field": "Offline",
+     "matched": null,
+     "verdict": "na",
+     "note": "Offline benchmark."
+    },
+    "M10": {
+     "choice": [
+      "Offline study"
+     ],
+     "field": "Offline",
+     "matched": null,
+     "verdict": "na",
+     "note": "No user correction."
+    },
+    "M11": {
+     "choice": [
+      "Provided CMLR (random 7:1:2) and LRS2 (by date) splits"
+     ],
+     "field": "Corpus splits",
+     "matched": null,
+     "verdict": "standard",
+     "note": "CMLR test speakers also appear in training (inference from the random split); not stated by the paper."
+    },
+    "M12": {
+     "choice": [
+      "One value per row; no seeds; mixed-LM comparison table"
+     ],
+     "field": "No run count (of 4 prior LRS2 decoders)",
+     "n": 4,
+     "matched": 4,
+     "verdict": "standard",
+     "note": "State-of-the-art claim holds for CMLR only."
+    },
+    "M13": {
+     "choice": [
+      "No device or latency figures"
+     ],
+     "field": "Not reported",
+     "matched": null,
+     "verdict": "standard",
+     "note": "Inherited."
+    }
+   }
+  }
+ ]
+}

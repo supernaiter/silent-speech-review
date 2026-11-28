@@ -1,0 +1,64 @@
+{
+ "slug": "hearing-lips-improving-lip-reading-by-distilling-speech-recognizers",
+ "stage": "final",
+ "steps": [
+  {
+   "step": "reading",
+   "by": "reader (language model)",
+   "output": "notes.json",
+   "what": "claims, numbers, conditions and unstated items of the target and comparator papers, each with a quote and location",
+   "finished": "2026-11-28T02:08:34+00:00"
+  },
+  {
+   "step": "plan",
+   "by": "writer (language model)",
+   "output": "plan.json",
+   "what": "which of the 13 components the paper changes, and the topics to compare on",
+   "finished": "2026-11-28T01:32:03+00:00"
+  },
+  {
+   "step": "field counts",
+   "by": "script",
+   "output": "topic tables under components/",
+   "what": "ledger search per topic: population, usual approach, candidate state of the art",
+   "finished": "2026-11-28T02:10:15+00:00"
+  },
+  {
+   "step": "draft",
+   "by": "writer (language model)",
+   "output": "draft.md, claims-draft.md",
+   "what": "review written from the notes and counts only; every claim mapped to a note or a count",
+   "finished": "2026-11-28T02:00:24+00:00"
+  },
+  {
+   "step": "evaluation",
+   "by": "evaluator (language model separate from the writer; sees the draft, its references and the claim table only)",
+   "output": "../evaluation.md",
+   "finished": "2026-11-28T02:06:58+00:00"
+  },
+  {
+   "step": "triage",
+   "by": "writer (language model), each finding checked in the source text",
+   "output": "../triage.md, ../review.md, claims.md",
+   "findings": "10 applied, 0 rejected, 0 unverified. No verdict changed; the M02 \"ahead\" verdict is now scoped to a video-only student.",
+   "applied": null,
+   "total": null,
+   "finished": "2026-11-28T02:10:08+00:00"
+  }
+ ],
+ "checks": {
+  "quotes found verbatim in the sources": "summary: 109 found, 0 missing, 13 unchecked (unstated, figure-only or no source)",
+  "topic counts M02-knowledge-distillation-in-speech-decoding": "ok",
+  "topic counts M12-lrs2-visual-only-sentence-evaluation": "ok"
+ },
+ "inputs": {
+  "notes_sha256": "a8bd7cfa5eaea0dafe08bdba626c05f881107cac609ba9c9edfb4b19c46bb0f0",
+  "wiki_commit": "730b0b4a902b72d5b9848eeddc75806d09f7b01f",
+  "method_sha256": "e8a70a09aa6de9f44dabca89b49999dd1a33f4b014759fcb8827e7a2a8c2747a",
+  "method": "pipeline/SKILL.md"
+ },
+ "body_chars": {
+  "draft": 19172,
+  "final": 19559
+ }
+}

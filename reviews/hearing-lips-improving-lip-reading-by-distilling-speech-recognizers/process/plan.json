@@ -1,0 +1,49 @@
+{
+ "target": "doi-10.1609-aaai.v34i04.6174",
+ "versions": [
+  "arxiv-1911.11502 (v1, 2019-11-26, first public)",
+  "doi-10.1609-aaai.v34i04.6174 (AAAI-20 proceedings)"
+ ],
+ "first_public": "2019-11",
+ "window": {
+  "prior": "first public before 2019-05",
+  "concurrent": "2019-05 to 2020-05",
+  "later": "after 2020-05"
+ },
+ "setting": "Sentence-level lip reading / VSR / AVSR decoders (the 633-study population of the shared sentence-level regex, filtered to 77 prior decoders after removing perception, neuroscience, corpus, enhancement and review papers and version duplicates) for the M02 usual approach; novelty precedents over the whole wiki in any signal (full-text distillation recall before 2020-06). M12: decoders reporting visual-only LRS2 error rates.",
+ "changed": [
+  "M02"
+ ],
+ "incidental": [
+  "M12"
+ ],
+ "inherited": {
+  "M01": "Overt speech video with paired audio; length curriculum and scheduled sampling (WAS lineage)",
+  "M03": "Teacher ASR trained on benchmark audio plus AISHELL or LibriSpeech; KD weights by grid search; LRS2 visual front end pretrained on MV-LRS",
+  "M04": "Overt speech; muted video at test",
+  "M05": "Grayscale mouth crops (64x128 CMLR, 112x112 LRS2)",
+  "M06": "WAS attention sequence-to-sequence lip reader (Chung et al. 2017)",
+  "M07": "Beam width 1 (CMLR) or 4 (LRS2); external LM use not stated",
+  "M08": "Characters: 1,779 Chinese characters or 26 English letters",
+  "M09": "Offline study",
+  "M10": "Offline study",
+  "M11": "Provided CMLR and LRS2 partitions; no speaker-overlap statement",
+  "M13": "No device, latency or cost figures"
+ },
+ "topics": [
+  {
+   "slot": "M02",
+   "topic": "audio-knowledge-transfer-to-video",
+   "reuse": "components/M02/audio-knowledge-transfer-to-video.json",
+   "inclusion_rule": "Published rule (video-only test, paired audio or a speech model used in training by distillation, audio-feature regression or audio memory). For this review the design comparison is restricted to the 77 prior sentence-level decoders and the 17 [concurrent] ones, classified by full-text pattern (reference list removed) and snippet reading: speech-recognizer teacher outputs or features distilled into the video model (same design), audio-feature regression, audio forced-alignment labels as training targets; plus whole-wiki recall for a distillation term with a non-acoustic signal term before 2020-06. Boundary: audio-visual students that need audio at test are counted separately; corpus construction by subtitle alignment and mentions are not designs.",
+   "metric": "CMLR CER, LRS2 CER/WER; gain over the same model without distillation"
+  },
+  {
+   "slot": "M12",
+   "topic": "lrs2-visual-only-sentence-evaluation",
+   "inclusion_rule": "Studies that report visual-only (lip-reading) CER or WER on the LRS2 test set, any training regime. Boundary: audio-only and audio-visual rows, keyword spotting and corpus papers are excluded on reading; versions once. Compared: run repetition (seeds, repeated runs, spread) and whether cross-paper tables match LM, training data and decoding.",
+   "pattern": "LRS2 and lip reading / VSR / visual-only and WER/CER in the ledger text",
+   "metric": "LRS2 visual-only WER, lower better"
+  }
+ ]
+}
