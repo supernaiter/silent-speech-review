@@ -9340,6 +9340,49 @@
    "role": "sota",
    "loc": "Table 2",
    "quote": "Ours LRW LRS3 595 35.8±0.5 35.1"
+  },
+  {
+   "pid": "cvf-zhang19-stfcsl",
+   "role": "target",
+   "loc": "Table 1; Fig. 4",
+   "quote": "TF-block-b 18.7 55.6 65.5",
+   "by": "spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1806.06053",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "FC-15 FC ×15 + CTC 35M 35.3% 33.9% 64.8% 56.3% 55.0% 0.34 3.4d",
+   "by": "spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1806.06053",
+   "role": "prior",
+   "loc": "Sec. 3",
+   "quote": "The fully convolutional model has a smaller number of parameters and trains faster than BL and TM, achieving 55% WER.",
+   "by": "spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1807.05162",
+   "role": "prior",
+   "loc": "Table 1",
+   "quote": "V2P-FullyConv 29M 41.3± 0.6 36.7± 0.9 51.6± 1.2",
+   "by": "spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-1809.02108",
+   "role": "prior",
+   "loc": "Table 2",
+   "quote": "TM-seq2seq V 49.8% 48.3% 59.9% 58.9%",
+   "by": "spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading"
+  },
+  {
+   "pid": "arxiv-2411.02256",
+   "role": "sota",
+   "loc": "Table 6",
+   "quote": "USR 223 1,759 ✗ ✓ 16.0 2.0 1.9",
+   "by": "lrs2-visual-only-sentence-evaluation (published table)",
+   "timing": "later"
   }
  ],
  "known_item_recall": {
@@ -9367,7 +9410,8 @@
   "timing": "later"
  },
  "used_by": [
-  "end-to-end-audio-visual-speech-recognition-with-conformers"
+  "end-to-end-audio-visual-speech-recognition-with-conformers",
+  "spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading"
  ],
  "tally": {
   "slot_filled_unique": 7345,
@@ -9391,10 +9435,361 @@
   "read_prior": [
    "arxiv-1809.02108",
    "arxiv-1810.00108",
-   "arxiv-1911.04890"
+   "arxiv-1911.04890",
+   "arxiv-1806.06053",
+   "arxiv-1807.05162"
   ],
   "unread": 900,
   "confirmed_unique": 0,
   "known_item_recall": 0.83
+ },
+ "inclusion_rule_spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading": "Published rule kept. For this review: the 120 prior and 25 [concurrent] decoders of the shared population, classified by full-text pattern (reference list removed) and reading of every prior hit for a temporal-convolution sequence model (spatiotemporal front-end convolutions excluded), a convolutional encoder-decoder with attention, Transformer self-attention, and self-attention restricted to a local width. Boundary: temporal convolutions used only in a pretraining stage are counted separately; mentions are not designs; versions once.",
+ "dated_pattern_counts_spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading": {
+  "cutoffs": "first public relative to the target (2019-10): prior before 2019-04, [concurrent] 2019-04 to 2020-04, [later] after 2020-04; month from the arXiv id or the venue, else year (2019-2020 year-only = date unresolved); shared lip-reading decoder population (tools/pop.py); titles naming surveys, datasets, perception, enhancement or separation, synthesis, talking faces, forgery, synchronisation, keyword spotting or challenges removed; versions grouped by ledger key plus a merge list; perception, neuroimaging, education and non-decoder rows removed on reading (tools/exclude_reading.json, tools/exclude.txt); target excluded",
+  "population": 514,
+  "status": {
+   "later": 367,
+   "prior": 120,
+   "concurrent": 25,
+   "unresolved": 2
+  },
+  "design_regex": {
+   "conv_seq": "fully[- ]convolutional|convolutional sequence|conv[- ]?seq2seq|(?<!spatio)(?<!spatio-)temporal convolution|\\btcn\\b|1-?d convolution|dilated (temporal )?convolution|depth-?wise separable conv",
+   "transformer": "transformer|self[- ]attention",
+   "local_attention": "local (self[- ])?attention|restricted self[- ]attention|attention (width|window)|windowed (self[- ])?attention|local window",
+   "recurrent": "\\blstm|\\bgru\\b|bi-?lstm|recurrent",
+   "sentence": "\\blrs ?[23]\\b|lrs2-bbc|lrs3-ted|\\bgrid\\b corpus|grid dataset|sentence[- ]level|continuous (visual )?speech"
+  },
+  "counts": {
+   "later": {
+    "transformer": 262,
+    "sentence": 293,
+    "recurrent": 216,
+    "conv_seq": 129,
+    "local_attention": 14
+   },
+   "prior": {
+    "sentence": 72,
+    "recurrent": 42,
+    "conv_seq": 14,
+    "transformer": 4
+   },
+   "concurrent": {
+    "conv_seq": 11,
+    "transformer": 6,
+    "recurrent": 24,
+    "sentence": 23
+   },
+   "unresolved": {
+    "recurrent": 2,
+    "sentence": 1
+   }
+  },
+  "pids": {
+   "later": {},
+   "prior": {
+    "sentence": [
+     "arxiv-1407.1165",
+     "arxiv-1409.6689",
+     "arxiv-1601.08188",
+     "arxiv-1609.01932",
+     "arxiv-1611.01599",
+     "arxiv-1611.02879",
+     "arxiv-1611.05358",
+     "arxiv-1701.05847",
+     "arxiv-1703.04105",
+     "arxiv-1704.08035",
+     "arxiv-1708.01565",
+     "arxiv-1710.01084",
+     "arxiv-1710.01288",
+     "arxiv-1710.01351",
+     "arxiv-1710.07161",
+     "arxiv-1710.07168",
+     "arxiv-1710.11201",
+     "arxiv-1802.05521",
+     "arxiv-1802.06399",
+     "arxiv-1802.06424",
+     "arxiv-1803.04988",
+     "arxiv-1805.02924",
+     "arxiv-1805.02934",
+     "arxiv-1805.11685",
+     "arxiv-1805.11688",
+     "arxiv-1805.12371",
+     "arxiv-1806.06053",
+     "arxiv-1807.05162",
+     "arxiv-1809.02108",
+     "arxiv-1810.00108",
+     "arxiv-1810.06178",
+     "arxiv-1811.01194",
+     "arxiv-1811.05250",
+     "arxiv-1903.09616",
+     "conf-icphs2011-cai-visual-speech-recognition",
+     "doi-10.1016-j.imavis.2016.03.003",
+     "doi-10.1016-j.specom.2017.01.005",
+     "doi-10.1109-tcyb.2013.2250954",
+     "doi-10.1109-tsp.2009.2026513",
+     "doi-10.1155-2011-294010",
+     "doi-10.1609-aaai.v33i01.33019211",
+     "doi-10.21437-icslp.2000-468",
+     "doi-10.5220-0003731903220329",
+     "doi-10.5772-6364",
+     "iccv15-sui_dboltzmann",
+     "intech2011_avsr",
+     "isca-abdelaziz17-turboav",
+     "isca-cisar07-comb",
+     "isca-dean07-fhmm",
+     "isca-gan07-af",
+     "isca-gurbuz01_eurospeech",
+     "isca-heckmann01-annhmm",
+     "isca-hueber07_interspeech",
+     "isca-hueber08b_phonerec",
+     "isca-karpov10_interspeech",
+     "isca-kjellstrom07_capt",
+     "isca-lucey02_icslp",
+     "isca-marcheret04_interspeech",
+     "isca-martinez04_interspeech",
+     "isca-potamianos01-impaired",
+     "isca-potamianos01_eurospeech",
+     "isca-saitoh11_avsp",
+     "isca-tao14_interspeech",
+     "isca-thangthai17_interspeech",
+     "isca-thangthai18_interspeech",
+     "isca-wiggers02_icslp",
+     "isca-wu07d_2dpca",
+     "oa-W1607796654",
+     "oa-W2257285929",
+     "w2076462394-ngiamavsr",
+     "w2594690981-lrw",
+     "w2812118123-iasiss"
+    ],
+    "recurrent": [
+     "arxiv-1601.08188",
+     "arxiv-1611.01599",
+     "arxiv-1611.02879",
+     "arxiv-1611.05358",
+     "arxiv-1701.04224",
+     "arxiv-1701.05847",
+     "arxiv-1703.04105",
+     "arxiv-1704.03152",
+     "arxiv-1708.01565",
+     "arxiv-1709.00443",
+     "arxiv-1710.07161",
+     "arxiv-1710.07168",
+     "arxiv-1710.11201",
+     "arxiv-1802.05521",
+     "arxiv-1802.06399",
+     "arxiv-1802.06424",
+     "arxiv-1803.04988",
+     "arxiv-1805.02924",
+     "arxiv-1805.02934",
+     "arxiv-1805.11685",
+     "arxiv-1805.11688",
+     "arxiv-1805.12371",
+     "arxiv-1806.06053",
+     "arxiv-1807.05162",
+     "arxiv-1809.02108",
+     "arxiv-1810.00108",
+     "arxiv-1810.06178",
+     "arxiv-1811.01194",
+     "arxiv-1811.05250",
+     "arxiv-1812.09336",
+     "arxiv-1901.10139",
+     "arxiv-1903.09616",
+     "avsp99-movellan99_avsp",
+     "doi-10.1109-icassp.2016.7472088",
+     "doi-10.1609-aaai.v33i01.33019211",
+     "isca-liu18h-cuedspeech",
+     "isca-miao16-opendomain",
+     "isca-thangthai17_interspeech",
+     "isca-thangthai18_interspeech",
+     "oa-W1607796654",
+     "w2594690981-lrw",
+     "w2812118123-iasiss"
+    ],
+    "conv_seq": [
+     "arxiv-1611.01599",
+     "arxiv-1703.04105",
+     "arxiv-1802.05521",
+     "arxiv-1802.06424",
+     "arxiv-1803.04988",
+     "arxiv-1805.11685",
+     "arxiv-1806.06053",
+     "arxiv-1807.05162",
+     "arxiv-1809.02108",
+     "arxiv-1810.06178",
+     "arxiv-1811.01194",
+     "arxiv-1812.09336",
+     "arxiv-1903.09616",
+     "doi-10.1609-aaai.v33i01.33019211"
+    ],
+    "transformer": [
+     "arxiv-1806.06053",
+     "arxiv-1807.05162",
+     "arxiv-1809.02108",
+     "arxiv-1811.01194"
+    ]
+   },
+   "concurrent": {
+    "conv_seq": [
+     "arxiv-1904.04817",
+     "arxiv-1905.02540",
+     "arxiv-1905.03968",
+     "arxiv-1906.02112",
+     "arxiv-1911.06095",
+     "arxiv-1911.12747",
+     "arxiv-1912.07730",
+     "arxiv-2001.08702",
+     "arxiv-2003.03206",
+     "arxiv-2003.03983",
+     "isca-koumparoulis19-mobilipnet"
+    ],
+    "transformer": [
+     "arxiv-1904.04817",
+     "arxiv-1911.04890",
+     "arxiv-1911.11502",
+     "arxiv-1911.12747",
+     "arxiv-2004.08250",
+     "doi-10.3390-app9081599"
+    ],
+    "recurrent": [
+     "arxiv-1904.04817",
+     "arxiv-1905.02540",
+     "arxiv-1905.03968",
+     "arxiv-1906.02112",
+     "arxiv-1906.12170",
+     "arxiv-1908.04917",
+     "arxiv-1908.11618",
+     "arxiv-1911.04890",
+     "arxiv-1911.06095",
+     "arxiv-1911.11502",
+     "arxiv-1911.12747",
+     "arxiv-1912.07730",
+     "arxiv-2001.08702",
+     "arxiv-2003.03206",
+     "arxiv-2003.03983",
+     "arxiv-2003.05709",
+     "arxiv-2003.06439",
+     "arxiv-2004.08250",
+     "doi-10.1109-access.2019.2927166",
+     "doi-10.3390-app9081599",
+     "isca-kandala19_interspeech",
+     "isca-koumparoulis19-mobilipnet",
+     "isca-liu19j-bayesianav",
+     "isca-qu19-lipsound"
+    ],
+    "sentence": [
+     "arxiv-1904.04817",
+     "arxiv-1905.02540",
+     "arxiv-1905.03968",
+     "arxiv-1906.02112",
+     "arxiv-1906.12170",
+     "arxiv-1908.04917",
+     "arxiv-1909.07147",
+     "arxiv-1911.04890",
+     "arxiv-1911.06095",
+     "arxiv-1911.11502",
+     "arxiv-1911.12747",
+     "arxiv-1912.07730",
+     "arxiv-2001.08702",
+     "arxiv-2003.03206",
+     "arxiv-2003.03983",
+     "arxiv-2003.05709",
+     "arxiv-2003.06439",
+     "arxiv-2004.08250",
+     "doi-10.1109-access.2019.2927166",
+     "isca-kandala19_interspeech",
+     "isca-koumparoulis19-mobilipnet",
+     "isca-liu19j-bayesianav",
+     "isca-qu19-lipsound"
+    ]
+   },
+   "unresolved": {
+    "recurrent": [
+     "w2944749979-turkishcnn",
+     "w3082193865-hahncnn"
+    ],
+    "sentence": [
+     "w2944749979-turkishcnn"
+    ]
+   }
+  },
+  "reading_exclusions": {
+   "perception_neuro_education": 49,
+   "non_decoder_or_off_task": 20,
+   "duplicate_versions_merged": 12,
+   "lists": "tools/exclude_reading.json and tools/exclude.txt"
+  },
+  "classified_on_reading": {
+   "prior_population": 120,
+   "temporal_convolution_back_end_used": [
+    "arxiv-1806.06053",
+    "arxiv-1807.05162",
+    "arxiv-1903.09616",
+    "arxiv-1811.01194",
+    "doi-10.1609-aaai.v33i01.33019211",
+    "arxiv-1703.04105",
+    "arxiv-1810.06178",
+    "arxiv-1812.09336"
+   ],
+   "sentence_level_convolutional_sequence_model": [
+    "arxiv-1806.06053 (FC-15, CTC, LRS2)",
+    "arxiv-1807.05162 (V2P-FullyConv, CTC, LSVSR)",
+    "doi-10.1609-aaai.v33i01.33019211 (temporal convolution ablation, Chinese sentences)"
+   ],
+   "temporal_convolution_only_as_pretraining_stage": [
+    "arxiv-1703.04105",
+    "arxiv-1810.06178",
+    "arxiv-1812.09336"
+   ],
+   "convolutional_encoder_decoder_with_attention": [],
+   "self_attention_used": [
+    "arxiv-1806.06053",
+    "arxiv-1809.02108"
+   ],
+   "width_restricted_self_attention": [],
+   "mentions_not_design": [
+    "arxiv-1611.01599",
+    "arxiv-1802.05521",
+    "arxiv-1802.06424",
+    "arxiv-1803.04988",
+    "arxiv-1805.11685",
+    "arxiv-1809.02108 (related work)"
+   ],
+   "concurrent_width_restricted_self_attention": [],
+   "later_local_attention_pattern_matches": 14,
+   "general_precedents_cited_by_target": [
+    "Gehring et al. 2017 convolutional sequence to sequence (target ref. 19)",
+    "Luong et al. 2015 attention (target ref. 32)"
+   ],
+   "concurrent_convolutional_encoder_decoder_with_attention": [],
+   "concurrent_conv_seq_hits_read": [
+    "arxiv-1904.04817",
+    "arxiv-1905.02540",
+    "arxiv-1905.03968",
+    "arxiv-1906.02112",
+    "arxiv-1911.06095",
+    "arxiv-1911.12747",
+    "arxiv-1912.07730",
+    "arxiv-2001.08702",
+    "arxiv-2003.03206",
+    "arxiv-2003.03983",
+    "isca-koumparoulis19-mobilipnet"
+   ]
+  }
+ },
+ "usual_approach_spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading": {
+  "design": "recurrent (LSTM/GRU) sequence model; temporal convolution back end 8 (3 at sentence level, all CTC); Transformer self-attention 2; convolutional encoder-decoder 0; width-restricted self-attention 0",
+  "n": 42,
+  "tier": "pattern match",
+  "population_unique": 120,
+  "note": "recurrent named by 42 of 120 prior decoders (mention count, upper bound); convolutional and attention designs classified on reading of every prior hit"
+ },
+ "state_of_the_art_spatio-temporal-fusion-based-convolutional-sequence-learning-for-lip-reading": {
+  "pid": "arxiv-2302.10915",
+  "year": 2024,
+  "metric": "LRS3 visual-only WER, linear-projection Conformer, unreleased 100k h mined from public YouTube video, no external LM; LRS2 best without LM 16.0% (arxiv-2411.02256, 223 labelled + 1,759 unlabelled h)",
+  "value": 12.8,
+  "unit": "% WER",
+  "timing": "later"
  }
 }
